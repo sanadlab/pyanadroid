@@ -1,28 +1,31 @@
 import os
 
 from anadroid.analysis.ExecutionResultsAnalyzer import ExecutionResultsAnalyzer
-from anadroid.utils.Utils import execute_shell_command, log_to_file
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.utils.Utils import execute_shell_command, log_to_file, logi
 
 DEFAULT_FILENAME = "scc.json"
 
 
-class SCCAnalyzer(ExecutionResultsAnalyzer):
+class SCCAnalyzer(StaticAnalyzer):
     """Implements AbstractAnalyzer interface to allow to calculate app code results using scc tool.
     """
-    def __init__(self, profiler):
-        super(SCCAnalyzer, self).__init__(profiler)
+    def __init__(self):
+        super(SCCAnalyzer, self).__init__()
         self.bin_cmd = "scc"
 
     def setup(self, **kwargs):
         pass
 
-    def analyze_app(self, app, **kwargs):
+    def analyze_project(self, project, **kwargs):
+        output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         output_log_file = kwargs.get("output_log_file") if 'output_log_file' in kwargs else DEFAULT_FILENAME
-        input_dir = app.proj.proj_dir
+        input_dir = project.proj_dir
         cmd = f"{self.bin_cmd} {input_dir} -f json"
-        res = execute_shell_command(cmd)
+        logi(f"Analyzing project {project.proj_dir} with SCC (output file: {output_log_file})")
+        res = execute_shell_command(cmd,timeout=60)
         if res.validate(Exception(f"Unable to analyze sources with {self.bin_cmd}")):
-            log_to_file(res.output, output_log_file, mode='w')
+            log_to_file(res.output, os.path.join(output_dir, output_log_file), mode='w')
 
     def show_results(self, app_list):
         pass
@@ -34,11 +37,7 @@ class SCCAnalyzer(ExecutionResultsAnalyzer):
         return super().get_val_for_filter(filter_name, add_data)
 
     def analyze_tests(self, app=None, results_dir=None, **kwargs):
-        if app is None:
-            return True
-        base_dir = app.local_res if results_dir is None else results_dir
-        output_file = os.path.join(base_dir, DEFAULT_FILENAME)
-        self.analyze_app(app, output_file, **kwargs)
+        pass
 
     def analyze_test(self, app, test_id, **kwargs):
         pass

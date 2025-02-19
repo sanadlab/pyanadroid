@@ -164,6 +164,8 @@ class Device(AbstractDevice):
         """
         installed_packages = set()
         installed_app_list = set()
+        if andr_proj is None:
+            return installed_app_list
         apks_built = andr_proj.get_apks(build_type)
         if install_test_apks:
             apks_built += andr_proj.get_test_apks()

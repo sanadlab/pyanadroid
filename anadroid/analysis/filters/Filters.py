@@ -1,5 +1,5 @@
 import json
-from anadroid.analysis.results_analysis.filters.Filter import Filter, is_valid_filter
+from anadroid.analysis.filters.Filter import Filter, is_valid_filter
 
 
 class Filters(object):
@@ -10,6 +10,8 @@ class Filters(object):
 
     def __load_filters(self, supported_filters):
         cfg={}
+        if self.filter_file is None:
+            return
         with open(self.filter_file, 'r') as jj:
             cfg = json.load(jj)
         for f, v in cfg.items():

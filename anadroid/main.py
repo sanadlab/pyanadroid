@@ -12,15 +12,15 @@ from anadroid.instrument.Types import INSTRUMENTATION_TYPE
 
 
 def init_pyanadroid_from_args(args):
-    needs_dynamic_execution = not (args.buildonly or args.justanalyze or args.device)
+    needs_dynamic_execution = not (args.buildonly or args.justanalyze or args.device or args.staticanalyze)
     return AnaDroid(arg1=args.diretory if (len(args.package_names) + len(args.application_packages) == 0) else args,
-                    testing_framework=TESTING_FRAMEWORK(args.testingframework if needs_dynamic_execution else "None"),
+                    testing_framework=TESTING_FRAMEWORK(args.testingframework if needs_dynamic_execution else TESTING_FRAMEWORK.NONE),
                     device=MockedDevice() if not needs_dynamic_execution and not has_connected_device() else None,
                     profiler=PROFILER(args.profiler if needs_dynamic_execution else PROFILER.NONE),
                     build_type=BUILD_TYPE(args.buildtype),
                     instrumenter=INSTRUMENTER(args.instrumenter),
                     instrumentation_type=INSTRUMENTATION_TYPE(args.instrumentationtype),
-                    analyzer=ANALYZER(args.analyzer),
+                    analyzer=ANALYZER(args.post_execution_analyzers),
                     tests_dir=args.tests_dir,
                     rebuild_apps=args.rebuild,
                     reinstrument=args.reinstrument,
@@ -93,7 +93,7 @@ def main():
                         help="Source code instrumenter", choices=[e.value for e in INSTRUMENTER])
     parser.add_argument("-it", "--instrumentationtype", default=INSTRUMENTATION_TYPE.ANNOTATION.value,
                         type=str, help="instrumentation type", choices=[e.value for e in INSTRUMENTATION_TYPE])
-    parser.add_argument("-a", "--analyzer", default=ANALYZER.MANAFA_ANALYZER.value, type=str,
+    parser.add_argument("-pa", "--post_execution_analyzers", default=ANALYZER.MANAFA_ANALYZER.value, type=str,
                         help="results analyzer",
                         choices=[e.value for e in INSTRUMENTATION_TYPE])
     parser.add_argument("-d", "--diretory", default="demoProjects", type=str, help="app(s)' folder")
@@ -106,6 +106,7 @@ def main():
     parser.add_argument("-rb", "--rebuild", help="rebuild apps", action='store_true')
     parser.add_argument("-ri", "--reinstrument", help="reinstrument app", action='store_true')
     parser.add_argument("-ja", "--justanalyze", help="just analyze apps", action='store_true')
+    parser.add_argument("-sa", "--staticanalyze", help="statically analyze apps", action='store_true')
     parser.add_argument("-sc", "--setconnection", help="set connection to device and exit",
                         choices=["USB", "WIFI"])
     parser.add_argument("-ds", "--device_serial", help="device serial id", type=int, default=None)
@@ -128,6 +129,9 @@ def main():
     if args.device:
         res = exec_device_cmd(anadroid, args.device)
         print(res)
+    elif args.staticanalyze:
+        print('palula')
+        anadroid.just_static_analyze()
     elif args.buildonly:
         anadroid.just_build_apps()
     elif args.justanalyze:

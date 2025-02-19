@@ -73,6 +73,8 @@ class ProjectModule(object):
     def __infer_dependencies(self):
         """Infers and adds module dependencies to the dependencies attribute."""
         # TODO: Get dependencies type
+        if not self.build_file:
+           return
         dependencies = re.search(r'dependencies.*?\{(.|\n)*}', str(cat(self.build_file)))
         inside_dependencies = []
         if dependencies:
@@ -86,7 +88,9 @@ class ProjectModule(object):
                 if splits is not None:
                     dependency = splits.groups()[1].split(":")[0]
                 else:
-                    loge(f"error detecting dependencies of module {self.mod_name}")
+                    if '(' not in dep_line:
+                        dependency = dep_line.replace('implementation', '').strip()
+
             else:
                 is_comp = str(grep(dep_line, pattern="compile"))
                 if is_comp != "":
