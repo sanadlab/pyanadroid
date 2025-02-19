@@ -1,6 +1,7 @@
 import re
 from datetime import datetime
-from subprocess import Popen, PIPE, TimeoutExpired
+import subprocess
+import signal
 from textops import find
 import os
 import time
@@ -28,13 +29,15 @@ def get_color(sev):
     }.get(sev, 'green')
 
 
+EVAL_TIME = time.time()
+
 def get_analyzers_filter_file():
     return os.path.join(get_general_config_dir(), DEFAULT_ANALYZERS_FILENAME)\
         if not os.path.exists(DEFAULT_ANALYZERS_FILENAME) else DEFAULT_ANALYZERS_FILENAME
 
 
-def log(message, log_sev=LogSeverity.INFO, curr_time=None, to_file=True):
-    curr_time = time.time() if curr_time is None else curr_time
+def log(message, log_sev=LogSeverity.INFO, curr_time=EVAL_TIME, to_file=True):
+    curr_time = EVAL_TIME if curr_time is None else curr_time
     color = get_color(log_sev.value)
     adapted_time = re.sub("\s|:", "-", str(datetime.fromtimestamp(curr_time)))
     str_to_print = "[%s] %s: %s" % (log_sev.value, adapted_time, message)
@@ -139,15 +142,13 @@ def execute_shell_command(cmd, args=(), timeout=None):
     command = cmd + " " + " ".join(args) if len(args) > 0 else cmd
     out = bytes()
     err = bytes()
-    #print(command)
-    proc = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
+
+    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, preexec_fn=os.setsid)
     try:
         out, err = proc.communicate(timeout=timeout)
-    except TimeoutExpired as e:
-        print("command " + cmd + " timed out")
-        out = e.stdout if e.stdout is not None else out
-        err = e.stderr if e.stderr is not None else err
-        proc.kill()
+    except subprocess.TimeoutExpired as e:
+        print(f"Command {cmd} timed out")
+        os.killpg(os.getpgid(proc.pid), signal.SIGTERM)  # Kill the whole process group
         proc.returncode = 1
     return COMMAND_RESULT(proc.returncode, out.decode("utf-8", errors='replace'), err.decode('utf-8', errors='replace'))
 

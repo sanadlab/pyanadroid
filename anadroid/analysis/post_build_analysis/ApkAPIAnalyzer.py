@@ -184,8 +184,8 @@ def eval(path, pack):
 class ApkAPIAnalyzer(ExecutionResultsAnalyzer):
     """Defines a basic interface collect metrics of each method defined in an Android Project using Androguard.
     """
-    def __init__(self, profiler):
-        super(ApkAPIAnalyzer, self).__init__(profiler)
+    def __init__(self):
+        super(ApkAPIAnalyzer, self).__init__(None)
 
     def eval_app(self, app):
         if app is None:
