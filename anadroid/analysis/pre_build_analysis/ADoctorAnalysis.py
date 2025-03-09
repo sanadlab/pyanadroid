@@ -70,19 +70,20 @@ class ADoctorAnalysis(StaticAnalyzer):
             reader = csv.reader(file)
             headers = next(reader)  # Read the first row as headers
 
-            if headers[0] != "Class":
+            if headers[0] != "File":
                 loge("Invalid file format: Missing expected 'Class' header")
                 return []
 
             for row in reader:
-                class_name = row[0]
+                filepath = row[0]
+                class_name = row[1]
                 issues_detected = [
                     self.identifiable_issues[headers[i]]
-                    for i in range(1, len(headers))
+                    for i in range(2, len(headers))
                     if headers[i] in self.identifiable_issues and int(row[i]) > 0
                 ]
                 for iss in issues_detected:
-                    issues_list.append(Issue(iss, i_class=class_name))
+                    issues_list.append(Issue(iss, i_class=class_name, file=filepath, detection_tool_name="aDoctor"))
         return issues_list
 
     def analyze_project(self, project, **kwargs):

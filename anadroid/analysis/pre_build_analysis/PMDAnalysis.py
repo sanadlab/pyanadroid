@@ -76,7 +76,7 @@ class PMDAnalysis(StaticAnalyzer):
             module_path = os.path.join(project.proj_dir, module)
             output_filepath = os.path.join(output_dir, f"{module}_{output_filename}.{output_format}")
             if os.path.exists(output_filepath) and not retry:
-                logs(f"Skipping module {project.proj_name}.{module}. Already processed by ADoctor")
+                logs(f"Skipping module {project.proj_name}.{module}. Already processed by PMD")
                 return
             cmd = f"{self.exec_cmd} {search_pattern_code} -d {module_path} -R {ruleset} -f {output_format} -r {output_filepath}"
             print(cmd)
@@ -98,13 +98,14 @@ class PMDAnalysis(StaticAnalyzer):
                 data = json.load(file)
 
             issues = []
-
+            #module_name = os.path.basename(results_file).replace(f"_{DEFAULT_OUTPUT_FILENAME}", "")
             for file_entry in data.get("files", []):
                 filename = file_entry.get("filename")
                 for violation in file_entry.get("violations", []):
                     issues.append(Issue(
-                        self.identifiable_issues.get(violation.get("rule")),
+                        self.identifiable_issues.get(violation.get("rule"), violation.get("rule")),
                         file=filename,
+                        detection_tool_name="PMD",
                         line=violation.get("beginline", None),
                         column=violation.get("begincolumn", None),
                     ))

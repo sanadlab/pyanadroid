@@ -98,6 +98,7 @@ class DAAPAnalysis(StaticAnalyzer):
     def parse_write_output(self, res, output_filepath):
         if res is not None and res.return_code == 0:
             find_dict = parse_detected_issues(res.output)
+            #print([x for x in find_dict.keys() if len(find_dict[x]) > 0])
             with open(output_filepath, 'w') as f:
                 json.dump(find_dict, f, indent=1)
 
@@ -106,11 +107,13 @@ class DAAPAnalysis(StaticAnalyzer):
         try:
             with open(results_file, "r") as file:
                 issues_data = json.load(file)
+            module_name = os.path.basename(results_file).replace(f"_{DEFAULT_OUTPUT_FILENAME}", "")
             for issue_type, files in issues_data.items():
                 if files:  # Only store issues that have associated file paths
                     for file in files:
                         if issue_type in self.identifiable_issues:
-                            issues.append(Issue(self.identifiable_issues[issue_type], file=file))
+                            issues.append(Issue(self.identifiable_issues[issue_type],
+                                                file=os.path.join(module_name, file), detection_tool_name="DAAP"))
             logs(f"Found {len(issues)} issues in {results_file}")
             return issues
 

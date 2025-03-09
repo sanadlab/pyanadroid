@@ -29,7 +29,7 @@ class BUILD_FLAVOR(Enum):
 
 def mk_ma_dir(path):
     try:
-        mkdir(path)
+        os.makedirs(path)
     except FileExistsError:
         pass
 
@@ -51,7 +51,8 @@ def is_android_native_project(dirpath):
             and ('ios' in dir_contents or 'flutter' in dir_contents or 'fastlane' in dir_contents)):
         #loge(f"{dirpath} is not native project")
         return False
-    return any([f for f in dir_contents if "settings.gradle" in f ])
+    #print(dir_contents)
+    return any([f for f in dir_contents if "settings.gradle" in f or ("build.gradle" in f and 'AndroidManifest.xml' in dir_contents)])
 
 def is_cross_platform_project(dirpath):
     dir_contents = [f for f in listdir(dirpath)]
@@ -61,6 +62,13 @@ def is_cross_platform_project(dirpath):
         #loge(f"{dirpath} is not native project")
         return True
     return False
+
+def get_repo_version(repo_dir):
+    # in case of not knowing the version, we will try to get the last commit hash if available
+    res = execute_shell_command(f"cd {repo_dir} && git rev-parse HEAD")
+    if res.validate():
+        return res.output.strip()
+    return "unknown"
 
 
 
@@ -85,14 +93,15 @@ class Project(object):
         self.results_dir = results_dir
         self.apps = []
 
-    def init_results_dir(self, app_id):
+    def init_results_dir(self, app_id, proj_version=None):
         """Initializes results directory.
         Creates directory if it does not exist.
 
         Args:
             app_id (str): Project's app id.
         """
-        res_app_dir = os.path.join(self.results_dir, app_id)
+        proj_version = proj_version if proj_version is not None else get_repo_version(self.proj_dir)
+        res_app_dir = os.path.join(self.results_dir, app_id, proj_version)
         mk_ma_dir(res_app_dir)
         with open(os.path.join(res_app_dir, PROJECT_PATH_FILE), 'w') as f:
             f.write(self.proj_dir)

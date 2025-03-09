@@ -1,3 +1,4 @@
+import traceback
 from enum import Enum
 
 
@@ -9,9 +10,33 @@ class IssueCategory(Enum):
     ACCESSIBILITY = "ACCESSIBILITY"
 
 
+def issue_from_string(issue_str, sep=','):
+    issue_str = issue_str.strip()
+    issue_parts = issue_str.split(sep)
+    if len(issue_parts) < 9:
+        return None
+    try:
+        issue_type = KnownStaticPerformanceIssues(issue_parts[0].split('.')[-1])
+    except:
+        traceback.print_exc()
+        #print(issue_parts[0])
+        issue_type = issue_parts[0].strip()
+    #print(issue_parts)
+    category = IssueCategory(issue_parts[1].strip())
+    severity = issue_parts[2].strip()  if  issue_parts[2].strip()  != "None" else None
+    detec_tool = issue_parts[3].strip()  if  issue_parts[3].strip()  != "None" else None
+    description = issue_parts[4].strip() if  issue_parts[4].strip()  != "None" else None
+    file = issue_parts[5].strip() if  issue_parts[5].strip()  != "None" else None
+    line = issue_parts[6].strip() if  issue_parts[6].strip()  != "None" else None
+    column = issue_parts[7].strip() if  issue_parts[7].strip()  != "None" else None
+    method = issue_parts[8].strip() if  issue_parts[8].strip()  != "None" else None
+    code = issue_parts[9].strip() if len(issue_parts) > 9 and issue_parts[9].strip()  != "None" else None
+    i_class = issue_parts[10].strip() if len(issue_parts) > 10 and issue_parts[10].strip()  != "None" else None
+    return Issue(issue_type, category, severity, description, file, i_class, detec_tool, line, column, method, code=code)
+
 class Issue(object):
     def __init__(self, issue_type, category=IssueCategory.PERFORMANCE, severity=None, description=None, file=None,
-                 i_class=None,
+                 i_class=None, detection_tool_name=None,
                  line=None, column=None, method=None, code=None):
         self.issue_type = issue_type
         self.category = category
@@ -23,25 +48,47 @@ class Issue(object):
         self.column = column
         self.method = method
         self.code = code
+        self.detection_tool_name = detection_tool_name
 
     def __str__(self):
-        return (f"{self.issue_type}, {self.category.value}, {self.severity},"
+        return (f"{self.get_simple_name()}, {self.category.value}, {self.severity}, {self.detection_tool_name},"
                 f" {self.description}, {self.file}, {self.line}, {self.column}, {self.method}, {self.code}")
 
     def get_issue_location(self):
+        loc = []
         if self.line is not None:
-            return f"{self.file}:{self.line}"
+            loc.append(f"line:{self.line}")
         if self.method is not None:
-            return f"{self.file}:{self.method}"
+            loc.append(f"method:{self.method}")
         if self.i_class is not None:
-            return f"{self.file}:{self.i_class}"
+            loc.append(f"class:{self.i_class}")
         if self.file is not None:
-            return self.file
+            loc.append(f"file:{self.file}")
+        loc.reverse()
+        return '|'.join(loc)
+
+    def get_simple_name(self):
+        return getattr(self.issue_type, 'value', str(self.issue_type))
 
     def __repr__(self):
-        return getattr(self.issue_type, 'value', str(self.issue_type)) + " @ " + self.get_issue_location()
+        return self.get_simple_name() + " @ " + self.get_issue_location()
 
+    def __eq__(self, other):
+        return (str(self.issue_type) == str(other.issue_type)
+                and getattr(self, 'file', None) == getattr(other, 'file', None)
+                and getattr(self, 'i_class', None) == getattr(other, 'i_class', None)
+                and getattr(self, 'method', None) == getattr(other, 'method', None)
+                )
 
+    def is_more_descriptive(self, other_issue):
+        # evaluate if has more non None fields than other_issue
+        return sum([1 for attr in ['file', 'i_class', 'method', 'line'] if getattr(self, attr, None) is not None]) > \
+                sum([1 for attr in ['file', 'i_class', 'method', 'line'] if getattr(other_issue, attr, None) is not None])
+
+    def is_less_descriptive(self, other_issue):
+        # evaluate if has more non None fields than other_issue
+        return sum([1 for attr in ['file', 'i_class', 'method', 'line'] if getattr(self, attr, None) is not None]) < \
+                sum([1 for attr in ['file', 'i_class', 'method', 'line'] if getattr(other_issue, attr, None) is not None])
 
 class KnownStaticPerformanceIssues(Enum):
     LAUNCH_ACTIVITY_FROM_NOTIFICATION = "LaunchActivityFromNotification"
