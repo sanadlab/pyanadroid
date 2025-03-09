@@ -130,7 +130,6 @@ def main():
         res = exec_device_cmd(anadroid, args.device)
         print(res)
     elif args.staticanalyze:
-        print('palula')
         anadroid.just_static_analyze()
     elif args.buildonly:
         anadroid.just_build_apps()

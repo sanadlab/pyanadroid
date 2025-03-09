@@ -19,7 +19,7 @@ LINT_OPTIONS = [
     "--continue",
     "-Pandroid.lint.abortOnError=false",
     "-Pandroid.lint.ignoreTestSources=true",
-    "-Pandroid.lint.checkDependencies=false",
+    "-Pandroid.lint.checkDependencies=true",
     "-Dorg.gradle.jvmargs=-Xmx8g",
 ]
 
@@ -31,6 +31,7 @@ class LintAnalysis(StaticAnalyzer):
     def __init__(self, analyzers_cfg_file=None, performance_only=True, uses_gradlew=True,
                  default_task=DEFAULT_GRADLE_TASK, **kwargs):
         super().__init__(analyzers_cfg_file)
+        self.name = 'Lint'
         self.exec_cmd = ''
         self.performance_only = performance_only
         self.use_gradlew = uses_gradlew
@@ -194,7 +195,7 @@ class LintAnalysis(StaticAnalyzer):
         for issue in root.findall("issue"):
             issue_id = issue.get("id")
             category = issue.get("category")
-            if self.performance_only and (issue_id not in self.identifiable_issues.keys()
+            if self.performance_only and (issue_id not in self.identifiable_issues.keys() or category is None
                                           or category != 'Performance'):
                 continue
             severity = issue.get("severity")
@@ -206,7 +207,8 @@ class LintAnalysis(StaticAnalyzer):
             # Extract affected file paths
             locations = [(loc.get("file", None), loc.get('line', None)) for loc in issue.findall("location")]
             for loc in locations:
-                issues.append(Issue(issue_id, category, severity, message, file=loc[0], line=loc[1]))
+                issues.append(Issue(issue_id, category, severity, message,
+                                    file=loc[0], line=loc[1], detection_tool_name=self.name))
 
         return issues
 

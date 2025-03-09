@@ -216,10 +216,10 @@ class AnaDroid(object):
                                   #ChimeraAnalysis() ,
                                   PMDAnalysis(),
                                   DAAPAnalysis(),
-                                  ADoctorAnalysis(),
-                                  EcoAndroidAnalysis(),
+                                  #ADoctorAnalysis(),
+                                  #EcoAndroidAnalysis(),
                                   #LintAnalysis(),
-                                  SCCAnalyzer()
+                                  #SCCAnalyzer()
                                   ])
 
     def __infer_post_build_analyzers(self):
@@ -393,15 +393,18 @@ class AnaDroid(object):
 
     def just_static_analyze(self):
         """analyze apps obtained from app_projects_ut."""
+        results_dirs = []
         for app_proj in self.app_projects_ut:
             app_name = os.path.basename(app_proj)
             logi("Processing app " + app_name + " in " + app_proj)
             app_name = os.path.basename(app_proj)
+
             original_proj = AndroidProject(projname=app_name, projdir=app_proj,
                                                clean_instrumentations=self.reinstrument)
-            reprocess = False
             self.pre_build_analyzers.analyze_project(original_proj, retry=False)
+            results_dirs.append(original_proj.results_dir)
 
+        return results_dirs
             # builder.build_proj_and_apk(build_type=self.build_type,build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT)
             # self.analyzer.analyze(app, **{'instr_type': self.instrumentation_type, 'testing_framework': self.testing_framework})
 
@@ -427,7 +430,9 @@ class AnaDroid(object):
             logw(f"Invalid directory {self.apps_dir}")
         for maybe_proj in potential_projects:
             path_dir = os.path.join(self.apps_dir, maybe_proj)
+            #print(path_dir)
             proj_fldr = self.__get_project_root_dir(path_dir)
+            #print(maybe_proj, proj_fldr)
             if proj_fldr is not None and not is_cross_platform_project(path_dir):
                 return_projs.add(str(proj_fldr))
             else:

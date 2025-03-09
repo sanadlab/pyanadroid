@@ -128,6 +128,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                                 Issue(self.identifiable_issues[issue_id] if issue_id in self.identifiable_issues else issue_id,
                                       file=file_path,
                                       line=line,
+                                      detection_tool_name="EcoAndroid",
                                       description=desc)
                             )
                     except Exception as e:
