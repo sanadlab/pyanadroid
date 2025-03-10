@@ -322,9 +322,10 @@ class GradleBuilder(AbstractBuilder):
 		self.__add_build_classpaths()
 		self.__add_external_libs_to_repositories()
 		self.__add_or_replace_local_properties_files()
-		return self.build_with_gradlew(self.get_config("build_fail_retries", DEFAULT_BUILD_TIMES_TO_TRY), skip_lint=True)
+		return self.exec_with_gradlew(self.get_config("build_fail_retries",
+													  DEFAULT_BUILD_TIMES_TO_TRY), skip_lint=True)
 
-	def build_with_gradlew(self, tries=DEFAULT_BUILD_TIMES_TO_TRY, target_task="build", skip_lint=False):
+	def exec_with_gradlew(self, tries=DEFAULT_BUILD_TIMES_TO_TRY, target_task="build", skip_lint=False):
 		"""performs build task with gradle.
 		Args:
 			tries: number max of tries to fix build errors.
@@ -350,7 +351,7 @@ class GradleBuilder(AbstractBuilder):
 				solve_known_error(self.proj, error, error_msg=val, **{'build-tools': self.build_tools_version})
 				loge(f"{target_task}: BUILD FAILED. error is known ({error}). Fixing error and retrying")
 				log_to_file(f"{error}", os.path.join(self.proj.proj_dir, "registered_errors.log"))
-				return self.build_with_gradlew(tries=tries - 1, target_task=target_task)
+				return self.exec_with_gradlew(tries=tries - 1, target_task=target_task)
 			else:
 				print(val)
 				loge("Unable to solve Building error")

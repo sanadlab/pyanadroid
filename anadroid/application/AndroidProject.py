@@ -8,10 +8,11 @@ from os import mkdir, listdir
 from textops import cat, grep, cut, sed, echo, grepv
 from anadroid.application.ProjectModule import ProjectModule
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
-from anadroid.utils.Utils import execute_shell_command, mega_find, get_results_dir, extract_version_from_apk, logw
+from anadroid.utils.Utils import execute_shell_command, mega_find, get_results_dir, extract_version_from_apk, logw, loge
 
 RESULTS_DIR = get_results_dir()
 
+PROJECT_PATH_FILE = "project_path.txt"
 
 class BUILD_TYPE(Enum):
     RELEASE = "Release"
@@ -28,12 +29,12 @@ class BUILD_FLAVOR(Enum):
 
 def mk_ma_dir(path):
     try:
-        mkdir(path)
+        os.makedirs(path)
     except FileExistsError:
         pass
 
 
-def is_android_project(dirpath):
+def is_android_native_project(dirpath):
     """Determines if a given directory is an Android Project.
     Looks for settings.gradle files.
 
@@ -45,7 +46,30 @@ def is_android_project(dirpath):
     """
     if not os.path.isdir(dirpath):
         return False
-    return "settings.gradle" in [f for f in listdir(dirpath)]
+    dir_contents = [f for f in listdir(dirpath)]
+    if (('android' in dir_contents or os.path.dirname(dirpath) == 'android' or not any([x for x in dir_contents if 'build.gradle' in x]))
+            and ('ios' in dir_contents or 'flutter' in dir_contents or 'fastlane' in dir_contents)):
+        #loge(f"{dirpath} is not native project")
+        return False
+    #print(dir_contents)
+    return any([f for f in dir_contents if "settings.gradle" in f or ("build.gradle" in f and 'AndroidManifest.xml' in dir_contents)])
+
+def is_cross_platform_project(dirpath):
+    dir_contents = [f for f in listdir(dirpath)]
+    #print(dir_contents)
+    if (('android' in dir_contents or os.path.dirname(dirpath) == 'android' or not any([x for x in dir_contents if 'build.gradle' in x]))
+            and ('ios' in dir_contents or 'flutter' in dir_contents or 'fastlane' in dir_contents)):
+        #loge(f"{dirpath} is not native project")
+        return True
+    return False
+
+def get_repo_version(repo_dir):
+    # in case of not knowing the version, we will try to get the last commit hash if available
+    res = execute_shell_command(f"cd {repo_dir} && git rev-parse HEAD")
+    if res.validate():
+        return res.output.strip()
+    return "unknown"
+
 
 
 class Project(object):
@@ -69,15 +93,18 @@ class Project(object):
         self.results_dir = results_dir
         self.apps = []
 
-    def init_results_dir(self, app_id):
+    def init_results_dir(self, app_id, proj_version=None):
         """Initializes results directory.
         Creates directory if it does not exist.
 
         Args:
             app_id (str): Project's app id.
         """
-        res_app_dir = os.path.join(self.results_dir, app_id)
+        proj_version = proj_version if proj_version is not None else get_repo_version(self.proj_dir)
+        res_app_dir = os.path.join(self.results_dir, app_id, proj_version)
         mk_ma_dir(res_app_dir)
+        with open(os.path.join(res_app_dir, PROJECT_PATH_FILE), 'w') as f:
+            f.write(self.proj_dir)
         self.results_dir = res_app_dir
 
     def clean_transformations(self):
@@ -134,8 +161,14 @@ class AndroidProject(Project):
         Returns:
             Tuple[str, str]: Package name and project ID.
         """
+        pkg_name = "unknown"
+        if self.main_manif_file is None:
+            return pkg_name, self.proj_name + "--" + pkg_name
         pkg_line = str(cat(self.main_manif_file) | grep("package=\"[^\"]"))
-        pkg_name = str(re.search("package=(\"[^\"]*)", pkg_line).groups()[0]).strip().replace("\"", "")
+        if pkg_line.strip() != "":
+            pkg_name = str(re.search("package=(\"[^\"]*)", pkg_line).groups()[0]).strip().replace("\"", "")
+        else:
+            pkg_name = "unknown"
         return pkg_name, self.proj_name + "--" + pkg_name
 
     def add_apk(self, apk_path, build_type):
@@ -191,7 +224,7 @@ class AndroidProject(Project):
         Returns:
             file_path (str): Path of the settings.gradle file.
         """
-        res = execute_shell_command("find %s -maxdepth 1 -type f -name \"settings.gradle\"" % self.proj_dir)
+        res = execute_shell_command("find %s -maxdepth 1 -type f -name \"settings.gradle*\"" % self.proj_dir)
         res.validate()
         return res.output
 
@@ -208,12 +241,18 @@ class AndroidProject(Project):
         modul_lines = cat(setts_file) | grep('include') | grepv(r"(^\s*//)")  # | cut(sep=":", col=1) | sed(pats="\'|,", repls="")
         for mod_line in modul_lines:
             for mod in mod_line.split(","):
-                module_name = str(echo(mod) | sed("include", "") | cut(sep=":", col=1) | sed(pats="\'|,", repls="")).strip()
+                module_name = str(echo(mod) | sed("include", "") | cut(sep=":", col=1) | sed(pats="\'|,|\"|\)", repls="")).strip()
                 module_is_not_empty = any(mega_find(os.path.join(self.proj_dir, module_name), maxdepth=2, mindepth=1))
                 if module_is_not_empty:
                     modules.append(module_name)
                 else:
                     logw(f"ignoring empty module {module_name}")
+        root_files = os.listdir(self.proj_dir)
+        if 'src' in root_files and ('build.gradle' in root_files or 'build.gradle.kts' in root_files):
+            modules.append('')
+        if ('app' in root_files and 'app' not in modules
+                and ('build.gradle' in root_files or 'build.gradle.kts' in root_files)):
+            modules.append('app')
         return modules
 
     def __init_modules(self):
