@@ -26,7 +26,9 @@ from anadroid.profiler.TrepnProfiler import TrepnProfiler
 from anadroid.analysis.post_build_analysis.ApkAPIAnalyzer import ApkAPIAnalyzer
 from anadroid.analysis.ComposedAnalyzer import ComposedAnalyzer
 from anadroid.analysis.post_execution_analysis.LogAnalyzer import LogAnalyzer
-from anadroid.analysis.post_execution_analysis import ManafaAnalyzer, ManafaMethodCoverageAnalyzer, OldAnaDroidAnalyzer
+from anadroid.analysis.post_execution_analysis.ManafaAnalyzer import ManafaAnalyzer
+from anadroid.analysis.post_execution_analysis.ManafaMethodCoverageAnalyzer import ManafaMethodCoverageAnalyzer
+from anadroid.analysis.post_execution_analysis.OldAnaDroidAnalyzer import OldAnaDroidAnalyzer
 from anadroid.analysis.pre_build_analysis.SCCAnalyzer import SCCAnalyzer
 from anadroid.testing_framework.AppCrawlerFramework import AppCrawlerFramework
 from anadroid.testing_framework.CustomCommandFramework import CustomCommandFramework
@@ -211,11 +213,12 @@ class AnaDroid(object):
             raise Exception("Unsupported instrumenter")
 
     def __infer_pre_build_analyzers(self):
+        # TODO
         return ComposedAnalyzer(None,
                                 [
                                   #ChimeraAnalysis() ,
-                                  PMDAnalysis(),
-                                  DAAPAnalysis(),
+                                  #PMDAnalysis(),
+                                  #DAAPAnalysis(),
                                   #ADoctorAnalysis(),
                                   #EcoAndroidAnalysis(),
                                   #LintAnalysis(),
@@ -233,7 +236,7 @@ class AnaDroid(object):
         Returns:
             AbstractAnalyzer: inferred analyzer.
         """
-        analyzers = [ApkAPIAnalyzer()]
+        analyzers = []
         if self.profiler is not None and not isinstance(self.profiler, NoneProfiler):
             analyzers.append(LogAnalyzer(self.profiler))
         if len(self.apps) + len(self.app_projects_ut) > 0:
