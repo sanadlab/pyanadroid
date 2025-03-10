@@ -18,7 +18,7 @@ setup(
     author_email='rui.rrua@gmail.com',
     url='https://github.com/greensoftwarelab/PyAnaDroid',
     license='MIT',
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=["anadroid.test*", "anadroid.resources.bin.pmd*"]),
     use_incremental=True,
     install_requires=required,
     setup_requires=['incremental'],
