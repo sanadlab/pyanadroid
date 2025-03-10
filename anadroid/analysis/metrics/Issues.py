@@ -37,7 +37,7 @@ def issue_from_string(issue_str, sep=','):
 class Issue(object):
     def __init__(self, issue_type, category=IssueCategory.PERFORMANCE, severity=None, description=None, file=None,
                  i_class=None, detection_tool_name=None,
-                 line=None, column=None, method=None, code=None):
+                 line=None, column=None, method=None, code=None, file_extensions=None):
         self.issue_type = issue_type
         self.category = category
         self.severity = severity
@@ -49,6 +49,10 @@ class Issue(object):
         self.method = method
         self.code = code
         self.detection_tool_name = detection_tool_name
+        self.file_extensions = None
+
+    def get_file_extensions(self):
+        return self.file_extensions if self.file_extensions is None else ' '.join(self.file_extensions)
 
     def __str__(self):
         return (f"{self.get_simple_name()}, {self.category.value}, {self.severity}, {self.detection_tool_name},"
