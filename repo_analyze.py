@@ -1,5 +1,6 @@
 import csv
 import os
+import traceback
 
 from anadroid.Anadroid import AnaDroid
 from anadroid.Types import PROFILER, TESTING_FRAMEWORK
@@ -61,7 +62,7 @@ def analyze_repo(repos_dir):
         checkout_res = execute_shell_command(f"cd {repo_dir} && git checkout {branch_name}")
         checkout_res.validate()
         branch_name, commit_list = extract_and_write_commit_history(repo_dir)
-        print(commit_list)
+        #print(commit_list)
         checkout_res.validate()
         prev_issue_list = []
         prev_commit_hash = None
@@ -70,7 +71,9 @@ def analyze_repo(repos_dir):
             print(f"Checking out commit {i}/{len(commit_list)}: {commit_hash} -> {commit['message']}")
             #time.sleep(1)
             # Checkout the commit
-            checkout_res = execute_shell_command(f"cd {repo_dir} && git checkout {commit_hash}")
+            cmd = f"cd {repo_dir} && git checkout {commit_hash}"
+            print(cmd)
+            checkout_res = execute_shell_command(cmd)
             checkout_res.validate()
             print(checkout_res)
             # Run analysis tool (replace with actual analysis command)
@@ -131,21 +134,27 @@ def extract_and_write_commit_history(repo_dir):
     branch_name_res = execute_shell_command(f"cd {repo_dir} && git branch --show-current")
     branch_name_res.validate()
     branch_name = branch_name_res.output.strip().replace("/", "-")
-    res = execute_shell_command(f"cd {repo_dir} && git log --pretty=format:\"%H|%an|%ad|%s\" --date=iso")
+    res = execute_shell_command(f"cd {repo_dir} && git log --pretty=format:\"%H|%an|%ad|%BXX\" --date=iso")
+    #print(res)
     res.validate()
     filename= os.path.join(repo_dir,f'{branch_name}_commit_data.csv' )
     with open(filename, 'w') as file:
-        writer = csv.writer(file, delimiter=',')
+        writer = csv.writer(file, delimiter=';')
         writer.writerow(['Commit Hash', 'Author', 'Date', 'Message'])
-        for commit in res.output.split("\n"):
+        for commit in res.output.split("XX\n"):
             vals = commit.split("|")
-            writer.writerow(vals)
-            info.append({
-                'hash': vals[0],
-                'author': vals[1],
-                'date': vals[2],
-                'message': vals[3].replace(';', '.')
-            })
+            if len(vals) > 1:
+                try:
+                    writer.writerow(vals)
+                    info.append({
+                        'hash': vals[0],
+                        'author': vals[1],
+                        'date': vals[2],
+                        'message': vals[3].replace(';', '.').replace("\n", "\t")
+                    })
+                except:
+                    traceback.print_exc()
+                    print(commit)
     return branch_name, info[::-1]
 
 

@@ -2,23 +2,19 @@ import csv
 import os.path
 import time
 import traceback
-
 import tiktoken
-from networkx.algorithms.clique import enumerate_all_cliques
-
+from dotenv import dotenv_values
 from anadroid.analysis.metrics.Issues import issue_from_string
 from anadroid.utils.Utils import execute_shell_command, loge, logs, logi
-import openai
-
-# Use Together AI's API key
-openai.api_key = ""
 from together import Together
 
 # Set the base URL for Together AI
-openai.api_base = "https://api.together.xyz/v1"
-client = Together(api_key="")
+API_KEY=dotenv_values('.env')['TOGETHER_AI_API_KEY']
+client = Together(api_key=API_KEY)
 
 TOKEN_LIMIT = 128_000
+DEFAULT_ISSUE_FILE_EXTENSIONS='-- "*.java" "*.kt" "*.xml" "*.kts" "*.gradle"'
+
 
 def get_token_count(texto, model="gpt-4"):
     encoding = tiktoken.encoding_for_model(model)
@@ -41,7 +37,7 @@ def was_code_moved(repo_dir, curr_commit, issue):
             Moved to another file/class/method (refactored).
             Kept in the same place with or without minor changes.
         Respond with only one of the following options: "Removed", "Moved", or "Kept", without any additional explanations"""
-    code_diff_res = get_code_diff(repo_dir, curr_commit, issue, def_null_value)
+    code_diff_res = get_code_diff(repo_dir, curr_commit, issue, def_null_value, extensions=issue.get_file_extensions())
     #if code_diff_res.strip() == "" or code_diff_res == def_null_value:
     file_content = get_file_content(repo_dir, curr_commit, issue, def_null_value)
     #else:
@@ -100,15 +96,15 @@ def was_code_moved(repo_dir, curr_commit, issue):
     return res.strip()
 
 def get_code_diff(repo_dir, curr_commit, issue, def_null_value="No info available", optimize_token_count=True,
-                  extensions='-- "*.java" "*.kt" "*.xml" "*.kts" "*.gradle"'):
-    code_diff_target_extensions = extensions
+                  extensions=None):
+    code_diff_target_extensions = '-- ' + extensions if extensions is not None else DEFAULT_ISSUE_FILE_EXTENSIONS
     issue_file = get_issue_file(repo_dir, curr_commit, issue)
     if issue_file is not None:
         diff_cmd = f"cd {repo_dir} && git checkout {curr_commit}; git diff HEAD^ {'-- ' + issue_file}"
     else:
         # TODO code_diff_target_extensions
         diff_cmd = f"cd {repo_dir} && git checkout {curr_commit}; git diff HEAD^ {code_diff_target_extensions}"
-    #print(diff_cmd)
+    print("performing", diff_cmd)
     code_diff_res = execute_shell_command(diff_cmd)
     code_diff_res.validate()
     #print(code_diff_res)
@@ -152,6 +148,10 @@ def merge_duplicate_issues_on_regressions(regression_list):
         if any(equiv_issues):
             if reg['issue'].is_less_descriptive(equiv_issues[0]['issue']) or not reg['issue'].is_more_descriptive(equiv_issues[0]['issue']):
                 print('skipping', reg['issue'].get_simple_name(), 'on', reg['repo_dir'], 'commit', reg['commit_hash'])
+                equiv_merged_issues = [r for r in merged_regressions if
+                                is_equal(r, reg) and r['issue'].detection_tool_name != reg['issue'].detection_tool_name]
+                if not any(equiv_merged_issues):
+                    merged_regressions.append(reg)
                 #merged_regressions.append(reg)
                 continue
         merged_regressions.append(reg)
@@ -162,9 +162,8 @@ def followed_correct_solution(issue, expected_fix, repo_dir, curr_commit):
         I want to know if this concrete issue as fixed. 
         Respond with only one of the following options: "Fixed" or "Not fixed", without any additional explanations
     """
-    code_diff_res = get_code_diff(repo_dir, curr_commit, issue)
+    code_diff_res = get_code_diff(repo_dir, curr_commit, issue, extensions=issue.get_file_extensions())
     file_content = get_file_content(repo_dir, curr_commit, issue)
-    print(file_content)
     prompt = f"""
         Given the following statically identified issue previously identified on this Android project:
         {"Original file: " + issue.file if issue.file is not None else ""}
@@ -176,7 +175,7 @@ def followed_correct_solution(issue, expected_fix, repo_dir, curr_commit):
         {file_content}
         {question}
     """
-    print(prompt)
+    #print(prompt)
     try:
         res = send_to_llm(prompt)
     except Exception as e:
@@ -215,7 +214,7 @@ def followed_correct_solution(issue, expected_fix, repo_dir, curr_commit):
     return res.strip()
 
 
-def load_regressions_csv(csv_file="regressions.csv"):
+def load_regressions_csv(csv_file="regressions.csv.short"):
     regressions = []
     with open(csv_file, 'r') as file:
         reader = csv.reader(file, delimiter=';')
@@ -227,7 +226,7 @@ def load_regressions_csv(csv_file="regressions.csv"):
                     'commit_hash': row[2],
                     'commit_message': row[3],
                     'issue': issue_from_string(row[4]),
-                    'classification': row[5]
+                    'classification': row[5],
                 }
             regressions.append(v)
             #print(v)
@@ -235,16 +234,21 @@ def load_regressions_csv(csv_file="regressions.csv"):
 
 
 def main():
-    order_label = ['def_removal', 'prob_removal', 'prob_move']
+    order_label = [ 'prob_removal', 'def_removal', 'prob_move']
     issue_spec = load_issue_specification_list()
-    print("jinga")
+    print("loaded issue specification")
     regressions = merge_duplicate_issues_on_regressions(load_regressions_csv())
     regressions = sorted(regressions, key=lambda x: order_label.index(x['classification']))
+    prev_labels = load_labels()
     #print(was_code_moved())
     print("Regressions to classify: ", len(regressions))
     for i, reg in enumerate(regressions):
-        logi(f"regression {i} of {len(regressions)}")
+        logi(f"regression {i+1} of {len(regressions)}")
         print(reg)
+        reg_key = gen_label_key(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], reg['issue'].get_simple_name())
+        if reg_key in prev_labels:
+            print("Already classified")
+            continue
         print('-----')
         curr_manual_label = reg['classification']
         #print(curr_manual_label)
@@ -253,6 +257,8 @@ def main():
         if corrresponding_spec is None:
             loge(f"Could not find the specification for issue {reg['issue'].get_simple_name()}")
         reg['issue'].description = corrresponding_spec['description']
+        reg['issue'].file_extensions = corrresponding_spec['file_extensions']
+        print(reg['issue'].get_file_extensions())
         moved_label = was_code_moved(reg['repo_dir'], reg['commit_hash'], reg['issue']).lower()
         print("was code moved? ", moved_label, curr_manual_label)
         if 'removed' in moved_label:
@@ -261,13 +267,34 @@ def main():
             #print("was issue fixed according to solution? ", rec_fix, corrresponding_spec['expected_fix'])
             if 'not' not in rec_fix.lower():
                 final_label = "True_Positive"
-                logs("Uau, um positibo")
-                exit(0)
+                logs("A true positive!")
         else:
             final_label = "Possible_False_Positive"
         print("Issue:", reg['issue'].get_simple_name(), "Final label: ", final_label)
         save_label(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], reg['issue'].get_simple_name(),
                    reg['commit_message'], curr_manual_label, final_label)
+
+
+def gen_label_key(repo_dir, prev_commit_hash, commit_hash, issue_name):
+    return '-'.join([repo_dir, prev_commit_hash, commit_hash, issue_name])
+
+def load_labels(filename="classified_regressions.csv"):
+    labels = {}
+    with open(filename, 'r') as file:
+        reader = csv.reader(file, delimiter=';')
+        for row in reader:
+            key = gen_label_key(row[1], row[2], row[3], row[0])
+            labels[key] = {
+                'issue': row[0],
+                'repo_dir': row[1],
+                'prev_commit_hash': row[2],
+                'commit_hash': row[3],
+                'commit_message': row[4],
+                'manual_label': row[5],
+                'final_label': row[6]
+            }
+    return labels
+
 
 def save_label(repo_dir, prev_commit_hash, commit_hash, issue_name, commit_msg, manual_label, final_label):
     file_path = "classified_regressions.csv"
@@ -296,7 +323,8 @@ def load_issue_specification_list(filename="performance_issues_list.csv"):
             issues[issue_name] = {
                 'description': row[13],
                 'sample': row[14],
-                'expected_fix': row[15]
+                'expected_fix': row[15],
+                'file_extensions': row[16].strip().split(',')
             }
     return issues
 
