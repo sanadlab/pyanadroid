@@ -11,12 +11,12 @@ from anadroid.utils.Utils import execute_shell_command, loge, logs, logi
 import openai
 
 # Use Together AI's API key
-openai.api_key = "bc5e3011a9d613ddf309c923c5a12eca20ce5807a179164bc26a438b35a904a8"
+openai.api_key = ""
 from together import Together
 
 # Set the base URL for Together AI
 openai.api_base = "https://api.together.xyz/v1"
-client = Together(api_key="bc5e3011a9d613ddf309c923c5a12eca20ce5807a179164bc26a438b35a904a8")
+client = Together(api_key="")
 
 TOKEN_LIMIT = 128_000
 
