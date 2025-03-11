@@ -159,7 +159,7 @@ def merge_duplicate_issues_on_regressions(regression_list):
 
 def followed_correct_solution(issue, expected_fix, repo_dir, curr_commit):
     question = f"""
-        I want to know if this concrete issue as fixed. 
+        I want to know if this specific issue as fixed and the program maintains its functionality.  
         Respond with only one of the following options: "Fixed" or "Not fixed", without any additional explanations
     """
     code_diff_res = get_code_diff(repo_dir, curr_commit, issue, extensions=issue.get_file_extensions())
@@ -327,6 +327,8 @@ def load_issue_specification_list(filename="performance_issues_list.csv"):
                 'file_extensions': row[16].strip().split(',')
             }
     return issues
+
+
 
 if __name__ == '__main__':
     main()
