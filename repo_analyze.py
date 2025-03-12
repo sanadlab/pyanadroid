@@ -71,14 +71,14 @@ def analyze_repo_subset(repos_list):
             for i, commit in enumerate(commit_list):
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(commit_list)}: {commit_hash}")
-                execute_shell_command(f"cd {repo_dir} && git checkout {commit_hash}").validate()
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {commit_hash}").validate()
                 # Run static analysis
                 anadroid.app_projects_ut = [repo_dir]
                 res_dirs = anadroid.just_static_analyze()
                 commit['issues'] = load_project_issues(res_dirs[0]) if res_dirs else []
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
-                execute_shell_command(f"cd {repo_dir} && git checkout {branch_name}").validate()
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name}").validate()
                 regressions = issue_regression(commit['issues'], prev_issue_list)
                 if regressions:
                     with lock:
