@@ -44,6 +44,39 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             "URLCaching": KnownStaticPerformanceIssues.URL_CACHING,
 
         }
+        self.ignorable_issues = {
+            "SpellCheckingInspection",
+            "CanBeFinal",
+            "CatchMayIgnoreException",
+            "ConstantConditions",
+            "Deprecation",
+            "DuplicateThrows",
+            "EmptyMethod",
+            "FieldMayBeFinal",
+            "GrazieInspection",
+            "NullableProblems",
+            "RedundantCast",
+            "RegExpSimplifiable",
+            "UNUSED_IMPORT",
+            "UnnecessaryToStringCall",
+            "XmlUnusedNamespaceDeclaration",
+            "unused",
+            "UnusedSymbol",
+            "RedundantThrows",
+            "JavadocDeclaration",
+            "RawUseOfParameterizedType",
+            "UnusedAssignment",
+            'UNCHECKED_WARNING',
+            'JavadocReference',
+            'JavadocLinkAsPlainText',
+            'XmlHighlighting',
+            'HasPlatformType',
+            'FoldInitializerAndIfToElvis',
+            'GradlePackageVersionRange',
+            "DanglingJavadoc",
+            "Convert2Lambda",
+            "GrUnnecessarySemicolon"
+        }
 
     def setup(self, **kwargs):
         expected_exec_file = infer_ecoandroid_cmd()
@@ -75,7 +108,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             print("Analyzing module: ", module)
             module_path = os.path.join(project.proj_dir, module)
             module_out_dir = os.path.join(output_dir, f"ecoandroid_{module}")
-            if os.path.exists(module_out_dir) and not retry:
+            if os.path.exists(module_out_dir) and len(os.listdir(module_out_dir)) > 0 and not retry:
                 logs(f"Skipping module {project.proj_name}.{module}. Already processed by EcoAndroid")
                 return
             if not os.path.exists(module_out_dir):
@@ -97,6 +130,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             print(res)
             return False
         logs(f"ecoandroid analysis executed successfully")
+        execute_shell_command(f"touch {os.path.join(os.path.dirname(expected_output_file), 'done.ok')}")
         return True
 
     def get_issues(self, output_dir):
@@ -105,32 +139,45 @@ class EcoAndroidAnalysis(StaticAnalyzer):
         # Iterate over XML files in the output directory
         for root_dir, _, files in os.walk(output_dir):
             for file in files:
-                #print(file)
                 if file.endswith(".xml"):  # Ensure we're processing only XML files
                     file_path = os.path.join(root_dir, file)
                     try:
                         tree = ET.parse(file_path)
-                        root = tree.getroot()
-                        # Parse XML structure
-                        for issue in root.findall("issue"):
+                        for issue in tree.iter():
+                            #print(issue.tag)
+                            if issue.tag != "problem":
+                                continue
+                            method_id = None
+                            class_id = None
                             issue_id = issue.get("id", None)
                             if issue_id is None:
+                                prob_class = issue.find("problem_class")
+                                if prob_class is None:
+                                    continue
+                                issue_id = prob_class.get('id', None)
+                                if issue_id is None:
+                                    continue
+                            if issue_id not in self.identifiable_issues and issue_id in self.ignorable_issues:
                                 continue
-                            if issue_id in found_issues_id:
-                                continue
-                            found_issues_id.add(issue_id)
-                            issue_type = issue.get("category", None)
-                            file_path = issue.get("file", None)
-                            line = issue.get("line", None)
-                            desc = issue.get("description", None)
-                            # TODO other fields
-                            issues.append(
-                                Issue(self.identifiable_issues[issue_id] if issue_id in self.identifiable_issues else issue_id,
-                                      file=file_path,
-                                      line=line,
+                            file_path = issue.find("file", None)
+                            line = issue.find("line", None)
+                            desc = issue.find("description", None)
+                            entry_type = issue.find("entry_point", None)
+                            if entry_type is not None:
+                                if entry_type.get("TYPE").strip() == "method":
+                                    method_def = entry_type.get("FQNAME")
+                                    method_id = method_def.split("(")[0].split(" ")[-1]
+                                    class_id = method_def.split("(")[0].split(" ")[0]
+                                    #print(f"Method: {method_id}, Class: {class_id}")
+                            issue = Issue(self.identifiable_issues[issue_id] if issue_id in self.identifiable_issues else issue_id,
+                                      file=file_path.text.replace("file://$PROJECT_DIR$" + os.sep, "")  if file_path is not None else None,
+                                      line=line.text if line is not None else None,
+                                      method=method_id,
+                                      i_class=class_id,
                                       detection_tool_name="EcoAndroid",
-                                      description=desc)
-                            )
+                                      description=desc.text if desc is not None else None)
+                            if issue not in issues:
+                                issues.append(issue)
                     except Exception as e:
                         loge(f"Error parsing file {file_path}: {e}")
 

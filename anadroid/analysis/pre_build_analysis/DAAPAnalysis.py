@@ -114,7 +114,7 @@ class DAAPAnalysis(StaticAnalyzer):
                         if issue_type in self.identifiable_issues:
                             issues.append(Issue(self.identifiable_issues[issue_type],
                                                 file=os.path.join(module_name, file), detection_tool_name="DAAP"))
-            logs(f"Found {len(issues)} issues in {results_file}")
+            #logs(f"Found {len(issues)} issues in {results_file}")
             return issues
 
         except (FileNotFoundError, json.JSONDecodeError) as e:

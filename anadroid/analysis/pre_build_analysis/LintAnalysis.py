@@ -8,6 +8,7 @@ from textops import grep
 
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
+from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error
 from anadroid.build.GradleBuilder import GradleBuilder
 from anadroid.utils.JavaRetry import JavaRetry
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi
@@ -132,11 +133,20 @@ class LintAnalysis(StaticAnalyzer):
         if not retry and os.path.exists(lint_failed_file):
             logs(f"Skipping project {project.proj_name}. Lint failed in previous executions")
             return
-        logi("Analyzing project" + project.proj_name)
-        res = execute_shell_command(cmd,timeout=150)
-        if exec_task == self.default_task and res.return_code != 0:
-            logw(f"Error executing {exec_task} analysis. Trying with default task")
-            self.analyze_project(project, retry=False, default_task='lint')
+        logi("Analyzing project " + project.proj_name)
+        retries = 3
+        while retries > 0:
+            res = execute_shell_command(cmd,timeout=150)
+            if exec_task == self.default_task and res.return_code != 0:
+                logw(f"Error executing {exec_task} analysis. Trying with default task")
+                val = res.output + res.errors
+                error = is_known_error(val)
+                if error is not None and retries > 0:
+                    solve_known_error(project, error, error_msg=val)
+                    retries = retries - 1
+                else:
+                    retries = 0
+                self.analyze_project(project, retry=False, default_task='lint')
         java_retryer = JavaRetry()
         if res.return_code != 0:
             java_version = re.search("requires Java ([0-9]+) to run", str(res.errors))
