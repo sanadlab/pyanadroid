@@ -28,6 +28,7 @@ class ChimeraAnalysis(LintAnalysis):
             "SensorLeak": KnownStaticPerformanceIssues.SENSOR_LEAK,
             "MediaLeak": KnownStaticPerformanceIssues.MEDIA_LEAK,
             "MemoizationChance": KnownStaticPerformanceIssues.MEMOIZATION_CHANCE,
+            "ExcessiveLoopCallsDetector": KnownStaticPerformanceIssues.AVOID_INSTANTIATING_OBJECTS_IN_LOOPS
         })
 
     def setup(self, **kwargs):

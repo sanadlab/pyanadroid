@@ -11,7 +11,7 @@ class IssueCategory(Enum):
 
 
 def issue_from_string(issue_str, sep=','):
-    issue_str = issue_str.strip()
+    issue_str = issue_str.strip().replace("\"","")
     issue_parts = issue_str.split(sep)
     if len(issue_parts) < 9:
         return None

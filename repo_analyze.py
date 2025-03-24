@@ -41,6 +41,7 @@ def load_project_issues(proj_results_dir):
             issues_list = issues_list + DAAPAnalysis().get_issues(daap_file)
     eco_android_dirs = mega_find(proj_results_dir, pattern="*ecoandroid*", type_file='d', maxdepth=2)
     if len(eco_android_dirs) > 0:
+        print(eco_android_dirs)
         for eco_dir in eco_android_dirs:
             issues_list = issues_list + EcoAndroidAnalysis().get_issues(eco_dir)
     lint_results = mega_find(proj_results_dir, pattern="*lint*.xml", type_file='f', maxdepth=2)
@@ -48,6 +49,16 @@ def load_project_issues(proj_results_dir):
         for lint_file in lint_results:
             issues_list = issues_list + LintAnalysis().get_issues(lint_file)
     return issues_list
+
+
+def issue_file_exists(repo_dir, curr_commit, issue):
+    if issue.file is None:
+        return None
+    file_cmd = f'cd {repo_dir} ; git checkout {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
+    #print("file comd", file_cmd)
+    file_find = execute_shell_command(file_cmd)
+    file_find.validate()
+    return execute_shell_command(f"cd {repo_dir} ; ls {file_find.output.strip}").return_code == 0 if file_find.output.strip() != "" else execute_shell_command(f"cd {repo_dir} ; ls {issue.file}").return_code == 0
 
 
 def analyze_repo_subset(repos_list):
@@ -62,7 +73,11 @@ def analyze_repo_subset(repos_list):
     for repo_dir, branch_name, commit_list in sorted_repo_list:
         try:
             anadroid = init_pyanadroid(repo_dir)
-            anadroid.pre_build_analyzers = ComposedAnalyzer(None, [DAAPAnalysis(), PMDAnalysis(), ADoctorAnalysis()])
+            anadroid.pre_build_analyzers = ComposedAnalyzer(None, [
+                EcoAndroidAnalysis(),
+                DAAPAnalysis(),
+                PMDAnalysis(),
+                ADoctorAnalysis()])
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
             print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
@@ -79,7 +94,7 @@ def analyze_repo_subset(repos_list):
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
                 execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name}").validate()
-                regressions = issue_regression(commit['issues'], prev_issue_list)
+                regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
                 if regressions:
                     with lock:
                         with open('regressions.csv', 'a+') as file:
@@ -159,23 +174,27 @@ def save_issues(issues, dir_path, commit_hash):
             writer.writerow(str(issue).replace(',', ';').split(';'))
 
 
-def issue_regression(curr_issue_list, prev_issue_list):
+def issue_regression(curr_issue_list, prev_issue_list, repo_dir, curr_commit):
     """Detects issue regressions."""
     regressions = []
     for issue in prev_issue_list:
         if issue not in curr_issue_list:
             loge(f"Regression found: {issue}")
-            classif = classify_regression(issue, curr_issue_list)
+            classif = classify_regression(issue, curr_issue_list, repo_dir, curr_commit)
             logi(f"Classification: {classif}")
             regressions.append((issue, classif))
     return regressions
 
 
-def classify_regression(issue, curr_issue_list):
+def classify_regression(issue, curr_issue_list, repo_dir, curr_commit):
     """Classifies issue regressions."""
     issues_of_that_kind = [i for i in curr_issue_list if i.get_simple_name() == issue.get_simple_name()]
     issue_exists_on_proj = any(issues_of_that_kind)
     if not issue_exists_on_proj:
+        file_still_exists = issue_file_exists(repo_dir, curr_commit, issue)
+        if not file_still_exists:
+            logi(f"File does not exist: {issue.file}")
+            return 'file_removed'
         return 'def_removal'
     issue_exists_on_file = any(i for i in issues_of_that_kind if i.file == issue.file)
     if issue_exists_on_file:

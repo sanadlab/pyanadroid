@@ -117,25 +117,27 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                 # cleanup the directory, otherwise the tool will append to file and xml file will not have a single root
                 for root_dir, _, files in os.walk(module_out_dir):
                     for file in files:
-                        os.remove(os.path.join(root_dir, file))
+                        if file.endswith(".xml"):
+                            os.remove(os.path.join(root_dir, file))
             timeout = 300
             cmd = f"gtimeout {timeout} {infer_ecoandroid_cmd()} {project.proj_dir} " f"{profile_path} {module_out_dir} -d {module_path} -v2"
             print(cmd)
             res = execute_shell_command(cmd, timeout=timeout)
             self.validate_success(res, module_out_dir)
 
-    def validate_success(self, res, expected_output_file):
-        if not os.path.exists(expected_output_file) and res.return_code != 0:
+    def validate_success(self, res, expected_output_dir):
+        if not os.path.exists(expected_output_dir) and res.return_code != 0:
             loge(f"Error executing ecoandroid analysis. Check the logs for more information")
             print(res)
             return False
         logs(f"ecoandroid analysis executed successfully")
-        execute_shell_command(f"touch {os.path.join(os.path.dirname(expected_output_file), 'done.ok')}")
+        fi_to_touch = os.path.join(expected_output_dir, 'done.ok')
+        #print("touching grass", fi_to_touch)
+        execute_shell_command(f"touch {fi_to_touch}")
         return True
 
     def get_issues(self, output_dir):
         issues = []
-        found_issues_id = set()
         # Iterate over XML files in the output directory
         for root_dir, _, files in os.walk(output_dir):
             for file in files:
