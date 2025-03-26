@@ -36,8 +36,8 @@ def get_analyzers_filter_file():
         if not os.path.exists(DEFAULT_ANALYZERS_FILENAME) else DEFAULT_ANALYZERS_FILENAME
 
 
-def log(message, log_sev=LogSeverity.INFO, curr_time=EVAL_TIME, to_file=True):
-    curr_time = EVAL_TIME if curr_time is None else curr_time
+def log(message, log_sev=LogSeverity.INFO, curr_time=None, to_file=True):
+    curr_time = time.time() if curr_time is None else curr_time
     color = get_color(log_sev.value)
     adapted_time = re.sub("\s|:", "-", str(datetime.fromtimestamp(curr_time)))
     str_to_print = "[%s] %s: %s" % (log_sev.value, adapted_time, message)

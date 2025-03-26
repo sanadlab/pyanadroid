@@ -25,6 +25,7 @@ def infer_ecoandroid_cmd():
 DEFAULT_PROFILE_PATH = os.path.join(get_resources_dir() ,"Project_Default.xml")
 DEFAULT_OUTPUT_DIRNAME = "ecoandroid_analysis_output"
 
+ANDROID_HOME = os.environ.get("ANDROID_HOME", None)
 
 class EcoAndroidAnalysis(StaticAnalyzer):
     def __init__(self, analyzers_cfg_file=None, default_profile_path=DEFAULT_PROFILE_PATH, default_output_dir=DEFAULT_OUTPUT_DIRNAME):
@@ -100,10 +101,13 @@ class EcoAndroidAnalysis(StaticAnalyzer):
 
     def analyze_project(self, project, **kwargs):
         retry = kwargs.get("retry", True)
+        remove_local_props = kwargs.get("remove_local_props", True) # TODO
         profile_path = kwargs.get("profile_path", self.default_profile_path)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
+        if remove_local_props and os.path.exists(os.path.join(project.proj_dir, "local.properties")):
+            os.remove(os.path.join(project.proj_dir, "local.properties"))
         for module in project.modules:
             print("Analyzing module: ", module)
             module_path = os.path.join(project.proj_dir, module)
