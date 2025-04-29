@@ -1,9 +1,16 @@
+import inspect
 import os.path
 import random
 import re
+import time
+from fileinput import filename
+
+from google import genai
+import argparse
 import tiktoken
 import csv
 from dotenv import dotenv_values
+from openai import OpenAI
 
 from anadroid.analysis.metrics.Issues import issue_from_string
 from anadroid.utils.Utils import execute_shell_command, loge, logs, logi, logw
@@ -11,13 +18,57 @@ from together import Together
 
 # Set the base URL for Together AI
 API_KEY=dotenv_values('.env')['TOGETHER_AI_API_KEY']
-client = Together(api_key=API_KEY)
+OPENAI_API_KEY=dotenv_values('.env')['OPEN_AI_KEY']
+#client = Together(api_key=API_KEY)
+#CURR_CLIENT = OpenAI(api_key=OPENAI_API_KEY)
 
 TOKEN_LIMIT = 128_000
 DEFAULT_ISSUE_FILE_EXTENSIONS='-- "*.java" "*.kt" "*.xml" "*.kts" "*.gradle"'
 
-CURR_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
+RESULTS_FOLDER = "llm_results"
+#CURR_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
+#CURR_MODEL = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free"
 #model="deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free
+CLASSIFIED_REGRESSIONS_FILE = "new_classified_regressions.csv"
+
+SUPPORTED_MODELS = {
+    "llama-3.3-70B": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+    },
+    "deepseek-R1-Llama": {
+        "model": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free",
+    },
+    "gpt-4o": {
+        "model": "gpt-4o",
+    },
+    "gpt-4.1-mini": {
+        "model": "gpt-4.1-mini-2025-04-14",
+    },
+    "gemini-2.0-flash": {
+        "model": "gemini-2.0-flash",
+    },
+    "gemini-2.5-pro": {
+        "model": "gemini-2.5-pro-exp-03-25",
+    }
+}
+
+def init_client(client_name):
+    if client_name == "together":
+        client = Together(api_key=dotenv_values('.env')['TOGETHER_AI_API_KEY'])
+    elif client_name == "openai":
+        client = OpenAI(api_key=dotenv_values('.env')['OPEN_AI_KEY'])
+    elif client_name == "google":
+        client = genai.Client(api_key=dotenv_values('.env')['GOOGLE_AI_STUDIO_API_KEY'])
+    else:
+        client = None
+    return client
+
+
+def get_model(model_name):
+    if model_name not in SUPPORTED_MODELS and model_name != "None":
+        raise Exception(f"Model {model_name} not supported")
+    model = SUPPORTED_MODELS[model_name]['model'] if model_name in SUPPORTED_MODELS and 'model' in SUPPORTED_MODELS[model_name] else "None"
+    return model
 
 
 def get_token_count(texto, model="gpt-4"):
@@ -25,31 +76,79 @@ def get_token_count(texto, model="gpt-4"):
     tokens = encoding.encode(texto)
     return len(tokens)
 
+def save_answer_to_file(prompt, result, procedure_name):
+    directory = os.path.join(RESULTS_FOLDER, CURR_MODEL.replace("/","_"), "outputs")
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    filename = os.path.join(directory, procedure_name + '_' + result[:16].replace(" ", "_") + ".txt")
+    print("filename is ", filename)
+    with open(filename, 'a+') as file:
+        file.write(prompt + "\n" + result)
 
 def send_to_llm(msg, max_tokens=None):
-    response = client.chat.completions.create(
-        model=CURR_MODEL,
-        messages=[{"role": "user", "content": msg}, {"role": "assistant", "content": "option: "}],
-        max_tokens=max_tokens
-    )
-    return response.choices[0].message.content
+    if isinstance(CURR_CLIENT, Together):
+        response = CURR_CLIENT.chat.completions.create(
+            model=CURR_MODEL,
+            messages=[{"role": "user", "content": msg}, {"role": "assistant", "content": "option: "}],
+            max_tokens=max_tokens
+        )
+        return response.choices[0].message.content
+    elif isinstance(CURR_CLIENT, OpenAI):
+        try:
+            time.sleep(2)
+            response = CURR_CLIENT.responses.create(
+                model=CURR_MODEL,
+                instructions="Act like a static analysis tool",
+                input=msg,
+                max_output_tokens=max_tokens if max_tokens is not None and max_tokens > 16 else 16
+            )
+        except Exception as e:
+            loge(f"Error sending to LLM: {e}")
+            time.sleep(20)
+            response = CURR_CLIENT.responses.create(
+                model=CURR_MODEL,
+                instructions="Act like a static analysis tool",
+                input=msg,
+                max_output_tokens=max_tokens if max_tokens is not None and max_tokens > 16 else 16
+            )
+        #print(response)
+        return response.output_text
+    elif isinstance(CURR_CLIENT, genai.Client):
+        try:
+            time.sleep(2)
+            response = CURR_CLIENT.models.generate_content(
+                model=CURR_MODEL,
+                contents=msg,
+            )
+        except Exception as e:
+            loge(f"Error sending to LLM: {e}")
+            time.sleep(30)
+            response = CURR_CLIENT.models.generate_content(
+                model=CURR_MODEL,
+                contents=msg,
+            )
+        return response.text
+    else:
+        return None
 
-
-
-def zero_shot_issues_detection(code_sample, max_tokens=32):
+def zero_shot_issues_detection(code_sample, max_tokens=32, error_val=None, call_id=None):
     prompt = f"""
-    Analyze the following Android code and identify any performance issues:
+    Analyze the following Android code and identify any potential performance issues:
     {code_sample}
     Answer only with the issues found, or "No issues" if none are present.
     """
     try:
-        return send_to_llm(prompt, max_tokens=max_tokens).strip()
+        val = send_to_llm(prompt, max_tokens=max_tokens).strip()
+        # get current_function name
+        save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
+        return val
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
-        return "Analysis failed"
+        save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}")
+        return error_val
 
 
-def blind_test_issue_detection_compare(code_sample, code_sample2):
+def blind_test_issue_detection_compare(code_sample, code_sample2, call_id):
     prompt = f"""
     Analyze the following alternative solutions for Android.
     Sample 1:
@@ -59,18 +158,21 @@ def blind_test_issue_detection_compare(code_sample, code_sample2):
     
     {code_sample2}
 
-    Which solution is more efficient? Provide only the number of the most efficient solution as the answer and nothing more.
+     I want to know which option is the most efficient. Respond with only one of the following options: "1" or "2", without any additional explanations
     """
     #print(prompt)
     try:
-        return send_to_llm(prompt, max_tokens=6).strip()
+        val = send_to_llm(prompt, max_tokens=6).strip()
+        save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
+        return val
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
-        return "Unknown"
+        save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}" )
+        return 'Unknown'
 
 
 
-def zero_shot_issue_detection_detailed(code_sample, issues_specification):
+def zero_shot_issue_detection_detailed(code_sample, issues_specification, call_id):
     prompt = f"""
     Analyze the following Android code for statically-detectable performance issues:
 
@@ -81,12 +183,14 @@ def zero_shot_issue_detection_detailed(code_sample, issues_specification):
     
     Respond with only with name of the issues found, or "No issues detected" if none are present.
     """
-
     try:
-        return send_to_llm(prompt).strip()
+        val = send_to_llm(prompt).strip()
+        save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
+        return val
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
-        return "Analysis failed"
+        save_answer_to_file(prompt, str(e),f"{inspect.currentframe().f_code.co_name}_{call_id}")
+        return "Unknown"
 
 def read_file_content(filepath):
     with open(filepath, 'r') as f:
@@ -121,11 +225,17 @@ def load_issue_specification_list(filename="performance_issues_list.csv", exampl
             issues[issue_name] = issue
     return issues
 
-def blind_test_procedure_examples():
+def blind_test_procedure_examples(repeat=False):
+    filename = "blind_test_examples.csv"
     issue_spec = load_issue_specification_list()
+    already_processed_issues = load_engineered_issues(filename)
+    print(f"Loaded {len(issue_spec)} issues")
     for i, issue in enumerate(issue_spec):
         issue_spec_str = '\n'.join([f"{iss['name']}: {iss['description']}" for iss in list(issue_spec.values())[i:( i + 50)]])
         #print(issue_spec_str)
+        if issue in already_processed_issues and not repeat:
+            print(f"Skipping {issue}")
+            continue
         print(f"Testing issue: {issue}")
         for j in range(1, 3):
             print(f"Example {j}")
@@ -138,19 +248,24 @@ def blind_test_procedure_examples():
             sol_list = [prob, sol]
             random.shuffle(sol_list)
             optimal_answer = 1 if prob == sol_list[1] else 2
-            bld_cmp = blind_test_issue_detection_compare(sol_list[0], sol_list[1])
+            bld_cmp = blind_test_issue_detection_compare(sol_list[0], sol_list[1], call_id=f"{inspect.currentframe().f_code.co_name}_{issue}_{j}")
+            print(bld_cmp)
+            # use regex to extract number from bld_cmp string
             try:
-                correct_call = "Detected" if int(bld_cmp) == optimal_answer else "Not detected"
+                answer = re.search(r'\d', bld_cmp)
+                print("llm answer", answer.group(0), "optimal answer", optimal_answer)
+                correct_call = "Detected" if int(answer.group(0)) == optimal_answer else "Not detected"
             except:
                 correct_call = "Inconclusive" if bld_cmp != "Unknown" else bld_cmp
             if correct_call == "Detected":
                 logs(f"Correct answer")
             else:
                 loge(f"Incorrect answer " + correct_call)
-            save_label("blind_test_examples.csv", issue, f"example_{j}",
+                print(bld_cmp)
+            save_label(filename, issue, f"example_{j}",
                        bld_cmp, correct_call)
 
-def save_label(file_path, issue_name, issue_instance_id, result, label, results_folder="llm_results"):
+def save_label(file_path, issue_name, issue_instance_id, result, label, results_folder=RESULTS_FOLDER):
     target_folder = os.path.join(results_folder, CURR_MODEL)
     if not os.path.exists(target_folder):
         os.makedirs(target_folder)
@@ -159,10 +274,12 @@ def save_label(file_path, issue_name, issue_instance_id, result, label, results_
         writer.writerow([issue_name, issue_instance_id, result, label])
 
 def blind_test_procedure_real():
+    filename = "blind_test_real.csv"
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
     issue_list = load_true_positive_issues()
     issue_buckets = create_issue_buckets(issue_list, bucket_size=30)
+    already_processed_issues = load_engineered_issues(filename)
     for issue_name, issue_list in issue_buckets.items():
         print(f"Checking issue: {issue_name}", len(issue_list), "instances")
         try:
@@ -173,24 +290,29 @@ def blind_test_procedure_real():
         print(issue_spec)
         for j, issue_instance in enumerate(issue_list):
             print(f"Sample {j}")
+            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
+            if issue_instance_id in already_processed_issues.get(issue_name, {}):
+                print(f"Skipping {issue_instance_id}")
+                continue
             code_sample = fetch_code_from_issue(issue_instance, regressions)
             #print(code_sample)
             sol_sample = fetch_code_from_issue(issue_instance, regressions)
             sol_list = [code_sample, sol_sample]
             random.shuffle(sol_list)
             optimal_answer = 1 if code_sample == sol_list[1] else 2
-            bld_cmp = blind_test_issue_detection_compare(sol_list[0], sol_list[1])
+            bld_cmp = blind_test_issue_detection_compare(sol_list[0], sol_list[1], call_id=f"{inspect.currentframe().f_code.co_name}_{issue_name}_{j}")
             print("optimal answer", optimal_answer, "llm answer", bld_cmp, " ||")
             try:
-                correct_call = "Detected" if int(bld_cmp) == optimal_answer else "Not detected"
+                answer = re.search(r'\d', bld_cmp)
+                print("llm answer", answer.group(0), "optimal answer", optimal_answer)
+                correct_call = "Detected" if int(answer.group(0)) == optimal_answer else "Not detected"
             except:
                 correct_call = "Inconclusive" if bld_cmp != "Unknown" else bld_cmp
             if correct_call == "Detected":
                 logs(f"Correct answer")
             else:
                 loge(f"Incorrect answer " + correct_call)
-            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
-            save_label("blind_test_real.csv", issue_name, issue_instance_id, bld_cmp.replace(";", ""), correct_call)
+            save_label(filename, issue_name, issue_instance_id, bld_cmp.replace(";", ""), correct_call)
             print("--------")
 
 def load_regressions_csv(csv_file="regressions.csv"):
@@ -212,7 +334,7 @@ def load_regressions_csv(csv_file="regressions.csv"):
     return regressions
 
 
-def load_classified_regressions(filename="classified_regressions.csv"):
+def load_classified_regressions(filename=CLASSIFIED_REGRESSIONS_FILE):
     regressions = []
     if not os.path.exists(filename):
         return regressions
@@ -223,11 +345,14 @@ def load_classified_regressions(filename="classified_regressions.csv"):
             v = {
                     'issue_name': row[0],
                     'repo_dir': row[1],
-                    'prev_commit_hash': row[2],
-                    'fix_commit_hash': row[3],
-                    'commit_message': row[4],
-                    'pre_label': row[5],
-                    'llm_label': row[6]
+                    'issue_location': row[2],
+                    'prev_commit_hash': row[3],
+                    'fix_commit_hash': row[4],
+                    'commit_message': row[5],
+                    'sub_git_diff': row[6],
+                    'sub_file_ctnt': row[7],
+                    'pre_label': row[8],
+                    'llm_label': row[9]
 
                 }
             regressions.append(v)
@@ -255,7 +380,7 @@ def create_issue_buckets(issue_list, bucket_size=30):
 def get_issue_file(repo_dir, curr_commit, issue):
     if issue.file is None:
         return None
-    file_cmd = f'cd {repo_dir} ; git checkout {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
+    file_cmd = f'cd {repo_dir} ; git checkout -f {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
     #print("file comd", file_cmd)
     file_find = execute_shell_command(file_cmd)
     file_find.validate()
@@ -304,10 +429,13 @@ def fetch_sol_code_from_issue(issue_reg, regressions_list):
 
 def zero_shot_code_samples():
     issue_specs = load_issue_specification_list()
+    filename = "zero_shot_samples.csv"
+    already_processed_issues = load_engineered_issues(filename)
     for i, issue in enumerate(issue_specs):
-        issue_spec_str = '\n'.join(
-            [f"{iss['name']}: {iss['description']}" for iss in list(issue_specs.values())[i:(i + 50)]])
         # print(issue_spec_str)
+        if issue in already_processed_issues:
+            print(f"Skipping {issue}")
+            continue
         print(f"Testing issue: {issue}")
         for j in range(1, 3):
             print(f"Example {j}")
@@ -317,28 +445,36 @@ def zero_shot_code_samples():
                 print(val)
                 exit(-1)
             prob, _ = val
-            res = zero_shot_issues_detection(prob)
-            if "no issues" in res.lower():
+            res = zero_shot_issues_detection(prob, call_id=f"{inspect.currentframe().f_code.co_name}_{issue}_{j}")
+            if res is None:
+                correct_call = "Inconclusive"
+                res = correct_call
+                loge("Inconclusive")
+            elif "no issues" in res.lower():
                 loge("No issues detected")
                 correct_call = "Not Detected"
-            elif issue.lower() in res.lower():
+            else: # issue.lower() in res.lower():
                 logs("Issue detected")
                 correct_call = "Detected"
-            else:
-                correct_call = "Inconclusive"
                 logs("Issue detected")
-            save_label("zero_shot_samples.csv", issue, f"Example_{j}" ,res.replace(";", ""),
+            save_label(filename, issue, f"Example_{j}" ,res.replace(";", ""),
                        correct_call)
 
 def zero_shot_procedure():
     # load at most N instances of each issue
-    n_instances = 1
+    filename = "zero_shot_real_detailed.csv"
+    n_instances = 50
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
     issue_list = load_true_positive_issues()
     issue_buckets = create_issue_buckets(issue_list, bucket_size=n_instances)
+    already_processed_issues = load_engineered_issues(filename)
     #zero_shot_code_samples()
+    i = 0
     for issue_name, issue_list in issue_buckets.items():
+        issue_spec_str = '\n'.join(
+            [f"{iss['name']}: {iss['description']}" for iss in list(issue_specs.values())[i:(i + 50)]])
+        i = i + 1
         print(f"Checking issue: {issue_name}", len(issue_list), "instances")
         try:
             issue_spec = issue_specs[issue_name]
@@ -348,39 +484,45 @@ def zero_shot_procedure():
         #print(issue_spec)
         for j, issue_instance in enumerate(issue_list):
             print(f"Sample {j}")
+            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
+            if issue_instance_id in already_processed_issues.get(issue_name, {}):
+                print(f"Skipping {issue_instance_id}")
+                continue
             code_sample = fetch_code_from_issue(issue_instance, regressions)
             if code_sample is None:
                 loge(f"Code sample not found for {issue_instance}")
                 continue
-            res = zero_shot_issues_detection(code_sample, max_tokens=None)
-            if "no issues" in res.lower():
+            res = zero_shot_issues_detection(code_sample, max_tokens=None, call_id=f"{inspect.currentframe().f_code.co_name}_{issue_name}_{j}")
+            if res is None:
+                correct_call = "Inconclusive"
+                res = correct_call
+                loge("Inconclusive")
+            elif "no issues" in res.lower():
                 loge("No issues detected")
                 correct_call = "Not Detected"
             elif issue_name.lower() in res.lower():
                 logs("Issue detected")
                 correct_call = "Detected"
             else:
-                correct_call = "Inconclusive"
-                #print(res)
-                logs("Issue detected")
-            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
-            save_label("zero_shot_real.csv", issue_name, issue_instance_id, res.replace(";",""), correct_call)
-            res = zero_shot_issue_detection_detailed(code_sample, issue_spec)
-            if "no issues" in res.lower():
-                loge("No issues detected")
-                correct_call = "Not Detected"
-            elif issue_name.lower() in res.lower():
-                logs("Issue detected")
-                correct_call = "Detected"
-            else:
-                correct_call = "Inconclusive"
-                #print(res)
+                correct_call = "Unknown"
                 loge(correct_call)
-            save_label("zero_shot_real_detailed.csv", issue_name, issue_instance_id,
+            save_label("zero_shot_real.csv", issue_name, issue_instance_id, res.replace(";",""), correct_call)
+            res = zero_shot_issue_detection_detailed(code_sample, issue_spec_str, call_id=f"{inspect.currentframe().f_code.co_name}_detailed_{issue_name}_{j}")
+            if res is None:
+                correct_call = "Inconclusive"
+                res = correct_call
+                loge("Inconclusive")
+            elif "no issues" in res.lower():
+                loge("No issues detected")
+                correct_call = "Not Detected"
+            else: # issue_name.lower() in res.lower():
+                logs("Issue detected")
+                correct_call = "Detected"
+            save_label(filename, issue_name, issue_instance_id,
                        res.replace(";",""), correct_call)
 
 
-def few_shot_issue_detection(code_sample, issue_spec, input_set):
+def few_shot_issue_detection(code_sample, issue_spec, input_set, call_id=None):
     examples_st = '\n'.join([f"Example {i+1}:\n{ex[0]}\n\nExpected fix:\n{ex[1]}\n" for i, ex in enumerate(input_set)])
     prompt = f"""
     Given the following performance issue:
@@ -390,16 +532,23 @@ def few_shot_issue_detection(code_sample, issue_spec, input_set):
     Analyze the following code and evaluate if the performance issue exists. Answer only with \"Exists\" or \"Does not exist\".
     {code_sample}"""
     try:
-        return send_to_llm(prompt).strip()
+        val = send_to_llm(prompt).strip()
+        save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
+        return val
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
+        save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}")
         return "few shot failed"
 
 def few_shot_procedure():
+    print("few shot")
+    filename = "2_shot.csv"
+    n_instances = 50
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
     issue_list = load_true_positive_issues()
-    issue_buckets = create_issue_buckets(issue_list)
+    issue_buckets = create_issue_buckets(issue_list, bucket_size=n_instances)
+    already_processed_issues = load_engineered_issues(filename)
     for issue_name, issue_list in issue_buckets.items():
         print(f"Checking issue: {issue_name}", len(issue_list), "instances")
         try:
@@ -407,9 +556,15 @@ def few_shot_procedure():
         except:
             loge(f"Error loading issue {issue_name}")
             continue
-        print(issue_spec)
         for j, issue_instance in enumerate(issue_list):
+            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
+            if issue_instance_id in already_processed_issues.get(issue_name, {}):
+                print(f"Skipping {issue_instance_id}")
+                continue
             code_sample = fetch_code_from_issue(issue_instance, regressions)
+            if code_sample is None:
+                loge(f"Code sample not found for {issue_instance}")
+                continue
             print(f"Sample {j}")
             val = re.sub(r'-{3,}', '---', issue_specs[issue_name][f'example_1']).split("---")
             if len(val) > 2 or len(val) < 2:
@@ -419,10 +574,11 @@ def few_shot_procedure():
             prob, sol = val
             print("1-shot")
             input_set =  [(prob, sol)]
-            res = few_shot_issue_detection(code_sample, issue_spec, input_set)
+            res = few_shot_issue_detection(code_sample, issue_spec, input_set, call_id=f"{inspect.currentframe().f_code.co_name}_{issue_name}_{j}")
             if "not exist" in res.lower():
                 loge("No issues detected")
                 correct_call = "Not Detected"
+                print(res)
             elif 'exists' in res.lower():
                 logs("Issue detected")
                 correct_call = "Detected"
@@ -442,7 +598,7 @@ def few_shot_procedure():
             prob2, sol2 = val
             input_set.append((prob2, sol2))
             print("2-shot")
-            res = few_shot_issue_detection(code_sample, issue_spec, input_set)
+            res = few_shot_issue_detection(code_sample, issue_spec, input_set, call_id=f"{inspect.currentframe().f_code.co_name}_2_{issue_name}_{j}")
             if "not exist" in res.lower():
                 loge("No issues detected")
                 correct_call = "Not Detected"
@@ -453,11 +609,10 @@ def few_shot_procedure():
                 correct_call = "Inconclusive"
                 # print(res)
                 loge(correct_call)
-            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
-            save_label("2_shot.csv", issue_name, issue_instance_id,
+            save_label(filename, issue_name, issue_instance_id,
                        res.replace(";", ""), correct_call)
 
-def chain_of_thought_detection(code_sample, issue_spec, input_set):
+def chain_of_thought_detection(code_sample, issue_spec, input_set, call_id):
     examples_st = '\n'.join([f"Example {i+1}:\n{ex[0]}\n\nExpected fix:\n{ex[1]}\n" for i, ex in enumerate(input_set)])
     prompt = f"""
     Given the following performance issue:
@@ -468,17 +623,37 @@ def chain_of_thought_detection(code_sample, issue_spec, input_set):
     {code_sample}"""
     #print(prompt)
     try:
-        return send_to_llm(prompt).strip()
+        val = send_to_llm(prompt).strip()
+        save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
+        return val
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
+        save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}")
         return "Failed"
 
 
-def chain_of_thought_procedure():
+def load_engineered_issues(filename):
+    target_file = os.path.join(RESULTS_FOLDER, CURR_MODEL, filename)
+    if not os.path.exists(target_file):
+        return {}
+    with open(target_file, 'r') as file:
+        reader = csv.reader(file, delimiter=';')
+        issues = {}
+        for row in reader:
+            print(row)
+            if row[0] not in issues:
+                issues[row[0]] = {}
+            issues[row[0]][row[1]] = row
+    return issues
+
+def chain_of_thought_procedure(repeat=False):
+    filename = "cot.csv"
+    n_instances = 50
+    already_processed_issues = load_engineered_issues(filename)
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
     issue_list = load_true_positive_issues()
-    issue_buckets = create_issue_buckets(issue_list)
+    issue_buckets = create_issue_buckets(issue_list, bucket_size=n_instances)
     for issue_name, issue_list in issue_buckets.items():
         print(f"Checking issue: {issue_name}", len(issue_list), "instances")
         try:
@@ -488,7 +663,14 @@ def chain_of_thought_procedure():
             continue
         print(issue_spec)
         for j, issue_instance in enumerate(issue_list):
+            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
+            if issue_instance_id in already_processed_issues.get(issue_name, {}):
+                print(f"Skipping {issue_instance_id}")
+                continue
             code_sample = fetch_code_from_issue(issue_instance, regressions)
+            if code_sample is None:
+                loge(f"Code sample not found for {issue_instance}")
+                continue
             print(f"Sample {j}")
             val = re.sub(r'-{3,}', '---', issue_specs[issue_name][f'example_1_annotated']).split("---")
             if len(val) > 2 or len(val) < 2:
@@ -503,7 +685,7 @@ def chain_of_thought_procedure():
                 exit(-1)
             prob2, sol2 = val
             input_set = [(prob, sol), (prob2, sol2)]
-            res = chain_of_thought_detection(code_sample, issue_spec, input_set)
+            res = chain_of_thought_detection(code_sample, issue_spec, input_set,  call_id=f"{inspect.currentframe().f_code.co_name}_{issue_name}_{j}")
             print(res)
             if "not exist" in res.lower():
                 loge("No issues detected")
@@ -515,8 +697,7 @@ def chain_of_thought_procedure():
                 correct_call = "Inconclusive"
                 # print(res)
                 loge(correct_call)
-            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
-            save_label("cot.csv", issue_name, issue_instance_id,
+            save_label(filename, issue_name, issue_instance_id,
                        res.replace(";", ""), correct_call)
 
 def blind_shot():
@@ -524,6 +705,7 @@ def blind_shot():
     blind_test_procedure_real()
 
 def zero_shot():
+    print("Zero shot")
     zero_shot_code_samples()
     zero_shot_procedure()
 
@@ -534,4 +716,15 @@ def main():
     chain_of_thought_procedure()
 
 if __name__ ==  '__main__':
+    # parse args
+    parser = argparse.ArgumentParser(description='LLM Issue Detector')
+    parser.add_argument('--model', type=str, required=True, help='Model to use', choices=list(SUPPORTED_MODELS.keys()) + ["None"])
+    parser.add_argument('--client', type=str, required=True, help='Client to use', choices=['together', 'openai', 'google', "None"])
+    parser.add_argument('--repeat', action='store_true', help='Repeat the procedure if was already executed', default=False)
+    args = parser.parse_args()
+    global CURR_MODEL
+    CURR_MODEL = get_model(args.model)
+    global CURR_CLIENT
+    CURR_CLIENT = init_client(args.client)
+    print(f"Using model {CURR_MODEL} with client {args.client}")
     main()

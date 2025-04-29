@@ -121,11 +121,11 @@ class LintAnalysis(StaticAnalyzer):
         if self.performance_only:
             copy(LINT_PERFORMANCE_XML_FILE, project.proj_dir)
         retry = kwargs.get("retry", True)
+        retries = kwargs.get("retries", 1)
         gradlew_path = os.path.join(project.proj_dir, 'gradlew')
         cmd = f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         lt_files = mega_find(project.proj_dir, pattern="lint*result*.xml", maxdepth=5, type_file='f')
-        print(lt_files)
         if len(lt_files) > 0 and not retry:
             logs(f"Skipping project {project.proj_name}. Already processed by Lint")
             return
@@ -134,21 +134,28 @@ class LintAnalysis(StaticAnalyzer):
             logs(f"Skipping project {project.proj_name}. Lint failed in previous executions")
             return
         logi("Analyzing project " + project.proj_name)
-        retries = 3
+        res = None
         while retries > 0:
-            res = execute_shell_command(cmd,timeout=150)
+            print("ai bai")
+            res = execute_shell_command(cmd, timeout=150)
+            print(res)
             if exec_task == self.default_task and res.return_code != 0:
                 logw(f"Error executing {exec_task} analysis. Trying with default task")
                 val = res.output + res.errors
                 error = is_known_error(val)
                 if error is not None and retries > 0:
+                    print("known  prob")
                     solve_known_error(project, error, error_msg=val)
                     retries = retries - 1
                 else:
+                    print("problem not found")
                     retries = 0
-                self.analyze_project(project, retry=False, default_task='lint')
+                print(res)
+                print("Retrying...")
+                if res is not None and res.return_code != 0:
+                    self.analyze_project(project, retry=False, default_task='lint', retries=retries-1)
         java_retryer = JavaRetry()
-        if res.return_code != 0:
+        if res is not None and res.return_code != 0:
             java_version = re.search("requires Java ([0-9]+) to run", str(res.errors))
             if java_version:
                 java_version = int(java_version.group(1))
@@ -164,7 +171,9 @@ class LintAnalysis(StaticAnalyzer):
                     print(extra_cmd + cmd)
                     res = execute_shell_command(extra_cmd + cmd, timeout=300)
                     retry, extra_cmd = java_retryer.change_java_retry((res.output + res.errors).lower())
-
+        if res is None:
+            loge("Error executing lint analysis. Check the logs for more information")
+            return
         res_file = grep(res.output, ' report to (.*).xml')
         if res_file:
             res_file = res_file[0]

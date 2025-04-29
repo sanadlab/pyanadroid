@@ -18,7 +18,8 @@ def issue_from_string(issue_str, sep=','):
     try:
         issue_type = KnownStaticPerformanceIssues(issue_parts[0].split('.')[-1])
     except:
-        traceback.print_exc()
+        print(f"Error parsing issue: {issue_str}")
+        #traceback.print_exc()
         #print(issue_parts[0])
         issue_type = issue_parts[0].strip()
     #print(issue_parts)
@@ -49,7 +50,7 @@ class Issue(object):
         self.method = method
         self.code = code
         self.detection_tool_name = detection_tool_name
-        self.file_extensions = None
+        self.file_extensions = file_extensions
 
     def get_file_extensions(self):
         return self.file_extensions if self.file_extensions is None else ' '.join(self.file_extensions)

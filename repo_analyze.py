@@ -19,6 +19,7 @@ lock = multiprocessing.Lock()
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
+                    #results_dir="vibe_coded_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
                     device=MockedDevice(),
                     profiler=PROFILER.NONE,
@@ -54,7 +55,7 @@ def load_project_issues(proj_results_dir):
 def issue_file_exists(repo_dir, curr_commit, issue):
     if issue.file is None:
         return None
-    file_cmd = f'cd {repo_dir} ; git checkout {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
+    file_cmd = f'cd {repo_dir} ; git checkout -f {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
     #print("file comd", file_cmd)
     file_find = execute_shell_command(file_cmd)
     file_find.validate()
@@ -74,26 +75,34 @@ def analyze_repo_subset(repos_list):
         try:
             anadroid = init_pyanadroid(repo_dir)
             anadroid.pre_build_analyzers = ComposedAnalyzer(None, [
-                EcoAndroidAnalysis(),
-                DAAPAnalysis(),
-                PMDAnalysis(),
-                ADoctorAnalysis()])
+                #DAAPAnalysis(),
+                #PMDAnalysis(),
+                #ADoctorAnalysis(),
+                #EcoAndroidAnalysis(),
+                LintAnalysis(),
+                ])
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
             print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
             prev_issue_list = []
             prev_commit_hash = None
+            if len(commit_list) == 0:
+                anadroid.app_projects_ut = [repo_dir]
+                res_dirs = anadroid.just_static_analyze()
+                issues = load_project_issues(res_dirs[0]) if res_dirs else []
+                print(len(issues), " issues")
+                print([x.get_simple_name() for x in issues])
             for i, commit in enumerate(commit_list):
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(commit_list)}: {commit_hash}")
-                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {commit_hash}").validate()
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
                 anadroid.app_projects_ut = [repo_dir]
                 res_dirs = anadroid.just_static_analyze()
                 commit['issues'] = load_project_issues(res_dirs[0]) if res_dirs else []
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
-                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name}").validate()
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {branch_name}").validate()
                 regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
                 if regressions:
                     with lock:

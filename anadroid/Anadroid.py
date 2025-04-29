@@ -217,9 +217,9 @@ class AnaDroid(object):
         return ComposedAnalyzer(None,
                                 [
                                   #ChimeraAnalysis() ,
-                                  #PMDAnalysis(),
-                                  #DAAPAnalysis(),
-                                  #ADoctorAnalysis(),
+                                  PMDAnalysis(),
+                                  DAAPAnalysis(),
+                                  ADoctorAnalysis(),
                                   #EcoAndroidAnalysis(),
                                   #LintAnalysis(),
                                   #SCCAnalyzer()

@@ -16,6 +16,6 @@ public void loadDrawable() {
     theme.resolveAttribute(R.attr.myDrawable, typedValue, true);
     Drawable drawable = getResources().getDrawable(typedValue.resourceId);
     } finally {
-    typedValue.recycle();
+        typedValue.recycle();
     }
 }
