@@ -46,10 +46,10 @@ class JInstInstrumenter(AbstractInstrumenter):
         self.build_plugins = []
         if instr_type == INSTRUMENTATION_TYPE.ANNOTATION:
             #self.build_dependencies.append(BuildDependency("io.github.raphael28:hunter-debug-library", version="1.0.1"))
-            self.build_dependencies.append(BuildDependency("io.github.greensoftwarelab:hunter-emanafa-library", version="1.0.1"))
+            self.build_dependencies.append(BuildDependency("io.github.greensoftwarelab:hunter-emanafa-library", version="1.0.6"))
             self.classpath_dependencies.append(
                 BuildDependency("io.github.greensoftwarelab:hunter-debug-plugin", dep_type=DependencyType.CLASSPATH,
-                                version="1.0.2"))
+                                version="1.0.5"))
             #self.classpath_dependencies.append(
             #    BuildDependency("io.github.greensoftwarelab:hunter-transform", dep_type=DependencyType.CLASSPATH,
             #                    version="0.9.9"))
