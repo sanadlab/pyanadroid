@@ -76,7 +76,7 @@ class DAAPAnalysis(StaticAnalyzer):
                 logs(f"Skipping module {project.proj_name}.{module} . Already processed by DAAP")
                 return
             #cmd = f"{self.exec_cmd} {module_path} {search_pattern_code} |  grep 'Issue,'  > {output_filepath}"
-            cmd = f"{self.exec_cmd} {module_path} {search_pattern_code} "
+            cmd = f"source ~/.zshrc ; j17; {self.exec_cmd} {module_path} {search_pattern_code} "
             print(cmd)
             res = execute_shell_command(cmd, timeout=150)
             self.parse_write_output(res, output_filepath)

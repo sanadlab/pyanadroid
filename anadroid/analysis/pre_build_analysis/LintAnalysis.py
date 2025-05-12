@@ -1,6 +1,7 @@
 import datetime
 import os
 import re
+import shutil
 import time
 from shutil import copy
 import xml.etree.ElementTree as ET
@@ -123,11 +124,14 @@ class LintAnalysis(StaticAnalyzer):
         retry = kwargs.get("retry", True)
         retries = kwargs.get("retries", 1)
         gradlew_path = os.path.join(project.proj_dir, 'gradlew')
-        cmd = f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS)
+        cmd = f"cd {project.proj_dir}; chmod +x gradlew; gtimeout 300 {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         lt_files = mega_find(project.proj_dir, pattern="lint*result*.xml", maxdepth=5, type_file='f')
         if len(lt_files) > 0 and not retry:
             logs(f"Skipping project {project.proj_name}. Already processed by Lint")
+            for l in lt_files:
+                if os.path.exists(l):
+                    shutil.copy(l, output_dir)
             return
         lint_failed_file = os.path.join(project.proj_dir, LINT_FAILED_FILE)
         if not retry and os.path.exists(lint_failed_file):
@@ -136,24 +140,26 @@ class LintAnalysis(StaticAnalyzer):
         logi("Analyzing project " + project.proj_name)
         res = None
         while retries > 0:
-            print("ai bai")
+            print(cmd)
             res = execute_shell_command(cmd, timeout=150)
-            print(res)
+            if res.validate():
+                break
             if exec_task == self.default_task and res.return_code != 0:
                 logw(f"Error executing {exec_task} analysis. Trying with default task")
                 val = res.output + res.errors
                 error = is_known_error(val)
                 if error is not None and retries > 0:
-                    print("known  prob")
+                    #print("known  prob")
                     solve_known_error(project, error, error_msg=val)
                     retries = retries - 1
                 else:
                     print("problem not found")
                     retries = 0
+                    return
                 print(res)
                 print("Retrying...")
                 if res is not None and res.return_code != 0:
-                    self.analyze_project(project, retry=False, default_task='lint', retries=retries-1)
+                    self.analyze_project(project, retry=True, default_task='lint', exec_task="lint", retries=retries-1)
         java_retryer = JavaRetry()
         if res is not None and res.return_code != 0:
             java_version = re.search("requires Java ([0-9]+) to run", str(res.errors))

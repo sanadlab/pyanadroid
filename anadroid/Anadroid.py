@@ -360,7 +360,8 @@ class AnaDroid(object):
         instr_proj = None
         builder = None
         try:
-            original_proj = AndroidProject(projname=app_name, projdir=app_project, clean_instrumentations=self.reinstrument)
+            original_proj = AndroidProject(projname=app_name, projdir=app_project, results_dir=self.results_dir,
+                                           clean_instrumentations=self.reinstrument)
             self.pre_build_analyzers.analyze_project(original_proj)
             instrumented_proj_dir = self.instrumenter.instrument(original_proj, instr_type=self.instrumentation_type) if self.instrumenter is not None else app_project
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
@@ -394,7 +395,7 @@ class AnaDroid(object):
             # builder.build_proj_and_apk(build_type=self.build_type,build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT)
             # self.analyzer.analyze(app, **{'instr_type': self.instrumentation_type, 'testing_framework': self.testing_framework})
 
-    def just_static_analyze(self):
+    def just_static_analyze(self, retry=False):
         """analyze apps obtained from app_projects_ut."""
         results_dirs = []
         for app_proj in self.app_projects_ut:
@@ -403,8 +404,9 @@ class AnaDroid(object):
             app_name = os.path.basename(app_proj)
 
             original_proj = AndroidProject(projname=app_name, projdir=app_proj,
-                                               clean_instrumentations=self.reinstrument)
-            self.pre_build_analyzers.analyze_project(original_proj, retry=False)
+                                           results_dir=self.results_dir,
+                                            clean_instrumentations=self.reinstrument)
+            self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
             results_dirs.append(original_proj.results_dir)
 
         return results_dirs

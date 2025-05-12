@@ -1,5 +1,11 @@
+import multiprocessing
 import os
 import platform
+import shutil
+import time
+
+from textops import cat
+
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
@@ -26,6 +32,8 @@ DEFAULT_PROFILE_PATH = os.path.join(get_resources_dir() ,"Project_Default.xml")
 DEFAULT_OUTPUT_DIRNAME = "ecoandroid_analysis_output"
 
 ANDROID_HOME = os.environ.get("ANDROID_HOME", None)
+
+eco_lock = multiprocessing.Lock()
 
 class EcoAndroidAnalysis(StaticAnalyzer):
     def __init__(self, analyzers_cfg_file=None, default_profile_path=DEFAULT_PROFILE_PATH, default_output_dir=DEFAULT_OUTPUT_DIRNAME):
@@ -102,17 +110,22 @@ class EcoAndroidAnalysis(StaticAnalyzer):
     def analyze_project(self, project, **kwargs):
         retry = kwargs.get("retry", True)
         remove_local_props = kwargs.get("remove_local_props", True) # TODO
+        remove_idea_fldr = kwargs.get("remove_idea_fldr", True)  # TODO
         profile_path = kwargs.get("profile_path", self.default_profile_path)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
+        if remove_idea_fldr and os.path.exists(os.path.join(project.proj_dir, ".idea")):
+            shutil.rmtree(os.path.join(project.proj_dir, ".idea"))
         if remove_local_props and os.path.exists(os.path.join(project.proj_dir, "local.properties")):
             os.remove(os.path.join(project.proj_dir, "local.properties"))
         for module in project.modules:
             print("Analyzing module: ", module)
             module_path = os.path.join(project.proj_dir, module)
             module_out_dir = os.path.join(output_dir, f"ecoandroid_{module}")
-            if os.path.exists(module_out_dir) and len(os.listdir(module_out_dir)) > 0 and not retry:
+            possible_log_file = os.path.join(module_out_dir, "ecoandroid.log")
+            possible_check_string = str(cat(possible_log_file) ) if os.path.exists(possible_log_file) else None
+            if os.path.exists(module_out_dir) and len(os.listdir(module_out_dir)) > 0 and self.executed_correctly(possible_check_string) and not retry:
                 logs(f"Skipping module {project.proj_name}.{module}. Already processed by EcoAndroid")
                 return
             if not os.path.exists(module_out_dir):
@@ -124,16 +137,36 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                         if file.endswith(".xml"):
                             os.remove(os.path.join(root_dir, file))
             timeout = 300
+            #log_file = os.path.join(module_out_dir, "ecoandroid.log")
             cmd = f"gtimeout {timeout} {infer_ecoandroid_cmd()} {project.proj_dir} " f"{profile_path} {module_out_dir} -d {module_path} -v2"
             print(cmd)
-            res = execute_shell_command(cmd, timeout=timeout)
+            with eco_lock:
+                time.sleep(2)
+                res = execute_shell_command(cmd, timeout=timeout)
+                time.sleep(2)
             self.validate_success(res, module_out_dir)
+
+    def executed_correctly(self, str_to_check):
+        if str_to_check is None:
+            return True
+        if "nly one instance" in str_to_check:
+            return False
+        return True
 
     def validate_success(self, res, expected_output_dir):
         if not os.path.exists(expected_output_dir) and res.return_code != 0:
             loge(f"Error executing ecoandroid analysis. Check the logs for more information")
             print(res)
             return False
+        out_str = res.output + res.errors
+        log_file = os.path.join(expected_output_dir, "ecoandroid.log")
+        with open(log_file, 'w') as f:
+            f.write(out_str)
+        print(out_str)
+        if not self.executed_correctly(out_str):
+            loge(f"Error executing ecoandroid analysis. Check the logs for more information")
+            # print(out_str)
+            return
         logs(f"ecoandroid analysis executed successfully")
         fi_to_touch = os.path.join(expected_output_dir, 'done.ok')
         #print("touching grass", fi_to_touch)
@@ -183,6 +216,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                                       detection_tool_name="EcoAndroid",
                                       description=desc.text if desc is not None else None)
                             if issue not in issues:
+                                print(issue)
                                 issues.append(issue)
                     except Exception as e:
                         loge(f"Error parsing file {file_path}: {e}")

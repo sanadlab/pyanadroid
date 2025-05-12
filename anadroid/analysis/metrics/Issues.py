@@ -56,7 +56,7 @@ class Issue(object):
         return self.file_extensions if self.file_extensions is None else ' '.join(self.file_extensions)
 
     def __str__(self):
-        return (f"{self.get_simple_name()}, {self.category.value}, {self.severity}, {self.detection_tool_name},"
+        return (f"{self.get_simple_name()}, {getattr(self.category, 'value', self.category)}, {self.severity}, {self.detection_tool_name},"
                 f" {self.description}, {self.file}, {self.line}, {self.column}, {self.method}, {self.code}")
 
     def get_issue_location(self):
