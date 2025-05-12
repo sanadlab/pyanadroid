@@ -4,16 +4,32 @@ import time
 import traceback
 import tiktoken
 from dotenv import dotenv_values
-from anadroid.analysis.metrics.Issues import issue_from_string
+from anadroid.analysis.metrics.Issues import issue_from_string, Issue
 from anadroid.utils.Utils import execute_shell_command, loge, logs, logi
 from together import Together
 from openai import OpenAI
-
+from google import genai
+import argparse
 # Set the base URL for Together AI
 API_KEY=dotenv_values('.env')['TOGETHER_AI_API_KEY']
 client = Together(api_key=API_KEY)
 TOKEN_LIMIT = 8192
 DEFAULT_ISSUE_FILE_EXTENSIONS='-- "*.java" "*.kt" "*.xml" "*.kts" "*.gradle"'
+
+SUPPORTED_MODELS = {
+    "llama-3.3-70B": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+    },
+    "deepseek-R1-Llama": {
+        "model": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free",
+    },
+    "gpt-4o": {
+        "model": "gpt-4o",
+    },
+    "gemini-2.0-flash": {
+        "model": "gemini-2.0-flash",
+    }
+}
 
 ISSUE_PRIORITY_RANK = (
     "WakeLock",
@@ -87,8 +103,9 @@ ISSUE_PRIORITY_RANK = (
 
 
 def get_issue_rank(issue):
-    val = ISSUE_PRIORITY_RANK.index(issue.get_simple_name().strip()) \
-        if issue.get_simple_name().strip() in ISSUE_PRIORITY_RANK else len(ISSUE_PRIORITY_RANK)
+    issue_name = issue.get_simple_name().strip() if isinstance(Issue, str) else issue
+    val = ISSUE_PRIORITY_RANK.index(issue_name) \
+        if issue_name in ISSUE_PRIORITY_RANK else len(ISSUE_PRIORITY_RANK)
     return val
 
 def get_token_count(texto, model="gpt-4"):
@@ -112,25 +129,51 @@ def truncate_text_to_fit(text, model="gpt-4", max_new_tokens=384, max_tokens_lim
     return encoding.decode(tokens)  # Convert back to string
 
 
-
 def send_to_llm(msg, max_tokens=None):
-    if isinstance(client, Together):
-        response = client.chat.completions.create(
-            model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
-            #model="deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free",
+    if isinstance(CURR_CLIENT, Together):
+        response = CURR_CLIENT.chat.completions.create(
+            model=CURR_MODEL,
             messages=[{"role": "user", "content": msg}, {"role": "assistant", "content": "option: "}],
             max_tokens=max_tokens
         )
         return response.choices[0].message.content
-    elif isinstance(client, OpenAI):
-        response =  client.responses.create(
-            model="gpt-4o",
-            input=msg,
-            max_tokens=max_tokens
-        )
+    elif isinstance(CURR_CLIENT, OpenAI):
+        try:
+            time.sleep(2)
+            response = CURR_CLIENT.responses.create(
+                model=CURR_MODEL,
+                instructions="Act like a static analysis tool",
+                input=msg,
+                max_output_tokens=max_tokens if max_tokens is not None and max_tokens > 16 else 16
+            )
+        except Exception as e:
+            loge(f"Error sending to LLM: {e}")
+            time.sleep(20)
+            response = CURR_CLIENT.responses.create(
+                model=CURR_MODEL,
+                instructions="Act like a static analysis tool",
+                input=msg,
+                max_output_tokens=max_tokens if max_tokens is not None and max_tokens > 16 else 16
+            )
+        #print(response)
         return response.output_text
+    elif isinstance(CURR_CLIENT, genai.Client):
+        try:
+            time.sleep(2)
+            response = CURR_CLIENT.models.generate_content(
+                model=CURR_MODEL,
+                contents=msg,
+            )
+        except Exception as e:
+            loge(f"Error sending to LLM: {e}")
+            time.sleep(30)
+            response = CURR_CLIENT.models.generate_content(
+                model=CURR_MODEL,
+                contents=msg,
+            )
+        return response.text
     else:
-        raise Exception("Invalid client")
+        return None
 
 def was_code_moved(repo_dir, curr_commit, issue):
     def_null_value = "No info available"
@@ -253,7 +296,6 @@ def get_file_content(repo_dir, curr_commit, issue, def_null_value="No info avail
 
 def merge_duplicate_issues_on_regressions(regression_list, skip_possible_duplicates=True):
     print('initial total regressions', len(regression_list))
-    merged_regressions= []
     merged_regressions_dict = {}
     for i, reg in enumerate(regression_list):
         '''is_equal = lambda a,b : (a['issue'].get_simple_name() == b['issue'].get_simple_name() and a['repo_dir'] == b['repo_dir']
@@ -287,7 +329,7 @@ def merge_duplicate_issues_on_regressions(regression_list, skip_possible_duplica
     return list(merged_regressions_dict.values())
 
 def followed_correct_solution(issue, expected_fix, repo_dir, curr_commit):
-    def_null_value = "No info available"
+    def_null_value = "Not available"
     question = f"""
         I want to know if this specific issue was fixed according to the expected fix.
         Respond with only one of the following options: "Fixed" or "Not fixed", without any additional explanations
@@ -344,7 +386,9 @@ def followed_correct_solution(issue, expected_fix, repo_dir, curr_commit):
             try:
                 res = send_to_llm(truncate_text_to_fit(prompt), max_tokens=8)
             except:
-                return "Unknown", False, False
+                #print(prompt)
+                return def_null_value, False, False
+    #print(prompt)
     return res.strip(), submitted_git_diff, submitted_file_content
 
 
@@ -366,15 +410,25 @@ def load_regressions_csv(csv_file="regressions.csv"):
             #print(v)
     return regressions
 
-def load_classified_regressions_csv(csv_file="classified_regressions.csv"):
+def load_classified_regressions_csv(csv_file="new_classified_regressions.csv"):
     regressions = []
+    if not os.path.exists(csv_file):
+        return regressions
     with open(csv_file, 'r') as file:
         reader = csv.reader(file, delimiter=';')
         for row in reader:
             # /Users/rar9993/repos/research/fdroid_apps/native_apps/Player,7783f82bc5e9e238100ca9be0cd440b0a072d0e1,Merge branch 'master' into flavorless,"KnownStaticPerformanceIssues.MEMBER_IGNORING_METHOD, PERFORMANCE, None, DAAP None, /src/online/java/com/brouken/player/UpdateCheckJobService.java, None, None, None, None",def_removal
             v = {
-                    'issue_name': issue_from_string(row[4]),
-                    'classification': row[5],
+                    'issue_name': row[0],
+                    'repo_dir': row[1],
+                    'issue_location': row[2],
+                    'prev_commit_hash': row[3],
+                    'commit_hash': row[4],
+                    'commit_message': row[5],
+                    'sub_git_diff': row[6],
+                    'sub_file_ctnt': row[7],
+                    'pre_label': row[8],
+                    'llm_classification': row[-1],
                 }
             regressions.append(v)
             #print(v)
@@ -391,6 +445,8 @@ def load_labels(filename="classified_regressions.csv"):
         reader = csv.reader(file, delimiter=';')
         for row in reader:
             # gen_label_key(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], issue_name)
+            if len(row) < 2:
+                continue
             key = gen_label_key(row[1], row[3], row[4], row[0])
             labels[key] = {
                 'issue_name': row[0],
@@ -415,16 +471,16 @@ def save_label(repo_dir, prev_commit_hash, commit_hash, issue, commit_msg, manua
                          issue.get_issue_location() , prev_commit_hash,
                          commit_hash, commit_msg, manual_label, final_label])
 
-def new_save_label(repo_dir, prev_commit_hash, commit_hash, issue, commit_msg, manual_label, final_label,
+def new_save_label(repo_dir, prev_commit_hash, commit_hash, issue, commit_msg, manual_label, old_llm_label, final_label,
                file_path="new_classified_regressions.csv", had_git_diff="Unknown", had_file_content="Unknown"):
     with open(file_path, 'a+') as file:
         writer = csv.writer(file, delimiter=';')
         writer.writerow([issue.get_simple_name(), repo_dir,
                          issue.get_issue_location() , prev_commit_hash,
-                         commit_hash, commit_msg, had_git_diff, had_file_content, manual_label, final_label])
+                         commit_hash, commit_msg, had_git_diff, had_file_content, manual_label, old_llm_label, final_label])
 
 def get_corresponding_spec(issue, issue_spec):
-    issue_id = issue.get_simple_name()
+    issue_id = issue.get_simple_name() if isinstance(issue, Issue) else issue
     if issue_id in issue_spec:
         return issue_spec[issue_id]
     elif issue_id == "UselessStringValueOf":
@@ -442,6 +498,7 @@ def load_issue_specification_list(filename="performance_issues_list.csv"):
             issue_name = row[0].strip()
             if issue_name.strip() == '' or len(row) < 16:
                 continue
+            print(issue_name)
             issues[issue_name] = {
                 'description': row[14],
                 'sample': row[15],
@@ -453,193 +510,103 @@ def load_issue_specification_list(filename="performance_issues_list.csv"):
             }
     return issues
 
-
-def evaluate_true_positives(csv_regressions_file, ignore_file_removed=True, lim_per_issue=1000):
+def reevaluate_true_positives(csv_regressions_file, ignore_file_removed=True, only_tp=False, lim_per_issue=100):
     order_label = [ 'def_removal', 'prob_removal', 'prob_move', 'file_removed']
     issue_spec = load_issue_specification_list()
     print("loaded issue specification")
-
-    regressions = merge_duplicate_issues_on_regressions(load_regressions_csv(csv_regressions_file))
+    regressions = load_classified_regressions_csv(csv_regressions_file)
     regressions = sorted(
         regressions,
-        key=lambda x: (order_label.index(x['classification']), get_issue_rank(x['issue']))
+        key=lambda x:  (order_label.index(x['pre_label']), get_issue_rank(x['issue_name']))
     )
     print("sorted regressions", len(regressions))
     if ignore_file_removed:
-        regressions = [r for r in regressions if r['classification'] != 'file_removed']
+        regressions = [r for r in regressions if r['pre_label'] != 'file_removed']
+    if only_tp:
+        regressions = [r for r in regressions if r['llm_classification'] == 'True_Positive']
     print("filtered regressions", len(regressions))
     #print(was_code_moved())
     size = len(regressions)
+    labels = load_labels("reclassified_true_positives.csv")
     print("Regressions to classify: ", size)
-    prev_labels = load_labels()
-    per_issue_count = {}
+    iss_count = {}
     for i, reg in enumerate(regressions):
+        print(reg)
         logi(f"regression {i+1} of {size}")
-        curr_manual_label = reg['classification']
-        issue_name = reg['issue'].get_simple_name()
-        reg_key = gen_label_key(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], issue_name)
-        if per_issue_count.get(issue_name, 0) >= lim_per_issue:
-            print("Issue reached the limit of classifications")
-            continue
-        if reg_key in prev_labels:
+        curr_manual_label = reg['pre_label']
+        key = gen_label_key(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], reg['issue_name'])
+        if key in labels:
             print("Already classified")
-            per_issue_count[issue_name] = per_issue_count.get(issue_name, 0) + 1
             continue
+        issue_name = reg['issue_name']
+        if issue_name not in iss_count:
+            iss_count[issue_name] = 0
+        if iss_count[issue_name] >= lim_per_issue:
+            print("Already classified")
+            continue
+        corrresponding_spec = get_corresponding_spec(issue_name, issue_spec)
+        reg['issue'] = Issue(issue_type=str(issue_name), file=reg['issue_location'].replace("file:", "").split("|")[0],
+                             file_extensions=corrresponding_spec['file_extensions'],
+                             description=corrresponding_spec['description'])
         print('-----')
+        print(reg)
         #print(curr_manual_label)
         final_label = "Possible_True_Positive"
-        corrresponding_spec = get_corresponding_spec(reg['issue'], issue_spec)
         if corrresponding_spec is None:
-            loge(f"Could not find the specification for issue {reg['issue'].get_simple_name()}")
+            loge(f"Could not find the specification for issue {issue_name}")
             continue
-        reg['issue'].description = corrresponding_spec['description']
-        reg['issue'].file_extensions = corrresponding_spec['file_extensions']
-        #print(reg['issue'].get_file_extensions())
-        moved_label, sub_git_diff, sub_file_ctnt = was_code_moved(reg['repo_dir'], reg['commit_hash'], reg['issue']).lower()
-        print("was code moved? ", moved_label, curr_manual_label)
-        if 'removed' in moved_label:
-            #print('Checking if the issue was fixed...')
-            rec_fix, sub_git_diff, sub_file_ctnt = followed_correct_solution(reg['issue'], corrresponding_spec['expected_fix'], reg['repo_dir'], reg['commit_hash'])
-            #print("was issue fixed according to solution? ", rec_fix, corrresponding_spec['expected_fix'])
-            if 'not' not in rec_fix.lower():
-                final_label = "True_Positive"
-                logs("A true positive!")
-        elif moved_label == 'Unknown':
-            final_label = "Unknown"
-        else:
-            final_label = "Possible_False_Positive"
-        print("Issue:", reg['issue'].get_simple_name(), "Final label: ", final_label)
-        save_label(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], reg['issue'],
-                   reg['commit_message'], curr_manual_label, final_label)
-        per_issue_count[issue_name] = per_issue_count.get(issue_name, 0) + 1
-
-
-def reevaluate_true_positives(csv_regressions_file, ignore_file_removed=True, lim_per_issue=1000):
-    order_label = [ 'def_removal', 'prob_removal', 'prob_move', 'file_removed']
-    issue_spec = load_issue_specification_list()
-    print("loaded issue specification")
-    regressions = merge_duplicate_issues_on_regressions(load_classified_regressions_csv(csv_regressions_file))
-    regressions = sorted(
-        regressions,
-        key=lambda x: (order_label.index(x['classification']), get_issue_rank(x['issue']))
-    )
-    print("sorted regressions", len(regressions))
-    if ignore_file_removed:
-        regressions = [r for r in regressions if r['classification'] != 'file_removed']
-    print("filtered regressions", len(regressions))
-    #print(was_code_moved())
-    size = len(regressions)
-    print("Regressions to classify: ", size)
-    prev_labels = load_labels()
-    per_issue_count = {}
-    for i, reg in enumerate(regressions):
-        logi(f"regression {i+1} of {size}")
-        curr_manual_label = reg['classification']
-        issue_name = reg['issue'].get_simple_name()
-        reg_key = gen_label_key(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], issue_name)
-        if per_issue_count.get(issue_name, 0) >= lim_per_issue:
-            print("Issue reached the limit of classifications")
-            continue
-        if reg_key in prev_labels:
-            print("Already classified")
-            per_issue_count[issue_name] = per_issue_count.get(issue_name, 0) + 1
-            continue
-        print('-----')
-        #print(curr_manual_label)
-        final_label = "Possible_True_Positive"
-        corrresponding_spec = get_corresponding_spec(reg['issue'], issue_spec)
-        if corrresponding_spec is None:
-            loge(f"Could not find the specification for issue {reg['issue'].get_simple_name()}")
-            continue
-        reg['issue'].description = corrresponding_spec['description']
-        reg['issue'].file_extensions = corrresponding_spec['file_extensions']
-        #print(reg['issue'].get_file_extensions())
-        moved_label, git_diff, file_ct = was_code_moved(reg['repo_dir'], reg['commit_hash'], reg['issue']).lower()
-        print("was code moved? ", moved_label, curr_manual_label)
-        if 'removed' in moved_label:
-            #print('Checking if the issue was fixed...')
-            rec_fix, sub_git_diff, sub_file_ctnt = followed_correct_solution(reg['issue'],
-                                                                             corrresponding_spec['expected_fix'],
+        rec_fix, sub_git_diff, sub_file_ctnt = followed_correct_solution(reg['issue'], corrresponding_spec['expected_fix'],
                                                                              reg['repo_dir'], reg['commit_hash'])
 
-            #print("was issue fixed according to solution? ", rec_fix, corrresponding_spec['expected_fix'])
-            if 'not' not in rec_fix.lower():
-                final_label = "True_Positive"
-                logs("A true positive!")
-        elif moved_label == 'Unknown':
-            final_label = "Unknown"
+        if 'not' not in rec_fix.lower():
+            final_label = "True_Positive"
+            logs("A true positive!")
         else:
             final_label = "Possible_False_Positive"
-        print("Issue:", reg['issue'].get_simple_name(), "Final label: ", final_label)
-        save_label(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], reg['issue'],
-                   reg['commit_message'], curr_manual_label, final_label)
-        per_issue_count[issue_name] = per_issue_count.get(issue_name, 0) + 1
-
-
-def augmentate_true_positives_dateset(csv_filename='regressions.csv', lim_per_issue=1000):
-    order_label = ['def_removal', 'prob_removal', 'prob_move', 'file_removed']
-    issue_spec = load_issue_specification_list()
-    print("loaded issue specification")
-    regressions = merge_duplicate_issues_on_regressions(load_regressions_csv(csv_filename))
-    regressions = sorted(
-        regressions,
-        key=lambda x: (order_label.index(x['classification']), get_issue_rank(x['issue']))
-    )
-    print("sorted regressions", len(regressions))
-    print("filtered regressions", len(regressions))
-    # print(was_code_moved())
-    size = len(regressions)
-    print("Regressions to classify: ", size)
-    prev_labels = load_labels(filename="new_classified_regressions.csv")
-    per_issue_count = {}
-    for i, reg in enumerate(regressions):
-        logi(f"regression {i + 1} of {size}")
-        curr_manual_label = reg['classification']
-        issue_name = reg['issue'].get_simple_name()
-        reg_key = gen_label_key(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], issue_name)
-        if per_issue_count.get(issue_name, 0) >= lim_per_issue:
-            print(f"Issue {issue_name}, reached the limit of classifications {lim_per_issue}")
-            continue
-        if reg_key in prev_labels:
-            print("Already classified")
-            if prev_labels[reg_key]['llm_label'] == 'True_Positive':
-                per_issue_count[issue_name] = per_issue_count.get(issue_name, 0) + 1
-            continue
-        print('-----')
-        # print(curr_manual_label)
-        final_label = "Possible_True_Positive"
-        corrresponding_spec = get_corresponding_spec(reg['issue'], issue_spec)
-        if corrresponding_spec is None:
-            loge(f"Could not find the specification for issue {reg['issue'].get_simple_name()}")
-            continue
-        reg['issue'].description = corrresponding_spec['description']
-        reg['issue'].file_extensions = corrresponding_spec['file_extensions']
-        # print(reg['issue'].get_file_extensions())
-        moved_label, sub_git_diff, sub_file_ctnt = was_code_moved(reg['repo_dir'], reg['commit_hash'], reg['issue'])
-        print("was code moved? ", moved_label, curr_manual_label)
-        if 'removed' in moved_label.lower():
-            # print('Checking if the issue was fixed...')
-            rec_fix, sub_git_diff, sub_file_ctnt = followed_correct_solution(reg['issue'],
-                                                                             corrresponding_spec['expected_fix'],
-                                                                             reg['repo_dir'], reg['commit_hash'])
-
-            print("was issue fixed according to solution? ", rec_fix, corrresponding_spec['expected_fix'])
-            if 'not' not in rec_fix.lower():
-                final_label = "True_Positive"
-                logs("A true positive!")
-                per_issue_count[issue_name] = per_issue_count.get(issue_name, 0) + 1
-        elif moved_label == 'Unknown':
-            final_label = "Unknown"
-        else:
-            final_label = "Possible_False_Positive"
-        print("Issue:", reg['issue'].get_simple_name(), "Final label: ", final_label)
+        print("Issue:", issue_name, "Final label: ", final_label)
+        iss_count[issue_name] += 1
         new_save_label(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], reg['issue'],
-                   reg['commit_message'], curr_manual_label, final_label, had_git_diff=sub_git_diff, had_file_content=sub_file_ctnt)
+                       reg['commit_message'], curr_manual_label,
+                       reg['llm_classification'],
+                       final_label,
+                       had_git_diff=sub_git_diff,
+                       had_file_content=sub_file_ctnt,
+                       file_path="reclassified_true_positives.csv")
 
+def init_client(client_name):
+    if client_name == "together":
+        client = Together(api_key=dotenv_values('.env')['TOGETHER_AI_API_KEY'])
+    elif client_name == "openai":
+        client = OpenAI(api_key=dotenv_values('.env')['OPEN_AI_KEY'])
+    elif client_name == "google":
+        client = genai.Client(api_key=dotenv_values('.env')['GOOGLE_AI_STUDIO_API_KEY'])
+    else:
+        client = None
+    return client
+
+
+def get_model(model_name):
+    if model_name not in SUPPORTED_MODELS and model_name != "None":
+        raise Exception(f"Model {model_name} not supported")
+    model = SUPPORTED_MODELS[model_name]['model'] if model_name in SUPPORTED_MODELS and 'model' in SUPPORTED_MODELS[model_name] else "None"
+    return model
 
 
 if __name__ == '__main__':
-    csv_filename = "all_regressions.csv"
-    issue_lim = 100
+    parser = argparse.ArgumentParser(description='LLM Issue Detector')
+    parser.add_argument('--model', type=str, required=True, help='Model to use',
+                        choices=list(SUPPORTED_MODELS.keys()) + ["None"])
+    parser.add_argument('--client', type=str, required=True, help='Client to use',
+                        choices=['together', 'openai', 'google', "None"])
+    parser.add_argument('--repeat', action='store_true', help='Repeat the procedure if was already executed',
+                        default=False)
+    args = parser.parse_args()
+    global CURR_MODEL
+    CURR_MODEL = get_model(args.model)
+    global CURR_CLIENT
+    CURR_CLIENT = init_client(args.client)
+    #csv_filename = "new_classified_regressions.csv"
+    csv_filename = "reclassified_true_positives.old.csv"
     #evaluate_true_positives(csv_filename, lim_per_issue=issue_lim)
-    augmentate_true_positives_dateset(csv_filename, lim_per_issue=issue_lim)
+    #augmentate_true_positives_dateset(csv_filename, lim_per_issue=issue_lim)
+    reevaluate_true_positives(csv_filename)

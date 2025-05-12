@@ -142,7 +142,7 @@ def execute_shell_command(cmd, args=(), timeout=None):
     command = cmd + " " + " ".join(args) if len(args) > 0 else cmd
     out = bytes()
     err = bytes()
-
+    #print("Executing command", cmd)
     proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, preexec_fn=os.setsid)
     try:
         out, err = proc.communicate(timeout=timeout)

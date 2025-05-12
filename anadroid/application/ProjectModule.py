@@ -49,7 +49,7 @@ class ProjectModule(object):
         Returns:
             str: Filepath.
         """
-        res = execute_shell_command("find \"%s\" -maxdepth 1 -type f -name \"build.gradle\"" % self.mod_dir)
+        res = execute_shell_command("find \"%s\" -maxdepth 1 -type f -name \"build.gradle*\"" % self.mod_dir)
         return res.output.strip() if res.return_code == 0 else None
 
     def __infer_manifest(self):

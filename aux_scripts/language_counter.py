@@ -1,4 +1,5 @@
 import ast
+import csv
 import json
 import os
 from os import listdir
@@ -15,8 +16,8 @@ from anadroid.analysis.pre_build_analysis.EcoAndroidAnalysis import EcoAndroidAn
 from anadroid.analysis.pre_build_analysis.LintAnalysis import LintAnalysis
 from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
 
-EXCLUDED_LANGS = {'gitignore', 'Markdown', 'License', 'JSON', 'YAML', 'Prolog', 'Batch', 'Properties File'}
-INCLUDED_LANGS = {'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript', 'C', 'C Header', 'C++', 'Kotlin', 'Rust'}
+EXCLUDED_LANGS = {'gitignore', 'Markdown', 'License', 'JSON', 'YAML', 'Prolog', 'C Header', 'Batch', 'Properties File'}
+INCLUDED_LANGS = {'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript', 'C', 'C++', 'Kotlin', 'Rust'}
 
 
 
@@ -663,8 +664,8 @@ class LanguageStats(object):
 def main(lookup_dir):
     #lookup_dir = "/Users/ruirua/repos/pyAnaDroid/demoProjects"
     #build_scc_json_for_all_projs(lookup_dir)
-    ls = LanguageStats()
-    ls.search_and_parse_files_in_dir(lookup_dir, expected_filename="scc.json")
+    #ls = LanguageStats()
+    #ls.search_and_parse_files_in_dir(lookup_dir, expected_filename="scc.json")
     #print(json.dumps(ls.language_info, indent=1))
     #ls.plot_language_histogram()
     #ls.gen_langs_boxplots_loc()
@@ -673,6 +674,7 @@ def main(lookup_dir):
     #ls.gen_langs_pure_histogram()
     #ls.gen_cross_play_histogram()
     #ls.gen_stats()
+    x = """
     ls.gen_plot_app_play_issues_occurrences_critical()
     ls.gen_plot_apps_age_play()
     ls.gen_plot_apps_age()
@@ -682,6 +684,36 @@ def main(lookup_dir):
     ls.gen_plot_app_play_issues()
     ls.gen_plot_app_play_issues_occurrences()
     ls.gen_plot_issues_per_year()
+    """
+
+    plot_true_positives()
+
+def plot_true_positives(filepath="classified_regressions.csv"):
+    # get true positives
+    if not os.path.exists(filepath):
+        print("file not found", filepath)
+        return
+    tps = {}
+    with open(filepath, 'r') as jj:
+        reader = csv.reader(jj, delimiter=';')
+        next(reader)
+        for row in reader:
+            issue_name = row[0].strip().lower()
+            is_tp = row[-1].strip().lower() == 'true_positive'
+            if is_tp:
+                tps[issue_name] = tps[issue_name] + 1 if issue_name in tps else 1
+        #info = json.load(jj)
+    print(tps)
+    plt.bar(tps.keys(), tps.values(), color='skyblue')
+    plt.xlabel('Issues')
+    plt.ylabel('Number of TPs')
+    plt.title('Number of TPs per issue')
+    for i, issue in enumerate(tps.keys()):
+        plt.text(i, tps[issue], str(tps[issue]), ha='center', va='bottom')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
+
 
 def is_critical_issue(issue_name):
     if issue_name is None:

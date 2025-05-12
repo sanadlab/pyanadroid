@@ -1,4 +1,4 @@
-// Inefficient: Creates new Path object in every onDraw call
+// Inefficient: Allocates new object in every onDraw call
 @Override
 protected void onDraw(Canvas canvas) {
     Path path = new Path();

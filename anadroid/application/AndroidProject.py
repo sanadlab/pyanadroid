@@ -66,6 +66,7 @@ def is_cross_platform_project(dirpath):
 def get_repo_version(repo_dir):
     # in case of not knowing the version, we will try to get the last commit hash if available
     res = execute_shell_command(f"cd {repo_dir} && git rev-parse HEAD")
+    print(res)
     if res.validate():
         return res.output.strip()
     return "unknown"
@@ -100,8 +101,11 @@ class Project(object):
         Args:
             app_id (str): Project's app id.
         """
+        print(app_id)
         proj_version = proj_version if proj_version is not None else get_repo_version(self.proj_dir)
         res_app_dir = os.path.join(self.results_dir, app_id, proj_version)
+        print(f"Creating results dir {res_app_dir}")
+        #print(app_id)
         mk_ma_dir(res_app_dir)
         with open(os.path.join(res_app_dir, PROJECT_PATH_FILE), 'w') as f:
             f.write(self.proj_dir)
@@ -149,6 +153,7 @@ class AndroidProject(Project):
         self.modules = {}
         self.__init_modules()
         self.pkg_name, self.app_id = self.__gen_proj_id()
+        print(self.app_id)
         super().init_results_dir(self.app_id)
         self.proj_version = DefaultSemanticVersion("0.0")
         self.apks = {'Test': [], 'Debug': [], 'Release': [], 'Custom': []}
@@ -164,12 +169,71 @@ class AndroidProject(Project):
         pkg_name = "unknown"
         if self.main_manif_file is None:
             return pkg_name, self.proj_name + "--" + pkg_name
+        pkg_str = str(cat(self.main_manif_file))
+        #print(pkg_str)
         pkg_line = str(cat(self.main_manif_file) | grep("package=\"[^\"]"))
+        #print(self.main_manif_file)
+        #print("pacote",pkg_line)
         if pkg_line.strip() != "":
             pkg_name = str(re.search("package=(\"[^\"]*)", pkg_line).groups()[0]).strip().replace("\"", "")
         else:
-            pkg_name = "unknown"
+            pkg_name = self.get_application_id_from_gradle()
+        pkg_name = "unknown" if pkg_name is None and pkg_name !="" else pkg_name
         return pkg_name, self.proj_name + "--" + pkg_name
+
+    def get_application_id_from_gradle(self):
+        """
+        Extracts the applicationId from an app-level build.gradle or build.gradle.kts file.
+
+        Returns:
+            str: The application ID if found, otherwise None.
+        """
+        main_module = next(iter(self.modules.values()), None)
+        if main_module is None:
+            return None
+        app_build_gradle_path = main_module.build_file
+        print(app_build_gradle_path)
+        if app_build_gradle_path is None:
+            return None
+        if not os.path.exists(app_build_gradle_path):
+            print(f"Error: File not found at {app_build_gradle_path}")
+            return None
+        try:
+            with open(app_build_gradle_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+                # Regex for typical applicationId definition in defaultConfig or productFlavors
+                # Handles variations like single/double quotes, spaces, and different blocks
+                # For build.gradle (Groovy) and build.gradle.kts (Kotlin)
+                # Matches patterns like:
+                # applicationId "com.example.app"
+                # applicationId = "com.example.app"
+                # applicationId 'com.example.app'
+                # applicationId = 'com.example.app'
+                # within defaultConfig { ... } or android { ... } blocks
+                match = re.search(
+                    r'applicationId\s*=?\s*["\']([a-zA-Z0-9_]+\.[a-zA-Z0-9_.]+?)["\']',
+                    content
+                )
+
+                if match:
+                    return match.group(1)
+                else:
+                    # Fallback for namespace in newer Gradle versions (kts)
+                    # namespace = "com.example.app"
+                    namespace_match = re.search(
+                        r'namespace\s*=\s*["\']([a-zA-Z0-9_]+\.[a-zA-Z0-9_.]+?)["\']',
+                        content
+                    )
+                    if namespace_match:
+                        print("Warning: Found 'namespace' instead of 'applicationId'. Using namespace.")
+                        return namespace_match.group(1)
+
+                    print(f"Warning: applicationId not found in {app_build_gradle_path}")
+                    return None
+        except Exception as e:
+            print(f"Error reading or parsing {app_build_gradle_path}: {e}")
+            return None
 
     def add_apk(self, apk_path, build_type):
         """Adds an APK path of the specified build type to the known list of APKs for the project.
@@ -214,6 +278,7 @@ class AndroidProject(Project):
             file_path (str): Path of the main manifest file.
         """
         out = sorted(mega_find(self.proj_dir, maxdepth=5, mindepth=1, pattern="AndroidManifest.xml", type_file='f'), key=len)
+        print(self.proj_dir)
         if len(out) > 0:
             return out[0] if "test" not in str(out[0]).lower() else out[-1]
         return None

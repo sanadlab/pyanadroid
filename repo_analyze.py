@@ -16,9 +16,11 @@ from anadroid.utils.Utils import execute_shell_command, logi, loge, mega_find
 
 
 lock = multiprocessing.Lock()
+only_last_version = False
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
+                    results_dir="native_apps",
                     testing_framework=TESTING_FRAMEWORK.NONE,
                     device=MockedDevice(),
                     profiler=PROFILER.NONE,
@@ -54,7 +56,7 @@ def load_project_issues(proj_results_dir):
 def issue_file_exists(repo_dir, curr_commit, issue):
     if issue.file is None:
         return None
-    file_cmd = f'cd {repo_dir} ; git checkout {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
+    file_cmd = f'cd {repo_dir} ; git checkout -f {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
     #print("file comd", file_cmd)
     file_find = execute_shell_command(file_cmd)
     file_find.validate()
@@ -70,30 +72,47 @@ def analyze_repo_subset(repos_list):
         bname, commit_list = extract_and_write_commit_history(repo_dir)
         sorted_repo_list.append((repo_dir, bname, commit_list))
     sorted_repo_list = sorted(sorted_repo_list, key=lambda x: len(x[2]))
+   #print(sorted_repo_list)
     for repo_dir, branch_name, commit_list in sorted_repo_list:
         try:
             anadroid = init_pyanadroid(repo_dir)
             anadroid.pre_build_analyzers = ComposedAnalyzer(None, [
-                EcoAndroidAnalysis(),
                 DAAPAnalysis(),
                 PMDAnalysis(),
-                ADoctorAnalysis()])
+                ADoctorAnalysis(),
+                EcoAndroidAnalysis(),
+                #XALintAnalysis(),
+                LintAnalysis(),
+                #ChimeraAnalysis()
+                ])
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
             print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
             prev_issue_list = []
             prev_commit_hash = None
+            if len(commit_list) == 0 or only_last_version:
+                if only_last_version:
+                    execute_shell_command(
+                        f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout - ").validate()
+                anadroid.app_projects_ut = [repo_dir]
+                res_dirs = anadroid.just_static_analyze(retry=False)
+                print(res_dirs[0])
+                issues = load_project_issues(res_dirs[0]) if res_dirs else []
+                print(len(issues), " issues")
+                print([x.get_simple_name() for x in issues])
+                continue
+
             for i, commit in enumerate(commit_list):
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(commit_list)}: {commit_hash}")
-                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {commit_hash}").validate()
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
                 anadroid.app_projects_ut = [repo_dir]
                 res_dirs = anadroid.just_static_analyze()
                 commit['issues'] = load_project_issues(res_dirs[0]) if res_dirs else []
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
-                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name}").validate()
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {branch_name}").validate()
                 regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
                 if regressions:
                     with lock:
@@ -115,7 +134,6 @@ def analyze_repo_subset(repos_list):
 def analyze_repos(repos_directory, num_processes=1):
     anadroid = init_pyanadroid(repos_directory)
     repo_list = list(anadroid.app_projects_ut)
-
     if num_processes > 1:
         # Parallel Execution
         chunk_size = len(repo_list) // num_processes
@@ -134,10 +152,12 @@ def analyze_repos(repos_directory, num_processes=1):
 def extract_and_write_commit_history(repo_dir):
     """Extracts and saves commit history for a repo."""
     info = []
-    branch_name_res = execute_shell_command(f"cd {repo_dir} && git branch --show-current")
+    branch_name_res = execute_shell_command(f"cd {repo_dir} && git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed \'s|^origin/||\' || echo \"main\"")
     branch_name_res.validate()
-    branch_name = branch_name_res.output.strip().replace("/", "-")
+    if branch_name_res.return_code == 0:
+        execute_shell_command(f"cd {repo_dir} && git checkout {branch_name_res.output.strip() if branch_name_res.output.strip() != '' else 'master'}").validate()
 
+    branch_name = branch_name_res.output.strip().replace("/", "-")
     res = execute_shell_command(f"cd {repo_dir} && git log --pretty=format:\"%H|%an|%ad|%BXX\" --date=iso")
     res.validate()
 
@@ -206,5 +226,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Analyze repositories sequentially or in parallel.")
     parser.add_argument("repos_directory", type=str, help="Path to the directory containing repositories")
     parser.add_argument("--parallel", type=int, default=1, help="Number of parallel processes (default: 1)")
+    parser.add_argument("--only_last_version", action='store_true',default=False,
+                        help="Analyze only the last version of each repo")
     args = parser.parse_args()
+    only_last_version = args.only_last_version
     analyze_repos(args.repos_directory, args.parallel)
