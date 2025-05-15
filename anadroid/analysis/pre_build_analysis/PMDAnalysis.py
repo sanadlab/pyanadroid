@@ -91,7 +91,7 @@ class PMDAnalysis(StaticAnalyzer):
         logs(f"PMD analysis executed successfully")
         return True
 
-    def get_issues(self, results_file):
+    def get_issues(self, results_file, ignore_tests=True):
         """Parses a PMD JSON results file and extracts violations information."""
         try:
             with open(results_file, "r", encoding="utf-8") as file:
@@ -102,6 +102,9 @@ class PMDAnalysis(StaticAnalyzer):
             for file_entry in data.get("files", []):
                 filename = file_entry.get("filename")
                 for violation in file_entry.get("violations", []):
+                    if 'src' in filename and (
+                            'test' in filename or 'androidTest' in filename or "InstrumentedTest" in filename) and ignore_tests:
+                        continue
                     issues.append(Issue(
                         self.identifiable_issues.get(violation.get("rule"), violation.get("rule")),
                         file=filename,

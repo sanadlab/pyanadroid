@@ -57,7 +57,6 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             "SpellCheckingInspection",
             "CanBeFinal",
             "CatchMayIgnoreException",
-            "ConstantConditions",
             "Deprecation",
             "DuplicateThrows",
             "EmptyMethod",
@@ -65,7 +64,6 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             "GrazieInspection",
             "NullableProblems",
             "RedundantCast",
-            "RegExpSimplifiable",
             "UNUSED_IMPORT",
             "UnnecessaryToStringCall",
             "XmlUnusedNamespaceDeclaration",
@@ -84,7 +82,8 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             'GradlePackageVersionRange',
             "DanglingJavadoc",
             "Convert2Lambda",
-            "GrUnnecessarySemicolon"
+            "GrUnnecessarySemicolon",
+            "AndroidDomInspection"
         }
 
     def setup(self, **kwargs):
@@ -173,7 +172,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
         execute_shell_command(f"touch {fi_to_touch}")
         return True
 
-    def get_issues(self, output_dir):
+    def get_issues(self, output_dir, ignore_tests=True):
         issues = []
         # Iterate over XML files in the output directory
         for root_dir, _, files in os.walk(output_dir):
@@ -199,6 +198,9 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                             if issue_id not in self.identifiable_issues and issue_id in self.ignorable_issues:
                                 continue
                             file_path = issue.find("file", None)
+                            if 'src' in file_path and (
+                                    'test' in file_path or 'androidTest' in file_path or "InstrumentedTest" in file_path) and ignore_tests:
+                                continue
                             line = issue.find("line", None)
                             desc = issue.find("description", None)
                             entry_type = issue.find("entry_point", None)

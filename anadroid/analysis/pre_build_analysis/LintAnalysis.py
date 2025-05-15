@@ -211,7 +211,7 @@ class LintAnalysis(StaticAnalyzer):
         cmd = f"echo \"sdk.dir=$ANDROID_HOME\" > {os.path.join(project_dir, 'local.properties')}"
         res = execute_shell_command(cmd)
 
-    def get_issues(self, results_file):
+    def get_issues(self, results_file, ignore_tests=True):
         issues = []
         # Iterate over XML files in the lint results directory
         tree = ET.parse(results_file)
@@ -232,8 +232,14 @@ class LintAnalysis(StaticAnalyzer):
             # Extract affected file paths
             locations = [(loc.get("file", None), loc.get('line', None)) for loc in issue.findall("location")]
             for loc in locations:
-                issues.append(Issue(issue_id, category, severity, message,
-                                    file=loc[0], line=loc[1], detection_tool_name=self.name))
+                if 'src' in loc and (
+                        'test' in loc or 'androidTest' in loc or "InstrumentedTest" in loc) and ignore_tests:
+                    continue
+                issue_inst = Issue(issue_id, category, severity, message,
+                                    file=loc[0], line=loc[1], detection_tool_name=self.name)
+                if issue_inst in issues:
+                    continue
+                issues.append(issue_inst)
 
         return issues
 

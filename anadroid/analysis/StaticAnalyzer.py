@@ -19,5 +19,5 @@ class StaticAnalyzer(AbstractAnalyzer):
     def get_project_metrics(self, project, **kwargs):
         pass
 
-    def get_issues(self, project) -> list:
+    def get_issues(self, project, ignore_tests=True) -> list:
         return []

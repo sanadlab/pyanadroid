@@ -18,6 +18,7 @@ class BUILD_TYPE(Enum):
     RELEASE = "Release"
     DEBUG = "Debug"
     CUSTOM = "Custom"
+    ANY = ""
 
 
 class BUILD_FLAVOR(Enum):
@@ -153,7 +154,6 @@ class AndroidProject(Project):
         self.modules = {}
         self.__init_modules()
         self.pkg_name, self.app_id = self.__gen_proj_id()
-        print(self.app_id)
         super().init_results_dir(self.app_id)
         self.proj_version = DefaultSemanticVersion("0.0")
         self.apks = {'Test': [], 'Debug': [], 'Release': [], 'Custom': []}
@@ -192,7 +192,7 @@ class AndroidProject(Project):
         if main_module is None:
             return None
         app_build_gradle_path = main_module.build_file
-        print(app_build_gradle_path)
+        #print(app_build_gradle_path)
         if app_build_gradle_path is None:
             return None
         if not os.path.exists(app_build_gradle_path):
@@ -267,6 +267,7 @@ class AndroidProject(Project):
             file_path (str): Path of gradle file.
         """
         out = sorted(mega_find(self.proj_dir, maxdepth=3, mindepth=1, pattern="build.gradle", type_file='f'), key=len)
+        #print("outinho", self.proj_dir, out)
         if len(out) > 0:
             return out[0]
         return None
@@ -278,7 +279,7 @@ class AndroidProject(Project):
             file_path (str): Path of the main manifest file.
         """
         out = sorted(mega_find(self.proj_dir, maxdepth=5, mindepth=1, pattern="AndroidManifest.xml", type_file='f'), key=len)
-        print(self.proj_dir)
+        #print(self.proj_dir)
         if len(out) > 0:
             return out[0] if "test" not in str(out[0]).lower() else out[-1]
         return None
@@ -340,6 +341,7 @@ class AndroidProject(Project):
         Returns:
             gradle_plugin_version (str): Gradle plugin version.
         """
+        print("root file", self.root_build_file)
         gradle_plugin_version = str(cat(self.root_build_file) | grep("com.android.tools.build") | sed("classpath|com.android.tools.build:gradle:|\"", "")).strip().replace("'", "")
         return gradle_plugin_version
 
@@ -376,9 +378,10 @@ class AndroidProject(Project):
         Returns:
             apk_list (:obj:`list` of :obj:`str`): List of APK paths.
         """
-        if len(self.apks[build_type.value]) > 0:
+        if build_type.value in self.apks and len(self.apks[build_type.value]) > 0:
             return self.apks[build_type.value]
         vals = mega_find(self.proj_dir, pattern="*.apk", type_file='f')
+        print(vals)
         return list(filter(lambda x: build_type.value.lower() in x.lower(), vals))
 
     def get_test_apks(self):
