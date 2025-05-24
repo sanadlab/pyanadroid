@@ -410,8 +410,27 @@ class AnaDroid(object):
             results_dirs.append(original_proj.results_dir)
 
         return results_dirs
-            # builder.build_proj_and_apk(build_type=self.build_type,build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT)
-            # self.analyzer.analyze(app, **{'instr_type': self.instrumentation_type, 'testing_framework': self.testing_framework})
+
+    def just_build_static_analyze(self, retry=False):
+        """analyze apps obtained from app_projects_ut."""
+        results_dirs = []
+        for app_proj in self.app_projects_ut:
+            app_name = os.path.basename(app_proj)
+            logi("Processing app " + app_name + " in " + app_proj)
+            app_name = os.path.basename(app_proj)
+            original_proj = AndroidProject(projname=app_name, projdir=app_proj,
+                                           results_dir=self.results_dir,
+                                           clean_instrumentations=self.reinstrument)
+            apk_paths = original_proj.get_apks(build_type=BUILD_TYPE.ANY)
+            apk_path = apk_paths[0] if len(apk_paths) > 0 else None
+            if apk_path is None:
+                logw(f"Unable to find apk for {app_proj}. Skipping app")
+                continue
+            app = App(self.device, original_proj, original_proj.pkg_name, apk_path=apk_path, local_res_dir=original_proj.results_dir)
+            self.post_build_analyzers.analyze_app(app)
+            results_dirs.append(original_proj.results_dir)
+
+        return results_dirs
 
     def __get_project_root_dir(self, dir_path):
         """infers Android project root directory."""

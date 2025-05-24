@@ -10,6 +10,8 @@ from pylab import *
 
 from textops import find, cat
 
+from anadroid.analysis.post_build_analysis.DroidLensAnalyzer import DroidLensAnalysis
+from anadroid.analysis.post_build_analysis.EcoAndroidResourceLeaksAnalyzer import EcoAndroidResourceLeaksAnalysis
 from anadroid.analysis.pre_build_analysis.ADoctorAnalysis import ADoctorAnalysis
 from anadroid.analysis.pre_build_analysis.DAAPAnalysis import DAAPAnalysis
 from anadroid.analysis.pre_build_analysis.EcoAndroidAnalysis import EcoAndroidAnalysis
@@ -145,10 +147,11 @@ class LanguageStats(object):
 
 
 
-    def parse_file(self, filepath):
-        with open(filepath, 'r') as jj:
-            info = json.load(jj)
+    def parse_repo(self, filepath):
         proj_results_dir = os.path.dirname(filepath)
+        scc_file = os.path.join(proj_results_dir, 'scc.json')
+        with open(scc_file, 'r') as jj:
+            info = json.load(jj)
         proj_file = os.path.join(proj_results_dir, 'project_path.txt')
         proj_path = str(cat(proj_file))
         if 'unknown' in proj_path:
@@ -176,6 +179,8 @@ class LanguageStats(object):
             return
 
         issues = self.load_project_issues(proj_results_dir)
+        print(len(issues))
+        print(issues)
 
         self.proj_info[proj_path] = {
             'lang_info': info,
@@ -187,28 +192,44 @@ class LanguageStats(object):
             'issues': issues
         }
 
-    def load_project_issues(self,proj_results_dir):
+    def load_project_issues(self, proj_results_dir):
         issues_list = []
         adoctor_file = os.path.join(proj_results_dir, 'adoctor.csv')
         if os.path.exists(adoctor_file):
-            #print("adoctor")
-            issues_list = issues_list + ADoctorAnalysis().get_issues(adoctor_file)
+            # print("adoctor")
+            issues_list = issues_list + list(
+                filter(lambda x: x not in issues_list, ADoctorAnalysis().get_issues(adoctor_file)))
         pmd_files = mega_find(proj_results_dir, pattern="*pmd_analysis.json", type_file='f', maxdepth=2)
         if len(pmd_files) > 0:
             for pmd_file in pmd_files:
-                issues_list = issues_list + PMDAnalysis().get_issues(pmd_file)
+                issues_list = issues_list + list(
+                    filter(lambda x: x not in issues_list, PMDAnalysis().get_issues(pmd_file)))
         daap_files = mega_find(proj_results_dir, pattern="*daap_analysis.json", type_file='f', maxdepth=2)
         if len(daap_files) > 0:
             for daap_file in daap_files:
-                issues_list = issues_list + DAAPAnalysis().get_issues(daap_file)
+                issues_list = issues_list + list(
+                    filter(lambda x: x not in issues_list, DAAPAnalysis().get_issues(daap_file)))
         eco_android_dirs = mega_find(proj_results_dir, pattern="*ecoandroid*", type_file='d', maxdepth=2)
         if len(eco_android_dirs) > 0:
+            print(eco_android_dirs)
             for eco_dir in eco_android_dirs:
-                issues_list = issues_list + EcoAndroidAnalysis().get_issues(eco_dir)
+                if 'resource_leaks' in eco_dir:
+                    issues_list = issues_list + list(
+                        filter(lambda x: x not in issues_list, EcoAndroidResourceLeaksAnalysis().get_issues(eco_dir)))
+                else:
+                    issues_list = issues_list + list(
+                        filter(lambda x: x not in issues_list, EcoAndroidAnalysis().get_issues(eco_dir)))
         lint_results = mega_find(proj_results_dir, pattern="*lint*.xml", type_file='f', maxdepth=2)
         if len(lint_results) > 0:
             for lint_file in lint_results:
-                issues_list = issues_list + LintAnalysis().get_issues(lint_file)
+                print(lint_file)
+                issues_list = issues_list + list(
+                    filter(lambda x: x not in issues_list, LintAnalysis().get_issues(lint_file)))
+        droidlens_results = mega_find(proj_results_dir, pattern="*droidlens*", type_file='d', maxdepth=2)
+        if len(droidlens_results) > 0:
+            for droidlens_dir in droidlens_results:
+                issues_list = issues_list + list(
+                    filter(lambda x: x not in issues_list, DroidLensAnalysis().get_issues(droidlens_dir)))
         return issues_list
 
 
@@ -272,17 +293,30 @@ class LanguageStats(object):
         return is_native
 
 
-    def search_and_parse_files_in_dir(self, directory_path, expected_filename="scc.json"):
+    def search_and_parse_files_in_dir(self, directory_path, expected_filename="project_path.txt"):
         file_list = mega_find(directory_path, pattern=expected_filename, type_file='f')
         for filepath in file_list:
-            self.parse_file(filepath)
+            self.parse_repo(filepath)
 
     def gen_langs_boxplots_loc(self):
         fig1, en_box = plt.subplots()
-        the_list = [ list(map(lambda z: z['Code'], x)) for x in map(lambda t: t['proj_files'], self.language_info.values())]
-        #print(the_list)
-
-        bp_dict = en_box.boxplot(x=the_list,
+        resdic = {}
+        for lang, val in self.language_info.items():
+            #print(val)
+            projs_with_lang = val['proj_files']
+            new_l = []
+            for proj in projs_with_lang:
+                res_langs = list(filter(lambda x: x['Name'] == lang, self.proj_info[proj]['lang_info']))
+                if len(res_langs) == 0:
+                    continue
+                res_langs = res_langs[0]
+                if 'Code' not in res_langs:
+                    continue
+                new_l = new_l + [res_langs['Code']]
+                #print(res_langs)
+                print("------")
+            resdic[lang] = new_l
+        bp_dict = en_box.boxplot(x=list(resdic.values()),
                             notch=False,  # notch shape
                             vert=True,  # vertical box aligmnent
                             sym='ko',  # red circle for outliers
@@ -303,7 +337,7 @@ class LanguageStats(object):
             i = i + 1
             bplot.set_facecolor(colors[i % len(colors)])
 
-        xtickNames = plt.setp(en_box, xticklabels=list(self.language_info.keys()))
+        xtickNames = plt.setp(en_box, xticklabels=list(resdic.keys()))
         plt.setp(xtickNames, rotation=90, fontsize=5)
         plt.suptitle("All Projects' LoC")
         plt.show()
@@ -333,9 +367,24 @@ class LanguageStats(object):
 
     def gen_langs_boxplots_cc(self):
         fig1, en_box = plt.subplots()
-        the_list = [ list(map(lambda z: z['Complexity'], x)) for x in map(lambda t: t['proj_files'], self.language_info.values())]
+        resdic = {}
+        for lang, val in self.language_info.items():
+            #print(val)
+            projs_with_lang = val['proj_files']
+            new_l = []
+            for proj in projs_with_lang:
+                res_langs = list(filter(lambda x: x['Name'] == lang, self.proj_info[proj]['lang_info']))
+                if len(res_langs) == 0:
+                    continue
+                res_langs = res_langs[0]
+                if 'Complexity' not in res_langs:
+                    continue
+                new_l = new_l + [res_langs['Complexity']]
+                #print(res_langs)
+                print("------")
+            resdic[lang] = new_l
 
-        bp_dict = en_box.boxplot(x=the_list,
+        bp_dict = en_box.boxplot(x=list(resdic.values()),
                             notch=False,  # notch shape
                             vert=True,  # vertical box aligmnent
                             sym='ko',  # red circle for outliers
@@ -356,7 +405,7 @@ class LanguageStats(object):
             i = i + 1
             bplot.set_facecolor(colors[i % len(colors)])
 
-        xtickNames = plt.setp(en_box, xticklabels=list(self.language_info.keys()))
+        xtickNames = plt.setp(en_box, xticklabels=list(resdic.keys()))
         plt.setp(xtickNames, rotation=90, fontsize=5)
         plt.suptitle("All Projects' CC")
         plt.show()
@@ -527,6 +576,41 @@ class LanguageStats(object):
         plt.tight_layout()
         plt.show()
 
+    def gen_plot_apps_loc_per_model(self):
+        # generate a boxplot of the number of lines of code per model (if the projdir contains gpt or gemini)
+        loc_per_model = {}
+        print(self.proj_info)
+        for proj, proj_d in self.proj_info.items():
+            print(proj)
+            if 'gpt' in proj.lower():
+                model = 'gpt'
+            else:
+                model = 'gemini'
+
+            loc = sum([x['Code'] for x in proj_d['lang_info']])
+            if model not in loc_per_model:
+                loc_per_model[model] = []
+            loc_per_model[model].append(loc)
+        plt.figure(figsize=(10, 6))
+        # start y axis at 0
+        plt.ylim(0, max([max(x) for x in loc_per_model.values()]) * 1.1)
+        boxes = plt.boxplot(loc_per_model.values(), patch_artist=True, labels=loc_per_model.keys())
+        # set colors
+        colors = ['lightblue', 'darkkhaki']
+        i = 0
+        for bplot in boxes['boxes']:
+            i = i + 1
+            bplot.set_facecolor(colors[i % len(colors)])
+        # add labels
+        for i in range(len(loc_per_model.keys())):
+            plt.text(i + 1, boxes['medians'][i].get_ydata()[0],
+                     str(int(boxes['medians'][i].get_ydata()[0])), ha='center', va='bottom')
+        plt.ylabel('Number of Lines of Code')
+        plt.title('Number of Lines of Code per Model' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
+
     # issues
     def gen_plot_apps_issues(self):
         #all_issues = set()
@@ -537,15 +621,36 @@ class LanguageStats(object):
                     continue
                 #all_issues.add(issue.issue_type)
                 issue_name = getattr(issue.issue_type, 'value', issue.issue_type).strip().lower()
-                if issue_name not in issues_dict:
-                    issues_dict[issue_name] = set()
-                    issues_dict[issue_name].add(proj)
+                orig_name = issue_name
+                if issue_name.lower() == 'syntaxerror':
+                    continue
+                if 'gpt' in proj.lower():
+                    issue_name = issue_name + '_gpt'
                 else:
-                    issues_dict[issue_name].add(proj)
+                    issue_name = issue_name + '_gemini'
+                if issue_name not in issues_dict:
+                    #issues_dict[issue_name ] = set()
+                    if issue_name + '_gpt' not in issues_dict:
+                        issues_dict[orig_name + '_gpt'] = set()
+                    if issue_name + '_gemini' not in issues_dict:
+                        issues_dict[orig_name + '_gemini'] = set()
+
+
+                issues_dict[issue_name].add(proj)
+        # sort the issues_dict alphabetically
+        #issues_dict = dict(sorted(issues_dict.items(), key=lambda item: item[0]))
+        #colors = ['lightblue', 'darkkhaki']
+
+        issues_dict = dict(sorted(issues_dict.items(), key=lambda item: item[0]))
+        colors = ['lightblue', 'darkkhaki']
         plt.figure(figsize=(10, 6))
         bar_dict = plt.bar(issues_dict.keys(), [len(x) for x in issues_dict.values()])
         for i in issues_dict.keys():
             plt.text(i, len(issues_dict[i]), str(len(issues_dict[i])), ha='center', va='bottom')
+        i = 0
+        for bar in bar_dict:
+            bar.set_facecolor(colors[i % len(colors)])
+            i = i + 1
         plt.xlabel('Issues')
         plt.ylabel('Number of Projects')
         plt.title('Project count per issue ' + f" (Total Projects: {len(self.parsed_files)})")
@@ -562,17 +667,143 @@ class LanguageStats(object):
                     continue
                 #all_issues.add(issue.issue_type)
                 issue_name = getattr(issue.issue_type, 'value', issue.issue_type).strip().lower()
-                if issue_name not in issues_dict:
-                    issues_dict[issue_name] = [proj]
+                if issue_name.lower() == 'syntaxerror':
+                    continue
+                orig_name = issue_name
+                if 'gpt' in proj.lower():
+                    issue_name = issue_name + '_gpt'
                 else:
-                    issues_dict[issue_name].append(proj)
+                    issue_name = issue_name + '_gemini'
+                if issue_name not in issues_dict:
+                    # issues_dict[issue_name ] = set()
+                    if issue_name + '_gpt' not in issues_dict:
+                        issues_dict[orig_name + '_gpt'] = set()
+                    if issue_name + '_gemini' not in issues_dict:
+                        issues_dict[orig_name + '_gemini'] = set()
+                issues_dict[issue_name].add(proj)
         plt.figure(figsize=(10, 6))
+        # sort the issues_dict alphabetically
+        issues_dict = dict(sorted(issues_dict.items(), key=lambda item: item[0]))
         bar_dict = plt.bar(issues_dict.keys(), [len(x) for x in issues_dict.values()])
         for i in issues_dict.keys():
             plt.text(i, len(issues_dict[i]), str(len(issues_dict[i])), ha='center', va='bottom')
+        colors = ['lightblue', 'darkkhaki']
+        i = 0
+        for bar in bar_dict:
+            bar.set_facecolor(colors[i % len(colors)])
+            i = i + 1
+
         plt.xlabel('Issues')
         plt.ylabel('# Occurrences')
-        plt.title('Project count per issue ' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('# Occurrences per issue ' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
+
+    def gen_manual_proj_histogram(self):
+        di = {
+        "FlappyBird": 29,
+        "GPTFlappyBird": 12,
+        "GPTGame2048": 23,
+        "GPTPhotoGallery": 7,
+        "GPTScientificCalculator": 14,
+        "GPTToDoNotes": 16,
+        "GPTWeather": 4,
+        "GalleryApp": 6,
+        "ScientificCalculator": 11,
+        "ToDoNotes": 8,
+        "WeatherApp": 11,
+        "game2048": 30,
+        "FlappyBird_tp": 23,
+        "GPTFlappyBird_tp": 10,
+        "GPTGame2048_tp": 20,
+        "GPTPhotoGallery_tp": 5,
+        "GPTScientificCalculator_tp": 14,
+        "GPTToDoNotes_tp": 9,
+        "GPTWeather_tp": 3,
+        "GalleryApp_tp": 3,
+        "ScientificCalculator_tp": 10,
+        "ToDoNotes_tp": 6,
+        "WeatherApp_tp": 10,
+        "game2048_tp": 27
+        }
+        plt.figure(figsize=(10, 6))
+        # sort the issues_dict alphabetically
+        di = dict(sorted(di.items(), key=lambda item: item[0]))
+        bar_dict = plt.bar(di.keys(), di.values())
+        for i in di.keys():
+            plt.text(i, di[i], str(di[i]), ha='center', va='bottom')
+        colors = ['lightblue', 'darkkhaki']
+        i = 0
+        for bar in bar_dict:
+            bar.set_facecolor(colors[i % len(colors)])
+            i = i + 1
+        plt.xlabel('Projects')
+        plt.ylabel('Number of Projects')
+        plt.title('Number of Issues per Project ' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
+
+    def gen_manual_issue_tp_histogram(self):
+        di = {
+            "AppendCharacterWithChar": 7,
+        "AvoidFileStream": 5,
+        "AvoidInstantiatingObjectsInLoops": 9,
+        "DataTransmissionWithoutCompression": 5,
+        "DrawAllocation": 2,
+        "DroppedData": 14,
+        "InefficientWeight": 1,
+        "LeakingInnerClass": 4,
+        "LeakingThread": 2,
+        "LogConditional": 7,
+        "MemberIgnoringMethod": 17,
+        "MergeRootFrame": 1,
+        "NoLowMemoryResolver": 13,
+        "Overdraw": 2,
+        "RedundantFieldInitializer": 9,
+        "SlowForLoop": 5,
+        "SyntheticAccessor": 58,
+        "TooFewBranchesForSwitch": 1,
+        "UnclosedCloseable": 1,
+        "UnusedIds": 1,
+        "UnusedResources": 7,
+        "AppendCharacterWithChar_tp": 7,
+        "AvoidFileStream_tp": 5,
+        "DataTransmissionWithoutCompression_tp": 0,
+        "MergeRootFrame_tp": 1,
+        "AvoidInstantiatingObjectsInLoops_tp": 8,
+        "SlowForLoop_tp": 0,
+        "DrawAllocation_tp": 1,
+        "DroppedData_tp": 14,
+        "InefficientWeight_tp": 1,
+        "LeakingInnerClass_tp": 1,
+        "UnclosedCloseable_tp": 0,
+        "LeakingThread_tp": 2,
+        "LogConditional_tp": 7,
+        "MemberIgnoringMethod_tp": 4,
+        "NoLowMemoryResolver_tp": 13,
+        "Overdraw_tp": 2,
+        "RedundantFieldInitializer_tp": 9,
+        "SyntheticAccessor_tp": 57,
+        "TooFewBranchesForSwitch_tp": 1,
+        "UnusedIds_tp": 1,
+        "UnusedResources_tp": 7
+        }
+        plt.figure(figsize=(10, 6))
+        # sort the issues_dict alphabetically
+        di = dict(sorted(di.items(), key=lambda item: item[0]))
+        bar_dict = plt.bar(di.keys(), di.values())
+        for i in di.keys():
+            plt.text(i, di[i], str(di[i]), ha='center', va='bottom')
+        colors = ['lightblue', 'darkkhaki']
+        i = 0
+        for bar in bar_dict:
+            bar.set_facecolor(colors[i % len(colors)])
+            i = i + 1
+        plt.xlabel('Issues')
+        plt.ylabel('Number of Issues')
+        plt.title('Unique occurrences of Issues ' + f" (Total Projects: {len(self.parsed_files)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -664,29 +895,32 @@ class LanguageStats(object):
 def main(lookup_dir):
     #lookup_dir = "/Users/ruirua/repos/pyAnaDroid/demoProjects"
     #build_scc_json_for_all_projs(lookup_dir)
-    #ls = LanguageStats()
-    #ls.search_and_parse_files_in_dir(lookup_dir, expected_filename="scc.json")
+    ls = LanguageStats()
+    ls.search_and_parse_files_in_dir(lookup_dir, expected_filename="scc.json")
+    ls.gen_stats()
     #print(json.dumps(ls.language_info, indent=1))
     #ls.plot_language_histogram()
     #ls.gen_langs_boxplots_loc()
+    ls.gen_plot_apps_loc_per_model()
+    ls.gen_manual_proj_histogram()
+    ls.gen_manual_issue_tp_histogram()
     #ls.gen_langs_boxplots_cc()
     #ls.gen_langs_boxplots_total_files()
     #ls.gen_langs_pure_histogram()
     #ls.gen_cross_play_histogram()
-    #ls.gen_stats()
-    x = """
-    ls.gen_plot_app_play_issues_occurrences_critical()
-    ls.gen_plot_apps_age_play()
-    ls.gen_plot_apps_age()
-    ls.gen_plot_apps_issues()
-    ls.gen_plot_apps_issues_occurrences()
 
-    ls.gen_plot_app_play_issues()
-    ls.gen_plot_app_play_issues_occurrences()
-    ls.gen_plot_issues_per_year()
-    """
 
-    plot_true_positives()
+    #ls.gen_plot_app_play_issues_occurrences_critical()
+    #ls.gen_plot_apps_age_play()
+    #ls.gen_plot_apps_age()
+    #ls.gen_plot_apps_issues()
+    #ls.gen_plot_apps_issues_occurrences()
+
+    #ls.gen_plot_app_play_issues()
+    #ls.gen_plot_app_play_issues_occurrences()
+    #ls.gen_plot_issues_per_year()
+
+    #plot_true_positives()
 
 def plot_true_positives(filepath="classified_regressions.csv"):
     # get true positives
@@ -703,7 +937,7 @@ def plot_true_positives(filepath="classified_regressions.csv"):
             if is_tp:
                 tps[issue_name] = tps[issue_name] + 1 if issue_name in tps else 1
         #info = json.load(jj)
-    print(tps)
+    #print(tps)
     plt.bar(tps.keys(), tps.values(), color='skyblue')
     plt.xlabel('Issues')
     plt.ylabel('Number of TPs')

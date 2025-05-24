@@ -637,7 +637,6 @@ def augmentate_true_positives_dateset(csv_filename='regressions.csv', lim_per_is
                    reg['commit_message'], curr_manual_label, final_label, had_git_diff=sub_git_diff, had_file_content=sub_file_ctnt)
 
 
-
 if __name__ == '__main__':
     csv_filename = "all_regressions.csv"
     issue_lim = 100

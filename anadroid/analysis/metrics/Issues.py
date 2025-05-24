@@ -1,3 +1,4 @@
+import os.path
 import traceback
 from enum import Enum
 
@@ -23,7 +24,7 @@ def issue_from_string(issue_str, sep=','):
         #print(issue_parts[0])
         issue_type = issue_parts[0].strip()
     #print(issue_parts)
-    category = IssueCategory(issue_parts[1].strip())
+    category = IssueCategory(issue_parts[1].strip().upper())
     severity = issue_parts[2].strip()  if  issue_parts[2].strip()  != "None" else None
     detec_tool = issue_parts[3].strip()  if  issue_parts[3].strip()  != "None" else None
     description = issue_parts[4].strip() if  issue_parts[4].strip()  != "None" else None
@@ -34,6 +35,13 @@ def issue_from_string(issue_str, sep=','):
     code = issue_parts[9].strip() if len(issue_parts) > 9 and issue_parts[9].strip()  != "None" else None
     i_class = issue_parts[10].strip() if len(issue_parts) > 10 and issue_parts[10].strip()  != "None" else None
     return Issue(issue_type, category, severity, description, file, i_class, detec_tool, line, column, method, code=code)
+
+
+def are_equal_or_one_is_none(a, b):
+    if a is None or b is None or a == "" or b == "":
+        return True
+    return a == b
+
 
 class Issue(object):
     def __init__(self, issue_type, category=IssueCategory.PERFORMANCE, severity=None, description=None, file=None,
@@ -79,11 +87,29 @@ class Issue(object):
         return self.get_simple_name() + " @ " + self.get_issue_location()
 
     def __eq__(self, other):
-        return (str(self.issue_type) == str(other.issue_type)
-                and getattr(self, 'file', None) == getattr(other, 'file', None)
-                and getattr(self, 'i_class', None) == getattr(other, 'i_class', None)
-                and getattr(self, 'method', None) == getattr(other, 'method', None)
+        val = (
+            getattr(self.issue_type, 'value', self.issue_type) == getattr(other.issue_type, 'value', other.issue_type)
+            and ((getattr(self, 'file', 'a') == getattr(other, 'file', 'b') and not getattr(self, 'file', None) is None)
+                or (getattr(self, 'i_class', None) == getattr(other, 'i_class', None))
+                 or (self.get_file_id() == other.get_file_id()
+                     and are_equal_or_one_is_none(getattr(self, 'i_class', None), getattr(other, 'i_class', None)))
                 )
+            and are_equal_or_one_is_none(getattr(self, 'method', None), getattr(other, 'method', None))
+            and are_equal_or_one_is_none(getattr(self, 'line', None) , getattr(other, 'line', None))
+            and not (self.detection_tool_name == other.detection_tool_name and self.description != other.description)
+        )
+        #print(self.i_class, other.i_class, val, getattr(self, 'file', 'a') == getattr(other, 'file', 'b'))
+        return val
+
+    def get_file_id(self):
+        if self.file is None:
+            return None
+        filename = os.path.basename(self.file)
+        filename = (filename.replace(".java", "")
+                    .replace(".kt", "")
+                    .replace(".xml", "")
+                    .replace(".gradle", ""))
+        return filename
 
     def is_more_descriptive(self, other_issue):
         # evaluate if has more non None fields than other_issue
@@ -117,7 +143,7 @@ class KnownStaticPerformanceIssues(Enum):
     LEAKING_INNER_CLASS = "LeakingInnerClass"
     UNSUITED_LRU_CACHE_SIZE = "UnsuitedLRUCacheSize"
     HASHMAP_USAGE = "HashmapUsage"
-    UI_OVERDRAW = "UIOverdraw"
+    UI_OVERDRAW = "Overdraw"
     INVALIDATE_WITHOUT_RECT = "InvalidatewithoutRect"
     UNSUPPORTED_HARDWARE_ACCELERATION = "UnsupportedHardwareAcceleration"
     HEAVY_ASYNC_TASK = "HeavyAsyncTask"
@@ -212,3 +238,4 @@ class KnownStaticPerformanceIssues(Enum):
     TOO_DEEP_LAYOUT = "TooDeepLayout"
     USE_COMPOUND_DRAWABLES = "UseCompoundDrawables"
     USE_OF_BUNDLED_GOOGLE_PLAY_SERVICES = "UseOfBundledGooglePlayServices"
+    SYNTHETIC_ACCESSOR = "SyntheticAccessor"

@@ -102,7 +102,7 @@ class DAAPAnalysis(StaticAnalyzer):
             with open(output_filepath, 'w') as f:
                 json.dump(find_dict, f, indent=1)
 
-    def get_issues(self, results_file):
+    def get_issues(self, results_file, ignore_tests=True):
         issues = []
         try:
             with open(results_file, "r") as file:
@@ -112,6 +112,9 @@ class DAAPAnalysis(StaticAnalyzer):
                 if files:  # Only store issues that have associated file paths
                     for file in files:
                         if issue_type in self.identifiable_issues:
+                            if 'src' in file and (
+                                    'test' in file or 'androidTest' in file or "nstrumentedTest" in file) and ignore_tests:
+                                continue
                             issues.append(Issue(self.identifiable_issues[issue_type],
                                                 file=os.path.join(module_name, file), detection_tool_name="DAAP"))
             #logs(f"Found {len(issues)} issues in {results_file}")

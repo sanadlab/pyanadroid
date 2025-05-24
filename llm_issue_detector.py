@@ -29,7 +29,7 @@ RESULTS_FOLDER = "llm_results"
 #CURR_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
 #CURR_MODEL = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free"
 #model="deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free
-CLASSIFIED_REGRESSIONS_FILE = "new_classified_regressions.csv"
+CLASSIFIED_REGRESSIONS_FILE = "reclassified_true_positives.csv"
 
 SUPPORTED_MODELS = {
     "llama-3.3-70B": {
@@ -245,6 +245,10 @@ def blind_test_procedure_examples(repeat=False):
                 print(val)
                 exit(-1)
             prob, sol = val
+            if prob is None or sol is None:
+                print("Invalid example", len(val))
+                print(val)
+                exit(-1)
             sol_list = [prob, sol]
             random.shuffle(sol_list)
             optimal_answer = 1 if prob == sol_list[1] else 2
@@ -273,11 +277,14 @@ def save_label(file_path, issue_name, issue_instance_id, result, label, results_
         writer = csv.writer(file, delimiter=';')
         writer.writerow([issue_name, issue_instance_id, result, label])
 
-def blind_test_procedure_real():
-    filename = "blind_test_real.csv"
+def blind_test_procedure_real(issue_source):
+    if issue_source == "vibe_coding":
+        loge("Vibe coding not supported. there is no corresponding solutions available")
+        return
+    filename = f"{issue_source}_blind_test_real.csv"
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
-    issue_list = load_true_positive_issues()
+    issue_list = get_issue_list(issue_source)
     issue_buckets = create_issue_buckets(issue_list, bucket_size=30)
     already_processed_issues = load_engineered_issues(filename)
     for issue_name, issue_list in issue_buckets.items():
@@ -287,16 +294,18 @@ def blind_test_procedure_real():
         except:
             loge(f"Error loading issue {issue_name}")
             continue
-        print(issue_spec)
+        #print(issue_spec)
         for j, issue_instance in enumerate(issue_list):
             print(f"Sample {j}")
-            issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
+            issue_instance_id = f"{issue_instance['repo_dir']}" + (f";{issue_instance['prev_commit_hash']}" if issue_instance.get('prev_commit_hash', None) is not None else "")
             if issue_instance_id in already_processed_issues.get(issue_name, {}):
                 print(f"Skipping {issue_instance_id}")
                 continue
             code_sample = fetch_code_from_issue(issue_instance, regressions)
-            #print(code_sample)
-            sol_sample = fetch_code_from_issue(issue_instance, regressions)
+            sol_sample = fetch_sol_code_from_issue(issue_instance, regressions)
+            if code_sample is None or sol_sample is None or code_sample == sol_sample:
+                loge("Invalid examples: " + str(issue_spec) + str(code_sample) + " " + str(sol_sample))
+                continue
             sol_list = [code_sample, sol_sample]
             random.shuffle(sol_list)
             optimal_answer = 1 if code_sample == sol_list[1] else 2
@@ -342,6 +351,8 @@ def load_classified_regressions(filename=CLASSIFIED_REGRESSIONS_FILE):
         reader = csv.reader(file, delimiter=';')
         for row in reader:
             # /Users/rar9993/repos/research/fdroid_apps/native_apps/Player,7783f82bc5e9e238100ca9be0cd440b0a072d0e1,Merge branch 'master' into flavorless,"KnownStaticPerformanceIssues.MEMBER_IGNORING_METHOD, PERFORMANCE, None, DAAP None, /src/online/java/com/brouken/player/UpdateCheckJobService.java, None, None, None, None",def_removal
+            if len(row) < 10:
+                continue
             v = {
                     'issue_name': row[0],
                     'repo_dir': row[1],
@@ -370,45 +381,56 @@ def create_issue_buckets(issue_list, bucket_size=30):
     for issue in issue_list:
         if issue['issue_name'] not in issue_buckets:
             issue_buckets[issue['issue_name']] = []
-        is_issue_on_that_repo_already_there = any([i for i in issue_buckets[issue['issue_name']] if i['repo_dir'] == issue['repo_dir'] and i['prev_commit_hash'] == issue['prev_commit_hash']])
+        is_issue_on_that_repo_already_there = any([i for i in issue_buckets[issue['issue_name']] if i['repo_dir'] == issue['repo_dir'] and i.get('prev_commit_hash', None) == issue.get('prev_commit_hash', None)])
         if is_issue_on_that_repo_already_there or len(issue_buckets[issue['issue_name']]) >= bucket_size:
             continue
         issue_buckets[issue['issue_name']].append(issue)
     return issue_buckets
 
 
-def get_issue_file(repo_dir, curr_commit, issue):
-    if issue.file is None:
+def get_issue_file(repo_dir, curr_commit, issue, filename=None):
+    if filename is None and (issue is None or getattr(issue, 'file') is None):
         return None
-    file_cmd = f'cd {repo_dir} ; git checkout -f {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
-    #print("file comd", file_cmd)
+    file_n = filename if filename is not None else issue.file
+    cm = curr_commit if curr_commit is not None else 'master' if issue is None else getattr(issue, 'file')
+    if cm == '':
+        cm = 'master'
+    if repo_dir == '':
+        return None
+    file_cmd = f'cd {repo_dir} ; git checkout -f {cm} > /dev/null 2>&1 ; find {repo_dir} -type f -name { os.path.basename(file_n)} | head -1'
+    #print(file_cmd)
     file_find = execute_shell_command(file_cmd)
+    #print(file_find)
     file_find.validate()
     return file_find.output.strip() if file_find.output.strip() != "" else None
 
 
-def get_file_content(repo_dir, curr_commit, issue, def_null_value="No info available"):
-    issue_file = get_issue_file(repo_dir, curr_commit, issue)
+def get_file_content(repo_dir, curr_commit, issue, filename=None):
+    issue_file = get_issue_file(repo_dir, curr_commit, issue, filename)
     if issue_file is None:
-        return def_null_value
+        return None
     cont_cmd = f'cd {repo_dir} && git show {curr_commit}:{issue_file.strip()}'
     #print(cont_cmd)
     file_content_res = execute_shell_command(cont_cmd)
-    file_content_res.validate()
+    if file_content_res.return_code != 0 and issue_file is not None and os.path.exists(issue_file):
+        file_content_res = execute_shell_command(f'cat {issue_file}')
     #ret_file_code = file_content_res.return_code
     file_content = file_content_res.output
     if file_content.strip() == "":
-        file_content = def_null_value
+        file_content = None
     return file_content
 
 
 def fetch_code_from_issue(issue_reg, regressions_list):
-    matching_instance = [r for r in regressions_list if r['prev_commit_hash'] == issue_reg['prev_commit_hash']
+    matching_instance = [r for r in regressions_list if r.get('prev_commit_hash', None) == issue_reg.get('prev_commit_hash', None)
                          and issue_reg['issue_name'] == r['issue'].get_simple_name()
                          and r['repo_dir'] == issue_reg['repo_dir']
                          and  issue_reg['issue_name'] == r['issue'].get_simple_name() ]
     if len(matching_instance) == 0:
-        return None
+        return get_file_content(issue_reg['repo_dir'],
+                                issue_reg.get('prev_commit_hash',None),
+                                None, filename=issue_reg['issue_location'].split("|")[0].split(":")[-1].strip())
+
     has_line_info = matching_instance[0]['issue'].line is not None
     if has_line_info:
         print(issue_reg['issue_name'], "has Line  info", matching_instance[0]['issue'].line)
@@ -417,12 +439,14 @@ def fetch_code_from_issue(issue_reg, regressions_list):
 
 
 def fetch_sol_code_from_issue(issue_reg, regressions_list):
-    matching_instance = [r for r in regressions_list if r['commit_hash'] == issue_reg['commit_hash']
+    matching_instance = [r for r in regressions_list if r.get('commit_hash') == issue_reg.get('commit_hash')
                          and issue_reg['issue_name'] == r['issue'].get_simple_name()
                          and r['repo_dir'] == issue_reg['repo_dir']
                          and  issue_reg['issue_name'] == r['issue'].get_simple_name() ]
     if len(matching_instance) == 0:
-        return None
+        return get_file_content(issue_reg['repo_dir'],
+                                issue_reg.get('commit_hash', None),
+                                None, filename=issue_reg['issue_location'].split("|")[0].split(":")[-1].strip())
     return get_file_content(matching_instance[0]['repo_dir'], matching_instance[0]['commit_hash'],
                             matching_instance[0]['issue'], None)
 
@@ -460,13 +484,13 @@ def zero_shot_code_samples():
             save_label(filename, issue, f"Example_{j}" ,res.replace(";", ""),
                        correct_call)
 
-def zero_shot_procedure():
+def zero_shot_procedure(issue_source):
     # load at most N instances of each issue
-    filename = "zero_shot_real_detailed.csv"
+    filename = f"{issue_source}_zero_shot_real_detailed.csv"
     n_instances = 50
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
-    issue_list = load_true_positive_issues()
+    issue_list = get_issue_list(issue_source)
     issue_buckets = create_issue_buckets(issue_list, bucket_size=n_instances)
     already_processed_issues = load_engineered_issues(filename)
     #zero_shot_code_samples()
@@ -506,7 +530,7 @@ def zero_shot_procedure():
             else:
                 correct_call = "Unknown"
                 loge(correct_call)
-            save_label("zero_shot_real.csv", issue_name, issue_instance_id, res.replace(";",""), correct_call)
+            save_label(f"{issue_source}_zero_shot_real.csv", issue_name, issue_instance_id, res.replace(";",""), correct_call)
             res = zero_shot_issue_detection_detailed(code_sample, issue_spec_str, call_id=f"{inspect.currentframe().f_code.co_name}_detailed_{issue_name}_{j}")
             if res is None:
                 correct_call = "Inconclusive"
@@ -540,13 +564,13 @@ def few_shot_issue_detection(code_sample, issue_spec, input_set, call_id=None):
         save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}")
         return "few shot failed"
 
-def few_shot_procedure():
+def few_shot_procedure(issue_source="true_positives"):
     print("few shot")
-    filename = "2_shot.csv"
+    filename = f"{issue_source}_2_shot.csv"
     n_instances = 50
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
-    issue_list = load_true_positive_issues()
+    issue_list = get_issue_list(issue_source)
     issue_buckets = create_issue_buckets(issue_list, bucket_size=n_instances)
     already_processed_issues = load_engineered_issues(filename)
     for issue_name, issue_list in issue_buckets.items():
@@ -587,7 +611,7 @@ def few_shot_procedure():
                 #print(res)
                 loge(correct_call)
             issue_instance_id = f"{issue_instance['repo_dir']};{issue_instance['prev_commit_hash']}"
-            save_label("1_shot.csv", issue_name, issue_instance_id,
+            save_label(f"{issue_source}_1_shot.csv", issue_name, issue_instance_id,
                        res.replace(";",""), correct_call)
             print(res)
             val = re.sub(r'-{3,}', '---', issue_specs[issue_name][f'example_2']).split("---")
@@ -646,13 +670,13 @@ def load_engineered_issues(filename):
             issues[row[0]][row[1]] = row
     return issues
 
-def chain_of_thought_procedure(repeat=False):
-    filename = "cot.csv"
+def chain_of_thought_procedure(repeat=False, issue_source="true_positives"):
+    filename = f"{issue_source}_cot.csv"
     n_instances = 50
     already_processed_issues = load_engineered_issues(filename)
     issue_specs = load_issue_specification_list()
     regressions = load_regressions_csv()
-    issue_list = load_true_positive_issues()
+    issue_list = get_issue_list(issue_source)
     issue_buckets = create_issue_buckets(issue_list, bucket_size=n_instances)
     for issue_name, issue_list in issue_buckets.items():
         print(f"Checking issue: {issue_name}", len(issue_list), "instances")
@@ -700,20 +724,54 @@ def chain_of_thought_procedure(repeat=False):
             save_label(filename, issue_name, issue_instance_id,
                        res.replace(";", ""), correct_call)
 
-def blind_shot():
-    blind_test_procedure_examples()
-    blind_test_procedure_real()
+def blind_shot(issue_source):
+    #blind_test_procedure_examples()
+    blind_test_procedure_real(issue_source=issue_source)
 
 def zero_shot():
     print("Zero shot")
     zero_shot_code_samples()
     zero_shot_procedure()
 
-def main():
-    blind_shot()
-    zero_shot()
-    few_shot_procedure()
-    chain_of_thought_procedure()
+def main(issue_source):
+    blind_shot(issue_source=issue_source)
+    #zero_shot()
+    #few_shot_procedure(issue_source=issue_source)
+    #chain_of_thought_procedure(issue_source=issue_source)
+
+
+def get_issue_list(source):
+    if source == "true_positives":
+        return load_true_positive_issues()
+    elif source == "vibe_coding":
+        res = load_vibe_coding_issues()
+        return res
+    else:
+        raise Exception(f"Unknown issue source {source}")
+
+def load_vibe_coding_issues(filename="clean_vibe_coding_issues_annotated.csv"):
+    if not os.path.exists(filename):
+        print(f"File {filename} not found")
+        return None
+    with open(filename, 'r') as file:
+        reader = csv.reader(file, delimiter=';')
+        next(reader)
+        issues = []
+        for row in reader:
+            #print(row)
+            if len(row) < 12:
+                continue
+            issue = {
+                'issue_name': row[1],
+                'repo_dir': row[0],
+                'issue_location': row[6],
+                'manual_label': row[9],
+                'reason_label': row[10],
+                'llm_label': row[11]
+            }
+            issues.append(issue)
+    return issues
+
 
 if __name__ ==  '__main__':
     # parse args
@@ -721,10 +779,11 @@ if __name__ ==  '__main__':
     parser.add_argument('--model', type=str, required=True, help='Model to use', choices=list(SUPPORTED_MODELS.keys()) + ["None"])
     parser.add_argument('--client', type=str, required=True, help='Client to use', choices=['together', 'openai', 'google', "None"])
     parser.add_argument('--repeat', action='store_true', help='Repeat the procedure if was already executed', default=False)
+    parser.add_argument('--issue_source', help='issue source to use', choices=['true_positives', 'vibe_coding'], default='true_positives')
     args = parser.parse_args()
     global CURR_MODEL
     CURR_MODEL = get_model(args.model)
     global CURR_CLIENT
     CURR_CLIENT = init_client(args.client)
     print(f"Using model {CURR_MODEL} with client {args.client}")
-    main()
+    main(args.issue_source)
