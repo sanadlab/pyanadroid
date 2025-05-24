@@ -21,7 +21,10 @@ class EcoAndroidResourceLeaksAnalysis(ExecutionResultsAnalyzer):
         self.default_output_dir = default_output_dir
         self.exec_cmd = f"source ~/.zshrc ; j17 ; java -jar {jar_path}"
         self.identifiable_issues = {
-
+            "CURSOR": KnownStaticPerformanceIssues.UNCLOSED_CLOSEABLE,
+            "WAKELOCK": KnownStaticPerformanceIssues.WAKE_LOCK,
+            "SQLITEDB": KnownStaticPerformanceIssues.UNCLOSED_CLOSEABLE,
+            "CAMERA": KnownStaticPerformanceIssues.CAMERA_LEAK,
         }
 
     def setup(self, **kwargs):
@@ -63,7 +66,7 @@ class EcoAndroidResourceLeaksAnalysis(ExecutionResultsAnalyzer):
     def analyze_tests(self, app=None, results_dir=None, **kwargs):
         pass
 
-    def get_issues(self, output_dir, ignore_tests=True):
+    def get_issues(self, output_dir):
         #ignore_pkgs = ['androidx', 'app_key', 'android.support', 'com.android', 'com.google', 'dalvik', 'org.apache', 'kotlinx', 'kotlin.', 'java', 'javax', 'org.jetbrains']
         if not os.path.exists(output_dir):
             print(f"Error: {output_dir} does not exist.")
@@ -72,25 +75,34 @@ class EcoAndroidResourceLeaksAnalysis(ExecutionResultsAnalyzer):
         # Iterate over XML files in the output directory
         for root_dir, _, files in os.walk(output_dir):
             for file in files:
-                if file.endswith(".csv"):  # Ensure we're processing only csv files
+                if file.endswith("_all.csv"):  # Ensure we're processing only csv files
                     file_path = os.path.join(root_dir, file)
-                    issue_id = file.split("_")[-1].replace(".csv", "")
+                    print(file_path)
+                    #issue_id = file.split("_")[-1].replace(".csv", "")
                     #print(f"Pro", issue_id)
                     with open(file_path, 'r') as f:
+                        #next(f)
+                        header = next(f)
+                        rl_index = 5 if 'setupTime' in header else 4
                         for line in f:
+                            if len(line.split(",")) < 5:
+                                continue
+                            issue_id = line.split(",")[rl_index]
                             #if line.strip() == "" or any(pkg in line for pkg in ignore_pkgs):
                                #print(f"Ignoring line: {line.strip()}")
                             #   continue
                             #if issue_id not in self.identifiable_issues:
                             #    continue
-                            if 'src' in file_path and ('test' in file_path or 'androidTest' in file_path or "InstrumentedTest" in file_path) and ignore_tests:
-                                continue
-                            issue = Issue(self.identifiable_issues[
-                                issue_id] if issue_id in self.identifiable_issues else issue_id,
-                                i_class=line.strip(),
-                                detection_tool_name="EcoAndroid_RL")
+                            #if 'src' in file_path and ('test' in file_path or 'androidTest' in file_path or "InstrumentedTest" in file_path) and ignore_tests:
+                            #    continue
+                            #print(line)
+                            if issue_id in self.identifiable_issues:
+                                issue = Issue(self.identifiable_issues[issue_id],
+                                    i_class=line.split(",")[rl_index-1],
+                                    description=issue_id,
+                                    detection_tool_name="EcoAndroid_RL")
                             #print(line.strip())
-                            if issue in issues:
-                                continue
-                            issues.append(issue)
+                                if issue in issues:
+                                    continue
+                                issues.append(issue)
         return issues

@@ -74,7 +74,7 @@ class DroidLensAnalysis(ExecutionResultsAnalyzer):
         res_folder_prefix = os.path.join(res_folder, app.package_name)
         if not os.path.exists(res_folder):
             print(f"Creating directory {res_folder}")
-            os.mkdir(res_folder)
+            os.makedirs(res_folder)
         if not retry and len(list(filter(lambda x: x.endswith(".csv"), os.listdir(res_folder)))) > 0:
             logi(f"Skipping analysis for {app.package_name}. Already processed by DroidLens")
             return
@@ -119,12 +119,12 @@ class DroidLensAnalysis(ExecutionResultsAnalyzer):
                                continue
                             if issue_id not in self.identifiable_issues:
                                 continue
-                            if 'src' in file_path and (
-                                    'test' in file_path or 'androidTest' in file_path or "InstrumentedTest" in file_path) and ignore_tests:
-                                continue
+                            #if 'src' in file_path and (
+                            #        'test' in file_path or 'androidTest' in file_path or "InstrumentedTest" in file_path) and ignore_tests:
+                            #    continue
                             issue = Issue(self.identifiable_issues[
                                 issue_id] if issue_id in self.identifiable_issues else issue_id,
-                                i_class=line.strip(),
+                                i_class=line.strip().split("$")[0],
                                 detection_tool_name="DroidLens")
                             #print(line.strip())
                             if issue in issues:

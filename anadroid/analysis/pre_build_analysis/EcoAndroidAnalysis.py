@@ -51,7 +51,6 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             "PassiveProviderLocation": KnownStaticPerformanceIssues.PASSIVE_PROVIDER_LOCATION,
             "SSLSessionCaching": KnownStaticPerformanceIssues.SSL_SESSION_CACHING,
             "URLCaching": KnownStaticPerformanceIssues.URL_CACHING,
-
         }
         self.ignorable_issues = {
             "SpellCheckingInspection",
@@ -195,7 +194,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                                 issue_id = prob_class.get('id', None)
                                 if issue_id is None:
                                     continue
-                            if issue_id not in self.identifiable_issues and issue_id in self.ignorable_issues:
+                            if issue_id not in self.identifiable_issues: # and issue_id in self.ignorable_issues:
                                 continue
                             file_path = issue.find("file", None)
                             if 'src' in file_path and (
@@ -218,7 +217,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                                       detection_tool_name="EcoAndroid",
                                       description=desc.text if desc is not None else None)
                             if issue not in issues:
-                                print(issue)
+                                #print(issue)
                                 issues.append(issue)
                     except Exception as e:
                         loge(f"Error parsing file {file_path}: {e}")

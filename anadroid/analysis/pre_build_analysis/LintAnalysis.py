@@ -64,7 +64,7 @@ class LintAnalysis(StaticAnalyzer):
             "RedundantNamespace": KnownStaticPerformanceIssues.REDUNDANT_NAMESPACE,
             "StaticFieldLeak": KnownStaticPerformanceIssues.STATIC_FIELD_LEAK,
             "StringFormatTrivial": KnownStaticPerformanceIssues.STRING_FORMAT_TRIVIAL,
-            "SyntheticAccessor": KnownStaticPerformanceIssues.LEAKING_INNER_CLASS,
+            "SyntheticAccessor": KnownStaticPerformanceIssues.SYNTHETIC_ACCESSOR,
             "TooDeepLayout": KnownStaticPerformanceIssues.TOO_DEEP_LAYOUT,
             "TooManyViews": KnownStaticPerformanceIssues.TOO_MANY_VIEWS,
             "UnusedIds": KnownStaticPerformanceIssues.UNUSED_IDS,

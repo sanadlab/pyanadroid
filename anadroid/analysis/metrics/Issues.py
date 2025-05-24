@@ -87,14 +87,19 @@ class Issue(object):
         return self.get_simple_name() + " @ " + self.get_issue_location()
 
     def __eq__(self, other):
-        return (getattr(self.issue_type, 'value', self.issue_type) == getattr(other.issue_type, 'value', other.issue_type)
-            and (getattr(self, 'file', None) == getattr(other, 'file', None)
-                or self.get_file_id() == other.get_file_id()
-                or getattr(self, 'i_class', None) == getattr(other, 'i_class', None)
-            )
+        val = (
+            getattr(self.issue_type, 'value', self.issue_type) == getattr(other.issue_type, 'value', other.issue_type)
+            and ((getattr(self, 'file', 'a') == getattr(other, 'file', 'b') and not getattr(self, 'file', None) is None)
+                or (getattr(self, 'i_class', None) == getattr(other, 'i_class', None))
+                 or (self.get_file_id() == other.get_file_id()
+                     and are_equal_or_one_is_none(getattr(self, 'i_class', None), getattr(other, 'i_class', None)))
+                )
             and are_equal_or_one_is_none(getattr(self, 'method', None), getattr(other, 'method', None))
             and are_equal_or_one_is_none(getattr(self, 'line', None) , getattr(other, 'line', None))
+            and not (self.detection_tool_name == other.detection_tool_name and self.description != other.description)
         )
+        #print(self.i_class, other.i_class, val, getattr(self, 'file', 'a') == getattr(other, 'file', 'b'))
+        return val
 
     def get_file_id(self):
         if self.file is None:
@@ -138,7 +143,7 @@ class KnownStaticPerformanceIssues(Enum):
     LEAKING_INNER_CLASS = "LeakingInnerClass"
     UNSUITED_LRU_CACHE_SIZE = "UnsuitedLRUCacheSize"
     HASHMAP_USAGE = "HashmapUsage"
-    UI_OVERDRAW = "UIOverdraw"
+    UI_OVERDRAW = "Overdraw"
     INVALIDATE_WITHOUT_RECT = "InvalidatewithoutRect"
     UNSUPPORTED_HARDWARE_ACCELERATION = "UnsupportedHardwareAcceleration"
     HEAVY_ASYNC_TASK = "HeavyAsyncTask"
@@ -233,3 +238,4 @@ class KnownStaticPerformanceIssues(Enum):
     TOO_DEEP_LAYOUT = "TooDeepLayout"
     USE_COMPOUND_DRAWABLES = "UseCompoundDrawables"
     USE_OF_BUNDLED_GOOGLE_PLAY_SERVICES = "UseOfBundledGooglePlayServices"
+    SYNTHETIC_ACCESSOR = "SyntheticAccessor"

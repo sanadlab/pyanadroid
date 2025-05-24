@@ -16,11 +16,11 @@ DEFAULT_PATH_JAR = os.path.join(get_resources_dir(), 'jars' ,"customLintFatima.j
 class XALintAnalysis(LintAnalysis):
     def __init__(self, analyzers_cfg_file=None, jar_path=DEFAULT_PATH_JAR):
         super().__init__(analyzers_cfg_file, performance_only=False)
-        self.name = 'xaL'
+        self.name = 'xAL'
         self.jar_path = jar_path
         self.exec_cmd = ''
         self.setup()
-        self.identifiable_issues.update({
+        self.xal_issues = {
            "NoLowMemoryResolver": KnownStaticPerformanceIssues.NO_LOW_MEMORY_RESOLVER,
             "InvalidatewithoutRect": KnownStaticPerformanceIssues.INVALIDATE_WITHOUT_RECT,
             "UnsupportedHardwareAcceleration": KnownStaticPerformanceIssues.UNSUPPORTED_HARDWARE_ACCELERATION,
@@ -31,11 +31,21 @@ class XALintAnalysis(LintAnalysis):
             "LifecycleContainment": KnownStaticPerformanceIssues.LIFECYCLE_CONTAINMENT,
             "EarlyResourceBinding": KnownStaticPerformanceIssues.EARLY_RESOURCE_BINDING,
             "ImmortalityBug": KnownStaticPerformanceIssues.IMMORTALITY_BUG,
-
-        })
+        }
+        self.identifiable_issues.update(self.xal_issues)
 
     def setup(self, **kwargs):
         target_location = os.path.join(os.path.expanduser("~"), ".android", 'lint')
         if not os.path.exists(target_location):
             os.makedirs(target_location)
         copy(self.jar_path, target_location)
+
+    def get_issues(self, results_file, ignore_tests=True):
+        name = self.name
+        self.name = 'Lint'
+        issue_l = super().get_issues(results_file, ignore_tests)
+        self.name = name
+        for iss in issue_l:
+            if iss.issue_type in set(self.xal_issues.values()):
+                iss.detection_tool_name = self.name
+        return issue_l

@@ -74,11 +74,13 @@ class ADoctorAnalysis(StaticAnalyzer):
                 if 'src' in filepath and (
                         'test' in filepath or 'androidTest' in filepath or "InstrumentedTest" in filepath) and ignore_tests:
                     continue
+                if len(row) < 2:
+                    continue
                 class_name = row[1]
                 issues_detected = [
                     self.identifiable_issues[headers[i]]
                     for i in range(2, len(headers))
-                    if headers[i] in self.identifiable_issues and int(row[i]) > 0
+                    if i < len(row) and headers[i] in self.identifiable_issues and row[i] != '' and int(row[i]) > 0
                 ]
                 for iss in issues_detected:
                     issues_list.append(Issue(iss, i_class=class_name, file=filepath, detection_tool_name="aDoctor"))

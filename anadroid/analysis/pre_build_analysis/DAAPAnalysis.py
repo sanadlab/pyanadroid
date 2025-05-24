@@ -113,7 +113,7 @@ class DAAPAnalysis(StaticAnalyzer):
                     for file in files:
                         if issue_type in self.identifiable_issues:
                             if 'src' in file and (
-                                    'test' in file or 'androidTest' in file or "InstrumentedTest" in file) and ignore_tests:
+                                    'test' in file or 'androidTest' in file or "nstrumentedTest" in file) and ignore_tests:
                                 continue
                             issues.append(Issue(self.identifiable_issues[issue_type],
                                                 file=os.path.join(module_name, file), detection_tool_name="DAAP"))
