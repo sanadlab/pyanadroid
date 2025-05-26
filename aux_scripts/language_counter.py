@@ -13,13 +13,15 @@ from textops import find, cat
 from anadroid.analysis.post_build_analysis.DroidLensAnalyzer import DroidLensAnalysis
 from anadroid.analysis.post_build_analysis.EcoAndroidResourceLeaksAnalyzer import EcoAndroidResourceLeaksAnalysis
 from anadroid.analysis.pre_build_analysis.ADoctorAnalysis import ADoctorAnalysis
+from anadroid.analysis.pre_build_analysis.ChimeraAnalysis import ChimeraAnalysis
 from anadroid.analysis.pre_build_analysis.DAAPAnalysis import DAAPAnalysis
 from anadroid.analysis.pre_build_analysis.EcoAndroidAnalysis import EcoAndroidAnalysis
 from anadroid.analysis.pre_build_analysis.LintAnalysis import LintAnalysis
 from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
+from anadroid.analysis.pre_build_analysis.XALintAnalysis import XALintAnalysis
 
 EXCLUDED_LANGS = {'gitignore', 'Markdown', 'License', 'JSON', 'YAML', 'Prolog', 'C Header', 'Batch', 'Properties File'}
-INCLUDED_LANGS = {'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript', 'C', 'C++', 'Kotlin', 'Rust'}
+INCLUDED_LANGS = {'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript', 'C', 'C++', 'Kotlin', 'Rust', 'Groovy'}
 
 
 
@@ -146,28 +148,29 @@ class LanguageStats(object):
         # add unique stats
 
 
+    def run_scc(self, proj_path, proj_results_dir):
+        if not os.path.exists(proj_path):
+            print("proj path does not exist")
+            return
+        scc_file = os.path.join(proj_results_dir, 'scc.json')
+        if os.path.exists(scc_file):
+            return
+        cmd = f"scc {proj_path} -f json > {scc_file}"
+        print(cmd)
+        res = execute_shell_command(cmd, timeout=200)
 
     def parse_repo(self, filepath):
-        proj_results_dir = os.path.dirname(filepath)
+        proj_path = self.solve_project_dir(str(cat(filepath)))
+        if proj_path is None:
+            return
+        proj_results_dir = os.path.join(os.path.dirname(filepath))
+        #print('jaime', proj_results_dir)
         scc_file = os.path.join(proj_results_dir, 'scc.json')
+        if not os.path.exists(scc_file):
+            self.run_scc(proj_path, proj_results_dir)
         with open(scc_file, 'r') as jj:
             info = json.load(jj)
-        proj_file = os.path.join(proj_results_dir, 'project_path.txt')
-        proj_path = str(cat(proj_file))
-        if 'unknown' in proj_path:
-            # could be moved to another dir
-            pot_pat_ot = proj_path.replace('unknown', 'others')
-            pot_pat_nat = proj_path.replace('unknown', 'native_apps')
-            pot_pat_cross = proj_path.replace('unknown', 'cross_platform_apps')
-            if os.path.exists(proj_path):
-                proj_path = proj_path
-            elif os.path.exists(pot_pat_nat):
-                proj_path = pot_pat_nat
-            elif os.path.exists(pot_pat_cross):
-                proj_path = pot_pat_cross
-            elif os.path.exists(pot_pat_ot):
-                proj_path = pot_pat_ot
-        if not os.path.exists(proj_file):
+        if not os.path.exists(proj_path):
             print("jasus maximo proj nao existe")
             return
         for lang_info in info:
@@ -179,9 +182,8 @@ class LanguageStats(object):
             return
 
         issues = self.load_project_issues(proj_results_dir)
-        print(len(issues))
-        print(issues)
-
+        #print(len(issues))
+        #print(issues)
         self.proj_info[proj_path] = {
             'lang_info': info,
             'is_native': is_native,
@@ -224,7 +226,7 @@ class LanguageStats(object):
             for lint_file in lint_results:
                 print(lint_file)
                 issues_list = issues_list + list(
-                    filter(lambda x: x not in issues_list, LintAnalysis().get_issues(lint_file)))
+                    filter(lambda x: x not in issues_list, XALintAnalysis().get_issues(lint_file) + ChimeraAnalysis().get_issues(lint_file)))
         droidlens_results = mega_find(proj_results_dir, pattern="*droidlens*", type_file='d', maxdepth=2)
         if len(droidlens_results) > 0:
             for droidlens_dir in droidlens_results:
@@ -237,10 +239,11 @@ class LanguageStats(object):
         store_file = os.path.join(project_path, 'is_on_play_store.log')
         if not os.path.exists(store_file):
             return False
-        return str(cat(store_file)).lower() == 'true'
+        return  'true' in str(cat(store_file)).lower()
 
     def get_last_update(self, project_path):
         last_up_file = os.path.join(project_path, 'lastUpdate.log')
+        print(last_up_file)
         if not os.path.exists(last_up_file):
             return 0
         text = str(cat(last_up_file))
@@ -258,6 +261,7 @@ class LanguageStats(object):
         if ']' not in text:
             return [ text.replace("'", "").replace("[", '') ]
         else:
+            #print(f"-{text}-")
             return ast.literal_eval(text)
 
 
@@ -293,9 +297,63 @@ class LanguageStats(object):
         return is_native
 
 
-    def search_and_parse_files_in_dir(self, directory_path, expected_filename="project_path.txt"):
+    def get_last_commit(self, directory_path, lookup_filename_pattern='*_commit_data.csv'):
+        # Find all files matching the pattern in the directory and its subdirectories
+        if directory_path is None or not os.path.exists(directory_path):
+            print("directory_path does not exist")
+            return None
+        file_list = mega_find(directory_path, pattern=lookup_filename_pattern, type_file='f')
+        print(directory_path, file_list)
+        # Sort the files by modification time (most recent first)
+        file_list.sort(key=lambda x: os.path.getmtime(x), reverse=True)
+        # Return the most recent file
+        if len(file_list) > 0:
+            target_file  = file_list[0]
+            # read index 1 from csv
+            with open(target_file, 'r') as csvfile:
+                reader = csv.reader(csvfile, delimiter=";")
+                next(reader)
+                for row in reader:
+                    if len(row) > 1:
+                        return row[0]
+        else:
+            return None
+
+    def solve_project_dir(self, proj_dir):
+        if os.path.exists(proj_dir):
+            return proj_dir
+        proj_path = proj_dir
+        if 'native_apps' in proj_dir:
+            proj_path = proj_dir.replace('native_apps', 'cross_platform_apps')
+            if not os.path.exists(proj_path):
+                proj_path = proj_path.replace('cross_platform_apps', 'unknown')
+                if not os.path.exists(proj_path):
+                    print(proj_path, "nao existe")
+                    return None
+        elif 'cross_platform_apps' in proj_dir:
+            proj_path = proj_dir.replace('cross_platform_apps', 'native_apps')
+            if not os.path.exists(proj_path):
+                proj_path = proj_path.replace('native_apps', 'unknown')
+                if not os.path.exists(proj_path):
+                    print(proj_path, "nao existe")
+                    return None
+        elif 'unknown' in proj_dir:
+            proj_path = proj_dir.replace('unknown', 'native_apps')
+            if not os.path.exists(proj_path):
+                proj_path = proj_path.replace('native_apps', 'cross_platform_apps')
+                if not os.path.exists(proj_path):
+                    print(proj_path, "nao existe")
+                    return None
+        return proj_path
+
+    def search_and_parse_files_in_dir(self, directory_path, expected_filename="project_path.txt", only_last_commit=True):
         file_list = mega_find(directory_path, pattern=expected_filename, type_file='f')
         for filepath in file_list:
+            if only_last_commit and len(file_list) > 1:
+                proj_dir = self.solve_project_dir(str(cat(filepath)))
+                last_commit = self.get_last_commit(proj_dir)
+                if last_commit is None or last_commit not in filepath:
+                    continue
             self.parse_repo(filepath)
 
     def gen_langs_boxplots_loc(self):
@@ -454,6 +512,10 @@ class LanguageStats(object):
         plt.ylabel('Number of Projects')
         plt.title('Number of Projects per Language' + f" (Total Projects: {len(self.parsed_files)})")
         plt.xticks(rotation=45, ha='right')
+        # label histogram
+        for i in range(len(proj_counts)):
+            if proj_counts[i] > 0:
+                plt.text(i, proj_counts[i], str(proj_counts[i]), ha='center', va='bottom')
         plt.tight_layout()
         plt.show()
 
@@ -538,9 +600,9 @@ class LanguageStats(object):
         plt.bar(age_years.keys(), age_years.values(), color='skyblue')
         for i in age_years.keys():
             plt.text(i, age_years[i], str(age_years[i]), ha='center', va='bottom')
-        plt.xlabel('Programming Languages')
+        plt.xlabel('Years')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Projects per Language' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects per Year (Last Update)' + f" (Total Projects: {len(self.parsed_files)})")
         plt.xticks(list(age_years.keys()), rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -551,13 +613,17 @@ class LanguageStats(object):
         #age_years = set([datetime.datetime.fromtimestamp(x['last_app_update']/1000).year for x in self.proj_info.values()])
         for proj in self.proj_info.values():
             year = proj['last_app_update_year']
+            print(year)
             if year == 1970:
                 continue
             if proj['is_on_play_store']:
                 key = f"{year}_play"
                 age_years[key] = age_years[key] + 1 if key in age_years else 1
             age_years[str(year)] = age_years[str(year)] + 1 if str(year) in age_years else 1
-        age_years = {k: v for k, v in sorted(age_years.items(), key=lambda item: str(item[0]).split('_')[0])}
+        for f in list(age_years.keys()):
+            if 'play' not in f and f"{f}_play" not in age_years:
+                age_years[f + '_play'] = 0
+        age_years = {k: v for k, v in sorted(age_years.items())}
         #proj_counts = [len([x for x in self.proj_info.values() if datetime.datetime.fromtimestamp(x['last_app_update']/1000).year == y]) for y in age_years]
         plt.figure(figsize=(10, 6))
         colors = ['lightblue', 'darkkhaki']
@@ -569,12 +635,111 @@ class LanguageStats(object):
             i = i + 1
             bar.set_facecolor(colors[i % len(colors)])
 
-        plt.xlabel('Programming Languages')
+        plt.xlabel('Years')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Projects per Language' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects per Year')
         plt.xticks(list(age_years.keys()), rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
+
+    def get_plot_projs_per_category(self):
+        # generate histogram of number of total projs per app category
+        # get all categories
+        categories = {}
+        for proj, proj_d in self.proj_info.items():
+            categ = proj_d['app_category']
+            if categ is None or len(categ) == 0:
+                continue
+            for cat in categ:
+                if cat not in categories:
+                    categories[cat] = []
+                categories[cat].append(proj)
+        # count the number of distinct projs per category
+        categories_count = {}
+        for cat, projs in categories.items():
+            categories_count[cat] = len(projs)
+        # sort the categories_count dictionary by value
+        categories_count = dict(sorted(categories_count.items(), key=lambda item: item[1]))
+        # plot the categories_count dictionary
+        plt.figure(figsize=(10, 6))
+        bar_dict = plt.bar(categories_count.keys(), categories_count.values())
+        for i in categories_count.keys():
+            plt.text(i, categories_count[i], str(categories_count[i]), ha='center', va='bottom')
+        plt.xlabel('App Categories')
+        plt.ylabel('Number of Projects')
+        plt.title('Number of Projects per App Category' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
+
+
+    def gen_pie_categories(self):
+        # generate a pie chart of number of total projs per app category
+        # get all categories
+        categories = {}
+        for proj, proj_d in self.proj_info.items():
+            categ = proj_d['app_category']
+            if categ is None or len(categ) == 0:
+                continue
+            for cat in categ:
+                if cat not in categories:
+                    categories[cat] = []
+                categories[cat].append(proj)
+        # count the number of distinct projs per category
+        categories_count = {}
+        for cat, projs in categories.items():
+            categories_count[cat] = len(projs)
+        # sort the categories_count dictionary by value
+        categories_count = dict(sorted(categories_count.items(), key=lambda item: item[1]))
+        # plot the categories_count dictionary
+        plt.figure(figsize=(10, 6))
+        plt.pie(categories_count.values(), labels=categories_count.keys(), autopct='%1.1f%%', startangle=140)
+        plt.axis('equal')
+        plt.title('Number of Projects per App Category' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.tight_layout()
+        plt.show()
+
+
+
+    def get_plot_issues_per_category(self):
+        # generate a histogram of number of total of distinct issues per app category
+        # get all categories
+        categories = {}
+        for proj, proj_d in self.proj_info.items():
+            categ = proj_d['app_category']
+            if categ is None or len(categ) == 0:
+                continue
+            for cat in categ:
+                if cat not in categories:
+                    categories[cat] = []
+            for issue in proj_d['issues']:
+                if issue is None or issue.issue_type is None:
+                    continue
+                issue_name = getattr(issue.issue_type, 'value', issue.issue_type).strip().lower()
+                if issue_name.lower() == 'syntaxerror':
+                    continue
+                for cat in categ:
+                    categories[cat].append(issue_name)
+        # count the number of distinct issues per category
+        categories_count = {}
+        for cat, issues in categories.items():
+            categories_count[cat] = len(issues)
+        # sort the categories_count dictionary by value
+        categories_count = dict(sorted(categories_count.items(), key=lambda item: item[1]))
+        # plot the categories_count dictionary
+        plt.figure(figsize=(10, 6))
+        bar_dict = plt.bar(categories_count.keys(), categories_count.values())
+        for i in categories_count.keys():
+            plt.text(i, categories_count[i], str(categories_count[i]), ha='center', va='bottom')
+        plt.xlabel('App Categories')
+        plt.ylabel('Number of Distinct Issues')
+        plt.title('Number of Distinct Issues per App Category' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
+
+
+
 
     def gen_plot_apps_loc_per_model(self):
         # generate a boxplot of the number of lines of code per model (if the projdir contains gpt or gemini)
@@ -624,7 +789,7 @@ class LanguageStats(object):
                 orig_name = issue_name
                 if issue_name.lower() == 'syntaxerror':
                     continue
-                if 'gpt' in proj.lower():
+                '''if 'gpt' in proj.lower():
                     issue_name = issue_name + '_gpt'
                 else:
                     issue_name = issue_name + '_gemini'
@@ -633,20 +798,21 @@ class LanguageStats(object):
                     if issue_name + '_gpt' not in issues_dict:
                         issues_dict[orig_name + '_gpt'] = set()
                     if issue_name + '_gemini' not in issues_dict:
-                        issues_dict[orig_name + '_gemini'] = set()
+                        issues_dict[orig_name + '_gemini'] = set()'''
 
-
+                if issue_name not in issues_dict:
+                    issues_dict[issue_name] = set()
                 issues_dict[issue_name].add(proj)
         # sort the issues_dict alphabetically
         #issues_dict = dict(sorted(issues_dict.items(), key=lambda item: item[0]))
         #colors = ['lightblue', 'darkkhaki']
 
-        issues_dict = dict(sorted(issues_dict.items(), key=lambda item: item[0]))
+        issues_dict = dict(sorted(issues_dict.items(), key=lambda item: len(item[1])))
         colors = ['lightblue', 'darkkhaki']
         plt.figure(figsize=(10, 6))
         bar_dict = plt.bar(issues_dict.keys(), [len(x) for x in issues_dict.values()])
         for i in issues_dict.keys():
-            plt.text(i, len(issues_dict[i]), str(len(issues_dict[i])), ha='center', va='bottom')
+            plt.text(i, len(issues_dict[i]), str(len(issues_dict[i])), ha='center', va='bottom', rotation=90)
         i = 0
         for bar in bar_dict:
             bar.set_facecolor(colors[i % len(colors)])
@@ -669,8 +835,12 @@ class LanguageStats(object):
                 issue_name = getattr(issue.issue_type, 'value', issue.issue_type).strip().lower()
                 if issue_name.lower() == 'syntaxerror':
                     continue
-                orig_name = issue_name
-                if 'gpt' in proj.lower():
+                if issue_name not in issues_dict:
+                    issues_dict[issue_name] = [issue]
+                else:
+                    if issue not in issues_dict[issue_name]:
+                        issues_dict[issue_name].append(issue)
+                '''if 'gpt' in proj.lower():
                     issue_name = issue_name + '_gpt'
                 else:
                     issue_name = issue_name + '_gemini'
@@ -679,14 +849,15 @@ class LanguageStats(object):
                     if issue_name + '_gpt' not in issues_dict:
                         issues_dict[orig_name + '_gpt'] = set()
                     if issue_name + '_gemini' not in issues_dict:
-                        issues_dict[orig_name + '_gemini'] = set()
-                issues_dict[issue_name].add(proj)
+                        issues_dict[orig_name + '_gemini'] = set()'''
+
         plt.figure(figsize=(10, 6))
-        # sort the issues_dict alphabetically
-        issues_dict = dict(sorted(issues_dict.items(), key=lambda item: item[0]))
+        # sort the issues_dict
+        issues_dict = dict(sorted(issues_dict.items(), key=lambda item: len(item[1])))
         bar_dict = plt.bar(issues_dict.keys(), [len(x) for x in issues_dict.values()])
         for i in issues_dict.keys():
-            plt.text(i, len(issues_dict[i]), str(len(issues_dict[i])), ha='center', va='bottom')
+            # place the text label vertically on top of each bar
+            plt.text(i, len(issues_dict[i]), str(len(issues_dict[i])), ha='center', va='bottom', rotation=90)
         colors = ['lightblue', 'darkkhaki']
         i = 0
         for bar in bar_dict:
@@ -695,7 +866,7 @@ class LanguageStats(object):
 
         plt.xlabel('Issues')
         plt.ylabel('# Occurrences')
-        plt.title('# Occurrences per issue ' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('# Occurrences per issue ' + f" (Total issues: {len(self.parsed_files)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -822,7 +993,11 @@ class LanguageStats(object):
 
         data = [play_store_issues, non_play_store_issues]
         plt.figure(figsize=(10, 6))
-        plt.boxplot(data, patch_artist=True, labels=['Play Store Apps', 'Non-Play Store Apps'])
+        boxes = plt.boxplot(data, patch_artist=True, labels=['Play Store Apps', 'Non-Play Store Apps'])
+        # plot median on each box
+        for i in range(len(data)):
+            plt.text(i + 1, boxes['medians'][i].get_ydata()[0],
+                     str(int(boxes['medians'][i].get_ydata()[0])), ha='center', va='bottom')
         plt.ylabel('Number of Distinct Issues')
         plt.title('Median Number of Distinct Issues in Play Store Apps vs Non-Play Store Apps')
         plt.show()
@@ -842,7 +1017,11 @@ class LanguageStats(object):
 
         data = [play_store_issues, non_play_store_issues]
         plt.figure(figsize=(10, 6))
-        plt.boxplot(data, patch_artist=True, labels=['Play Store Apps', 'Non-Play Store Apps'])
+        boxes = plt.boxplot(data, patch_artist=True, labels=['Play Store Apps', 'Non-Play Store Apps'])
+        # plot median on each box
+        for i in range(len(data)):
+            plt.text(i + 1, boxes['medians'][i].get_ydata()[0],
+                     str(int(boxes['medians'][i].get_ydata()[0])), ha='center', va='bottom')
         plt.ylabel('Number of Distinct Critical Issues')
         plt.title('Median Number of occurences of critical Issues in Play Store Apps vs Non-Play Store Apps')
         plt.show()
@@ -861,7 +1040,10 @@ class LanguageStats(object):
 
         data = [play_store_issues, non_play_store_issues]
         plt.figure(figsize=(10, 6))
-        plt.boxplot(data, patch_artist=True, labels=['Play Store Apps', 'Non-Play Store Apps'])
+        boxes = plt.boxplot(data, patch_artist=True, labels=['Play Store Apps', 'Non-Play Store Apps'])
+        for i in range(len(data)):
+            plt.text(i + 1, boxes['medians'][i].get_ydata()[0],
+                     str(int(boxes['medians'][i].get_ydata()[0])), ha='center', va='bottom')
         plt.ylabel('#occurrence of Issues')
         plt.title('Median Number of Issues in Play Store Apps vs Non-Play Store Apps')
         plt.show()
@@ -882,7 +1064,11 @@ class LanguageStats(object):
         years = sorted(issues_per_year.keys())
 
         plt.figure(figsize=(10, 6))
-        plt.boxplot([issues_per_year[y] for y in years], patch_artist=True, tick_labels=years)
+        boxes = plt.boxplot([issues_per_year[y] for y in years], patch_artist=True, tick_labels=years)
+        # plot median on each box
+        for i in range(len(years)):
+            plt.text(i + 1, boxes['medians'][i].get_ydata()[0],
+                     str(int(boxes['medians'][i].get_ydata()[0])), ha='center', va='bottom')
         plt.xlabel('Year')
         plt.ylabel('Number of Distinct Issues')
         plt.title('Number of Distinct Issues per Year of Last Update')
@@ -890,35 +1076,72 @@ class LanguageStats(object):
         plt.tight_layout()
         plt.show()
 
+    def gen_issues_per_tool(self):
+        # plot a histogram of the number of issues detected by each tool
+        issues_per_tool = {}
+        for proj, proj_d in self.proj_info.items():
+            for issue in proj_d['issues']:
+                if issue is None or issue.issue_type is None:
+                    continue
+                issue_tool = issue.detection_tool_name
+                if issue_tool is None:
+                    continue
+                if issue_tool not in issues_per_tool:
+                    issues_per_tool[issue_tool] = 0
+                issues_per_tool[issue_tool] += 1
+        # sort the issues_per_tool dictionary by value
+        issues_per_tool = dict(sorted(issues_per_tool.items(), key=lambda item: item[1]))
+        # plot the issues_per_tool dictionary
+        plt.figure(figsize=(10, 6))
+        bar_dict = plt.bar(issues_per_tool.keys(), issues_per_tool.values())
+        for i in issues_per_tool.keys():
+            plt.text(i, issues_per_tool[i], str(issues_per_tool[i]), ha='center', va='bottom')
+        colors = ['lightblue', 'darkkhaki']
+        i = 0
+        for bar in bar_dict:
+            bar.set_facecolor(colors[i % len(colors)])
+            i = i + 1
+        plt.xlabel('Tools')
+        plt.ylabel('Number of Issues')
+        plt.title('Number of Issues per Tool')
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
 
 
 def main(lookup_dir):
     #lookup_dir = "/Users/ruirua/repos/pyAnaDroid/demoProjects"
     #build_scc_json_for_all_projs(lookup_dir)
     ls = LanguageStats()
-    ls.search_and_parse_files_in_dir(lookup_dir, expected_filename="scc.json")
-    ls.gen_stats()
+    ls.search_and_parse_files_in_dir(lookup_dir, only_last_commit=True)
+    #ls.gen_pie_categories()
+    #ls.gen_stats()
     #print(json.dumps(ls.language_info, indent=1))
     #ls.plot_language_histogram()
     #ls.gen_langs_boxplots_loc()
-    ls.gen_plot_apps_loc_per_model()
-    ls.gen_manual_proj_histogram()
-    ls.gen_manual_issue_tp_histogram()
+    #ls.gen_plot_apps_loc_per_model()
+    #ls.gen_manual_proj_histogram()
+    #ls.gen_manual_issue_tp_histogram()
     #ls.gen_langs_boxplots_cc()
     #ls.gen_langs_boxplots_total_files()
-    #ls.gen_langs_pure_histogram()
-    #ls.gen_cross_play_histogram()
+    '''ls.gen_langs_pure_histogram()
+    ls.gen_cross_play_histogram()
+    ls.get_plot_projs_per_category()
+    ls.get_plot_issues_per_category()
+    ls.gen_issues_per_tool()'''
 
 
     #ls.gen_plot_app_play_issues_occurrences_critical()
     #ls.gen_plot_apps_age_play()
     #ls.gen_plot_apps_age()
     #ls.gen_plot_apps_issues()
-    #ls.gen_plot_apps_issues_occurrences()
+    ls.gen_plot_apps_issues()
+    ls.gen_plot_apps_issues_occurrences()
 
-    #ls.gen_plot_app_play_issues()
-    #ls.gen_plot_app_play_issues_occurrences()
-    #ls.gen_plot_issues_per_year()
+
+    '''ls.gen_plot_app_play_issues()
+    ls.gen_plot_app_play_issues_occurrences()
+    ls.gen_plot_issues_per_year()'''
 
     #plot_true_positives()
 

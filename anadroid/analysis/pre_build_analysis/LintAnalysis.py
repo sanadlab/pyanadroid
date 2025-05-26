@@ -220,8 +220,8 @@ class LintAnalysis(StaticAnalyzer):
         for issue in root.findall("issue"):
             issue_id = issue.get("id")
             category = issue.get("category")
-            if self.performance_only and (issue_id not in self.identifiable_issues.keys() or category is None
-                                          or category != 'Performance'):
+            #if self.performance_only and (issue_id not in self.identifiable_issues or category is None or category != 'Performance'):
+            if issue_id not in self.identifiable_issues:
                 continue
             severity = issue.get("severity")
             message = issue.get("message")

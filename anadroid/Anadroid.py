@@ -429,7 +429,6 @@ class AnaDroid(object):
             app = App(self.device, original_proj, original_proj.pkg_name, apk_path=apk_path, local_res_dir=original_proj.results_dir)
             self.post_build_analyzers.analyze_app(app)
             results_dirs.append(original_proj.results_dir)
-
         return results_dirs
 
     def __get_project_root_dir(self, dir_path):
@@ -444,6 +443,7 @@ class AnaDroid(object):
         """loads Android Projects from a directory containing one or more projects."""
         return_projs = set()
         if is_android_native_project(self.apps_dir):
+            #print("native:", self.apps_dir)
             print(f"apps_dir: {self.apps_dir}")
             potential_projects = [self.apps_dir]
         elif os.path.isdir(self.apps_dir):
@@ -458,6 +458,7 @@ class AnaDroid(object):
             proj_fldr = self.__get_project_root_dir(path_dir)
             #print(maybe_proj, proj_fldr)
             if proj_fldr is not None and not is_cross_platform_project(path_dir):
+                print("native:", proj_fldr)
                 return_projs.add(str(proj_fldr))
             else:
                 children_dirs = list(filter(lambda x: os.path.isdir(os.path.join(path_dir, x)), os.listdir(path_dir)))
@@ -469,7 +470,9 @@ class AnaDroid(object):
                         if is_cross_platform_project(path_dir):
                             return_projs.add(str(path_dir))
                             added = True
+                            print("cross_platform:", path_dir)
                         elif is_android_native_project(child_path_dir) and not is_cross_platform_project(child_path_dir):
+                            print("native:",child_path_dir)
                             return_projs.add(str(child_path_dir))
                             added = True
                 if not added:

@@ -94,6 +94,9 @@ class Issue(object):
                  or (self.get_file_id() == other.get_file_id()
                      and are_equal_or_one_is_none(getattr(self, 'i_class', None), getattr(other, 'i_class', None)))
                 )
+            and not (self.get_issue_location() != '' and other.get_issue_location() != '' and self.get_file_id() != other.get_file_id())
+            and not (
+                    self.get_issue_location() != '' and other.get_issue_location() != '' and self.get_file_ref() != other.get_file_ref())
             and are_equal_or_one_is_none(getattr(self, 'method', None), getattr(other, 'method', None))
             and are_equal_or_one_is_none(getattr(self, 'line', None) , getattr(other, 'line', None))
             and not (self.detection_tool_name == other.detection_tool_name and self.description != other.description)
@@ -110,6 +113,12 @@ class Issue(object):
                     .replace(".xml", "")
                     .replace(".gradle", ""))
         return filename
+
+    def get_file_ref(self):
+        if self.file is None:
+            return None
+        base = self.file.split(os.path.sep)[0]
+        return base
 
     def is_more_descriptive(self, other_issue):
         # evaluate if has more non None fields than other_issue

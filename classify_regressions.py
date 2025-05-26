@@ -16,12 +16,12 @@ TOKEN_LIMIT = 8192
 DEFAULT_ISSUE_FILE_EXTENSIONS='-- "*.java" "*.kt" "*.xml" "*.kts" "*.gradle"'
 
 ISSUE_PRIORITY_RANK = (
-    "WakeLock",
-    "WakelockTimeout",
     "CameraLeak",
     "MediaLeak",
-    "UIOverdraw",
+    "Overdraw",
     "DrawAllocation",
+    "WakeLock",
+    "WakelockTimeout",
     "InefficientDataFormatAndParser",
     "InvalidatewithoutRect",
     "UnsupportedHardwareAcceleration",
@@ -29,6 +29,7 @@ ISSUE_PRIORITY_RANK = (
     "HashmapUsage",
     "BitmapFormatUsage",
     "InefficientDataFormatAndParser",
+    "DataTransmissionWithoutCompression",
     "SSLSessionCaching",
     "URLCaching",
     "CheckLayoutSize",
@@ -37,7 +38,6 @@ ISSUE_PRIORITY_RANK = (
     "CollectionOfBitmaps",
     "CollectionOfViews",
     "InefficientSQLQuery",
-    "DataTransmissionWithoutCompression",
     "SlowForLoop",
     "VacuousBackgroundService",
     "ImmortalityBug",
@@ -73,22 +73,23 @@ ISSUE_PRIORITY_RANK = (
     "EarlyResourceBinding",
     "LifecycleContainment",
     "MemoizationChance",
+    "SyntheticAccessor"
     "DynamicWaitTime",
     "InfoWarningFCM",
     "DirtyRendering",
     "ConfigChanges",
     "DebuggableRelease",
     "RedundantFieldInitializer",
-     "NoLowMemoryResolver",
+    "NoLowMemoryResolver",
     "MemberIgnoringMethod",
     "InternalGetterSetter",
-
+    'DroppedData'
 )
 
 
 def get_issue_rank(issue):
     val = ISSUE_PRIORITY_RANK.index(issue.get_simple_name().strip()) \
-        if issue.get_simple_name().strip() in ISSUE_PRIORITY_RANK else len(ISSUE_PRIORITY_RANK)
+        if issue.get_simple_name().strip() in ISSUE_PRIORITY_RANK else 0 #len(ISSUE_PRIORITY_RANK)
     return val
 
 def get_token_count(texto, model="gpt-4"):
@@ -136,9 +137,9 @@ def was_code_moved(repo_dir, curr_commit, issue):
     def_null_value = "No info available"
     question = """
         I want to know if the issue was: 
-            Completely removed from the place where it was found.
-            Moved to another method/class/file.
-            Kept without being fixed
+            - Removed from the place where it was found.
+            - Moved to another method/class/file.
+            - Kept without being fixed.
         Answer with only one word from the following options: "Removed", "Moved", or "Kept", without any additional explanations"""
     code_diff_res = get_code_diff(repo_dir, curr_commit, issue, def_null_value, extensions=issue.get_file_extensions())
     #if code_diff_res.strip() == "" or code_diff_res == def_null_value:
@@ -160,6 +161,7 @@ def was_code_moved(repo_dir, curr_commit, issue):
         {file_content}
         {question}
     """
+    #print(prompt)
     res = "Unknown"
     submitted_file_content = True
     submitted_git_diff = True
@@ -354,12 +356,18 @@ def load_regressions_csv(csv_file="regressions.csv"):
         reader = csv.reader(file, delimiter=';')
         for row in reader:
             # /Users/rar9993/repos/research/fdroid_apps/native_apps/Player,7783f82bc5e9e238100ca9be0cd440b0a072d0e1,Merge branch 'master' into flavorless,"KnownStaticPerformanceIssues.MEMBER_IGNORING_METHOD, PERFORMANCE, None, DAAP None, /src/online/java/com/brouken/player/UpdateCheckJobService.java, None, None, None, None",def_removal
+            if len(row) < 6:
+                continue
+            iss =  issue_from_string(row[4])
+            if iss is None:
+                print("Could not parse issue", row)
+                continue
             v = {
                     'repo_dir': row[0],
                     'prev_commit_hash': row[1],
                     'commit_hash': row[2],
                     'commit_message': row[3],
-                    'issue': issue_from_string(row[4]),
+                    'issue': iss,
                     'classification': row[5],
                 }
             regressions.append(v)
@@ -454,6 +462,12 @@ def load_issue_specification_list(filename="performance_issues_list.csv"):
     return issues
 
 
+def write_to_file(filename, content):
+    with open(filename, 'a+') as file:
+        file.write(content + "\n------\n")
+    print(f"Content written to {filename}")
+
+
 def evaluate_true_positives(csv_regressions_file, ignore_file_removed=True, lim_per_issue=1000):
     order_label = [ 'def_removal', 'prob_removal', 'prob_move', 'file_removed']
     issue_spec = load_issue_specification_list()
@@ -503,7 +517,8 @@ def evaluate_true_positives(csv_regressions_file, ignore_file_removed=True, lim_
             #print("was issue fixed according to solution? ", rec_fix, corrresponding_spec['expected_fix'])
             if 'not' not in rec_fix.lower():
                 final_label = "True_Positive"
-                logs("A true positive!")
+                logs("A true positive!", rec_fix.lower())
+                write_to_file(f"{reg['issue'].get_simple_name()}_true_positives.txt", rec_fix.lower())
         elif moved_label == 'Unknown':
             final_label = "Unknown"
         else:
@@ -577,13 +592,13 @@ def reevaluate_true_positives(csv_regressions_file, ignore_file_removed=True, li
 
 
 def augmentate_true_positives_dateset(csv_filename='regressions.csv', lim_per_issue=1000):
-    order_label = ['def_removal', 'prob_removal', 'prob_move', 'file_removed']
+    order_label = ['def_removal', 'prob_move', 'prob_removal', 'file_removed']
     issue_spec = load_issue_specification_list()
     print("loaded issue specification")
     regressions = merge_duplicate_issues_on_regressions(load_regressions_csv(csv_filename))
     regressions = sorted(
         regressions,
-        key=lambda x: (order_label.index(x['classification']), get_issue_rank(x['issue']))
+        key=lambda x: (get_issue_rank(x['issue']), order_label.index(x['classification']))
     )
     print("sorted regressions", len(regressions))
     print("filtered regressions", len(regressions))
@@ -617,7 +632,7 @@ def augmentate_true_positives_dateset(csv_filename='regressions.csv', lim_per_is
         # print(reg['issue'].get_file_extensions())
         moved_label, sub_git_diff, sub_file_ctnt = was_code_moved(reg['repo_dir'], reg['commit_hash'], reg['issue'])
         print("was code moved? ", moved_label, curr_manual_label)
-        if 'removed' in moved_label.lower():
+        if 'kept' not in moved_label.lower():
             # print('Checking if the issue was fixed...')
             rec_fix, sub_git_diff, sub_file_ctnt = followed_correct_solution(reg['issue'],
                                                                              corrresponding_spec['expected_fix'],
@@ -627,18 +642,19 @@ def augmentate_true_positives_dateset(csv_filename='regressions.csv', lim_per_is
             if 'not' not in rec_fix.lower():
                 final_label = "True_Positive"
                 logs("A true positive!")
+                write_to_file(f"{reg['issue'].get_simple_name()}_true_positives.txt", rec_fix.lower())
                 per_issue_count[issue_name] = per_issue_count.get(issue_name, 0) + 1
         elif moved_label == 'Unknown':
             final_label = "Unknown"
         else:
             final_label = "Possible_False_Positive"
-        print("Issue:", reg['issue'].get_simple_name(), "Final label: ", final_label)
+        print("Issue:", reg['issue'].get_simple_name(), "Final label: ", final_label, sub_file_ctnt, sub_git_diff)
         new_save_label(reg['repo_dir'], reg['prev_commit_hash'], reg['commit_hash'], reg['issue'],
                    reg['commit_message'], curr_manual_label, final_label, had_git_diff=sub_git_diff, had_file_content=sub_file_ctnt)
 
 
 if __name__ == '__main__':
-    csv_filename = "all_regressions.csv"
+    csv_filename = "fixed_big_progressions.csv"
     issue_lim = 100
     #evaluate_true_positives(csv_filename, lim_per_issue=issue_lim)
     augmentate_true_positives_dateset(csv_filename, lim_per_issue=issue_lim)

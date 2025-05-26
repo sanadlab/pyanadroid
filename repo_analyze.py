@@ -56,6 +56,8 @@ def load_project_issues(proj_results_dir):
 def issue_file_exists(repo_dir, curr_commit, issue):
     if issue.file is None:
         return None
+    if repo_dir == '' or curr_commit == '':
+        return False
     file_cmd = f'cd {repo_dir} ; git checkout -f {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
     #print("file comd", file_cmd)
     file_find = execute_shell_command(file_cmd)
@@ -72,14 +74,14 @@ def analyze_repo_subset(repos_list):
         bname, commit_list = extract_and_write_commit_history(repo_dir)
         sorted_repo_list.append((repo_dir, bname, commit_list))
     sorted_repo_list = sorted(sorted_repo_list, key=lambda x: len(x[2]))
-   #print(sorted_repo_list)
+    #print(sorted_repo_list)
     for repo_dir, branch_name, commit_list in sorted_repo_list:
         try:
             anadroid = init_pyanadroid(repo_dir)
             anadroid.pre_build_analyzers = ComposedAnalyzer(None, [
-                DAAPAnalysis(),
-                PMDAnalysis(),
-                ADoctorAnalysis(),
+                #DAAPAnalysis(),
+                #PMDAnalysis(),
+                #ADoctorAnalysis(),
                 EcoAndroidAnalysis(),
                 #XALintAnalysis(),
                 LintAnalysis(),
@@ -169,13 +171,14 @@ def extract_and_write_commit_history(repo_dir):
         for commit in res.output.split("XX\n"):
             vals = commit.split("|")
             if len(vals) > 1:
+                vals[3] = vals[3].replace(';', '.').replace("\n", " ").replace("\r", "")
                 try:
                     writer.writerow(vals)
                     info.append({
                         'hash': vals[0],
                         'author': vals[1],
                         'date': vals[2],
-                        'message': vals[3].replace(';', '.').replace("\n", "\t")
+                        'message': vals[3],
                     })
                 except:
                     traceback.print_exc()
@@ -216,7 +219,7 @@ def classify_regression(issue, curr_issue_list, repo_dir, curr_commit):
             logi(f"File does not exist: {issue.file}")
             return 'file_removed'
         return 'def_removal'
-    issue_exists_on_file = any(i for i in issues_of_that_kind if i.file == issue.file)
+    issue_exists_on_file = any(i for i in issues_of_that_kind if i.get_file_id() == issue.get_file_id())
     if issue_exists_on_file:
         return 'prob_move'
     return 'prob_removal'
