@@ -137,7 +137,7 @@ class DroidBotFramework(AbstractTestingFramework):
         device.unlock_screen()
         time.sleep(1)
         self.profiler.init()
-        self.profiler.start_profiling()
+        self.profiler.start_profiling(app.package_name)
         app.start()
         time.sleep(10)
         log_file = os.path.join(app.curr_local_dir, f"test_{test_id}.logcat")

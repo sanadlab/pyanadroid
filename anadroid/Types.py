@@ -1,6 +1,6 @@
 from enum import Enum
 
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 
 
 class BUILD_SYSTEM(Enum):
@@ -40,6 +40,7 @@ class INSTRUMENTER(Enum):
     """Enumerates sota instrumentation tools."""
     JINST = 'JInst'
     HUNTER = 'Hunter'
+    MANIFEST = 'Manifest'
     NONE = "None"
 
 

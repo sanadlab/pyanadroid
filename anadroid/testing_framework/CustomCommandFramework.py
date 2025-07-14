@@ -88,7 +88,7 @@ class CustomCommandFramework(AbstractTestingFramework):
         self.profiler.init(**{'app': app})
         log_file = os.path.join(app.curr_local_dir, f"test_{test_id}.logcat")
         # log device state
-        self.profiler.start_profiling()
+        self.profiler.start_profiling(app.package_name)
         app.start()
         self.execute_test("", wk_unit, **{'log_filename': log_file})
         app.stop()
@@ -125,7 +125,7 @@ class CustomCommandFramework(AbstractTestingFramework):
         self.profiler.init()
         log_file = os.path.join(test_dir, f"test_{test_id}.logcat")
         # log device state
-        self.profiler.start_profiling()
+        self.profiler.start_profiling(app.package_name)
         self.execute_test("", wk_unit, **{'log_filename': log_file})
         self.profiler.stop_profiling()
         # log device state

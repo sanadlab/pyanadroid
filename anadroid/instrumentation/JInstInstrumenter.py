@@ -4,10 +4,10 @@ import shutil
 
 
 from anadroid.application.Dependency import BuildDependency, DependencyType
-from anadroid.instrument.AbstractInstrumenter import AbstractInstrumenter
+from anadroid.instrumentation.AbstractInstrumenter import AbstractInstrumenter
 import subprocess
 from anadroid.Types import BUILD_SYSTEM, TESTING_APPROACH, TESTING_FRAMEWORK
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE, INSTRUMENTATION_STRATEGY
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE, INSTRUMENTATION_STRATEGY
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, mega_find, logi, logw
 from shutil import copyfile
 
@@ -73,10 +73,11 @@ class JInstInstrumenter(AbstractInstrumenter):
                 app_id=android_project.app_id,
                 test_approach=test_approach.value.lower()
             )  # # e.g java -jar jInst.jar "-gradle" "_TRANSFORMED_" "X" "./demoProjects/N2AppTest" "./demoProjects/N2AppTest/app/src/main/AndroidManifest.xml" "-" "-TestOriented" "-junit" "N2AppTest--uminho.di.greenlab.n2apptest" "blackbox"
+            print("Executing command: ", command)
             res = execute_shell_command(command)
             # remove other instrumentations inside if needed
             any(shutil.rmtree(tr_dir) for tr_dir in mega_find(target_dir, pattern=f'*{mirror_dirname}*', type_file='d', maxdepth=1))
-            res.validate(Exception("unable to instrument project "))
+            res.validate(Exception("unable to instrumentation project "))
             copyfile("allMethods.json", os.path.join(target_dir, "allMethods.json"))
             self.write_instrumentation_log_file(android_project, test_approach, instr_type, instr_strategy)
         else:

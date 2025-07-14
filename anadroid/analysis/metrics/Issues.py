@@ -23,7 +23,6 @@ def issue_from_string(issue_str, sep=','):
         #traceback.print_exc()
         #print(issue_parts[0])
         issue_type = issue_parts[0].strip()
-    #print(issue_parts)
     category = IssueCategory(issue_parts[1].strip().upper())
     severity = issue_parts[2].strip()  if  issue_parts[2].strip()  != "None" else None
     detec_tool = issue_parts[3].strip()  if  issue_parts[3].strip()  != "None" else None

@@ -16,9 +16,10 @@ from anadroid.application.AndroidProject import AndroidProject, BUILD_TYPE, is_a
 from anadroid.application.Application import App
 from anadroid.build.GradleBuilder import GradleBuilder
 from anadroid.device.Device import get_first_connected_device
-from anadroid.instrument.JInstInstrumenter import JInstInstrumenter
-from anadroid.instrument.NoneInstrumenter import NoneInstrumenter
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE
+from anadroid.instrumentation.JInstInstrumenter import JInstInstrumenter
+from anadroid.instrumentation.ManifestInstrumenter import AndroidManifestInstrumenter
+from anadroid.instrumentation.NoneInstrumenter import NoneInstrumenter
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 from anadroid.profiler.GreenScalerProfiler import GreenScalerProfiler
 from anadroid.profiler.ManafaProfiler import ManafaProfiler
 from anadroid.profiler.NoneProfiler import NoneProfiler
@@ -85,7 +86,7 @@ class AnaDroid(object):
         self.results_dir = results_dir
         self.test_cmd = test_cmd
         self.instrumentation_type = self.__infer_instrumentation_type(instrumentation_type)
-        self.profiler = self.__infer_profiler(profiler)
+        self.profiler = self.__infer_profiler(profiler, arg1)
         self.post_execution_analyzers = self.__infer_post_execution_analyzer(analyzer, profiler)
         self.testing_framework = self.__infer_testing_framework(testing_framework)
         self.__validate_suite(profiler)
@@ -137,7 +138,7 @@ class AnaDroid(object):
             da_proj.init_results_dir(pkg)
             self.apks.append( App(self.device, da_proj, pkg,apk_path=apk, local_res=da_proj.results_dir) )'''
 
-    def __infer_profiler(self, profiler):
+    def __infer_profiler(self, profiler, possible_package_name):
         """infers profiler from profiler enum.
         Args:
             profiler(PROFILER): profiler enum selected by user.
@@ -150,7 +151,7 @@ class AnaDroid(object):
             if profiler == PROFILER.TREPN:
                 return TrepnProfiler(profiler, self.device)
             elif profiler == PROFILER.MANAFA:
-                return ManafaProfiler(profiler, self.device,
+                return ManafaProfiler(profiler, self.device, app_package_name=possible_package_name,
                                       hunter=self.instrumentation_type == INSTRUMENTATION_TYPE.ANNOTATION)
             elif profiler == PROFILER.GREENSCALER:
                 return GreenScalerProfiler(profiler, self.device)
@@ -205,6 +206,8 @@ class AnaDroid(object):
         if inst in SUPPORTED_INSTRUMENTERS:
             if inst == INSTRUMENTER.JINST:
                 return JInstInstrumenter(self.profiler)
+            elif inst == INSTRUMENTER.MANIFEST:
+                return AndroidManifestInstrumenter(self.profiler)
             elif inst == INSTRUMENTER.NONE:
                 return NoneInstrumenter(self.profiler)
             else:
@@ -217,9 +220,9 @@ class AnaDroid(object):
         return ComposedAnalyzer(None,
                                 [
                                   #ChimeraAnalysis() ,
-                                  PMDAnalysis(),
-                                  DAAPAnalysis(),
-                                  ADoctorAnalysis(),
+                                  #PMDAnalysis(),
+                                  #DAAPAnalysis(),
+                                  #ADoctorAnalysis(),
                                   #EcoAndroidAnalysis(),
                                   #LintAnalysis(),
                                   #SCCAnalyzer()
@@ -326,11 +329,13 @@ class AnaDroid(object):
 
     def exec_command(self):
         try:
-            self.testing_framework.init_default_workload()
-            self.testing_framework.test_app(self.device, app=None)
-            self.post_execution_analyzers.analyze_tests(results_dir=self.testing_framework.get_default_test_dir(), **{
-                                                'testing_framework': self.testing_framework,
-                                                })
+            for app in self.apps:
+                self.testing_framework.init_default_workload(app.package_name)
+                app.init_local_test_(self.testing_framework.id, self.instrumentation_type)
+                self.testing_framework.test_app(self.device, app=app)
+                self.post_execution_analyzers.analyze_tests(results_dir=self.testing_framework.get_default_test_dir(), **{
+                                                    'testing_framework': self.testing_framework,
+                                                    })
         except Exception:
             loge(traceback.format_exc())
 
@@ -435,7 +440,10 @@ class AnaDroid(object):
         """infers Android project root directory."""
         has_gradle_right_next = mega_find(dir_path, pattern="build.gradle*", maxdepth=4, type_file='f')
         if len(has_gradle_right_next) > 0:
+            print(has_gradle_right_next)
             top_gradle_file = min(has_gradle_right_next, key=len)
+            if top_gradle_file is not None and os.path.basename(os.path.dirname(top_gradle_file)) == 'app':
+                return os.path.dirname(os.path.dirname(top_gradle_file))
             return os.path.dirname(top_gradle_file) if top_gradle_file is not None else None
         return None
 
@@ -457,8 +465,9 @@ class AnaDroid(object):
             #print(path_dir)
             proj_fldr = self.__get_project_root_dir(path_dir)
             #print(maybe_proj, proj_fldr)
+            print('proj fldr', proj_fldr)
             if proj_fldr is not None and not is_cross_platform_project(path_dir):
-                print("native:", proj_fldr)
+                print("native1:", proj_fldr)
                 return_projs.add(str(proj_fldr))
             else:
                 children_dirs = list(filter(lambda x: os.path.isdir(os.path.join(path_dir, x)), os.listdir(path_dir)))

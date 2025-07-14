@@ -3,8 +3,8 @@ from abc import ABC, abstractmethod
 from shutil import copy
 
 from anadroid.Types import BUILD_SYSTEM, TESTING_APPROACH, TESTING_FRAMEWORK
-from anadroid.instrument.AbstractInstrumenter import AbstractInstrumenter
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE, INSTRUMENTATION_STRATEGY
+from anadroid.instrumentation.AbstractInstrumenter import AbstractInstrumenter
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE, INSTRUMENTATION_STRATEGY
 from anadroid.utils.Utils import mega_find, logw
 
 DEFAULT_LOG_FILENAME="instrumentation_log.json"

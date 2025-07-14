@@ -8,7 +8,7 @@ from anadroid.application.AndroidProject import BUILD_TYPE
 from anadroid.device.Device import set_device_conn, has_connected_device
 from anadroid.device.DeviceState import DeviceState
 from anadroid.device.MockedDevice import MockedDevice
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 
 
 def init_pyanadroid_from_args(args):
@@ -89,9 +89,9 @@ def main():
                         help="energy profiler", choices=[e.value for e in PROFILER])
     parser.add_argument("-b", "--buildtype", default=BUILD_TYPE.DEBUG.value, type=str,
                         help="app build type", choices=[e.value for e in BUILD_TYPE])
-    parser.add_argument("-i", "--instrumenter", default=INSTRUMENTER.JINST.value, type=str,
+    parser.add_argument("-i", "--instrumenter", default=INSTRUMENTER.MANIFEST.value, type=str,
                         help="Source code instrumenter", choices=[e.value for e in INSTRUMENTER])
-    parser.add_argument("-it", "--instrumentationtype", default=INSTRUMENTATION_TYPE.ANNOTATION.value,
+    parser.add_argument("-it", "--instrumentationtype", default=INSTRUMENTATION_TYPE.MANIFEST.value,
                         type=str, help="instrumentation type", choices=[e.value for e in INSTRUMENTATION_TYPE])
     parser.add_argument("-pa", "--post_execution_analyzers", default=ANALYZER.MANAFA_ANALYZER.value, type=str,
                         help="results analyzer",

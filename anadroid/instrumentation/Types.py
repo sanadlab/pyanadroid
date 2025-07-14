@@ -7,6 +7,7 @@ class INSTRUMENTATION_TYPE(Enum):
     TEST = 'TestOriented'
     ACTIVITY = 'ActivityOriented',
     ANNOTATION = 'AnnotationOriented'
+    MANIFEST = 'ManifestOriented'
     NONE = "None"
 
 
@@ -15,5 +16,6 @@ class INSTRUMENTATION_STRATEGY(Enum):
     ANNOTATION = "Annotation"  # insert annotation in classes/methods
     METHOD_CALL = "Method Call"  # insert method calls in procedures
     BLOCK = "Block"  # insert blocks
+    MANIFEST = "Manifest"  # insert in manifest
 
 
