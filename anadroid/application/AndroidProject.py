@@ -50,10 +50,10 @@ def is_android_native_project(dirpath):
     dir_contents = [f for f in listdir(dirpath)]
     if (('android' in dir_contents or os.path.dirname(dirpath) == 'android' or not any([x for x in dir_contents if 'build.gradle' in x]))
             and ('ios' in dir_contents or 'flutter' in dir_contents or 'fastlane' in dir_contents)):
-        #loge(f"{dirpath} is not native project")
+        loge(f"{dirpath} is not native project")
         return False
-    #print(dir_contents)
-    return any([f for f in dir_contents if "settings.gradle" in f or ("build.gradle" in f and 'AndroidManifest.xml' in dir_contents)])
+    print(dir_contents)
+    return any([f for f in dir_contents if f in ["settings.gradle", "gradle.properties", "gradlew"] ])
 
 def is_cross_platform_project(dirpath):
     dir_contents = [f for f in listdir(dirpath)]
@@ -266,7 +266,7 @@ class AndroidProject(Project):
         Returns:
             file_path (str): Path of gradle file.
         """
-        out = sorted(mega_find(self.proj_dir, maxdepth=3, mindepth=1, pattern="build.gradle", type_file='f'), key=len)
+        out = sorted(mega_find(self.proj_dir, maxdepth=3, mindepth=1, pattern="build.gradle*", type_file='f'), key=len)
         #print("outinho", self.proj_dir, out)
         if len(out) > 0:
             return out[0]

@@ -40,13 +40,14 @@ def log(message, log_sev=LogSeverity.INFO, curr_time=None, to_file=True):
     curr_time = time.time() if curr_time is None else curr_time
     color = get_color(log_sev.value)
     adapted_time = re.sub("\s|:", "-", str(datetime.fromtimestamp(curr_time)))
+    adapted_time_f = re.sub("\s|:", "-", str(datetime.fromtimestamp(EVAL_TIME)))
     str_to_print = "[%s] %s: %s" % (log_sev.value, adapted_time, message)
     print(colored(str_to_print, color))
     if to_file:
         log_dir = get_log_dir()
         if not os.path.exists(log_dir):
             os.mkdir(log_dir)
-        filename = f'{adapted_time}.log'
+        filename = f'{adapted_time_f}.log'
         f = open(os.path.join(get_log_dir(), filename), "a+")
         f.write(str_to_print+"\n")
         f.close()
