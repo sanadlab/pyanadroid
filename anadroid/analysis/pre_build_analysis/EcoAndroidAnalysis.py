@@ -216,6 +216,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                                       i_class=class_id,
                                       detection_tool_name="EcoAndroid",
                                       description=desc.text if desc is not None else None)
+                            print(f"Found issue: {issue_id}")
                             if issue not in issues:
                                 #print(issue)
                                 issues.append(issue)

@@ -23,7 +23,7 @@ only_last_version = True
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
-                    results_dir="vibe_coded_results",
+                    results_dir="native_apps",
                     testing_framework=TESTING_FRAMEWORK.NONE,
                     device=MockedDevice(),
                     profiler=PROFILER.NONE,
@@ -89,15 +89,14 @@ def analyze_repo_subset(repos_list):
             anadroid = init_pyanadroid(repo_dir)
             anadroid.pre_build_analyzers = ComposedAnalyzer(None, [])
             anadroid.post_build_analyzers = ComposedAnalyzer(None, [
-                #DroidLensAnalysis(),
-                #EcoAndroidResourceLeaksAnalysis()
+                DroidLensAnalysis(),
+                EcoAndroidResourceLeaksAnalysis()
                 ])
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
             print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
             prev_issue_list = []
             prev_commit_hash = None
-            print("taco list: ")
             if len(commit_list) == 0 or only_last_version:
                 print("Analyzing only the last version")
                 #if only_last_version:
@@ -106,6 +105,9 @@ def analyze_repo_subset(repos_list):
                 anadroid.app_projects_ut = [repo_dir]
                 #res_dirs = anadroid.just_static_analyze(retry=False)
                 res_dirs  = anadroid.just_build_static_analyze()
+                if len(res_dirs) == 0:
+                    print("No results found")
+                    continue
                 print(res_dirs[0])
                 issues = load_project_issues(res_dirs[0]) if res_dirs else []
                 print(len(issues), " issues")
@@ -116,14 +118,14 @@ def analyze_repo_subset(repos_list):
                             [repo_dir, str(reg)])
 
                 continue
-            """
+
             for i, commit in enumerate(commit_list):
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(commit_list)}: {commit_hash}")
                 execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
                 anadroid.app_projects_ut = [repo_dir]
-                res_dirs = anadroid.just_static_analyze()
+                res_dirs  = anadroid.just_build_static_analyze()
                 commit['issues'] = load_project_issues(res_dirs[0]) if res_dirs else []
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
@@ -131,7 +133,7 @@ def analyze_repo_subset(repos_list):
                 regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
                 if regressions:
                     with lock:
-                        with open('regressions.csv', 'a+') as file:
+                        with open('apks_regressions.csv', 'a+') as file:
                             writer = csv.writer(file, delimiter=';')
                             for reg in regressions:
                                 writer.writerow(
@@ -139,7 +141,7 @@ def analyze_repo_subset(repos_list):
                                      str(reg[0]), reg[1]])
                 save_issues(commit['issues'], repo_dir, commit_hash)
                 prev_issue_list = commit['issues']
-                prev_commit_hash = commit_hash"""
+                prev_commit_hash = commit_hash
 
         except Exception as e:
             loge(f"Error analyzing repo {repo_dir}: {e}")
@@ -184,13 +186,14 @@ def extract_and_write_commit_history(repo_dir):
         for commit in res.output.split("XX\n"):
             vals = commit.split("|")
             if len(vals) > 1:
+                vals[3] = vals[3].replace(';', '.').replace("\n", " ").replace("\r", "")
                 try:
                     writer.writerow(vals)
                     info.append({
                         'hash': vals[0],
                         'author': vals[1],
                         'date': vals[2],
-                        'message': vals[3].replace(';', '.').replace("\n", "\t")
+                        'message': vals[3],
                     })
                 except:
                     traceback.print_exc()

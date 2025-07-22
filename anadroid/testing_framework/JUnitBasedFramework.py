@@ -23,7 +23,7 @@ class JUnitBasedFramework(AbstractTestingFramework):
     """
     def __init__(self, profiler, analyzer, resdir=DEFAULT_RESOURCES_DIR):
         super(JUnitBasedFramework, self).__init__(id=TESTING_FRAMEWORK.JUNIT, profiler=profiler, analyzer=analyzer)
-        self.executable_prefix = "adb shell am instrument -w "
+        self.executable_prefix = "adb shell am instrumentation -w "
         self.workload = None
         self.res_dir = resdir
 
@@ -104,7 +104,7 @@ class JUnitBasedFramework(AbstractTestingFramework):
         device.unlock_screen()
         time.sleep(1)
         self.profiler.init()
-        self.profiler.start_profiling()
+        self.profiler.start_profiling(app.package_name)
         # app.start()
         time.sleep(3)
         print(wk_unit)

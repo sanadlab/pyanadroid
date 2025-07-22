@@ -6,7 +6,7 @@ from textops import cat, grep
 from anadroid.Anadroid import AnaDroid
 from anadroid.application.AndroidProject import AndroidProject
 from anadroid.device.Device import get_first_connected_device
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 from anadroid.utils.Utils import mega_find
 
 

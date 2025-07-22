@@ -96,7 +96,7 @@ class MonkeyRunnerFramework(AbstractTestingFramework):
         device.unlock_screen()
         time.sleep(1)
         self.profiler.init(**{'app': app})
-        self.profiler.start_profiling()
+        self.profiler.start_profiling(app.package_name)
         app.start()
         log_file = os.path.join(app.curr_local_dir, f"test_{test_id}.logcat")
         self.execute_test(app.package_name, wk_unit, **{'log_filename': log_file})

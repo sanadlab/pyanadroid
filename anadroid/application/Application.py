@@ -7,7 +7,7 @@ from anadroid.Types import TESTING_FRAMEWORK
 from anadroid.application.AbstractApplication import AbstractApplication
 from anadroid.application.AndroidProject import AndroidProject
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 from anadroid.utils.Utils import get_date_str, logw, logi
 
 
@@ -28,6 +28,8 @@ def get_prefix(testing_framework, inst_type):
         dirname += "Test"
     elif inst_type == INSTRUMENTATION_TYPE.ANNOTATION:
         dirname += "Annotation"
+    elif inst_type == INSTRUMENTATION_TYPE.MANIFEST:
+        dirname += "Manifest"
     else:
         raise Exception("Not implemented")
     cur_datetime = get_date_str()
@@ -195,6 +197,8 @@ class App(AbstractApplication):
         Returns:
             str: Path to the permissions JSON file or None if it doesn't exist.
         """
+        if self.curr_local_dir is None:
+            return None
         file_to_look = os.path.join(self.curr_local_dir, "appPermissions.json")
         return None if not os.path.exists(file_to_look) else file_to_look
 
