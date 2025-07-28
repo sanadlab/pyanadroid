@@ -131,7 +131,7 @@ class DeviceState(object):
         """
         res = self.device.execute_command("settings get global bluetooth_on", shell=True)
         if res.validate(("Unable to obtain bluetooth state")):
-            return int(re.search(r"[0-1]", res.output).group())
+            return int(re.search(r"[0-5]", res.output).group())
 
     def get_wifi_state(self):
         """retrieve wifi state.
@@ -140,7 +140,7 @@ class DeviceState(object):
         """
         res = self.device.execute_command("settings get global wifi_on", shell=True)
         if res.validate(("Unable to obtain wifi state")):
-            return int(re.search(r"[0-1]", res.output).group())
+            return int(re.search(r"[0-9]", res.output).group())
 
     def get_hotspot_state(self):
         """retrieve hotspot state.
@@ -373,7 +373,7 @@ class DeviceState(object):
         return ""
 
     def get_used_ram_pss(self):
-        res = self.device.execute_command("dumpsys meminfo | grep \"Used RAM.*\" | cut -f2 -d\( | cut -f1 -d+ | cut -f1 -d\ ", shell=True)
+        res = self.device.execute_command("dumpsys meminfo | grep \"Used RAM.*\" | cut -f2 -d\\( | cut -f1 -d+ | cut -f1 -d\\ ", shell=True)
         if res.validate("Unable to get ram pss"):
             return res.output.strip()
         return ""

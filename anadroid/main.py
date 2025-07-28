@@ -3,7 +3,7 @@ import inspect
 
 from anadroid.Anadroid import AnaDroid
 from anadroid.Config import set_general_config
-from anadroid.Types import TESTING_FRAMEWORK, PROFILER, ANALYZER, INSTRUMENTER
+from anadroid.Types import TESTING_FRAMEWORK, PROFILER, ANALYZER, INSTRUMENTER, BUILDER
 from anadroid.application.AndroidProject import BUILD_TYPE
 from anadroid.device.Device import set_device_conn, has_connected_device
 from anadroid.device.DeviceState import DeviceState
@@ -28,6 +28,7 @@ def init_pyanadroid_from_args(args):
                     test_cmd=args.command,
                     load_projects=not args.run_only and args.device is None,
                     lazy_load=args.device is not None,
+                    builder=args.builder
                     )
 
 
@@ -120,6 +121,8 @@ def main():
     parser.add_argument("-cmd", "--command", help="test command", type=str, default=None)
     parser.add_argument("-nt", "--n_times", help="times to repeat test (overrides config)",
                         type=int, default=0)
+    parser.add_argument("-bd", "--builder", help="builder to use", type=str, default=BUILDER.BUILDROID.value,
+                        choices=[e.value for e in BUILDER])
     args = parser.parse_args()
     process_general_config(args)
     if args.setconnection:

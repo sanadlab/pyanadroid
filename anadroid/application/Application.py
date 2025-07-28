@@ -54,7 +54,7 @@ class App(AbstractApplication):
             device (Device): Device where the app is installed.
             proj (Project): Respective Android project.
             package_name (str): Package name of the app.
-            apk_path (str): Path to the APK.
+            apk_path (str| None): Path to the APK.
             local_res_dir (str): Local results directory.
             app_name (str): Name of the app.
             version (DefaultSemanticVersion): App version.

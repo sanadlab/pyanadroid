@@ -5,6 +5,7 @@ from textops import cat, grep
 
 from anadroid.Anadroid import AnaDroid
 from anadroid.application.AndroidProject import AndroidProject
+from anadroid.build.BuilDroidBuilder import BuilDroidBuilder
 from anadroid.device.Device import get_first_connected_device
 from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 from anadroid.utils.Utils import mega_find
@@ -25,7 +26,10 @@ class TestBuildDemo(TestCase):
             original_proj.clean_trasformations()
             instrumented_proj_dir = le_android.instrumenter.instrument(original_proj, instr_type=le_android.instrumentation_type)
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=le_android.results_dir)
-            builder = le_android.init_builder(instr_proj)
+            builder = BuilDroidBuilder(proj=instr_proj,
+                                       device=self.device,
+                                       resources_dir=le_android.resources_dir,
+                                       instrumenter=le_android.instrumenter)
             builder.build()
             self.assertTrue(builder.was_last_build_successful())
 

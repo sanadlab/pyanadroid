@@ -224,7 +224,8 @@ class Device(AbstractDevice):
         return super(Device, self).is_screen_unlocked()
 
     def uninstall_pkg(self, pkg_name):
-        super().execute_command("uninstall ", args=[pkg_name], shell=False).validate(Exception("Unable to uninstall package " + pkg_name))
+        res = super().execute_command("uninstall ", args=[pkg_name], shell=False)
+        return res.validate(Exception("Unable to uninstall package " + pkg_name))
 
     def list_installed_packages(self):
         """returns list of device's installed packages.
@@ -287,11 +288,11 @@ class Device(AbstractDevice):
         Returns:
             str: the most alike installed pkg name.
         """
-        candidates = difflib.get_close_matches(pkg_aprox_name, self.installed_packages, n=1)
+        candidates = difflib.get_close_matches(pkg_aprox_name, self.installed_packages, n=5)
         if len(candidates) > 0:
             return candidates[0]
         else:
-            new_cands = difflib.get_close_matches(pkg_aprox_name, self.list_installed_packages(), n=1)
+            new_cands = difflib.get_close_matches(pkg_aprox_name, self.list_installed_packages(), n=5)
             return new_cands[0] if len(new_cands) > 0 else None
 
     def lock_screen(self):

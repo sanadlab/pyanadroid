@@ -37,6 +37,9 @@ class AbstractBuilder(ABC):
         self.__get_device_info()
         self.config = get_general_config("build")
 
+    def set_project(self, project):
+        self.proj = project
+
     @staticmethod
     def __get_android_home():
         """

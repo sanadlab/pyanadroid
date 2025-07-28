@@ -8,7 +8,8 @@ from os import mkdir, listdir
 from textops import cat, grep, cut, sed, echo, grepv
 from anadroid.application.ProjectModule import ProjectModule
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
-from anadroid.utils.Utils import execute_shell_command, mega_find, get_results_dir, extract_version_from_apk, logw, loge
+from anadroid.utils.Utils import execute_shell_command, mega_find, get_results_dir, extract_version_from_apk, logw, \
+    loge, logi
 
 RESULTS_DIR = get_results_dir()
 
@@ -105,7 +106,7 @@ class Project(object):
         print(app_id)
         proj_version = proj_version if proj_version is not None else get_repo_version(self.proj_dir)
         res_app_dir = os.path.join(self.results_dir, app_id, proj_version)
-        print(f"Creating results dir {res_app_dir}")
+        logi(f"Creating results dir {res_app_dir}")
         #print(app_id)
         mk_ma_dir(res_app_dir)
         with open(os.path.join(res_app_dir, PROJECT_PATH_FILE), 'w') as f:
@@ -307,7 +308,7 @@ class AndroidProject(Project):
         modul_lines = cat(setts_file) | grep('include') | grepv(r"(^\s*//)")  # | cut(sep=":", col=1) | sed(pats="\'|,", repls="")
         for mod_line in modul_lines:
             for mod in mod_line.split(","):
-                module_name = str(echo(mod) | sed("include", "") | cut(sep=":", col=1) | sed(pats="\'|,|\"|\)", repls="")).strip()
+                module_name = str(echo(mod) | sed("include", "") | cut(sep=":", col=1) | sed(pats="\\'|,|\\\"|\\)", repls="")).strip()
                 module_is_not_empty = any(mega_find(os.path.join(self.proj_dir, module_name), maxdepth=2, mindepth=1))
                 if module_is_not_empty:
                     modules.append(module_name)

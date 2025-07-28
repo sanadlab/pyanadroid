@@ -2,12 +2,11 @@ import re
 from datetime import datetime
 import subprocess
 import signal
-from textops import find
 import os
 import time
 from enum import Enum
-
 from termcolor import colored
+from textops import find
 
 DEFAULT_ANALYZERS_FILENAME =  "analyzer_filters.json"
 
@@ -39,8 +38,8 @@ def get_analyzers_filter_file():
 def log(message, log_sev=LogSeverity.INFO, curr_time=None, to_file=True):
     curr_time = time.time() if curr_time is None else curr_time
     color = get_color(log_sev.value)
-    adapted_time = re.sub("\s|:", "-", str(datetime.fromtimestamp(curr_time)))
-    adapted_time_f = re.sub("\s|:", "-", str(datetime.fromtimestamp(EVAL_TIME)))
+    adapted_time = datetime.fromtimestamp(curr_time).strftime("%Y-%m-%d-%H-%M-%S")
+    adapted_time_f = datetime.fromtimestamp(EVAL_TIME).strftime("%Y-%m-%d-%H-%M-%S")
     str_to_print = "[%s] %s: %s" % (log_sev.value, adapted_time, message)
     print(colored(str_to_print, color))
     if to_file:

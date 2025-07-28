@@ -3,6 +3,10 @@ from enum import Enum
 from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 
 
+class BUILDER(Enum):
+    ANADROID_GRADLE_BUILDER = 'AnadroidBuilder'
+    BUILDROID = 'Buildroid'
+
 class BUILD_SYSTEM(Enum):
     """Enumerates the build systems that can be used to build Android apps."""
     GRADLE = 'Gradle'
