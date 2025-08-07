@@ -20,7 +20,7 @@ only_last_version = False
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
-                    results_dir="native_apps",
+                    results_dir="anadroid_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
                     device=MockedDevice(),
                     profiler=PROFILER.NONE,

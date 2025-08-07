@@ -21,7 +21,7 @@ from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
 from anadroid.analysis.pre_build_analysis.XALintAnalysis import XALintAnalysis
 
 EXCLUDED_LANGS = {'gitignore', 'Markdown', 'License', 'JSON', 'YAML', 'Prolog', 'C Header', 'Batch', 'Properties File'}
-INCLUDED_LANGS = {'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript', 'C', 'C++', 'Kotlin', 'Rust', 'Groovy'}
+INCLUDED_LANGS = {'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript', 'C', 'C++', 'Kotlin', 'Rust', 'Groovy', 'Gradle'}
 
 
 
@@ -171,16 +171,15 @@ class LanguageStats(object):
         with open(scc_file, 'r') as jj:
             info = json.load(jj)
         if not os.path.exists(proj_path):
-            print("jasus maximo proj nao existe")
             return
+
+        if not os.path.exists(proj_path):
+            return
+        is_native = self.check_native(proj_path, info)
         for lang_info in info:
             self.add_language_info(proj_path, lang_info)
             self.parsed_files.add(filepath)
-        is_native = self.check_native(proj_path, info)
-        if not os.path.exists(proj_path):
-            print("jasus")
-            return
-
+        #issues = []
         issues = self.load_project_issues(proj_results_dir)
         #print(len(issues))
         #print(issues)
@@ -224,9 +223,12 @@ class LanguageStats(object):
         lint_results = mega_find(proj_results_dir, pattern="*lint*.xml", type_file='f', maxdepth=2)
         if len(lint_results) > 0:
             for lint_file in lint_results:
-                print(lint_file)
+                #print(lint_file)
                 issues_list = issues_list + list(
-                    filter(lambda x: x not in issues_list, XALintAnalysis().get_issues(lint_file) + ChimeraAnalysis().get_issues(lint_file)))
+                    filter(lambda x: x not in issues_list, XALintAnalysis().get_issues(lint_file)))
+                issues_list = issues_list + list(
+                    filter(lambda x: x not in issues_list, ChimeraAnalysis().get_issues(lint_file)))
+            print(issues_list)
         droidlens_results = mega_find(proj_results_dir, pattern="*droidlens*", type_file='d', maxdepth=2)
         if len(droidlens_results) > 0:
             for droidlens_dir in droidlens_results:
@@ -300,7 +302,7 @@ class LanguageStats(object):
     def get_last_commit(self, directory_path, lookup_filename_pattern='*_commit_data.csv'):
         # Find all files matching the pattern in the directory and its subdirectories
         if directory_path is None or not os.path.exists(directory_path):
-            print("directory_path does not exist")
+            print(f"{directory_path} does not exist")
             return None
         file_list = mega_find(directory_path, pattern=lookup_filename_pattern, type_file='f')
         print(directory_path, file_list)
@@ -352,15 +354,20 @@ class LanguageStats(object):
             if only_last_commit and len(file_list) > 1:
                 proj_dir = self.solve_project_dir(str(cat(filepath)))
                 last_commit = self.get_last_commit(proj_dir)
-                if last_commit is None or last_commit not in filepath:
+                print(filepath)
+                if (proj_dir is None or (last_commit is None or last_commit not in filepath)) and (proj_dir is None or 'unknown' not in proj_dir):
+                    print('siga')
                     continue
             self.parse_repo(filepath)
 
     def gen_langs_boxplots_loc(self):
         fig1, en_box = plt.subplots()
         resdic = {}
+        print(self.language_info)
         for lang, val in self.language_info.items():
-            #print(val)
+            print(lang, val)
+            if lang not in ['Java', 'Kotlin', 'Groovy', 'XML', 'Gradle']:
+                continue
             projs_with_lang = val['proj_files']
             new_l = []
             for proj in projs_with_lang:
@@ -374,6 +381,13 @@ class LanguageStats(object):
                 #print(res_langs)
                 print("------")
             resdic[lang] = new_l
+        total_loc = sum([sum(resdic[lang]) for lang in resdic.keys()])
+        #resdic['all'] = [sum(resdic[lang]) for lang in resdic.keys()]
+        print(resdic)
+        print(total_loc)
+        #print(self.proj_info)
+        total_issues = sum([len(self.proj_info[proj]['issues']) for proj in self.proj_info.keys()])
+        #print(total_issues)
         bp_dict = en_box.boxplot(x=list(resdic.values()),
                             notch=False,  # notch shape
                             vert=True,  # vertical box aligmnent
@@ -394,6 +408,7 @@ class LanguageStats(object):
         for bplot in bp_dict['boxes']:
             i = i + 1
             bplot.set_facecolor(colors[i % len(colors)])
+
 
         xtickNames = plt.setp(en_box, xticklabels=list(resdic.keys()))
         plt.setp(xtickNames, rotation=90, fontsize=5)
@@ -510,7 +525,7 @@ class LanguageStats(object):
         plt.bar(langs, proj_counts, color='skyblue')
         plt.xlabel('Programming Languages')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Projects per Language' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects per Language' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         # label histogram
         for i in range(len(proj_counts)):
@@ -550,7 +565,7 @@ class LanguageStats(object):
             bar.set_facecolor(colors[i % len(colors)])
         plt.xlabel('Pure  Projects')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Projects containing only one language' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects containing only one language' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         # put labels on each bar
         for i in range(len(proj_counts)):
@@ -576,7 +591,7 @@ class LanguageStats(object):
             bar.set_facecolor(colors[i % len(colors)])
         plt.xlabel('Pure  Projects')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Projects containing only one language' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects containing only one language' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         # put labels on each bar
         for i in range(len(proj_counts)):
@@ -602,7 +617,7 @@ class LanguageStats(object):
             plt.text(i, age_years[i], str(age_years[i]), ha='center', va='bottom')
         plt.xlabel('Years')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Projects per Year (Last Update)' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects per Year (Last Update)' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(list(age_years.keys()), rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -667,7 +682,7 @@ class LanguageStats(object):
             plt.text(i, categories_count[i], str(categories_count[i]), ha='center', va='bottom')
         plt.xlabel('App Categories')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Projects per App Category' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects per App Category' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -695,7 +710,7 @@ class LanguageStats(object):
         plt.figure(figsize=(10, 6))
         plt.pie(categories_count.values(), labels=categories_count.keys(), autopct='%1.1f%%', startangle=140)
         plt.axis('equal')
-        plt.title('Number of Projects per App Category' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Projects per App Category' + f" (Total Projects: {len(self.proj_info)})")
         plt.tight_layout()
         plt.show()
 
@@ -733,7 +748,7 @@ class LanguageStats(object):
             plt.text(i, categories_count[i], str(categories_count[i]), ha='center', va='bottom')
         plt.xlabel('App Categories')
         plt.ylabel('Number of Distinct Issues')
-        plt.title('Number of Distinct Issues per App Category' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Distinct Issues per App Category' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -771,7 +786,7 @@ class LanguageStats(object):
             plt.text(i + 1, boxes['medians'][i].get_ydata()[0],
                      str(int(boxes['medians'][i].get_ydata()[0])), ha='center', va='bottom')
         plt.ylabel('Number of Lines of Code')
-        plt.title('Number of Lines of Code per Model' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Lines of Code per Model' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -819,7 +834,7 @@ class LanguageStats(object):
             i = i + 1
         plt.xlabel('Issues')
         plt.ylabel('Number of Projects')
-        plt.title('Project count per issue ' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Project count per issue ' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -911,7 +926,7 @@ class LanguageStats(object):
             i = i + 1
         plt.xlabel('Projects')
         plt.ylabel('Number of Projects')
-        plt.title('Number of Issues per Project ' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Number of Issues per Project ' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -974,7 +989,7 @@ class LanguageStats(object):
             i = i + 1
         plt.xlabel('Issues')
         plt.ylabel('Number of Issues')
-        plt.title('Unique occurrences of Issues ' + f" (Total Projects: {len(self.parsed_files)})")
+        plt.title('Unique occurrences of Issues ' + f" (Total Projects: {len(self.proj_info)})")
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         plt.show()
@@ -1114,10 +1129,11 @@ def main(lookup_dir):
     #build_scc_json_for_all_projs(lookup_dir)
     ls = LanguageStats()
     ls.search_and_parse_files_in_dir(lookup_dir, only_last_commit=True)
-    #ls.gen_pie_categories()
-    #ls.gen_stats()
+    ls.gen_pie_categories()
+    ls.gen_stats()
     #print(json.dumps(ls.language_info, indent=1))
-    #ls.plot_language_histogram()
+    ls.plot_language_histogram()
+
     #ls.gen_langs_boxplots_loc()
     #ls.gen_plot_apps_loc_per_model()
     #ls.gen_manual_proj_histogram()
@@ -1128,20 +1144,20 @@ def main(lookup_dir):
     ls.gen_cross_play_histogram()
     ls.get_plot_projs_per_category()
     ls.get_plot_issues_per_category()
-    ls.gen_issues_per_tool()'''
-
+    '''
+    #ls.gen_issues_per_tool()
 
     #ls.gen_plot_app_play_issues_occurrences_critical()
-    #ls.gen_plot_apps_age_play()
-    #ls.gen_plot_apps_age()
-    #ls.gen_plot_apps_issues()
+    ls.gen_plot_apps_age_play()
+    ls.gen_plot_apps_age()
+    ls.gen_plot_apps_issues()
     ls.gen_plot_apps_issues()
     ls.gen_plot_apps_issues_occurrences()
 
 
-    '''ls.gen_plot_app_play_issues()
+    ls.gen_plot_app_play_issues()
     ls.gen_plot_app_play_issues_occurrences()
-    ls.gen_plot_issues_per_year()'''
+    ls.gen_plot_issues_per_year()
 
     #plot_true_positives()
 

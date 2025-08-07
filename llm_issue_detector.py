@@ -164,7 +164,7 @@ def zero_shot_issues_detection(code_sample, max_tokens=32, error_val=None, call_
         val = send_to_llm(prompt, max_tokens=max_tokens).strip()
         # get current_function name
         save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
-        return val
+        return val.replace(";", "").replace("\n", " ") if val is not None else error_val
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
         save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}")
@@ -187,7 +187,7 @@ def blind_test_issue_detection_compare(code_sample, code_sample2, call_id):
     try:
         val = send_to_llm(prompt, max_tokens=16).strip()
         save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
-        return val
+        return val.replace(";", "").replace("\n", " ") if val is not None else 'Unknown'
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
         save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}" )
@@ -209,7 +209,7 @@ def zero_shot_issue_detection_detailed(code_sample, issues_specification, call_i
     try:
         val = send_to_llm(prompt, max_tokens=1024).strip()
         save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
-        return val
+        return val.replace(";", "").replace("\n", " ") if val is not None else "Unknown"
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
         save_answer_to_file(prompt, str(e),f"{inspect.currentframe().f_code.co_name}_{call_id}")
@@ -278,6 +278,9 @@ def blind_test_procedure_examples(repeat=False):
                 print("Invalid example", len(val))
                 print(val)
                 exit(-1)
+            if prob == sol:
+                loge("Invalid example: problem and solution are the same")
+                exit(-2)
             sol_list = [prob, sol]
             random.shuffle(sol_list)
             optimal_answer = 1 if prob == sol_list[1] else 2
@@ -304,7 +307,7 @@ def save_label(file_path, issue_name, issue_instance_id, result, expected, label
         os.makedirs(target_folder)
     with open(os.path.join(target_folder, file_path), 'a+') as file:
         writer = csv.writer(file, delimiter=';')
-        writer.writerow([issue_name, issue_instance_id, result, expected, label])
+        writer.writerow([issue_name] + issue_instance_id.split(";") + [result, expected, label])
 
 def blind_test_procedure_real(issue_source):
     if issue_source == "vibe_coding":
@@ -329,12 +332,13 @@ def blind_test_procedure_real(issue_source):
             issue_instance_id = f"{issue_instance['repo_dir']}" + (f";{issue_instance['prev_commit_hash']}" if issue_instance.get('prev_commit_hash', None) is not None else "")
             if issue_instance_id in already_processed_issues.get(issue_name, {}):
                 print(f"Skipping {issue_instance_id}")
-                #continue
+                continue
+            print(issue_instance)
             code_sample = fetch_code_from_issue(issue_instance, regressions)
             sol_sample = fetch_sol_code_from_issue(issue_instance, regressions)
             if code_sample is None or sol_sample is None or code_sample == sol_sample:
                 loge("Invalid examples: " + str(issue_name) + f" equals ? {code_sample == sol_sample} None? {code_sample is None} {sol_sample is None}")
-                #continue
+                continue
             sol_list = [code_sample, sol_sample]
             random.shuffle(sol_list)
             optimal_answer = 1 if code_sample == sol_list[1] else 2
@@ -353,20 +357,25 @@ def blind_test_procedure_real(issue_source):
             save_label(filename, issue_name, issue_instance_id, bld_cmp.replace(";", ""), 'TP' ,correct_call)
             print("--------")
 
-def load_regressions_csv(csv_file="regressions.csv"):
+def load_regressions_csv(csv_file="fixed_big_progressions.csv"):
     regressions = []
     with open(csv_file, 'r') as file:
         reader = csv.reader(file, delimiter=';')
         for row in reader:
             # /Users/rar9993/repos/research/fdroid_apps/native_apps/Player,7783f82bc5e9e238100ca9be0cd440b0a072d0e1,Merge branch 'master' into flavorless,"KnownStaticPerformanceIssues.MEMBER_IGNORING_METHOD, PERFORMANCE, None, DAAP None, /src/online/java/com/brouken/player/UpdateCheckJobService.java, None, None, None, None",def_removal
+            if len(row) <= 5:
+                continue
             v = {
-                    'repo_dir': row[0],
+                    'repo_dir': row[0].replace("\"",""),
                     'prev_commit_hash': row[1],
                     'commit_hash': row[2],
                     'commit_message': row[3],
                     'issue': issue_from_string(row[4]),
                     'classification': row[5],
                 }
+            if v['issue'] is None:
+                loge(f"Error loading issue from string: {row[4]}")
+                continue
             regressions.append(v)
             #print(v)
     return regressions
@@ -621,7 +630,7 @@ def few_shot_issue_detection(code_sample, issue_spec, input_set, call_id=None, n
     try:
         val = send_to_llm(prompt).strip()
         save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
-        return val
+        return val.replace(";", "").replace("\n", " ") if val is not None else "few shot failed"
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
         save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}")
@@ -724,7 +733,7 @@ def chain_of_thought_detection(code_sample, issue_spec, input_set, call_id, no_f
     try:
         val = send_to_llm(prompt).strip()
         save_answer_to_file(prompt, val, f"{inspect.currentframe().f_code.co_name}_{call_id}")
-        return val
+        return val.replace(";", "").replace("\n", " ") if val is not None else "Failed"
     except Exception as e:
         loge(f"Error sending to LLM: {e}")
         save_answer_to_file(prompt, str(e), f"{inspect.currentframe().f_code.co_name}_{call_id}")
@@ -741,10 +750,13 @@ def load_engineered_issues(filename):
         reader = csv.reader(file, delimiter=';')
         issues = {}
         for row in reader:
-            print(row)
+            if len(row) < 3:
+                continue
+            #row[0] = row[0].strip().replace("\"", "")
+            #row[1] = row[1].strip().replace("\"", "")
             if row[0] not in issues:
                 issues[row[0]] = {}
-            issues[row[0]][row[1]] = row
+            issues[row[0]][row[1]+';'+row[2]] = row
     return issues
 
 def chain_of_thought_procedure(repeat=False, issue_source="true_positives", no_fix=True):
