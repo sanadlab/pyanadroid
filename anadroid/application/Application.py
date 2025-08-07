@@ -1,5 +1,6 @@
 import os
 import shutil
+import time
 
 from textops import cut, grep, echo
 
@@ -135,6 +136,8 @@ class App(AbstractApplication):
         Stops the app via the activity manager (force-stop command).
         """
         self.on_fg = False
+        self.device.execute_command(f"am profile stop {self.package_name}", shell=True)
+        time.sleep(2)
         self.device.execute_command(f"am force-stop {self.package_name}",
                                     shell=True) \
             .validate(Exception("error stopping app"))

@@ -132,7 +132,7 @@ class ManafaMethodCoverageAnalyzer(ExecutionResultsAnalyzer):
         if filter_name == "method_coverage":
             if test_id in self.functions:
                 coverage_pct = self.get_method_coverage(test_id)
-                logi(f"Method coverage: {coverage_pct * 100}%")
+                logi(f"Method coverage: {coverage_pct * 100}% (of a tofal of {len(self.app_methods)} methods)")
                 return coverage_pct
         val = super().get_val_for_filter(filter_name, test_id)
         if val is None:

@@ -93,6 +93,8 @@ def set_transitive_names(gradle_plugin_version):
 	Args:
 		gradle_plugin_version: gradle-plugin version.
 	"""
+	if gradle_plugin_version is None:
+		return
 	x = DefaultSemanticVersion(str(gradle_plugin_version))
 	if x.major < 3:
 		global TRANSITIVE
@@ -126,7 +128,7 @@ class GradleBuilder(AbstractBuilder):
 		super(GradleBuilder, self).__init__(proj, device, resources_dir, instrumenter)
 		self.build_flags = {}
 		self.change_history = []
-		self.gradle_plg_version = proj.get_gradle_plugin()
+		self.gradle_plg_version = proj.get_gradle_plugin() if proj else None
 		self.build_tools_version = None
 		set_transitive_names(self.gradle_plg_version)
 		self.retry_on_fail = self.get_config("retry_failed", True)
@@ -703,6 +705,11 @@ class GradleBuilder(AbstractBuilder):
 		new_file_ctnt = file_ctent + "\n" + pato_str + "\n}\n}"
 		with open(self.proj.root_build_file, 'w') as u:
 			u.write(new_file_ctnt)
+
+	def set_project(self, project):
+		self.proj = project
+		self.gradle_plg_version = project.get_gradle_plugin() if project else None
+		set_transitive_names(self.gradle_plg_version)
 
 	def __has_built_apks(self):
 		"""checks if project has apks already built.

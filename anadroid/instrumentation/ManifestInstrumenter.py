@@ -129,10 +129,14 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
                     shell_attr_key = f'{{{ANDROID_NS}}}shell'
                     profileable_node.set(shell_attr_key, 'true')
                 else:
-                    application_node.set(debuggable_attr_key, 'true')
                     logw("<profileable> tag already exists. Skipping addition.")
+                    application_node.set(debuggable_attr_key, 'true')
+            else:
+                logi(f"Target SDK ({target_sdk}) < 29. Skipping <profileable> tag addition.")
+                application_node.set(debuggable_attr_key, 'true')
         except (ValueError, TypeError, AttributeError):
             logw(f"Could not determine target SDK version from project. Skipping <profileable> tag addition.")
+            application_node.set(debuggable_attr_key, 'true')
 
         # 3. Write all changes back to the file
         tree.write(manifest_path, encoding='utf-8', xml_declaration=True)

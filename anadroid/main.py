@@ -121,7 +121,7 @@ def main():
     parser.add_argument("-cmd", "--command", help="test command", type=str, default=None)
     parser.add_argument("-nt", "--n_times", help="times to repeat test (overrides config)",
                         type=int, default=0)
-    parser.add_argument("-bd", "--builder", help="builder to use", type=str, default=BUILDER.BUILDROID.value,
+    parser.add_argument("-bd", "--builder", help="builder to use", type=str, default=BUILDER.ANADROID_GRADLE_BUILDER.value,
                         choices=[e.value for e in BUILDER])
     args = parser.parse_args()
     process_general_config(args)

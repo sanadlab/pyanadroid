@@ -68,7 +68,6 @@ def is_cross_platform_project(dirpath):
 def get_repo_version(repo_dir):
     # in case of not knowing the version, we will try to get the last commit hash if available
     res = execute_shell_command(f"cd {repo_dir} && git rev-parse HEAD")
-    print(res)
     if res.validate():
         return res.output.strip()
     return "unknown"
@@ -344,7 +343,7 @@ class AndroidProject(Project):
         """
         print("root file", self.root_build_file)
         gradle_plugin_version = str(cat(self.root_build_file) | grep("com.android.tools.build") | sed("classpath|com.android.tools.build:gradle:|\"", "")).strip().replace("'", "")
-        return gradle_plugin_version
+        return gradle_plugin_version if gradle_plugin_version is not None else '8.9.0'
 
     def create_inner_folder(self, name="libs"):
         """Creates a folder inside the project.

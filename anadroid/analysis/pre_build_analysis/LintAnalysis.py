@@ -242,4 +242,3 @@ class LintAnalysis(StaticAnalyzer):
                 issues.append(issue_inst)
 
         return issues
-

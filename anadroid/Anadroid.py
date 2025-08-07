@@ -272,11 +272,9 @@ class AnaDroid(object):
         logi(f"Processing {len(self.app_projects_ut)} project(s)") if len(self.app_projects_ut) > 0 else logi(
             f"No Android Projects found in {self.apps_dir}")
 
-        print('jaime')
         for app_proj in self.app_projects_ut:
 
             instr_proj = self.build_app_project(app_proj, build_apks=True)
-            print('potato')
             installed_apps_list = self.device.install_apks(instr_proj, build_type=self.build_type,
                                                            install_test_apks=self.needs_tests_apk())
             self.do_work(installed_apps_list)
@@ -464,7 +462,7 @@ class AnaDroid(object):
                 added = False
                 for child in children_dirs:
                     child_path_dir = os.path.join(path_dir, child)
-                    new_proj_fldr = self.__get_project_root_dir(child_path_dir)
+                    new_proj_fldr = self.__get_project_root_dir(self, child_path_dir)
                     if (new_proj_fldr is not None or proj_fldr is not None):
                         if is_cross_platform_project(path_dir):
                             return_projs.add(str(path_dir))
