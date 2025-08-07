@@ -129,7 +129,7 @@ class AppCrawlerFramework(AbstractTestingFramework):
         device.unlock_screen()
         time.sleep(1)
         self.profiler.init()
-        self.profiler.start_profiling()
+        self.profiler.start_profiling(app.package_name)
         app.start()
         time.sleep(8)
         wk_unit.stop_call = self.profiler.stop_profiling

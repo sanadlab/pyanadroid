@@ -93,6 +93,8 @@ def set_transitive_names(gradle_plugin_version):
 	Args:
 		gradle_plugin_version: gradle-plugin version.
 	"""
+	if gradle_plugin_version is None:
+		return
 	x = DefaultSemanticVersion(str(gradle_plugin_version))
 	if x.major < 3:
 		global TRANSITIVE
@@ -126,7 +128,7 @@ class GradleBuilder(AbstractBuilder):
 		super(GradleBuilder, self).__init__(proj, device, resources_dir, instrumenter)
 		self.build_flags = {}
 		self.change_history = []
-		self.gradle_plg_version = proj.get_gradle_plugin()
+		self.gradle_plg_version = proj.get_gradle_plugin() if proj else None
 		self.build_tools_version = None
 		set_transitive_names(self.gradle_plg_version)
 		self.retry_on_fail = self.get_config("retry_failed", True)
@@ -339,7 +341,7 @@ class GradleBuilder(AbstractBuilder):
 			# create gradle wrapper
 			copy(os.path.join(self.resources_dir, "build", "gradle", "gradlew"), self.proj.proj_dir)
 		lint_option_cmd = " -x lint" if skip_lint else ""
-		val = self.__execute_gradlew_task(target_task + lint_option_cmd  + " -x test")
+		val = self.__execute_gradlew_task(target_task + lint_option_cmd  + " -x test  --no-daemon  2>&1 | tee " + f"{target_task}_result.out" )
 		was_success = BUILD_SUCCESS_VALUE in val
 		if was_success:
 			logs(f"{target_task}: BUILD SUCCESSFUL")
@@ -368,11 +370,10 @@ class GradleBuilder(AbstractBuilder):
 			str: command output.
 		"""
 		logi(f"Executing Gradle task: {task}")
-		build_timeout_val = self.get_config("build_timeout", None)
-		build_timeout_val = None if build_timeout_val == 0 else build_timeout_val
+		build_timeout_val =  900
 		#build_timeout = f'gtimeout  -s 9 {build_timeout_val}' if build_timeout_val > 0 else ""
 		#print(build_timeout)
-		cmd = "cd {projdir}; chmod +x gradlew ; ./gradlew {task}".format(
+		cmd = "cd {projdir}; chmod +x gradlew ; gtimeout {build_timeout_val} ./gradlew {task}".format(build_timeout_val=build_timeout_val,
 				projdir=self.proj.proj_dir, task=task, build_timeout=build_timeout_val)
 		res = execute_shell_command(cmd, timeout=build_timeout_val)
 		if res.validate(f"error running gradle task ({task})"):
@@ -389,7 +390,7 @@ class GradleBuilder(AbstractBuilder):
 		if str(has_min_sdk) != "":
 			min_sdk = has_min_sdk | sed('minSdkVersion| |=|\n', "") | head(1)
 			device_sdk_version = self.device.get_device_sdk_version()
-			if int(str(min_sdk)) > device_sdk_version:
+			if int(str(min_sdk).replace("\"",'')) > device_sdk_version:
 				logw(f"This app target sdk version {min_sdk}. This is greater than the device version and the application"
 					f" might not work properly on the connected device")
 				new_file = re.sub(r'minSdkVersion (.+)', r'minSdkVersion %d' % device_sdk_version,
@@ -419,6 +420,8 @@ class GradleBuilder(AbstractBuilder):
 		Args:
 			gradle_file: gradle file.
 		"""
+		if gradle_file.endswith('.kts'):
+			return
 		new_dex_opts = {}
 		file_ctent = str(cat(gradle_file))
 		#has_android = re.search(r'android.*?\{', file_ctent)
@@ -447,6 +450,8 @@ class GradleBuilder(AbstractBuilder):
 	def __add_or_update_lintoptions(self, gradle_file):
 		"""Adds lint options.
 		"""
+		if gradle_file.endswith('.kts'):
+			return
 		new_lint_opts = {}
 		file_ctent = str(cat(gradle_file))
 		has_android = re.search(r'android[^\w]*?\{', file_ctent)
@@ -476,6 +481,8 @@ class GradleBuilder(AbstractBuilder):
 		Args:
 			gradle_file: gradle file
 		"""
+		if gradle_file.endswith('.kts'):
+			return
 		file_ctent = str(cat(gradle_file))
 		has_inst_runner = re.search(r'testInstrumentationRunner', file_ctent)
 		if has_inst_runner is None:
@@ -699,6 +706,11 @@ class GradleBuilder(AbstractBuilder):
 		with open(self.proj.root_build_file, 'w') as u:
 			u.write(new_file_ctnt)
 
+	def set_project(self, project):
+		self.proj = project
+		self.gradle_plg_version = project.get_gradle_plugin() if project else None
+		set_transitive_names(self.gradle_plg_version)
+
 	def __has_built_apks(self):
 		"""checks if project has apks already built.
 		Returns:
@@ -720,4 +732,3 @@ class GradleBuilder(AbstractBuilder):
 		"""
 		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
 		return os.path.exists(filename)
-

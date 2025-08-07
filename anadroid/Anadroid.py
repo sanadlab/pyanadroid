@@ -4,21 +4,18 @@ import re
 import traceback
 from anadroid.Config import SUPPORTED_PROFILERS, SUPPORTED_TESTING_FRAMEWORKS, SUPPORTED_ANALYZERS, \
     SUPPORTED_INSTRUMENTERS, \
-    SUPPORTED_INSTRUMENTATION_TYPES, SUPPORTED_SUITES, SUPPORTED_BUILDING_SYSTEMS
-from anadroid.Types import PROFILER, INSTRUMENTER, TESTING_FRAMEWORK, ANALYZER, BUILD_SYSTEM
-from anadroid.analysis.pre_build_analysis.ADoctorAnalysis import ADoctorAnalysis
-from anadroid.analysis.pre_build_analysis.DAAPAnalysis import DAAPAnalysis
-from anadroid.analysis.pre_build_analysis.EcoAndroidAnalysis import EcoAndroidAnalysis
-from anadroid.analysis.pre_build_analysis.LintAnalysis import LintAnalysis
-from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
+    SUPPORTED_INSTRUMENTATION_TYPES, SUPPORTED_SUITES
+from anadroid.Types import PROFILER, INSTRUMENTER, TESTING_FRAMEWORK, ANALYZER, BUILDER
 from anadroid.application.AndroidProject import AndroidProject, BUILD_TYPE, is_android_native_project, Project, \
     is_cross_platform_project
 from anadroid.application.Application import App
+from anadroid.build.BuilDroidBuilder import BuilDroidBuilder
 from anadroid.build.GradleBuilder import GradleBuilder
 from anadroid.device.Device import get_first_connected_device
-from anadroid.instrument.JInstInstrumenter import JInstInstrumenter
-from anadroid.instrument.NoneInstrumenter import NoneInstrumenter
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE
+from anadroid.instrumentation.JInstInstrumenter import JInstInstrumenter
+from anadroid.instrumentation.ManifestInstrumenter import AndroidManifestInstrumenter
+from anadroid.instrumentation.NoneInstrumenter import NoneInstrumenter
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 from anadroid.profiler.GreenScalerProfiler import GreenScalerProfiler
 from anadroid.profiler.ManafaProfiler import ManafaProfiler
 from anadroid.profiler.NoneProfiler import NoneProfiler
@@ -50,8 +47,6 @@ class AnaDroid(object):
         device(Device): device to be used.
         app_projects_ut(list): Android Projects to process.
         tests_dir(str): directory containing app tests (only used with RERAN).
-        rebuild_apps(bool): optionally rebuild apps from Android Projects already built.
-        reinstrument(bool): optionally reinstrument Android Projects previously instrumented.
         apps(list): list of apps to exercise.
         apks(list): list of apks to exercise.
         results_dir(str): directory where results will be stored.
@@ -67,8 +62,9 @@ class AnaDroid(object):
     def __init__(self, arg1, results_dir=get_results_dir(), profiler=PROFILER.MANAFA,
                  testing_framework=TESTING_FRAMEWORK.MONKEY, device=None, instrumenter=INSTRUMENTER.JINST,
                  analyzer=ANALYZER.OLD_ANADROID_ANALYZER, instrumentation_type=INSTRUMENTATION_TYPE.ANNOTATION,
-                 build_system=BUILD_SYSTEM.GRADLE, build_type=BUILD_TYPE.DEBUG, tests_dir=None, rebuild_apps=False,
+                 builder=BUILDER.ANADROID_GRADLE_BUILDER, build_type=BUILD_TYPE.DEBUG, tests_dir=None, rebuild_apps=False,
                  reinstrument=False, recover_from_last_run=False, test_cmd=None, load_projects=True, lazy_load=False):
+        self.device = device if device is not None else get_first_connected_device(lazy_load=lazy_load)
         self.device = device if device is not None else get_first_connected_device(lazy_load=lazy_load)
         self.app_projects_ut = []
         self.tests_dir = tests_dir
@@ -84,19 +80,18 @@ class AnaDroid(object):
             self.app_projects_ut = self.load_projects() if load_projects else []
         self.results_dir = results_dir
         self.test_cmd = test_cmd
-        self.instrumentation_type = self.__infer_instrumentation_type(instrumentation_type)
-        self.profiler = self.__infer_profiler(profiler)
+        self.instrumentation_type = self.__infer_instrumentation_type(self, instrumentation_type)
+        self.profiler = self.__infer_profiler(profiler, arg1)
         self.post_execution_analyzers = self.__infer_post_execution_analyzer(analyzer, profiler)
         self.testing_framework = self.__infer_testing_framework(testing_framework)
         self.__validate_suite(profiler)
         self.instrumenter = self.__infer_instrumenter(instrumenter)
-        self.pre_build_analyzers = self.__infer_pre_build_analyzers()
-        self.post_build_analyzers = self.__infer_post_build_analyzers()
-        self.builder = self.__infer_build_system(build_system)
+        self.pre_build_analyzers = self.__infer_pre_build_analyzers(self)
+        self.post_build_analyzers = self.__infer_post_build_analyzers(self)
         self.resources_dir = get_resources_dir()
+        self.builder = self.init_builder(builder)
         self.build_type = build_type
         #print(f"Time to initialize AnaDroid: {time.time() - ts} seconds")
-
 
     def __setup_from_argparse(self, args: argparse.Namespace):
         """get configs from argparse object if provided in app constructor.
@@ -129,15 +124,8 @@ class AnaDroid(object):
     @staticmethod
     def __create_apps_from_apk_names(apk_list):
         return apk_list
-        '''for apk in apk_list:
-            if not os.path.exists(apk):
-                #raise FileNotFoundError()
-            pkg = extract_pkg_name_from_apk(apk)
-            da_proj = Project(pkg, pkg)
-            da_proj.init_results_dir(pkg)
-            self.apks.append( App(self.device, da_proj, pkg,apk_path=apk, local_res=da_proj.results_dir) )'''
 
-    def __infer_profiler(self, profiler):
+    def __infer_profiler(self, profiler, possible_package_name):
         """infers profiler from profiler enum.
         Args:
             profiler(PROFILER): profiler enum selected by user.
@@ -150,7 +138,7 @@ class AnaDroid(object):
             if profiler == PROFILER.TREPN:
                 return TrepnProfiler(profiler, self.device)
             elif profiler == PROFILER.MANAFA:
-                return ManafaProfiler(profiler, self.device,
+                return ManafaProfiler(profiler, self.device, app_package_name=possible_package_name,
                                       hunter=self.instrumentation_type == INSTRUMENTATION_TYPE.ANNOTATION)
             elif profiler == PROFILER.GREENSCALER:
                 return GreenScalerProfiler(profiler, self.device)
@@ -205,6 +193,8 @@ class AnaDroid(object):
         if inst in SUPPORTED_INSTRUMENTERS:
             if inst == INSTRUMENTER.JINST:
                 return JInstInstrumenter(self.profiler)
+            elif inst == INSTRUMENTER.MANIFEST:
+                return AndroidManifestInstrumenter(self.profiler)
             elif inst == INSTRUMENTER.NONE:
                 return NoneInstrumenter(self.profiler)
             else:
@@ -212,6 +202,7 @@ class AnaDroid(object):
         else:
             raise Exception("Unsupported instrumenter")
 
+    @staticmethod
     def __infer_pre_build_analyzers(self):
         # TODO
         return ComposedAnalyzer(None,
@@ -225,6 +216,8 @@ class AnaDroid(object):
                                   #SCCAnalyzer()
                                   ])
 
+
+    @staticmethod
     def __infer_post_build_analyzers(self):
         return ComposedAnalyzer(None, [ApkAPIAnalyzer()])
 
@@ -252,12 +245,7 @@ class AnaDroid(object):
             analyzers.append(ManafaMethodCoverageAnalyzer(self.profiler))
         return ComposedAnalyzer(self.profiler, analyzers)
 
-    def __infer_build_system(self, build_system):
-        if build_system in SUPPORTED_BUILDING_SYSTEMS:
-            return build_system
-        else:
-            raise Exception("Unsupported Analyzer")
-
+    @staticmethod
     def __infer_instrumentation_type(self, test_orientation):
         """validates instrumentation type.
         Returns:
@@ -268,9 +256,12 @@ class AnaDroid(object):
         else:
             raise Exception("Unsupported instrumentation")
 
-    def init_builder(self, instr_proj):
-        if self.builder == BUILD_SYSTEM.GRADLE:
-            return GradleBuilder(instr_proj, self.device, self.resources_dir, self.instrumenter)
+    def init_builder(self, builder):
+        if builder == BUILDER.BUILDROID.value:
+            return BuilDroidBuilder(None, self.device, self.resources_dir, self.instrumenter)
+            #return GradleBuilder(instr_proj, self.device, self.resources_dir, self.instrumenter)
+        elif builder == BUILDER.ANADROID_GRADLE_BUILDER.value:
+            return GradleBuilder(None, self.device, self.resources_dir, self.instrumenter)
         return None
 
     def default_workflow(self):
@@ -283,13 +274,11 @@ class AnaDroid(object):
 
         for app_proj in self.app_projects_ut:
 
-            instr_proj, builder = self.build_app_project(app_proj, build_apks=True)
-            if builder is None:
-                continue
+            instr_proj = self.build_app_project(app_proj, build_apks=True)
             installed_apps_list = self.device.install_apks(instr_proj, build_type=self.build_type,
                                                            install_test_apks=self.needs_tests_apk())
             self.do_work(installed_apps_list)
-            builder.uninstall_all_apks()
+            self.builder.uninstall_all_apks()
             self.post_execution_analyzers.show_results(installed_apps_list)
 
         for apk in self.apks:
@@ -326,11 +315,13 @@ class AnaDroid(object):
 
     def exec_command(self):
         try:
-            self.testing_framework.init_default_workload()
-            self.testing_framework.test_app(self.device, app=None)
-            self.post_execution_analyzers.analyze_tests(results_dir=self.testing_framework.get_default_test_dir(), **{
-                                                'testing_framework': self.testing_framework,
-                                                })
+            for app in self.apps:
+                self.testing_framework.init_default_workload(app.package_name)
+                app.init_local_test_(self.testing_framework.id, self.instrumentation_type)
+                self.testing_framework.test_app(self.device, app=app)
+                self.post_execution_analyzers.analyze_tests(results_dir=self.testing_framework.get_default_test_dir(), **{
+                                                    'testing_framework': self.testing_framework,
+                                                    })
         except Exception:
             loge(traceback.format_exc())
 
@@ -358,34 +349,36 @@ class AnaDroid(object):
         logi("Processing app " + app_name + " in " + app_project)
         res = False
         instr_proj = None
-        builder = None
         try:
-            original_proj = AndroidProject(projname=app_name, projdir=app_project, clean_instrumentations=self.reinstrument)
+
+            original_proj = AndroidProject(projname=app_name, projdir=app_project, results_dir=self.results_dir,
+                                           clean_instrumentations=self.reinstrument)
             self.pre_build_analyzers.analyze_project(original_proj)
             instrumented_proj_dir = self.instrumenter.instrument(original_proj, instr_type=self.instrumentation_type) if self.instrumenter is not None else app_project
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
-            builder = self.init_builder(instr_proj)
+            self.builder.set_project(instr_proj)
             if build_apks:
-               res = builder.build_proj_and_apk(build_type=self.build_type,
+
+                res = self.builder.build_proj_and_apk(build_type=self.build_type,
                                                 build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT if self.needs_tests_apk() else False,
                                                 rebuild=self.should_rebuild_apps)
             else:
-                res = builder.build()
+                res = self.builder.build()
         except Exception:
             loge(traceback.format_exc())
 
         if not res:
             loge(f"Unable to build {app_name}. Skipping app")
-            return instr_proj, None
-        return instr_proj if instr_proj else app_project, builder
+            return instr_proj
+        return instr_proj if instr_proj else app_project
 
     def just_analyze(self):
         """analyze apps obtained from app_projects_ut."""
         for app_proj in self.app_projects_ut:
             app_name = os.path.basename(app_proj)
             logi("Processing app " + app_name + " in " + app_proj)
-            for app_proj in self.app_projects_ut:
-                instr_proj, builder = self.build_app_project(app_proj, build_apks=True)
+            for app_inner_proj in self.app_projects_ut:
+                instr_proj, builder = self.build_app_project(app_inner_proj, build_apks=True)
                 installed_apps_list = self.device.install_apks(instr_proj, build_type=self.build_type)
                 for app in installed_apps_list:
                     self.post_build_analyzers.analyze_app(app)
@@ -394,7 +387,7 @@ class AnaDroid(object):
             # builder.build_proj_and_apk(build_type=self.build_type,build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT)
             # self.analyzer.analyze(app, **{'instr_type': self.instrumentation_type, 'testing_framework': self.testing_framework})
 
-    def just_static_analyze(self):
+    def just_static_analyze(self, retry=False):
         """analyze apps obtained from app_projects_ut."""
         results_dirs = []
         for app_proj in self.app_projects_ut:
@@ -403,19 +396,42 @@ class AnaDroid(object):
             app_name = os.path.basename(app_proj)
 
             original_proj = AndroidProject(projname=app_name, projdir=app_proj,
-                                               clean_instrumentations=self.reinstrument)
-            self.pre_build_analyzers.analyze_project(original_proj, retry=False)
+                                           results_dir=self.results_dir,
+                                            clean_instrumentations=self.reinstrument)
+            self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
             results_dirs.append(original_proj.results_dir)
 
         return results_dirs
-            # builder.build_proj_and_apk(build_type=self.build_type,build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT)
-            # self.analyzer.analyze(app, **{'instr_type': self.instrumentation_type, 'testing_framework': self.testing_framework})
 
+    def just_build_static_analyze(self, retry=False):
+        """analyze apps obtained from app_projects_ut."""
+        results_dirs = []
+        for app_proj in self.app_projects_ut:
+            app_name = os.path.basename(app_proj)
+            logi("Processing app " + app_name + " in " + app_proj)
+            app_name = os.path.basename(app_proj)
+            original_proj = AndroidProject(projname=app_name, projdir=app_proj,
+                                           results_dir=self.results_dir,
+                                           clean_instrumentations=self.reinstrument)
+            apk_paths = original_proj.get_apks(build_type=BUILD_TYPE.ANY)
+            apk_path = apk_paths[0] if len(apk_paths) > 0 else None
+            if apk_path is None:
+                logw(f"Unable to find apk for {app_proj}. Skipping app")
+                continue
+            app = App(self.device, original_proj, original_proj.pkg_name, apk_path=apk_path, local_res_dir=original_proj.results_dir)
+            self.post_build_analyzers.analyze_app(app)
+            results_dirs.append(original_proj.results_dir)
+        return results_dirs
+
+    @staticmethod
     def __get_project_root_dir(self, dir_path):
         """infers Android project root directory."""
         has_gradle_right_next = mega_find(dir_path, pattern="build.gradle*", maxdepth=4, type_file='f')
         if len(has_gradle_right_next) > 0:
+            print(has_gradle_right_next)
             top_gradle_file = min(has_gradle_right_next, key=len)
+            if top_gradle_file is not None and os.path.basename(os.path.dirname(top_gradle_file)) == 'app':
+                return os.path.dirname(os.path.dirname(top_gradle_file))
             return os.path.dirname(top_gradle_file) if top_gradle_file is not None else None
         return None
 
@@ -423,6 +439,7 @@ class AnaDroid(object):
         """loads Android Projects from a directory containing one or more projects."""
         return_projs = set()
         if is_android_native_project(self.apps_dir):
+            #print("native:", self.apps_dir)
             print(f"apps_dir: {self.apps_dir}")
             potential_projects = [self.apps_dir]
         elif os.path.isdir(self.apps_dir):
@@ -434,21 +451,25 @@ class AnaDroid(object):
         for maybe_proj in potential_projects:
             path_dir = os.path.join(self.apps_dir, maybe_proj)
             #print(path_dir)
-            proj_fldr = self.__get_project_root_dir(path_dir)
+            proj_fldr = self.__get_project_root_dir(self, path_dir)
             #print(maybe_proj, proj_fldr)
+            print('proj fldr', proj_fldr)
             if proj_fldr is not None and not is_cross_platform_project(path_dir):
+                print("native1:", proj_fldr)
                 return_projs.add(str(proj_fldr))
             else:
                 children_dirs = list(filter(lambda x: os.path.isdir(os.path.join(path_dir, x)), os.listdir(path_dir)))
                 added = False
                 for child in children_dirs:
                     child_path_dir = os.path.join(path_dir, child)
-                    new_proj_fldr = self.__get_project_root_dir(child_path_dir)
+                    new_proj_fldr = self.__get_project_root_dir(self, child_path_dir)
                     if (new_proj_fldr is not None or proj_fldr is not None):
                         if is_cross_platform_project(path_dir):
                             return_projs.add(str(path_dir))
                             added = True
+                            print("cross_platform:", path_dir)
                         elif is_android_native_project(child_path_dir) and not is_cross_platform_project(child_path_dir):
+                            print("native:",child_path_dir)
                             return_projs.add(str(child_path_dir))
                             added = True
                 if not added:
@@ -477,6 +498,7 @@ class AnaDroid(object):
                 processed_projs_last_run.append(proj_dir)
         return processed_projs_last_run
 
+    @staticmethod
     def get_last_run_file(self):
         run_regex = r"\d+-\d+-\d+-\d+-\d+.*.log"
         log_dir = get_log_dir()

@@ -76,7 +76,8 @@ def solve_known_error(proj, error, error_msg, **kwargs):
         copy_tree(GRADLE_WRAPPER_DIR, os.path.join(proj.proj_dir, "gradle"))
 
     elif error == KNOWN_ERROR.NO_GRADLEW_EXEC:
-        shutil.copytree(os.path.join(GRADLE_RES_DIR, "gradlew"), proj.proj_dir)
+        shutil.copy(os.path.join(GRADLE_RES_DIR, "gradlew"), proj.proj_dir)
+        #shutil.copytree(os.path.join(GRADLE_RES_DIR, "gradlew"), proj.proj_dir)
 
     elif error == KNOWN_ERROR.NO_TARGET_PLATFORM:
         # extract version -> use sdkmanager to download -> retry

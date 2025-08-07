@@ -24,6 +24,8 @@ class AbstractTestingFramework(ABC):
         self.analyzer = analyzer
         self.config = get_general_config("tests")
         self.default_test_res = default_test_res
+        if not os.path.exists(self.default_test_res):
+            os.makedirs(self.default_test_res)
 
     @abstractmethod
     def init_default_workload(self, pkg, args_file=None, tests_dir=None):

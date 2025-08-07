@@ -16,9 +16,11 @@ from anadroid.utils.Utils import execute_shell_command, logi, loge, mega_find
 
 
 lock = multiprocessing.Lock()
+only_last_version = False
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
+                    results_dir="anadroid_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
                     device=MockedDevice(),
                     profiler=PROFILER.NONE,
@@ -41,6 +43,7 @@ def load_project_issues(proj_results_dir):
             issues_list = issues_list + DAAPAnalysis().get_issues(daap_file)
     eco_android_dirs = mega_find(proj_results_dir, pattern="*ecoandroid*", type_file='d', maxdepth=2)
     if len(eco_android_dirs) > 0:
+        print(eco_android_dirs)
         for eco_dir in eco_android_dirs:
             issues_list = issues_list + EcoAndroidAnalysis().get_issues(eco_dir)
     lint_results = mega_find(proj_results_dir, pattern="*lint*.xml", type_file='f', maxdepth=2)
@@ -48,6 +51,18 @@ def load_project_issues(proj_results_dir):
         for lint_file in lint_results:
             issues_list = issues_list + LintAnalysis().get_issues(lint_file)
     return issues_list
+
+
+def issue_file_exists(repo_dir, curr_commit, issue):
+    if issue.file is None:
+        return None
+    if repo_dir == '' or curr_commit == '':
+        return False
+    file_cmd = f'cd {repo_dir} ; git checkout -f {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
+    #print("file comd", file_cmd)
+    file_find = execute_shell_command(file_cmd)
+    file_find.validate()
+    return execute_shell_command(f"cd {repo_dir} ; ls {file_find.output.strip}").return_code == 0 if file_find.output.strip() != "" else execute_shell_command(f"cd {repo_dir} ; ls {issue.file}").return_code == 0
 
 
 def analyze_repo_subset(repos_list):
@@ -59,27 +74,48 @@ def analyze_repo_subset(repos_list):
         bname, commit_list = extract_and_write_commit_history(repo_dir)
         sorted_repo_list.append((repo_dir, bname, commit_list))
     sorted_repo_list = sorted(sorted_repo_list, key=lambda x: len(x[2]))
+    #print(sorted_repo_list)
     for repo_dir, branch_name, commit_list in sorted_repo_list:
         try:
             anadroid = init_pyanadroid(repo_dir)
-            anadroid.pre_build_analyzers = ComposedAnalyzer(None, [DAAPAnalysis(), PMDAnalysis(), ADoctorAnalysis()])
+            anadroid.pre_build_analyzers = ComposedAnalyzer(None, [
+                #DAAPAnalysis(),
+                #PMDAnalysis(),
+                #ADoctorAnalysis(),
+                EcoAndroidAnalysis(),
+                #XALintAnalysis(),
+                LintAnalysis(),
+                #ChimeraAnalysis()
+                ])
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
             print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
             prev_issue_list = []
             prev_commit_hash = None
+            if len(commit_list) == 0 or only_last_version:
+                if only_last_version:
+                    execute_shell_command(
+                        f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout - ").validate()
+                anadroid.app_projects_ut = [repo_dir]
+                res_dirs = anadroid.just_static_analyze(retry=False)
+                print(res_dirs[0])
+                issues = load_project_issues(res_dirs[0]) if res_dirs else []
+                print(len(issues), " issues")
+                print([x.get_simple_name() for x in issues])
+                continue
+
             for i, commit in enumerate(commit_list):
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(commit_list)}: {commit_hash}")
-                execute_shell_command(f"cd {repo_dir} && git checkout {commit_hash}").validate()
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
                 anadroid.app_projects_ut = [repo_dir]
                 res_dirs = anadroid.just_static_analyze()
                 commit['issues'] = load_project_issues(res_dirs[0]) if res_dirs else []
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
-                execute_shell_command(f"cd {repo_dir} && git checkout {branch_name}").validate()
-                regressions = issue_regression(commit['issues'], prev_issue_list)
+                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {branch_name}").validate()
+                regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
                 if regressions:
                     with lock:
                         with open('regressions.csv', 'a+') as file:
@@ -100,7 +136,6 @@ def analyze_repo_subset(repos_list):
 def analyze_repos(repos_directory, num_processes=1):
     anadroid = init_pyanadroid(repos_directory)
     repo_list = list(anadroid.app_projects_ut)
-
     if num_processes > 1:
         # Parallel Execution
         chunk_size = len(repo_list) // num_processes
@@ -119,10 +154,12 @@ def analyze_repos(repos_directory, num_processes=1):
 def extract_and_write_commit_history(repo_dir):
     """Extracts and saves commit history for a repo."""
     info = []
-    branch_name_res = execute_shell_command(f"cd {repo_dir} && git branch --show-current")
+    branch_name_res = execute_shell_command(f"cd {repo_dir} && git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed \'s|^origin/||\' || echo \"main\"")
     branch_name_res.validate()
-    branch_name = branch_name_res.output.strip().replace("/", "-")
+    if branch_name_res.return_code == 0:
+        execute_shell_command(f"cd {repo_dir} && git checkout {branch_name_res.output.strip() if branch_name_res.output.strip() != '' else 'master'}").validate()
 
+    branch_name = branch_name_res.output.strip().replace("/", "-")
     res = execute_shell_command(f"cd {repo_dir} && git log --pretty=format:\"%H|%an|%ad|%BXX\" --date=iso")
     res.validate()
 
@@ -134,13 +171,14 @@ def extract_and_write_commit_history(repo_dir):
         for commit in res.output.split("XX\n"):
             vals = commit.split("|")
             if len(vals) > 1:
+                vals[3] = vals[3].replace(';', '.').replace("\n", " ").replace("\r", "")
                 try:
                     writer.writerow(vals)
                     info.append({
                         'hash': vals[0],
                         'author': vals[1],
                         'date': vals[2],
-                        'message': vals[3].replace(';', '.').replace("\n", "\t")
+                        'message': vals[3],
                     })
                 except:
                     traceback.print_exc()
@@ -159,25 +197,29 @@ def save_issues(issues, dir_path, commit_hash):
             writer.writerow(str(issue).replace(',', ';').split(';'))
 
 
-def issue_regression(curr_issue_list, prev_issue_list):
+def issue_regression(curr_issue_list, prev_issue_list, repo_dir, curr_commit):
     """Detects issue regressions."""
     regressions = []
     for issue in prev_issue_list:
         if issue not in curr_issue_list:
             loge(f"Regression found: {issue}")
-            classif = classify_regression(issue, curr_issue_list)
+            classif = classify_regression(issue, curr_issue_list, repo_dir, curr_commit)
             logi(f"Classification: {classif}")
             regressions.append((issue, classif))
     return regressions
 
 
-def classify_regression(issue, curr_issue_list):
+def classify_regression(issue, curr_issue_list, repo_dir, curr_commit):
     """Classifies issue regressions."""
     issues_of_that_kind = [i for i in curr_issue_list if i.get_simple_name() == issue.get_simple_name()]
     issue_exists_on_proj = any(issues_of_that_kind)
     if not issue_exists_on_proj:
+        file_still_exists = issue_file_exists(repo_dir, curr_commit, issue)
+        if not file_still_exists:
+            logi(f"File does not exist: {issue.file}")
+            return 'file_removed'
         return 'def_removal'
-    issue_exists_on_file = any(i for i in issues_of_that_kind if i.file == issue.file)
+    issue_exists_on_file = any(i for i in issues_of_that_kind if i.get_file_id() == issue.get_file_id())
     if issue_exists_on_file:
         return 'prob_move'
     return 'prob_removal'
@@ -187,5 +229,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Analyze repositories sequentially or in parallel.")
     parser.add_argument("repos_directory", type=str, help="Path to the directory containing repositories")
     parser.add_argument("--parallel", type=int, default=1, help="Number of parallel processes (default: 1)")
+    parser.add_argument("--only_last_version", action='store_true',default=False,
+                        help="Analyze only the last version of each repo")
     args = parser.parse_args()
+    only_last_version = args.only_last_version
     analyze_repos(args.repos_directory, args.parallel)

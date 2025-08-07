@@ -56,16 +56,12 @@ class ADoctorAnalysis(StaticAnalyzer):
     def get_val_for_filter(self, filter_name, add_data=None):
         pass
 
-    import csv
-
-    def get_issues(self, results_output_file):
+    def get_issues(self, results_output_file, ignore_tests=True):
         """Parses the ADoctor results output file and returns a list of reported issues."""
         if not os.path.exists(results_output_file):
             loge(f"Results file not found: {results_output_file}")
             return []
-
         issues_list = []
-
         with open(results_output_file, "r") as file:
             reader = csv.reader(file)
             headers = next(reader)  # Read the first row as headers
@@ -73,14 +69,18 @@ class ADoctorAnalysis(StaticAnalyzer):
             if headers[0] != "File":
                 loge("Invalid file format: Missing expected 'Class' header")
                 return []
-
             for row in reader:
                 filepath = row[0]
+                if 'src' in filepath and (
+                        'test' in filepath or 'androidTest' in filepath or "InstrumentedTest" in filepath) and ignore_tests:
+                    continue
+                if len(row) < 2:
+                    continue
                 class_name = row[1]
                 issues_detected = [
                     self.identifiable_issues[headers[i]]
                     for i in range(2, len(headers))
-                    if headers[i] in self.identifiable_issues and int(row[i]) > 0
+                    if i < len(row) and headers[i] in self.identifiable_issues and row[i] != '' and int(row[i]) > 0
                 ]
                 for iss in issues_detected:
                     issues_list.append(Issue(iss, i_class=class_name, file=filepath, detection_tool_name="aDoctor"))

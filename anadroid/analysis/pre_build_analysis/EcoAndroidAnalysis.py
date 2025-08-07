@@ -1,5 +1,11 @@
+import multiprocessing
 import os
 import platform
+import shutil
+import time
+
+from textops import cat
+
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
@@ -25,6 +31,9 @@ def infer_ecoandroid_cmd():
 DEFAULT_PROFILE_PATH = os.path.join(get_resources_dir() ,"Project_Default.xml")
 DEFAULT_OUTPUT_DIRNAME = "ecoandroid_analysis_output"
 
+ANDROID_HOME = os.environ.get("ANDROID_HOME", None)
+
+eco_lock = multiprocessing.Lock()
 
 class EcoAndroidAnalysis(StaticAnalyzer):
     def __init__(self, analyzers_cfg_file=None, default_profile_path=DEFAULT_PROFILE_PATH, default_output_dir=DEFAULT_OUTPUT_DIRNAME):
@@ -42,7 +51,38 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             "PassiveProviderLocation": KnownStaticPerformanceIssues.PASSIVE_PROVIDER_LOCATION,
             "SSLSessionCaching": KnownStaticPerformanceIssues.SSL_SESSION_CACHING,
             "URLCaching": KnownStaticPerformanceIssues.URL_CACHING,
-
+        }
+        self.ignorable_issues = {
+            "SpellCheckingInspection",
+            "CanBeFinal",
+            "CatchMayIgnoreException",
+            "Deprecation",
+            "DuplicateThrows",
+            "EmptyMethod",
+            "FieldMayBeFinal",
+            "GrazieInspection",
+            "NullableProblems",
+            "RedundantCast",
+            "UNUSED_IMPORT",
+            "UnnecessaryToStringCall",
+            "XmlUnusedNamespaceDeclaration",
+            "unused",
+            "UnusedSymbol",
+            "RedundantThrows",
+            "JavadocDeclaration",
+            "RawUseOfParameterizedType",
+            "UnusedAssignment",
+            'UNCHECKED_WARNING',
+            'JavadocReference',
+            'JavadocLinkAsPlainText',
+            'XmlHighlighting',
+            'HasPlatformType',
+            'FoldInitializerAndIfToElvis',
+            'GradlePackageVersionRange',
+            "DanglingJavadoc",
+            "Convert2Lambda",
+            "GrUnnecessarySemicolon",
+            "AndroidDomInspection"
         }
 
     def setup(self, **kwargs):
@@ -67,15 +107,23 @@ class EcoAndroidAnalysis(StaticAnalyzer):
 
     def analyze_project(self, project, **kwargs):
         retry = kwargs.get("retry", True)
+        remove_local_props = kwargs.get("remove_local_props", True) # TODO
+        remove_idea_fldr = kwargs.get("remove_idea_fldr", True)  # TODO
         profile_path = kwargs.get("profile_path", self.default_profile_path)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
+        if remove_idea_fldr and os.path.exists(os.path.join(project.proj_dir, ".idea")):
+            shutil.rmtree(os.path.join(project.proj_dir, ".idea"))
+        if remove_local_props and os.path.exists(os.path.join(project.proj_dir, "local.properties")):
+            os.remove(os.path.join(project.proj_dir, "local.properties"))
         for module in project.modules:
             print("Analyzing module: ", module)
             module_path = os.path.join(project.proj_dir, module)
             module_out_dir = os.path.join(output_dir, f"ecoandroid_{module}")
-            if os.path.exists(module_out_dir) and not retry:
+            possible_log_file = os.path.join(module_out_dir, "ecoandroid.log")
+            possible_check_string = str(cat(possible_log_file) ) if os.path.exists(possible_log_file) else None
+            if os.path.exists(module_out_dir) and len(os.listdir(module_out_dir)) > 0 and self.executed_correctly(possible_check_string) and not retry:
                 logs(f"Skipping module {project.proj_name}.{module}. Already processed by EcoAndroid")
                 return
             if not os.path.exists(module_out_dir):
@@ -84,53 +132,94 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                 # cleanup the directory, otherwise the tool will append to file and xml file will not have a single root
                 for root_dir, _, files in os.walk(module_out_dir):
                     for file in files:
-                        os.remove(os.path.join(root_dir, file))
+                        if file.endswith(".xml"):
+                            os.remove(os.path.join(root_dir, file))
             timeout = 300
+            #log_file = os.path.join(module_out_dir, "ecoandroid.log")
             cmd = f"gtimeout {timeout} {infer_ecoandroid_cmd()} {project.proj_dir} " f"{profile_path} {module_out_dir} -d {module_path} -v2"
             print(cmd)
-            res = execute_shell_command(cmd, timeout=timeout)
+            with eco_lock:
+                time.sleep(2)
+                res = execute_shell_command(cmd, timeout=timeout)
+                time.sleep(2)
             self.validate_success(res, module_out_dir)
 
-    def validate_success(self, res, expected_output_file):
-        if not os.path.exists(expected_output_file) and res.return_code != 0:
+    def executed_correctly(self, str_to_check):
+        if str_to_check is None:
+            return True
+        if "nly one instance" in str_to_check:
+            return False
+        return True
+
+    def validate_success(self, res, expected_output_dir):
+        if not os.path.exists(expected_output_dir) and res.return_code != 0:
             loge(f"Error executing ecoandroid analysis. Check the logs for more information")
             print(res)
             return False
+        out_str = res.output + res.errors
+        log_file = os.path.join(expected_output_dir, "ecoandroid.log")
+        with open(log_file, 'w') as f:
+            f.write(out_str)
+        print(out_str)
+        if not self.executed_correctly(out_str):
+            loge(f"Error executing ecoandroid analysis. Check the logs for more information")
+            # print(out_str)
+            return
         logs(f"ecoandroid analysis executed successfully")
+        fi_to_touch = os.path.join(expected_output_dir, 'done.ok')
+        #print("touching grass", fi_to_touch)
+        execute_shell_command(f"touch {fi_to_touch}")
         return True
 
-    def get_issues(self, output_dir):
+    def get_issues(self, output_dir, ignore_tests=True):
         issues = []
-        found_issues_id = set()
         # Iterate over XML files in the output directory
         for root_dir, _, files in os.walk(output_dir):
             for file in files:
-                #print(file)
                 if file.endswith(".xml"):  # Ensure we're processing only XML files
                     file_path = os.path.join(root_dir, file)
                     try:
                         tree = ET.parse(file_path)
-                        root = tree.getroot()
-                        # Parse XML structure
-                        for issue in root.findall("issue"):
+                        for issue in tree.iter():
+                            #print(issue.tag)
+                            if issue.tag != "problem":
+                                continue
+                            method_id = None
+                            class_id = None
                             issue_id = issue.get("id", None)
                             if issue_id is None:
+                                prob_class = issue.find("problem_class")
+                                if prob_class is None:
+                                    continue
+                                issue_id = prob_class.get('id', None)
+                                if issue_id is None:
+                                    continue
+                            if issue_id not in self.identifiable_issues: # and issue_id in self.ignorable_issues:
                                 continue
-                            if issue_id in found_issues_id:
+                            file_path = issue.find("file", None)
+                            if 'src' in file_path and (
+                                    'test' in file_path or 'androidTest' in file_path or "InstrumentedTest" in file_path) and ignore_tests:
                                 continue
-                            found_issues_id.add(issue_id)
-                            issue_type = issue.get("category", None)
-                            file_path = issue.get("file", None)
-                            line = issue.get("line", None)
-                            desc = issue.get("description", None)
-                            # TODO other fields
-                            issues.append(
-                                Issue(self.identifiable_issues[issue_id] if issue_id in self.identifiable_issues else issue_id,
-                                      file=file_path,
-                                      line=line,
+                            line = issue.find("line", None)
+                            desc = issue.find("description", None)
+                            entry_type = issue.find("entry_point", None)
+                            if entry_type is not None:
+                                if entry_type.get("TYPE").strip() == "method":
+                                    method_def = entry_type.get("FQNAME")
+                                    method_id = method_def.split("(")[0].split(" ")[-1]
+                                    class_id = method_def.split("(")[0].split(" ")[0]
+                                    #print(f"Method: {method_id}, Class: {class_id}")
+                            issue = Issue(self.identifiable_issues[issue_id] if issue_id in self.identifiable_issues else issue_id,
+                                      file=file_path.text.replace("file://$PROJECT_DIR$" + os.sep, "")  if file_path is not None else None,
+                                      line=line.text if line is not None else None,
+                                      method=method_id,
+                                      i_class=class_id,
                                       detection_tool_name="EcoAndroid",
-                                      description=desc)
-                            )
+                                      description=desc.text if desc is not None else None)
+                            print(f"Found issue: {issue_id}")
+                            if issue not in issues:
+                                #print(issue)
+                                issues.append(issue)
                     except Exception as e:
                         loge(f"Error parsing file {file_path}: {e}")
 

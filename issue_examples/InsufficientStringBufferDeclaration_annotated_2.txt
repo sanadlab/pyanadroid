@@ -1,0 +1,9 @@
+// Inefficient: StringBuilder without initial capacity
+StringBuilder a = new StringBuilder();
+a.append("This is a very long, long string.Really a very long, long string");
+
+----
+
+// Efficient: StringBuilder with initial capacity
+StringBuilder a = new StringBuilder(66);
+a.append("This is a very long, long string.Really a very long, long string");

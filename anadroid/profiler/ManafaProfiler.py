@@ -2,6 +2,7 @@ import json
 import os
 import time
 
+from manafa.am_emanafa import AMEManafa
 from manafa.emanafa import EManafa
 from manafa.hunter_emanafa import HunterEManafa
 
@@ -24,26 +25,29 @@ class ManafaProfiler(AbstractProfiler):
     Attributes:
         manafa(EManafa): EManafa profiler.
     """
-    def __init__(self, profiler, device, power_profile=POWER_PROFILE_FILE, timezone=None, hunter=True):
+    def __init__(self, profiler, device, app_package_name=None, power_profile=POWER_PROFILE_FILE, timezone=None, hunter=False):
         super(ManafaProfiler, self).__init__(profiler, device, pkg_name=None)
-        self.manafa = EManafa(power_profile, timezone) if not hunter else \
-            HunterEManafa(
+        self.manafa =  HunterEManafa(
+                app_package_name=app_package_name,
                 power_profile=power_profile,
                 timezone=timezone,
-                instrument_file=HUNTER_INSTRUMENT_FILE,
-                not_instrument_file=HUNTER_NOT_INSTRUMENT_FILE)
+              ) if hunter else \
+            AMEManafa(
+                app_package_name=app_package_name,
+                power_profile=power_profile,
+                timezone=timezone,
+              )
         self.test_index_file = TEST_INDEX_FILENAME
 
     def install_profiler(self):
         res = self.device.execute_command("perfetto -h", shell=True)
         print(res)
-        print("TODO")
-        pass
 
     def init(self, **kwargs):
         self.manafa.init()
 
-    def start_profiling(self, tag=""):
+    def start_profiling(self, app_package=""):
+        self.manafa.log_service.package_name = app_package
         self.manafa.start()
 
     def stop_profiling(self, tag="", export=False):
@@ -69,12 +73,10 @@ class ManafaProfiler(AbstractProfiler):
             os.path.join(target_dir, os.path.basename(self.manafa.bts_out_file)),
             os.path.join(target_dir, os.path.basename(self.manafa.pft_out_file)),
         ]
-        if isinstance(self.manafa, HunterEManafa):
-            hunter_log = self.manafa.hunter_out_file
-            consumptions_log = self.manafa.app_consumptions_log
-            da_list.append( os.path.join(target_dir, os.path.basename(hunter_log)))
-            da_list.append(os.path.join(target_dir, os.path.basename(consumptions_log)))
-            da_list.append(os.path.join(target_dir, os.path.basename(consumptions_log)))
+        hunter_log = self.manafa.trace_out_file
+        consumptions_log = self.manafa.app_consumptions_log
+        da_list.append( os.path.join(target_dir, os.path.basename(hunter_log)))
+        da_list.append(os.path.join(target_dir, os.path.basename(consumptions_log)))
         cmd = f"cp -r {self.manafa.bts_out_file} {self.manafa.pft_out_file} {hunter_log} {consumptions_log} {target_dir}"
         execute_shell_command(cmd)\
             .validate(Exception("No result files to pull"))

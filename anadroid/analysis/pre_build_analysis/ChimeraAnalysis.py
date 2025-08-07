@@ -20,7 +20,7 @@ class ChimeraAnalysis(LintAnalysis):
         self.exec_cmd = ''
         self.name = 'chimera'
         self.setup()
-        self.identifiable_issues.update({
+        self.plugin_issues = {
             "MemberIgnoringMethod": KnownStaticPerformanceIssues.MEMBER_IGNORING_METHOD,
             "InternalGetterSetter": KnownStaticPerformanceIssues.INTERNAL_GETTER_SETTER,
             "HashmapUsage": KnownStaticPerformanceIssues.HASHMAP_USAGE,
@@ -28,7 +28,9 @@ class ChimeraAnalysis(LintAnalysis):
             "SensorLeak": KnownStaticPerformanceIssues.SENSOR_LEAK,
             "MediaLeak": KnownStaticPerformanceIssues.MEDIA_LEAK,
             "MemoizationChance": KnownStaticPerformanceIssues.MEMOIZATION_CHANCE,
-        })
+            "ExcessiveLoopCallsDetector": KnownStaticPerformanceIssues.AVOID_INSTANTIATING_OBJECTS_IN_LOOPS
+        }
+        self.identifiable_issues.update(self.plugin_issues)
 
     def setup(self, **kwargs):
         target_location = os.path.join(os.path.expanduser("~"), ".android", 'lint')
@@ -36,3 +38,12 @@ class ChimeraAnalysis(LintAnalysis):
             os.makedirs(target_location)
         copy(self.jar_path, target_location)
 
+    def get_issues(self, results_file, ignore_tests=True):
+        name = self.name
+        self.name = 'Lint'
+        issue_l = super().get_issues(results_file, ignore_tests)
+        self.name = name
+        for iss in issue_l:
+            if iss.issue_type in set(self.plugin_issues.values()):
+                iss.detection_tool_name = self.name
+        return issue_l

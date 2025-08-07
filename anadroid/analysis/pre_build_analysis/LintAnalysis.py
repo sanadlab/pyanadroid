@@ -1,6 +1,7 @@
 import datetime
 import os
 import re
+import shutil
 import time
 from shutil import copy
 import xml.etree.ElementTree as ET
@@ -8,6 +9,7 @@ from textops import grep
 
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
+from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error
 from anadroid.build.GradleBuilder import GradleBuilder
 from anadroid.utils.JavaRetry import JavaRetry
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi
@@ -62,7 +64,7 @@ class LintAnalysis(StaticAnalyzer):
             "RedundantNamespace": KnownStaticPerformanceIssues.REDUNDANT_NAMESPACE,
             "StaticFieldLeak": KnownStaticPerformanceIssues.STATIC_FIELD_LEAK,
             "StringFormatTrivial": KnownStaticPerformanceIssues.STRING_FORMAT_TRIVIAL,
-            "SyntheticAccessor": KnownStaticPerformanceIssues.LEAKING_INNER_CLASS,
+            "SyntheticAccessor": KnownStaticPerformanceIssues.SYNTHETIC_ACCESSOR,
             "TooDeepLayout": KnownStaticPerformanceIssues.TOO_DEEP_LAYOUT,
             "TooManyViews": KnownStaticPerformanceIssues.TOO_MANY_VIEWS,
             "UnusedIds": KnownStaticPerformanceIssues.UNUSED_IDS,
@@ -120,25 +122,46 @@ class LintAnalysis(StaticAnalyzer):
         if self.performance_only:
             copy(LINT_PERFORMANCE_XML_FILE, project.proj_dir)
         retry = kwargs.get("retry", True)
+        retries = kwargs.get("retries", 1)
         gradlew_path = os.path.join(project.proj_dir, 'gradlew')
-        cmd = f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS)
+        cmd = f"cd {project.proj_dir}; chmod +x gradlew; gtimeout 300 {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         lt_files = mega_find(project.proj_dir, pattern="lint*result*.xml", maxdepth=5, type_file='f')
-        print(lt_files)
         if len(lt_files) > 0 and not retry:
             logs(f"Skipping project {project.proj_name}. Already processed by Lint")
+            for l in lt_files:
+                if os.path.exists(l):
+                    shutil.copy(l, output_dir)
             return
         lint_failed_file = os.path.join(project.proj_dir, LINT_FAILED_FILE)
         if not retry and os.path.exists(lint_failed_file):
             logs(f"Skipping project {project.proj_name}. Lint failed in previous executions")
             return
-        logi("Analyzing project" + project.proj_name)
-        res = execute_shell_command(cmd,timeout=150)
-        if exec_task == self.default_task and res.return_code != 0:
-            logw(f"Error executing {exec_task} analysis. Trying with default task")
-            self.analyze_project(project, retry=False, default_task='lint')
+        logi("Analyzing project " + project.proj_name)
+        res = None
+        while retries > 0:
+            print(cmd)
+            res = execute_shell_command(cmd, timeout=150)
+            if res.validate():
+                break
+            if exec_task == self.default_task and res.return_code != 0:
+                logw(f"Error executing {exec_task} analysis. Trying with default task")
+                val = res.output + res.errors
+                error = is_known_error(val)
+                if error is not None and retries > 0:
+                    #print("known  prob")
+                    solve_known_error(project, error, error_msg=val)
+                    retries = retries - 1
+                else:
+                    print("problem not found")
+                    retries = 0
+                    return
+                print(res)
+                print("Retrying...")
+                if res is not None and res.return_code != 0:
+                    self.analyze_project(project, retry=True, default_task='lint', exec_task="lint", retries=retries-1)
         java_retryer = JavaRetry()
-        if res.return_code != 0:
+        if res is not None and res.return_code != 0:
             java_version = re.search("requires Java ([0-9]+) to run", str(res.errors))
             if java_version:
                 java_version = int(java_version.group(1))
@@ -154,7 +177,9 @@ class LintAnalysis(StaticAnalyzer):
                     print(extra_cmd + cmd)
                     res = execute_shell_command(extra_cmd + cmd, timeout=300)
                     retry, extra_cmd = java_retryer.change_java_retry((res.output + res.errors).lower())
-
+        if res is None:
+            loge("Error executing lint analysis. Check the logs for more information")
+            return
         res_file = grep(res.output, ' report to (.*).xml')
         if res_file:
             res_file = res_file[0]
@@ -186,7 +211,7 @@ class LintAnalysis(StaticAnalyzer):
         cmd = f"echo \"sdk.dir=$ANDROID_HOME\" > {os.path.join(project_dir, 'local.properties')}"
         res = execute_shell_command(cmd)
 
-    def get_issues(self, results_file):
+    def get_issues(self, results_file, ignore_tests=True):
         issues = []
         # Iterate over XML files in the lint results directory
         tree = ET.parse(results_file)
@@ -195,8 +220,8 @@ class LintAnalysis(StaticAnalyzer):
         for issue in root.findall("issue"):
             issue_id = issue.get("id")
             category = issue.get("category")
-            if self.performance_only and (issue_id not in self.identifiable_issues.keys() or category is None
-                                          or category != 'Performance'):
+            #if self.performance_only and (issue_id not in self.identifiable_issues or category is None or category != 'Performance'):
+            if issue_id not in self.identifiable_issues:
                 continue
             severity = issue.get("severity")
             message = issue.get("message")
@@ -207,8 +232,13 @@ class LintAnalysis(StaticAnalyzer):
             # Extract affected file paths
             locations = [(loc.get("file", None), loc.get('line', None)) for loc in issue.findall("location")]
             for loc in locations:
-                issues.append(Issue(issue_id, category, severity, message,
-                                    file=loc[0], line=loc[1], detection_tool_name=self.name))
+                if 'src' in loc and (
+                        'test' in loc or 'androidTest' in loc or "InstrumentedTest" in loc) and ignore_tests:
+                    continue
+                issue_inst = Issue(issue_id, category, severity, message,
+                                    file=loc[0], line=loc[1], detection_tool_name=self.name)
+                if issue_inst in issues:
+                    continue
+                issues.append(issue_inst)
 
         return issues
-

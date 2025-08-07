@@ -76,7 +76,7 @@ class DAAPAnalysis(StaticAnalyzer):
                 logs(f"Skipping module {project.proj_name}.{module} . Already processed by DAAP")
                 return
             #cmd = f"{self.exec_cmd} {module_path} {search_pattern_code} |  grep 'Issue,'  > {output_filepath}"
-            cmd = f"{self.exec_cmd} {module_path} {search_pattern_code} "
+            cmd = f"source ~/.zshrc ; j17; {self.exec_cmd} {module_path} {search_pattern_code} "
             print(cmd)
             res = execute_shell_command(cmd, timeout=150)
             self.parse_write_output(res, output_filepath)
@@ -102,7 +102,7 @@ class DAAPAnalysis(StaticAnalyzer):
             with open(output_filepath, 'w') as f:
                 json.dump(find_dict, f, indent=1)
 
-    def get_issues(self, results_file):
+    def get_issues(self, results_file, ignore_tests=True):
         issues = []
         try:
             with open(results_file, "r") as file:
@@ -112,9 +112,12 @@ class DAAPAnalysis(StaticAnalyzer):
                 if files:  # Only store issues that have associated file paths
                     for file in files:
                         if issue_type in self.identifiable_issues:
+                            if 'src' in file and (
+                                    'test' in file or 'androidTest' in file or "nstrumentedTest" in file) and ignore_tests:
+                                continue
                             issues.append(Issue(self.identifiable_issues[issue_type],
                                                 file=os.path.join(module_name, file), detection_tool_name="DAAP"))
-            logs(f"Found {len(issues)} issues in {results_file}")
+            #logs(f"Found {len(issues)} issues in {results_file}")
             return issues
 
         except (FileNotFoundError, json.JSONDecodeError) as e:

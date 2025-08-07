@@ -1,5 +1,6 @@
 import os
 import shutil
+import time
 
 from textops import cut, grep, echo
 
@@ -7,7 +8,7 @@ from anadroid.Types import TESTING_FRAMEWORK
 from anadroid.application.AbstractApplication import AbstractApplication
 from anadroid.application.AndroidProject import AndroidProject
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
-from anadroid.instrument.Types import INSTRUMENTATION_TYPE
+from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 from anadroid.utils.Utils import get_date_str, logw, logi
 
 
@@ -28,6 +29,8 @@ def get_prefix(testing_framework, inst_type):
         dirname += "Test"
     elif inst_type == INSTRUMENTATION_TYPE.ANNOTATION:
         dirname += "Annotation"
+    elif inst_type == INSTRUMENTATION_TYPE.MANIFEST:
+        dirname += "Manifest"
     else:
         raise Exception("Not implemented")
     cur_datetime = get_date_str()
@@ -52,7 +55,7 @@ class App(AbstractApplication):
             device (Device): Device where the app is installed.
             proj (Project): Respective Android project.
             package_name (str): Package name of the app.
-            apk_path (str): Path to the APK.
+            apk_path (str| None): Path to the APK.
             local_res_dir (str): Local results directory.
             app_name (str): Name of the app.
             version (DefaultSemanticVersion): App version.
@@ -133,6 +136,8 @@ class App(AbstractApplication):
         Stops the app via the activity manager (force-stop command).
         """
         self.on_fg = False
+        self.device.execute_command(f"am profile stop {self.package_name}", shell=True)
+        time.sleep(2)
         self.device.execute_command(f"am force-stop {self.package_name}",
                                     shell=True) \
             .validate(Exception("error stopping app"))
@@ -195,6 +200,8 @@ class App(AbstractApplication):
         Returns:
             str: Path to the permissions JSON file or None if it doesn't exist.
         """
+        if self.curr_local_dir is None:
+            return None
         file_to_look = os.path.join(self.curr_local_dir, "appPermissions.json")
         return None if not os.path.exists(file_to_look) else file_to_look
 

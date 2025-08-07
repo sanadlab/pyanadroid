@@ -1,9 +1,6 @@
 import os
 
 from anadroid.analysis.ExecutionResultsAnalyzer import ExecutionResultsAnalyzer
-#from src.results_analysis.ApkAPIAnalyzer import ApkAPIAnalyzer
-#from src.results_analysis.ApkAPIAnalyzer import ApkAPIAnalyzer
-#from src.results_analysis.ApkAPIAnalyzer import ApkAPIAnalyzer
 from anadroid.analysis.post_build_analysis.ApkAPIAnalyzer import ApkAPIAnalyzer
 from anadroid.analysis.pre_build_analysis.SCCAnalyzer import SCCAnalyzer
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir

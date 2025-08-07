@@ -8,7 +8,8 @@ from os import mkdir, listdir
 from textops import cat, grep, cut, sed, echo, grepv
 from anadroid.application.ProjectModule import ProjectModule
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
-from anadroid.utils.Utils import execute_shell_command, mega_find, get_results_dir, extract_version_from_apk, logw, loge
+from anadroid.utils.Utils import execute_shell_command, mega_find, get_results_dir, extract_version_from_apk, logw, \
+    loge, logi
 
 RESULTS_DIR = get_results_dir()
 
@@ -18,6 +19,7 @@ class BUILD_TYPE(Enum):
     RELEASE = "Release"
     DEBUG = "Debug"
     CUSTOM = "Custom"
+    ANY = ""
 
 
 class BUILD_FLAVOR(Enum):
@@ -49,10 +51,10 @@ def is_android_native_project(dirpath):
     dir_contents = [f for f in listdir(dirpath)]
     if (('android' in dir_contents or os.path.dirname(dirpath) == 'android' or not any([x for x in dir_contents if 'build.gradle' in x]))
             and ('ios' in dir_contents or 'flutter' in dir_contents or 'fastlane' in dir_contents)):
-        #loge(f"{dirpath} is not native project")
+        loge(f"{dirpath} is not native project")
         return False
-    #print(dir_contents)
-    return any([f for f in dir_contents if "settings.gradle" in f or ("build.gradle" in f and 'AndroidManifest.xml' in dir_contents)])
+    print(dir_contents)
+    return any([f for f in dir_contents if f in ["settings.gradle", "gradle.properties", "gradlew"] ])
 
 def is_cross_platform_project(dirpath):
     dir_contents = [f for f in listdir(dirpath)]
@@ -100,8 +102,11 @@ class Project(object):
         Args:
             app_id (str): Project's app id.
         """
+        print(app_id)
         proj_version = proj_version if proj_version is not None else get_repo_version(self.proj_dir)
         res_app_dir = os.path.join(self.results_dir, app_id, proj_version)
+        logi(f"Creating results dir {res_app_dir}")
+        #print(app_id)
         mk_ma_dir(res_app_dir)
         with open(os.path.join(res_app_dir, PROJECT_PATH_FILE), 'w') as f:
             f.write(self.proj_dir)
@@ -164,12 +169,71 @@ class AndroidProject(Project):
         pkg_name = "unknown"
         if self.main_manif_file is None:
             return pkg_name, self.proj_name + "--" + pkg_name
+        pkg_str = str(cat(self.main_manif_file))
+        #print(pkg_str)
         pkg_line = str(cat(self.main_manif_file) | grep("package=\"[^\"]"))
+        #print(self.main_manif_file)
+        #print("pacote",pkg_line)
         if pkg_line.strip() != "":
             pkg_name = str(re.search("package=(\"[^\"]*)", pkg_line).groups()[0]).strip().replace("\"", "")
         else:
-            pkg_name = "unknown"
+            pkg_name = self.get_application_id_from_gradle()
+        pkg_name = "unknown" if pkg_name is None and pkg_name !="" else pkg_name
         return pkg_name, self.proj_name + "--" + pkg_name
+
+    def get_application_id_from_gradle(self):
+        """
+        Extracts the applicationId from an app-level build.gradle or build.gradle.kts file.
+
+        Returns:
+            str: The application ID if found, otherwise None.
+        """
+        main_module = next(iter(self.modules.values()), None)
+        if main_module is None:
+            return None
+        app_build_gradle_path = main_module.build_file
+        #print(app_build_gradle_path)
+        if app_build_gradle_path is None:
+            return None
+        if not os.path.exists(app_build_gradle_path):
+            print(f"Error: File not found at {app_build_gradle_path}")
+            return None
+        try:
+            with open(app_build_gradle_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+                # Regex for typical applicationId definition in defaultConfig or productFlavors
+                # Handles variations like single/double quotes, spaces, and different blocks
+                # For build.gradle (Groovy) and build.gradle.kts (Kotlin)
+                # Matches patterns like:
+                # applicationId "com.example.app"
+                # applicationId = "com.example.app"
+                # applicationId 'com.example.app'
+                # applicationId = 'com.example.app'
+                # within defaultConfig { ... } or android { ... } blocks
+                match = re.search(
+                    r'applicationId\s*=?\s*["\']([a-zA-Z0-9_]+\.[a-zA-Z0-9_.]+?)["\']',
+                    content
+                )
+
+                if match:
+                    return match.group(1)
+                else:
+                    # Fallback for namespace in newer Gradle versions (kts)
+                    # namespace = "com.example.app"
+                    namespace_match = re.search(
+                        r'namespace\s*=\s*["\']([a-zA-Z0-9_]+\.[a-zA-Z0-9_.]+?)["\']',
+                        content
+                    )
+                    if namespace_match:
+                        print("Warning: Found 'namespace' instead of 'applicationId'. Using namespace.")
+                        return namespace_match.group(1)
+
+                    print(f"Warning: applicationId not found in {app_build_gradle_path}")
+                    return None
+        except Exception as e:
+            print(f"Error reading or parsing {app_build_gradle_path}: {e}")
+            return None
 
     def add_apk(self, apk_path, build_type):
         """Adds an APK path of the specified build type to the known list of APKs for the project.
@@ -202,7 +266,8 @@ class AndroidProject(Project):
         Returns:
             file_path (str): Path of gradle file.
         """
-        out = sorted(mega_find(self.proj_dir, maxdepth=3, mindepth=1, pattern="build.gradle", type_file='f'), key=len)
+        out = sorted(mega_find(self.proj_dir, maxdepth=3, mindepth=1, pattern="build.gradle*", type_file='f'), key=len)
+        #print("outinho", self.proj_dir, out)
         if len(out) > 0:
             return out[0]
         return None
@@ -214,6 +279,7 @@ class AndroidProject(Project):
             file_path (str): Path of the main manifest file.
         """
         out = sorted(mega_find(self.proj_dir, maxdepth=5, mindepth=1, pattern="AndroidManifest.xml", type_file='f'), key=len)
+        #print(self.proj_dir)
         if len(out) > 0:
             return out[0] if "test" not in str(out[0]).lower() else out[-1]
         return None
@@ -241,7 +307,7 @@ class AndroidProject(Project):
         modul_lines = cat(setts_file) | grep('include') | grepv(r"(^\s*//)")  # | cut(sep=":", col=1) | sed(pats="\'|,", repls="")
         for mod_line in modul_lines:
             for mod in mod_line.split(","):
-                module_name = str(echo(mod) | sed("include", "") | cut(sep=":", col=1) | sed(pats="\'|,|\"|\)", repls="")).strip()
+                module_name = str(echo(mod) | sed("include", "") | cut(sep=":", col=1) | sed(pats="\\'|,|\\\"|\\)", repls="")).strip()
                 module_is_not_empty = any(mega_find(os.path.join(self.proj_dir, module_name), maxdepth=2, mindepth=1))
                 if module_is_not_empty:
                     modules.append(module_name)
@@ -275,8 +341,9 @@ class AndroidProject(Project):
         Returns:
             gradle_plugin_version (str): Gradle plugin version.
         """
+        print("root file", self.root_build_file)
         gradle_plugin_version = str(cat(self.root_build_file) | grep("com.android.tools.build") | sed("classpath|com.android.tools.build:gradle:|\"", "")).strip().replace("'", "")
-        return gradle_plugin_version
+        return gradle_plugin_version if gradle_plugin_version is not None else '8.9.0'
 
     def create_inner_folder(self, name="libs"):
         """Creates a folder inside the project.
@@ -311,9 +378,10 @@ class AndroidProject(Project):
         Returns:
             apk_list (:obj:`list` of :obj:`str`): List of APK paths.
         """
-        if len(self.apks[build_type.value]) > 0:
+        if build_type.value in self.apks and len(self.apks[build_type.value]) > 0:
             return self.apks[build_type.value]
         vals = mega_find(self.proj_dir, pattern="*.apk", type_file='f')
+        print(vals)
         return list(filter(lambda x: build_type.value.lower() in x.lower(), vals))
 
     def get_test_apks(self):
