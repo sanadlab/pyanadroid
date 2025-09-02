@@ -218,3 +218,88 @@ def logf(message, to_file=True):
 
 def logs(message, to_file=True):
     log(message, log_sev=LogSeverity.SUCCESS, to_file=to_file)
+
+
+import os
+import re
+from pathlib import Path
+from typing import Optional
+
+
+def _extract_package_name(file_path: Path) -> Optional[str]:
+    """Reads the first 'package ...' line from a Java/Kotlin file."""
+    # A simple regex to find a package declaration.
+    # It handles optional semicolons and varying whitespace.
+    package_regex = re.compile(r"^\s*package\s+([\w\.]+)")
+    try:
+        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            for line in f:
+                match = package_regex.match(line)
+                if match:
+                    return match.group(1)  # Return the package name, e.g., "com.example.app"
+    except (IOError, UnicodeDecodeError):
+        # Ignore files that can't be read.
+        pass
+    return None
+
+
+def find_source_root_dynamically(project_dir: str, exclude_test=True) -> Optional[str]:
+    """
+    Finds the primary Java/Kotlin source root by locating the most top-level
+    source file and inspecting its package declaration.
+
+    Args:
+        project_dir: The root directory of the project to scan.
+
+    Returns:
+        The path to the source root (e.g., '.../app/src/main/java'),
+        or None if no source files are found or logic fails.
+    """
+    project_path = Path(project_dir)
+    source_files = []
+
+    # 1. Find all .java and .kt files, prioritizing shallower files
+    # We can walk the tree and add files as we find them. If we sort later,
+    # it's just as good.
+    for ext in ("*.java", "*.kt"):
+        if exclude_test:
+            # Exclude test directories
+            for path in project_path.rglob(ext):
+                if 'test' not in path.parts and 'androidTest' not in path.parts:
+                    source_files.append(path)
+        else:
+            source_files.extend(project_path.rglob(ext))
+
+    if not source_files:
+        print("Warning: No .java or .kt files found.")
+        return None
+
+    # Sort files by path depth to find the "most top-level" one.
+    # This is a good heuristic for finding a representative file.
+    source_files.sort(key=lambda p: len(p.parts))
+
+    # 2. Iterate through the top few files to find one with a package
+    for top_file in source_files[:10]:  # Check a few candidates for robustness
+        package_name = _extract_package_name(top_file)
+
+        if package_name:
+            # 3. Based on its package, retrieve the parent directory
+            package_as_path = Path(package_name.replace('.', os.sep))
+            file_parent_dir = top_file.parent
+
+            # We assume the file_parent_dir ends with the package_as_path.
+            # We can find the source root by removing that suffix.
+            if str(file_parent_dir).endswith(str(package_as_path)):
+                # Use string manipulation which is safer than path logic here
+                # In Python 3.9+ you can use removesuffix()
+                source_root = str(file_parent_dir)[:-len(str(package_as_path))].rstrip(os.sep)
+                return source_root
+
+    # Fallback: If no files with a package declaration are found, we can make a guess.
+    # This often happens with files in the default package.
+    print("Warning: Could not determine source root from package declarations.")
+    if source_files:
+        # A reasonable fallback is the parent directory of the top-level file.
+        return str(source_files[0].parent)
+
+    return None

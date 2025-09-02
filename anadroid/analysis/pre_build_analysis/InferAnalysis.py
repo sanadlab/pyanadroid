@@ -26,7 +26,10 @@ class InferAnalyzer(StaticAnalyzer):
         self.use_gradlew = uses_gradlew  # Infer wraps the gradlew command
         self.default_task = default_task
         self.performance_only = performance_only
+        self.flags = ["--loop-hoisting", "--inefficient-keyset-iterator", "--starvation" "--cost"]
+        self.identifiable_issues = {
 
+        }
         # Mapping of Infer bug types to your framework's known issues.
         # This list can be expanded based on Infer's documentation.
         # See: https://fbinfer.com/docs/all-issue-types
@@ -73,7 +76,7 @@ class InferAnalyzer(StaticAnalyzer):
         # Infer wraps the build command to capture compilation data.
         capture_cmd = (f"cd {project.proj_dir}; "
                        f"{self.exec_cmd} capture --out {infer_out_dir_name}  --keep-going -- "
-                       f"{gradlew_path} {build_task}")
+                       f"{gradlew_path} {build_task} " + " ".join(self.flags))
         logi("Infer Step 2/3: Capturing build. This may take a while...")
         res_capture = execute_shell_command(capture_cmd, timeout=600)  # Increased timeout for build
         print(res_capture)

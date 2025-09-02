@@ -1,22 +1,25 @@
 import csv
 import os
+import time
 import traceback
 import argparse
 import multiprocessing
+from os.path import expanduser
+
 from anadroid.Anadroid import AnaDroid
 from anadroid.Types import PROFILER, TESTING_FRAMEWORK
 from anadroid.analysis.ComposedAnalyzer import ComposedAnalyzer
 from anadroid.analysis.pre_build_analysis.ADoctorAnalysis import ADoctorAnalysis
 from anadroid.analysis.pre_build_analysis.DAAPAnalysis import DAAPAnalysis
+from anadroid.analysis.pre_build_analysis.DetektAnalysis import DetektAnalysis
 from anadroid.analysis.pre_build_analysis.EcoAndroidAnalysis import EcoAndroidAnalysis
 from anadroid.analysis.pre_build_analysis.LintAnalysis import LintAnalysis
 from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.Utils import execute_shell_command, logi, loge, mega_find
-
-
+from anadroid.analysis.pre_build_analysis.SpotBugsAnalysis import SpotBugsAnalysis
 lock = multiprocessing.Lock()
-only_last_version = False
+only_last_version = True
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
@@ -50,6 +53,15 @@ def load_project_issues(proj_results_dir):
     if len(lint_results) > 0:
         for lint_file in lint_results:
             issues_list = issues_list + LintAnalysis().get_issues(lint_file)
+    detekt_results = mega_find(proj_results_dir, pattern="*detekt_analysis.xml", type_file='f', maxdepth=2)
+    if len(detekt_results) > 0:
+        for detekt_file in detekt_results:
+            issues_list = issues_list + DetektAnalysis().get_issues(detekt_file)
+    spotbugs_results = mega_find(proj_results_dir, pattern="*spotbugs*.xml", type_file='f', maxdepth=2)
+    if len(spotbugs_results) > 0:
+
+        for spotbugs_file in spotbugs_results:
+            issues_list = issues_list + SpotBugsAnalysis().get_issues(spotbugs_file)
     return issues_list
 
 
@@ -64,6 +76,16 @@ def issue_file_exists(repo_dir, curr_commit, issue):
     file_find.validate()
     return execute_shell_command(f"cd {repo_dir} ; ls {file_find.output.strip}").return_code == 0 if file_find.output.strip() != "" else execute_shell_command(f"cd {repo_dir} ; ls {issue.file}").return_code == 0
 
+def reset_repo(repo_dir, branch_name='-'):
+    # # Ensure repo_dir is not dangerous (e.g., part of the current working directory, home, or root)
+    dangerous_dirs = [os.getcwd(),  os.path.join(expanduser("~"), 'repos/pyanadroid')]
+    if any(os.path.abspath(repo_dir).startswith(os.path.abspath(d)) for d in dangerous_dirs):
+        loge(f"Operation aborted: {repo_dir} is a dangerous directory.", exit_on_error=True)
+        time.sleep(3)
+        return
+
+    execute_shell_command(
+        f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name} ").validate()
 
 def analyze_repo_subset(repos_list):
     """Analyzes a subset of repositories."""
@@ -72,6 +94,9 @@ def analyze_repo_subset(repos_list):
     for repo_dir in repos_list:
         print("Checking repo: ", repo_dir)
         bname, commit_list = extract_and_write_commit_history(repo_dir)
+        #bname, commit_list = 'dummy', []
+        #print("todo")  # extract_and_write_commit_history(repo_dir)
+        time.sleep(3)
         sorted_repo_list.append((repo_dir, bname, commit_list))
     sorted_repo_list = sorted(sorted_repo_list, key=lambda x: len(x[2]))
     #print(sorted_repo_list)
@@ -82,9 +107,12 @@ def analyze_repo_subset(repos_list):
                 #DAAPAnalysis(),
                 #PMDAnalysis(),
                 #ADoctorAnalysis(),
-                EcoAndroidAnalysis(),
+                #EcoAndroidAnalysis(),
                 #XALintAnalysis(),
-                LintAnalysis(),
+                #LintAnalysis(),
+                #DetektAnalysis(),
+                LintAnalysis()
+                #SpotBugsAnalysis()
                 #ChimeraAnalysis()
                 ])
             print(f"Analyzing repo: {repo_dir}")
@@ -94,8 +122,7 @@ def analyze_repo_subset(repos_list):
             prev_commit_hash = None
             if len(commit_list) == 0 or only_last_version:
                 if only_last_version:
-                    execute_shell_command(
-                        f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout - ").validate()
+                    reset_repo(repo_dir)
                 anadroid.app_projects_ut = [repo_dir]
                 res_dirs = anadroid.just_static_analyze(retry=False)
                 print(res_dirs[0])
@@ -107,14 +134,16 @@ def analyze_repo_subset(repos_list):
             for i, commit in enumerate(commit_list):
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(commit_list)}: {commit_hash}")
-                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
+                reset_repo(repo_dir, commit_hash)
+                #execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
                 anadroid.app_projects_ut = [repo_dir]
                 res_dirs = anadroid.just_static_analyze()
                 commit['issues'] = load_project_issues(res_dirs[0]) if res_dirs else []
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
-                execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {branch_name}").validate()
+                reset_repo(repo_dir, commit_hash)
+                #execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {branch_name}").validate()
                 regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
                 if regressions:
                     with lock:
@@ -229,7 +258,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Analyze repositories sequentially or in parallel.")
     parser.add_argument("repos_directory", type=str, help="Path to the directory containing repositories")
     parser.add_argument("--parallel", type=int, default=1, help="Number of parallel processes (default: 1)")
-    parser.add_argument("--only_last_version", action='store_true',default=False,
+    parser.add_argument("--only_last_version", action='store_true',default=True,
                         help="Analyze only the last version of each repo")
     args = parser.parse_args()
     only_last_version = args.only_last_version

@@ -8,7 +8,7 @@ from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge,
 # Default build task required by SpotBugs to get .class files.
 DEFAULT_GRADLE_TASK = 'assembleDebug'
 
-class SpotBugsAnalyzer(StaticAnalyzer):
+class SpotBugsAnalysis(StaticAnalyzer):
     """
     Implements the StaticAnalyzer interface to run SpotBugs.
     SpotBugs analyzes compiled Java bytecode (.class files). This process involves:
@@ -27,6 +27,45 @@ class SpotBugsAnalyzer(StaticAnalyzer):
         self.default_task = default_task
         self.performance_only = performance_only
         self.plugin_path = kwargs.get("spotbugs_plugin_path", None)
+        self.identifiable_issues = {
+            "HSC_HUGE_SHARED_STRING_CONSTANT": KnownStaticPerformanceIssues.HUGE_SHARED_STRING_CONSTANT,
+            "DMI_BLOCKING_METHODS_ON_URL": KnownStaticPerformanceIssues.BLOCKING_METHODS_ON_URL,
+            "DMI_COLLECTION_OF_URLS": KnownStaticPerformanceIssues.BLOCKING_METHODS_ON_URL,
+            "DM_STRING_CTOR": KnownStaticPerformanceIssues.STRING_INSTANTIATION,
+            "DM_STRING_VOID_CTOR": KnownStaticPerformanceIssues.STRING_INSTANTIATION,
+            "DM_STRING_TOSTRING": KnownStaticPerformanceIssues.STRING_TO_STRING,
+            "DM_GC": KnownStaticPerformanceIssues.EXPLICIT_GC,
+            "DM_BOOLEAN_CTOR": KnownStaticPerformanceIssues.USE_VALUE_OF,
+            "DM_NUMBER_CTOR": KnownStaticPerformanceIssues.USE_VALUE_OF,
+            "DM_FP_NUMBER_CTOR": KnownStaticPerformanceIssues.USE_VALUE_OF,
+            "DM_BOXED_PRIMITIVE_TOSTRING": KnownStaticPerformanceIssues.BOXED_PRIMITIVE_TO_STRING,
+            "DM_BOXED_PRIMITIVE_FOR_PARSING": KnownStaticPerformanceIssues.BOXED_PRIMITIVE_FOR_PARSING,
+            "DM_BOXED_PRIMITIVE_FOR_COMPARE": KnownStaticPerformanceIssues.BOXED_PRIMITIVE_FOR_COMPARE,
+            "BX_UNBOXED_AND_COERCED_FOR_TERNARY_OPERATOR": KnownStaticPerformanceIssues.UNBOXED_AND_COERCED_FOR_TERNARY_OPERATOR,
+            "BX_UNBOXING_IMMEDIATELY_REBOXED": KnownStaticPerformanceIssues.UNBOXING_IMMEDIATELY_REBOXED,
+            "BX_BOXING_IMMEDIATELY_UNBOXED": KnownStaticPerformanceIssues.BOXING_IMMEDIATELY_UNBOXED,
+            "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION": KnownStaticPerformanceIssues.BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION,
+            "DM_NEW_FOR_GETCLASS": KnownStaticPerformanceIssues.NEW_FOR_GETCLASS,
+            "DM_NEXTINT_VIA_NEXTDOUBLE": KnownStaticPerformanceIssues.NEXTINT_VIA_NEXTDOUBLE,
+            "SS_SHOULD_BE_STATIC": KnownStaticPerformanceIssues.FIELD_SHOULD_BE_STATIC,
+            "UUF_UNUSED_FIELD": KnownStaticPerformanceIssues.UNUSED_FIELD,
+            "URF_UNREAD_FIELD": KnownStaticPerformanceIssues.UNREAD_FIELD,
+            "SIC_INNER_SHOULD_BE_STATIC": KnownStaticPerformanceIssues.LEAKING_INNER_CLASS,
+            "SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS": KnownStaticPerformanceIssues.LEAKING_INNER_CLASS,
+            "SIC_INNER_SHOULD_BE_STATIC_ANONYMOUS": KnownStaticPerformanceIssues.LEAKING_INNER_CLASS,
+            "UPM_UNCALLED_PRIVATE_METHOD": KnownStaticPerformanceIssues.UNCALLED_PRIVATE_METHOD,
+            "SBSC_USE_STRINGBUFFER_CONCATENATION": KnownStaticPerformanceIssues.STRINGBUFFER_CONCATENATION,
+            "IIL_ELEMENTS_GET_LENGTH_IN_LOOP": KnownStaticPerformanceIssues.HEAVY_LENGTH_IN_LOOP,
+            "IIL_PREPARE_STATEMENT_IN_LOOP": KnownStaticPerformanceIssues.PREPARE_STATEMENT_IN_LOOP,
+            "IIL_PATTERN_COMPILE_IN_LOOP": KnownStaticPerformanceIssues.PATTERN_COMPILE_IN_LOOP,
+            "IIL_PATTERN_COMPILE_IN_LOOP_INDIRECT": KnownStaticPerformanceIssues.PATTERN_COMPILE_IN_LOOP,
+            "IIO_INEFFICIENT_INDEX_OF": KnownStaticPerformanceIssues.USE_INDEX_OF_CHAR,
+            "IIO_INEFFICIENT_LAST_INDEX_OF": KnownStaticPerformanceIssues.USE_INDEX_OF_CHAR_LAST,
+            "ITA_INEFFICIENT_TO_ARRAY": KnownStaticPerformanceIssues.INEFFICIENT_TO_ARRAY,
+            "WMI_WRONG_MAP_ITERATOR": KnownStaticPerformanceIssues.INEFFICIENT_MAP_ITERATOR,
+            "UM_UNNECESSARY_MATH": KnownStaticPerformanceIssues.UNNECESSARY_MATH,
+            "IMA_INEFFICIENT_MEMBER_ACCESS": KnownStaticPerformanceIssues.INEFFICIENT_MEMBER_ACCESS,
+        }
 
         # Mapping of SpotBugs bug codes to your framework's known issues.
         # See: https://spotbugs.readthedocs.io/en/latest/bugDetections.html
@@ -70,7 +109,7 @@ class SpotBugsAnalyzer(StaticAnalyzer):
                         return match.group(1)
             except Exception as e:
                 logw(f"Could not read compile SDK version: {e}")
-        return "33"  # Return a reasonable default
+        return "35"  # Return a reasonable default
 
     def analyze_project(self, project, **kwargs):
         """
@@ -148,7 +187,7 @@ class SpotBugsAnalyzer(StaticAnalyzer):
 
         for bug_instance in root.findall("BugInstance"):
             issue_id = bug_instance.get("type")
-
+            print(issue_id)
             if self.performance_only and issue_id not in self.identifiable_issues:
                 continue
 
