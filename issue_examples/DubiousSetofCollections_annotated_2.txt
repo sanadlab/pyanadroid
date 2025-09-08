@@ -1,0 +1,17 @@
+// Bad: hashCode() for a List is an expensive O(n) operation. Putting many large lists
+// into a Set will result in very poor performance during add/contains checks.
+val uniquePermissionLists = mutableSetOf<List<String>>()
+val adminPermissions = listOf("CREATE", "READ", "UPDATE", "DELETE")
+
+// This add operation requires calculating the hash of the entire list.
+uniquePermissionLists.add(adminPermissions)
+
+-----
+
+// Good: Define an immutable data class to represent the permission set.
+// The hashCode is calculated once and cached, and it's much safer.
+data class PermissionSet(val permissions: Set<String>)
+
+val uniquePermissionSets = mutableSetOf<PermissionSet>()
+val adminPermissions = PermissionSet(setOf("CREATE", "READ", "UPDATE", "DELETE"))
+uniquePermissionSets.add(adminPermissions)

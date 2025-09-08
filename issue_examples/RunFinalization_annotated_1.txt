@@ -1,0 +1,14 @@
+public void close() {
+    this.resource = null;
+    // Bad: This pauses the application to run finalizers for all objects
+    // pending finalization, which can be a massive, unpredictable performance hit.
+    System.runFinalization();
+}
+
+----
+
+public void close() {
+    this.resource = null;
+    // Good: Remove the call. Rely on the JVM's GC and proper resource management
+    // (like try-with-resources) instead of finalizers.
+}

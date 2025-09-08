@@ -1,0 +1,5 @@
+Collections.sort(products, (p1, p2) -> new Double(p1.getPrice()).compareTo(p2.getPrice()));
+
+------
+
+Collections.sort(products, (p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()));

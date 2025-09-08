@@ -1,0 +1,11 @@
+enum class Feature { A, B, C, D }
+// Bad: A regular HashSet is overkill.
+val enabledFeatures = hashSetOf<Feature>()
+enabledFeatures.add(Feature.A)
+enabledFeatures.add(Feature.C)
+
+-----
+
+enum class Feature { A, B, C, D }
+// Good: EnumSet is extremely efficient, often using a single long (bitmask) internally.
+val enabledFeatures = EnumSet.of(Feature.A, Feature.C)

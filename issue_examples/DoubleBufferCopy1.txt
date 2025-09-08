@@ -1,0 +1,10 @@
+
+try (InputStream is = new BufferedInputStream(Files.newInputStream(sourcePath))) {
+    Files.copy(is, destinationPath);
+}
+
+----
+
+try (InputStream is = Files.newInputStream(sourcePath)) {
+    Files.copy(is, destinationPath);
+}

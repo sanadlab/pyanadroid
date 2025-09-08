@@ -1,0 +1,15 @@
+public int m1(int n, int accumulator) {
+    if (n <= 0) return accumulator;
+    return m1(n - 1, n + accumulator); 
+}
+
+-----
+
+
+public int m1(int n) {
+    int total = 0;
+    for (int i = 1; i <= n; i++) {
+        total += i;
+    }
+    return total;
+}

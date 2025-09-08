@@ -1,0 +1,14 @@
+// This large string constant will cause code bloat in consuming classes
+public final class AssetProvider {
+    public static final String DEFAULT_AVATAR_BASE64 = "iVBORw0KGgoAAAANSUhEUgA..."; // Very long
+}
+
+-----
+
+// Initializing in a static block prevents the compiler from treating it as a compile-time constant
+public final class AssetProvider {
+    public static final String DEFAULT_AVATAR_BASE64;
+    static {
+        DEFAULT_AVATAR_BASE64 = "iVBORw0KGgoAAAANSUhEUgA..."; // Very long
+    }
+}

@@ -1,0 +1,36 @@
+private final Map<String, Integer> cache = new HashMap<>();
+public int getOrCalculate(String key) {
+    synchronized (cache) {
+        // Bad: A potentially long calculation is performed while holding the lock.
+        if (!cache.containsKey(key)) {
+            int result = performLongCalculation(key);
+            cache.put(key, result);
+            return result;
+        }
+        return cache.get(key);
+    }
+}
+
+-----
+
+private final Map<String, Integer> cache = new HashMap<>();
+public int getOrCalculate(String key) {
+    Integer cachedValue;
+    synchronized (cache) {
+        cachedValue = cache.get(key);
+    }
+    // Good: Check for the value first. If it's there, we avoid re-locking.
+    if (cachedValue != null) {
+        return cachedValue;
+    }
+    
+    // The expensive operation happens outside any lock.
+    int result = performLongCalculation(key);
+    
+    // Re-lock just for the final put operation.
+    synchronized (cache) {
+        // Check again in case another thread finished while we were calculating.
+        return cache.putIfAbsent(key, result);
+    }
+}
+// Note: A ConcurrentHashMap is often a better solution for this specific pattern.

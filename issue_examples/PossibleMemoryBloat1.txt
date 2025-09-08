@@ -1,0 +1,21 @@
+public class UserCache {
+    private static final Map<String, User> userCache = new HashMap<>();
+
+    public static User getUser(String id) {
+        // ... load user and put it in the cache ...
+        userCache.put(id, loadedUser);
+        return loadedUser;
+    }
+}
+
+-----
+
+public class UserCache {
+    private static final Cache<String, User> userCache = CacheBuilder.newBuilder()
+        .maximumSize(1000) // Evict oldest entries when the size limit is reached
+        .build();
+
+    public static User getUser(String id) {
+        return userCache.get(id, () -> loadUserFromDb(id));
+    }
+}

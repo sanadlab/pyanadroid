@@ -1,0 +1,13 @@
+val productMap = HashMap<String, Product>(products.size)
+for (product in products) {
+    productMap[product.id] = product
+}
+
+
+----
+
+val capacity = (products.size / 0.75f).toInt() + 1
+val productMap = HashMap<String, Product>(capacity)
+for (product in products) {
+    productMap[product.id] = product
+}

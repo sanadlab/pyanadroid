@@ -1,0 +1,9 @@
+val configValue: Optional<String> = getConfig("timeout")
+// Bad: calculateExpensiveDefault() runs unconditionally.
+val timeout = configValue.orElse(calculateExpensiveDefault())
+
+-----
+
+val configValue: Optional<String> = getConfig("timeout")
+// Good: The calculation is deferred and only happens when needed.
+val timeout = configValue.orElseGet { calculateExpensiveDefault() }

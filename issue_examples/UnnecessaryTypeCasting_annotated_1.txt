@@ -1,0 +1,9 @@
+val name: String = "test"
+// Bad: The variable 'name' is already a String. This cast is useless.
+val upper = (name as String).toUpperCase()
+
+----
+
+val name: String = "test"
+// Good: The unnecessary cast is removed.
+val upper = name.toUpperCase()

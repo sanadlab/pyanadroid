@@ -1,0 +1,15 @@
+public void processLargeFile(File file) {
+     x = memoryGreedyOperation(file):
+    System.out.println("Processing complete. Cleaning up memory.");
+    // Bad: This forces a stop-the-world GC event, stalling the application
+    System.gc();
+}
+
+-----
+
+public void processLargeFile(File file) {
+     x = memoryGreedyOperation(file):
+    System.out.println("Processing complete.");
+    // Good: Let the JVM manage garbage collection when it is most efficient to do so.
+    // Simply remove the call.
+}

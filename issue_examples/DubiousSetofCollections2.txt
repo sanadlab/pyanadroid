@@ -1,0 +1,11 @@
+
+val uniquePermissionLists = mutableSetOf<List<String>>()
+val adminPermissions = listOf("CREATE", "READ", "UPDATE", "DELETE")
+uniquePermissionLists.add(adminPermissions)
+
+-----
+
+data class PermissionSet(val permissions: Set<String>)
+val uniquePermissionSets = mutableSetOf<PermissionSet>()
+val adminPermissions = PermissionSet(setOf("CREATE", "READ", "UPDATE", "DELETE"))
+uniquePermissionSets.add(adminPermissions)

@@ -1,0 +1,12 @@
+// Bad: Wasteful creation of a new set.
+val cheapProductCount = products.stream()
+    .filter { it.price < 10.00 }
+    .collect(Collectors.toSet())
+    .size
+
+------
+
+// Good: Efficiently counts the matching elements without storing them.
+val cheapProductCount = products.stream()
+    .filter { it.price < 10.00 }
+    .count()

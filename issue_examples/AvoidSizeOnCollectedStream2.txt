@@ -1,0 +1,10 @@
+val cheapProductCount = products.stream()
+    .filter { it.price < 10.00 }
+    .collect(Collectors.toSet())
+    .size
+
+------
+
+val cheapProductCount = products.stream()
+    .filter { it.price < 10.00 }
+    .count()

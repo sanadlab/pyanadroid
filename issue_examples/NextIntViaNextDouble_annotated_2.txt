@@ -1,0 +1,11 @@
+val items = arrayOf("A", "B", "C")
+val random = java.util.Random()
+// Bad: Inefficient and less readable.
+val randomIndex = (random.nextDouble() * items.size).toInt()
+
+----
+
+val items = arrayOf("A", "B", "C")
+val random = java.util.Random()
+// Good: Use the dedicated method for generating random integers.
+val randomIndex = random.nextInt(items.size)

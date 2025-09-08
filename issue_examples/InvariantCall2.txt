@@ -1,0 +1,17 @@
+fun processApiRequests(requests: List<ApiRequest>) {
+    for (request in requests) {
+        val apiVersion = AppConfig.getApiVersion()
+        request.addHeader("X-API-Version", apiVersion)
+        send(request)
+    }
+}
+
+---- 
+
+fun processApiRequests(requests: List<ApiRequest>) {
+    val apiVersion = AppConfig.getApiVersion()
+    for (request in requests) {
+        request.addHeader("X-API-Version", apiVersion)
+        send(request)
+    }
+}

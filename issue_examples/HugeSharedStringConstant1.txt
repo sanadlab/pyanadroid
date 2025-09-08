@@ -1,0 +1,11 @@
+public class SqlConstants {
+    public static final String HUGE_USER_QUERY = "SELECT user.id, user.name, profile.avatar, " +
+        "address.street, address.city, preferences.theme, ..."; // Imagine this is 10KB
+}
+
+-----
+
+public class SqlConstants {
+    public static String HUGE_USER_QUERY = "SELECT user.id, user.name, profile.avatar, " +
+        "address.street, address.city, preferences.theme, ...";
+}

@@ -1,0 +1,22 @@
+public class RequestHandler {
+    private final ThreadLocal<String> transactionId = new ThreadLocal<>();
+
+    public void handle() {
+        transactionId.set(generateId());
+        // ...
+        transactionId.remove();
+    }
+}
+
+----
+
+
+public class RequestHandler {
+    private static final ThreadLocal<String> TRANSACTION_ID = new ThreadLocal<>();
+
+    public void handle() {
+        TRANSACTION_ID.set(generateId());
+        // ...
+        TRANSACTION_ID.remove();
+    }
+}

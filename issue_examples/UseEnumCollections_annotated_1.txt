@@ -1,0 +1,13 @@
+enum Status { PENDING, ACTIVE, INACTIVE }
+// Bad: HashMap uses standard hashing, which is less efficient for the known,
+// limited set of enum constants.
+Map<Status, String> statusMessages = new HashMap<>();
+statusMessages.put(Status.PENDING, "Please wait for approval.");
+
+-----
+
+enum Status { PENDING, ACTIVE, INACTIVE }
+// Good: EnumMap uses a highly efficient array-based implementation internally,
+// providing better performance and lower memory usage.
+Map<Status, String> statusMessages = new EnumMap<>(Status.class);
+statusMessages.put(Status.PENDING, "Please wait for approval.");

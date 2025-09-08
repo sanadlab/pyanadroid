@@ -1,0 +1,20 @@
+// Bad: A single method that configures the database, sets up networking,
+// initializes the UI, registers all listeners, etc., all in one place.
+// This method could easily exceed the JIT's compilation threshold.
+fun initializeApplication() {
+    // ... thousands of lines of initialization code ...
+}
+
+-----
+
+// Good: Decompose the logic into smaller, cohesive units. This is better for
+// readability, maintainability, and JIT performance.
+fun initializeApplication() {
+    initConfig()
+    initDatabase()
+    initNetworking()
+    initUserInterface()
+}
+private fun initConfig() { /* ... */ }
+private fun initDatabase() { /* ... */ }
+// ... etc ...

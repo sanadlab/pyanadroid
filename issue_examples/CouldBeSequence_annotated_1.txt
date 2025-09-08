@@ -1,0 +1,20 @@
+val numbers = (1..1000).toList()
+// Bad:
+// 1. map creates a new list of 1000 integers.
+// 2. filter creates another new list (e.g., of 500 integers).
+// 3. take creates a third new list of 10 integers.
+val result = numbers.map { it * 2 }
+                    .filter { it % 3 == 0 }
+                    .take(10)
+
+----
+
+val numbers = (1..1000).toList()
+// Good: The sequence processes each element lazily through the entire chain.
+// No intermediate lists are created. It stops processing as soon as 10 items
+// have been taken, making it much more efficient.
+val result = numbers.asSequence()
+                    .map { it * 2 }
+                    .filter { it % 3 == 0 }
+                    .take(10)
+                    .toList() // Execute the sequence and collect the result

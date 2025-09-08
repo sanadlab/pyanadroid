@@ -35,7 +35,7 @@ class NoneInstrumenter(AbstractInstrumenter):
         if not os.path.exists(new_proj_dir) or self.needs_reinstrumentation(android_project, test_approach, instr_type, instr_strategy):
             if not os.path.exists(new_proj_dir):
                 os.mkdir(new_proj_dir)
-            all_proj_files = list(map(lambda x: x.replace(android_project.proj_dir + "/", ""),
+            all_proj_files = list(map(lambda x: x.replace(android_project.proj_dir + os.sep, ""),
                                       filter(lambda t: mirror_dirname not in t, mega_find(android_project.proj_dir))))
             all_proj_files.sort(key=lambda s: len(s))
             for file_p in all_proj_files:
@@ -45,8 +45,12 @@ class NoneInstrumenter(AbstractInstrumenter):
                     continue
                 elif os.path.isdir(full_file_path):
                     os.mkdir(target_file_path)
+                elif 'outputs' in full_file_path and 'build' in full_file_path and file_p.endswith('.apk'):
+                    continue
+                    #android_project.apk_files.append(target_file_path)
                 elif not os.path.exists(target_file_path):
                     copy(full_file_path, target_file_path)
+
         else:
             logw("Same instrumentation of last time. Skipping instrumentation phase")
         return new_proj_dir

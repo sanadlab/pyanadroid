@@ -1,0 +1,10 @@
+val firstAdmin = users.filter { it.isAdmin }
+                      .map { it.name }
+                      .first()
+
+-----
+
+val firstAdmin = users.asSequence()
+                      .filter { it.isAdmin }
+                      .map { it.name }
+                      .first()

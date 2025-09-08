@@ -1,0 +1,8 @@
+Config config = new Config();
+// Bad: An entire Config object is instantiated just to get the static TIMEOUT constant.
+int timeout = config.TIMEOUT;
+
+----
+
+// Good: Access the static field directly through the class name.
+int timeout = Config.TIMEOUT;

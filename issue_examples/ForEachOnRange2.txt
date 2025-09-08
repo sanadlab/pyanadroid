@@ -1,0 +1,9 @@
+var sum = 0
+(1..1_000_000).forEach { sum += it }
+
+----
+
+var sum = 0
+for (i in 1..1_000_000) {
+    sum += i
+}

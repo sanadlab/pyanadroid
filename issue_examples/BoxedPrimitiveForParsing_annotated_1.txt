@@ -1,0 +1,9 @@
+String userInput = "42";
+// Bad: Creates an Integer object, then immediately unboxes it
+int value = Integer.valueOf(userInput).intValue();
+
+-----
+
+String userInput = "42";
+// Good: The static parse method directly returns the primitive type
+int value = Integer.parseInt(userInput);

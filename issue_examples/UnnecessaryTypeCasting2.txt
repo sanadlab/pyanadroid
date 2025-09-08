@@ -1,0 +1,13 @@
+fun process(obj: Any) {
+    if (obj is String) {
+        println("Length is ${(obj as String).length}")
+    }
+}
+
+-----
+
+fun process(obj: Any) {
+    if (obj is String) {
+        println("Length is ${obj.length}")
+    }
+}

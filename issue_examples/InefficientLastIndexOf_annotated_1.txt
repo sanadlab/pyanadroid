@@ -1,0 +1,9 @@
+String filename = "document.final.pdf";
+// Bad: Uses the String-based method, which has more overhead.
+int lastDotIndex = filename.lastIndexOf(".");
+
+----
+
+String filename = "document.final.pdf";
+// Good: Uses the more efficient char-based overload.
+int lastDotIndex = filename.lastIndexOf('.');

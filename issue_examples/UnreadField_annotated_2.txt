@@ -1,0 +1,35 @@
+class ReportGenerator {
+    private var totalRevenue: Double = 0.0
+
+    fun addSale(amount: Double) {
+        // Bad: totalRevenue is updated, but no method (like getTotalRevenue())
+        // ever reads its value. The calculation is wasted work.
+        this.totalRevenue += amount
+    }
+
+    fun generateReport() {
+        // ... generates a report, but doesn't use totalRevenue ...
+    }
+}
+
+
+---
+
+class ReportGenerator {
+    private var totalRevenue: Double = 0.0
+
+    fun addSale(amount: Double) {
+        this.totalRevenue += amount
+    }
+
+    // Good: A getter is added so the value can be read and used.
+    fun getTotalRevenue(): Double {
+        return this.totalRevenue
+    }
+
+    fun generateReport() {
+        // Now it can be used:
+        val revenue = getTotalRevenue()
+        // ...
+    }
+}

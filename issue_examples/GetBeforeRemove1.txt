@@ -1,0 +1,14 @@
+public Task getAndRemoveTask(String taskId) {
+    if (taskQueue.containsKey(taskId)) {
+        Task task = taskQueue.get(taskId);
+        taskQueue.remove(taskId);
+        return task;
+    }
+    return null;
+}
+
+-----
+
+public Task getAndRemoveTask(String taskId) {
+    return taskQueue.remove(taskId);
+}

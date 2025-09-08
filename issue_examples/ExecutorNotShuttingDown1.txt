@@ -1,0 +1,19 @@
+public void processBatch(List<Runnable> tasks) {
+    ExecutorService executor = Executors.newFixedThreadPool(4);
+    for (Runnable task : tasks) {
+        executor.submit(task);
+    }
+}
+
+------
+
+public void processBatch(List<Runnable> tasks) {
+    ExecutorService executor = Executors.newFixedThreadPool(4);
+    try {
+        for (Runnable task : tasks) {
+            executor.submit(task);
+        }
+    } finally {
+        executor.shutdown();
+    }
+}

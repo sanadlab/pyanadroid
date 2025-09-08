@@ -1,0 +1,7 @@
+val timeoutString = "30000"
+val timeoutMillis: Long = java.lang.Long.valueOf(timeoutString).toLong()
+
+-----
+
+val timeoutString = "30000"
+val timeoutMillis: Long = timeoutString.toLong()

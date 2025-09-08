@@ -1,0 +1,26 @@
+// In an Android Fragment
+public void parseLogFile(String largeLogText) {
+    Pattern pattern = Pattern.compile("ERROR: (.*)");
+    Matcher matcher = pattern.matcher(largeLogText);
+
+    List<String> errorMessages = new ArrayList<>();
+    while (matcher.find()) {
+        errorMessages.add(matcher.group(1));
+    }
+    updateUIWithErrors(errorMessages);
+}
+
+
+-----
+
+public void parseLogFile(String largeLogText) {
+    new Thread(() -> {
+        Pattern pattern = Pattern.compile("ERROR: (.*)");
+        Matcher matcher = pattern.matcher(largeLogText);
+        List<String> errorMessages = new ArrayList<>();
+        while (matcher.find()) {
+            errorMessages.add(matcher.group(1));
+        }
+        getActivity().runOnUiThread(() -> updateUIWithErrors(errorMessages));
+    }).start();
+}

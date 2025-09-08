@@ -1,0 +1,9 @@
+enum Status { PENDING, ACTIVE, INACTIVE }
+Map<Status, String> statusMessages = new HashMap<>();
+statusMessages.put(Status.PENDING, "Please wait for approval.");
+
+-----
+
+enum Status { PENDING, ACTIVE, INACTIVE }
+Map<Status, String> statusMessages = new EnumMap<>(Status.class);
+statusMessages.put(Status.PENDING, "Please wait for approval.");

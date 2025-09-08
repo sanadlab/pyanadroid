@@ -1,0 +1,17 @@
+public Map<String, User> mapUsersById(List<User> users) {
+    Map<String, User> userMap = new HashMap<>();
+    for (User user : users) {
+        userMap.put(user.getId(), user);
+    }
+    return userMap;
+}
+
+----
+
+public Map<String, User> mapUsersById(List<User> users) {
+    Map<String, User> userMap = new HashMap<>(users.size());
+    for (User user : users) {
+        userMap.put(user.getId(), user);
+    }
+    return userMap;
+}

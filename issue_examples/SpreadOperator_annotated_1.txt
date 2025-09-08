@@ -1,0 +1,18 @@
+fun logMessages(vararg messages: String) { /* ... */ }
+
+val errors: Array<String> = arrayOf("Error 1", "Error 2", "Error 3")
+// Bad: The spread operator '*' creates a defensive copy of the 'errors' array
+// before passing it to the function.
+logMessages(*errors)
+
+----
+
+fun logMessages(vararg messages: String) { /* ... */ }
+
+val errors: Array<String> = arrayOf("Error 1", "Error 2", "Error 3")
+// Good: If the function can accept the array directly, change its signature.
+// This avoids the copy entirely.
+fun logMessages(messages: Array<String>) { /* ... */ }
+logMessages(errors)
+
+// Note: If you must use varargs, the cost is sometimes unavoidable, but it's important to be aware of it.

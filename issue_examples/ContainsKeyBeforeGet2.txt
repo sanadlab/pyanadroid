@@ -1,0 +1,9 @@
+val count = if (userCounts.containsKey(userId)) {
+    userCounts[userId]
+} else {
+    0
+}
+
+----
+
+val count = userCounts.getOrDefault(userId, 0)

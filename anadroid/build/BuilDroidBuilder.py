@@ -33,7 +33,7 @@ class BuilDroidBuilder(AbstractBuilder):
         """
         if not self.was_last_build_successful() or rebuild:
             builDroid.process_repository(self.proj.proj_dir, local_path=True, project_name=self.proj.proj_name,
-                                         override_project=True)
+                                         override_project=True, keep_container=True, stop_container=False)
             if not self.was_last_build_successful():
                 return False
         return True

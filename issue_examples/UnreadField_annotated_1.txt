@@ -1,0 +1,20 @@
+public class FileUploader {
+    private boolean uploadCompleted = false;
+
+    public void upload(File file) {
+        // ... performs the upload ...
+        // Bad: This status is set, but no other method ever checks it.
+        // It serves no purpose.
+        this.uploadCompleted = true;
+    }
+}
+
+-----
+
+public class FileUploader {
+    // The field was removed. If the status is needed, another method
+    // like 'isUploadCompleted()' should be added that reads the field.
+    public void upload(File file) {
+        // ... performs the upload ...
+    }
+}

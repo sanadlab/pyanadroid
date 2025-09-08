@@ -1,0 +1,13 @@
+// In a constants class, this string will be inlined into every class that uses it
+public class SqlConstants {
+    public static final String HUGE_USER_QUERY = "SELECT user.id, user.name, profile.avatar, " +
+        "address.street, address.city, preferences.theme, ..."; // Imagine this is 10KB
+}
+
+-----
+
+// By removing 'final', the compiler will reference this field at runtime instead of inlining it
+public class SqlConstants {
+    public static String HUGE_USER_QUERY = "SELECT user.id, user.name, profile.avatar, " +
+        "address.street, address.city, preferences.theme, ...";
+}

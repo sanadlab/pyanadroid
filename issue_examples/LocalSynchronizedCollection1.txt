@@ -1,0 +1,19 @@
+public List<String> processAndSort(List<String> inputs) {
+
+    List<String> processed = Collections.synchronizedList(new ArrayList<>());
+    for (String input : inputs) {
+        processed.add(input.toUpperCase());
+    }
+    return processed;
+}
+
+-----
+
+public List<String> processAndSort(List<String> inputs) {
+
+    List<String> processed = new ArrayList<>();
+    for (String input : inputs) {
+        processed.add(input.toUpperCase());
+    }
+    return processed;
+}

@@ -1,0 +1,12 @@
+public final class AssetProvider {
+    public static final String DEFAULT_AVATAR_BASE64 = "iVBORw0KGgoAAAANSUhEUgA..."; // Very long
+}
+
+-----
+
+public final class AssetProvider {
+    public static final String DEFAULT_AVATAR_BASE64;
+    static {
+        DEFAULT_AVATAR_BASE64 = "iVBORw0KGgoAAAANSUhEUgA..."; // Very long
+    }
+}

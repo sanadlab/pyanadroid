@@ -1,0 +1,13 @@
+// Bad: This involves boxing the primitive int into an Integer object to store it in the Optional.
+public Optional<Integer> findUserAge(String userId) {
+    User user = findUser(userId);
+    return user != null ? Optional.of(user.getAge()) : Optional.empty();
+}
+
+-----
+
+// Good: OptionalInt stores the int directly without any boxing, saving memory and allocation time.
+public OptionalInt findUserAge(String userId) {
+    User user = findUser(userId);
+    return user != null ? OptionalInt.of(user.getAge()) : OptionalInt.empty();
+}

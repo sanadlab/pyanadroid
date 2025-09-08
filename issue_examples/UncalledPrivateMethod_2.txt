@@ -1,0 +1,21 @@
+class OrderService {
+    fun placeOrder(order: Order) {
+        if (order.isValid()) { 
+            // ...
+        }
+    }
+
+    private fun isOrderValid(order: Order): Boolean {
+        return order.items.isNotEmpty()
+    }
+}
+
+-----
+
+class OrderService {
+    fun placeOrder(order: Order) {
+        if (order.isValid()) {
+            // ...
+        }
+    }
+}

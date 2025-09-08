@@ -1,0 +1,31 @@
+public class ResourceManager {
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            cleanupNativeResources();
+        } finally {
+            System.gc();
+            super.finalize();
+        }
+    }
+}
+
+
+-----
+
+// The modern solution is to avoid finalizers and use try-with-resources or explicit close() methods
+public class ResourceManager implements AutoCloseable {
+    public void useResources() {
+        // ...
+    }
+
+    @Override
+    public void close() {
+        cleanupNativeResources();
+    }
+}
+
+// Usage:
+try (ResourceManager manager = new ResourceManager()) {
+    manager.useResources();
+}

@@ -1,0 +1,22 @@
+public void processBatch(List<Runnable> tasks) {
+    // Bad: The thread pool created here will live on forever, leaking resources,
+    // even after the method completes.
+    ExecutorService executor = Executors.newFixedThreadPool(4);
+    for (Runnable task : tasks) {
+        executor.submit(task);
+    }
+}
+
+------
+
+public void processBatch(List<Runnable> tasks) {
+    ExecutorService executor = Executors.newFixedThreadPool(4);
+    try {
+        for (Runnable task : tasks) {
+            executor.submit(task);
+        }
+    } finally {
+        // Good: The executor is always shut down, allowing its threads to terminate.
+        executor.shutdown();
+    }
+}

@@ -1,0 +1,26 @@
+public void processEvent(Event event) {
+    switch (event.getType()) {
+        case "USER_LOGIN": // ... 50 lines of code ...
+             break;
+        case "USER_LOGOUT": // ... 50 lines of code ...
+             break;
+        // ... 200 more cases ...
+    }
+}
+
+
+-----
+
+public void processEvent(Event event) {
+    switch (event.getType()) {
+        case "USER_LOGIN":
+            handleUserLogin(event);
+            break;
+        case "USER_LOGOUT":
+            handleUserLogout(event);
+            break;
+        // ... etc ...
+    }
+}
+private void handleUserLogin(Event event) { /* ... 50 lines of code ... */ }
+private void handleUserLogout(Event event) { /* ... 50 lines of code ... */ }

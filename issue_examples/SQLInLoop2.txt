@@ -1,0 +1,20 @@
+fun deleteProducts(conn: Connection, productIds: List<String>) {
+    for (id in productIds) {
+        conn.prepareStatement("DELETE FROM products WHERE id = ?").use {
+            it.setString(1, id)
+            it.executeUpdate()
+        }
+    }
+}
+
+----
+
+fun deleteProducts(conn: Connection, productIds: List<String>) {
+    conn.prepareStatement("DELETE FROM products WHERE id = ?").use { stmt ->
+        for (id in productIds) {
+            stmt.setString(1, id)
+            stmt.addBatch()
+        }
+        stmt.executeBatch()
+    }
+}

@@ -1,0 +1,9 @@
+int userCount = 150;
+// Bad: Creates an Integer object just to call toString() on it
+String countStr = new Integer(userCount).toString();
+
+-----
+
+int userCount = 150;
+// Good: Uses the static method, which is more efficient
+String countStr = Integer.toString(userCount);

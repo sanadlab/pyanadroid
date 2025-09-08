@@ -1,0 +1,12 @@
+// Bad: Files.newInputStream is often buffered by default, and we are wrapping it
+// in another buffer. Data is copied from OS buffer -> Buffer 1 -> Buffer 2 -> destination.
+try (InputStream is = new BufferedInputStream(Files.newInputStream(sourcePath))) {
+    Files.copy(is, destinationPath);
+}
+
+----
+
+// Good: Pass the unbuffered stream directly to the copy method that performs its own buffering.
+try (InputStream is = Files.newInputStream(sourcePath)) {
+    Files.copy(is, destinationPath);
+}

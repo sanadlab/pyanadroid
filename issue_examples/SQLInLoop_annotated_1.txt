@@ -1,0 +1,23 @@
+// Bad: If userIds has 1000 IDs, this executes 1000 separate queries to the database.
+// This is known as the "N+1 query problem".
+public List<User> getUsers(List<Integer> userIds) {
+    List<User> users = new ArrayList<>();
+    for (Integer id : userIds) {
+        // A new query is sent for each ID.
+        users.add(queryUserById(id));
+    }
+    return users;
+}
+
+----
+
+// Good: Executes only one query to the database, which is vastly more efficient.
+public List<User> getUsers(List<Integer> userIds) {
+    // The SQL "IN" clause allows fetching multiple records at once.
+    String sql = "SELECT * FROM users WHERE id IN (" + createPlaceholders(userIds.size()) + ")";
+    try (PreparedStatement ps = conn.prepareStatement(sql)) {
+        // ... set all the IDs on the prepared statement ...
+        // ... execute query and build list of users ...
+    }
+    return users;
+}

@@ -1,0 +1,14 @@
+// Bad: Processes the entire stream and builds a list, even if we only need the first element.
+Optional<User> firstUser = Optional.of(
+    users.stream()
+         .filter(User::isLoggedIn)
+         .collect(Collectors.toList())
+         .get(0)
+);
+
+----
+
+// Good: findFirst() is a short-circuiting operation that stops after finding the first match.
+Optional<User> firstUser = users.stream()
+                                .filter(User::isLoggedIn)
+                                .findFirst();

@@ -1,0 +1,13 @@
+// Bad: This calculation is performed every time the function is called.
+fun getDiagonalMultiplier(): Double {
+    return Math.sqrt(2.0)
+}
+
+---
+
+// Good: Store the pre-calculated result in a constant.
+private const val SQRT_2 = 1.4142135623730951
+
+fun getDiagonalMultiplier(): Double {
+    return SQRT_2
+}

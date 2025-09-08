@@ -1,0 +1,17 @@
+public class FileUploader {
+    private boolean uploadCompleted = false;
+
+    public void upload(File file) {
+        // This status is set, but no other method ever checks it.
+        this.uploadCompleted = true;
+    }
+}
+
+-----
+
+public class FileUploader {
+    
+    public void upload(File file) {
+        // ... performs the upload ...
+    }
+}

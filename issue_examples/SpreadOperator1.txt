@@ -1,0 +1,13 @@
+fun logMessages(vararg messages: String) { /* ... */ }
+
+val errors: Array<String> = arrayOf("Error 1", "Error 2", "Error 3")
+logMessages(*errors)
+
+----
+
+fun logMessages(vararg messages: String) { /* ... */ }
+
+val errors: Array<String> = arrayOf("Error 1", "Error 2", "Error 3")
+
+fun logMessages(messages: Array<String>) { /* ... */ }
+logMessages(errors)

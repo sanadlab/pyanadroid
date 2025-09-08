@@ -1,0 +1,13 @@
+val isReady = getStatus()
+// Bad: Comparing a boolean to 'true' is always unnecessary.
+if (isReady == true) {
+    // ...
+}
+
+----
+
+val isReady = getStatus()
+// Good: Just use the boolean variable directly.
+if (isReady) {
+    // ...
+}

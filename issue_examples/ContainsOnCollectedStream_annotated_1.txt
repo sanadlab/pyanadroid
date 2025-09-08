@@ -1,0 +1,11 @@
+// Bad: Creates a whole new Set of names, even if "Laptop" is the first item.
+boolean hasLaptop = products.stream()
+                            .map(Product::getName)
+                            .collect(Collectors.toSet())
+                            .contains("Laptop");
+
+-----
+
+// Good: anyMatch() is a short-circuiting operation. It stops as soon as it finds a match.
+boolean hasLaptop = products.stream()
+                            .anyMatch(p -> "Laptop".equals(p.getName()));

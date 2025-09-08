@@ -1,0 +1,17 @@
+@TearDown
+public void cleanup() {
+    // ... clear data structures ...
+    // Bad: Can make benchmark results noisy and unreliable by introducing
+    // a long, variable pause.
+    System.runFinalization();
+}
+
+----
+
+@TearDown
+public void cleanup() {
+    // ... clear data structures ...
+    // Good: Do not interfere with the garbage collector. Let the JVM handle cleanup
+    // between benchmark runs if necessary.
+}
+

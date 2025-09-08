@@ -1,0 +1,21 @@
+fun createHtmlList(items: List<String>): String {
+    var html = "<ul>\n"
+    // Bad: This is O(n^2) in performance due to repeated string copying.
+    for (item in items) {
+        html += "  <li>$item</li>\n"
+    }
+    html += "</ul>"
+    return html
+}
+
+-----
+
+fun createHtmlList(items: List<String>): String {
+    // Good: A single StringBuilder is appended to in a loop.
+    val builder = StringBuilder("<ul>\n")
+    for (item in items) {
+        builder.append("  <li>$item</li>\n")
+    }
+    builder.append("</ul>")
+    return builder.toString()
+}

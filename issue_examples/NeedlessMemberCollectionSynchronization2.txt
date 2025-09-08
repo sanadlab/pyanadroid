@@ -1,0 +1,14 @@
+class TypeRegistry(typeMappings: Map<String, Class<*>>) {
+   
+    private val registry: Map<String, Class<*>> = Collections.synchronizedMap(typeMappings)
+
+    fun getType(name: String): Class<*>? = registry[name]
+}
+
+----
+
+class TypeRegistry(typeMappings: Map<String, Class<*>>) {
+    private val registry: Map<String, Class<*>> = HashMap(typeMappings)
+
+    fun getType(name: String): Class<*>? = registry[name]
+}

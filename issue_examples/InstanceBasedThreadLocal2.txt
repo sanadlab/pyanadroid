@@ -1,0 +1,18 @@
+class UserSession {
+
+    private val currentUser = ThreadLocal<User>()
+
+    fun setCurrentUser(user: User) = currentUser.set(user)
+    fun getCurrentUser(): User? = currentUser.get()
+}
+
+----
+
+class UserSession {
+    companion object {
+        private val currentUser = ThreadLocal<User>()
+    }
+
+    fun setCurrentUser(user: User) = currentUser.set(user)
+    fun getCurrentUser(): User? = currentUser.get()
+}

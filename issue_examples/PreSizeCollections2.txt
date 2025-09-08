@@ -1,0 +1,17 @@
+val activeUsers = mutableListOf<User>()
+for (user in allUsers) {
+    if (user.isActive) {
+        activeUsers.add(user)
+    }
+}
+
+----
+
+
+val estimatedSize = (allUsers.size * 0.1).toInt()
+val activeUsers = ArrayList<User>(estimatedSize)
+for (user in allUsers) {
+    if (user.isActive) {
+        activeUsers.add(user)
+    }
+}

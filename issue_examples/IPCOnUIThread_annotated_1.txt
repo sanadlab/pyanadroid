@@ -1,0 +1,25 @@
+// In an Android Activity or Fragment
+fun onFindContactsClicked(view: View) {
+    // Bad: This is a blocking IPC call that will freeze the UI
+    val cursor = contentResolver.query(
+        ContactsContract.Contacts.CONTENT_URI,
+        null, null, null, null
+    )
+    // Update UI with cursor data...
+}
+
+---- 
+
+// In an Android Activity or Fragment
+fun onFindContactsClicked(view: View) {
+    // Good: The blocking call is moved to a background thread (IO dispatcher)
+    lifecycleScope.launch {
+        val cursor = withContext(Dispatchers.IO) {
+            contentResolver.query(
+                ContactsContract.Contacts.CONTENT_URI,
+                null, null, null, null
+            )
+        }
+        // Update UI with cursor data on the main thread...
+    }
+}

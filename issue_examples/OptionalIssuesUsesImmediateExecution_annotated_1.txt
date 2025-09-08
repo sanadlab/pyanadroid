@@ -1,0 +1,8 @@
+// Bad: createDefaultUser() is called every single time, even if findUser()
+// returns a valid user. This can be very expensive.
+User user = findUser("id123").orElse(createDefaultUser());
+
+----
+
+// Good: The lambda passed to orElseGet() is only executed if the optional is empty.
+User user = findUser("id123").orElseGet(() -> createDefaultUser());

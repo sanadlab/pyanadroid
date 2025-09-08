@@ -1,0 +1,27 @@
+public class Service {
+    // Bad: The synchronized wrapper adds overhead to every access,
+    // but the set is never modified after the constructor finishes.
+    private final Set<String> supportedFeatures = Collections.synchronizedSet(new HashSet<>());
+
+    public Service(List<String> features) {
+        supportedFeatures.addAll(features);
+    }
+    public boolean isSupported(String feature) {
+        return supportedFeatures.contains(feature); // Incurs sync overhead
+    }
+}
+
+----
+
+public class Service {
+    // Good: A regular HashSet is sufficient. To be extra safe,
+    // wrap it in an unmodifiableSet to guarantee it's not changed later.
+    private final Set<String> supportedFeatures;
+
+    public Service(List<String> features) {
+        this.supportedFeatures = Collections.unmodifiableSet(new HashSet<>(features));
+    }
+    public boolean isSupported(String feature) {
+        return supportedFeatures.contains(feature); // No sync overhead
+    }
+}

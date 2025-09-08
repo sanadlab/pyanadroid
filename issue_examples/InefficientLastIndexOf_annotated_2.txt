@@ -1,0 +1,9 @@
+val filePath = "/usr/local/bin/script.sh"
+// Bad: Creates a temporary String object for "/".
+val lastSeparatorIndex = filePath.lastIndexOf("/")
+
+------
+
+val filePath = "/usr/local/bin/script.sh"
+// Good: Directly uses the char primitive, which is faster.
+val lastSeparatorIndex = filePath.lastIndexOf('/')

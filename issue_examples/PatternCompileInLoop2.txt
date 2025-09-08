@@ -1,0 +1,18 @@
+fun sanitizeInputs(inputs: List<String>): List<String> {
+    val sanitized = mutableListOf<String>()
+    for (input in inputs) {
+        sanitized.add(input.replace("[^a-zA-Z0-9]".toRegex(), ""))
+    }
+    return sanitized
+}
+-----
+
+private val SANITIZE_REGEX = "[^a-zA-Z0-9]".toRegex()
+
+fun sanitizeInputs(inputs: List<String>): List<String> {
+    val sanitized = mutableListOf<String>()
+    for (input in inputs) {
+        sanitized.add(input.replace(SANITIZE_REGEX, ""))
+    }
+    return sanitized
+}

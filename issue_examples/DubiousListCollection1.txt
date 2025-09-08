@@ -1,0 +1,13 @@
+private final List<String> adminUsernames = Arrays.asList("root", "admin", "superuser", ...);
+
+public boolean isAdmin(String username) {
+    return adminUsernames.contains(username);
+}
+
+-----
+
+private final Set<String> adminUsernames = new HashSet<>(Arrays.asList("root", "admin", "superuser", ...));
+
+public boolean isAdmin(String username) {
+    return adminUsernames.contains(username);
+}

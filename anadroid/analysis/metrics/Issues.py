@@ -130,6 +130,11 @@ class Issue(object):
                 sum([1 for attr in ['file', 'i_class', 'method', 'line'] if getattr(other_issue, attr, None) is not None])
 
 class KnownStaticPerformanceIssues(Enum):
+    RESOURCE_LEAK = None
+    EXPENSIVE_EXECUTION_TIME = None
+    REGEX_ON_UI_THREAD = None
+    IPC_ON_UI_THREAD = None
+    INVARIANT_CALL = None
     UNNECESSARY_MATH = "UnnecessaryMath"
     INEFFICIENT_TO_ARRAY = "InefficientToArray"
     USE_INDEX_OF_CHAR_LAST = "UseIndexOfCharLast"

@@ -1,0 +1,17 @@
+public Task getAndRemoveTask(String taskId) {
+    // Bad: Two lookups into the map.
+    if (taskQueue.containsKey(taskId)) {
+        Task task = taskQueue.get(taskId);
+        taskQueue.remove(taskId);
+        return task;
+    }
+    return null;
+}
+
+-----
+
+public Task getAndRemoveTask(String taskId) {
+    // Good: The remove() method returns the value associated with the key,
+    // or null if the key wasn't present. This does the job in one operation.
+    return taskQueue.remove(taskId);
+}

@@ -1,0 +1,12 @@
+// Bad: Sorts all tasks and collects them, which is very inefficient if we only need the top one.
+val highestPriorityTask = tasks.stream()
+    .sorted(Comparator.comparing(Task::getPriority).reversed())
+    .collect(Collectors.toList())[0]
+
+----
+
+// Good: The stream pipeline stops processing as soon as the first element is found.
+val highestPriorityTask = tasks.stream()
+    .sorted(Comparator.comparing(Task::getPriority).reversed())
+    .findFirst()
+    .orElse(null)

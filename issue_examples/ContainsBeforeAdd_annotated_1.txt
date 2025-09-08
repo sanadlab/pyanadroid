@@ -1,0 +1,16 @@
+Set<String> uniqueTags = new HashSet<>();
+for (String tag : allTags) {
+    // Bad: Two lookups - one for contains, one for add.
+    if (!uniqueTags.contains(tag)) {
+        uniqueTags.add(tag);
+    }
+}
+
+----
+
+Set<String> uniqueTags = new HashSet<>();
+for (String tag : allTags) {
+    // Good: The add() method already handles the uniqueness check internally.
+    // It returns 'false' if the item was already present, but we can ignore that here.
+    uniqueTags.add(tag);
+}

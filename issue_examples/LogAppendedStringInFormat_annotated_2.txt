@@ -1,0 +1,9 @@
+// Bad: String concatenation and interpolation happen before the log level check.
+val count = 5
+logger.debug("Found $count items for query '$query'")
+
+-----
+
+// Good: Use parameterized logging to defer the string construction.
+val count = 5
+logger.debug("Found {} items for query '{}'", count, query)

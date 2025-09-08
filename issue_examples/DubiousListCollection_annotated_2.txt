@@ -1,0 +1,20 @@
+val processedItems = mutableListOf<String>()
+fun processUnique(item: String) {
+    // Bad: This check is a slow linear search through the list for every item.
+    if (!processedItems.contains(item)) {
+        processedItems.add(item)
+        // ... do work ...
+    }
+}
+
+-----
+
+// Good: A Set naturally handles uniqueness and provides fast checks.
+val processedItems = mutableSetOf<String>()
+fun processUnique(item: String) {
+    // .add() returns true if the item was not already in the set.
+    // This is both cleaner and much more performant.
+    if (processedItems.add(item)) {
+        // ... do work ...
+    }
+}

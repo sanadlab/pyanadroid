@@ -1,0 +1,15 @@
+// Bad: Using URL as a map key is dangerous due to blocking network calls
+val urlCache = mutableMapOf<URL, String>()
+val url = URL("https://api.service.com/data")
+
+// This 'put' operation will call url.hashCode() and can freeze the application
+urlCache[url] = "{\"data\": \"some_cached_value\"}"
+
+----
+
+// Good: URI is safe to use as a key in collections
+val uriCache = mutableMapOf<URI, String>()
+val uri = URI("https://api.service.com/data")
+
+// This operation is purely in-memory and very fast
+uriCache[uri] = "{\"data\": \"some_cached_value\"}"

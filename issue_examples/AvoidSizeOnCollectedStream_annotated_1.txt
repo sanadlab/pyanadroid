@@ -1,0 +1,13 @@
+// Bad: Creates a new List in memory containing all active users just to get its size.
+long activeUserCount = users.stream()
+                           .filter(User::isActive)
+                           .collect(Collectors.toList())
+                           .size();
+
+
+-----
+
+// Good: .count() is a terminal operation that doesn't build an intermediate collection.
+long activeUserCount = users.stream()
+                           .filter(User::isActive)
+                           .count();

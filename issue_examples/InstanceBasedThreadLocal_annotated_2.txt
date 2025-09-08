@@ -1,0 +1,21 @@
+class UserSession {
+    // Bad: If a web server thread handles thousands of UserSession objects over its
+    // lifetime, it will accumulate ThreadLocal.ThreadLocalMap.Entry objects that
+    // can't be fully cleaned up until the thread dies.
+    private val currentUser = ThreadLocal<User>()
+
+    fun setCurrentUser(user: User) = currentUser.set(user)
+    fun getCurrentUser(): User? = currentUser.get()
+}
+
+----
+
+// Good: A companion object makes the ThreadLocal static.
+class UserSession {
+    companion object {
+        private val currentUser = ThreadLocal<User>()
+    }
+
+    fun setCurrentUser(user: User) = currentUser.set(user)
+    fun getCurrentUser(): User? = currentUser.get()
+}

@@ -1,0 +1,11 @@
+public void close() {
+    this.resource = null;
+    System.runFinalization();
+}
+
+----
+
+public void close() {
+    this.resource = null;
+    // Remove the call. Rely on the JVM's GC a or  try-with-resources
+}

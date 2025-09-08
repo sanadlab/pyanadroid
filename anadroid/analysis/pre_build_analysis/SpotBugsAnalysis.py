@@ -1,9 +1,12 @@
 import os
 import re
 import xml.etree.ElementTree as ET
+from os.path import expanduser
+
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
-from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi
+from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi, \
+    DockerCommandWrapper, find_source_root_dynamically
 
 # Default build task required by SpotBugs to get .class files.
 DEFAULT_GRADLE_TASK = 'assembleDebug'
@@ -18,7 +21,7 @@ class SpotBugsAnalysis(StaticAnalyzer):
     """
 
     def __init__(self, analyzers_cfg_file=None, performance_only=True, uses_gradlew=True,
-                 default_task=DEFAULT_GRADLE_TASK, **kwargs):
+                 default_task=DEFAULT_GRADLE_TASK, in_container=False, container_id=None, **kwargs):
         super().__init__(analyzers_cfg_file)
         self.name = 'SpotBugs'
         self.spotbugs_home = os.environ.get("SPOTBUGS_HOME", '$HOME/spotbugs/spotbugs-4.9.3')
@@ -66,6 +69,8 @@ class SpotBugsAnalysis(StaticAnalyzer):
             "UM_UNNECESSARY_MATH": KnownStaticPerformanceIssues.UNNECESSARY_MATH,
             "IMA_INEFFICIENT_MEMBER_ACCESS": KnownStaticPerformanceIssues.INEFFICIENT_MEMBER_ACCESS,
         }
+        self.should_run_in_container = in_container
+        self.container_id = container_id
 
         # Mapping of SpotBugs bug codes to your framework's known issues.
         # See: https://spotbugs.readthedocs.io/en/latest/bugDetections.html
@@ -120,11 +125,29 @@ class SpotBugsAnalysis(StaticAnalyzer):
         build_task = kwargs.get("exec_task", self.default_task)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         gradlew_path = os.path.join(project.proj_dir, 'gradlew')
+        replace_paths = [
+            "~" + os.sep + os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, os.path.curdir) + os.sep,
+            os.path.abspath(os.path.dirname(project.proj_dir)) + os.sep,
+            os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
+
+            "~" + os.sep + os.path.relpath(output_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, os.path.curdir) + os.sep,
+            os.path.abspath(output_dir) + os.sep,
+            os.path.basename(output_dir) + os.sep,
+
+        ]
+        print(replace_paths)
+        print(project.proj_dir)
 
         # 1. Build the project to ensure .class files are available
         logi("SpotBugs Step 1/2: Building project to generate bytecode")
-        build_cmd = f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} {build_task}"
-        res_build = execute_shell_command(build_cmd, timeout=300)
+        build_cmd = f"cd {project.proj_dir}; chmod +x gradlew; ./gradlew {build_task}"
+        res_build = execute_shell_command(build_cmd, timeout=300, in_container=self.should_run_in_container,
+                                              container_id=self.container_id,
+                                              replace_paths=replace_paths)
         if not res_build.validate():
             loge(f"Gradle build failed for project {project.proj_name}. SpotBugs cannot run.")
             logw(res_build.errors)
@@ -133,11 +156,15 @@ class SpotBugsAnalysis(StaticAnalyzer):
         # 2. Find necessary paths for SpotBugs analysis
         sdk_version = self._find_compile_sdk_version(project.proj_dir)
         android_jar_path = os.path.join(self.android_sdk_root, "platforms", f"android-{sdk_version}", "android.jar")
-        classes_path = os.path.join(project.proj_dir, "app", "build", "intermediates", "javac",
-                                    build_task.replace("assemble", ""), "classes")
-        source_path = os.path.join(project.proj_dir, "app", "src", "main", "java")
 
-        if not os.path.exists(classes_path):
+        possible_class_paths = mega_find(os.path.join(project.proj_dir, "app", "build", "intermediates", "javac"),
+                                        pattern="classes", type_file='d', maxdepth=3)
+        classes_path = os.path.join(project.proj_dir, "app", "build", "intermediates", "javac",
+                                    build_task.replace("assemble", ""), "classes") \
+            if len(possible_class_paths) == 0 else possible_class_paths[0]
+        source_path = find_source_root_dynamically(project.proj_dir)
+
+        if not os.path.exists(classes_path) and not self.should_run_in_container:
             loge(f"Compiled classes directory not found at {classes_path}. Aborting SpotBugs.")
             return
         if not os.path.exists(android_jar_path):
@@ -145,7 +172,7 @@ class SpotBugsAnalysis(StaticAnalyzer):
             return
 
         # 3. Construct and run the SpotBugs command
-        output_file_name = "spotbugs_report.xml"
+        output_file_name = f"{project.proj_name}_spotbugs_report.xml"
         output_file_path = os.path.join(output_dir, output_file_name)
 
         spotbugs_command = [
@@ -165,7 +192,12 @@ class SpotBugsAnalysis(StaticAnalyzer):
 
         logi("SpotBugs Step 2/2: Running analysis. This may take a few minutes...")
         cmd_str = " ".join(f'"{c}"' if " " in c else c for c in spotbugs_command)
-        res_analyze = execute_shell_command(cmd_str)
+        res_analyze = execute_shell_command(cmd_str, in_container=self.should_run_in_container,
+                                              container_id=self.container_id,
+                                              replace_paths=replace_paths)
+
+        if self.should_run_in_container:
+            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).pull(output_file_path)
 
         self.validate_success(res_analyze, output_file_path)
 

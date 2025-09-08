@@ -1,0 +1,15 @@
+public List<String> getRolesForUser(String userId) {
+    if (isGuest(userId)) {
+        return Arrays.asList("GUEST");
+    }
+    // ...
+}
+
+----
+
+public List<String> getRolesForUser(String userId) {
+    if (isGuest(userId)) {
+        return Collections.singletonList("GUEST");
+    }
+    // ...
+}

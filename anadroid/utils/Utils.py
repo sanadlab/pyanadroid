@@ -7,6 +7,9 @@ import time
 from enum import Enum
 from termcolor import colored
 from textops import find
+import os
+from os.path import expanduser
+
 
 DEFAULT_ANALYZERS_FILENAME =  "analyzer_filters.json"
 
@@ -138,14 +141,19 @@ def sign_apk(apk_path):
     return res
 
 
-def execute_shell_command(cmd, args=(), timeout=None):
+def execute_shell_command(cmd, args=(), timeout=None, in_container=False, container_id=None, replace_paths=[]):
     command = cmd + " " + " ".join(args) if len(args) > 0 else cmd
     out = bytes()
     err = bytes()
     #print("Executing command", cmd)
     proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, preexec_fn=os.setsid)
     try:
-        out, err = proc.communicate(timeout=timeout)
+        if in_container:
+
+            doc =  DockerCommandWrapper(container_id, replace_paths)
+            return doc.execute(command)
+        else:
+            out, err = proc.communicate(timeout=timeout)
     except subprocess.TimeoutExpired as e:
         print(f"Command {cmd} timed out")
         os.killpg(os.getpgid(proc.pid), signal.SIGTERM)  # Kill the whole process group
@@ -303,3 +311,68 @@ def find_source_root_dynamically(project_dir: str, exclude_test=True) -> Optiona
         return str(source_files[0].parent)
 
     return None
+
+
+
+class DockerCommandWrapper:
+    def __init__(self, container_name, paths_to_truncate=[]):
+        """
+        container_name: str - Name or ID of the Docker container
+        path_mapping: dict - Dictionary mapping local paths to container paths
+          e.g. {"/local/path": "/container/path"}
+        """
+        self.container_name = container_name
+        self.mappings = {
+            expanduser("~") + os.sep: '',
+            os.getcwd(): '',
+            os.environ.get('ANDROID_HOME'): '/home/vscode/Android/Sdk',
+            '$HOME/spotbugs/spotbugs-4.9.3': 'opt/spotbugs'
+        }
+        self.mappings.update({k: '' for k in paths_to_truncate})
+
+    def _replace_paths(self, command):
+        # Replace local paths in command with container paths
+        for local_path, container_path in sorted(self.mappings.items(), key=lambda x: -len(x[0])):
+            command = command.replace(local_path, container_path)
+        return command
+
+    def execute(self, command):
+        # Replace paths to simulate local execution but inside container
+        cmd_in_container = self._replace_paths(command)
+        # Build docker exec command
+        docker_cmd = ["docker", "exec", self.container_name, "sh", "-c", "\"", cmd_in_container, "\""]
+        # Execute the command
+        print(' '.join(docker_cmd))
+        result = execute_shell_command(' '.join(docker_cmd))
+        result.validate()
+        return result
+
+    def pull(self, path):
+        local_path = path
+        container_path = self._replace_paths(path)
+        docker_cmd = ["docker", "cp", f"{self.container_name}:{container_path}", local_path]
+        print('pulling ', container_path, ' to ', local_path, ' '.join(docker_cmd))
+        result = execute_shell_command(' '.join(docker_cmd))
+        result.validate()
+        print(result)
+        return result
+
+    def push(self, path):
+        local_path = path
+        container_path = self._replace_paths(path)
+
+        # Check if the path already exists in the container
+        check_cmd = f"docker exec {self.container_name} sh -c 'test -e {container_path} && echo exists || echo not_exists'"
+        check_result = execute_shell_command(check_cmd)
+        print(check_result)
+        if "not_exists" not in check_result.output:
+            print(f"Path {container_path} already exists in the container. Skipping push.")
+            return check_result
+
+        print('Proceed with pushing the file/directory')
+        docker_cmd = ["docker", "cp", local_path, f"{self.container_name}:{container_path}"]
+        print('pushing ', container_path, ' to ', local_path, ' '.join(docker_cmd))
+        result = execute_shell_command(' '.join(docker_cmd))
+        result.validate()
+        print(result)
+        return result

@@ -1,0 +1,8 @@
+// Bad: user.toString() is called immediately, even if the log level is WARN or ERROR.
+// This wastes CPU cycles and creates a temporary string.
+log.debug("Processing user: {}", user.toString());
+
+----
+
+// Good: The logger will only call user.toString() if the DEBUG level is enabled.
+log.debug("Processing user: {}", user);

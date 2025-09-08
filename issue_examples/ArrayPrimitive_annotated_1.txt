@@ -1,0 +1,9 @@
+// Bad: This creates an array of boxed Integer objects, consuming significantly
+// more memory and adding overhead for unboxing when accessing values.
+val pixelColors: Array<Int> = Array(1024 * 768) { 0 }
+
+-----
+
+// Good: IntArray stores the data as a contiguous block of primitive ints,
+// which is compact and fast.
+val pixelColors: IntArray = IntArray(1024 * 768) { 0 }

@@ -1,0 +1,12 @@
+// Bad: This creates a lambda and has invocation overhead that is
+// significantly slower than a direct loop.
+(1..1000).forEach {
+    println(it)
+}
+
+----
+
+// Good: This is the most performant and idiomatic way to iterate a range.
+for (i in 1..1000) {
+    println(i)
+}

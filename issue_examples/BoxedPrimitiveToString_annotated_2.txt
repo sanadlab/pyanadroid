@@ -1,0 +1,11 @@
+val temperature = 98.6
+// Bad: Allocates a new Double object unnecessarily
+val logMessage = "Current temperature: " + Double(temperature).toString()
+
+----
+
+val temperature = 98.6
+// Good: The static method is more performant
+val logMessage = "Current temperature: " + temperature.toString() // Kotlin's .toString() on primitives is efficient
+// Or explicitly in Java style:
+// val logMessage = "Current temperature: " + Double.toString(temperature)

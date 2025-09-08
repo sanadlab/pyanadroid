@@ -1,0 +1,10 @@
+fun isValid(input: String): Boolean {
+    return input.matches(COMPLEX_REGEX) && input.isNotEmpty()
+}
+
+----
+
+
+fun isValid(input: String): Boolean {
+    return input.isNotEmpty() && input.matches(COMPLEX_REGEX)
+}

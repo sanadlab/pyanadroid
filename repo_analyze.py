@@ -13,6 +13,7 @@ from anadroid.analysis.pre_build_analysis.ADoctorAnalysis import ADoctorAnalysis
 from anadroid.analysis.pre_build_analysis.DAAPAnalysis import DAAPAnalysis
 from anadroid.analysis.pre_build_analysis.DetektAnalysis import DetektAnalysis
 from anadroid.analysis.pre_build_analysis.EcoAndroidAnalysis import EcoAndroidAnalysis
+from anadroid.analysis.pre_build_analysis.InferAnalysis import InferAnalysis
 from anadroid.analysis.pre_build_analysis.LintAnalysis import LintAnalysis
 from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
 from anadroid.device.MockedDevice import MockedDevice
@@ -59,9 +60,12 @@ def load_project_issues(proj_results_dir):
             issues_list = issues_list + DetektAnalysis().get_issues(detekt_file)
     spotbugs_results = mega_find(proj_results_dir, pattern="*spotbugs*.xml", type_file='f', maxdepth=2)
     if len(spotbugs_results) > 0:
-
         for spotbugs_file in spotbugs_results:
             issues_list = issues_list + SpotBugsAnalysis().get_issues(spotbugs_file)
+    infer_results = mega_find(proj_results_dir, pattern="*infer_report.json", type_file='f', maxdepth=2)
+    if len(infer_results) > 0:
+        for infer_file in infer_results:
+            issues_list = issues_list + InferAnalysis().get_issues(infer_file)
     return issues_list
 
 
@@ -111,8 +115,8 @@ def analyze_repo_subset(repos_list):
                 #XALintAnalysis(),
                 #LintAnalysis(),
                 #DetektAnalysis(),
-                LintAnalysis()
-                #SpotBugsAnalysis()
+                #InferAnalysis(in_container=True, container_id='29c39993ebb8'),
+                SpotBugsAnalysis(in_container=True, container_id='29c39993ebb8')
                 #ChimeraAnalysis()
                 ])
             print(f"Analyzing repo: {repo_dir}")

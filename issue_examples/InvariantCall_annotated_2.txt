@@ -1,0 +1,20 @@
+// Assume AppConfig.getApiVersion() always returns the same value during the loop
+fun processApiRequests(requests: List<ApiRequest>) {
+    for (request in requests) {
+        // Invariant: This configuration lookup is repeated unnecessarily
+        val apiVersion = AppConfig.getApiVersion()
+        request.addHeader("X-API-Version", apiVersion)
+        send(request)
+    }
+}
+
+---- 
+
+fun processApiRequests(requests: List<ApiRequest>) {
+    // Hoisted: The API version is fetched only once before the loop begins
+    val apiVersion = AppConfig.getApiVersion()
+    for (request in requests) {
+        request.addHeader("X-API-Version", apiVersion)
+        send(request)
+    }
+}

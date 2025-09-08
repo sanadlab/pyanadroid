@@ -1,0 +1,21 @@
+public Map<String, User> mapUsersById(List<User> users) {
+    // Bad: The HashMap starts with a default capacity (e.g., 16) and may have to
+    // resize its internal array multiple times as users are added, which is inefficient.
+    Map<String, User> userMap = new HashMap<>();
+    for (User user : users) {
+        userMap.put(user.getId(), user);
+    }
+    return userMap;
+}
+
+----
+
+public Map<String, User> mapUsersById(List<User> users) {
+    // Good: The HashMap is initialized with a capacity large enough
+    // to hold all the users without needing to resize.
+    Map<String, User> userMap = new HashMap<>(users.size());
+    for (User user : users) {
+        userMap.put(user.getId(), user);
+    }
+    return userMap;
+}

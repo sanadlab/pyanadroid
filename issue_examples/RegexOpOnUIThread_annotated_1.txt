@@ -1,0 +1,28 @@
+// In an Android Activity
+fun onValidateInputClicked(view: View) {
+    val userInput = editText.text.toString()
+    // Bad: A complex regex (e.g., for password strength) can block the UI thread
+    val complexRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
+    val isValid = userInput.matches(complexRegex.toRegex())
+
+    if (!isValid) {
+        showError("Input is not valid.")
+    }
+}
+
+---- 
+
+fun onValidateInputClicked(view: View) {
+    val userInput = editText.text.toString()
+    val complexRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
+
+    // Good: The expensive regex matching is offloaded from the UI thread
+    lifecycleScope.launch {
+        val isValid = withContext(Dispatchers.Default) { // Use Default for CPU-bound work
+            userInput.matches(complexRegex.toRegex())
+        }
+        if (!isValid) {
+            showError("Input is not valid.")
+        }
+    }
+}

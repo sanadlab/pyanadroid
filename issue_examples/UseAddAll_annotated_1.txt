@@ -1,0 +1,15 @@
+List<String> list1 = ...;
+List<String> list2 = ...;
+// Bad: Verbose and potentially less optimized than the library method.
+for (String item : list2) {
+    list1.add(item);
+}
+
+
+-----
+
+List<String> list1 = ...;
+List<String> list2 = ...;
+// Good: Clear, concise, and allows the collection implementation to use the most
+// efficient way to add all the elements (e.g., by resizing its internal array once).
+list1.addAll(list2);

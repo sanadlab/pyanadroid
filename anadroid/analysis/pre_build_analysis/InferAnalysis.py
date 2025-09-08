@@ -1,16 +1,17 @@
 import os
 import shutil
 import json  # Used for parsing Infer's output
+from os.path import expanduser
 from shutil import copy
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
-from anadroid.analysis.metrics.Issues import Issue
-from anadroid.utils.Utils import execute_shell_command, loge, logs, logw, logi
+from anadroid.analysis.metrics.Issues import Issue, KnownStaticPerformanceIssues
+from anadroid.utils.Utils import execute_shell_command, loge, logs, logw, logi, DockerCommandWrapper
 
 # Default build task for Infer to capture. 'assemble' is a good choice.
 DEFAULT_GRADLE_TASK = 'assembleDebug'
 
 
-class InferAnalyzer(StaticAnalyzer):
+class InferAnalysis(StaticAnalyzer):
     """
     Implements the StaticAnalyzer interface to run Facebook's Infer.
     Infer works in two main phases:
@@ -19,15 +20,23 @@ class InferAnalyzer(StaticAnalyzer):
     """
 
     def __init__(self, analyzers_cfg_file=None, performance_only=True, uses_gradlew=True,
-                 default_task=DEFAULT_GRADLE_TASK, **kwargs):
+                 default_task=DEFAULT_GRADLE_TASK, in_container=False, container_id=None, **kwargs):
         super().__init__(analyzers_cfg_file)
         self.name = 'Infer'
         self.exec_cmd = 'infer'  # Relies on 'infer' being in the system's PATH
         self.use_gradlew = uses_gradlew  # Infer wraps the gradlew command
         self.default_task = default_task
         self.performance_only = performance_only
-        self.flags = ["--loop-hoisting", "--inefficient-keyset-iterator", "--starvation" "--cost"]
+        self.flags = ["--loop-hoisting", "--inefficient-keyset-iterator", "--starvation", "--cost"]
+        self.should_run_in_container = in_container
+        self.container_id = container_id
         self.identifiable_issues = {
+            "INEFFICIENT_KEYSET_ITERATOR": KnownStaticPerformanceIssues.INEFFICIENT_MAP_ITERATOR,
+            "INVARIANT_CALL": KnownStaticPerformanceIssues.INVARIANT_CALL,
+            "IPC_ON_UI_THREAD": KnownStaticPerformanceIssues.IPC_ON_UI_THREAD,
+            "REGEX_OP_ON_UI_THREAD": KnownStaticPerformanceIssues.REGEX_ON_UI_THREAD,
+            "EXPENSIVE_EXECUTION_TIME": KnownStaticPerformanceIssues.EXPENSIVE_EXECUTION_TIME,
+            "RESOURCE_LEAK": KnownStaticPerformanceIssues.RESOURCE_LEAK,
 
         }
         # Mapping of Infer bug types to your framework's known issues.
@@ -50,50 +59,76 @@ class InferAnalyzer(StaticAnalyzer):
         Args:
             project: The project object to analyze.
         """
+        should_clean = kwargs.get("clean", False)
         build_task = kwargs.get("exec_task", self.default_task)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         infer_out_dir_name = "infer-out"
         infer_out_path = os.path.join(project.proj_dir, infer_out_dir_name)
-        gradlew_path = os.path.join(project.proj_dir, 'gradlew')
+        gradlew_path = "./gradlew" #os.path.join(project.proj_dir, 'gradlew')
+        replace_paths = [
+            "~" + os.sep + os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.abspath(os.path.dirname(project.proj_dir)) + os.sep,
+            os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
 
+        ]
+        print(replace_paths)
+        print(project.proj_dir)
+
+        if self.should_run_in_container:
+            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(
+                os.path.dirname(infer_out_path))
         # 1. Clean up previous results
-        if os.path.exists(infer_out_path):
-            logi(f"Removing existing Infer output directory: {infer_out_path}")
-            shutil.rmtree(infer_out_path)
-
         logi(f"Analyzing project '{project.proj_name}' with Infer")
 
         # 2. Run './gradlew clean' (highly recommended for a clean capture)
-        clean_cmd = f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} clean"
-        logi("Infer Step 1/3: Cleaning project")
-        res_clean = execute_shell_command(clean_cmd)
-        if not res_clean.validate():
-            loge("Gradle clean failed. Aborting Infer analysis.")
-            logw(res_clean.errors)
-            return
+        if should_clean:
+            if os.path.exists(infer_out_path):
+                logi(f"Removing existing Infer output directory: {infer_out_path}")
+                shutil.rmtree(infer_out_path)
+
+            clean_cmd = f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} clean"
+            logi("Infer Step 1/3: Cleaning project")
+            res_clean = execute_shell_command(clean_cmd, in_container=self.should_run_in_container,
+                                              container_id=self.container_id,
+                                              replace_paths=replace_paths)
+
+            if not res_clean.validate():
+                loge("Gradle clean failed. Aborting Infer analysis.")
+                logw(res_clean.errors)
+                return
 
         # 3. Run 'infer capture'
         # Infer wraps the build command to capture compilation data.
         capture_cmd = (f"cd {project.proj_dir}; "
-                       f"{self.exec_cmd} capture --out {infer_out_dir_name}  --keep-going -- "
-                       f"{gradlew_path} {build_task} " + " ".join(self.flags))
+                       f"{self.exec_cmd} capture -o {infer_out_dir_name}  --keep-going -- "
+                       f"{gradlew_path} {build_task} ")
         logi("Infer Step 2/3: Capturing build. This may take a while...")
-        res_capture = execute_shell_command(capture_cmd, timeout=600)  # Increased timeout for build
-        print(res_capture)
+        res_capture = execute_shell_command(capture_cmd, timeout=600,
+                                            in_container=self.should_run_in_container,
+                                            container_id=self.container_id,
+                                            replace_paths=replace_paths)
+
         if not res_capture.validate():
             loge("Infer capture phase failed.")
             logw(res_capture.errors)
             return
 
         # 4. Run 'infer analyze'
-        analyze_cmd = f"cd {project.proj_dir}; {self.exec_cmd} analyze --out {infer_out_dir_name}"
+        analyze_cmd = f"cd {project.proj_dir}; {self.exec_cmd} analyze -o {infer_out_dir_name} " + " ".join(self.flags)
         logi("Infer Step 3/3: Analyzing captured data.")
-        res_analyze = execute_shell_command(analyze_cmd, timeout=300)
+        res_analyze = execute_shell_command(analyze_cmd, timeout=300,
+                                            in_container=self.should_run_in_container,
+                                            container_id=self.container_id,
+                                            replace_paths=replace_paths)
+
         if not res_analyze.validate():
             loge("Infer analyze phase failed.")
             logw(res_analyze.errors)
             return
-        print(res_analyze)
+        if self.should_run_in_container:
+            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).pull(os.path.dirname(infer_out_path))
+
         # 5. Copy results to the designated output directory
         json_report_path = os.path.join(infer_out_path, "report.json")
         txt_report_path = os.path.join(infer_out_path, "report.txt")

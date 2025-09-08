@@ -1,0 +1,8 @@
+Map<Class<?>, String> handlerMap = new HashMap<>();
+// Bad: Creates an unnecessary object.
+handlerMap.put(new UserEventHandler().getClass(), "HandleUserEvent");
+
+------
+Map<Class<?>, String> handlerMap = new HashMap<>();
+// Good: Use the .class literal directly.
+handlerMap.put(UserEventHandler.class, "HandleUserEvent");

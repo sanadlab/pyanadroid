@@ -1,0 +1,16 @@
+fun process(obj: Any) {
+    if (obj is String) {
+        // Bad: Inside this block, the compiler has already smart-casted 'obj' to String.
+        // The explicit "as String" is therefore unnecessary.
+        println("Length is ${(obj as String).length}")
+    }
+}
+
+-----
+
+fun process(obj: Any) {
+    if (obj is String) {
+        // Good: Rely on Kotlin's smart casting feature.
+        println("Length is ${obj.length}")
+    }
+}

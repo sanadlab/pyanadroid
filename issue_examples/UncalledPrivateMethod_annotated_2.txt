@@ -1,0 +1,24 @@
+class OrderService {
+    fun placeOrder(order: Order) {
+        if (order.isValid()) { // The validation logic is now in the Order class
+            // ...
+        }
+    }
+
+    // Bad: This validation logic was moved into the Order class,
+    // making this private method obsolete and uncalled.
+    private fun isOrderValid(order: Order): Boolean {
+        return order.items.isNotEmpty()
+    }
+}
+
+-----
+
+class OrderService {
+    fun placeOrder(order: Order) {
+        if (order.isValid()) {
+            // ...
+        }
+    }
+    // Good: The dead code has been removed, making the class cleaner.
+}

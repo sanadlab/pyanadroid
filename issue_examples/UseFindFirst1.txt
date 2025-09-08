@@ -1,0 +1,12 @@
+Optional<User> firstUser = Optional.of(
+    users.stream()
+         .filter(User::isLoggedIn)
+         .collect(Collectors.toList())
+         .get(0)
+);
+
+----
+
+Optional<User> firstUser = users.stream()
+                                .filter(User::isLoggedIn)
+                                .findFirst();

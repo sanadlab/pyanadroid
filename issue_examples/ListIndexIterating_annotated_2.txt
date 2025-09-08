@@ -1,0 +1,14 @@
+val items = arrayListOf("A", "B", "C")
+// Bad: This is less idiomatic and slightly more verbose than a for-each loop.
+for (i in 0 until items.size) {
+    val item = items[i]
+    println(item)
+}
+
+------
+
+val items = arrayListOf("A", "B", "C")
+// Good: This is the standard, most readable way to iterate a collection in Kotlin.
+for (item in items) {
+    println(item)
+}

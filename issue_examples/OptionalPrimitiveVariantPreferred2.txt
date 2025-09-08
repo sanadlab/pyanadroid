@@ -1,0 +1,10 @@
+fun parseDouble(s: String): Optional<Double> {
+    return Optional.ofNullable(s.toDoubleOrNull())
+}
+
+-----
+
+fun parseDouble(s: String): OptionalDouble {
+    val d = s.toDoubleOrNull()
+    return if (d != null) OptionalDouble.of(d) else OptionalDouble.empty()
+}

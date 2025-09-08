@@ -1,0 +1,24 @@
+fun updateStockLevels(conn: Connection, stockUpdates: Map<String, Int>) {
+    for ((productId, newStock) in stockUpdates) {
+        // Bad: Re-preparing the statement on every iteration is wasteful.
+        val stmt = conn.prepareStatement("UPDATE products SET stock = ? WHERE id = ?")
+        stmt.use {
+            it.setInt(1, newStock)
+            it.setString(2, productId)
+            it.executeUpdate()
+        }
+    }
+}
+
+-----
+
+fun updateStockLevels(conn: Connection, stockUpdates: Map<String, Int>) {
+    // Good: Prepare the statement once and reuse it with different parameters.
+    conn.prepareStatement("UPDATE products SET stock = ? WHERE id = ?").use { stmt ->
+        for ((productId, newStock) in stockUpdates) {
+            stmt.setInt(1, newStock)
+            stmt.setString(2, productId)
+            stmt.executeUpdate()
+        }
+    }
+}

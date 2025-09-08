@@ -1,0 +1,14 @@
+public String[] getHttpHeaders() {
+    // Bad: This array is allocated and initialized on every single call.
+    return new String[]{"Content-Type: application/json", "Accept: application/json"};
+}
+
+----
+
+// Good: The array is created only once when the class is loaded.
+private static final String[] HTTP_HEADERS =
+    {"Content-Type: application/json", "Accept: application/json"};
+
+public String[] getHttpHeaders() {
+    return HTTP_HEADERS;
+}

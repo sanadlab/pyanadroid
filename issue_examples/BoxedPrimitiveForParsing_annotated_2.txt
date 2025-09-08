@@ -1,0 +1,11 @@
+val timeoutString = "30000"
+// Bad: Creates a Long object that is immediately discarded after unboxing
+val timeoutMillis: Long = java.lang.Long.valueOf(timeoutString).toLong()
+
+-----
+
+val timeoutString = "30000"
+// Good: Directly parses to the primitive 'long'
+val timeoutMillis: Long = timeoutString.toLong()
+// Or explicitly in Java style:
+// val timeoutMillis = java.lang.Long.parseLong(timeoutString)

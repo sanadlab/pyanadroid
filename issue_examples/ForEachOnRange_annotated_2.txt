@@ -1,0 +1,11 @@
+var sum = 0
+// Bad: In performance-critical code, the overhead of forEach is noticeable.
+(1..1_000_000).forEach { sum += it }
+
+----
+
+var sum = 0
+// Good: A simple for loop compiles down to highly efficient bytecode.
+for (i in 1..1_000_000) {
+    sum += i
+}

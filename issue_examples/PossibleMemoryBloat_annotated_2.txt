@@ -1,0 +1,27 @@
+object EventLogger {
+    // Bad: This list will grow forever, leading to an OutOfMemoryError.
+    private val events = mutableListOf<String>()
+
+    fun logEvent(message: String) {
+        events.add("${System.currentTimeMillis()}: $message")
+    }
+}
+
+
+----
+
+import java.util.concurrent.ConcurrentLinkedQueue
+
+object EventLogger {
+    // Good: Use a bounded collection or a proper logging framework.
+    // This example shows a simple bounded queue.
+    private const val MAX_EVENTS = 500
+    private val events = ConcurrentLinkedQueue<String>()
+
+    fun logEvent(message: String) {
+        if (events.size >= MAX_EVENTS) {
+            events.poll() // Remove the oldest event
+        }
+        events.add("${System.currentTimeMillis()}: $message")
+    }
+}

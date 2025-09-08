@@ -1,0 +1,20 @@
+
+public List<User> getUsers(List<Integer> userIds) {
+    List<User> users = new ArrayList<>();
+    for (Integer id : userIds) {
+
+        users.add(queryUserById(id));
+    }
+    return users;
+}
+
+----
+
+public List<User> getUsers(List<Integer> userIds) {
+    String sql = "SELECT * FROM users WHERE id IN (" + createPlaceholders(userIds.size()) + ")";
+    try (PreparedStatement ps = conn.prepareStatement(sql)) {
+        // ... set all the IDs on the prepared statement ...
+        // ... execute query and build list of users ...
+    }
+    return users;
+}

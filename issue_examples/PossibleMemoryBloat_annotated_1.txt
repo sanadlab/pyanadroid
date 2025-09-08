@@ -1,0 +1,25 @@
+public class UserCache {
+    // Bad: This map will grow indefinitely for the entire lifetime of the application,
+    // eventually consuming all available memory. This is a classic memory leak.
+    private static final Map<String, User> userCache = new HashMap<>();
+
+    public static User getUser(String id) {
+        // ... load user and put it in the cache ...
+        userCache.put(id, loadedUser);
+        return loadedUser;
+    }
+}
+
+-----
+
+// Good: Use a proper cache implementation with an eviction policy (e.g., size-based).
+// Libraries like Guava or Caffeine are excellent for this.
+public class UserCache {
+    private static final Cache<String, User> userCache = CacheBuilder.newBuilder()
+        .maximumSize(1000) // Evict oldest entries when the size limit is reached
+        .build();
+
+    public static User getUser(String id) {
+        return userCache.get(id, () -> loadUserFromDb(id));
+    }
+}

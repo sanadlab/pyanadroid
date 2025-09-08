@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from anadroid.instrumentation.AbstractInstrumenter import AbstractInstrumenter
 from anadroid.Types import TESTING_APPROACH, TESTING_FRAMEWORK, INSTRUMENTATION_TYPE
 from anadroid.instrumentation.Types import INSTRUMENTATION_STRATEGY
-from anadroid.utils.Utils import logi, logw, loge
+from anadroid.utils.Utils import logi, logw, loge, mega_find
 
 # Android's XML namespace
 ANDROID_NS = 'http://schemas.android.com/apk/res/android'
@@ -71,7 +71,11 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
             if os.path.exists(target_dir):
                 shutil.rmtree(target_dir)
             shutil.copytree(android_project.proj_dir, target_dir, ignore=shutil.ignore_patterns(self.mirror_dirname))
-
+            apks = mega_find(target_dir, pattern="*.apk", type_file="f")
+            print('apks', apks)
+            for pk in apks:
+                if 'outputs' in pk and 'build' in pk and pk.endswith('.apk'):
+                    os.remove(pk)
             relative_manifest_path = os.path.relpath(android_project.main_manif_file, android_project.proj_dir)
             manifest_path_in_target = os.path.join(target_dir, relative_manifest_path)
 

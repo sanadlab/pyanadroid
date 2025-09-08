@@ -1,0 +1,7 @@
+val temperature = 98.6
+val logMessage = "Current temperature: " + Double(temperature).toString()
+
+----
+
+val temperature = 98.6
+val logMessage = "Current temperature: " + temperature.toString() // Kotlin's .toString() on primitives is efficient

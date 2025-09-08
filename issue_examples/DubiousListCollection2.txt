@@ -1,0 +1,16 @@
+val processedItems = mutableListOf<String>()
+fun processUnique(item: String) {
+    if (!processedItems.contains(item)) {
+        processedItems.add(item)
+        // ... do work ...
+    }
+}
+
+-----
+
+val processedItems = mutableSetOf<String>()
+fun processUnique(item: String) {
+    if (processedItems.add(item)) {
+        // ... do work ...
+    }
+}

@@ -1,0 +1,9 @@
+boolean hasLaptop = products.stream()
+                            .map(Product::getName)
+                            .collect(Collectors.toSet())
+                            .contains("Laptop");
+
+-----
+
+boolean hasLaptop = products.stream()
+                            .anyMatch(p -> "Laptop".equals(p.getName()));

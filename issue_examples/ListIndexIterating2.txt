@@ -1,0 +1,12 @@
+val items = arrayListOf("A", "B", "C")
+for (i in 0 until items.size) {
+    val item = items[i]
+    println(item)
+}
+
+------
+
+val items = arrayListOf("A", "B", "C")
+for (item in items) {
+    println(item)
+}

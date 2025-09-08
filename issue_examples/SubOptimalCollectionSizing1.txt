@@ -1,0 +1,9 @@
+List<String> userIds = getAllUserIds(); // Assume this has 100 IDs
+Set<String> userIdSet = new HashSet<>(userIds.size());
+userIdSet.addAll(userIds);
+
+----
+
+
+int capacity = (int) (userIds.size() / 0.75f) + 1;
+Set<String> userIdSet = new HashSet<>(capacity);

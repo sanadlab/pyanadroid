@@ -1,0 +1,10 @@
+val productStock = mapOf("A" to 10, "B" to 5)
+// Bad: Slightly less direct. While modern JVMs might optimize this,
+// it's conceptually an extra step.
+val numberOfProducts = productStock.values.size
+
+----
+
+val productStock = mapOf("A" to 10, "B" to 5)
+// Good: The most direct and clear way to get the number of entries.
+val numberOfProducts = productStock.size
