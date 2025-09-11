@@ -7,8 +7,8 @@ DEFAULT_CFG_ANALYZERS_FILE = get_analyzers_filter_file()
 
 
 class StaticAnalyzer(AbstractAnalyzer):
-    def __init__(self, analyzers_cfg_file=DEFAULT_CFG_ANALYZERS_FILE):
-        super().__init__(analyzers_cfg_file)
+    def __init__(self, analyzers_cfg_file=DEFAULT_CFG_ANALYZERS_FILE, **kwargs):
+        super().__init__(analyzers_cfg_file, **kwargs)
         self.identifiable_issues = {}
 
     @abstractmethod

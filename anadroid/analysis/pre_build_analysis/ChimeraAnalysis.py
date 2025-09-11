@@ -14,8 +14,8 @@ from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge
 DEFAULT_PATH_JAR = os.path.join(get_resources_dir(), 'jars' ,"greenlab.org.ebugslocator-1.0.jar")
 
 class ChimeraAnalysis(LintAnalysis):
-    def __init__(self, analyzers_cfg_file=None, jar_path=DEFAULT_PATH_JAR):
-        super().__init__(analyzers_cfg_file)
+    def __init__(self, analyzers_cfg_file=None, jar_path=DEFAULT_PATH_JAR, **kwargs):
+        super().__init__(analyzers_cfg_file, **kwargs)
         self.jar_path = jar_path
         self.exec_cmd = ''
         self.name = 'chimera'

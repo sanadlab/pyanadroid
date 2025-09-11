@@ -8,7 +8,7 @@ from anadroid.analysis.metrics.Issues import Issue, KnownStaticPerformanceIssues
 from anadroid.utils.Utils import execute_shell_command, loge, logs, logw, logi, DockerCommandWrapper
 
 # Default build task for Infer to capture. 'assemble' is a good choice.
-DEFAULT_GRADLE_TASK = 'assembleDebug'
+DEFAULT_GRADLE_TASK = 'compileDebugSources'
 
 
 class InferAnalysis(StaticAnalyzer):
@@ -20,16 +20,14 @@ class InferAnalysis(StaticAnalyzer):
     """
 
     def __init__(self, analyzers_cfg_file=None, performance_only=True, uses_gradlew=True,
-                 default_task=DEFAULT_GRADLE_TASK, in_container=False, container_id=None, **kwargs):
-        super().__init__(analyzers_cfg_file)
+                 default_task=DEFAULT_GRADLE_TASK, **kwargs):
+        super().__init__(analyzers_cfg_file, **kwargs)
         self.name = 'Infer'
         self.exec_cmd = 'infer'  # Relies on 'infer' being in the system's PATH
         self.use_gradlew = uses_gradlew  # Infer wraps the gradlew command
         self.default_task = default_task
         self.performance_only = performance_only
         self.flags = ["--loop-hoisting", "--inefficient-keyset-iterator", "--starvation", "--cost"]
-        self.should_run_in_container = in_container
-        self.container_id = container_id
         self.identifiable_issues = {
             "INEFFICIENT_KEYSET_ITERATOR": KnownStaticPerformanceIssues.INEFFICIENT_MAP_ITERATOR,
             "INVARIANT_CALL": KnownStaticPerformanceIssues.INVARIANT_CALL,
@@ -76,8 +74,7 @@ class InferAnalysis(StaticAnalyzer):
         print(project.proj_dir)
 
         if self.should_run_in_container:
-            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(
-                os.path.dirname(infer_out_path))
+            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
         # 1. Clean up previous results
         logi(f"Analyzing project '{project.proj_name}' with Infer")
 

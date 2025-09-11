@@ -9,7 +9,7 @@ from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge,
     DockerCommandWrapper, find_source_root_dynamically
 
 # Default build task required by SpotBugs to get .class files.
-DEFAULT_GRADLE_TASK = 'assembleDebug'
+DEFAULT_GRADLE_TASK = 'compileDebugSources'
 
 class SpotBugsAnalysis(StaticAnalyzer):
     """
@@ -21,8 +21,8 @@ class SpotBugsAnalysis(StaticAnalyzer):
     """
 
     def __init__(self, analyzers_cfg_file=None, performance_only=True, uses_gradlew=True,
-                 default_task=DEFAULT_GRADLE_TASK, in_container=False, container_id=None, **kwargs):
-        super().__init__(analyzers_cfg_file)
+                 default_task=DEFAULT_GRADLE_TASK, **kwargs):
+        super().__init__(analyzers_cfg_file, **kwargs)
         self.name = 'SpotBugs'
         self.spotbugs_home = os.environ.get("SPOTBUGS_HOME", '$HOME/spotbugs/spotbugs-4.9.3')
         self.android_sdk_root = os.environ.get("ANDROID_HOME") or os.environ.get("ANDROID_SDK_ROOT")
@@ -69,8 +69,6 @@ class SpotBugsAnalysis(StaticAnalyzer):
             "UM_UNNECESSARY_MATH": KnownStaticPerformanceIssues.UNNECESSARY_MATH,
             "IMA_INEFFICIENT_MEMBER_ACCESS": KnownStaticPerformanceIssues.INEFFICIENT_MEMBER_ACCESS,
         }
-        self.should_run_in_container = in_container
-        self.container_id = container_id
 
         # Mapping of SpotBugs bug codes to your framework's known issues.
         # See: https://spotbugs.readthedocs.io/en/latest/bugDetections.html
@@ -139,8 +137,9 @@ class SpotBugsAnalysis(StaticAnalyzer):
             os.path.basename(output_dir) + os.sep,
 
         ]
-        print(replace_paths)
-        print(project.proj_dir)
+
+        if self.should_run_in_container:
+            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
 
         # 1. Build the project to ensure .class files are available
         logi("SpotBugs Step 1/2: Building project to generate bytecode")

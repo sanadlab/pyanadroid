@@ -15,6 +15,7 @@ RES_DIR = get_resources_dir()
 GRADLE_RES_DIR = os.path.join(RES_DIR, "build", "gradle")
 GRADLE_WRAPPER_DIR = os.path.join(GRADLE_RES_DIR, "wrapper", "gradle")
 
+KEYSTORE_ERROR_COUNT = 0
 
 class KNOWN_ERROR(Enum):
     """Enumerates the list of known gradle build errors that possibly can be fixed the framework."""
@@ -34,6 +35,7 @@ class KNOWN_ERROR(Enum):
     MAYBE_MISSING_GOOGLE_REPO = "Could not resolve all dependencies for configuration"
     USER_HAS_TO_ACCEPT_INSTALL = "INSTALL_FAILED_USER_RESTRICTED"
     NDK_BAD_CONFIG = "did not contain a valid NDK and couldn't be used"
+    WRONG_KEYSTORE = "Keystore file (.+) not found for signing"
     #UNSUPPORTED_DEPENDENCY_VERSION = "The Android Gradle plugin supports only Butterknife Gradle plugin version 9.0.0-rc2 and higher."
 
 
@@ -44,7 +46,7 @@ def is_known_error(output):
         object (obJ:`KNOW_ERROR`): the inferred error. If the error is not known, returns None.
     """
     for error in KNOWN_ERROR:
-        is_this_error = error.value in output
+        is_this_error = error.value in output or re.search(error.value, output) is not None
         if is_this_error:
             return error
     return None
@@ -134,8 +136,39 @@ def solve_known_error(proj, error, error_msg, **kwargs):
         current_build_version = get_gradle_plugin_version(proj.root_build_file)
         replace_gradle_plugin_version( proj.root_build_file, current_build_version, min)
         solve_known_error(proj, KNOWN_ERROR.WRAPPER_MISMATCH_ERROR, error_msg, **kwargs)
-    #elif error == KNOWN_ERRORS.UNSUPPORTED_DEPENDENCY_VERSION:
-    #    pass
+    elif error == KNOWN_ERROR.WRONG_KEYSTORE:
+        # replace signingConfig references in gradle files
+        for bld_file in proj.get_build_files():
+            new_file = str(cat(bld_file)).replace("signingConfig signingConfigs.release", "signingConfig null").replace("signingConfig signingConfigs.debug", "signingConfig null")
+            # remove signingConfigs block from gradle files
+            #new_file = re.sub(r'signingConfigs \{[^}]+}+}', ' ', new_file, flags=re.DOTALL)
+            with open(bld_file, 'w') as u:
+                u.write(new_file)
+
+        #copy default keystore file and change keystore references in gradle files
+        '''global KEYSTORE_ERROR_COUNT
+
+        if KEYSTORE_ERROR_COUNT == 0:
+            keystore_file = (re.search("Keystore file (.+) not found for signing", error_msg).groups()[0]
+                             .replace("'", "").replace("\'","").strip())
+            default_keystore = os.path.join(RES_DIR, "keys", "pynadroid-releases.keystore")
+            shutil.copy(default_keystore, proj.proj_dir)
+            for bld_file in proj.get_build_files():
+                new_file = str(cat(bld_file)).replace(keystore_file, f"{default_keystore}")
+                with open(bld_file, 'w') as u:
+                    u.write(new_file)
+
+            KEYSTORE_ERROR_COUNT += 1
+        else:'''
+        # remove storeFile reference
+        for bld_file in proj.get_build_files():
+            new_file = re.sub(r'storeFile\s+file\(.*\)', '', str(cat(bld_file)))
+            with open(bld_file, 'w') as u:
+                u.write(new_file)
+
+
+
+
     else:
         loge(f"Unable to solve {error}")
 

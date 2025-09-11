@@ -78,12 +78,11 @@ class DroidLensAnalysis(ExecutionResultsAnalyzer):
         if not retry and len(list(filter(lambda x: x.endswith(".csv"), os.listdir(res_folder)))) > 0:
             logi(f"Skipping analysis for {app.package_name}. Already processed by DroidLens")
             return
-        analyse_cmd = f"{self.exec_cmd} analyse -a {self.sdk_path} -db neo4j -p {app.package_name} -n {app.name} -u UNSAFE -omp {str(package_only).lower()} {app.apk}"
+        analyse_cmd = (f"{self.exec_cmd} analyse -a {self.sdk_path} -db neo4j -p {app.package_name} -n {app.name}"
+                       f" -u UNSAFE -omp {str(package_only).lower()} {app.apk}")
         print(analyse_cmd)
         res = execute_shell_command(analyse_cmd)
         res.validate()
-
-
         query_cmd = f"{self.exec_cmd} query -db neo4j -d true -r NONFUZZY -c {res_folder_prefix}"
         res = execute_shell_command(query_cmd)
         print(res)

@@ -36,8 +36,9 @@ ANDROID_HOME = os.environ.get("ANDROID_HOME", None)
 eco_lock = multiprocessing.Lock()
 
 class EcoAndroidAnalysis(StaticAnalyzer):
-    def __init__(self, analyzers_cfg_file=None, default_profile_path=DEFAULT_PROFILE_PATH, default_output_dir=DEFAULT_OUTPUT_DIRNAME):
-        super().__init__(analyzers_cfg_file)
+    def __init__(self, analyzers_cfg_file=None, default_profile_path=DEFAULT_PROFILE_PATH,
+                 default_output_dir=DEFAULT_OUTPUT_DIRNAME, **kwargs):
+        super().__init__(analyzers_cfg_file, **kwargs)
         self.default_profile_path = default_profile_path
         self.default_output_dir = default_output_dir
         self.identifiable_issues = {
@@ -222,5 +223,4 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                                 issues.append(issue)
                     except Exception as e:
                         loge(f"Error parsing file {file_path}: {e}")
-
         return issues

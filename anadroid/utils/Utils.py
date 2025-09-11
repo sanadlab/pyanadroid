@@ -357,18 +357,17 @@ class DockerCommandWrapper:
         print(result)
         return result
 
-    def push(self, path):
+    def push(self, path, overwrite=True):
         local_path = path
         container_path = self._replace_paths(path)
-
-        # Check if the path already exists in the container
-        check_cmd = f"docker exec {self.container_name} sh -c 'test -e {container_path} && echo exists || echo not_exists'"
-        check_result = execute_shell_command(check_cmd)
-        print(check_result)
-        if "not_exists" not in check_result.output:
-            print(f"Path {container_path} already exists in the container. Skipping push.")
-            return check_result
-
+        if not overwrite:
+            # Check if the path already exists in the container
+            check_cmd = f"docker exec {self.container_name} sh -c 'test -e {container_path} && echo exists || echo not_exists'"
+            check_result = execute_shell_command(check_cmd)
+            print(check_result)
+            if "not_exists" not in check_result.output:
+                print(f"Path {container_path} already exists in the container. Skipping push.")
+                return check_result
         print('Proceed with pushing the file/directory')
         docker_cmd = ["docker", "cp", local_path, f"{self.container_name}:{container_path}"]
         print('pushing ', container_path, ' to ', local_path, ' '.join(docker_cmd))

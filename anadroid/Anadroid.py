@@ -353,6 +353,7 @@ class AnaDroid(object):
 
             original_proj = AndroidProject(projname=app_name, projdir=app_project, results_dir=self.results_dir,
                                            clean_instrumentations=self.reinstrument)
+
             self.pre_build_analyzers.analyze_project(original_proj)
             instrumented_proj_dir = self.instrumenter.instrument(original_proj, instr_type=self.instrumentation_type) if self.instrumenter is not None else app_project
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)

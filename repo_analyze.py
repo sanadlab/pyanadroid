@@ -10,17 +10,19 @@ from anadroid.Anadroid import AnaDroid
 from anadroid.Types import PROFILER, TESTING_FRAMEWORK
 from anadroid.analysis.ComposedAnalyzer import ComposedAnalyzer
 from anadroid.analysis.pre_build_analysis.ADoctorAnalysis import ADoctorAnalysis
+from anadroid.analysis.pre_build_analysis.ChimeraAnalysis import ChimeraAnalysis
 from anadroid.analysis.pre_build_analysis.DAAPAnalysis import DAAPAnalysis
 from anadroid.analysis.pre_build_analysis.DetektAnalysis import DetektAnalysis
 from anadroid.analysis.pre_build_analysis.EcoAndroidAnalysis import EcoAndroidAnalysis
 from anadroid.analysis.pre_build_analysis.InferAnalysis import InferAnalysis
 from anadroid.analysis.pre_build_analysis.LintAnalysis import LintAnalysis
 from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
+from anadroid.analysis.pre_build_analysis.XALintAnalysis import XALintAnalysis
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.Utils import execute_shell_command, logi, loge, mega_find
 from anadroid.analysis.pre_build_analysis.SpotBugsAnalysis import SpotBugsAnalysis
 lock = multiprocessing.Lock()
-only_last_version = True
+only_last_version = False
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
@@ -70,15 +72,54 @@ def load_project_issues(proj_results_dir):
 
 
 def issue_file_exists(repo_dir, curr_commit, issue):
-    if issue.file is None:
-        return None
-    if repo_dir == '' or curr_commit == '':
-        return False
-    file_cmd = f'cd {repo_dir} ; git checkout -f {curr_commit} > /dev/null 2>&1 ; find . -type f -name {os.path.basename(issue.file)} | head -1'
-    #print("file comd", file_cmd)
-    file_find = execute_shell_command(file_cmd)
-    file_find.validate()
-    return execute_shell_command(f"cd {repo_dir} ; ls {file_find.output.strip}").return_code == 0 if file_find.output.strip() != "" else execute_shell_command(f"cd {repo_dir} ; ls {issue.file}").return_code == 0
+        """
+        Checks if a file from an issue object exists in a specific git commit.
+
+        This is a safe, read-only operation that does not modify the working directory.
+
+        Args:
+            repo_dir: The absolute path to the git repository.
+            curr_commit: The commit hash or reference (e.g., branch name).
+            issue: An object with a '.file' attribute containing the file path
+                   relative to the repository root.
+
+        Returns:
+            - True if the file exists in the commit.
+            - False if the file does not exist or if inputs are invalid.
+            - None if issue.file is not set.
+        """
+        # 1. Initial validation
+        if not hasattr(issue, 'file') or issue.file is None:
+            return None
+        if not all([repo_dir, curr_commit, issue.file]) or not os.path.isdir(repo_dir):
+            return False
+
+        file_path = issue.file
+        # The file path should not be absolute
+        if os.path.isabs(file_path):
+            print(f"Warning: issue.file '{file_path}' should be a relative path.")
+            # Attempt to make it relative (this might need adjustment based on your structure)
+            if file_path.startswith(repo_dir):
+                file_path = os.path.relpath(file_path, repo_dir)
+
+        # 2. Build the command safely as a list of arguments
+        #    -C tells git to run as if in repo_dir, avoiding 'cd'.
+        #    cat-file -e checks for an object's existence and returns exit code 0 if found.
+        command = [
+            'git',
+            '-C', repo_dir,
+            'cat-file',
+            '-e',
+            f'{curr_commit}:{file_path}'
+        ]
+
+        try:
+            res = execute_shell_command(' '.join(command))
+            res.validate()
+            # The command succeeds (returns 0) if and only if the file exists.
+            return res.return_code == 0
+        except:
+            return False
 
 def reset_repo(repo_dir, branch_name='-'):
     # # Ensure repo_dir is not dangerous (e.g., part of the current working directory, home, or root)
@@ -91,6 +132,7 @@ def reset_repo(repo_dir, branch_name='-'):
     execute_shell_command(
         f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name} ").validate()
 
+
 def analyze_repo_subset(repos_list):
     """Analyzes a subset of repositories."""
     sorted_repo_list = []
@@ -98,8 +140,6 @@ def analyze_repo_subset(repos_list):
     for repo_dir in repos_list:
         print("Checking repo: ", repo_dir)
         bname, commit_list = extract_and_write_commit_history(repo_dir)
-        #bname, commit_list = 'dummy', []
-        #print("todo")  # extract_and_write_commit_history(repo_dir)
         time.sleep(3)
         sorted_repo_list.append((repo_dir, bname, commit_list))
     sorted_repo_list = sorted(sorted_repo_list, key=lambda x: len(x[2]))
@@ -108,16 +148,14 @@ def analyze_repo_subset(repos_list):
         try:
             anadroid = init_pyanadroid(repo_dir)
             anadroid.pre_build_analyzers = ComposedAnalyzer(None, [
-                #DAAPAnalysis(),
-                #PMDAnalysis(),
-                #ADoctorAnalysis(),
-                #EcoAndroidAnalysis(),
-                #XALintAnalysis(),
-                #LintAnalysis(),
-                #DetektAnalysis(),
-                #InferAnalysis(in_container=True, container_id='29c39993ebb8'),
-                SpotBugsAnalysis(in_container=True, container_id='29c39993ebb8')
-                #ChimeraAnalysis()
+                DAAPAnalysis(),
+                PMDAnalysis(),
+                ADoctorAnalysis(),
+                ChimeraAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
+                XALintAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
+                DetektAnalysis(),
+                InferAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
+                SpotBugsAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
                 ])
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
@@ -134,10 +172,13 @@ def analyze_repo_subset(repos_list):
                 print(len(issues), " issues")
                 print([x.get_simple_name() for x in issues])
                 continue
-
-            for i, commit in enumerate(commit_list):
+            trunc_commit_set_size = 5 if len(commit_list) > 20 else 3 if len(commit_list) > 10 else 1
+            print(f"Truncating commit set to every {trunc_commit_set_size} commits for analysis (Total of {len(commit_list)} commits)")
+            comm_set_list = [x for i, x in enumerate(commit_list) if i % trunc_commit_set_size == 0]
+            for i, commit in enumerate(comm_set_list):
+                commit_msgs_concat = " ; ".join([c['message'] for c in commit_list[max(0, (i - 1) * trunc_commit_set_size): (i * trunc_commit_set_size)]]) if i > 0 else commit['message']
                 commit_hash = commit['hash']
-                print(f"Checking out commit {i + 1}/{len(commit_list)}: {commit_hash}")
+                print(f"Checking out commit {i + 1}/{len(comm_set_list)}: {commit_hash}")
                 reset_repo(repo_dir, commit_hash)
                 #execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
@@ -155,7 +196,7 @@ def analyze_repo_subset(repos_list):
                             writer = csv.writer(file, delimiter=';')
                             for reg in regressions:
                                 writer.writerow(
-                                    [repo_dir, prev_commit_hash, commit_hash, commit['message'].replace(';', '.'),
+                                    [repo_dir, prev_commit_hash, commit_hash,commit_msgs_concat.replace(';', '.'),
                                      str(reg[0]), reg[1]])
                 save_issues(commit['issues'], repo_dir, commit_hash)
                 prev_issue_list = commit['issues']
@@ -195,7 +236,6 @@ def extract_and_write_commit_history(repo_dir):
     branch_name = branch_name_res.output.strip().replace("/", "-")
     res = execute_shell_command(f"cd {repo_dir} && git log --pretty=format:\"%H|%an|%ad|%BXX\" --date=iso")
     res.validate()
-
     filename = os.path.join(repo_dir, f'{branch_name}_commit_data.csv')
     with open(filename, 'w') as file:
         writer = csv.writer(file, delimiter=';')
@@ -262,8 +302,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Analyze repositories sequentially or in parallel.")
     parser.add_argument("repos_directory", type=str, help="Path to the directory containing repositories")
     parser.add_argument("--parallel", type=int, default=1, help="Number of parallel processes (default: 1)")
-    parser.add_argument("--only_last_version", action='store_true',default=True,
+    parser.add_argument("--only_last_version", action='store_true',default=False,
                         help="Analyze only the last version of each repo")
+    parser.add_argument("--chunk", action='store_true', default=False,
+                        help="divide commit list in chunks for analysis")
     args = parser.parse_args()
     only_last_version = args.only_last_version
     analyze_repos(args.repos_directory, args.parallel)

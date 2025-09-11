@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 from anadroid.analysis.filters.Filters import Filters
 from anadroid.device.DeviceState import get_known_state_keys
-from anadroid.utils.Utils import get_analyzers_filter_file
+from anadroid.utils.Utils import get_analyzers_filter_file, execute_shell_command
 
 DEFAULT_CFG_ANALYZERS_FILE = get_analyzers_filter_file()
 
@@ -15,11 +15,13 @@ class AbstractAnalyzer(ABC):
         supported_filters(set): default set of filters to validate analyzed results.
         validation_filters(set): additional set of filters provided via config file to validate analyzed results.
     """
-    def __init__(self, analyzers_cfg_file=DEFAULT_CFG_ANALYZERS_FILE):
+    def __init__(self, analyzers_cfg_file=DEFAULT_CFG_ANALYZERS_FILE, in_container=False, container_id=None, **kwargs):
         super().__init__()
         self.supported_filters = set() if not hasattr(self, 'supported_filters') else self.supported_filters
         self.supported_filters.update(get_known_state_keys())
         self.validation_filters = Filters(self.supported_filters, analyzers_cfg_file)
+        self.should_run_in_container = in_container
+        self.container_id = container_id
 
     @abstractmethod
     def setup(self, **kwargs):
@@ -60,3 +62,20 @@ class AbstractAnalyzer(ABC):
     @abstractmethod
     def get_val_for_filter(self, filter_name, add_data=None):
         return None
+
+    def execute_command(self, cmd, args=(), timeout=None, in_container=False, container_id=None, replace_paths=[]):
+        """execute a shell command.
+        Args:
+            command: command to execute.
+            cwd: current working directory.
+        Returns:
+            res: result of the command execution.
+        """
+        return execute_shell_command(
+            cmd,
+            args=args,
+            timeout=timeout,
+            in_container=in_container,
+            container_id=container_id,
+            replace_paths=replace_paths
+        )

@@ -11,6 +11,7 @@ from anadroid.application.Dependency import DependencyType
 from anadroid.build.AbstractBuilder import AbstractBuilder
 from anadroid.build.versionUpgrader import DefaultSemanticVersion, can_be_semantic_version
 from anadroid.device.MockedDevice import MockedDevice
+from anadroid.utils.JavaVersionManager import get_gradle_matching_version, JavaVersionManager
 from anadroid.utils.Utils import mega_find, execute_shell_command, sign_apk, log_to_file, loge, logw, logs, logi
 from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error
 
@@ -114,6 +115,19 @@ def is_library_gradle(bld_file):
 		bool: True if is a library, False otherwise.
 	"""
 	return 'com.android.library' in str(cat(bld_file))
+
+def get_gradle_version_from_wrapper(proj_dir):
+	wrapper_file = os.path.join(proj_dir, "gradle", "wrapper", "gradle-wrapper.properties")
+	if not os.path.exists(wrapper_file):
+		cand_files = mega_find(proj_dir, pattern="gradle-wrapper.properties", type_file='f', maxdepth=3)
+		if cand_files is not None and len(cand_files) > 0:
+			wrapper_file = cand_files[0]
+		else:
+			return None
+	wrapper_content = re.search(r'distributionUrl=.*gradle-([0-9.]+)-', open(wrapper_file).read())
+	if wrapper_content:
+		return wrapper_content.groups()[0]
+	return None
 
 
 class GradleBuilder(AbstractBuilder):
@@ -356,10 +370,19 @@ class GradleBuilder(AbstractBuilder):
 				return self.exec_with_gradlew(tries=tries - 1, target_task=target_task)
 			else:
 				print(val)
+				exit(0)
 				loge("Unable to solve Building error")
 				self.regist_error_build(target_task)
 				log_to_file(f"{val}\n-------", os.path.join(self.proj.proj_dir, "unknown_errors.log"))
 				return False
+
+	@staticmethod
+	def __get_java_version_for_project(app_project):
+		gradle_version = get_gradle_version_from_wrapper(app_project.proj_dir)
+		print(gradle_version)
+		java_version = get_gradle_matching_version(gradle_version)
+		res, cmd = JavaVersionManager().get_change_java_version_cmd(java_version)
+		return cmd
 
 	def __execute_gradlew_task(self, task):
 		"""execute gradle task with gradle wrapper.
@@ -373,8 +396,9 @@ class GradleBuilder(AbstractBuilder):
 		build_timeout_val =  900
 		#build_timeout = f'gtimeout  -s 9 {build_timeout_val}' if build_timeout_val > 0 else ""
 		#print(build_timeout)
-		cmd = "cd {projdir}; chmod +x gradlew ; gtimeout {build_timeout_val} ./gradlew {task}".format(build_timeout_val=build_timeout_val,
-				projdir=self.proj.proj_dir, task=task, build_timeout=build_timeout_val)
+		adequate_java_change_prefix = self.__get_java_version_for_project(self.proj)
+		cmd = "{adequate_java_change_prefix} cd {projdir}; chmod +x gradlew ; gtimeout {build_timeout_val} ./gradlew {task}".format(build_timeout_val=build_timeout_val,
+				projdir=self.proj.proj_dir, task=task, build_timeout=build_timeout_val, adequate_java_change_prefix=adequate_java_change_prefix)
 		res = execute_shell_command(cmd, timeout=build_timeout_val)
 		if res.validate(f"error running gradle task ({task})"):
 			return res.output

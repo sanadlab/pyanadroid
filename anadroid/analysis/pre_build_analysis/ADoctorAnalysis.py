@@ -4,7 +4,7 @@ from textops import lcount, cat
 
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
-from anadroid.utils.JavaRetry import change_java_version_cmd
+from anadroid.utils.JavaVersionManager import change_java_version_cmd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
 # /Applications/IntelliJ\ IDEA\ CE.app/Contents/bin/inspect.sh  /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/ /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/Project_Default.xml /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/out  -d /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/app -v2
