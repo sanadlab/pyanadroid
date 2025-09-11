@@ -1,0 +1,40 @@
+
+# Keep OpenJDK 21 and OpenJDK 11 in the PATH
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
+
+# Function to set Java 8 (if needed)
+function j8() {
+  export JAVA_HOME=/Users/rar9993/.sdkman/candidates/java/8.0.442-sem
+  $JAVA_HOME/bin/java -version
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+# Function to set Java 11
+function j11() {
+  export JAVA_HOME=/opt/homebrew/opt/openjdk@11
+  $JAVA_HOME/bin/java -version
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+
+# Function to set Java 17
+function j17() {
+  export JAVA_HOME=/Users/rar9993/.sdkman/candidates/java/17.0.4.1-tem
+  $JAVA_HOME/bin/java -version
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+
+# Function to set Java 21
+function j21() {
+  export JAVA_HOME=/opt/homebrew/opt/openjdk@21
+  $JAVA_HOME/bin/java -version
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
+
+
+# Ensure the `java` command always respects JAVA_HOME
+
+export PATH="$JAVA_HOME/bin:$PATH"
