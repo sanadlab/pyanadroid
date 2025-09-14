@@ -17,9 +17,18 @@ def get_java_version(result):
         return 21
     return 21
 
-def change_java_version_cmd(java_version):
-    # TODO: change this
-    cmd = f"source .java_version_cmds ; j{java_version};"
+def get_change_java_version_cmd(java_version, on_container=False):
+    if not on_container:
+        cmd = f"source .java_version_cmds ; j{java_version};"
+    else:
+        if int(java_version) <= 8:
+            opt = f"/usr/lib/jvm/java-{java_version}-openjdk-amd64/jre/bin/java"
+        else:
+            opt = f"/usr/lib/jvm/java-{java_version}-openjdk-amd64/bin/java"
+
+        cmd = f'sudo update-alternatives --set java {opt};'
+        if int(java_version) >= 17:
+            cmd += 'echo "org.gradle.jvmargs=--add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED" >> gradle.properties ;'
     return cmd
     #execute_shell_command(f"source ~/.zshrc ; j{java_version}")
 
@@ -44,6 +53,7 @@ class JavaVersionManager(ABC):
         self.java_versions = {8, 11, 17, 21}
 
     def get_change_java_retry_cmd(self, output, **kwargs):
+        on_container = kwargs.get('on_container', False)
         if 'java' in output or 'jvm' in output or 'source release' in output:
             result = execute_shell_command('java -version').output
             print(result.strip())
@@ -52,23 +62,25 @@ class JavaVersionManager(ABC):
                 self.java_versions.remove(java_version)
             if len(self.java_versions) > 0:
                 java_version = self.java_versions.pop()
-                cmd = change_java_version_cmd(java_version)
+                cmd = get_change_java_version_cmd(java_version, on_container)
                 return True, cmd
         return False, ''
 
-    def change_java_version(self, java_version):
+    def change_java_version(self, java_version, **kwargs):
+        on_container = kwargs.get('on_container', False)
         java_version = int(get_java_version(java_version))
         if java_version in self.java_versions:
-            cmd = change_java_version_cmd(java_version)
+            cmd = get_change_java_version_cmd(java_version, on_container)
             logi(f"changing java version to {java_version}")
             print(execute_shell_command(cmd))
             return True
         return False
 
-    def get_change_java_version_cmd(self, java_version):
+    def get_change_java_version_cmd(self, java_version, **kwargs):
+        on_container = kwargs.get('on_container', False)
         java_version = int(get_java_version(java_version))
         if java_version in self.java_versions:
-            cmd = change_java_version_cmd(java_version)
+            cmd = get_change_java_version_cmd(java_version, on_container)
             return True, cmd
         return False, ''
 

@@ -68,6 +68,14 @@ DEFAULT_BUILD_TIMES_TO_TRY = 5
 DEFAULT_BUILD_TOOLS_VERSION = '25.0.3'# TODO
 
 
+def get_java_version_cmd_for_project(proj_dir, on_container=False):
+	gradle_version = get_gradle_version_from_wrapper(proj_dir)
+	print(gradle_version)
+	java_version = get_gradle_matching_version(gradle_version)
+	res, cmd = JavaVersionManager().get_change_java_version_cmd(java_version, on_container=on_container)
+	return cmd
+
+
 def gen_dependency_string(dependency):
 	"""generates dependency format to be inserted in gradle files.
 	Args:
@@ -370,19 +378,10 @@ class GradleBuilder(AbstractBuilder):
 				return self.exec_with_gradlew(tries=tries - 1, target_task=target_task)
 			else:
 				print(val)
-				exit(0)
 				loge("Unable to solve Building error")
 				self.regist_error_build(target_task)
 				log_to_file(f"{val}\n-------", os.path.join(self.proj.proj_dir, "unknown_errors.log"))
 				return False
-
-	@staticmethod
-	def __get_java_version_for_project(app_project):
-		gradle_version = get_gradle_version_from_wrapper(app_project.proj_dir)
-		print(gradle_version)
-		java_version = get_gradle_matching_version(gradle_version)
-		res, cmd = JavaVersionManager().get_change_java_version_cmd(java_version)
-		return cmd
 
 	def __execute_gradlew_task(self, task):
 		"""execute gradle task with gradle wrapper.
@@ -396,7 +395,7 @@ class GradleBuilder(AbstractBuilder):
 		build_timeout_val =  900
 		#build_timeout = f'gtimeout  -s 9 {build_timeout_val}' if build_timeout_val > 0 else ""
 		#print(build_timeout)
-		adequate_java_change_prefix = self.__get_java_version_for_project(self.proj)
+		adequate_java_change_prefix = get_java_version_cmd_for_project(self.proj.proj_dir)
 		cmd = "{adequate_java_change_prefix} cd {projdir}; chmod +x gradlew ; gtimeout {build_timeout_val} ./gradlew {task}".format(build_timeout_val=build_timeout_val,
 				projdir=self.proj.proj_dir, task=task, build_timeout=build_timeout_val, adequate_java_change_prefix=adequate_java_change_prefix)
 		res = execute_shell_command(cmd, timeout=build_timeout_val)
