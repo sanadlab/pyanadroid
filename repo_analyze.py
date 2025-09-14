@@ -22,7 +22,7 @@ from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.Utils import execute_shell_command, logi, loge, mega_find
 from anadroid.analysis.pre_build_analysis.SpotBugsAnalysis import SpotBugsAnalysis
 lock = multiprocessing.Lock()
-only_last_version = False
+
 
 def init_pyanadroid(repo_dir):
     return AnaDroid(arg1=repo_dir,
@@ -31,6 +31,8 @@ def init_pyanadroid(repo_dir):
                     device=MockedDevice(),
                     profiler=PROFILER.NONE,
                     load_projects=True,
+                    rebuild_apps= not only_last_version,
+                    reinstrument= not only_last_version,
                     instrumenter=None)
 
 def load_project_issues(proj_results_dir):
@@ -55,7 +57,7 @@ def load_project_issues(proj_results_dir):
     lint_results = mega_find(proj_results_dir, pattern="*lint*.xml", type_file='f', maxdepth=2)
     if len(lint_results) > 0:
         for lint_file in lint_results:
-            issues_list = issues_list + LintAnalysis().get_issues(lint_file)
+            issues_list = issues_list + LintAnalysis().get_issues(lint_file) + XALintAnalysis().get_issues(lint_file) + ChimeraAnalysis().get_issues(lint_file)
     detekt_results = mega_find(proj_results_dir, pattern="*detekt_analysis.xml", type_file='f', maxdepth=2)
     if len(detekt_results) > 0:
         for detekt_file in detekt_results:
@@ -136,6 +138,12 @@ def reset_repo(repo_dir, branch_name='-'):
 def analyze_repo_subset(repos_list):
     """Analyzes a subset of repositories."""
     sorted_repo_list = []
+    source_code_analyzers = [DAAPAnalysis(), PMDAnalysis(), ADoctorAnalysis(), DetektAnalysis()]
+    heaviweight_analyzers = [
+        LintAnalysis(in_container=container_id is not None, container_id=container_id),
+        InferAnalysis(in_container=container_id is not None, container_id=container_id),
+        SpotBugsAnalysis(in_container=container_id is not None, container_id=container_id),
+    ]
     print("Sorting repos")
     for repo_dir in repos_list:
         print("Checking repo: ", repo_dir)
@@ -147,31 +155,33 @@ def analyze_repo_subset(repos_list):
     for repo_dir, branch_name, commit_list in sorted_repo_list:
         try:
             anadroid = init_pyanadroid(repo_dir)
-            anadroid.pre_build_analyzers = ComposedAnalyzer(None, [
-                DAAPAnalysis(),
-                PMDAnalysis(),
-                ADoctorAnalysis(),
-                ChimeraAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
-                XALintAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
-                DetektAnalysis(),
-                InferAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
-                SpotBugsAnalysis(), #in_container=True, container_id='c9421d6f82e0'),
-                ])
+            anadroid.pre_build_analyzers = ComposedAnalyzer(None,
+                                                            inner_analyzers= source_code_analyzers) # + heaviweight_analyzers)
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
-            print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
+
             prev_issue_list = []
             prev_commit_hash = None
+            res_dirs = []
             if len(commit_list) == 0 or only_last_version:
                 if only_last_version:
                     reset_repo(repo_dir)
-                anadroid.app_projects_ut = [repo_dir]
-                res_dirs = anadroid.just_static_analyze(retry=False)
-                print(res_dirs[0])
-                issues = load_project_issues(res_dirs[0]) if res_dirs else []
-                print(len(issues), " issues")
-                print([x.get_simple_name() for x in issues])
+
+                for app_proj in anadroid.app_projects_ut:
+                    try:
+                        proj = anadroid.build_app_project(app_proj, build_apks=False)
+                        anadroid.pre_build_analyzers = ComposedAnalyzer(None,
+                                                                        inner_analyzers=heaviweight_analyzers)
+                        anadroid.pre_build_analyzers.analyze_project(proj)
+                        res_dirs = anadroid.just_static_analyze()
+                        issues = load_project_issues(getattr(res_dirs[0], 'proj_dir', res_dirs[0])) if res_dirs else []
+                        print(len(issues), " issues")
+                        print([x.get_simple_name() for x in issues])
+                    except Exception as e:
+                        loge(f"Oh no. Error building project {app_proj}: {e}")
+                        traceback.print_exc()
                 continue
+            print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
             trunc_commit_set_size = 5 if len(commit_list) > 20 else 3 if len(commit_list) > 10 else 1
             print(f"Truncating commit set to every {trunc_commit_set_size} commits for analysis (Total of {len(commit_list)} commits)")
             comm_set_list = [x for i, x in enumerate(commit_list) if i % trunc_commit_set_size == 0]
@@ -192,7 +202,7 @@ def analyze_repo_subset(repos_list):
                 regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
                 if regressions:
                     with lock:
-                        with open('regressions.csv', 'a+') as file:
+                        with open('v2_regressions.csv', 'a+') as file:
                             writer = csv.writer(file, delimiter=';')
                             for reg in regressions:
                                 writer.writerow(
@@ -306,6 +316,9 @@ if __name__ == '__main__':
                         help="Analyze only the last version of each repo")
     parser.add_argument("--chunk", action='store_true', default=False,
                         help="divide commit list in chunks for analysis")
+    parser.add_argument("--container_id", default=None, type=str,
+                        help="set container id for analysis tools")
     args = parser.parse_args()
     only_last_version = args.only_last_version
+    container_id = args.container_id
     analyze_repos(args.repos_directory, args.parallel)
