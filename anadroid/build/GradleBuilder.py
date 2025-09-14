@@ -383,6 +383,15 @@ class GradleBuilder(AbstractBuilder):
 				log_to_file(f"{val}\n-------", os.path.join(self.proj.proj_dir, "unknown_errors.log"))
 				return False
 
+	@staticmethod
+	def __get_java_version_for_project(app_project):
+		gradle_version = get_gradle_version_from_wrapper(app_project.proj_dir)
+		print(gradle_version)
+		java_version = get_gradle_matching_version(gradle_version)
+		print("java version", java_version)
+		res, cmd = JavaVersionManager().get_change_java_version_cmd(java_version)
+		return cmd
+
 	def __execute_gradlew_task(self, task):
 		"""execute gradle task with gradle wrapper.
 		Args:
@@ -391,13 +400,14 @@ class GradleBuilder(AbstractBuilder):
 		Returns:
 			str: command output.
 		"""
-		logi(f"Executing Gradle task: {task}")
+		#logi(f"Executing Gradle task: {task}")
 		build_timeout_val =  900
 		#build_timeout = f'gtimeout  -s 9 {build_timeout_val}' if build_timeout_val > 0 else ""
 		#print(build_timeout)
 		adequate_java_change_prefix = get_java_version_cmd_for_project(self.proj.proj_dir)
 		cmd = "{adequate_java_change_prefix} cd {projdir}; chmod +x gradlew ; gtimeout {build_timeout_val} ./gradlew {task}".format(build_timeout_val=build_timeout_val,
 				projdir=self.proj.proj_dir, task=task, build_timeout=build_timeout_val, adequate_java_change_prefix=adequate_java_change_prefix)
+		logi(f"Executing Gradle task: {task}, {cmd}")
 		res = execute_shell_command(cmd, timeout=build_timeout_val)
 		if res.validate(f"error running gradle task ({task})"):
 			return res.output
