@@ -36,6 +36,7 @@ class KNOWN_ERROR(Enum):
     USER_HAS_TO_ACCEPT_INSTALL = "INSTALL_FAILED_USER_RESTRICTED"
     NDK_BAD_CONFIG = "did not contain a valid NDK and couldn't be used"
     WRONG_KEYSTORE = "Keystore file (.+) not found for signing"
+    ERROR_SIGNING_CONFIG = "signing configuration"
     #UNSUPPORTED_DEPENDENCY_VERSION = "The Android Gradle plugin supports only Butterknife Gradle plugin version 9.0.0-rc2 and higher."
 
 
@@ -136,7 +137,7 @@ def solve_known_error(proj, error, error_msg, **kwargs):
         current_build_version = get_gradle_plugin_version(proj.root_build_file)
         replace_gradle_plugin_version( proj.root_build_file, current_build_version, min)
         solve_known_error(proj, KNOWN_ERROR.WRAPPER_MISMATCH_ERROR, error_msg, **kwargs)
-    elif error == KNOWN_ERROR.WRONG_KEYSTORE:
+    elif error == KNOWN_ERROR.WRONG_KEYSTORE or error == KNOWN_ERROR.ERROR_SIGNING_CONFIG:
         # replace signingConfig references in gradle files
         for bld_file in proj.get_build_files():
             new_file = str(cat(bld_file)).replace("signingConfig signingConfigs.release", "signingConfig null").replace("signingConfig signingConfigs.debug", "signingConfig null")
@@ -165,9 +166,6 @@ def solve_known_error(proj, error, error_msg, **kwargs):
             new_file = re.sub(r'storeFile\s+file\(.*\)', '', str(cat(bld_file)))
             with open(bld_file, 'w') as u:
                 u.write(new_file)
-
-
-
 
     else:
         loge(f"Unable to solve {error}")

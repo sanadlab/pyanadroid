@@ -9,11 +9,11 @@ def get_java_version(result):
         return 8
     elif '1.9' in result or str(result).strip() == '9':
         return 9
-    elif '1.11' or '11.' in result or str(result).strip() == '11':
+    elif '1.11' in result or '11.' in result or str(result).strip() == '11':
         return 11
-    elif '1.17' or '17.' in result or str(result).strip() == '17':
+    elif '1.17' in result or '17.' in result or str(result).strip() == '17':
         return 17
-    elif '1.21' or '21.' in result or str(result).strip() == '21':
+    elif '1.21' in result or '21.' in result or str(result).strip() == '21':
         return 21
     return 21
 
@@ -25,11 +25,12 @@ def change_java_version_cmd(java_version):
 
 def get_gradle_matching_version(gradle_version):
     if gradle_version is None:
-        return None
+        return 17
     try:
-        gradle_version = float(gradle_version)
+        gradle_version = float(f"{gradle_version.split(".")[0]}.{gradle_version.split(".")[-2 if len(gradle_version.split(".")) > 2 else -1]}")
     except ValueError:
-        return None
+        return 17
+    
     if gradle_version <= 4.10:
         return 8
     elif 4.10 < gradle_version <= 5.6:
@@ -66,7 +67,7 @@ class JavaVersionManager(ABC):
         return False
 
     def get_change_java_version_cmd(self, java_version):
-        java_version = int(get_java_version(java_version))
+        java_version = int(get_java_version(java_version))      
         if java_version in self.java_versions:
             cmd = change_java_version_cmd(java_version)
             return True, cmd
