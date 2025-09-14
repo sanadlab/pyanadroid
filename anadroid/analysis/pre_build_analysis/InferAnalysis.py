@@ -5,6 +5,7 @@ from os.path import expanduser
 from shutil import copy
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import Issue, KnownStaticPerformanceIssues
+from anadroid.build.GradleBuilder import get_java_version_cmd_for_project
 from anadroid.utils.Utils import execute_shell_command, loge, logs, logw, logi, DockerCommandWrapper
 
 # Default build task for Infer to capture. 'assemble' is a good choice.
@@ -57,7 +58,7 @@ class InferAnalysis(StaticAnalyzer):
         Args:
             project: The project object to analyze.
         """
-        should_clean = kwargs.get("clean", False)
+        should_clean = kwargs.get("clean", True)
         build_task = kwargs.get("exec_task", self.default_task)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         infer_out_dir_name = "infer-out"
@@ -68,11 +69,9 @@ class InferAnalysis(StaticAnalyzer):
             os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
             os.path.abspath(os.path.dirname(project.proj_dir)) + os.sep,
             os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
-
         ]
         print(replace_paths)
         print(project.proj_dir)
-
         if self.should_run_in_container:
             DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
         # 1. Clean up previous results
@@ -84,7 +83,8 @@ class InferAnalysis(StaticAnalyzer):
                 logi(f"Removing existing Infer output directory: {infer_out_path}")
                 shutil.rmtree(infer_out_path)
 
-            clean_cmd = f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} clean"
+            clean_cmd = (f"{get_java_version_cmd_for_project(project.proj_dir, on_container=self.should_run_in_container)} "
+                         f"cd {project.proj_dir}; chmod +x gradlew; {gradlew_path} clean")
             logi("Infer Step 1/3: Cleaning project")
             res_clean = execute_shell_command(clean_cmd, in_container=self.should_run_in_container,
                                               container_id=self.container_id,
@@ -97,7 +97,8 @@ class InferAnalysis(StaticAnalyzer):
 
         # 3. Run 'infer capture'
         # Infer wraps the build command to capture compilation data.
-        capture_cmd = (f"cd {project.proj_dir}; "
+        capture_cmd = (f"{get_java_version_cmd_for_project(project.proj_dir, on_container=self.should_run_in_container)}"
+                       f"cd {project.proj_dir}; "
                        f"{self.exec_cmd} capture -o {infer_out_dir_name}  --keep-going -- "
                        f"{gradlew_path} {build_task} ")
         logi("Infer Step 2/3: Capturing build. This may take a while...")

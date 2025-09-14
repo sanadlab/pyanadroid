@@ -4,7 +4,7 @@ from textops import lcount, cat
 
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
-from anadroid.utils.JavaVersionManager import change_java_version_cmd
+from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
 # /Applications/IntelliJ\ IDEA\ CE.app/Contents/bin/inspect.sh  /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/ /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/Project_Default.xml /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/out  -d /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/app -v2
@@ -96,7 +96,7 @@ class ADoctorAnalysis(StaticAnalyzer):
         if os.path.exists(output_filepath) and not retry and self.validate_success(None, output_filepath):
             logs(f"Skipping project {project.proj_name}. Already processed by ADoctor")
             return
-        extra_cmd = change_java_version_cmd(8)
+        extra_cmd = get_change_java_version_cmd(8)
         cmd = f"{extra_cmd} {self.exec_cmd} {project.proj_dir} {output_filepath} {search_pattern_code}"
         print(cmd)
         res = execute_shell_command(cmd, timeout=200)
@@ -107,5 +107,6 @@ class ADoctorAnalysis(StaticAnalyzer):
             loge(f"Error executing Adoctor analysis. Check the logs for more information")
             print(res)
             return False
-        logs(f"Adoctor analysis executed successfully")
+        if res:
+            logs(f"Adoctor analysis executed successfully")
         return True

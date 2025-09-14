@@ -108,7 +108,6 @@ class LintAnalysis(StaticAnalyzer):
         pb = GradleBuilder(project, device=None, resources_dir=get_resources_dir(), instrumenter=None)
         res = pb.exec_with_gradlew(target_task='tasks', skip_lint=True)
         print(res)
-        exit(0)
 
     def pick_task(self, proj, default_task='lintDebug', **kwargs):
         cmd = f"cd {proj.proj_dir}; chmod +x gradlew; ./gradlew tasks"
@@ -157,6 +156,7 @@ class LintAnalysis(StaticAnalyzer):
             return
         logi("Analyzing project " + project.proj_name)
         res = None
+        was_success = False
         while retries > 0:
             if self.should_run_in_container:
                 retries = 0
@@ -182,9 +182,10 @@ class LintAnalysis(StaticAnalyzer):
                 if res is not None and res.return_code != 0:
                     self.analyze_project(project, retry=True, default_task='lint', exec_task="lint", retries=retries-1)
         java_retryer = JavaVersionManager()
+        was_success = res and res.validate()
         if res is not None and res.return_code != 0:
             java_version = re.search("requires Java ([0-9]+) to run", str(res.errors))
-            if java_version:
+            if java_version and not self.should_run_in_container:
                 java_version = int(java_version.group(1))
                 target_java = 8
                 if java_version > target_java:
@@ -194,21 +195,25 @@ class LintAnalysis(StaticAnalyzer):
                 res = execute_shell_command(cmd, timeout=300, in_container=self.should_run_in_container,
                                               container_id=self.container_id,
                                               replace_paths=replace_paths)
+                was_success = res.validate()
             else:
-                retry, extra_cmd = java_retryer.get_change_java_retry_cmd((res.output + res.errors).lower())
+                retry, extra_cmd = java_retryer.get_change_java_retry_cmd((res.output + res.errors).lower(),
+                                                                          on_container=self.should_run_in_container)
                 while retry:
                     print(extra_cmd + cmd)
-                    res = execute_shell_command(extra_cmd + cmd, timeout=300,
+                    res = execute_shell_command( extra_cmd + cmd, timeout=300,
                                             in_container=self.should_run_in_container,
                                             container_id=self.container_id,
                                             replace_paths=replace_paths)
-                    retry, extra_cmd = java_retryer.get_change_java_retry_cmd((res.output + res.errors).lower())
+                    retry, extra_cmd = java_retryer.get_change_java_retry_cmd((res.output + res.errors).lower(),
+                                                                              on_container=self.should_run_in_container)
+                    was_success = res.validate()
         if res is None:
             loge("Error executing lint analysis. Check the logs for more information")
             return
         res_file = grep(res.output, ' report to (.*).xml')
         if res_file:
-            if self.should_run_in_container:
+            if self.should_run_in_container and was_success:
                 DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).pull(project.proj_dir)
             else:
                 res_file = res_file[0]
@@ -218,7 +223,7 @@ class LintAnalysis(StaticAnalyzer):
                 copy(res_file,  output_dir)
             self.validate_success(res, os.path.join(output_dir, res_file))
         else:
-            if self.should_run_in_container:
+            if self.should_run_in_container  and was_success:
                 DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).pull(project.proj_dir)
             res = mega_find(project.proj_dir, pattern="lint*results*.xml", maxdepth=5, type_file='f')
             if len(res) > 0:

@@ -36,6 +36,8 @@ class BuilDroidBuilder(AbstractBuilder):
                                          override_project=True, keep_container=True, stop_container=False)
             if not self.was_last_build_successful():
                 return False
+        else:
+            logw("Project was already built successfully. Skipping build.")
         return True
 
     def install_apks(self, build_type=BUILD_TYPE.DEBUG, install_apk_test=False):
@@ -116,7 +118,7 @@ class BuilDroidBuilder(AbstractBuilder):
        pass
 
     def build(self, rebuild=False):
-       pass
+       return self.build_proj_and_apk(rebuild=rebuild)
 
     def was_last_build_successful(self, task="build"):
         """checks if last build attempt was successful.

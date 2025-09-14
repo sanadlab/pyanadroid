@@ -347,10 +347,18 @@ class DockerCommandWrapper:
         result.validate()
         return result
 
-    def pull(self, path):
+    def pull(self, path, overwrite=True):
         local_path = path
         container_path = self._replace_paths(path)
         docker_cmd = ["docker", "cp", f"{self.container_name}:{container_path}", local_path]
+        if overwrite and os.path.exists(local_path):
+            not_dangerous = os.path.abspath(local_path) not in ('/', '', os.getcwd())
+            if os.path.isdir(local_path) and not_dangerous:
+                print(f"Removing existing directory {local_path} for overwrite.")
+                subprocess.run(['rm', '-rf', local_path])
+            elif os.path.isfile(local_path):
+                print(f"Removing existing file {local_path} for overwrite.")
+                os.remove(local_path)
         print('pulling ', container_path, ' to ', local_path, ' '.join(docker_cmd))
         result = execute_shell_command(' '.join(docker_cmd))
         result.validate()
@@ -369,8 +377,10 @@ class DockerCommandWrapper:
                 print(f"Path {container_path} already exists in the container. Skipping push.")
                 return check_result
         print('Proceed with pushing the file/directory')
+        docker_rm_cmd = f"exec {self.container_name} sh -c 'rm -rf {container_path}"
+        execute_shell_command(docker_rm_cmd)
         docker_cmd = ["docker", "cp", local_path, f"{self.container_name}:{container_path}"]
-        print('pushing ', container_path, ' to ', local_path, ' '.join(docker_cmd))
+        print('pushing ', local_path, ' to ', container_path)
         result = execute_shell_command(' '.join(docker_cmd))
         result.validate()
         print(result)

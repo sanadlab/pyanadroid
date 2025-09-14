@@ -77,16 +77,11 @@ class JavaVersionManager(ABC):
             return True
         return False
 
-<<<<<<< HEAD
+
     def get_change_java_version_cmd(self, java_version, **kwargs):
         on_container = kwargs.get('on_container', False)
         java_version = int(get_java_version(java_version))
-=======
-    def get_change_java_version_cmd(self, java_version):
-        java_version = int(get_java_version(java_version))      
->>>>>>> ba0444c58021b5edd38eb81fde0854f9812e4e4d
         if java_version in self.java_versions:
             cmd = get_change_java_version_cmd(java_version, on_container)
             return True, cmd
         return False, ''
-

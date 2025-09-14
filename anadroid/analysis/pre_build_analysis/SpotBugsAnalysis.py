@@ -5,6 +5,7 @@ from os.path import expanduser
 
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
+from anadroid.build.GradleBuilder import get_java_version_cmd_for_project
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi, \
     DockerCommandWrapper, find_source_root_dynamically
 
@@ -137,13 +138,15 @@ class SpotBugsAnalysis(StaticAnalyzer):
             os.path.basename(output_dir) + os.sep,
 
         ]
-
+        print("projetinho dir", project.proj_dir)
         if self.should_run_in_container:
             DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
 
         # 1. Build the project to ensure .class files are available
-        logi("SpotBugs Step 1/2: Building project to generate bytecode")
-        build_cmd = f"cd {project.proj_dir}; chmod +x gradlew; ./gradlew {build_task}"
+        logi("SpotBugs Step 1/2: compiling project to generate bytecode")
+
+        build_cmd = (f"{get_java_version_cmd_for_project(project.proj_dir, on_container=self.should_run_in_container)} "
+                     f"cd {project.proj_dir}; chmod +x gradlew; ./gradlew {build_task}")
         res_build = execute_shell_command(build_cmd, timeout=300, in_container=self.should_run_in_container,
                                               container_id=self.container_id,
                                               replace_paths=replace_paths)
@@ -156,8 +159,10 @@ class SpotBugsAnalysis(StaticAnalyzer):
         sdk_version = self._find_compile_sdk_version(project.proj_dir)
         android_jar_path = os.path.join(self.android_sdk_root, "platforms", f"android-{sdk_version}", "android.jar")
 
-        possible_class_paths = mega_find(os.path.join(project.proj_dir, "app", "build", "intermediates", "javac"),
-                                        pattern="classes", type_file='d', maxdepth=3)
+        #possible_class_paths = mega_find(os.path.join(project.proj_dir, "app", "build", "intermediates", "javac"), pattern="classes", type_file='d', maxdepth=3)
+        possible_class_paths = execute_shell_command(f'find {project.proj_dir} -maxdepth 6 -type d -name classes | grep "build"', in_container=self.should_run_in_container,
+                              container_id=self.container_id,
+                              replace_paths=replace_paths).output.split("\n")
         classes_path = os.path.join(project.proj_dir, "app", "build", "intermediates", "javac",
                                     build_task.replace("assemble", ""), "classes") \
             if len(possible_class_paths) == 0 else possible_class_paths[0]
@@ -173,7 +178,8 @@ class SpotBugsAnalysis(StaticAnalyzer):
         # 3. Construct and run the SpotBugs command
         output_file_name = f"{project.proj_name}_spotbugs_report.xml"
         output_file_path = os.path.join(output_dir, output_file_name)
-
+        print('source path',source_path)
+        print('classes path', classes_path)
         spotbugs_command = [
             self._get_spotbugs_executable(),
             "-textui",
@@ -181,7 +187,7 @@ class SpotBugsAnalysis(StaticAnalyzer):
             "-output", output_file_path,
             "-effort:max",
             "-auxclasspath", android_jar_path,
-            "-sourcepath", source_path,
+            "-sourcepath", os.path.join(project.proj_dir, source_path),
             classes_path  # The directory to analyze
         ]
 

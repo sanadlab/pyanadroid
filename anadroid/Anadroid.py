@@ -62,7 +62,7 @@ class AnaDroid(object):
     def __init__(self, arg1, results_dir=get_results_dir(), profiler=PROFILER.MANAFA,
                  testing_framework=TESTING_FRAMEWORK.MONKEY, device=None, instrumenter=INSTRUMENTER.JINST,
                  analyzer=ANALYZER.OLD_ANADROID_ANALYZER, instrumentation_type=INSTRUMENTATION_TYPE.ANNOTATION,
-                 builder=BUILDER.ANADROID_GRADLE_BUILDER, build_type=BUILD_TYPE.DEBUG, tests_dir=None, rebuild_apps=False,
+                 builder=BUILDER.ANADROID_GRADLE_BUILDER.value, build_type=BUILD_TYPE.DEBUG, tests_dir=None, rebuild_apps=False,
                  reinstrument=False, recover_from_last_run=False, test_cmd=None, load_projects=True, lazy_load=False):
         self.device = device if device is not None else get_first_connected_device(lazy_load=lazy_load)
         self.device = device if device is not None else get_first_connected_device(lazy_load=lazy_load)
@@ -344,7 +344,7 @@ class AnaDroid(object):
         for app_proj in self.app_projects_ut:
             self.build_app_project(app_proj, build_apks=True)
 
-    def build_app_project(self, app_project, build_apks=False):
+    def build_app_project(self, app_project, build_apks=False, retry=False):
         app_name = os.path.basename(app_project)
         logi("Processing app " + app_name + " in " + app_project)
         res = False
@@ -354,7 +354,7 @@ class AnaDroid(object):
             original_proj = AndroidProject(projname=app_name, projdir=app_project, results_dir=self.results_dir,
                                            clean_instrumentations=self.reinstrument)
 
-            self.pre_build_analyzers.analyze_project(original_proj)
+            self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
             instrumented_proj_dir = self.instrumenter.instrument(original_proj, instr_type=self.instrumentation_type) if self.instrumenter is not None else app_project
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
             self.builder.set_project(instr_proj)
@@ -373,13 +373,13 @@ class AnaDroid(object):
             return instr_proj
         return instr_proj if instr_proj else app_project
 
-    def just_analyze(self):
+    def just_analyze(self, retry=False):
         """analyze apps obtained from app_projects_ut."""
         for app_proj in self.app_projects_ut:
             app_name = os.path.basename(app_proj)
             logi("Processing app " + app_name + " in " + app_proj)
             for app_inner_proj in self.app_projects_ut:
-                instr_proj, builder = self.build_app_project(app_inner_proj, build_apks=True)
+                instr_proj = self.build_app_project(app_inner_proj, build_apks=True, retry=retry)
                 installed_apps_list = self.device.install_apks(instr_proj, build_type=self.build_type)
                 for app in installed_apps_list:
                     self.post_build_analyzers.analyze_app(app)

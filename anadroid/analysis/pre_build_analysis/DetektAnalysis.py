@@ -43,6 +43,10 @@ class DetektAnalysis(StaticAnalyzer):
         source_path = find_source_root_dynamically(project.proj_dir)
         output_file_name = f"detekt_analysis.{self.default_output_format}"
         output_file_path = os.path.join(output_dir, output_file_name)
+        retry = kwargs.get("retry", True)
+        if os.path.exists(output_file_path) and not retry and self.validate_success(None, output_file_path):
+            logs(f"Skipping app. Already processed by Detekt")
+            return
 
         d_command = [
             "detekt",
@@ -124,14 +128,17 @@ class DetektAnalysis(StaticAnalyzer):
 
     def validate_success(self, res, expected_output_file):
         """Checks if the analysis was successful based on the presence of the results file."""
-        if not res.validate(f"Error executing Detekt analysis for {self.name}"):
+        if not os.path.exists(expected_output_file) and (res is None or res.return_code != 0):
+            loge(f"Error executing Detekt analysis. Check the logs for more information")
+            print(res)
             return False
         if not os.path.exists(expected_output_file):
             loge(f"Error executing Detekt analysis. Output file not found.")
             logw(res.output)
             logw(res.errors)
             return False
-        logs(f"Detekt analysis executed successfully. Results at {expected_output_file}")
+        if res:
+            logs(f"Detekt analysis executed successfully. Results at {expected_output_file}")
         return True
 
     # --- Stub implementations for the rest of the interface ---

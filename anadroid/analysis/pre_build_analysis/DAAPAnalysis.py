@@ -87,10 +87,10 @@ class DAAPAnalysis(StaticAnalyzer):
             loge(f"Error executing DAAP analysis. Check the logs for more information")
             print(res)
             return False
-        line_count =  expected_output_file | cat() | lcount()
-        if line_count > 0:
+        line_count = expected_output_file | cat() | lcount()
+        if line_count > 0 and res:
             logs(f"DAAP analysis executed successfully")
-        else:
+        elif line_count == 0:
             loge(f"Error executing DAAP analysis. Empty file")
             return False
         return True
