@@ -27,6 +27,9 @@ lock = multiprocessing.Lock()
 
 
 def init_pyanadroid(repo_dir, only_last_version=True):
+    if only_last_version:
+        print('toser')
+        reset_repo(repo_dir)
     return AnaDroid(arg1=repo_dir,
                     results_dir="anadroid_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
@@ -34,7 +37,7 @@ def init_pyanadroid(repo_dir, only_last_version=True):
                     profiler=PROFILER.NONE,
                     load_projects=True,
                     rebuild_apps= not only_last_version,
-                    reinstrument= not only_last_version,
+                    reinstrument=True,
                     instrumenter=None)
 
 def load_project_issues(proj_results_dir):
@@ -101,7 +104,7 @@ def issue_file_exists(repo_dir, curr_commit, issue):
         file_path = issue.file
         # The file path should not be absolute
         if os.path.isabs(file_path):
-            print(f"Warning: issue.file '{file_path}' should be a relative path.")
+            #print(f"Warning: issue.file '{file_path}' should be a relative path.")
             # Attempt to make it relative (this might need adjustment based on your structure)
             if file_path.startswith(repo_dir):
                 file_path = os.path.relpath(file_path, repo_dir)
@@ -127,14 +130,42 @@ def issue_file_exists(repo_dir, curr_commit, issue):
 
 def reset_repo(repo_dir, branch_name='-'):
     # # Ensure repo_dir is not dangerous (e.g., part of the current working directory, home, or root)
-    dangerous_dirs = [os.getcwd(),  os.path.join(expanduser("~"), 'repos/pyanadroid')]
-    if any(os.path.abspath(repo_dir).startswith(os.path.abspath(d)) for d in dangerous_dirs):
+    dangerous_dirs = [os.getcwd(),  os.path.join(expanduser("~"))]
+    if any(os.path.abspath(repo_dir).startswith('repos/pyanadroid') or os.path.abspath(repo_dir) in d for d in dangerous_dirs):
         loge(f"Operation aborted: {repo_dir} is a dangerous directory.", exit_on_error=True)
         time.sleep(3)
         return
+    if branch_name == '-':
+        # Try to find the main branch reliably
+        branch_candidates = ["main", "master"]
+        branch_name = None
 
-    execute_shell_command(
-        f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name} ").validate()
+        # First: Try origin/HEAD symbolic-ref
+        symbolic_ref_cmd = (
+            f"cd {repo_dir} && git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null"
+        )
+        branch_name_res = execute_shell_command(symbolic_ref_cmd)
+        branch_name_res.validate()
+
+        if branch_name_res.return_code == 0 and branch_name_res.output.strip():
+            branch_name = branch_name_res.output.strip().replace("origin/", "").replace("/", "-")
+        else:
+            # Fallback to checking branch_candidates
+            for candidate in branch_candidates:
+                # Check if branch exists locally
+                check_branch_cmd = (
+                    f"cd {repo_dir} && git rev-parse --verify {candidate}"
+                )
+                branch_check_res = execute_shell_command(check_branch_cmd)
+                if branch_check_res.return_code == 0:
+                    branch_name = candidate
+                    break
+
+
+    res = execute_shell_command(
+        f"cd {repo_dir} && git reset --keep && git reset --hard  && git checkout {branch_name} ")
+    res.validate()
+    print(res)
 
 
 def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
@@ -171,24 +202,34 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
 
                 for app_proj in anadroid.app_projects_ut:
                     try:
-                        proj = anadroid.build_app_project(app_proj, build_apks=False)
-                        anadroid.pre_build_analyzers = ComposedAnalyzer(None,
-                                                                        inner_analyzers=heaviweight_analyzers)
-                        anadroid.pre_build_analyzers.analyze_project(proj)
-                        res_dirs = anadroid.just_static_analyze()
-                        issues = load_project_issues(getattr(res_dirs[0], 'proj_dir', res_dirs[0])) if res_dirs else []
-                        print(len(issues), " issues")
-                        print([x.get_simple_name() for x in issues])
+                        if len(heaviweight_analyzers) == 0:
+                            anadroid.app_projects_ut = [repo_dir]
+                            res_dirs = anadroid.just_static_analyze(retry=False)
+                            issues = load_project_issues(res_dirs[0]) if res_dirs else []
+                            print(len(issues), " issues")
+                            print([x.get_simple_name() for x in issues])
+
+                        else:
+                            proj = anadroid.build_app_project(app_proj, build_apks=False)
+                            anadroid.pre_build_analyzers = ComposedAnalyzer(None,
+                                                                            inner_analyzers=heaviweight_analyzers)
+                            anadroid.pre_build_analyzers.analyze_project(proj)
+                            res_dirs = anadroid.just_static_analyze()
+                            issues = load_project_issues(getattr(res_dirs[0], 'proj_dir', res_dirs[0])) if res_dirs else []
+                            print(len(issues), " issues")
+                            print([x.get_simple_name() for x in issues])
                     except Exception as e:
                         loge(f"Oh no. Error building project {app_proj}: {e}")
                         traceback.print_exc()
                 continue
             print(f"Branch: {branch_name}, Commits: {len(commit_list)}")
-            trunc_commit_set_size = 5 if len(commit_list) > 20 else 3 if len(commit_list) > 10 else 1
-            print(f"Truncating commit set to every {trunc_commit_set_size} commits for analysis (Total of {len(commit_list)} commits)")
+            trunc_commit_set_size = (max(20, int(len(commit_list)/100)) if len(commit_list) > 100 else 5) if len(commit_list) > 20 else 3 if len(commit_list) > 10 else 1
             comm_set_list = [x for i, x in enumerate(commit_list) if i % trunc_commit_set_size == 0]
+            print(f"Truncating commit set to every {trunc_commit_set_size} commits for analysis ({len(comm_set_list)} from Total of {len(commit_list)} commits)")
+            
             for i, commit in enumerate(comm_set_list):
                 commit_msgs_concat = " ; ".join([c['message'] for c in commit_list[max(0, (i - 1) * trunc_commit_set_size): (i * trunc_commit_set_size)]]) if i > 0 else commit['message']
+
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(comm_set_list)}: {commit_hash}")
                 reset_repo(repo_dir, commit_hash)
@@ -236,42 +277,101 @@ def analyze_repos(repos_directory, num_processes=1, container_id=None, only_last
     else:
         # Sequential Execution
         print("Running analysis sequentially")
-        analyze_repo_subset(repo_list, container_id, only_last_version, only_last_version)
+        analyze_repo_subset(repo_list, container_id, only_last_version)
 
 
 def extract_and_write_commit_history(repo_dir):
-    """Extracts and saves commit history for a repo."""
+    """Robustly extracts and saves commit history to a CSV file."""
+
     info = []
-    branch_name_res = execute_shell_command(f"cd {repo_dir} && git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed \'s|^origin/||\' || echo \"main\"")
+
+    # Ensure the directory is a valid git repo
+    if not os.path.isdir(os.path.join(repo_dir, '.git')):
+        print(f"Error: {repo_dir} is not a valid git repository.")
+        return None, []
+
+    # Try to find the main branch reliably
+    branch_candidates = ["main", "master"]
+    branch_name = None
+
+    # First: Try origin/HEAD symbolic-ref
+    symbolic_ref_cmd = (
+        f"cd {repo_dir} && git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null"
+    )
+    branch_name_res = execute_shell_command(symbolic_ref_cmd)
     branch_name_res.validate()
-    if branch_name_res.return_code == 0:
-        execute_shell_command(f"cd {repo_dir} && git checkout {branch_name_res.output.strip() if branch_name_res.output.strip() != '' else 'master'}").validate()
 
-    branch_name = branch_name_res.output.strip().replace("/", "-")
-    res = execute_shell_command(f"cd {repo_dir} && git log --pretty=format:\"%H|%an|%ad|%BXX\" --date=iso")
-    res.validate()
+    if branch_name_res.return_code == 0 and branch_name_res.output.strip():
+        branch_name = branch_name_res.output.strip().replace("origin/", "").replace("/", "-")
+    else:
+        # Fallback to checking branch_candidates
+        for candidate in branch_candidates:
+            # Check if branch exists locally
+            check_branch_cmd = (
+                f"cd {repo_dir} && git rev-parse --verify {candidate}"
+            )
+            branch_check_res = execute_shell_command(check_branch_cmd)
+            if branch_check_res.return_code == 0:
+                branch_name = candidate
+                break
+
+    # Still not found? Use HEAD
+    if not branch_name:
+        head_cmd = f"cd {repo_dir} && git rev-parse --abbrev-ref HEAD"
+        head_res = execute_shell_command(head_cmd)
+        if head_res.return_code == 0 and head_res.output.strip():
+            branch_name = head_res.output.strip().replace("/", "-")
+        else:
+            print("Error: couldn't detect main branch.")
+            return None, []
+
+    # Try to checkout branch
+    checkout_cmd = f"cd {repo_dir} && git checkout {branch_name}"
+    checkout_res = execute_shell_command(checkout_cmd)
+    if checkout_res.return_code != 0:
+        print(f"Error: failed to checkout branch {branch_name}. forcing checkout")
+        reset_repo(repo_dir, branch_name)
+
+    # Try to export commit log
+    log_cmd = (
+        f'cd {repo_dir} && git log --pretty=format:"%H|%an|%ad|%BXX" --date=iso'
+    )
+    log_res = execute_shell_command(log_cmd)
+    log_res.validate()
+    if log_res.return_code != 0 or not log_res.output.strip():
+        print(f"Error: failed to extract git log. {log_res.errors}")
+        return branch_name, []
+
+    # Prepare output file
     filename = os.path.join(repo_dir, f'{branch_name}_commit_data.csv')
-    with open(filename, 'w') as file:
-        writer = csv.writer(file, delimiter=';')
-        writer.writerow(['Commit Hash', 'Author', 'Date', 'Message'])
+    try:
+        with open(filename, 'w', encoding='utf-8', newline='') as file:
+            writer = csv.writer(file, delimiter=';')
+            writer.writerow(['Commit Hash', 'Author', 'Date', 'Message'])
 
-        for commit in res.output.split("XX\n"):
-            vals = commit.split("|")
-            if len(vals) > 1:
-                vals[3] = vals[3].replace(';', '.').replace("\n", " ").replace("\r", "")
-                try:
-                    writer.writerow(vals)
-                    info.append({
-                        'hash': vals[0],
-                        'author': vals[1],
-                        'date': vals[2],
-                        'message': vals[3],
-                    })
-                except:
-                    traceback.print_exc()
-                    print(commit)
-
+            for commit in log_res.output.split("XX\n"):
+                vals = commit.split("|")
+                if len(vals) > 3:
+                    # Replace semicolons and sanitize line breaks
+                    msg = vals[3].replace(';', '.').replace("\r", " ").replace("\n", " ")
+                    try:
+                        writer.writerow([vals[0], vals[1], vals[2], msg])
+                        info.append({
+                            'hash': vals[0],
+                            'author': vals[1],
+                            'date': vals[2],
+                            'message': msg,
+                        })
+                    except Exception as e:
+                        print(f"Error writing commit: {vals}. Exception: {e}")
+                        traceback.print_exc()
+    except Exception as e:
+        print(f"Error writing to file: {filename}. Exception: {e}")
+        traceback.print_exc()
+        return branch_name, []
+    # Reverse for chronological order
     return branch_name, info[::-1]
+
 
 
 def save_issues(issues, dir_path, commit_hash):
@@ -309,6 +409,8 @@ def classify_regression(issue, curr_issue_list, repo_dir, curr_commit):
     issue_exists_on_file = any(i for i in issues_of_that_kind if i.get_file_id() == issue.get_file_id())
     if issue_exists_on_file:
         return 'prob_move'
+    if issue_exists_on_proj and not any([i for i in issues_of_that_kind and os.path.basename(getattr(i, 'file', 'i')) == os.path.basename(getattr(issue, 'file', 'issue'))] ):
+        return 'def_removal'
     return 'prob_removal'
 
 
