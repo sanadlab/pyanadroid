@@ -21,10 +21,12 @@ from anadroid.analysis.pre_build_analysis.XALintAnalysis import XALintAnalysis
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.Utils import execute_shell_command, logi, loge, mega_find
 from anadroid.analysis.pre_build_analysis.SpotBugsAnalysis import SpotBugsAnalysis
+
+
 lock = multiprocessing.Lock()
 
 
-def init_pyanadroid(repo_dir):
+def init_pyanadroid(repo_dir, only_last_version=True):
     return AnaDroid(arg1=repo_dir,
                     results_dir="anadroid_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
@@ -135,14 +137,14 @@ def reset_repo(repo_dir, branch_name='-'):
         f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout {branch_name} ").validate()
 
 
-def analyze_repo_subset(repos_list):
+def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
     """Analyzes a subset of repositories."""
     sorted_repo_list = []
     source_code_analyzers = [DAAPAnalysis(), PMDAnalysis(), ADoctorAnalysis(), DetektAnalysis()]
     heaviweight_analyzers = [
-        LintAnalysis(in_container=container_id is not None, container_id=container_id),
-        InferAnalysis(in_container=container_id is not None, container_id=container_id),
-        SpotBugsAnalysis(in_container=container_id is not None, container_id=container_id),
+        #LintAnalysis(in_container=container_id is not None, container_id=container_id),
+        #InferAnalysis(in_container=container_id is not None, container_id=container_id),
+        #SpotBugsAnalysis(in_container=container_id is not None, container_id=container_id),
     ]
     print("Sorting repos")
     for repo_dir in repos_list:
@@ -217,22 +219,24 @@ def analyze_repo_subset(repos_list):
             traceback.print_exc()
 
 
-def analyze_repos(repos_directory, num_processes=1):
-    anadroid = init_pyanadroid(repos_directory)
+def analyze_repos(repos_directory, num_processes=1, container_id=None, only_last_version=False):
+    anadroid = init_pyanadroid(repos_directory, only_last_version)
     repo_list = list(anadroid.app_projects_ut)
     if num_processes > 1:
         # Parallel Execution
         chunk_size = len(repo_list) // num_processes
+
         repo_chunks = [repo_list[i:i + chunk_size] for i in range(0, len(repo_list), chunk_size)]
+        args_for_pool = [(chunk, container_id, only_last_version) for chunk in repo_chunks]
         print(f"Running analysis in parallel with {num_processes} processes")
         for c in repo_chunks:
             print(len(c))
         with multiprocessing.Pool(num_processes) as pool:
-            pool.map(analyze_repo_subset, repo_chunks)
+            pool.starmap(analyze_repo_subset, args_for_pool)
     else:
         # Sequential Execution
         print("Running analysis sequentially")
-        analyze_repo_subset(repo_list)
+        analyze_repo_subset(repo_list, container_id, only_last_version, only_last_version)
 
 
 def extract_and_write_commit_history(repo_dir):
@@ -319,6 +323,4 @@ if __name__ == '__main__':
     parser.add_argument("--container_id", default=None, type=str,
                         help="set container id for analysis tools")
     args = parser.parse_args()
-    only_last_version = args.only_last_version
-    container_id = args.container_id
-    analyze_repos(args.repos_directory, args.parallel)
+    analyze_repos(args.repos_directory, args.parallel, args.container_id, args.only_last_version)
