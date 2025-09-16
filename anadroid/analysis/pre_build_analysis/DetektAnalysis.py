@@ -48,10 +48,14 @@ class DetektAnalysis(StaticAnalyzer):
             logs(f"Skipping app. Already processed by Detekt")
             return
 
+        if source_path is None or not os.path.exists(source_path):
+            loge(f"Source path not found for project at {project.proj_dir}. Cannot run Detekt.")
+            return
+
         d_command = [
             "detekt",
             "--input", source_path,
-            "-r", f"{self.default_output_format}:{output_file_path}",
+            "-r", f"{self.default_output_format}:{output_file_path}"
         ]
 
 

@@ -27,9 +27,6 @@ lock = multiprocessing.Lock()
 
 
 def init_pyanadroid(repo_dir, only_last_version=True):
-    if only_last_version:
-        print('toser')
-        reset_repo(repo_dir)
     return AnaDroid(arg1=repo_dir,
                     results_dir="anadroid_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
@@ -189,7 +186,7 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
         try:
             anadroid = init_pyanadroid(repo_dir)
             anadroid.pre_build_analyzers = ComposedAnalyzer(None,
-                                                            inner_analyzers= source_code_analyzers) # + heaviweight_analyzers)
+                                                            inner_analyzers= source_code_analyzers + heaviweight_analyzers)
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
 
