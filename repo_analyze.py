@@ -177,6 +177,10 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
         #InferAnalysis(in_container=container_id is not None, container_id=container_id),
         #SpotBugsAnalysis(in_container=container_id is not None, container_id=container_id),
     ]
+    post_build_analyzers = [
+        DroidLensAnalysis(),
+        EcoAndroidResourceLeaksAnalysis()
+    ]
     print("Sorting repos")
     for repo_dir in repos_list:
         print("Checking repo: ", repo_dir)
@@ -409,7 +413,7 @@ def classify_regression(issue, curr_issue_list, repo_dir, curr_commit):
     issue_exists_on_file = any(i for i in issues_of_that_kind if i.get_file_id() == issue.get_file_id())
     if issue_exists_on_file:
         return 'prob_move'
-    if issue_exists_on_proj and not any([i for i in issues_of_that_kind and os.path.basename(getattr(i, 'file', 'i')) == os.path.basename(getattr(issue, 'file', 'issue'))] ):
+    if issue_exists_on_proj and not any([i for i in issues_of_that_kind if  os.path.basename(getattr(i, 'file', 'i')) == os.path.basename(getattr(issue, 'file', 'issue'))] ):
         return 'def_removal'
     return 'prob_removal'
 
