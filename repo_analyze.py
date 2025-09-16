@@ -18,6 +18,8 @@ from anadroid.analysis.pre_build_analysis.InferAnalysis import InferAnalysis
 from anadroid.analysis.pre_build_analysis.LintAnalysis import LintAnalysis
 from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
 from anadroid.analysis.pre_build_analysis.XALintAnalysis import XALintAnalysis
+from anadroid.analysis.post_build_analysis.DroidLensAnalyzer import DroidLensAnalysis
+from anadroid.analysis.post_build_analysis.EcoAndroidResourceLeaksAnalyzer import EcoAndroidResourceLeaksAnalysis
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.Utils import execute_shell_command, logi, loge, mega_find
 from anadroid.analysis.pre_build_analysis.SpotBugsAnalysis import SpotBugsAnalysis
