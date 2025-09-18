@@ -60,8 +60,12 @@ def load_project_issues(proj_results_dir):
             issues_list = issues_list + EcoAndroidAnalysis().get_issues(eco_dir)
     lint_results = mega_find(proj_results_dir, pattern="*lint*.xml", type_file='f', maxdepth=2)
     if len(lint_results) > 0:
+        lint_issues = set()
         for lint_file in lint_results:
-            issues_list = issues_list + LintAnalysis().get_issues(lint_file) + XALintAnalysis().get_issues(lint_file) + ChimeraAnalysis().get_issues(lint_file)
+            lint_issues.update(LintAnalysis().get_issues(lint_file))
+            lint_issues.update(XALintAnalysis().get_issues(lint_file, ignore_lint_issues=True))
+            lint_issues.update(ChimeraAnalysis().get_issues(lint_file, ignore_lint_issues=True))
+        issues_list = issues_list + list(lint_issues)
     detekt_results = mega_find(proj_results_dir, pattern="*detekt_analysis.xml", type_file='f', maxdepth=2)
     if len(detekt_results) > 0:
         for detekt_file in detekt_results:
@@ -100,7 +104,12 @@ def issue_file_exists(repo_dir, curr_commit, issue):
         if not all([repo_dir, curr_commit, issue.file]) or not os.path.isdir(repo_dir):
             return False
 
-        file_path = issue.file
+
+        file_path = issue.file.replace('NONE_TRANSFORMED_', '')
+        if not os.path.exists(file_path) and not os.path.exists(os.path.join(repo_dir, file_path)):
+            file_name_cand = mega_find(repo_dir, pattern=os.path.basename(file_path), type_file='f', maxdepth=12)
+            if len(file_name_cand) > 0 and not os.path.exists(file_path):
+                file_path = os.path.relpath(file_name_cand[0], repo_dir)
         # The file path should not be absolute
         if os.path.isabs(file_path):
             #print(f"Warning: issue.file '{file_path}' should be a relative path.")
@@ -127,7 +136,7 @@ def issue_file_exists(repo_dir, curr_commit, issue):
         except:
             return False
 
-def reset_repo(repo_dir, branch_name='-'):
+def reset_repo(repo_dir, branch_name='-', clean_instrumentation=False):
     # # Ensure repo_dir is not dangerous (e.g., part of the current working directory, home, or root)
     dangerous_dirs = [os.getcwd(),  os.path.join(expanduser("~"))]
     if any(os.path.abspath(repo_dir).startswith('repos/pyanadroid') or os.path.abspath(repo_dir) in d for d in dangerous_dirs):
@@ -160,21 +169,51 @@ def reset_repo(repo_dir, branch_name='-'):
                     branch_name = candidate
                     break
 
-
-    res = execute_shell_command(
-        f"cd {repo_dir} && git reset --keep && git reset --hard  && git checkout {branch_name} ")
+    if clean_instrumentation:
+        # remove NONE_TRANSFORMED directory
+        instr_dir = mega_find(repo_dir, pattern="NONE_TRANSFORMED_*", type_file='d', maxdepth=1)
+        for d in instr_dir:
+            print(d)
+            #execute_shell_command(f"rm -rf {d}").validate()
+    cmd =  f"cd {repo_dir} && git reset --keep && git reset --hard  && git checkout {branch_name} "
+    print(cmd)
+    res = execute_shell_command(cmd)
     res.validate()
     print(res)
 
+def process_project(proj_repo, anadroid, lightweight_analyzers, heaviweight_analyzers):
+    if len(heaviweight_analyzers) == 0:
+        anadroid.app_projects_ut = [proj_repo]
+        res_dirs = anadroid.just_static_analyze(retry=True)
+        print('iss fldr', res_dirs)
+        issues = load_project_issues(res_dirs[0]) if res_dirs else []
+        print(len(issues), " issues")
+        print([x.get_simple_name() for x in issues])
+
+    else:
+        anadroid.pre_build_analyzers = ComposedAnalyzer(None,
+                                                        inner_analyzers=lightweight_analyzers)
+        proj = anadroid.build_app_project(proj_repo, build_apks=False)
+        anadroid.pre_build_analyzers = ComposedAnalyzer(None,
+                                                        inner_analyzers=heaviweight_analyzers)
+        anadroid.app_projects_ut = [proj.proj_dir]
+        res_dirs = anadroid.just_static_analyze(retry=True)
+        iss_folder = getattr(res_dirs[0], 'proj_dir', res_dirs[0])
+        print('iss fldr', iss_folder)
+        issues = load_project_issues(iss_folder) if res_dirs else []
+        print(len(issues), " issues")
+        print([x.get_simple_name() for x in issues])
+    return issues
 
 def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
     """Analyzes a subset of repositories."""
     sorted_repo_list = []
     source_code_analyzers = [DAAPAnalysis(), PMDAnalysis(), ADoctorAnalysis(), DetektAnalysis()]
     heaviweight_analyzers = [
-        #LintAnalysis(in_container=container_id is not None, container_id=container_id),
-        #InferAnalysis(in_container=container_id is not None, container_id=container_id),
-        #SpotBugsAnalysis(in_container=container_id is not None, container_id=container_id),
+        LintAnalysis(in_container=container_id is not None, container_id=container_id),
+        #EcoAndroidAnalysis(),
+        InferAnalysis(in_container=container_id is not None, container_id=container_id),
+        SpotBugsAnalysis(in_container=container_id is not None, container_id=container_id),
     ]
     post_build_analyzers = [
         DroidLensAnalysis(),
@@ -192,7 +231,7 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
         try:
             anadroid = init_pyanadroid(repo_dir)
             anadroid.pre_build_analyzers = ComposedAnalyzer(None,
-                                                            inner_analyzers= source_code_analyzers + heaviweight_analyzers)
+                                                            inner_analyzers= source_code_analyzers)
             print(f"Analyzing repo: {repo_dir}")
             #branch_name, commit_list = extract_and_write_commit_history(repo_dir)
 
@@ -202,25 +241,9 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
             if len(commit_list) == 0 or only_last_version:
                 if only_last_version:
                     reset_repo(repo_dir)
-
                 for app_proj in anadroid.app_projects_ut:
                     try:
-                        if len(heaviweight_analyzers) == 0:
-                            anadroid.app_projects_ut = [repo_dir]
-                            res_dirs = anadroid.just_static_analyze(retry=False)
-                            issues = load_project_issues(res_dirs[0]) if res_dirs else []
-                            print(len(issues), " issues")
-                            print([x.get_simple_name() for x in issues])
-
-                        else:
-                            proj = anadroid.build_app_project(app_proj, build_apks=False)
-                            anadroid.pre_build_analyzers = ComposedAnalyzer(None,
-                                                                            inner_analyzers=heaviweight_analyzers)
-                            anadroid.pre_build_analyzers.analyze_project(proj)
-                            res_dirs = anadroid.just_static_analyze()
-                            issues = load_project_issues(getattr(res_dirs[0], 'proj_dir', res_dirs[0])) if res_dirs else []
-                            print(len(issues), " issues")
-                            print([x.get_simple_name() for x in issues])
+                        process_project(app_proj, anadroid, source_code_analyzers, heaviweight_analyzers)
                     except Exception as e:
                         loge(f"Oh no. Error building project {app_proj}: {e}")
                         traceback.print_exc()
@@ -229,18 +252,20 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
             trunc_commit_set_size = (max(20, int(len(commit_list)/100)) if len(commit_list) > 100 else 5) if len(commit_list) > 20 else 3 if len(commit_list) > 10 else 1
             comm_set_list = [x for i, x in enumerate(commit_list) if i % trunc_commit_set_size == 0]
             print(f"Truncating commit set to every {trunc_commit_set_size} commits for analysis ({len(comm_set_list)} from Total of {len(commit_list)} commits)")
-            
             for i, commit in enumerate(comm_set_list):
                 commit_msgs_concat = " ; ".join([c['message'] for c in commit_list[max(0, (i - 1) * trunc_commit_set_size): (i * trunc_commit_set_size)]]) if i > 0 else commit['message']
 
                 commit_hash = commit['hash']
                 print(f"Checking out commit {i + 1}/{len(comm_set_list)}: {commit_hash}")
-                reset_repo(repo_dir, commit_hash)
+                reset_repo(repo_dir, commit_hash, clean_instrumentation=True)
                 #execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
-                anadroid.app_projects_ut = [repo_dir]
-                res_dirs = anadroid.just_static_analyze()
-                commit['issues'] = load_project_issues(res_dirs[0]) if res_dirs else []
+                try:
+                    res = process_project(repo_dir, anadroid, source_code_analyzers, heaviweight_analyzers)
+                except:
+                    traceback.print_exc()
+                    continue
+                commit['issues'] = res
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
                 reset_repo(repo_dir, commit_hash)
@@ -412,7 +437,7 @@ def classify_regression(issue, curr_issue_list, repo_dir, curr_commit):
     issue_exists_on_file = any(i for i in issues_of_that_kind if i.get_file_id() == issue.get_file_id())
     if issue_exists_on_file:
         return 'prob_move'
-    if issue_exists_on_proj and not any([i for i in issues_of_that_kind if  os.path.basename(getattr(i, 'file', 'i')) == os.path.basename(getattr(issue, 'file', 'issue'))] ):
+    if issue_exists_on_proj and not any([i for i in issues_of_that_kind if os.path.basename(getattr(i, 'file', 'i')) == os.path.basename(getattr(issue, 'file', 'issue'))] ):
         return 'def_removal'
     return 'prob_removal'
 

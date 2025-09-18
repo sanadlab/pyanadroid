@@ -62,17 +62,18 @@ class ADoctorAnalysis(StaticAnalyzer):
             loge(f"Results file not found: {results_output_file}")
             return []
         issues_list = []
+        debug_release_bug_found = False
         with open(results_output_file, "r") as file:
             reader = csv.reader(file)
             headers = next(reader)  # Read the first row as headers
-
             if headers[0] != "File":
                 loge("Invalid file format: Missing expected 'Class' header")
                 return []
             for row in reader:
                 filepath = row[0]
                 if 'src' in filepath and (
-                        'test' in filepath or 'androidTest' in filepath or "InstrumentedTest" in filepath) and ignore_tests:
+                        'test' in filepath or 'androidTest' in filepath or "InstrumentedTest" in filepath
+                            or 'ExampleInstrumentedTest' in filepath or 'ExampleUnitTest' in filepath ) and ignore_tests:
                     continue
                 if len(row) < 2:
                     continue
@@ -83,6 +84,10 @@ class ADoctorAnalysis(StaticAnalyzer):
                     if i < len(row) and headers[i] in self.identifiable_issues and row[i] != '' and int(row[i]) > 0
                 ]
                 for iss in issues_detected:
+                    if iss == KnownStaticPerformanceIssues.DEBUGGABLE_RELEASE:
+                        if debug_release_bug_found:
+                            continue
+                        debug_release_bug_found = True
                     issues_list.append(Issue(iss, i_class=class_name, file=filepath, detection_tool_name="aDoctor"))
         return issues_list
 

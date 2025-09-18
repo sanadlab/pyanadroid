@@ -76,7 +76,10 @@ def solve_known_error(proj, error, error_msg, **kwargs):
 
     elif error == KNOWN_ERROR.NO_WRAPPER:
         # no wrapper config
-        copy_tree(GRADLE_WRAPPER_DIR, os.path.join(proj.proj_dir, "gradle"))
+        try:
+            copy_tree(GRADLE_WRAPPER_DIR, os.path.join(proj.proj_dir, "gradle"))
+        except:
+            pass
 
     elif error == KNOWN_ERROR.NO_GRADLEW_EXEC:
         shutil.copy(os.path.join(GRADLE_RES_DIR, "gradlew"), proj.proj_dir)
@@ -169,6 +172,7 @@ def solve_known_error(proj, error, error_msg, **kwargs):
 
     else:
         loge(f"Unable to solve {error}")
+    return None
 
 
 def get_adequate_gradle_version(plugin_version):

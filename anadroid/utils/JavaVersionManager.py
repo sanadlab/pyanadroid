@@ -28,7 +28,7 @@ def get_change_java_version_cmd(java_version, on_container=False):
 
         cmd = f'sudo update-alternatives --set java {opt};'
         if int(java_version) >= 17:
-            cmd += 'echo "org.gradle.jvmargs=--add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED" >> gradle.properties ;'
+            cmd += "echo \'org.gradle.jvmargs=--add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED\' >> gradle.properties ;"
     return cmd
     #execute_shell_command(f"source ~/.zshrc ; j{java_version}")
 
@@ -42,12 +42,13 @@ def get_gradle_matching_version(gradle_version):
     
     if gradle_version <= 4.10:
         return 8
-    elif 4.10 < gradle_version <= 5.6:
+    elif 4.10 < gradle_version < 7.3:
         return 11
-    elif 5.6 < gradle_version <= 7.4:
+    elif gradle_version <= 8:
         return 17
-    else:
+    elif gradle_version > 8.4:
         return 21
+    return 17
 
 class JavaVersionManager(ABC):
     def __init__(self):
@@ -84,4 +85,4 @@ class JavaVersionManager(ABC):
         if java_version in self.java_versions:
             cmd = get_change_java_version_cmd(java_version, on_container)
             return True, cmd
-        return False, ''
+        return False, 

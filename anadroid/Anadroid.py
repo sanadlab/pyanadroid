@@ -344,7 +344,7 @@ class AnaDroid(object):
         for app_proj in self.app_projects_ut:
             self.build_app_project(app_proj, build_apks=True)
 
-    def build_app_project(self, app_project, build_apks=False, retry=False):
+    def build_app_project(self, app_project, build_apks=False, retry=False, skip_analyzers=False):
         app_name = os.path.basename(app_project)
         logi("Processing app " + app_name + " in " + app_project)
         res = False
@@ -353,8 +353,8 @@ class AnaDroid(object):
 
             original_proj = AndroidProject(projname=app_name, projdir=app_project, results_dir=self.results_dir,
                                            clean_instrumentations=self.reinstrument)
-
-            self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
+            if not skip_analyzers:
+                self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
             instrumented_proj_dir = self.instrumenter.instrument(original_proj, instr_type=self.instrumentation_type) if self.instrumenter is not None else app_project
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
             self.builder.set_project(instr_proj)
@@ -388,14 +388,12 @@ class AnaDroid(object):
             # builder.build_proj_and_apk(build_type=self.build_type,build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT)
             # self.analyzer.analyze(app, **{'instr_type': self.instrumentation_type, 'testing_framework': self.testing_framework})
 
-    def just_static_analyze(self, retry=False):
+    def just_static_analyze(self, retry=True):
         """analyze apps obtained from app_projects_ut."""
         results_dirs = []
         for app_proj in self.app_projects_ut:
             app_name = os.path.basename(app_proj)
             logi("Processing app " + app_name + " in " + app_proj)
-            app_name = os.path.basename(app_proj)
-
             original_proj = AndroidProject(projname=app_name, projdir=app_proj,
                                            results_dir=self.results_dir,
                                             clean_instrumentations=self.reinstrument)

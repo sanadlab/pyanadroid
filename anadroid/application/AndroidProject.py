@@ -102,7 +102,6 @@ class Project(object):
         Args:
             app_id (str): Project's app id.
         """
-        print(app_id)
         proj_version = proj_version if proj_version is not None else get_repo_version(self.proj_dir)
         res_app_dir = os.path.join(self.results_dir, app_id, proj_version)
         logi(f"Creating results dir {res_app_dir}")
@@ -116,7 +115,7 @@ class Project(object):
         """Removes previous project transformations from project sources."""
         transforms = mega_find(self.proj_dir, pattern="*TRANSFORMED*", maxdepth=1, type_file='d')
         for t in transforms:
-            shutil.rmtree(t)
+            execute_shell_command("rm -rf %s" % t)
 
     def save_proj_json(self, path):
         """Saves project details to a JSON file.
@@ -167,8 +166,9 @@ class AndroidProject(Project):
             Tuple[str, str]: Package name and project ID.
         """
         pkg_name = "unknown"
+        proj_name = os.path.dirname(self.proj_dir) if '_TRANSFORMED_' in self.proj_name else self.proj_name
         if self.main_manif_file is None:
-            return pkg_name, self.proj_name + "--" + pkg_name
+            return pkg_name, proj_name + "--" + pkg_name
         pkg_str = str(cat(self.main_manif_file))
         #print(pkg_str)
         pkg_line = str(cat(self.main_manif_file) | grep("package=\"[^\"]"))
@@ -179,7 +179,7 @@ class AndroidProject(Project):
         else:
             pkg_name = self.get_application_id_from_gradle()
         pkg_name = "unknown" if pkg_name is None and pkg_name !="" else pkg_name
-        return pkg_name, self.proj_name + "--" + pkg_name
+        return pkg_name, proj_name + "--" + pkg_name
 
     def get_application_id_from_gradle(self):
         """
@@ -342,7 +342,10 @@ class AndroidProject(Project):
             gradle_plugin_version (str): Gradle plugin version.
         """
         print("root file", self.root_build_file)
-        gradle_plugin_version = str(cat(self.root_build_file) | grep("com.android.tools.build") | sed("classpath|com.android.tools.build:gradle:|\"", "")).strip().replace("'", "")
+        try:
+           gradle_plugin_version = str(cat(self.root_build_file) | grep("com.android.tools.build") | sed("classpath|com.android.tools.build:gradle:|\"", "")).strip().replace("'", "")
+        except:
+              gradle_plugin_version = None
         return gradle_plugin_version if gradle_plugin_version is not None else '8.9.0'
 
     def create_inner_folder(self, name="libs"):

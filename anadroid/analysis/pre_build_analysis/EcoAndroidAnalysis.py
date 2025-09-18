@@ -3,12 +3,13 @@ import os
 import platform
 import shutil
 import time
+from os.path import expanduser
 
 from textops import cat
 
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
-from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
+from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs, DockerCommandWrapper
 import xml.etree.ElementTree as ET
 
 
@@ -16,8 +17,10 @@ import xml.etree.ElementTree as ET
 
 #
 
-def infer_ecoandroid_cmd():
+def infer_ecoandroid_cmd(should_run_on_container=False):
     # check if mac os or linux or windows
+    if should_run_on_container:
+        return '/opt/idea/bin/inspect.sh'
     if os.name == "posix":
         # check if mac os
         if platform.system() == "Darwin":
@@ -112,12 +115,35 @@ class EcoAndroidAnalysis(StaticAnalyzer):
         remove_idea_fldr = kwargs.get("remove_idea_fldr", True)  # TODO
         profile_path = kwargs.get("profile_path", self.default_profile_path)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
+        replace_paths = [
+            "~" + os.sep + os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, os.path.curdir) + os.sep,
+            os.path.abspath(os.path.dirname(project.proj_dir)) + os.sep,
+            os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
+
+            "~" + os.sep + os.path.relpath(output_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, os.path.curdir) + os.sep,
+            os.path.abspath(output_dir) + os.sep,
+            os.path.basename(output_dir) + os.sep,
+
+        ]
+
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
+
         if remove_idea_fldr and os.path.exists(os.path.join(project.proj_dir, ".idea")):
             shutil.rmtree(os.path.join(project.proj_dir, ".idea"))
         if remove_local_props and os.path.exists(os.path.join(project.proj_dir, "local.properties")):
             os.remove(os.path.join(project.proj_dir, "local.properties"))
+        if not os.path.exists(os.path.join(project.proj_dir, os.path.basename(profile_path))):
+            shutil.copy(profile_path, os.path.join(project.proj_dir, os.path.basename(profile_path)))
+            logs(f"Copied profile file to project directory: {os.path.join(project.proj_dir, os.path.basename(profile_path))}")
+        profile_path = os.path.join(project.proj_dir, os.path.basename(profile_path))
+        if self.should_run_in_container:
+            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
+
         for module in project.modules:
             print("Analyzing module: ", module)
             module_path = os.path.join(project.proj_dir, module)
@@ -137,12 +163,17 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                             os.remove(os.path.join(root_dir, file))
             timeout = 300
             #log_file = os.path.join(module_out_dir, "ecoandroid.log")
-            cmd = f"gtimeout {timeout} {infer_ecoandroid_cmd()} {project.proj_dir} " f"{profile_path} {module_out_dir} -d {module_path} -v2"
+            cmd = f"{'g' if not self.should_run_in_container else ''}timeout {timeout} {infer_ecoandroid_cmd(self.should_run_in_container)} {project.proj_dir} " f"{profile_path} {module_out_dir} -d {module_path} -v2"
             print(cmd)
             with eco_lock:
                 time.sleep(2)
-                res = execute_shell_command(cmd, timeout=timeout)
+                res = execute_shell_command(cmd, timeout=timeout, in_container=self.should_run_in_container, container_id=self.container_id)
                 time.sleep(2)
+
+            if self.should_run_in_container:
+                if self.should_run_in_container:
+                    d = DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths)
+                    d.pull(module_out_dir)
             self.validate_success(res, module_out_dir)
 
     def executed_correctly(self, str_to_check):

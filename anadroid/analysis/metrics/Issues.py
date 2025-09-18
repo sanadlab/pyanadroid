@@ -41,6 +41,13 @@ def are_equal_or_one_is_none(a, b):
         return True
     return a == b
 
+UNIQUE_PER_PROJECT_ISSUES = {
+    'DEBUGGABLE_RELEASE',
+    'INFO_WARNING_FCM',
+    'USE_OF_BUNDLED_GOOGLE_PLAY_SERVICES',
+    'LIFECYCLE_ANNOTATION_PROCESSOR_WITH_JAVA8',
+    'ANNOTATION_PROCESSOR_ON_COMPILE_PATH',
+}
 
 class Issue(object):
     def __init__(self, issue_type, category=IssueCategory.PERFORMANCE, severity=None, description=None, file=None,
@@ -102,6 +109,12 @@ class Issue(object):
         )
         #print(self.i_class, other.i_class, val, getattr(self, 'file', 'a') == getattr(other, 'file', 'b'))
         return val
+
+    def __hash__(self):
+        return hash((getattr(self.issue_type, 'value', self.issue_type),
+                     '' if not self.get_file_id() else self.get_file_id(),
+                     '' if not self.get_issue_location() else self.get_issue_location(),
+                   ))
 
     def get_file_id(self):
         if self.file is None:

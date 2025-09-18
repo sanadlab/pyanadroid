@@ -138,7 +138,6 @@ class SpotBugsAnalysis(StaticAnalyzer):
             os.path.basename(output_dir) + os.sep,
 
         ]
-        print("projetinho dir", project.proj_dir)
         if self.should_run_in_container:
             DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
 
@@ -160,14 +159,15 @@ class SpotBugsAnalysis(StaticAnalyzer):
         android_jar_path = os.path.join(self.android_sdk_root, "platforms", f"android-{sdk_version}", "android.jar")
 
         #possible_class_paths = mega_find(os.path.join(project.proj_dir, "app", "build", "intermediates", "javac"), pattern="classes", type_file='d', maxdepth=3)
-        possible_class_paths = execute_shell_command(f'find {project.proj_dir} -maxdepth 6 -type d -name classes | grep "build"', in_container=self.should_run_in_container,
+        possible_class_paths = execute_shell_command(f'find {project.proj_dir} -maxdepth 8 -type d -name classes | grep \"build\"', in_container=self.should_run_in_container,
                               container_id=self.container_id,
                               replace_paths=replace_paths).output.split("\n")
+        print(possible_class_paths)
         classes_path = os.path.join(project.proj_dir, "app", "build", "intermediates", "javac",
                                     build_task.replace("assemble", ""), "classes") \
             if len(possible_class_paths) == 0 else possible_class_paths[0]
         source_path = find_source_root_dynamically(project.proj_dir)
-
+        source_path = os.path.join(project.proj_dir, source_path)
         if not os.path.exists(classes_path) and not self.should_run_in_container:
             loge(f"Compiled classes directory not found at {classes_path}. Aborting SpotBugs.")
             return

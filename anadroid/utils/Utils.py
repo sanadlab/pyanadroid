@@ -377,9 +377,12 @@ class DockerCommandWrapper:
                 print(f"Path {container_path} already exists in the container. Skipping push.")
                 return check_result
         print('Proceed with pushing the file/directory')
-        docker_rm_cmd = f"exec {self.container_name} sh -c 'rm -rf {container_path}"
+        docker_rm_cmd = f"docker exec {self.container_name} sh -c 'rm -rf {container_path}'"
+        #print(docker_rm_cmd)
         execute_shell_command(docker_rm_cmd)
+        #print(res)
         docker_cmd = ["docker", "cp", local_path, f"{self.container_name}:{container_path}"]
+        print(' '.join(docker_cmd))
         print('pushing ', local_path, ' to ', container_path)
         result = execute_shell_command(' '.join(docker_cmd))
         result.validate()

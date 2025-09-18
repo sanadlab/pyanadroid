@@ -11,7 +11,7 @@ from textops import grep
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error
-from anadroid.build.GradleBuilder import GradleBuilder
+from anadroid.build.GradleBuilder import GradleBuilder, get_java_version_cmd_for_project
 from anadroid.utils.JavaVersionManager import JavaVersionManager
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi, \
     DockerCommandWrapper
@@ -140,8 +140,9 @@ class LintAnalysis(StaticAnalyzer):
         retry = kwargs.get("retry", True)
         retries = kwargs.get("retries", 1)
         gradlew_path = './gradlew'
-        cmd = f"cd {project.proj_dir}; chmod +x gradlew; {'g' if not self.should_run_in_container 
-            else ''}timeout 300 {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS)
+        cmd = (f"{get_java_version_cmd_for_project(project.proj_dir, on_container=self.should_run_in_container)} "
+               f"cd {project.proj_dir}; chmod +x gradlew; {'g' if not self.should_run_in_container 
+            else ''}timeout 300 {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS))
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         lt_files = mega_find(project.proj_dir, pattern="lint*result*.xml", maxdepth=5, type_file='f')
         if len(lt_files) > 0 and not retry:
@@ -160,6 +161,7 @@ class LintAnalysis(StaticAnalyzer):
         while retries > 0:
             if self.should_run_in_container:
                 retries = 0
+            print(cmd)
             res = execute_shell_command(cmd, timeout=150, in_container=self.should_run_in_container,
                                               container_id=self.container_id,
                                               replace_paths=replace_paths)
@@ -181,33 +183,7 @@ class LintAnalysis(StaticAnalyzer):
                 print("Retrying...")
                 if res is not None and res.return_code != 0:
                     self.analyze_project(project, retry=True, default_task='lint', exec_task="lint", retries=retries-1)
-        java_retryer = JavaVersionManager()
-        was_success = res and res.validate()
-        if res is not None and res.return_code != 0:
-            java_version = re.search("requires Java ([0-9]+) to run", str(res.errors))
-            if java_version and not self.should_run_in_container:
-                java_version = int(java_version.group(1))
-                target_java = 8
-                if java_version > target_java:
-                    target_java = 17
-                loge(f"Java version {java_version} is not supported by lint. using Java {target_java}")
-                execute_shell_command(f"source ~/.zshrc ; j{target_java}")
-                res = execute_shell_command(cmd, timeout=300, in_container=self.should_run_in_container,
-                                              container_id=self.container_id,
-                                              replace_paths=replace_paths)
-                was_success = res.validate()
-            else:
-                retry, extra_cmd = java_retryer.get_change_java_retry_cmd((res.output + res.errors).lower(),
-                                                                          on_container=self.should_run_in_container)
-                while retry:
-                    print(extra_cmd + cmd)
-                    res = execute_shell_command( extra_cmd + cmd, timeout=300,
-                                            in_container=self.should_run_in_container,
-                                            container_id=self.container_id,
-                                            replace_paths=replace_paths)
-                    retry, extra_cmd = java_retryer.get_change_java_retry_cmd((res.output + res.errors).lower(),
-                                                                              on_container=self.should_run_in_container)
-                    was_success = res.validate()
+        was_success = res and (res.validate() or 'Wrote XML report to' in res.output)
         if res is None:
             loge("Error executing lint analysis. Check the logs for more information")
             return

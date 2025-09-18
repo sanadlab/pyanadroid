@@ -40,10 +40,10 @@ class XALintAnalysis(LintAnalysis):
             os.makedirs(target_location)
         copy(self.jar_path, target_location)
 
-    def get_issues(self, results_file, ignore_tests=True):
+    def get_issues(self, results_file, ignore_tests=True, ignore_lint_issues=False):
         name = self.name
         self.name = 'Lint'
-        issue_l = super().get_issues(results_file, ignore_tests)
+        issue_l = super().get_issues(results_file, ignore_tests) if not ignore_lint_issues else []
         self.name = name
         for iss in issue_l:
             if iss.issue_type in set(self.xal_issues.values()):
