@@ -28,7 +28,13 @@ from anadroid.analysis.pre_build_analysis.SpotBugsAnalysis import SpotBugsAnalys
 lock = multiprocessing.Lock()
 
 
-def init_pyanadroid(repo_dir, only_last_version=True):
+def init_pyanadroid(repo_dir, only_last_version=True, reset_git_repos=False):
+    if reset_git_repos:
+        # for each directory in repo_dir, if it is a git repo, reset it
+        git_dirs = [os.path.join(repo_dir, d) for d in os.listdir(repo_dir) if os.path.isdir(os.path.join(repo_dir, d) and not d.startswith('.') and os.path.exists(os.path.join(repo_dir, d, '.git')))]
+        for gdir in git_dirs:
+            print(f"Resetting git repo: {gdir}")
+            reset_repo(gdir, clean_instrumentation=False)
     return AnaDroid(arg1=repo_dir,
                     results_dir="anadroid_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
@@ -194,11 +200,16 @@ def process_project(proj_repo, anadroid, lightweight_analyzers, heaviweight_anal
         anadroid.pre_build_analyzers = ComposedAnalyzer(None,
                                                         inner_analyzers=lightweight_analyzers)
         proj = anadroid.build_app_project(proj_repo, build_apks=False)
-        anadroid.pre_build_analyzers = ComposedAnalyzer(None,
-                                                        inner_analyzers=heaviweight_analyzers)
-        anadroid.app_projects_ut = [proj.proj_dir]
-        res_dirs = anadroid.just_static_analyze(retry=True)
-        iss_folder = getattr(res_dirs[0], 'proj_dir', res_dirs[0])
+        if anadroid.builder.was_last_build_successful():
+            anadroid.pre_build_analyzers = ComposedAnalyzer(None,
+                                                            inner_analyzers=heaviweight_analyzers)
+            anadroid.app_projects_ut = [proj.proj_dir]
+            res_dirs = anadroid.just_static_analyze(retry=False)
+            iss_folder = getattr(res_dirs[0], 'proj_dir', res_dirs[0])
+        else:
+            loge(f"Skipping build-time analysis for project {proj} due to build failure.")
+            res_dirs = [getattr(proj, 'results_dir', proj)]
+            iss_folder = getattr(proj, 'proj_dir', proj)
         print('iss fldr', iss_folder)
         issues = load_project_issues(iss_folder) if res_dirs else []
         print(len(issues), " issues")
@@ -211,7 +222,7 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
     source_code_analyzers = [DAAPAnalysis(), PMDAnalysis(), ADoctorAnalysis(), DetektAnalysis()]
     heaviweight_analyzers = [
         LintAnalysis(in_container=container_id is not None, container_id=container_id),
-        #EcoAndroidAnalysis(),
+        EcoAndroidAnalysis(),
         InferAnalysis(in_container=container_id is not None, container_id=container_id),
         SpotBugsAnalysis(in_container=container_id is not None, container_id=container_id),
     ]
@@ -289,7 +300,7 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
 
 
 def analyze_repos(repos_directory, num_processes=1, container_id=None, only_last_version=False):
-    anadroid = init_pyanadroid(repos_directory, only_last_version)
+    anadroid = init_pyanadroid(repos_directory, only_last_version, reset_git_repos=True)
     repo_list = list(anadroid.app_projects_ut)
     if num_processes > 1:
         # Parallel Execution

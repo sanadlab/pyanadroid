@@ -359,7 +359,6 @@ class AnaDroid(object):
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
             self.builder.set_project(instr_proj)
             if build_apks:
-
                 res = self.builder.build_proj_and_apk(build_type=self.build_type,
                                                 build_tests_apk=self.testing_framework.id == TESTING_FRAMEWORK.JUNIT if self.needs_tests_apk() else False,
                                                 rebuild=self.should_rebuild_apps)
@@ -394,11 +393,12 @@ class AnaDroid(object):
         for app_proj in self.app_projects_ut:
             app_name = os.path.basename(app_proj)
             logi("Processing app " + app_name + " in " + app_proj)
+            print(self.results_dir)
             original_proj = AndroidProject(projname=app_name, projdir=app_proj,
                                            results_dir=self.results_dir,
                                             clean_instrumentations=self.reinstrument)
-            self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
             results_dirs.append(original_proj.results_dir)
+            self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
 
         return results_dirs
 
@@ -427,7 +427,7 @@ class AnaDroid(object):
         """infers Android project root directory."""
         has_gradle_right_next = mega_find(dir_path, pattern="build.gradle*", maxdepth=4, type_file='f')
         if len(has_gradle_right_next) > 0:
-            print(has_gradle_right_next)
+            #print(has_gradle_right_next)
             top_gradle_file = min(has_gradle_right_next, key=len)
             if top_gradle_file is not None and os.path.basename(os.path.dirname(top_gradle_file)) == 'app':
                 return os.path.dirname(os.path.dirname(top_gradle_file))

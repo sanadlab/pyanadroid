@@ -1,7 +1,14 @@
+import json
 import os
 from abc import ABC, abstractmethod
+from shutil import copy
+
 from anadroid.Config import get_general_config
 
+BUILD_RESULTS_FILE = "buildStatus.json"
+SUCCESS_VALUE = "Success"
+ERROR_VALUE = "Error"
+BUILD_SUCCESS_VALUE = "BUILD SUCCESSFUL"
 
 class AbstractBuilder(ABC):
     """
@@ -17,7 +24,7 @@ class AbstractBuilder(ABC):
 
     """
 
-    def __init__(self, proj, device, resources_dir, instrumenter):
+    def __init__(self, proj, device, resources_dir, instrumenter, name='abstract_builder'):
         """
         Initializes a new instance of the AbstractBuilder class.
 
@@ -29,6 +36,7 @@ class AbstractBuilder(ABC):
 
         """
         super().__init__()
+        self.name = name
         self.android_home_dir = self.__get_android_home()
         self.proj = proj
         self.resources_dir = resources_dir
@@ -106,3 +114,58 @@ class AbstractBuilder(ABC):
 
         """
         return self.config.get(key, default)
+
+    def regist_successful_build(self, task="build"):
+        """record successful build in file.
+        Args:
+            task: build task name.
+        """
+        filename = f"{self.name}_{BUILD_RESULTS_FILE}"
+        filepath = os.path.join(self.proj.proj_dir, filename)
+        js = {}
+        if os.path.exists(filepath):
+            with open(filepath, 'r') as fl:
+                js = json.load(fl)
+
+        js[task] = SUCCESS_VALUE
+        with open(filepath, 'w') as outfile:
+            json.dump(js, outfile)
+        copy(filepath, os.path.join(self.proj.results_dir, BUILD_RESULTS_FILE))
+
+    def regist_error_build(self, task="build"):
+        """record successful build in file.
+        Args:
+            task: build task name.
+        """
+        filename = f"{self.name}_{BUILD_RESULTS_FILE}"
+        filepath = os.path.join(self.proj.proj_dir, filename)
+        js = {}
+        if os.path.exists(filepath):
+            with open(filepath, 'r') as fl:
+                js = json.load(fl)
+
+        js[task] = ERROR_VALUE
+        with open(filepath, 'w') as outfile:
+            json.dump(js, outfile)
+        copy(filepath, os.path.join(self.proj.results_dir, BUILD_RESULTS_FILE))
+
+    def get_previous_build_report_file(self):
+        """Gets the path to the build report file.
+
+        Returns:
+            str: The path to the build report file.
+        """
+
+        real_filename = f"{self.name}_{BUILD_RESULTS_FILE}"
+        if os.path.exists(os.path.join(self.proj.proj_dir, real_filename)):
+            return os.path.join(self.proj.proj_dir, real_filename)
+        elif os.path.exists(os.path.join(self.proj.results_dir, real_filename)):
+            return os.path.join(self.proj.results_dir, real_filename)
+
+        # for compat purposes only
+        filename = BUILD_RESULTS_FILE
+        if os.path.exists(os.path.join(self.proj.proj_dir, filename)):
+            return os.path.join(self.proj.proj_dir, filename)
+        elif os.path.exists(os.path.join(self.proj.results_dir, filename)):
+            return os.path.join(self.proj.results_dir, filename)
+        return os.path.join(self.proj.results_dir, real_filename)

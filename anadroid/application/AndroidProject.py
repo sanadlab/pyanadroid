@@ -102,6 +102,7 @@ class Project(object):
         Args:
             app_id (str): Project's app id.
         """
+        #print("app_id", app_id)
         proj_version = proj_version if proj_version is not None else get_repo_version(self.proj_dir)
         res_app_dir = os.path.join(self.results_dir, app_id, proj_version)
         logi(f"Creating results dir {res_app_dir}")
@@ -166,7 +167,8 @@ class AndroidProject(Project):
             Tuple[str, str]: Package name and project ID.
         """
         pkg_name = "unknown"
-        proj_name = os.path.dirname(self.proj_dir) if '_TRANSFORMED_' in self.proj_name else self.proj_name
+        proj_name = os.path.basename(os.path.dirname(self.proj_dir)) if '_TRANSFORMED_' in self.proj_name else self.proj_name
+        #print("proj_name", proj_name)
         if self.main_manif_file is None:
             return pkg_name, proj_name + "--" + pkg_name
         pkg_str = str(cat(self.main_manif_file))
@@ -384,7 +386,7 @@ class AndroidProject(Project):
         if build_type.value in self.apks and len(self.apks[build_type.value]) > 0:
             return self.apks[build_type.value]
         vals = mega_find(self.proj_dir, pattern="*.apk", type_file='f')
-        print(vals)
+        #print(vals)
         return list(filter(lambda x: build_type.value.lower() in x.lower(), vals))
 
     def get_test_apks(self):

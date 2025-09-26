@@ -16,7 +16,7 @@ from anadroid.utils.Utils import mega_find, execute_shell_command, sign_apk, log
 
 class BuilDroidBuilder(AbstractBuilder):
     def __init__(self, proj, device, resources_dir, instrumenter):
-        super(BuilDroidBuilder, self).__init__(proj, device, resources_dir, instrumenter)
+        super(BuilDroidBuilder, self).__init__(proj, device, resources_dir, instrumenter, name='buildroid')
         self.build_flags = {}
         self.retry_on_fail = self.get_config("retry_failed", True)
 
@@ -35,7 +35,11 @@ class BuilDroidBuilder(AbstractBuilder):
             builDroid.process_repository(self.proj.proj_dir, local_path=True, project_name=self.proj.proj_name,
                                          override_project=True, keep_container=True, stop_container=False)
             if not self.was_last_build_successful():
+                self.regist_error_build()
                 return False
+            else:
+                self.regist_successful_build()
+                logi("Project built successfully.")
         else:
             logw("Project was already built successfully. Skipping build.")
         return True
@@ -147,4 +151,4 @@ class BuilDroidBuilder(AbstractBuilder):
         Returns:
             bool: True if yes, False otherwise.
         """
-        return os.path.exists(os.path.join("builDroid_tests", self.proj.proj_name))
+        return os.path.exists(os.path.join("builDroid_tests", self.proj.proj_name)) or os.path.exists(self.get_previous_build_report_file())

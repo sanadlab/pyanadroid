@@ -8,7 +8,7 @@ import re
 from anadroid.application.AndroidProject import BUILD_TYPE
 from anadroid.application.Application import App
 from anadroid.application.Dependency import DependencyType
-from anadroid.build.AbstractBuilder import AbstractBuilder
+from anadroid.build.AbstractBuilder import AbstractBuilder, BUILD_SUCCESS_VALUE, BUILD_RESULTS_FILE, SUCCESS_VALUE
 from anadroid.build.versionUpgrader import DefaultSemanticVersion, can_be_semantic_version
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.JavaVersionManager import get_gradle_matching_version, JavaVersionManager
@@ -60,10 +60,7 @@ ATTRIBS_NAME_REMAPS = {
 	'instrumentTestCompile': 'jniDebuggable',
 }
 
-BUILD_RESULTS_FILE = "buildStatus.json"
-SUCCESS_VALUE = "Success"
-ERROR_VALUE = "Error"
-BUILD_SUCCESS_VALUE = "BUILD SUCCESSFUL"
+
 DEFAULT_BUILD_TIMES_TO_TRY = 5
 DEFAULT_BUILD_TOOLS_VERSION = '25.0.3'# TODO
 
@@ -147,7 +144,7 @@ class GradleBuilder(AbstractBuilder):
 		build_tools_version(str): Gradle version for proj.
 	"""
 	def __init__(self, proj, device, resources_dir, instrumenter):
-		super(GradleBuilder, self).__init__(proj, device, resources_dir, instrumenter)
+		super(GradleBuilder, self).__init__(proj, device, resources_dir, instrumenter, name='gradle_builder')
 		self.build_flags = {}
 		self.change_history = []
 		self.gradle_plg_version = proj.get_gradle_plugin() if proj else None
@@ -621,42 +618,14 @@ class GradleBuilder(AbstractBuilder):
 		Returns:
 			bool: True if build was successful, False otherwise.
 		"""
-		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
-		if os.path.exists(filename):
-			with open(filename, 'r') as fl:
+		filepath = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE) if os.path.exists(
+			os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)) else os.path.join(self.proj.results_dir,
+																				   BUILD_RESULTS_FILE)
+		if os.path.exists(filepath):
+			with open(filepath, 'r') as fl:
 				js = json.load(fl)
-			return js[task].lower() == SUCCESS_VALUE.lower() if task in js else False
+			return js[task].lower() == SUCCESS_VALUE.lower() if task in js else any(v.lower() == SUCCESS_VALUE.lower() for k, v in js.items())
 		return False
-
-	def regist_successful_build(self, task="build"):
-		"""record successful build in file.
-		Args:
-			task: build task name.
-		"""
-		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
-		js = {}
-		if os.path.exists(filename):
-			with open(filename, 'r') as fl:
-				js = json.load(fl)
-
-		js[task] = SUCCESS_VALUE
-		with open(filename, 'w') as outfile:
-			json.dump(js, outfile)
-
-	def regist_error_build(self, task="build"):
-		"""record successful build in file.
-		Args:
-			task: build task name.
-		"""
-		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
-		js = {}
-		if os.path.exists(filename):
-			with open(filename, 'r') as fl:
-				js = json.load(fl)
-
-		js[task] = ERROR_VALUE
-		with open(filename, 'w') as outfile:
-			json.dump(js, outfile)
 
 	def __set_build_tools_version(self, bld_file, btools_version=DEFAULT_BUILD_TOOLS_VERSION):
 		"""sets build tools version btools_version on bld_file.

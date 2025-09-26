@@ -97,7 +97,7 @@ class DummyBuilder(AbstractBuilder):
             resources_dir: The directory containing resources.
             instrumenter: The instrumenter object.
         """
-        super(DummyBuilder, self).__init__(proj, device, resources_dir, instrumenter)
+        super(DummyBuilder, self).__init__(proj, device, resources_dir, instrumenter, name='dummy')
         self.gradle_plg_version = proj.get_gradle_plugin()
         self.retry_on_fail = False
 

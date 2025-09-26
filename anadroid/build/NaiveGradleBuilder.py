@@ -124,7 +124,7 @@ class NaiveBuilder(AbstractBuilder):
 	"""
 
     def __init__(self, proj, device, resources_dir, instrumenter):
-        super(NaiveBuilder, self).__init__(proj, device, resources_dir, instrumenter)
+        super(NaiveBuilder, self).__init__(proj, device, resources_dir, instrumenter, name='naive_gradle')
         self.gradle_plg_version = proj.get_gradle_plugin()
         self.retry_on_fail = False
 
@@ -505,7 +505,7 @@ class NaiveBuilder(AbstractBuilder):
 		Returns:
 			bool: True if build was successful, False otherwise.
 		"""
-        filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
+        filename = self.get_previous_build_report_file()
         if os.path.exists(filename):
             with open(filename, 'r') as fl:
                 js = json.load(fl)
