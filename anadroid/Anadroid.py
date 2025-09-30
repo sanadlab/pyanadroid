@@ -35,8 +35,7 @@ from anadroid.testing_framework.MonkeyFramework import MonkeyFramework
 from anadroid.testing_framework.MonkeyRunnerFramework import MonkeyRunnerFramework
 from anadroid.testing_framework.RERANFramework import RERANFramework
 from anadroid.utils.Utils import mega_find, extract_pkg_name_from_apk, get_results_dir, logw, logi, loge, \
-    get_resources_dir, get_log_dir
-
+    get_resources_dir, get_log_dir, execute_shell_command
 
 
 class AnaDroid(object):
@@ -344,6 +343,15 @@ class AnaDroid(object):
         for app_proj in self.app_projects_ut:
             self.build_app_project(app_proj, build_apks=True)
 
+    def just_instrument(self, app_project, clean_instrumentations=False):
+        app_name = os.path.basename(app_project)
+        original_proj = AndroidProject(projname=app_name, projdir=app_project, results_dir=self.results_dir, init_results_dir=False)
+        instrumented_proj_dir = self.instrumenter.instrument(original_proj,
+                            instr_type=self.instrumentation_type) if self.instrumenter is not None else app_project
+        instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
+        self.builder.set_project(instr_proj)
+        return instr_proj if instr_proj else original_proj
+
     def build_app_project(self, app_project, build_apks=False, retry=False, skip_analyzers=False):
         app_name = os.path.basename(app_project)
         logi("Processing app " + app_name + " in " + app_project)
@@ -352,11 +360,11 @@ class AnaDroid(object):
         try:
 
             original_proj = AndroidProject(projname=app_name, projdir=app_project, results_dir=self.results_dir,
-                                           clean_instrumentations=self.reinstrument)
-            if not skip_analyzers:
-                self.pre_build_analyzers.analyze_project(original_proj, retry=retry)
+                                           clean_instrumentations=self.reinstrument, init_results_dir=False)
             instrumented_proj_dir = self.instrumenter.instrument(original_proj, instr_type=self.instrumentation_type) if self.instrumenter is not None else app_project
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
+            if not skip_analyzers:
+                self.pre_build_analyzers.analyze_project(instr_proj, retry=retry)
             self.builder.set_project(instr_proj)
             if build_apks:
                 res = self.builder.build_proj_and_apk(build_type=self.build_type,
@@ -370,7 +378,7 @@ class AnaDroid(object):
         if not res:
             loge(f"Unable to build {app_name}. Skipping app")
             return instr_proj
-        return instr_proj if instr_proj else app_project
+        return instr_proj if instr_proj else original_proj
 
     def just_analyze(self, retry=False):
         """analyze apps obtained from app_projects_ut."""

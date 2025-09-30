@@ -138,7 +138,7 @@ class AndroidProject(Project):
         main_manif_file (str): Project manifest file.
         tests_manif_file: Manifest of the test project.
     """
-    def __init__(self, projname, projdir, results_dir=RESULTS_DIR, clean_instrumentations=False):
+    def __init__(self, projname, projdir, results_dir=RESULTS_DIR, clean_instrumentations=False, init_results_dir=True):
         """Initializes an AndroidProject instance.
 
         Args:
@@ -154,7 +154,8 @@ class AndroidProject(Project):
         self.modules = {}
         self.__init_modules()
         self.pkg_name, self.app_id = self.__gen_proj_id()
-        super().init_results_dir(self.app_id)
+        if init_results_dir:
+            super().init_results_dir(self.app_id)
         self.proj_version = DefaultSemanticVersion("0.0")
         self.apks = {'Test': [], 'Debug': [], 'Release': [], 'Custom': []}
         if clean_instrumentations:

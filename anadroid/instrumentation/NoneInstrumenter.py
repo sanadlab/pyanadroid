@@ -41,6 +41,8 @@ class NoneInstrumenter(AbstractInstrumenter):
             for file_p in all_proj_files:
                 full_file_path = os.path.join(android_project.proj_dir, file_p)
                 target_file_path = os.path.join(android_project.proj_dir, new_dir_name, file_p)
+                if '.git' in full_file_path:
+                    continue
                 if os.path.exists(target_file_path):
                     continue
                 elif os.path.isdir(full_file_path):
@@ -49,6 +51,8 @@ class NoneInstrumenter(AbstractInstrumenter):
                     continue
                     #android_project.apk_files.append(target_file_path)
                 elif not os.path.exists(target_file_path):
+                    if 'lint' in file_p and 'xml' in file_p:
+                        continue
                     copy(full_file_path, target_file_path)
 
         else:

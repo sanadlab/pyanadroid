@@ -36,7 +36,7 @@ def init_pyanadroid(repo_dir, only_last_version=True, reset_git_repos=False):
             print(f"Resetting git repo: {gdir}")
             reset_repo(gdir, clean_instrumentation=False)
     return AnaDroid(arg1=repo_dir,
-                    results_dir="anadroid_results",
+                    results_dir="/Volumes/Lexar/anadroid_results",
                     testing_framework=TESTING_FRAMEWORK.NONE,
                     device=MockedDevice(),
                     profiler=PROFILER.NONE,
@@ -68,9 +68,12 @@ def load_project_issues(proj_results_dir):
     if len(lint_results) > 0:
         lint_issues = set()
         for lint_file in lint_results:
-            lint_issues.update(LintAnalysis().get_issues(lint_file))
-            lint_issues.update(XALintAnalysis().get_issues(lint_file, ignore_lint_issues=True))
-            lint_issues.update(ChimeraAnalysis().get_issues(lint_file, ignore_lint_issues=True))
+            try:
+                lint_issues.update(LintAnalysis().get_issues(lint_file))
+                lint_issues.update(XALintAnalysis().get_issues(lint_file, ignore_lint_issues=True))
+                lint_issues.update(ChimeraAnalysis().get_issues(lint_file, ignore_lint_issues=True))
+            except:
+                pass
         issues_list = issues_list + list(lint_issues)
     detekt_results = mega_find(proj_results_dir, pattern="*detekt_analysis.xml", type_file='f', maxdepth=2)
     if len(detekt_results) > 0:
@@ -181,14 +184,28 @@ def reset_repo(repo_dir, branch_name='-', clean_instrumentation=False):
         for d in instr_dir:
             print(d)
             #execute_shell_command(f"rm -rf {d}").validate()
-    cmd =  f"cd {repo_dir} && git reset --keep && git reset --hard  && git checkout {branch_name} "
+    cmd =  f"cd {repo_dir} && git reset --keep && git reset --hard  && git checkout -f {branch_name} "
     print(cmd)
     res = execute_shell_command(cmd)
     res.validate()
     print(res)
 
-def process_project(proj_repo, anadroid, lightweight_analyzers, heaviweight_analyzers):
-    if len(heaviweight_analyzers) == 0:
+
+def build_project(proj_repo, anadroid):
+    instr_proj =  anadroid.just_instrument(proj_repo, clean_instrumentations=False)
+    if anadroid.builder.was_last_build_successful():
+        print('construi crl')
+        return instr_proj.proj_dir
+    else:
+        was_attempted_to_build_with_pyanadroid = False
+        was_attempted_to_build_with_buildroid = False
+        if not was_attempted_to_build_with_pyanadroid or not was_attempted_to_build_with_buildroid:
+            proj = anadroid.build_app_project(proj_repo, build_apks=False)
+            return proj.proj_dir
+    return instr_proj.proj_dir
+
+def process_project(proj_repo, anadroid, lightweight_analyzers, heavyweight_analyzers):
+    if len(heavyweight_analyzers) == 0:
         anadroid.app_projects_ut = [proj_repo]
         res_dirs = anadroid.just_static_analyze(retry=True)
         print('iss fldr', res_dirs)
@@ -197,12 +214,13 @@ def process_project(proj_repo, anadroid, lightweight_analyzers, heaviweight_anal
         print([x.get_simple_name() for x in issues])
 
     else:
+        # build to analyze
         anadroid.pre_build_analyzers = ComposedAnalyzer(None,
                                                         inner_analyzers=lightweight_analyzers)
-        proj = anadroid.build_app_project(proj_repo, build_apks=False)
+        proj = build_project(proj_repo, anadroid)
         if anadroid.builder.was_last_build_successful():
             anadroid.pre_build_analyzers = ComposedAnalyzer(None,
-                                                            inner_analyzers=heaviweight_analyzers)
+                                                            inner_analyzers=heavyweight_analyzers)
             anadroid.app_projects_ut = [proj.proj_dir]
             res_dirs = anadroid.just_static_analyze(retry=False)
             iss_folder = getattr(res_dirs[0], 'proj_dir', res_dirs[0])
@@ -219,8 +237,13 @@ def process_project(proj_repo, anadroid, lightweight_analyzers, heaviweight_anal
 def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
     """Analyzes a subset of repositories."""
     sorted_repo_list = []
-    source_code_analyzers = [DAAPAnalysis(), PMDAnalysis(), ADoctorAnalysis(), DetektAnalysis()]
-    heaviweight_analyzers = [
+    source_code_analyzers = [
+        #DAAPAnalysis(),
+        #PMDAnalysis(),
+        #ADoctorAnalysis(),
+        #DetektAnalysis()
+        ]
+    heavyweight_analyzers = [
         LintAnalysis(in_container=container_id is not None, container_id=container_id),
         EcoAndroidAnalysis(),
         InferAnalysis(in_container=container_id is not None, container_id=container_id),
@@ -254,7 +277,7 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
                     reset_repo(repo_dir)
                 for app_proj in anadroid.app_projects_ut:
                     try:
-                        process_project(app_proj, anadroid, source_code_analyzers, heaviweight_analyzers)
+                        process_project(app_proj, anadroid, source_code_analyzers, heavyweight_analyzers)
                     except Exception as e:
                         loge(f"Oh no. Error building project {app_proj}: {e}")
                         traceback.print_exc()
@@ -263,36 +286,41 @@ def analyze_repo_subset(repos_list, container_id=None, only_last_version=False):
             trunc_commit_set_size = (max(20, int(len(commit_list)/100)) if len(commit_list) > 100 else 5) if len(commit_list) > 20 else 3 if len(commit_list) > 10 else 1
             comm_set_list = [x for i, x in enumerate(commit_list) if i % trunc_commit_set_size == 0]
             print(f"Truncating commit set to every {trunc_commit_set_size} commits for analysis ({len(comm_set_list)} from Total of {len(commit_list)} commits)")
-            for i, commit in enumerate(comm_set_list):
+            for i, commit in enumerate(reversed(comm_set_list)):
                 commit_msgs_concat = " ; ".join([c['message'] for c in commit_list[max(0, (i - 1) * trunc_commit_set_size): (i * trunc_commit_set_size)]]) if i > 0 else commit['message']
-
                 commit_hash = commit['hash']
+                if i > 5:
+                    exit(0)
                 print(f"Checking out commit {i + 1}/{len(comm_set_list)}: {commit_hash}")
                 reset_repo(repo_dir, commit_hash, clean_instrumentation=True)
                 #execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {commit_hash}").validate()
                 # Run static analysis
                 try:
-                    res = process_project(repo_dir, anadroid, source_code_analyzers, heaviweight_analyzers)
+                    res = process_project(repo_dir, anadroid, source_code_analyzers, heavyweight_analyzers)
                 except:
                     traceback.print_exc()
                     continue
                 commit['issues'] = res
                 logi(f"Commit {commit_hash} has {len(commit['issues'])} issues")
                 # Checkout back to branch
-                reset_repo(repo_dir, commit_hash)
+                #reset_repo(repo_dir, commit_hash)
                 #execute_shell_command(f"cd {repo_dir} && git reset --hard && git clean -fd && git checkout -f {branch_name}").validate()
-                regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
+                #regressions = issue_regression(commit['issues'], prev_issue_list, repo_dir, commit_hash)
+                regressions = issue_regression(prev_issue_list, commit['issues'], repo_dir, commit_hash)
                 if regressions:
                     with lock:
                         with open('v2_regressions.csv', 'a+') as file:
                             writer = csv.writer(file, delimiter=';')
                             for reg in regressions:
                                 writer.writerow(
-                                    [repo_dir, prev_commit_hash, commit_hash,commit_msgs_concat.replace(';', '.'),
+                                    #[repo_dir, prev_commit_hash, commit_hash,commit_msgs_concat.replace(';', '.'),
+                                    [repo_dir, commit_hash, prev_commit_hash, commit_msgs_concat.replace(';', '.'),
                                      str(reg[0]), reg[1]])
                 save_issues(commit['issues'], repo_dir, commit_hash)
                 prev_issue_list = commit['issues']
                 prev_commit_hash = commit_hash
+                # copy buildStatus.json
+
 
         except Exception as e:
             loge(f"Error analyzing repo {repo_dir}: {e}")
