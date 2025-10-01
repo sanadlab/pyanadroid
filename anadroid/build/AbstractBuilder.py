@@ -130,7 +130,7 @@ class AbstractBuilder(ABC):
         js[task] = SUCCESS_VALUE
         with open(filepath, 'w') as outfile:
             json.dump(js, outfile)
-        copy(filepath, os.path.join(self.proj.results_dir, BUILD_RESULTS_FILE))
+        copy(filepath, os.path.join(self.proj.results_dir, filename))
 
     def regist_error_build(self, task="build"):
         """record successful build in file.
@@ -143,11 +143,10 @@ class AbstractBuilder(ABC):
         if os.path.exists(filepath):
             with open(filepath, 'r') as fl:
                 js = json.load(fl)
-
         js[task] = ERROR_VALUE
         with open(filepath, 'w') as outfile:
             json.dump(js, outfile)
-        copy(filepath, os.path.join(self.proj.results_dir, BUILD_RESULTS_FILE))
+        copy(filepath, os.path.join(self.proj.results_dir, filename))
 
     def get_previous_build_report_file(self):
         """Gets the path to the build report file.
