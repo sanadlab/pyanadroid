@@ -1,0 +1,96 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:38.939+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/next-companion/app/src/main/java/com/example/hochi/nextcompanion/LoginActivity.java",
+      "violations": [
+        {
+          "beginline": 32,
+          "begincolumn": 28,
+          "endline": 32,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027mAuthTask\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/next-companion/app/src/main/java/com/example/hochi/nextcompanion/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 26,
+          "begincolumn": 28,
+          "endline": 26,
+          "endcolumn": 40,
+          "description": "Avoid using redundant field initializer for \u0027getBikesTask\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/next-companion/app/src/main/java/com/example/hochi/nextcompanion/RentActivity.java",
+      "violations": [
+        {
+          "beginline": 15,
+          "begincolumn": 28,
+          "endline": 15,
+          "endcolumn": 43,
+          "description": "Avoid using redundant field initializer for \u0027rentRequestTask\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/next-companion/app/src/main/java/com/example/hochi/nextcompanion/RequestHandler.java",
+      "violations": [
+        {
+          "beginline": 34,
+          "begincolumn": 34,
+          "endline": 34,
+          "endcolumn": 37,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 50,
+          "begincolumn": 65,
+          "endline": 50,
+          "endcolumn": 67,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 71,
+          "begincolumn": 17,
+          "endline": 71,
+          "endcolumn": 39,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

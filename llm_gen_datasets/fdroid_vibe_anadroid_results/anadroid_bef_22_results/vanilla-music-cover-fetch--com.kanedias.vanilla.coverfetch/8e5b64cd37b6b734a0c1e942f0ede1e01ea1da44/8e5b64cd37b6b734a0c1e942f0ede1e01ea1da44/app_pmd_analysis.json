@@ -1,0 +1,113 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:20.995+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-music-cover-fetch/app/src/main/java/com/kanedias/vanilla/coverfetch/CoverArchiveEngine.java",
+      "violations": [
+        {
+          "beginline": 143,
+          "begincolumn": 31,
+          "endline": 143,
+          "endcolumn": 48,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 150,
+          "begincolumn": 47,
+          "endline": 150,
+          "endcolumn": 74,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-music-cover-fetch/app/src/main/java/com/kanedias/vanilla/coverfetch/CoverShowActivity.java",
+      "violations": [
+        {
+          "beginline": 284,
+          "begincolumn": 42,
+          "endline": 284,
+          "endcolumn": 67,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 398,
+          "begincolumn": 40,
+          "endline": 398,
+          "endcolumn": 56,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 472,
+          "begincolumn": 40,
+          "endline": 472,
+          "endcolumn": 56,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 528,
+          "begincolumn": 40,
+          "endline": 528,
+          "endcolumn": 56,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 622,
+          "begincolumn": 9,
+          "endline": 637,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-music-cover-fetch/app/src/main/java/com/kanedias/vanilla/coverfetch/PluginQueryBroadcastReceiver.java",
+      "violations": [
+        {
+          "beginline": 50,
+          "begincolumn": 9,
+          "endline": 56,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/LauncherActivity.kt">
+	<error line="50" column="7" severity="warning" message="Class &apos;LauncherActivity&apos; with &apos;20&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="330" column="45" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="245" column="63" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="246" column="63" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="330" column="21" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="330" column="21" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="19" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="21" column="1" severity="warning" message="androidx.appcompat.app.AppCompatDelegate.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="28" column="1" severity="warning" message="kotlinx.android.synthetic.main.help_launcher.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="29" column="1" severity="warning" message="kotlinx.android.synthetic.main.launcher_layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="30" column="1" severity="warning" message="kotlinx.android.synthetic.main.slide_fragment.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="31" column="1" severity="warning" message="kotlinx.android.synthetic.main.tag_name.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="219" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="352" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="446" column="9" severity="warning" message="The loop contains more than one break or continue statement. The code should be refactored to increase readability." source="detekt.LoopWithTooManyJumpStatements" />
+	<error line="61" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="102" column="68" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="121" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="198" column="41" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="198" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="198" column="54" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="211" column="51" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="236" column="75" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="236" column="78" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="253" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="292" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="313" column="70" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="314" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="393" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="476" column="48" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/RunCommand.kt">
+	<error line="57" column="13" severity="warning" message="Function closeSilently is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="69" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="67" column="33" severity="warning" message="RuntimeException is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="30" column="17" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="34" column="13" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="45" column="27" severity="warning" message="Function parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.FunctionParameterNaming" />
+	<error line="88" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/RunCommand.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="6" column="1" severity="warning" message="java.io.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="47" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/Db.kt">
+	<error line="40" column="16" severity="warning" message="The function getData(table: String, where: String, fields: String, groupBy: String, sortBy: String, limit: Int) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="40" column="9" severity="warning" message="Function getData is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="112" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/Db.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="10" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="40" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/config/AppsListRecyclerAdapter.kt">
+	<error line="171" column="21" severity="warning" message="The function gridLongClick is too long (61). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="75" column="17" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="21" column="1" severity="warning" message="kotlinx.android.synthetic.main.item_apps_layout.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="24" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="77" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="101" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="103" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="105" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="125" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="126" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="132" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="138" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="147" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="155" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="156" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="171" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="181" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="201" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="215" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="83" column="49" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="85" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="87" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="168" column="59" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="168" column="65" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="168" column="72" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="182" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="187" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="187" column="79" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="206" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="206" column="67" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="207" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="212" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/config/Config.kt">
+	<error line="22" column="7" severity="warning" message="Class &apos;Config&apos; with &apos;11&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="100" column="65" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="128" column="65" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="151" column="65" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="169" column="65" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="195" column="41" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="221" column="69" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="228" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/config/Config.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="10" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="12" column="1" severity="warning" message="androidx.appcompat.app.AppCompatDelegate.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="17" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_config.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="91" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="119" column="43" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="136" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="145" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="160" column="43" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="218" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/LauncherSlideFragment.kt">
+	<error line="86" column="30" severity="warning" message="The function createAppView(view: View, tag: String, app: ArrayList&lt;String&gt;, cellSize: Int, objCmd: RunCommand, row: Int, col: Int, dbHandler: Db, c: Int, imgSize: Int) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="160" column="17" severity="warning" message="The function showAppMenu is too long (87). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="160" column="17" severity="warning" message="The function showAppMenu appears to be too complex based on Cyclomatic Complexity (complexity: 19). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="107" column="20" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="78" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="155" column="17" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="14" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="15" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="19" column="1" severity="warning" message="kotlinx.android.synthetic.main.slide_fragment.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="86" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="111" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="127" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="178" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="62" column="112" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="96" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="98" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="98" column="65" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="100" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="100" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="105" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="105" column="70" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="107" column="36" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="107" column="52" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="115" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="179" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="186" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="186" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="193" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="193" column="51" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="194" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="197" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="253" column="25" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="259" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="272" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="277" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/WidgetAniActivity.kt">
+	<error line="112" column="60" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="113" column="61" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="11" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="16" column="1" severity="warning" message="kotlinx.android.synthetic.main.widget_ani_layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="62" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="57" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="70" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="97" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="97" column="67" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="98" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="100" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="106" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="125" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/EnableAllWidget.kt">
+	<error line="53" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/EnableAllWidget.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="52" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/Notifications.kt">
+	<error line="30" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/Notifications.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="14" column="16" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/DynamicSearchAdapter.kt">
+	<error line="60" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/tools/DynamicSearchAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/DisableAllWidget.kt">
+	<error line="53" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/DisableAllWidget.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="52" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/MyBroadCastReceiver.kt">
+	<error line="39" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/MyBroadCastReceiver.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="14" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="23" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="36" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="29" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="29" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/config/AppsListFragment.kt">
+	<error line="131" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/config/AppsListFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="20" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_apps.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="21" column="1" severity="warning" message="kotlinx.android.synthetic.main.help_apps.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="65" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="105" column="48" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/AppsActivity.kt">
+	<error line="6" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_main.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/MyJobService.kt">
+	<error line="62" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/MyJobService.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="58" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="38" column="27" severity="warning" message="Private property `TAG` is unused." source="detekt.UnusedPrivateProperty" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/AppsDisabler/app/src/main/java/com/servoz/appsdisabler/TagView.kt">
+	<error line="4" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+</checkstyle>

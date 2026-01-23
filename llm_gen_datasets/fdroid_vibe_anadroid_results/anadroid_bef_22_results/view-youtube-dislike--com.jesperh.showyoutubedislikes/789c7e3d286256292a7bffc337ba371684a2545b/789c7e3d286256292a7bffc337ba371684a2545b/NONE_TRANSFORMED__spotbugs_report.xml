@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767885999307" analysisTimestamp="1767886001411" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/view-youtube-dislike/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-32/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/view-youtube-dislike/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="UWF_UNWRITTEN_FIELD" priority="2" rank="12" abbrev="UwF" category="CORRECTNESS" instanceHash="8e8a0ff081bd367fb9a08a7351ac8b79" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="457">
+    <ShortMessage>Unwritten field</ShortMessage>
+    <LongMessage>Unwritten field: com.jesperh.showyoutubedislikes.APIServiceClass.id</LongMessage>
+    <Class classname="com.jesperh.showyoutubedislikes.APIServiceClass" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.APIServiceClass" start="3" end="22" sourcefile="APIServiceClass.java" sourcepath="com/jesperh/showyoutubedislikes/APIServiceClass.java" relSourcepath="com/jesperh/showyoutubedislikes/APIServiceClass.java">
+        <Message>At APIServiceClass.java:[lines 3-22]</Message>
+      </SourceLine>
+      <Message>In class com.jesperh.showyoutubedislikes.APIServiceClass</Message>
+    </Class>
+    <Field classname="com.jesperh.showyoutubedislikes.APIServiceClass" name="id" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.APIServiceClass" sourcefile="APIServiceClass.java" sourcepath="com/jesperh/showyoutubedislikes/APIServiceClass.java" relSourcepath="com/jesperh/showyoutubedislikes/APIServiceClass.java">
+        <Message>In APIServiceClass.java</Message>
+      </SourceLine>
+      <Message>Field com.jesperh.showyoutubedislikes.APIServiceClass.id</Message>
+    </Field>
+    <SourceLine classname="com.jesperh.showyoutubedislikes.APIServiceClass" primary="true" start="10" end="10" startBytecode="1" endBytecode="1" sourcefile="APIServiceClass.java" sourcepath="com/jesperh/showyoutubedislikes/APIServiceClass.java" relSourcepath="com/jesperh/showyoutubedislikes/APIServiceClass.java">
+      <Message>At APIServiceClass.java:[line 10]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="e6afa329972e9cdf0e8901ba69a7edaa" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to videoTitle in com.jesperh.showyoutubedislikes.DisplayMessageActivity.ErrorDownloading()</LongMessage>
+    <Class classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" start="38" end="219" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+        <Message>At DisplayMessageActivity.java:[lines 38-219]</Message>
+      </SourceLine>
+      <Message>In class com.jesperh.showyoutubedislikes.DisplayMessageActivity</Message>
+    </Class>
+    <Method classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" name="ErrorDownloading" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" start="191" end="205" startBytecode="0" endBytecode="48" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java"/>
+      <Message>In method com.jesperh.showyoutubedislikes.DisplayMessageActivity.ErrorDownloading()</Message>
+    </Method>
+    <LocalVariable name="videoTitle" register="6" pc="63" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named videoTitle</Message>
+    </LocalVariable>
+    <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true" start="196" end="196" startBytecode="61" endBytecode="61" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+      <Message>At DisplayMessageActivity.java:[line 196]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="videoTitle"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="817d5c16e138de36a6008e652970e97f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to Yes in com.jesperh.showyoutubedislikes.DisplayMessageActivity.ErrorPopup()</LongMessage>
+    <Class classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" start="38" end="219" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+        <Message>At DisplayMessageActivity.java:[lines 38-219]</Message>
+      </SourceLine>
+      <Message>In class com.jesperh.showyoutubedislikes.DisplayMessageActivity</Message>
+    </Class>
+    <Method classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" name="ErrorPopup" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" start="72" end="108" startBytecode="0" endBytecode="30" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java"/>
+      <Message>In method com.jesperh.showyoutubedislikes.DisplayMessageActivity.ErrorPopup()</Message>
+    </Method>
+    <LocalVariable name="Yes" register="2" pc="44" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named Yes</Message>
+    </LocalVariable>
+    <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true" start="88" end="88" startBytecode="43" endBytecode="43" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+      <Message>At DisplayMessageActivity.java:[line 88]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="Yes"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" instanceHash="45c3329a73189795bd2b4a64786a49cd" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="500">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.jesperh.showyoutubedislikes.DisplayMessageActivity.API_BASE_URL isn&apos;t final but should be</LongMessage>
+    <Class classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" start="38" end="219" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+        <Message>At DisplayMessageActivity.java:[lines 38-219]</Message>
+      </SourceLine>
+      <Message>In class com.jesperh.showyoutubedislikes.DisplayMessageActivity</Message>
+    </Class>
+    <Field classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" name="API_BASE_URL" signature="Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+        <Message>In DisplayMessageActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.jesperh.showyoutubedislikes.DisplayMessageActivity.API_BASE_URL</Message>
+    </Field>
+    <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true" start="111" end="111" startBytecode="2" endBytecode="2" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+      <Message>At DisplayMessageActivity.java:[line 111]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" instanceHash="f630dd7f21f18dac353a38b7a2dd3ca4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="500">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.jesperh.showyoutubedislikes.DisplayMessageActivity.API_GET_VOTES_QUERY isn&apos;t final but should be</LongMessage>
+    <Class classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" start="38" end="219" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+        <Message>At DisplayMessageActivity.java:[lines 38-219]</Message>
+      </SourceLine>
+      <Message>In class com.jesperh.showyoutubedislikes.DisplayMessageActivity</Message>
+    </Class>
+    <Field classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" name="API_GET_VOTES_QUERY" signature="Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+        <Message>In DisplayMessageActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.jesperh.showyoutubedislikes.DisplayMessageActivity.API_GET_VOTES_QUERY</Message>
+    </Field>
+    <SourceLine classname="com.jesperh.showyoutubedislikes.DisplayMessageActivity" primary="true" start="112" end="112" startBytecode="7" endBytecode="7" sourcefile="DisplayMessageActivity.java" sourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" relSourcepath="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java">
+      <Message>At DisplayMessageActivity.java:[line 112]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UWF_UNWRITTEN_FIELD" abbrev="UwF" category="CORRECTNESS" cweid="457">
+    <ShortDescription>Unwritten field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never written.&nbsp; All reads of it will return the default
+value. Check for errors (should it have been initialized?), or remove it if it is useless.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/457.html">CWE-457: Use of Uninitialized Variable</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_SHOULD_BE_FINAL" abbrev="MS" category="MALICIOUS_CODE" cweid="500">
+    <ShortDescription>Field isn&apos;t final but should be</ShortDescription>
+    <Details><![CDATA[
+
+   <p>
+This <code>public static</code> or <code>protected static</code> field is not final, and
+could be changed by malicious code or
+        by accident from another package.
+        The field could be made final to avoid
+        this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/500.html">CWE-500: Public Static Field Not Marked Final</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="UwF">
+    <Description>Unwritten field</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="17">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.android.volley.Request</MissingClass>
+    <MissingClass>com.android.volley.Request$Method</MissingClass>
+    <MissingClass>com.android.volley.RequestQueue</MissingClass>
+    <MissingClass>com.android.volley.Response</MissingClass>
+    <MissingClass>com.android.volley.Response$ErrorListener</MissingClass>
+    <MissingClass>com.android.volley.Response$Listener</MissingClass>
+    <MissingClass>com.android.volley.VolleyError</MissingClass>
+    <MissingClass>com.android.volley.toolbox.StringRequest</MissingClass>
+    <MissingClass>com.android.volley.toolbox.Volley</MissingClass>
+    <MissingClass>com.jesperh.showyoutubedislikes.R</MissingClass>
+    <MissingClass>com.jesperh.showyoutubedislikes.R$id</MissingClass>
+    <MissingClass>com.jesperh.showyoutubedislikes.R$layout</MissingClass>
+    <MissingClass>com.squareup.picasso.Picasso</MissingClass>
+    <MissingClass>com.squareup.picasso.RequestCreator</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 19:26:39 +0400" total_classes="5" referenced_classes="47" total_bugs="5" total_size="152" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.99" clock_seconds="0.43" peak_mbytes="200.10" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="3" priority_1="2">
+    <FileStats path="com/jesperh/showyoutubedislikes/APIServiceClass.java" bugCount="1" size="15" bugHash="b336e6853d58af80d742095e42a5a94e"/>
+    <FileStats path="com/jesperh/showyoutubedislikes/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/jesperh/showyoutubedislikes/DisplayMessageActivity.java" bugCount="4" size="113" bugHash="4b366e4d639ddbfcec7f07991439541e"/>
+    <FileStats path="com/jesperh/showyoutubedislikes/MainActivity.java" bugCount="0" size="14"/>
+    <PackageStats package="com.jesperh.showyoutubedislikes" total_bugs="5" total_types="5" total_size="152" priority_2="3" priority_1="2">
+      <ClassStats class="com.jesperh.showyoutubedislikes.APIServiceClass" sourceFile="APIServiceClass.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="com.jesperh.showyoutubedislikes.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.jesperh.showyoutubedislikes.DisplayMessageActivity" sourceFile="DisplayMessageActivity.java" interface="false" size="106" bugs="4" priority_2="2" priority_1="2"/>
+      <ClassStats class="com.jesperh.showyoutubedislikes.DisplayMessageActivity$1" sourceFile="DisplayMessageActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.jesperh.showyoutubedislikes.MainActivity" sourceFile="MainActivity.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="48" invocations="420" avgMicrosecondsPerInvocation="116" maxMicrosecondsPerInvocation="5430" standardDeviationMicrosecondsPerInvocation="371"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="18" invocations="47" avgMicrosecondsPerInvocation="386" maxMicrosecondsPerInvocation="6614" standardDeviationMicrosecondsPerInvocation="994"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="80" avgMicrosecondsPerInvocation="185" maxMicrosecondsPerInvocation="4254" standardDeviationMicrosecondsPerInvocation="546"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

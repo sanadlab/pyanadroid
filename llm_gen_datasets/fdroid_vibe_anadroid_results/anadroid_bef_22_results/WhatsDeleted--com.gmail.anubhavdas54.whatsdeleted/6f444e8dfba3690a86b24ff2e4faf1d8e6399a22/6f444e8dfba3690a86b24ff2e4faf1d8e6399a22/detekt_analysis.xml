@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/MainActivity.kt">
+	<error line="38" column="18" severity="warning" message="The function onCreate is too long (101). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="83" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="83" column="26" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="22" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="209" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="35" column="55" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="36" column="55" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/AlertDialogHelper.kt">
+	<error line="9" column="23" severity="warning" message="The function showDialog(context: Context, title: String, msg: String, positiveBtnText: String, negativeBtnText: String?, positiveBtnClickListener: DialogInterface.OnClickListener) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="26" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/AlertDialogHelper.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="7" column="1" severity="warning" message="The class AlertDialogHelper only contains utility functions. Consider defining it as an object." source="detekt.UtilityClassWithPublicConstructor" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/MsgLogViewerActivity.kt">
+	<error line="77" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="77" column="30" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="47" column="18" severity="warning" message="Function onOptionsItemSelected has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="90" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/MsgLogViewerActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="9" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_msg_log_viewer.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/MediaObserver.kt">
+	<error line="22" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/MediaObserverService.kt">
+	<error line="31" column="25" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/MsgLogAdapter.kt">
+	<error line="27" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/WhatsDeleted/app/src/main/java/com/gmail/anubhavdas54/whatsdeleted/MsgLogAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="8" column="1" severity="warning" message="kotlinx.android.synthetic.main.msg_log_item.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+</checkstyle>

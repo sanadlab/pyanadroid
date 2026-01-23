@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.3">
+
+    <issue
+        id="DrawAllocation"
+        severity="Warning"
+        message="Avoid object allocations during draw/layout operations (preallocate and reuse instead)"
+        category="Performance"
+        priority="9"
+        summary="Memory allocations within drawing code"
+        explanation="You should avoid allocating objects during a drawing or layout operation. These are called frequently, so a smooth UI can be interrupted by garbage collection pauses caused by the object allocations.&#xA;&#xA;The way this is generally handled is to allocate the needed objects up front and to reuse them for each drawing operation.&#xA;&#xA;Some methods allocate memory on your behalf (such as `Bitmap.create`), and these should be handled in the same way."
+        errorLine1="        RectF gridRect = new RectF(startX, startY, startX + totalGridWidth, startY + totalGridWidth);"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="177"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="DrawAllocation"
+        severity="Warning"
+        message="Avoid object allocations during draw/layout operations (preallocate and reuse instead)"
+        category="Performance"
+        priority="9"
+        summary="Memory allocations within drawing code"
+        explanation="You should avoid allocating objects during a drawing or layout operation. These are called frequently, so a smooth UI can be interrupted by garbage collection pauses caused by the object allocations.&#xA;&#xA;The way this is generally handled is to allocate the needed objects up front and to reuse them for each drawing operation.&#xA;&#xA;Some methods allocate memory on your behalf (such as `Bitmap.create`), and these should be handled in the same way."
+        errorLine1="                RectF cellRect = new RectF(cellX, cellY, cellX + cellSize, cellY + cellSize);"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="186"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `#FAF8EF` with a theme that also paints a background (inferred theme is `@style/Theme.Game2048`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;#FAF8EF&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="9"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` member of class `GestureListener` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="        gestureDetector = new GestureDetectorCompat(context, new GestureListener());"
+        errorLine2="                                                             ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="90"
+            column="62"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `isGameOver` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="            if (isGameOver || isMoving) return false; // Already handled in onTouchEvent, but belt and suspenders"
+        errorLine2="                ~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="271"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `isMoving` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="            if (isGameOver || isMoving) return false; // Already handled in onTouchEvent, but belt and suspenders"
+        errorLine2="                              ~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="271"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `isMoving` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="            isMoving = true; // Start processing move"
+        errorLine2="            ~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="277"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveRight` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        moved = moveRight();"
+        errorLine2="                                ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="284"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveLeft` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        moved = moveLeft();"
+        errorLine2="                                ~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="287"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveDown` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        moved = moveDown();"
+        errorLine2="                                ~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="295"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveUp` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        moved = moveUp();"
+        errorLine2="                                ~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="298"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `addNewTile` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                addNewTile();"
+        errorLine2="                ~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="304"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `gameListener` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (gameListener != null) {"
+        errorLine2="                    ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="305"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `gameListener` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    gameListener.onScoreChanged(score);"
+        errorLine2="                    ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="306"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `score` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    gameListener.onScoreChanged(score);"
+        errorLine2="                                                ~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="306"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `checkWinCondition` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    if (checkWinCondition()) {"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="308"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `gameListener` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        gameListener.onGameWon();"
+        errorLine2="                        ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="309"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `canMove` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (!canMove()) { // Check game over AFTER adding new tile"
+        errorLine2="                     ~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="313"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `isGameOver` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    isGameOver = true;"
+        errorLine2="                    ~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="314"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `gameListener` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    if (gameListener != null) {"
+        errorLine2="                        ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="315"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `gameListener` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        gameListener.onGameOver();"
+        errorLine2="                        ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="316"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `isMoving` of class `GameView` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="            isMoving = false; // Finished processing move"
+        errorLine2="            ~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"
+            line="322"
+            column="13"/>
+    </issue>
+
+</issues>

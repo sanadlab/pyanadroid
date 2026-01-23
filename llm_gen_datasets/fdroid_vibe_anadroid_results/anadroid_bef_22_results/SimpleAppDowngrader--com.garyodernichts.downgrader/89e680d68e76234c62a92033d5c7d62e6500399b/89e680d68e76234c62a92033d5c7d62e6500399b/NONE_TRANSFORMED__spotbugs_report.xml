@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767892157345" analysisTimestamp="1767892159359" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/SimpleAppDowngrader/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-28/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/SimpleAppDowngrader/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="225d11cc1130d8b1e6854d24ed315ed6" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.garyodernichts.downgrader.MainActivity.clearCache() due to return value of called method</LongMessage>
+    <Class classname="com.garyodernichts.downgrader.MainActivity" primary="true">
+      <SourceLine classname="com.garyodernichts.downgrader.MainActivity" start="34" end="238" sourcefile="MainActivity.java" sourcepath="com/garyodernichts/downgrader/MainActivity.java" relSourcepath="com/garyodernichts/downgrader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 34-238]</Message>
+      </SourceLine>
+      <Message>In class com.garyodernichts.downgrader.MainActivity</Message>
+    </Class>
+    <Method classname="com.garyodernichts.downgrader.MainActivity" name="clearCache" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.garyodernichts.downgrader.MainActivity" start="167" end="175" startBytecode="0" endBytecode="197" sourcefile="MainActivity.java" sourcepath="com/garyodernichts/downgrader/MainActivity.java" relSourcepath="com/garyodernichts/downgrader/MainActivity.java"/>
+      <Message>In method com.garyodernichts.downgrader.MainActivity.clearCache()</Message>
+    </Method>
+    <LocalVariable name="children" register="2" pc="19" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from children</Message>
+    </LocalVariable>
+    <SourceLine classname="com.garyodernichts.downgrader.MainActivity" primary="true" start="171" end="171" startBytecode="20" endBytecode="20" sourcefile="MainActivity.java" sourcepath="com/garyodernichts/downgrader/MainActivity.java" relSourcepath="com/garyodernichts/downgrader/MainActivity.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at MainActivity.java:[line 171]</Message>
+    </SourceLine>
+    <SourceLine classname="com.garyodernichts.downgrader.MainActivity" start="170" end="170" startBytecode="13" endBytecode="13" sourcefile="MainActivity.java" sourcepath="com/garyodernichts/downgrader/MainActivity.java" relSourcepath="com/garyodernichts/downgrader/MainActivity.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at MainActivity.java:[line 170]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" instanceHash="1ddb457df5941d5ba86e369cf14ca33c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="253">
+    <ShortMessage>Method ignores exceptional return value</ShortMessage>
+    <LongMessage>Exceptional return value of java.io.File.delete() ignored in com.garyodernichts.downgrader.MainActivity.clearCache()</LongMessage>
+    <Class classname="com.garyodernichts.downgrader.MainActivity" primary="true">
+      <SourceLine classname="com.garyodernichts.downgrader.MainActivity" start="34" end="238" sourcefile="MainActivity.java" sourcepath="com/garyodernichts/downgrader/MainActivity.java" relSourcepath="com/garyodernichts/downgrader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 34-238]</Message>
+      </SourceLine>
+      <Message>In class com.garyodernichts.downgrader.MainActivity</Message>
+    </Class>
+    <Method classname="com.garyodernichts.downgrader.MainActivity" name="clearCache" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.garyodernichts.downgrader.MainActivity" start="167" end="175" startBytecode="0" endBytecode="197" sourcefile="MainActivity.java" sourcepath="com/garyodernichts/downgrader/MainActivity.java" relSourcepath="com/garyodernichts/downgrader/MainActivity.java"/>
+      <Message>In method com.garyodernichts.downgrader.MainActivity.clearCache()</Message>
+    </Method>
+    <Method classname="java.io.File" name="delete" signature="()Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="704" end="704" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.delete()</Message>
+    </Method>
+    <SourceLine classname="com.garyodernichts.downgrader.MainActivity" primary="true" start="172" end="172" startBytecode="49" endBytecode="49" sourcefile="MainActivity.java" sourcepath="com/garyodernichts/downgrader/MainActivity.java" relSourcepath="com/garyodernichts/downgrader/MainActivity.java">
+      <Message>At MainActivity.java:[line 172]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" abbrev="NP" category="STYLE">
+    <ShortDescription>Possible null pointer dereference due to return value of called method</ShortDescription>
+    <Details><![CDATA[
+      
+<p> The return value from a method is dereferenced without a null check,
+and the return value of that method is one that should generally be checked
+for null.  This may lead to a <code>NullPointerException</code> when the code is executed.
+</p>
+      
+   ]]></Details>
+  </BugPattern>
+  <BugPattern type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" abbrev="RV" category="BAD_PRACTICE" cweid="253">
+    <ShortDescription>Method ignores exceptional return value</ShortDescription>
+    <Details><![CDATA[
+
+   <p> This method returns a value that is not checked. The return value should be checked
+since it can indicate an unusual or unexpected function execution. For
+example, the <code>File.delete()</code> method returns false
+if the file could not be successfully deleted (rather than
+throwing an Exception).
+If you don't check the result, you won't notice if the method invocation
+signals unexpected behavior by returning an atypical return value.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/253.html">CWE-253: Incorrect Check of Function Return Value</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="RV" cweid="440">
+    <Description>Bad use of return value from method</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="20">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.garyodernichts.downgrader.R</MissingClass>
+    <MissingClass>com.garyodernichts.downgrader.R$id</MissingClass>
+    <MissingClass>com.garyodernichts.downgrader.R$layout</MissingClass>
+    <MissingClass>com.garyodernichts.downgrader.R$string</MissingClass>
+    <MissingClass>com.google.android.material.snackbar.Snackbar</MissingClass>
+    <MissingClass>com.topjohnwu.superuser.BuildConfig</MissingClass>
+    <MissingClass>com.topjohnwu.superuser.Shell</MissingClass>
+    <MissingClass>com.topjohnwu.superuser.Shell$Config</MissingClass>
+    <MissingClass>com.topjohnwu.superuser.Shell$Job</MissingClass>
+    <MissingClass>com.topjohnwu.superuser.Shell$Result</MissingClass>
+    <MissingClass>com.topjohnwu.superuser.Shell$ResultCallback</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>pub.devrel.easypermissions.EasyPermissions</MissingClass>
+    <MissingClass>pub.devrel.easypermissions.EasyPermissions$PermissionCallbacks</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 21:09:17 +0400" total_classes="2" referenced_classes="49" total_bugs="2" total_size="154" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.13" clock_seconds="0.45" peak_mbytes="203.32" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="2">
+    <FileStats path="com/garyodernichts/downgrader/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/garyodernichts/downgrader/MainActivity.java" bugCount="2" size="143" bugHash="2054eebc89f0126c413ec0fb70497830"/>
+    <PackageStats package="com.garyodernichts.downgrader" total_bugs="2" total_types="2" total_size="154" priority_2="2">
+      <ClassStats class="com.garyodernichts.downgrader.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.garyodernichts.downgrader.MainActivity" sourceFile="MainActivity.java" interface="false" size="143" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="49" invocations="420" avgMicrosecondsPerInvocation="117" maxMicrosecondsPerInvocation="7338" standardDeviationMicrosecondsPerInvocation="409"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="22" invocations="49" avgMicrosecondsPerInvocation="460" maxMicrosecondsPerInvocation="4077" standardDeviationMicrosecondsPerInvocation="877"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="13" invocations="87" avgMicrosecondsPerInvocation="156" maxMicrosecondsPerInvocation="3612" standardDeviationMicrosecondsPerInvocation="432"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="12" invocations="2" avgMicrosecondsPerInvocation="6371" maxMicrosecondsPerInvocation="12548" standardDeviationMicrosecondsPerInvocation="6177"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="11" invocations="22" avgMicrosecondsPerInvocation="523" maxMicrosecondsPerInvocation="3803" standardDeviationMicrosecondsPerInvocation="772"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

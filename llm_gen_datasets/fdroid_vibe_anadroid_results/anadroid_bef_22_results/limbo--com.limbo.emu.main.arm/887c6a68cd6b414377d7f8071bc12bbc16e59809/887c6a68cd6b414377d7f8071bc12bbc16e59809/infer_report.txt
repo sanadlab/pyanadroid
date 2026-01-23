@@ -1,0 +1,244 @@
+#0
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/files/FileInstaller.java:149: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 140 is not closed after the last access at line 149. 
+  147.               is.close();
+  148.               return true;
+  149. >         } catch (Exception ex) {
+  150.               Log.e(TAG, "failed to install file: " + destFile + ", Error:" + ex.getMessage());
+  151.               return false;
+
+#1
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/files/FileInstaller.java:151: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 140 is not closed after the last access at line 151. 
+  149.           } catch (Exception ex) {
+  150.               Log.e(TAG, "failed to install file: " + destFile + ", Error:" + ex.getMessage());
+  151. >             return false;
+  152.           }
+  153.       }
+
+#2
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/files/FileUtils.java:141: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 131 is not closed after the last access at line 141. 
+  139.           }
+  140.   
+  141. >     }
+  142.   
+  143.       public static InputStream getStreamFromFilePath(String filePath) throws FileNotFoundException {
+
+#3
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/files/FileUtils.java:172: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 169 is not closed after the last access at line 172. 
+  170.               byte[] buff = new byte[32768];
+  171.               int bytesRead = 0;
+  172. >             while ((bytesRead = stream.read(buff, 0, buff.length)) > 0) {
+  173.                   //FIXME: log file can be too large appending might fail with out of memory
+  174.                   builder.append(new String(buff, 0, bytesRead));
+
+#4
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/files/FileUtils.java:181: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 169 is not closed after the last access at line 181. 
+  179.   
+  180.           String contents = builder.toString();
+  181. >         return contents;
+  182.       }
+  183.   
+
+#5
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/files/FileUtils.java:368: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 342 is not closed after the last access at line 368. 
+  366.                   }
+  367.   
+  368. >             }
+  369.           });
+  370.           t.setName("LimboLogger");
+
+#6
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/keymapper/KeySurfaceView.java:473: warning: Thread Safety Violation
+  Read/Write race. Non-private method `KeySurfaceView.paint(...)` reads with synchronization from container `this.pointers` via call to `HashMap.values()`, which races with the unsynchronized write in method `KeySurfaceView.onTouchEvent(...)`.
+ Reporting because this access may occur on a background thread. 
+  471.                   canvas.drawColor(Color.parseColor("#00FFFFFF"), PorterDuff.Mode.CLEAR);
+  472.                   if (keyMapManager.keyMapper != null) {
+  473. >                     for (KeyMapper.KeyMapping keyMapping : pointers.values()) {
+  474.                           drawButton(canvas, keyMapping.getX(), keyMapping.getY(), true, keyMapping.isRepeat());
+  475.                       }
+
+#7
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/keymapper/KeySurfaceView.java:474: warning: Thread Safety Violation
+  Read/Write race. Non-private method `KeySurfaceView.paint(...)` indirectly reads with synchronization from `this.buttonLayoutHeight`, which races with the unsynchronized write in method `KeySurfaceView.onConfigurationChanged(...)`.
+ Reporting because this access may occur on a background thread. 
+  472.                   if (keyMapManager.keyMapper != null) {
+  473.                       for (KeyMapper.KeyMapping keyMapping : pointers.values()) {
+  474. >                         drawButton(canvas, keyMapping.getX(), keyMapping.getY(), true, keyMapping.isRepeat());
+  475.                       }
+  476.                       drawButtons(canvas);
+
+#8
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/machine/FavOpenHelper.java:58: warning: Thread Safety Violation
+  Read/Write race. Non-private method `FavOpenHelper.getInstance()` reads without synchronization from `machine.FavOpenHelper.sInstance`, which races with the write in method `FavOpenHelper.initialize(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  56.   
+  57.       static FavOpenHelper getInstance() {
+  58. >         return sInstance;
+  59.       }
+  60.   
+
+#9
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/machine/MachineOpenHelper.java:71: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MachineOpenHelper.getInstance()` reads without synchronization from `machine.MachineOpenHelper.sInstance`, which races with the write in method `MachineOpenHelper.initialize(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  69.   
+  70.       static MachineOpenHelper getInstance() {
+  71. >         return sInstance;
+  72.       }
+  73.   
+
+#10
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboActivity.java:2258: error: Strict Mode Violation
+  `void LimboActivity$71.onClick(View)` runs on UI thread and may violate Strict Mode; calls `boolean File.createNewFile()`. 
+  2256.                           image += ".qcow2";
+  2257.                       }
+  2258. >                     String filePath = FileUtils.createImgFromTemplate(LimboActivity.this, templateImage, image, fileType);
+  2259.                       if (filePath!=null) {
+  2260.                           updateDrive(fileType, filePath);
+
+#11
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboActivity.java:2402: error: Null Dereference
+  `spinner` could be null (from the call to `LimboActivity.getSpinner(...)` on line 2401) and is dereferenced. 
+  2400.       private ArrayAdapter getAdapter(FileType fileType) {
+  2401.           Spinner spinner = getSpinner(fileType);
+  2402. >         return (ArrayAdapter) spinner.getAdapter();
+  2403.       }
+  2404.   
+
+#12
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboFileManager.java:333: error: Strict Mode Violation
+  `void LimboFileManager.onRequestPermissionsResult(int,String[],int[])` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  331.                   if (grantResults.length > 0
+  332.                           && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+  333. >                     fill(currdir.listFiles());
+  334.                   } else {
+  335.                       ToastUtils.toastShort(this, getString(R.string.FeaturDisabled));
+
+#13
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboFileManager.java:374: error: Strict Mode Violation
+  `void LimboFileManager.onListItemClick(ListView,View,int,long)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  372.           int selectionRowID = (int) id;
+  373.           if (selectionRowID == 0) {
+  374. >             fillWithParent();
+  375.           } else {
+  376.   
+
+#14
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboFileManager.java:457: error: Strict Mode Violation
+  `void LimboFileManager$5.onClick(View)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  455.                   else {
+  456.                       createDirectory(dirNameTextview.getText().toString());
+  457. >                     fill(currdir.listFiles());
+  458.                       alertDialog.dismiss();
+  459.                   }
+
+#15
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboSDLActivity.java:158: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LimboSDLActivity.sendKeys(...)` reads with synchronization from `main.Config.keyDelay`, which races with the unsynchronized write in method `LimboSDLActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  156.   
+  157.       public synchronized void sendKeys(int [] codes) {
+  158. >         sendKeys(codes, Config.keyDelay);
+  159.       }
+  160.   
+
+#16
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboSDLActivity.java:190: error: UI Thread Starvation
+  `void LimboSDLActivity.onDestroy()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  188.           removeListeners();
+  189.           quit = true;
+  190. >         super.onDestroy();
+  191.       }
+  192.   
+
+#17
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboSDLActivity.java:236: warning: Ipc On Ui Thread
+  `boolean LimboSDLActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int AudioManager.getStreamVolume(int)`. 
+  234.               }
+  235.           } else if (item.getItemId() == R.id.itemVolume) {
+  236. >             promptVolume();
+  237.           } else if (item.getItemId() == R.id.itemSaveState) {
+  238.               LimboActivityCommon.promptPause(this, viewListener);
+
+#18
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboSDLActivity.java:838: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LimboSDLActivity.runSDLMain()` indirectly reads with synchronization from `this.viewListener`, which races with the unsynchronized write in method `LimboSDLActivity.onDestroy()`.
+ Reporting because this access may occur on a background thread. 
+  836.       @Override
+  837.       protected synchronized void runSDLMain() {
+  838. >         notifyAction(MachineAction.START_VM, null);
+  839.           //XXX: we hold the thread because SDLActivity will exit
+  840.           while (!quit) {
+
+#19
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboSDLActivity.java:840: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LimboSDLActivity.runSDLMain()` reads with synchronization from `this.quit`, which races with the unsynchronized write in method `LimboSDLActivity.onDestroy()`.
+ Reporting because this access may occur on a background thread. 
+  838.           notifyAction(MachineAction.START_VM, null);
+  839.           //XXX: we hold the thread because SDLActivity will exit
+  840. >         while (!quit) {
+  841.               try {
+  842.                   wait();
+
+#20
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboSDLActivity.java:1113: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LimboSDLActivity.setFullscreen()` reads with synchronization from `main.LimboSDLActivity.machineRunning`, which races with the unsynchronized write in method `LimboSDLActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  1111.   
+  1112.       public synchronized void setFullscreen() {
+  1113. >         if(!machineRunning) {
+  1114.               Log.w(TAG, "Machine not running not reset layout");
+  1115.               return;
+
+#21
+limbo-android-lib/src/main/java/com/max2idea/android/limbo/main/LimboSDLActivity.java:1120: warning: Thread Safety Violation
+  Read/Write race. Non-private method `LimboSDLActivity.setFullscreen()` reads with synchronization from `this.viewListener`, which races with the unsynchronized write in method `LimboSDLActivity.onDestroy()`.
+ Reporting because this access may occur on a background thread. 
+  1118.           try {
+  1119.               Log.d(TAG, "Requesting fullscreen");
+  1120. >             viewListener.onAction(MachineAction.FULLSCREEN, null);
+  1121.           } catch (Exception ex) {
+  1122.               ex.printStackTrace();
+
+#22
+limbo-android-lib/src/main/java/org/libsdl/app/SDLActivity.java:335: error: UI Thread Starvation
+  `void SDLActivity.onDestroy()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  333.           if (SDLActivity.mSDLThread != null) {
+  334.               try {
+  335. >                 SDLActivity.mSDLThread.join();
+  336.               } catch(Exception e) {
+  337.                   Log.v(TAG, "Problem stopping thread: " + e);
+
+#23
+limbo-android-lib/src/main/java/org/libsdl/app/SDLActivity.java:894: warning: Thread Safety Violation
+  Unprotected write. Non-private method `SDLActivity.messageboxShowMessageBox(...)` writes to field `this.messageboxSelection.[_]` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  892.               final int[] colors) {
+  893.   
+  894. >         messageboxSelection[0] = -1;
+  895.   
+  896.           // sanity checks
+
+#24
+limbo-android-lib/src/main/java/org/libsdl/app/SDLActivity.java:935: warning: Thread Safety Violation
+  Read/Write race. Non-private method `SDLActivity.messageboxShowMessageBox(...)` reads without synchronization from `this.messageboxSelection.[_]`, which races with the write in method `SDLActivity.messageboxShowMessageBox(...)`.
+ Reporting because this access may occur on a background thread. 
+  933.           // return selected value
+  934.   
+  935. >         return messageboxSelection[0];
+  936.       }
+  937.   
+
+Found 25 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 11
+                Resource Leak(PULSE_RESOURCE_LEAK): 6
+      Strict Mode Violation(STRICT_MODE_VIOLATION): 4
+                  UI Thread Starvation(STARVATION): 2
+             Null Dereference(NULLPTR_DEREFERENCE): 1
+                Ipc On Ui Thread(IPC_ON_UI_THREAD): 1

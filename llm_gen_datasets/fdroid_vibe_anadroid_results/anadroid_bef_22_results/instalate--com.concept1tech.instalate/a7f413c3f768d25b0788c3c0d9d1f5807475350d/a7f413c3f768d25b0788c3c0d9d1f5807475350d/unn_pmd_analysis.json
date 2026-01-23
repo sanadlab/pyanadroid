@@ -1,0 +1,113 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:43:36.256+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/unn/src/main/java/com/concept1tech/unn/ArrayUtils.java",
+      "violations": [
+        {
+          "beginline": 99,
+          "begincolumn": 37,
+          "endline": 99,
+          "endcolumn": 56,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 101,
+          "begincolumn": 17,
+          "endline": 101,
+          "endcolumn": 72,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 102,
+          "begincolumn": 32,
+          "endline": 102,
+          "endcolumn": 35,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 181,
+          "begincolumn": 32,
+          "endline": 181,
+          "endcolumn": 51,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/unn/src/main/java/com/concept1tech/unn/NetworkUtils.java",
+      "violations": [
+        {
+          "beginline": 110,
+          "begincolumn": 25,
+          "endline": 110,
+          "endcolumn": 46,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 111,
+          "begincolumn": 40,
+          "endline": 111,
+          "endcolumn": 44,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/unn/src/main/java/com/concept1tech/unn/PageRequest.java",
+      "violations": [
+        {
+          "beginline": 86,
+          "begincolumn": 33,
+          "endline": 86,
+          "endcolumn": 36,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 88,
+          "begincolumn": 33,
+          "endline": 88,
+          "endcolumn": 36,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

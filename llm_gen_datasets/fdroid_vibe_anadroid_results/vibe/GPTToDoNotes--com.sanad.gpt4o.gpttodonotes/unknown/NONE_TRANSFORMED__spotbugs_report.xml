@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762928190140" analysisTimestamp="1762928194561" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/GPTToDoNotes/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/GPTToDoNotes/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="357d9328b8eb8a771eb18b2d33356afb" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.sanad.gpt4o.gpttodonotes.MainActivity.saveNote(): String.getBytes()</LongMessage>
+    <Class classname="com.sanad.gpt4o.gpttodonotes.MainActivity" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="29" end="131" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java">
+        <Message>At MainActivity.java:[lines 29-131]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gpttodonotes.MainActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gpttodonotes.MainActivity" name="saveNote" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="93" end="131" startBytecode="0" endBytecode="550" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gpttodonotes.MainActivity.saveNote()</Message>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="726" end="726" startBytecode="0" endBytecode="51" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.getBytes()</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" primary="true" start="114" end="114" startBytecode="138" endBytecode="138" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java">
+      <Message>At MainActivity.java:[line 114]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="d920b8dd8a76ed9e2336516f91530db9" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource on checked exception</ShortMessage>
+    <LongMessage>com.sanad.gpt4o.gpttodonotes.MainActivity.saveNote() may fail to clean up java.io.OutputStream on checked exception</LongMessage>
+    <Class classname="com.sanad.gpt4o.gpttodonotes.MainActivity" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="29" end="131" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java">
+        <Message>At MainActivity.java:[lines 29-131]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gpttodonotes.MainActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gpttodonotes.MainActivity" name="saveNote" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="93" end="131" startBytecode="0" endBytecode="550" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gpttodonotes.MainActivity.saveNote()</Message>
+    </Method>
+    <Class classname="java.io.OutputStream" role="CLASS_REFTYPE">
+      <SourceLine classname="java.io.OutputStream" start="56" end="172" sourcefile="OutputStream.java" sourcepath="java/io/OutputStream.java">
+        <Message>At OutputStream.java:[lines 56-172]</Message>
+      </SourceLine>
+      <Message>Reference type java.io.OutputStream</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" primary="true" start="113" end="113" startBytecode="130" endBytecode="130" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at MainActivity.java:[line 113] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="114" end="114" startBytecode="135" endBytecode="135" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 114]</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="127" end="127" startBytecode="223" endBytecode="223" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 127]</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="128" end="128" startBytecode="225" endBytecode="225" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 128]</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="129" end="129" startBytecode="230" endBytecode="230" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 129]</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="131" end="131" startBytecode="240" endBytecode="240" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 131]</Message>
+    </SourceLine>
+    <String value="{OutputStream x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {OutputStream x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" instanceHash="4833427a2771f451d00e67a84c57537a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="253">
+    <ShortMessage>Method ignores exceptional return value</ShortMessage>
+    <LongMessage>Exceptional return value of java.io.File.mkdirs() ignored in com.sanad.gpt4o.gpttodonotes.MainActivity.saveNote()</LongMessage>
+    <Class classname="com.sanad.gpt4o.gpttodonotes.MainActivity" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="29" end="131" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java">
+        <Message>At MainActivity.java:[lines 29-131]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gpttodonotes.MainActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gpttodonotes.MainActivity" name="saveNote" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" start="93" end="131" startBytecode="0" endBytecode="550" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gpttodonotes.MainActivity.saveNote()</Message>
+    </Method>
+    <Method classname="java.io.File" name="mkdirs" signature="()Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="962" end="962" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.mkdirs()</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.MainActivity" primary="true" start="105" end="105" startBytecode="64" endBytecode="64" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/MainActivity.java">
+      <Message>At MainActivity.java:[line 105]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="b9864d85a872497a296ba4afe8746c36" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.sanad.gpt4o.gpttodonotes.NoteAdapter(List) may expose internal representation by storing an externally mutable object into NoteAdapter.noteFiles</LongMessage>
+    <Class classname="com.sanad.gpt4o.gpttodonotes.NoteAdapter" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.NoteAdapter" start="13" end="42" sourcefile="NoteAdapter.java" sourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java">
+        <Message>At NoteAdapter.java:[lines 13-42]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gpttodonotes.NoteAdapter</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gpttodonotes.NoteAdapter" name="&lt;init&gt;" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.NoteAdapter" start="17" end="19" startBytecode="0" endBytecode="87" sourcefile="NoteAdapter.java" sourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java"/>
+      <Message>In method new com.sanad.gpt4o.gpttodonotes.NoteAdapter(List)</Message>
+    </Method>
+    <Field classname="com.sanad.gpt4o.gpttodonotes.NoteAdapter" name="noteFiles" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.NoteAdapter" sourcefile="NoteAdapter.java" sourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java">
+        <Message>In NoteAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gpttodonotes.NoteAdapter.noteFiles</Message>
+    </Field>
+    <LocalVariable name="noteFiles" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named noteFiles</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.NoteAdapter" primary="true" start="18" end="18" startBytecode="6" endBytecode="6" sourcefile="NoteAdapter.java" sourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java">
+      <Message>At NoteAdapter.java:[line 18]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="bb6560cda0e80f7009c68bdc5a958976" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.sanad.gpt4o.gpttodonotes.NoteDetailActivity.loadNoteContent(String): new java.io.FileReader(File)</LongMessage>
+    <Class classname="com.sanad.gpt4o.gpttodonotes.NoteDetailActivity" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.NoteDetailActivity" start="11" end="42" sourcefile="NoteDetailActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/NoteDetailActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/NoteDetailActivity.java">
+        <Message>At NoteDetailActivity.java:[lines 11-42]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gpttodonotes.NoteDetailActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gpttodonotes.NoteDetailActivity" name="loadNoteContent" signature="(Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gpttodonotes.NoteDetailActivity" start="29" end="42" startBytecode="0" endBytecode="343" sourcefile="NoteDetailActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/NoteDetailActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/NoteDetailActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gpttodonotes.NoteDetailActivity.loadNoteContent(String)</Message>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/io/File;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader" start="77" end="77" startBytecode="0" endBytecode="69" sourcefile="FileReader.java" sourcepath="java/io/FileReader.java"/>
+      <Message>Called method new java.io.FileReader(File)</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gpttodonotes.NoteDetailActivity" primary="true" start="32" end="32" startBytecode="26" endBytecode="26" sourcefile="NoteDetailActivity.java" sourcepath="com/sanad/gpt4o/gpttodonotes/NoteDetailActivity.java" relSourcepath="com/sanad/gpt4o/gpttodonotes/NoteDetailActivity.java">
+      <Message>At NoteDetailActivity.java:[line 32]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="EXPERIMENTAL">
+    <Description>Experimental</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" abbrev="OBL" category="EXPERIMENTAL">
+    <ShortDescription>Method may fail to clean up stream or resource on checked exception</ShortDescription>
+    <Details><![CDATA[
+          
+          <p>
+          This method may fail to clean up (close, dispose of) a stream,
+          database object, or other
+          resource requiring an explicit cleanup operation.
+          </p>
+
+          <p>
+          In general, if a method opens a stream or other resource,
+          the method should use a try/finally block to ensure that
+          the stream or resource is cleaned up before the method
+          returns.
+          </p>
+
+          <p>
+          This bug pattern is essentially the same as the
+          OS_OPEN_STREAM and ODR_OPEN_DATABASE_RESOURCE
+          bug patterns, but is based on a different
+          (and hopefully better) static analysis technique.
+          We are interested is getting feedback about the
+          usefulness of this bug pattern.
+          For sending feedback, check:
+          </p>
+          <ul>
+            <li><a href="https://github.com/spotbugs/spotbugs/blob/master/.github/CONTRIBUTING.md">contributing guideline</a></li>
+            <li><a href="https://github.com/spotbugs/discuss/issues?q=">mailinglist</a></li>
+          </ul>
+
+          <p>
+          In particular,
+          the false-positive suppression heuristics for this
+          bug pattern have not been extensively tuned, so
+          reports about false positives are helpful to us.
+          </p>
+
+          <p>
+          See Weimer and Necula, <i>Finding and Preventing Run-Time Error Handling Mistakes</i>
+          (<a href="https://people.eecs.berkeley.edu/~necula/Papers/rte_oopsla04.pdf">PDF</a>),
+          for a description of the analysis technique.
+          </p>
+          
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" abbrev="RV" category="BAD_PRACTICE" cweid="253">
+    <ShortDescription>Method ignores exceptional return value</ShortDescription>
+    <Details><![CDATA[
+
+   <p> This method returns a value that is not checked. The return value should be checked
+since it can indicate an unusual or unexpected function execution. For
+example, the <code>File.delete()</code> method returns false
+if the file could not be successfully deleted (rather than
+throwing an Exception).
+If you don't check the result, you won't notice if the method invocation
+signals unexpected behavior by returning an atypical return value.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="RV" cweid="440">
+    <Description>Bad use of return value from method</Description>
+  </BugCode>
+  <BugCode abbrev="OBL">
+    <Description>Unsatisfied obligation to clean up stream or resource</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="14">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.core.app.ActivityCompat</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.LinearLayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$Adapter</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$LayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$ViewHolder</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gpttodonotes.MarkdownHelperKt</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gpttodonotes.R</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gpttodonotes.R$id</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gpttodonotes.R$layout</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:16:30 +0400" total_classes="5" referenced_classes="50" total_bugs="5" total_size="154" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="6.89" clock_seconds="3.30" peak_mbytes="229.71" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="3" priority_1="2">
+    <FileStats path="com/sanad/gpt4o/gpttodonotes/MainActivity.java" bugCount="3" size="74" bugHash="94701cafef75c3032cdaee81dd333e7a"/>
+    <FileStats path="com/sanad/gpt4o/gpttodonotes/NoteAdapter.java" bugCount="1" size="30" bugHash="87c89e27eed8396e736b792e6e71365c"/>
+    <FileStats path="com/sanad/gpt4o/gpttodonotes/NoteDetailActivity.java" bugCount="1" size="23" bugHash="7884700de0587fa982ebff7e6922fcb3"/>
+    <FileStats path="com/sanad/gpt4o/gpttodonotes/NoteListActivity.java" bugCount="0" size="27"/>
+    <PackageStats package="com.sanad.gpt4o.gpttodonotes" total_bugs="5" total_types="5" total_size="154" priority_2="3" priority_1="2">
+      <ClassStats class="com.sanad.gpt4o.gpttodonotes.MainActivity" sourceFile="MainActivity.java" interface="false" size="74" bugs="3" priority_2="2" priority_1="1"/>
+      <ClassStats class="com.sanad.gpt4o.gpttodonotes.NoteAdapter" sourceFile="NoteAdapter.java" interface="false" size="24" bugs="1" priority_2="1"/>
+      <ClassStats class="com.sanad.gpt4o.gpttodonotes.NoteAdapter$NoteViewHolder" sourceFile="NoteAdapter.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gpttodonotes.NoteDetailActivity" sourceFile="NoteDetailActivity.java" interface="false" size="23" bugs="1" priority_1="1"/>
+      <ClassStats class="com.sanad.gpt4o.gpttodonotes.NoteListActivity" sourceFile="NoteListActivity.java" interface="false" size="27" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="413" invocations="474" avgMicrosecondsPerInvocation="871" maxMicrosecondsPerInvocation="28318" standardDeviationMicrosecondsPerInvocation="2535"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="197" invocations="50" avgMicrosecondsPerInvocation="3947" maxMicrosecondsPerInvocation="25224" standardDeviationMicrosecondsPerInvocation="5040"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="118" invocations="87" avgMicrosecondsPerInvocation="1364" maxMicrosecondsPerInvocation="14634" standardDeviationMicrosecondsPerInvocation="2644"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="91" invocations="26" avgMicrosecondsPerInvocation="3518" maxMicrosecondsPerInvocation="15674" standardDeviationMicrosecondsPerInvocation="4380"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="87" invocations="24" avgMicrosecondsPerInvocation="3638" maxMicrosecondsPerInvocation="13109" standardDeviationMicrosecondsPerInvocation="3855"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="79" invocations="50" avgMicrosecondsPerInvocation="1591" maxMicrosecondsPerInvocation="36183" standardDeviationMicrosecondsPerInvocation="6009"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="78" invocations="26" avgMicrosecondsPerInvocation="3021" maxMicrosecondsPerInvocation="13250" standardDeviationMicrosecondsPerInvocation="3712"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="78" invocations="50" avgMicrosecondsPerInvocation="1563" maxMicrosecondsPerInvocation="12795" standardDeviationMicrosecondsPerInvocation="2451"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="76" invocations="407" avgMicrosecondsPerInvocation="188" maxMicrosecondsPerInvocation="6303" standardDeviationMicrosecondsPerInvocation="504"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="72" invocations="50" avgMicrosecondsPerInvocation="1445" maxMicrosecondsPerInvocation="10157" standardDeviationMicrosecondsPerInvocation="2204"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="69" invocations="50" avgMicrosecondsPerInvocation="1390" maxMicrosecondsPerInvocation="11913" standardDeviationMicrosecondsPerInvocation="2578"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="66" invocations="5" avgMicrosecondsPerInvocation="13375" maxMicrosecondsPerInvocation="17778" standardDeviationMicrosecondsPerInvocation="4615"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="62" invocations="24" avgMicrosecondsPerInvocation="2615" maxMicrosecondsPerInvocation="15337" standardDeviationMicrosecondsPerInvocation="3358"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="60" invocations="5" avgMicrosecondsPerInvocation="12116" maxMicrosecondsPerInvocation="37851" standardDeviationMicrosecondsPerInvocation="14608"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="58" invocations="50" avgMicrosecondsPerInvocation="1178" maxMicrosecondsPerInvocation="12028" standardDeviationMicrosecondsPerInvocation="2146"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="55" invocations="5" avgMicrosecondsPerInvocation="11066" maxMicrosecondsPerInvocation="49169" standardDeviationMicrosecondsPerInvocation="19082"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="55" invocations="24" avgMicrosecondsPerInvocation="2302" maxMicrosecondsPerInvocation="7716" standardDeviationMicrosecondsPerInvocation="2165"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="53" invocations="485" avgMicrosecondsPerInvocation="109" maxMicrosecondsPerInvocation="2689" standardDeviationMicrosecondsPerInvocation="221"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="35" invocations="26" avgMicrosecondsPerInvocation="1372" maxMicrosecondsPerInvocation="13656" standardDeviationMicrosecondsPerInvocation="3141"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="35" invocations="50" avgMicrosecondsPerInvocation="700" maxMicrosecondsPerInvocation="8282" standardDeviationMicrosecondsPerInvocation="1636"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="33" invocations="22" avgMicrosecondsPerInvocation="1522" maxMicrosecondsPerInvocation="7193" standardDeviationMicrosecondsPerInvocation="2006"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="31" invocations="24" avgMicrosecondsPerInvocation="1318" maxMicrosecondsPerInvocation="15229" standardDeviationMicrosecondsPerInvocation="2963"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="31" invocations="5" avgMicrosecondsPerInvocation="6206" maxMicrosecondsPerInvocation="11939" standardDeviationMicrosecondsPerInvocation="3855"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="24" invocations="50" avgMicrosecondsPerInvocation="498" maxMicrosecondsPerInvocation="3860" standardDeviationMicrosecondsPerInvocation="843"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.6.3">
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`com.greense.detector.mylibrary.CustomLintRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;Bitmap Format Usage&quot;,&#xA;                    &quot;Data Transmission Without Compression&quot;,&#xA;                    &quot;Early Resource Binding&quot;,&#xA;                    &quot;Heavy Async Task&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Immortality Bug&quot;,&#xA;                    &quot;Invalidate Without Rect&quot;,&#xA;                    &quot;Leaking Thread&quot;,&#xA;                    &quot;Lifecycle Containment&quot;,&#xA;                    &quot;No Low Memory Resolver&quot;,&#xA;                    &quot;Public Directory&quot;,&#xA;                    &quot;Resource Leak&quot;,&#xA;                    &quot;Unused Hardware Acceleration&quot;,&#xA;                    &quot;Vacuous Background Service&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks."
+        includedVariants="debug"
+        excludedVariants="release">
+        <location
+            file="/Users/rar9993/.android/lint/customLintFatima.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`greenlab.org.ebugslocator.registry.CustomIssueRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;CameraLeak&quot;,&#xA;                    &quot;ExcessiveMethodCalls&quot;,&#xA;                    &quot;HashMapUsage&quot;,&#xA;                    &quot;InternalGetter&quot;,&#xA;                    &quot;MediaLeak&quot;,&#xA;                    &quot;MemberIgnoringMethod&quot;,&#xA;                    &quot;MemoizationChance&quot;,&#xA;                    &quot;SensorLeak&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks."
+        includedVariants="debug"
+        excludedVariants="release">
+        <location
+            file="/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar"/>
+    </issue>
+
+    <issue
+        id="GradleCompatible"
+        severity="Fatal"
+        message="The compileSdkVersion (23) should not be lower than the targetSdkVersion (28)"
+        category="Correctness"
+        priority="8"
+        summary="Incompatible Gradle Versions"
+        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`)."
+        errorLine1="    compileSdkVersion 23"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="11"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="30"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:appcompat-v7:23.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="31"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.google.android.gms:play-services-ads:8.3.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="32"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Target SDK attribute is not targeting latest version"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.&#xA;&#xA;To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html as well as follow this guide:&#xA;https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        url="https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        urls="https://developer.android.com/distribute/best-practices/develop/target-sdk.html,http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="        targetSdkVersion 28"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="17"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `elevation` is only used in API level 21 and higher (current min is 16)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="    android:elevation=&quot;8dp&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/layout/item_toolbar.xml"
+            line="8"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="InflateParams"
+        severity="Warning"
+        message="Avoid passing `null` as the view root (needed to resolve layout parameters on the inflated layout&apos;s root element)"
+        category="Correctness"
+        priority="5"
+        summary="Layout Inflation without a Parent"
+        explanation="When inflating a layout, avoid passing in null as the parent view, since otherwise any layout parameters on the root of the inflated layout will be ignored."
+        url="http://www.doubleencore.com/2013/05/layout-inflation-as-intended"
+        urls="http://www.doubleencore.com/2013/05/layout-inflation-as-intended"
+        errorLine1="            viewLoading = (ViewGroup) inflater.inflate(R.layout.view_loading, null);"
+        errorLine2="                                                                              ~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/java/com/diolinux/webviews/DIOWebChromeClient.java"
+            line="48"
+            column="79"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="Old buildToolsVersion 23.0.1; recommended version is 23.0.3 or later"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    buildToolsVersion &quot;23.0.1&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="12"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:appcompat-v7 than 23.1.0 is available: 23.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:appcompat-v7:23.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="31"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.google.android.gms:play-services-ads than 8.3.0 is available: 24.8.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.google.android.gms:play-services-ads:8.3.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build.gradle"
+            line="32"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="&quot;Ok&quot; is usually capitalized as &quot;OK&quot;"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Spelling error"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1="    &lt;string name=&quot;global_ok&quot;>Ok&lt;/string>"
+        errorLine2="                             ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="18"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="SetJavaScriptEnabled"
+        severity="Warning"
+        message="Using `setJavaScriptEnabled` can introduce XSS vulnerabilities into your application, review carefully."
+        category="Security"
+        priority="6"
+        summary="Using `setJavaScriptEnabled`"
+        explanation="Your code should not invoke `setJavaScriptEnabled` if you are not sure that your app really requires JavaScript support."
+        url="http://developer.android.com/guide/practices/security.html"
+        urls="http://developer.android.com/guide/practices/security.html"
+        errorLine1="        webView.getSettings().setJavaScriptEnabled(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/java/com/diolinux/ui/MainActivity.java"
+            line="146"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/training/backup/autosyncapi.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup&#xA;&#xA;By default, this flag is set to `true` which means application data can be backed up and restored by the OS. Setting `allowBackup=&quot;false&quot;` opts the application out of being backed up and so users can&apos;t restore data related to it when they go through the device setup wizard.&#xA;&#xA;Allowing backups may have security consequences for an application. Currently `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.&#xA;&#xA;To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.&#xA;&#xA;If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/training/backup/autosyncapi.html"
+        urls="https://developer.android.com/training/backup/autosyncapi.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="     ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="7"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="Should explicitly set `android:allowBackup` to `true` or `false` (it&apos;s `true` by default, and that can have some security implications for the application&apos;s data)"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup&#xA;&#xA;By default, this flag is set to `true` which means application data can be backed up and restored by the OS. Setting `allowBackup=&quot;false&quot;` opts the application out of being backed up and so users can&apos;t restore data related to it when they go through the device setup wizard.&#xA;&#xA;Allowing backups may have security consequences for an application. Currently `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.&#xA;&#xA;To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.&#xA;&#xA;If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/training/backup/autosyncapi.html"
+        urls="https://developer.android.com/training/backup/autosyncapi.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="     ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="7"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="No Low Memory Resolver"
+        severity="Warning"
+        message="Once the device memory is full, release some memory from your application"
+        category="Performance"
+        priority="6"
+        summary="No Low Memory Resolver"
+        explanation="Once the device memory is full, release some memory from your application"
+        errorLine1="public class MainActivity extends AppCompatActivity implements View.OnLongClickListener {"
+        errorLine2="                                                                                        ~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/java/com/diolinux/ui/MainActivity.java"
+            line="28"
+            column="89"/>
+    </issue>
+
+    <issue
+        id="No Low Memory Resolver"
+        severity="Warning"
+        message="Once the device memory is full, release some memory from your application"
+        category="Performance"
+        priority="6"
+        summary="No Low Memory Resolver"
+        explanation="Once the device memory is full, release some memory from your application"
+        errorLine1="public class SplashScreenActivity extends AppCompatActivity {"
+        errorLine2="                                                            ~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/java/com/diolinux/ui/SplashScreenActivity.java"
+            line="11"
+            column="61"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLayoutParam"
+        severity="Warning"
+        message="Invalid layout param in a `FrameLayout`: `layout_alignParentBottom`"
+        category="Performance"
+        priority="6"
+        summary="Obsolete layout params"
+        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
+        errorLine1="            android:layout_alignParentBottom=&quot;true&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="28"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLayoutParam"
+        severity="Warning"
+        message="Invalid layout param in a `FrameLayout`: `layout_centerHorizontal`"
+        category="Performance"
+        priority="6"
+        summary="Obsolete layout params"
+        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
+        errorLine1="            android:layout_centerHorizontal=&quot;true&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="29"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/bg_primary_blue` with a theme that also paints a background (inferred theme is `@style/DIOTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;@color/bg_primary_blue&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/layout/activity_splash_screen.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/bg_primary_blue` with a theme that also paints a background (inferred theme is `@style/DIOTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;@color/bg_primary_blue&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/layout/item_toolbar.xml"
+            line="7"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.mipmap.ic_launcher` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/mipmap-hdpi/ic_launcher.png"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/mipmap-mdpi/ic_launcher.png"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/mipmap-xhdpi/ic_launcher.png"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.menu.menu_splash_screen` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/menu/menu_splash_screen.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.action_options` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;action_options&quot;>Opções&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="4"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        severity="Warning"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        category="Usability:Typography"
+        priority="5"
+        summary="Ellipsis string can be replaced with ellipsis character"
+        explanation="You can replace the string &quot;...&quot; with a dedicated ellipsis character, ellipsis character (…, &amp;#8230;). This can help make the text more readable."
+        url="http://en.wikipedia.org/wiki/Ellipsis"
+        urls="http://en.wikipedia.org/wiki/Ellipsis"
+        errorLine1="    &lt;string name=&quot;view_loading_description&quot;>Carregando...&lt;/string>"
+        errorLine2="                                            ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="19"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/logodiolinux.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/drawable/logodiolinux.png"/>
+    </issue>
+
+    <issue
+        id="ButtonCase"
+        severity="Warning"
+        message="The standard Android way to capitalize Ok is &quot;OK&quot; (tip: use `@android:string/ok` instead)"
+        category="Usability"
+        priority="2"
+        summary="Cancel/OK dialog button capitalization"
+        explanation="The standard capitalization for OK/Cancel dialogs is &quot;OK&quot; and &quot;Cancel&quot;. To ensure that your dialogs use the standard strings, you can use the resource strings @android:string/ok and @android:string/cancel."
+        errorLine1="    &lt;string name=&quot;global_ok&quot;>Ok&lt;/string>"
+        errorLine2="                             ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="18"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/res/layout/activity_splash_screen.xml"
+            line="6"
+            column="6"/>
+    </issue>
+
+</issues>

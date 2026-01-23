@@ -28,9 +28,8 @@ class ManafaProfiler(AbstractProfiler):
     def __init__(self, profiler, device, app_package_name=None, power_profile=POWER_PROFILE_FILE, timezone=None, hunter=False):
         super(ManafaProfiler, self).__init__(profiler, device, pkg_name=None)
         self.manafa =  HunterEManafa(
-                app_package_name=app_package_name,
                 power_profile=power_profile,
-                timezone=timezone,
+                timezone=timezone
               ) if hunter else \
             AMEManafa(
                 app_package_name=app_package_name,

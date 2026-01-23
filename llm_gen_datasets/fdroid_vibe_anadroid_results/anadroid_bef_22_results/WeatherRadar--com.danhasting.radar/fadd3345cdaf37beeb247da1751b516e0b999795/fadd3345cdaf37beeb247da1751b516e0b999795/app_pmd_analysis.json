@@ -1,0 +1,156 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:53:51.582+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WeatherRadar/app/src/main/java/com/danhasting/radar/activities/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 182,
+          "begincolumn": 13,
+          "endline": 189,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WeatherRadar/app/src/main/java/com/danhasting/radar/activities/RadarActivity.java",
+      "violations": [
+        {
+          "beginline": 122,
+          "begincolumn": 9,
+          "endline": 134,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 169,
+          "begincolumn": 24,
+          "endline": 169,
+          "endcolumn": 56,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 187,
+          "begincolumn": 21,
+          "endline": 187,
+          "endcolumn": 53,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WeatherRadar/app/src/main/java/com/danhasting/radar/activities/SelectActivity.java",
+      "violations": [
+        {
+          "beginline": 68,
+          "begincolumn": 9,
+          "endline": 75,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 93,
+          "begincolumn": 9,
+          "endline": 111,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WeatherRadar/app/src/main/java/com/danhasting/radar/database/Source.java",
+      "violations": [
+        {
+          "beginline": 36,
+          "begincolumn": 29,
+          "endline": 36,
+          "endcolumn": 35,
+          "description": "Avoid using redundant field initializer for \u0027values\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WeatherRadar/app/src/main/java/com/danhasting/radar/fragments/RadarFragment.java",
+      "violations": [
+        {
+          "beginline": 101,
+          "begincolumn": 13,
+          "endline": 101,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 103,
+          "begincolumn": 13,
+          "endline": 103,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 112,
+          "begincolumn": 13,
+          "endline": 112,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 114,
+          "begincolumn": 13,
+          "endline": 114,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

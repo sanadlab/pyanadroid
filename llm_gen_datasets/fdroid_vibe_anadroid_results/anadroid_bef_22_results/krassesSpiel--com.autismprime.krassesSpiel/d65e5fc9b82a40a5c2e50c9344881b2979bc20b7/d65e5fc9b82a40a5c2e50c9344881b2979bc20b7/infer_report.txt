@@ -1,0 +1,21 @@
+#0
+app/src/main/java/com/autismprime/krassesSpiel/Lines.java:302: error: UI Thread Starvation
+  `void Lines.onDraw(Canvas)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  300.   
+  301.               try {
+  302. >                 mn.join();
+  303.               } catch (InterruptedException e) {
+  304.                   e.printStackTrace();
+
+#1
+app/src/main/java/com/autismprime/krassesSpiel/MainActivity.java:180: error: UI Thread Starvation
+  `void MainActivity.onBackPressed()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  178.           lins.mn.setRunning(false);
+  179.           try {
+  180. >             lins.mn.join();
+  181.           } catch (InterruptedException e) {
+  182.               e.printStackTrace();
+
+Found 2 issues
+        Issue Type(ISSUED_TYPE_ID): #
+  UI Thread Starvation(STARVATION): 2

@@ -1,0 +1,230 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:57:22.380+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 56,
+          "begincolumn": 9,
+          "endline": 62,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/math/Histogram.java",
+      "violations": [
+        {
+          "beginline": 50,
+          "begincolumn": 9,
+          "endline": 60,
+          "endcolumn": 10,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/parser/DngParser.java",
+      "violations": [
+        {
+          "beginline": 31,
+          "begincolumn": 24,
+          "endline": 31,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027ADD_STEPS\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 230,
+          "begincolumn": 41,
+          "endline": 230,
+          "endcolumn": 57,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/parser/TIFFTag.java",
+      "violations": [
+        {
+          "beginline": 97,
+          "begincolumn": 62,
+          "endline": 97,
+          "endcolumn": 65,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/parser/TagParser.java",
+      "violations": [
+        {
+          "beginline": 20,
+          "begincolumn": 29,
+          "endline": 20,
+          "endcolumn": 78,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 29,
+          "begincolumn": 31,
+          "endline": 29,
+          "endcolumn": 55,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 48,
+          "begincolumn": 30,
+          "endline": 48,
+          "endcolumn": 55,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/pipeline/GLBlockProcessing.java",
+      "violations": [
+        {
+          "beginline": 43,
+          "begincolumn": 30,
+          "endline": 43,
+          "endcolumn": 57,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/pipeline/StagePipeline.java",
+      "violations": [
+        {
+          "beginline": 104,
+          "begincolumn": 31,
+          "endline": 104,
+          "endcolumn": 66,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java",
+      "violations": [
+        {
+          "beginline": 38,
+          "begincolumn": 32,
+          "endline": 39,
+          "endcolumn": 50,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/scheduler/DngScanJob.java",
+      "violations": [
+        {
+          "beginline": 53,
+          "begincolumn": 28,
+          "endline": 53,
+          "endcolumn": 47,
+          "description": "StringBuilder has been initialized with size 16, but has at least 47 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 75,
+          "begincolumn": 25,
+          "endline": 75,
+          "endcolumn": 41,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/util/ShaderLoader.java",
+      "violations": [
+        {
+          "beginline": 65,
+          "begincolumn": 17,
+          "endline": 65,
+          "endcolumn": 81,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/app/src/main/java/amirz/dngprocessor/util/Utilities.java",
+      "violations": [
+        {
+          "beginline": 22,
+          "begincolumn": 13,
+          "endline": 22,
+          "endcolumn": 27,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

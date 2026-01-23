@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 4.1.2">
+
+    <issue
+        id="LintError"
+        severity="Error"
+        message="Unexpected failure during lint analysis (this is a bug in lint or one of the libraries it depends on)&#xA;&#xA;Message: class greenlab.org.ebugslocator.detectors.MediaLeakDetector cannot be cast to class com.android.tools.lint.detector.api.SourceCodeScanner (greenlab.org.ebugslocator.detectors.MediaLeakDetector is in unnamed module of loader com.intellij.util.lang.UrlClassLoader @55059590; com.android.tools.lint.detector.api.SourceCodeScanner is in unnamed module of loader com.android.tools.lint.gradle.api.DelegatingClassLoader @1813a2ec)&#xA;Stack: `ClassCastException:UElementVisitor.&lt;init>(UElementVisitor.kt:143)←LintDriver.visitUast(LintDriver.kt:1738)←LintDriver.runFileDetectors(LintDriver.kt:1132)←LintDriver.checkProject(LintDriver.kt:926)←LintDriver.analyze(LintDriver.kt:446)←LintCliClient.run(LintCliClient.kt:256)←LintCliClient.run(LintCliClient.kt:237)←LintGradleClient.run(LintGradleClient.kt:255)`&#xA;&#xA;You can set environment variable `LINT_PRINT_STACKTRACE=true` to dump a full stacktrace to stdout."
+        category="Lint"
+        priority="10"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include failure to find bytecode for source files (which means certain detectors could not be run), parsing errors in lint configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/wirebug/NONE_TRANSFORMED_/app"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`com.greense.detector.mylibrary.CustomLintRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;Bitmap Format Usage&quot;,&#xA;                    &quot;Data Transmission Without Compression&quot;,&#xA;                    &quot;Early Resource Binding&quot;,&#xA;                    &quot;Heavy Async Task&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Immortality Bug&quot;,&#xA;                    &quot;Invalidate Without Rect&quot;,&#xA;                    &quot;Leaking Thread&quot;,&#xA;                    &quot;Lifecycle Containment&quot;,&#xA;                    &quot;No Low Memory Resolver&quot;,&#xA;                    &quot;Public Directory&quot;,&#xA;                    &quot;Resource Leak&quot;,&#xA;                    &quot;Unused Hardware Acceleration&quot;,&#xA;                    &quot;Vacuous Background Service&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.android/lint/customLintFatima.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`greenlab.org.ebugslocator.registry.CustomIssueRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;CameraLeak&quot;,&#xA;                    &quot;ExcessiveMethodCalls&quot;,&#xA;                    &quot;HashMapUsage&quot;,&#xA;                    &quot;InternalGetter&quot;,&#xA;                    &quot;MediaLeak&quot;,&#xA;                    &quot;MemberIgnoringMethod&quot;,&#xA;                    &quot;MemoizationChance&quot;,&#xA;                    &quot;SensorLeak&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`androidx.appcompat.AppCompatIssueRegistry`) which is older than the current API level; these checks may not work correctly.&#xA;&#xA;Recompile the checks against the latest version. Custom check API version is 7 (4.0), current lint API level is 8 (4.1+)"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.gradle/caches/transforms-2/files-2.1/44b21666f861b2b454523071d69d07d7/appcompat-1.2.0/jars/lint.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found one or more custom checks that could not be loaded. The most likely reason for this is that it is using an older, incompatible or unsupported API in lint. Make sure these lint checks are updated to the new APIs. The issue registry class is timber.lint.IssueRegistry. The class loading issue is com/android/tools/lint/detector/api/Detector$JavaPsiScanner: ClassLoader.defineClass1(ClassLoader.java:-2)←ClassLoader.defineClass(ClassLoader.java:1022)←ClassLoader.defineClass(ClassLoader.java:883)←UrlClassLoader._defineClass(UrlClassLoader.java:380)←UrlClassLoader.defineClass(UrlClassLoader.java:376)←UrlClassLoader._findClass(UrlClassLoader.java:340)←UrlClassLoader.findClass(UrlClassLoader.java:326)←ClassLoader.loadClass(ClassLoader.java:594)"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.gradle/caches/transforms-2/files-2.1/f67c022c7bf96aaf9250ef8a80d374c4/jetified-timber-4.5.1/jars/lint.jar"/>
+    </issue>
+
+    <issue
+        id="AppCompatResource"
+        severity="Error"
+        message="Should use `app:showAsAction` with the appcompat library with `xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;`"
+        category="Correctness"
+        priority="5"
+        summary="Menu namespace"
+        explanation="When using the appcompat library, menu resources should refer to the `showAsAction` (or `actionViewClass`, or `actionProviderClass`) in the `app:` namespace, not the `android:` namespace.&#xA;&#xA;Similarly, when **not** using the appcompat library, you should be using the `android:showAsAction` (or `actionViewClass`, or `actionProviderClass`) attribute."
+        errorLine1="        android:showAsAction=&quot;ifRoom&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/wirebug/NONE_TRANSFORMED_/app/src/main/res/menu/menu_main.xml"
+            line="9"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Unused Hardware Acceleration"
+        severity="Warning"
+        message="Add hardwareAccelerated=true"
+        category="Performance"
+        priority="6"
+        summary="Unused Hardware Acceleration"
+        explanation="Add hardwareAccelerated=true"
+        errorLine1="    &lt;application"
+        errorLine2="    ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/wirebug/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="11"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This `LinearLayout` layout or its `RelativeLayout` parent is possibly useless"
+        category="Performance"
+        priority="2"
+        summary="Useless parent layout"
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="        &lt;LinearLayout"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/wirebug/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="25"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Settings&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:title=&quot;Settings&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/wirebug/NONE_TRANSFORMED_/app/src/main/res/menu/menu_main.xml"
+            line="8"
+            column="9"/>
+    </issue>
+
+</issues>

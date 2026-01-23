@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762895456595" analysisTimestamp="1762895459298" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/krassesSpiel/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-31/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/krassesSpiel/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="b4e575ea9da7b05d8177434c45453147" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.autismprime.krassesSpiel.Lines.onDraw(Canvas)</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.Lines" name="onDraw" signature="(Landroid/graphics/Canvas;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="179" end="307" startBytecode="0" endBytecode="1842" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java"/>
+      <Message>In method com.autismprime.krassesSpiel.Lines.onDraw(Canvas)</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="243" end="243" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" primary="true" start="213" end="213" startBytecode="368" endBytecode="368" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+      <Message>At Lines.java:[line 213]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="8a8851a64a3c9777f368e3640896e810" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.autismprime.krassesSpiel.Lines(Context, boolean) may expose internal representation by storing an externally mutable object into Lines.view</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.Lines" name="&lt;init&gt;" signature="(Landroid/content/Context;Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="85" end="134" startBytecode="0" endBytecode="1198" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java"/>
+      <Message>In method new com.autismprime.krassesSpiel.Lines(Context, boolean)</Message>
+    </Method>
+    <Field classname="com.autismprime.krassesSpiel.Lines" name="view" signature="Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>In Lines.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.Lines.view</Message>
+    </Field>
+    <LocalVariable name="this" register="0" pc="560" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named this</Message>
+    </LocalVariable>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" primary="true" start="86" end="86" startBytecode="560" endBytecode="560" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+      <Message>At Lines.java:[line 86]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" instanceHash="79e01276574d5a6e7cf062eb4596d2c7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="192">
+    <ShortMessage>Integral division result cast to double or float</ShortMessage>
+    <LongMessage>Integral division result cast to double or float in com.autismprime.krassesSpiel.Lines.onDraw(Canvas)</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.Lines" name="onDraw" signature="(Landroid/graphics/Canvas;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="179" end="307" startBytecode="0" endBytecode="1842" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java"/>
+      <Message>In method com.autismprime.krassesSpiel.Lines.onDraw(Canvas)</Message>
+    </Method>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" primary="true" start="296" end="296" startBytecode="1221" endBytecode="1221" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+      <Message>At Lines.java:[line 296]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" instanceHash="8d401d8151267148b31d385335a1d791" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="192">
+    <ShortMessage>Integral division result cast to double or float</ShortMessage>
+    <LongMessage>Integral division result cast to double or float in com.autismprime.krassesSpiel.Lines.onTouch(View, MotionEvent)</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.Lines" name="onTouch" signature="(Landroid/view/View;Landroid/view/MotionEvent;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="314" end="384" startBytecode="0" endBytecode="1095" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java"/>
+      <Message>In method com.autismprime.krassesSpiel.Lines.onTouch(View, MotionEvent)</Message>
+    </Method>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" primary="true" start="317" end="317" startBytecode="57" endBytecode="57" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+      <Message>At Lines.java:[line 317]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="320" end="320" startBytecode="111" endBytecode="111" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at Lines.java:[line 320]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="324" end="324" startBytecode="151" endBytecode="151" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at Lines.java:[line 324]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="a135ddb56ee27057f881ec72570f1ce4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.autismprime.krassesSpiel.Lines.lastValue</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Field classname="com.autismprime.krassesSpiel.Lines" name="lastValue" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>In Lines.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.Lines.lastValue</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" primary="true" start="386" end="386" startBytecode="550" endBytecode="550" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+      <Message>At Lines.java:[line 386]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="f1d9373ce7f96d51794b717caf92e65" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.autismprime.krassesSpiel.Lines.lastValueY</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Field classname="com.autismprime.krassesSpiel.Lines" name="lastValueY" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>In Lines.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.Lines.lastValueY</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" primary="true" start="387" end="387" startBytecode="555" endBytecode="555" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+      <Message>At Lines.java:[line 387]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="e781b7da08d1c1d2a9218d66dc96f8aa" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.autismprime.krassesSpiel.Lines.movVecY</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Field classname="com.autismprime.krassesSpiel.Lines" name="movVecY" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>In Lines.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.Lines.movVecY</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.MThread" primary="true" start="38" end="38" startBytecode="110" endBytecode="110" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+      <Message>At MThread.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="9e12550e8ac9564cb868feef0a455752" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.autismprime.krassesSpiel.Lines.o</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.Lines" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" start="28" end="421" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>At Lines.java:[lines 28-421]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.Lines</Message>
+    </Class>
+    <Field classname="com.autismprime.krassesSpiel.Lines" name="o" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.Lines" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+        <Message>In Lines.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.Lines.o</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.Lines" primary="true" start="138" end="138" startBytecode="528" endBytecode="528" sourcefile="Lines.java" sourcepath="com/autismprime/krassesSpiel/Lines.java" relSourcepath="com/autismprime/krassesSpiel/Lines.java">
+      <Message>At Lines.java:[line 138]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="6033bf3ec1d7a0da11ccf5c296d5d2bf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;running&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.MThread" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="10" end="75" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+        <Message>At MThread.java:[lines 10-75]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.MThread</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.MThread" name="setRunning" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="17" end="18" startBytecode="0" endBytecode="61" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java"/>
+      <Message>In method com.autismprime.krassesSpiel.MThread.setRunning(boolean)</Message>
+    </Method>
+    <Field classname="com.autismprime.krassesSpiel.MThread" name="running" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+        <Message>In MThread.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.MThread.running</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.MThread" primary="true" start="17" end="17" startBytecode="2" endBytecode="2" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+      <Message>At MThread.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="89a53c5b04e46c936c79c2ee0c91690f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.autismprime.krassesSpiel.MThread.run()</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.MThread" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="10" end="75" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+        <Message>At MThread.java:[lines 10-75]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.MThread</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.MThread" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="23" end="75" startBytecode="0" endBytecode="788" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java"/>
+      <Message>In method com.autismprime.krassesSpiel.MThread.run()</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="243" end="243" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.autismprime.krassesSpiel.MThread" primary="true" start="49" end="49" startBytecode="239" endBytecode="239" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+      <Message>At MThread.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="8ef0cc4fcf057d361b8570e54d747e23" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.autismprime.krassesSpiel.MThread(Lines) may expose internal representation by storing an externally mutable object into MThread.v</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.MThread" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="10" end="75" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+        <Message>At MThread.java:[lines 10-75]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.MThread</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.MThread" name="&lt;init&gt;" signature="(Lcom/autismprime/krassesSpiel/Lines;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="13" end="15" startBytecode="0" endBytecode="87" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java"/>
+      <Message>In method new com.autismprime.krassesSpiel.MThread(Lines)</Message>
+    </Method>
+    <Field classname="com.autismprime.krassesSpiel.MThread" name="v" signature="Lcom/autismprime/krassesSpiel/Lines;" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+        <Message>In MThread.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.MThread.v</Message>
+    </Field>
+    <LocalVariable name="V" register="1" pc="16" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named V</Message>
+    </LocalVariable>
+    <SourceLine classname="com.autismprime.krassesSpiel.MThread" primary="true" start="14" end="14" startBytecode="16" endBytecode="16" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+      <Message>At MThread.java:[line 14]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" instanceHash="e4efc021e1132a73cc703036d566bb39" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="192">
+    <ShortMessage>Integral division result cast to double or float</ShortMessage>
+    <LongMessage>Integral division result cast to double or float in com.autismprime.krassesSpiel.MThread.run()</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.MThread" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="10" end="75" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+        <Message>At MThread.java:[lines 10-75]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.MThread</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.MThread" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="23" end="75" startBytecode="0" endBytecode="788" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java"/>
+      <Message>In method com.autismprime.krassesSpiel.MThread.run()</Message>
+    </Method>
+    <SourceLine classname="com.autismprime.krassesSpiel.MThread" primary="true" start="37" end="37" startBytecode="91" endBytecode="91" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java">
+      <Message>At MThread.java:[line 37]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MThread" start="38" end="38" startBytecode="109" endBytecode="109" sourcefile="MThread.java" sourcepath="com/autismprime/krassesSpiel/MThread.java" relSourcepath="com/autismprime/krassesSpiel/MThread.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MThread.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="bc28b231e8c3fa5f289d0267139f271c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.autismprime.krassesSpiel.MainActivity.onCreate(Bundle) may fail to clean up java.io.InputStream</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.MainActivity" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="20" end="189" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java">
+        <Message>At MainActivity.java:[lines 20-189]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.MainActivity</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.MainActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="25" end="147" startBytecode="0" endBytecode="1356" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java"/>
+      <Message>In method com.autismprime.krassesSpiel.MainActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Class classname="java.io.InputStream" role="CLASS_REFTYPE">
+      <SourceLine classname="java.io.InputStream" start="51" end="321" sourcefile="InputStream.java" sourcepath="java/io/InputStream.java">
+        <Message>At InputStream.java:[lines 51-321]</Message>
+      </SourceLine>
+      <Message>Reference type java.io.InputStream</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" primary="true" start="90" end="90" startBytecode="343" endBytecode="343" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at MainActivity.java:[line 90] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="91" end="91" startBytecode="348" endBytecode="348" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 91]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="93" end="93" startBytecode="356" endBytecode="356" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 93]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="94" end="94" startBytecode="368" endBytecode="368" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 94]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="95" end="95" startBytecode="376" endBytecode="376" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 95]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="99" end="99" startBytecode="383" endBytecode="383" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 99]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="106" end="106" startBytecode="398" endBytecode="398" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 106]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="139" end="139" startBytecode="783" endBytecode="783" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 139]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="143" end="143" startBytecode="796" endBytecode="796" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 143]</Message>
+    </SourceLine>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="147" end="147" startBytecode="822" endBytecode="822" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MainActivity.java:[line 147]</Message>
+    </SourceLine>
+    <String value="{InputStream x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {InputStream x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="176f6c3ee527356f4e7653a8b21bd71b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>com.autismprime.krassesSpiel.MainActivity.onCreate(Bundle) may fail to close stream</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.MainActivity" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="20" end="189" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java">
+        <Message>At MainActivity.java:[lines 20-189]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.MainActivity</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.MainActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="25" end="147" startBytecode="0" endBytecode="333" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java"/>
+      <Message>In method com.autismprime.krassesSpiel.MainActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/InputStream;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.InputStream" start="51" end="321" sourcefile="InputStream.java" sourcepath="java/io/InputStream.java">
+        <Message>At InputStream.java:[lines 51-321]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.InputStream </Message>
+    </Type>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" primary="true" start="90" end="90" startBytecode="337" endBytecode="337" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java">
+      <Message>At MainActivity.java:[line 90]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="5ff2abe58ef1453f8fe8d628b1821506" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.autismprime.krassesSpiel.MainActivity.onCreate(Bundle) where default case is missing</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.MainActivity" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="20" end="189" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java">
+        <Message>At MainActivity.java:[lines 20-189]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.MainActivity</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.MainActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" start="25" end="147" startBytecode="0" endBytecode="1356" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java"/>
+      <Message>In method com.autismprime.krassesSpiel.MainActivity.onCreate(Bundle)</Message>
+    </Method>
+    <SourceLine classname="com.autismprime.krassesSpiel.MainActivity" primary="true" start="70" end="98" startBytecode="223" endBytecode="397" sourcefile="MainActivity.java" sourcepath="com/autismprime/krassesSpiel/MainActivity.java" relSourcepath="com/autismprime/krassesSpiel/MainActivity.java">
+      <Message>At MainActivity.java:[lines 70-98]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_BOXED_PRIMITIVE_FOR_PARSING" priority="1" rank="16" abbrev="Bx" category="PERFORMANCE" instanceHash="fa80ed6069c16708f6e4549424306196" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Boxing/unboxing to parse a primitive</ShortMessage>
+    <LongMessage>Boxing/unboxing to parse a primitive com.autismprime.krassesSpiel.PathUtil.getPath(Context, Uri)</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.PathUtil" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.PathUtil" start="19" end="93" sourcefile="PathUtil.java" sourcepath="com/autismprime/krassesSpiel/PathUtil.java" relSourcepath="com/autismprime/krassesSpiel/PathUtil.java">
+        <Message>At PathUtil.java:[lines 19-93]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.PathUtil</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.PathUtil" name="getPath" signature="(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;" isStatic="true" primary="true" classAnnotationNames="android.annotation.SuppressLint">
+      <SourceLine classname="com.autismprime.krassesSpiel.PathUtil" start="25" end="68" startBytecode="0" endBytecode="690" sourcefile="PathUtil.java" sourcepath="com/autismprime/krassesSpiel/PathUtil.java" relSourcepath="com/autismprime/krassesSpiel/PathUtil.java"/>
+      <Message>In method com.autismprime.krassesSpiel.PathUtil.getPath(Context, Uri)</Message>
+    </Method>
+    <Method classname="java.lang.Long" name="longValue" signature="()J" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Long" start="615" end="615" startBytecode="0" endBytecode="51" sourcefile="Long.java" sourcepath="java/lang/Long.java"/>
+      <Message>Called method Long.longValue()</Message>
+    </Method>
+    <Method classname="java.lang.Long" name="parseLong" signature="(Ljava/lang/String;)J" isStatic="true" role="SHOULD_CALL">
+      <Message>Should call Long.parseLong(String) instead</Message>
+    </Method>
+    <SourceLine classname="com.autismprime.krassesSpiel.PathUtil" primary="true" start="38" end="38" startBytecode="108" endBytecode="108" sourcefile="PathUtil.java" sourcepath="com/autismprime/krassesSpiel/PathUtil.java" relSourcepath="com/autismprime/krassesSpiel/PathUtil.java">
+      <Message>At PathUtil.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="dc47f38a4fc6c47dfd5cc2f58a1ebaf1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment.ur should be package protected</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" start="46" end="192" sourcefile="SettingsActivity.java" sourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" relSourcepath="com/autismprime/krassesSpiel/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 46-192]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment</Message>
+    </Class>
+    <Field classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" name="ur" signature="Landroid/net/Uri;" isStatic="true" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" sourcefile="SettingsActivity.java" sourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" relSourcepath="com/autismprime/krassesSpiel/SettingsActivity.java">
+        <Message>In SettingsActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment.ur</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" sourcefile="SettingsActivity.java" sourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" relSourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" synthetic="true">
+      <Message>In SettingsActivity.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="b4f385c54ac977539c1f45de784eb697" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment.ur from instance method com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2.onActivityResult(ActivityResult)</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2" start="70" end="86" sourcefile="SettingsActivity.java" sourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" relSourcepath="com/autismprime/krassesSpiel/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 70-86]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2" name="onActivityResult" signature="(Landroidx/activity/result/ActivityResult;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2" start="73" end="86" startBytecode="0" endBytecode="234" sourcefile="SettingsActivity.java" sourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" relSourcepath="com/autismprime/krassesSpiel/SettingsActivity.java"/>
+      <Message>In method com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2.onActivityResult(ActivityResult)</Message>
+    </Method>
+    <Field classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" name="ur" signature="Landroid/net/Uri;" isStatic="true" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" sourcefile="SettingsActivity.java" sourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" relSourcepath="com/autismprime/krassesSpiel/SettingsActivity.java">
+        <Message>In SettingsActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment.ur</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2" primary="true" start="75" end="75" startBytecode="16" endBytecode="16" sourcefile="SettingsActivity.java" sourcepath="com/autismprime/krassesSpiel/SettingsActivity.java" relSourcepath="com/autismprime/krassesSpiel/SettingsActivity.java">
+      <Message>At SettingsActivity.java:[line 75]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="6affc9739ffcc0af17ddacb07bbf153d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.LinearLayout in com.autismprime.krassesSpiel.databinding.SettingsActivityBinding.bind(View)</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" start="18" end="66" sourcefile="SettingsActivityBinding.java" sourcepath="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java">
+        <Message>At SettingsActivityBinding.java:[lines 18-66]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.databinding.SettingsActivityBinding</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" name="bind" signature="(Landroid/view/View;)Lcom/autismprime/krassesSpiel/databinding/SettingsActivityBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" start="57" end="66" startBytecode="0" endBytecode="28" sourcefile="SettingsActivityBinding.java" sourcepath="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java"/>
+      <Message>In method com.autismprime.krassesSpiel.databinding.SettingsActivityBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1847" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1847]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/LinearLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.LinearLayout" start="20" end="92" sourcefile="LinearLayout.java" sourcepath="android/widget/LinearLayout.java">
+        <Message>At LinearLayout.java:[lines 20-92]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.LinearLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="23" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" primary="true" start="63" end="63" startBytecode="24" endBytecode="24" sourcefile="SettingsActivityBinding.java" sourcepath="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java">
+      <Message>At SettingsActivityBinding.java:[line 63]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="d4a210e695146a12e2a6862326ba9d47" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.autismprime.krassesSpiel.databinding.SettingsActivityBinding.getRoot() may expose internal representation by returning SettingsActivityBinding.rootView</LongMessage>
+    <Class classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" primary="true">
+      <SourceLine classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" start="18" end="66" sourcefile="SettingsActivityBinding.java" sourcepath="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java">
+        <Message>At SettingsActivityBinding.java:[lines 18-66]</Message>
+      </SourceLine>
+      <Message>In class com.autismprime.krassesSpiel.databinding.SettingsActivityBinding</Message>
+    </Class>
+    <Method classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" name="getRoot" signature="()Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" start="33" end="33" startBytecode="0" endBytecode="46" sourcefile="SettingsActivityBinding.java" sourcepath="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java"/>
+      <Message>In method com.autismprime.krassesSpiel.databinding.SettingsActivityBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" name="rootView" signature="Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" sourcefile="SettingsActivityBinding.java" sourcepath="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java">
+        <Message>In SettingsActivityBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.autismprime.krassesSpiel.databinding.SettingsActivityBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" primary="true" start="33" end="33" startBytecode="4" endBytecode="4" sourcefile="SettingsActivityBinding.java" sourcepath="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java">
+      <Message>At SettingsActivityBinding.java:[line 33]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="EXPERIMENTAL">
+    <Description>Experimental</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="ICAST_IDIV_CAST_TO_DOUBLE" abbrev="ICAST" category="STYLE">
+    <ShortDescription>Integral division result cast to double or float</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This code casts the result of an integral division (e.g., int or long division)
+operation to double or float.
+Doing division on integers truncates the result
+to the integer value closest to zero. The fact that the result
+was cast to double suggests that this precision should have been retained.
+What was probably meant was to cast one or both of the operands to
+double <em>before</em> performing the division.  Here is an example:
+</p>
+<pre><code>int x = 2;
+int y = 5;
+// Wrong: yields result 0.0
+double value1 = x / y;
+
+// Right: yields result 0.4
+double value2 = x / (double) y;
+</code></pre>
+<p>See <a href="https://cwe.mitre.org/data/definitions/192.html">CWE-192: Integer Coercion Error</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OBL_UNSATISFIED_OBLIGATION" abbrev="OBL" category="EXPERIMENTAL">
+    <ShortDescription>Method may fail to clean up stream or resource</ShortDescription>
+    <Details><![CDATA[
+          
+          <p>
+          This method may fail to clean up (close, dispose of) a stream,
+          database object, or other
+          resource requiring an explicit cleanup operation.
+          </p>
+
+          <p>
+          In general, if a method opens a stream or other resource,
+          the method should use a try/finally block to ensure that
+          the stream or resource is cleaned up before the method
+          returns.
+          </p>
+
+          <p>
+          This bug pattern is essentially the same as the
+          OS_OPEN_STREAM and ODR_OPEN_DATABASE_RESOURCE
+          bug patterns, but is based on a different
+          (and hopefully better) static analysis technique.
+          We are interested is getting feedback about the
+          usefulness of this bug pattern.
+          For sending feedback, check:
+          </p>
+          <ul>
+            <li><a href="https://github.com/spotbugs/spotbugs/blob/master/.github/CONTRIBUTING.md">contributing guideline</a></li>
+            <li><a href="https://github.com/spotbugs/discuss/issues?q=">mailinglist</a></li>
+          </ul>
+
+          <p>
+          In particular,
+          the false-positive suppression heuristics for this
+          bug pattern have not been extensively tuned, so
+          reports about false positives are helpful to us.
+          </p>
+
+          <p>
+          See Weimer and Necula, <i>Finding and Preventing Run-Time Error Handling Mistakes</i>
+          (<a href="https://people.eecs.berkeley.edu/~necula/Papers/rte_oopsla04.pdf">PDF</a>),
+          for a description of the analysis technique.
+          </p>
+          
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS" cweid="413">
+    <ShortDescription>This write of this shared primitive variable may not be visible to other threads</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA00-J.+Ensure+visibility+when+accessing+shared+primitive+variables">SEI CERT rule VNA00-J</a>
+          describes that reading a shared primitive variable in one thread may not yield the value of the most recent write to the variable from another thread.
+          Consequently, the thread may observe a stale value of the shared variable.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+          This guarantees that 64-bit primitive long and double variables are accessed atomically.
+        </p>
+        <p>
+        See also <a href="https://cwe.mitre.org/data/definitions/413.html">CWE-413: Improper Resource Locking</a>,
+        <a href="https://cwe.mitre.org/data/definitions/567.html">CWE-567: Unsynchronized Access to Shared Data in a Multithreaded Context</a>, and
+        <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a>.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_BOXED_PRIMITIVE_FOR_PARSING" abbrev="Bx" category="PERFORMANCE">
+    <ShortDescription>Boxing/unboxing to parse a primitive</ShortDescription>
+    <Details><![CDATA[
+
+  <p>A boxed primitive is created from a String, just to extract the unboxed primitive value.
+  It is more efficient to just call the static parseXXX method.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE" cweid="459">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/459.html">CWE-459: Incomplete Cleanup</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="ICAST" cweid="192">
+    <Description>Casting from integer values</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <BugCode abbrev="AT">
+    <Description>Possible atomicity violation</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="Bx">
+    <Description>Questionable Boxing of primitive value</Description>
+  </BugCode>
+  <BugCode abbrev="OBL">
+    <Description>Unsatisfied obligation to clean up stream or resource</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="33">
+    <MissingClass>androidx.activity.result.ActivityResult</MissingClass>
+    <MissingClass>androidx.activity.result.ActivityResultCallback</MissingClass>
+    <MissingClass>androidx.activity.result.ActivityResultLauncher</MissingClass>
+    <MissingClass>androidx.activity.result.contract.ActivityResultContract</MissingClass>
+    <MissingClass>androidx.activity.result.contract.ActivityResultContracts</MissingClass>
+    <MissingClass>androidx.activity.result.contract.ActivityResultContracts$RequestPermission</MissingClass>
+    <MissingClass>androidx.activity.result.contract.ActivityResultContracts$StartActivityForResult</MissingClass>
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.annotation.RequiresApi</MissingClass>
+    <MissingClass>androidx.appcompat.app.ActionBar</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.core.app.NavUtils</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>androidx.preference.Preference</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceChangeListener</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceClickListener</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat</MissingClass>
+    <MissingClass>androidx.preference.PreferenceManager</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBindings</MissingClass>
+    <MissingClass>com.autismprime.krassesSpiel.R</MissingClass>
+    <MissingClass>com.autismprime.krassesSpiel.R$id</MissingClass>
+    <MissingClass>com.autismprime.krassesSpiel.R$layout</MissingClass>
+    <MissingClass>com.autismprime.krassesSpiel.R$raw</MissingClass>
+    <MissingClass>com.autismprime.krassesSpiel.R$xml</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>yuku.ambilwarna.AmbilWarnaDialog</MissingClass>
+    <MissingClass>yuku.ambilwarna.AmbilWarnaDialog$OnAmbilWarnaListener</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 01:10:56 +0400" total_classes="23" referenced_classes="210" total_bugs="20" total_size="781" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="3.22" clock_seconds="0.84" peak_mbytes="296.83" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="17" priority_1="3">
+    <FileStats path="com/autismprime/krassesSpiel/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/autismprime/krassesSpiel/Lines.java" bugCount="7" size="310" bugHash="61a2c2abc2f3125f2dba8b08c4618404"/>
+    <FileStats path="com/autismprime/krassesSpiel/MThread.java" bugCount="5" size="51" bugHash="2bdd91176b03241a656ee979db5c9dea"/>
+    <FileStats path="com/autismprime/krassesSpiel/MainActivity.java" bugCount="3" size="124" bugHash="a879985694e6e920e5c256ea1c2f72aa"/>
+    <FileStats path="com/autismprime/krassesSpiel/PathUtil.java" bugCount="1" size="46" bugHash="f35afb25648c1a8746fadd4d6926aa7e"/>
+    <FileStats path="com/autismprime/krassesSpiel/SettingsActivity.java" bugCount="2" size="141" bugHash="f7a049cc8545dbdf7da45ad2ac545435"/>
+    <FileStats path="com/autismprime/krassesSpiel/databinding/ActivityMainBinding.java" bugCount="0" size="45"/>
+    <FileStats path="com/autismprime/krassesSpiel/databinding/PreferenceEditTextBinding.java" bugCount="0" size="27"/>
+    <FileStats path="com/autismprime/krassesSpiel/databinding/SettingsActivityBinding.java" bugCount="2" size="27" bugHash="b079e4f06b5166b062e3bf2a1ce001d5"/>
+    <PackageStats package="com.autismprime.krassesSpiel" total_bugs="18" total_types="20" total_size="682" priority_2="15" priority_1="3">
+      <ClassStats class="com.autismprime.krassesSpiel.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.Lines" sourceFile="Lines.java" interface="false" size="271" bugs="7" priority_2="6" priority_1="1"/>
+      <ClassStats class="com.autismprime.krassesSpiel.Lines$1" sourceFile="Lines.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.Lines$2" sourceFile="Lines.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.Lines$3" sourceFile="Lines.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.MThread" sourceFile="MThread.java" interface="false" size="51" bugs="5" priority_2="4" priority_1="1"/>
+      <ClassStats class="com.autismprime.krassesSpiel.MainActivity" sourceFile="MainActivity.java" interface="false" size="96" bugs="3" priority_2="3"/>
+      <ClassStats class="com.autismprime.krassesSpiel.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.MainActivity$3" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.PathUtil" sourceFile="PathUtil.java" interface="false" size="46" bugs="1" priority_1="1"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity" sourceFile="SettingsActivity.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment" sourceFile="SettingsActivity.java" interface="false" size="38" bugs="1" priority_2="1"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$1" sourceFile="SettingsActivity.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$2" sourceFile="SettingsActivity.java" interface="false" size="16" bugs="1" priority_2="1"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$3" sourceFile="SettingsActivity.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$4" sourceFile="SettingsActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$4$1" sourceFile="SettingsActivity.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$5" sourceFile="SettingsActivity.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.SettingsActivity$SettingsFragment$6" sourceFile="SettingsActivity.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.autismprime.krassesSpiel.databinding" total_bugs="2" total_types="3" total_size="99" priority_2="2">
+      <ClassStats class="com.autismprime.krassesSpiel.databinding.ActivityMainBinding" sourceFile="ActivityMainBinding.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.databinding.PreferenceEditTextBinding" sourceFile="PreferenceEditTextBinding.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="com.autismprime.krassesSpiel.databinding.SettingsActivityBinding" sourceFile="SettingsActivityBinding.java" interface="false" size="27" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="57" invocations="665" avgMicrosecondsPerInvocation="86" maxMicrosecondsPerInvocation="4938" standardDeviationMicrosecondsPerInvocation="282"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="36" invocations="210" avgMicrosecondsPerInvocation="174" maxMicrosecondsPerInvocation="3616" standardDeviationMicrosecondsPerInvocation="391"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="30" invocations="72" avgMicrosecondsPerInvocation="422" maxMicrosecondsPerInvocation="9625" standardDeviationMicrosecondsPerInvocation="1226"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="28" invocations="79" avgMicrosecondsPerInvocation="361" maxMicrosecondsPerInvocation="7704" standardDeviationMicrosecondsPerInvocation="1007"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="26" invocations="77" avgMicrosecondsPerInvocation="346" maxMicrosecondsPerInvocation="4451" standardDeviationMicrosecondsPerInvocation="714"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="26" invocations="74" avgMicrosecondsPerInvocation="357" maxMicrosecondsPerInvocation="8371" standardDeviationMicrosecondsPerInvocation="1044"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="22" invocations="79" avgMicrosecondsPerInvocation="287" maxMicrosecondsPerInvocation="3290" standardDeviationMicrosecondsPerInvocation="608"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="20" invocations="279" avgMicrosecondsPerInvocation="75" maxMicrosecondsPerInvocation="4254" standardDeviationMicrosecondsPerInvocation="272"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="17" invocations="23" avgMicrosecondsPerInvocation="778" maxMicrosecondsPerInvocation="7448" standardDeviationMicrosecondsPerInvocation="1888"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="17" invocations="77" avgMicrosecondsPerInvocation="225" maxMicrosecondsPerInvocation="2633" standardDeviationMicrosecondsPerInvocation="393"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="16" invocations="210" avgMicrosecondsPerInvocation="77" maxMicrosecondsPerInvocation="1344" standardDeviationMicrosecondsPerInvocation="172"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="15" invocations="70" avgMicrosecondsPerInvocation="225" maxMicrosecondsPerInvocation="3204" standardDeviationMicrosecondsPerInvocation="500"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="14" invocations="210" avgMicrosecondsPerInvocation="71" maxMicrosecondsPerInvocation="1398" standardDeviationMicrosecondsPerInvocation="151"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="14" invocations="680" avgMicrosecondsPerInvocation="20" maxMicrosecondsPerInvocation="248" standardDeviationMicrosecondsPerInvocation="19"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SharedVariableAtomicityDetector" totalMilliseconds="13" invocations="23" avgMicrosecondsPerInvocation="581" maxMicrosecondsPerInvocation="11616" standardDeviationMicrosecondsPerInvocation="2354"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="13" invocations="210" avgMicrosecondsPerInvocation="63" maxMicrosecondsPerInvocation="2777" standardDeviationMicrosecondsPerInvocation="218"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="12" invocations="210" avgMicrosecondsPerInvocation="59" maxMicrosecondsPerInvocation="3105" standardDeviationMicrosecondsPerInvocation="234"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="11" invocations="77" avgMicrosecondsPerInvocation="155" maxMicrosecondsPerInvocation="6133" standardDeviationMicrosecondsPerInvocation="695"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,67 @@
+#0
+app/src/main/java/com/example/punksta/volumecontrol/EditProfileActivity.java:84: warning: Ipc On Ui Thread
+  `void EditProfileActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int AudioManager.getStreamVolume(int)`. 
+  82.           }
+  83.   
+  84. >         buildUi();
+  85.   
+  86.       }
+
+#1
+app/src/main/java/com/example/punksta/volumecontrol/MainActivity.java:67: warning: Ipc On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int AudioManager.getRingerMode()`. Additional report(s) on the same line were suppressed. 
+  65.           setContentView(R.layout.activity_main);
+  66.           profileStorage = SoundApplication.getSoundProfileStorage(this);
+  67. >         buildUi();
+  68.           if (savedInstanceState == null) {
+  69.               if (handleIntent(getIntent())) {
+
+#2
+app/src/main/java/com/example/punksta/volumecontrol/MainActivity.java:224: warning: Ipc On Ui Thread
+  `void MainActivity$Lambda$_2_67.onCheckedChanged(CompoundButton,boolean)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int AudioManager.getStreamVolume(int)`. 
+  222.           Switch s2 = findViewById(R.id.extended_volumes);
+  223.           s2.setChecked(isExtendedVolumesEnabled());
+  224. >         s2.setOnCheckedChangeListener((buttonView, isChecked) -> setExtendedVolumesEnabled(isChecked));
+  225.   
+  226.   
+
+#3
+app/src/main/java/com/example/punksta/volumecontrol/MainActivity.java:387: warning: Ipc On Ui Thread
+  `void MainActivity.onStart()` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int AudioManager.getStreamVolume(int)`. 
+  385.           }
+  386.           for (TypeListener listener : volumeListeners)
+  387. >             control.registerVolumeListener(listener.type, listener, true);
+  388.       }
+  389.   
+
+#4
+app/src/main/java/com/example/punksta/volumecontrol/SoundService.java:300: warning: Ipc On Ui Thread
+  `int SoundService.onStartCommand(Intent,int,int)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int AudioManager.getStreamVolume(int)`. 
+  298.                   e.printStackTrace();
+  299.               }
+  300. >             registerListeners(profilesToShow);
+  301.               startForeground();
+  302.               return super.onStartCommand(intent, flags, startId);
+
+#5
+app/src/main/java/com/example/punksta/volumecontrol/view/RingerModeSwitch.java:64: error: Null Dereference
+  null (null value originating from line 64) is dereferenced. 
+  62.        */
+  63.       public void setRingMode(int mode) {
+  64. >         ((RadioButton) ringSwitch.findViewById(modeToButton.get(mode))).setChecked(true);
+  65.       }
+  66.   
+
+#6
+app/src/main/java/com/punksta/apps/libs/VolumeControl.java:146: error: Null Dereference
+  null (null value originating from line 146) is dereferenced. 
+  144.           private void notifyListeners(Integer type, int newLevel) {
+  145.               int max = getMaxLevel(type);
+  146. >             for (VolumeListener volumeListener : listenerSet.get(type))
+  147.                   volumeListener.onChangeIndex(type, newLevel, max);
+  148.           }
+
+Found 7 issues
+             Issue Type(ISSUED_TYPE_ID): #
+     Ipc On Ui Thread(IPC_ON_UI_THREAD): 5
+  Null Dereference(NULLPTR_DEREFERENCE): 2

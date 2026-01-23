@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762928392744" analysisTimestamp="1762928398164" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/ToDoNotes/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/ToDoNotes/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="85df599d8fc6ee8e44ddbdcad59d8dab" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils.loadNoteContent(String): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" start="17" end="153" sourcefile="FileUtils.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java">
+        <Message>At FileUtils.java:[lines 17-153]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" name="loadNoteContent" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" start="69" end="101" startBytecode="0" endBytecode="754" sourcefile="FileUtils.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils.loadNoteContent(String)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="69" end="69" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" primary="true" start="81" end="81" startBytecode="74" endBytecode="74" sourcefile="FileUtils.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java">
+      <Message>At FileUtils.java:[line 81]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="75d10bd22e47ce5dbf197e9cc274757c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils.saveNoteToFile(Context, String, String): String.getBytes()</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" start="17" end="153" sourcefile="FileUtils.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java">
+        <Message>At FileUtils.java:[lines 17-153]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" name="saveNoteToFile" signature="(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" start="44" end="65" startBytecode="0" endBytecode="604" sourcefile="FileUtils.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils.saveNoteToFile(Context, String, String)</Message>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="726" end="726" startBytecode="0" endBytecode="51" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.getBytes()</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" primary="true" start="51" end="51" startBytecode="51" endBytecode="51" sourcefile="FileUtils.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java">
+      <Message>At FileUtils.java:[line 51]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="e9527abe1e04241bc5b776833292254d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.LinearLayout in com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding.bind(View)</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" start="18" end="77" sourcefile="ListItemNoteBinding.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java">
+        <Message>At ListItemNoteBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" name="bind" signature="(Landroid/view/View;)Lcom/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding;" isStatic="true" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" start="62" end="77" startBytecode="0" endBytecode="39" sourcefile="ListItemNoteBinding.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1909" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1909]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/LinearLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.LinearLayout" start="20" end="92" sourcefile="LinearLayout.java" sourcepath="android/widget/LinearLayout.java">
+        <Message>At LinearLayout.java:[lines 20-92]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.LinearLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="44" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" primary="true" start="74" end="74" startBytecode="45" endBytecode="45" sourcefile="ListItemNoteBinding.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java">
+      <Message>At ListItemNoteBinding.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="85a0c0ec09bd7b68dc12348b13557434" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding.getRoot() may expose internal representation by returning ListItemNoteBinding.rootView</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" start="18" end="77" sourcefile="ListItemNoteBinding.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java">
+        <Message>At ListItemNoteBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" name="getRoot" signature="()Landroid/widget/LinearLayout;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" start="38" end="38" startBytecode="0" endBytecode="46" sourcefile="ListItemNoteBinding.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" name="rootView" signature="Landroid/widget/LinearLayout;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" sourcefile="ListItemNoteBinding.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java">
+        <Message>In ListItemNoteBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" primary="true" start="38" end="38" startBytecode="4" endBytecode="4" sourcefile="ListItemNoteBinding.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java">
+      <Message>At ListItemNoteBinding.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="12">
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.coordinatorlayout.widget.CoordinatorLayout</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBindings</MissingClass>
+    <MissingClass>com.google.android.material.floatingactionbutton.FloatingActionButton</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.todonotes.Note</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.todonotes.R</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.todonotes.R$id</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.todonotes.R$layout</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:19:52 +0400" total_classes="4" referenced_classes="44" total_bugs="4" total_size="205" num_packages="2" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="6.14" clock_seconds="2.81" peak_mbytes="223.39" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="2" priority_1="2">
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/todonotes/FileUtils.java" bugCount="2" size="88" bugHash="10115d5777e27785ca36ad03815bd5a4"/>
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ActivityMainBinding.java" bugCount="0" size="45"/>
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ActivityNoteEditBinding.java" bugCount="0" size="39"/>
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/todonotes/databinding/ListItemNoteBinding.java" bugCount="2" size="33" bugHash="00273ab46331cc61627dc7b677df579f"/>
+    <PackageStats package="com.sanad.gemini_2_dot_5_pro_preview.todonotes" total_bugs="2" total_types="1" total_size="88" priority_1="2">
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.todonotes.FileUtils" sourceFile="FileUtils.java" interface="false" size="88" bugs="2" priority_1="2"/>
+    </PackageStats>
+    <PackageStats package="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding" total_bugs="2" total_types="3" total_size="117" priority_2="2">
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ActivityMainBinding" sourceFile="ActivityMainBinding.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ActivityNoteEditBinding" sourceFile="ActivityNoteEditBinding.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.todonotes.databinding.ListItemNoteBinding" sourceFile="ListItemNoteBinding.java" interface="false" size="33" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="395" invocations="419" avgMicrosecondsPerInvocation="945" maxMicrosecondsPerInvocation="45044" standardDeviationMicrosecondsPerInvocation="3144"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="150" invocations="44" avgMicrosecondsPerInvocation="3418" maxMicrosecondsPerInvocation="22729" standardDeviationMicrosecondsPerInvocation="4834"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="107" invocations="26" avgMicrosecondsPerInvocation="4133" maxMicrosecondsPerInvocation="35963" standardDeviationMicrosecondsPerInvocation="7410"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="95" invocations="28" avgMicrosecondsPerInvocation="3406" maxMicrosecondsPerInvocation="21448" standardDeviationMicrosecondsPerInvocation="4835"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="90" invocations="76" avgMicrosecondsPerInvocation="1184" maxMicrosecondsPerInvocation="11719" standardDeviationMicrosecondsPerInvocation="2140"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="78" invocations="44" avgMicrosecondsPerInvocation="1777" maxMicrosecondsPerInvocation="44465" standardDeviationMicrosecondsPerInvocation="7345"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="75" invocations="23" avgMicrosecondsPerInvocation="3300" maxMicrosecondsPerInvocation="20795" standardDeviationMicrosecondsPerInvocation="4601"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="73" invocations="44" avgMicrosecondsPerInvocation="1680" maxMicrosecondsPerInvocation="15157" standardDeviationMicrosecondsPerInvocation="3170"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="72" invocations="44" avgMicrosecondsPerInvocation="1647" maxMicrosecondsPerInvocation="15802" standardDeviationMicrosecondsPerInvocation="2952"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="70" invocations="44" avgMicrosecondsPerInvocation="1594" maxMicrosecondsPerInvocation="14233" standardDeviationMicrosecondsPerInvocation="2849"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="57" invocations="28" avgMicrosecondsPerInvocation="2050" maxMicrosecondsPerInvocation="28199" standardDeviationMicrosecondsPerInvocation="5724"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="53" invocations="28" avgMicrosecondsPerInvocation="1920" maxMicrosecondsPerInvocation="8100" standardDeviationMicrosecondsPerInvocation="2224"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="52" invocations="44" avgMicrosecondsPerInvocation="1187" maxMicrosecondsPerInvocation="12358" standardDeviationMicrosecondsPerInvocation="2284"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="50" invocations="23" avgMicrosecondsPerInvocation="2210" maxMicrosecondsPerInvocation="8200" standardDeviationMicrosecondsPerInvocation="2297"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DefaultEncodingDetector" totalMilliseconds="50" invocations="4" avgMicrosecondsPerInvocation="12661" maxMicrosecondsPerInvocation="47614" standardDeviationMicrosecondsPerInvocation="20182"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="48" invocations="353" avgMicrosecondsPerInvocation="136" maxMicrosecondsPerInvocation="5485" standardDeviationMicrosecondsPerInvocation="433"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="44" invocations="4" avgMicrosecondsPerInvocation="11085" maxMicrosecondsPerInvocation="21960" standardDeviationMicrosecondsPerInvocation="7420"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="40" invocations="426" avgMicrosecondsPerInvocation="94" maxMicrosecondsPerInvocation="2633" standardDeviationMicrosecondsPerInvocation="221"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="38" invocations="26" avgMicrosecondsPerInvocation="1473" maxMicrosecondsPerInvocation="5821" standardDeviationMicrosecondsPerInvocation="1780"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="35" invocations="44" avgMicrosecondsPerInvocation="810" maxMicrosecondsPerInvocation="9474" standardDeviationMicrosecondsPerInvocation="2018"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="28" invocations="26" avgMicrosecondsPerInvocation="1088" maxMicrosecondsPerInvocation="13585" standardDeviationMicrosecondsPerInvocation="2562"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="26" invocations="4" avgMicrosecondsPerInvocation="6606" maxMicrosecondsPerInvocation="18432" standardDeviationMicrosecondsPerInvocation="7091"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="26" invocations="4" avgMicrosecondsPerInvocation="6568" maxMicrosecondsPerInvocation="25893" standardDeviationMicrosecondsPerInvocation="11157"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="25" invocations="4" avgMicrosecondsPerInvocation="6437" maxMicrosecondsPerInvocation="22653" standardDeviationMicrosecondsPerInvocation="9362"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="22" invocations="4" avgMicrosecondsPerInvocation="5742" maxMicrosecondsPerInvocation="22491" standardDeviationMicrosecondsPerInvocation="9670"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

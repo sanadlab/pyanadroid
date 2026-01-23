@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.6.3">
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`com.greense.detector.mylibrary.CustomLintRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;Bitmap Format Usage&quot;,&#xA;                    &quot;Data Transmission Without Compression&quot;,&#xA;                    &quot;Early Resource Binding&quot;,&#xA;                    &quot;Heavy Async Task&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Immortality Bug&quot;,&#xA;                    &quot;Invalidate Without Rect&quot;,&#xA;                    &quot;Leaking Thread&quot;,&#xA;                    &quot;Lifecycle Containment&quot;,&#xA;                    &quot;No Low Memory Resolver&quot;,&#xA;                    &quot;Public Directory&quot;,&#xA;                    &quot;Resource Leak&quot;,&#xA;                    &quot;Unused Hardware Acceleration&quot;,&#xA;                    &quot;Vacuous Background Service&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.android/lint/customLintFatima.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`greenlab.org.ebugslocator.registry.CustomIssueRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;CameraLeak&quot;,&#xA;                    &quot;ExcessiveMethodCalls&quot;,&#xA;                    &quot;HashMapUsage&quot;,&#xA;                    &quot;InternalGetter&quot;,&#xA;                    &quot;MediaLeak&quot;,&#xA;                    &quot;MemberIgnoringMethod&quot;,&#xA;                    &quot;MemoizationChance&quot;,&#xA;                    &quot;SensorLeak&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar"/>
+    </issue>
+
+    <issue
+        id="GradleCompatible"
+        severity="Fatal"
+        message="The compileSdkVersion (23) should not be lower than the targetSdkVersion (28)"
+        category="Correctness"
+        priority="8"
+        summary="Incompatible Gradle Versions"
+        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`)."
+        errorLine1="    compileSdkVersion 23"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="11"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ApplySharedPref"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Use `apply()` on `SharedPreferences`"
+        explanation="Consider using `apply()` instead of `commit` on shared preferences. Whereas `commit` blocks and writes its data to persistent storage immediately, `apply` will handle it in the background."
+        errorLine1="            editor.commit();"
+        errorLine2="            ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/NavFragment.java"
+            line="83"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="30"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`testCompile` is deprecated; replace with `testImplementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    testCompile &apos;junit:junit:4.12&apos;"
+        errorLine2="    ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="31"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:appcompat-v7:23.2.1&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="32"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:design:23.2.1&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="33"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;org.jsoup:jsoup:1.8.3&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="34"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Target SDK attribute is not targeting latest version"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.&#xA;&#xA;To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html as well as follow this guide:&#xA;https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        url="https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        urls="https://developer.android.com/distribute/best-practices/develop/target-sdk.html,http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="        targetSdkVersion 28"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="17"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="InflateParams"
+        severity="Warning"
+        message="Avoid passing `null` as the view root (needed to resolve layout parameters on the inflated layout&apos;s root element)"
+        category="Correctness"
+        priority="5"
+        summary="Layout Inflation without a Parent"
+        explanation="When inflating a layout, avoid passing in null as the parent view, since otherwise any layout parameters on the root of the inflated layout will be ignored."
+        url="http://www.doubleencore.com/2013/05/layout-inflation-as-intended"
+        urls="http://www.doubleencore.com/2013/05/layout-inflation-as-intended"
+        errorLine1="        View view = inflater.inflate(R.layout.fragment_left, null);"
+        errorLine2="                                                             ~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/NavFragment.java"
+            line="43"
+            column="62"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="Old buildToolsVersion 25.0.0; recommended version is 25.0.3 or later"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    buildToolsVersion &apos;25.0.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="12"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of junit:junit than 4.12 is available: 4.13.2"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    testCompile &apos;junit:junit:4.12&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="31"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:appcompat-v7 than 23.2.1 is available: 23.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:appcompat-v7:23.2.1&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="32"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:design than 23.2.1 is available: 23.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:design:23.2.1&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="33"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of org.jsoup:jsoup than 1.8.3 is available: 1.21.2"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;org.jsoup:jsoup:1.8.3&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build.gradle"
+            line="34"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionCode` value (`3`) is not used; it is always overridden by the value specified in the Gradle build script (`3`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    android:versionCode=&quot;3&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionCode` value (`3`) is not used; it is always overridden by the value specified in the Gradle build script (`3`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    android:versionCode=&quot;3&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionName` value (`1.2`) is not used; it is always overridden by the value specified in the Gradle build script (`1.2`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    android:versionName=&quot;1.2&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This `versionName` value (`1.2`) is not used; it is always overridden by the value specified in the Gradle build script (`1.2`)"
+        category="Correctness"
+        priority="4"
+        summary="Value overridden by Gradle build script"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="    android:versionName=&quot;1.2&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="TrulyRandom"
+        severity="Warning"
+        message="Potentially insecure random numbers on Android 4.3 and older. Read https://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html for more info."
+        category="Security"
+        priority="9"
+        summary="Weak RNG"
+        explanation="Key generation, signing, encryption, and random number generation may not receive cryptographically strong values due to improper initialization of the underlying PRNG on Android 4.3 and below.&#xA;&#xA;If your application relies on cryptographically secure random number generation you should apply the workaround described in https://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html .&#xA;&#xA;This lint rule is mostly informational; it does not accurately detect whether cryptographically secure RNG is required, or whether the workaround has already been applied. After reading the blog entry and updating your code if necessary, you can disable this lint issue."
+        url="https://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html"
+        urls="https://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html"
+        errorLine1="            sc.init(null, trustAllCerts, new java.security.SecureRandom());"
+        errorLine2="                                                           ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/KeepSessionTask.java"
+            line="181"
+            column="60"/>
+    </issue>
+
+    <issue
+        id="BadHostnameVerifier"
+        severity="Warning"
+        message="`verify` always returns `true`, which could cause insecure network traffic due to trusting TLS/SSL server certificates for wrong hostnames"
+        category="Security"
+        priority="6"
+        summary="Insecure HostnameVerifier"
+        explanation="This check looks for implementations of `HostnameVerifier` whose `verify` method always returns true (thus trusting any hostname) which could result in insecure network traffic caused by trusting arbitrary hostnames in TLS/SSL certificates presented by peers."
+        errorLine1="    public boolean verify(String hostname, SSLSession session) {"
+        errorLine2="                   ~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/HostVerifier.java"
+            line="11"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="SetJavaScriptEnabled"
+        severity="Warning"
+        message="Using `setJavaScriptEnabled` can introduce XSS vulnerabilities into your application, review carefully."
+        category="Security"
+        priority="6"
+        summary="Using `setJavaScriptEnabled`"
+        explanation="Your code should not invoke `setJavaScriptEnabled` if you are not sure that your app really requires JavaScript support."
+        url="http://developer.android.com/guide/practices/security.html"
+        urls="http://developer.android.com/guide/practices/security.html"
+        errorLine1="        settings.setJavaScriptEnabled(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/MainActivity.java"
+            line="100"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        severity="Warning"
+        message="`checkClientTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers"
+        category="Security"
+        priority="6"
+        summary="Insecure TLS/SSL trust manager"
+        explanation="This check looks for X509TrustManager implementations whose `checkServerTrusted` or `checkClientTrusted` methods do nothing (thus trusting any certificate chain) which could result in insecure network traffic caused by trusting arbitrary TLS/SSL certificates presented by peers.">
+        <location
+            file="/Users/rar9993/.gradle/daemon/5.6.4/org/jsoup/helper/HttpConnection$Response$2.class"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        severity="Warning"
+        message="`checkServerTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers"
+        category="Security"
+        priority="6"
+        summary="Insecure TLS/SSL trust manager"
+        explanation="This check looks for X509TrustManager implementations whose `checkServerTrusted` or `checkClientTrusted` methods do nothing (thus trusting any certificate chain) which could result in insecure network traffic caused by trusting arbitrary TLS/SSL certificates presented by peers.">
+        <location
+            file="/Users/rar9993/.gradle/daemon/5.6.4/org/jsoup/helper/HttpConnection$Response$2.class"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        severity="Warning"
+        message="`checkClientTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers"
+        category="Security"
+        priority="6"
+        summary="Insecure TLS/SSL trust manager"
+        explanation="This check looks for X509TrustManager implementations whose `checkServerTrusted` or `checkClientTrusted` methods do nothing (thus trusting any certificate chain) which could result in insecure network traffic caused by trusting arbitrary TLS/SSL certificates presented by peers."
+        errorLine1="    public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/TrustManager.java"
+            line="13"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        severity="Warning"
+        message="`checkServerTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers"
+        category="Security"
+        priority="6"
+        summary="Insecure TLS/SSL trust manager"
+        explanation="This check looks for X509TrustManager implementations whose `checkServerTrusted` or `checkClientTrusted` methods do nothing (thus trusting any certificate chain) which could result in insecure network traffic caused by trusting arbitrary TLS/SSL certificates presented by peers."
+        errorLine1="    public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/TrustManager.java"
+            line="18"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/training/backup/autosyncapi.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup&#xA;&#xA;By default, this flag is set to `true` which means application data can be backed up and restored by the OS. Setting `allowBackup=&quot;false&quot;` opts the application out of being backed up and so users can&apos;t restore data related to it when they go through the device setup wizard.&#xA;&#xA;Allowing backups may have security consequences for an application. Currently `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.&#xA;&#xA;To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.&#xA;&#xA;If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/training/backup/autosyncapi.html"
+        urls="https://developer.android.com/training/backup/autosyncapi.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="     ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="10"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="No Low Memory Resolver"
+        severity="Warning"
+        message="Once the device memory is full, release some memory from your application"
+        category="Performance"
+        priority="6"
+        summary="No Low Memory Resolver"
+        explanation="Once the device memory is full, release some memory from your application"
+        errorLine1="public class MainActivity extends AppCompatActivity {"
+        errorLine2="                                                    ~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/MainActivity.java"
+            line="25"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="No Low Memory Resolver"
+        severity="Warning"
+        message="Once the device memory is full, release some memory from your application"
+        category="Performance"
+        priority="6"
+        summary="No Low Memory Resolver"
+        explanation="Once the device memory is full, release some memory from your application"
+        errorLine1="public class MainActivity extends AppCompatActivity {"
+        errorLine2="                                                    ~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/MainActivity.java"
+            line="25"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="This field leaks a context object"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts.&#xA;&#xA;Non-static inner classes have an implicit reference to their outer class. If that outer class is for example a `Fragment` or `Activity`, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.&#xA;&#xA;Similarly, direct field references to activities and fragments from these longer running instances can cause leaks.&#xA;&#xA;ViewModel classes should never point to Views or non-application Contexts."
+        errorLine1="    private final WebView webView;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/LoginTask.java"
+            line="35"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="This field leaks a context object"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts.&#xA;&#xA;Non-static inner classes have an implicit reference to their outer class. If that outer class is for example a `Fragment` or `Activity`, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.&#xA;&#xA;Similarly, direct field references to activities and fragments from these longer running instances can cause leaks.&#xA;&#xA;ViewModel classes should never point to Views or non-application Contexts."
+        errorLine1="    private final Context context;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/LoginTask.java"
+            line="37"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="This field leaks a context object"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts.&#xA;&#xA;Non-static inner classes have an implicit reference to their outer class. If that outer class is for example a `Fragment` or `Activity`, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.&#xA;&#xA;Similarly, direct field references to activities and fragments from these longer running instances can cause leaks.&#xA;&#xA;ViewModel classes should never point to Views or non-application Contexts."
+        errorLine1="    private final DrawerLayout drawerLayout;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/LoginTask.java"
+            line="43"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Unused Hardware Acceleration"
+        severity="Warning"
+        message="Add hardwareAccelerated=true"
+        category="Performance"
+        priority="6"
+        summary="Unused Hardware Acceleration"
+        explanation="Add hardwareAccelerated=true"
+        errorLine1="    &lt;application"
+        errorLine2="    ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="10"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.color.colorPrimary` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;color name=&quot;colorPrimary&quot;>#fff&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/colors.xml"
+            line="3"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.nav_header_vertical_spacing` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;dimen name=&quot;nav_header_vertical_spacing&quot;>16dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/dimens.xml"
+            line="3"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.fab_margin` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;dimen name=&quot;fab_margin&quot;>16dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/dimens.xml"
+            line="8"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.mipmap.ic_launcher` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/mipmap-hdpi/ic_launcher.png"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/mipmap-mdpi/ic_launcher.png"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/mipmap-xhdpi/ic_launcher.png"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_menu_camera` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable-v21/ic_menu_camera.xml"
+            line="1"
+            column="1"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/drawables.xml"
+            line="2"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_menu_gallery` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable-v21/ic_menu_gallery.xml"
+            line="1"
+            column="1"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/drawables.xml"
+            line="3"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_menu_manage` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable-v21/ic_menu_manage.xml"
+            line="1"
+            column="1"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/drawables.xml"
+            line="5"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_menu_send` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable-v21/ic_menu_send.xml"
+            line="1"
+            column="1"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/drawables.xml"
+            line="7"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_menu_share` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable-v21/ic_menu_share.xml"
+            line="1"
+            column="1"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/drawables.xml"
+            line="6"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_menu_slideshow` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable-v21/ic_menu_slideshow.xml"
+            line="1"
+            column="1"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/values/drawables.xml"
+            line="4"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="RedundantNamespace"
+        severity="Warning"
+        message="This namespace declaration is redundant"
+        category="Performance"
+        priority="1"
+        summary="Redundant namespace"
+        explanation="In Android XML documents, only specify the namespace on the root/document element. Namespace declarations elsewhere in the document are typically accidental leftovers from copy/pasting XML from other files or documentation."
+        errorLine1="    &lt;WebView  xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/content_main.xml"
+            line="11"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="UnusedNamespace"
+        severity="Warning"
+        message="Unused namespace declaration xmlns:android; already declared on the root element"
+        category="Performance"
+        priority="1"
+        summary="Unused namespace"
+        explanation="Unused namespace declarations take up space and require processing that is not necessary"
+        errorLine1="    &lt;WebView  xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/content_main.xml"
+            line="11"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/ic_launcher.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/ic_launcher_evenement.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_launcher_evenement.png"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        severity="Warning"
+        message="The view name (`@+id/input_email`) suggests this is an e-mail address, but it does not include &apos;`textEmail`&apos; in the `inputType`"
+        category="Usability"
+        priority="5"
+        summary="Missing `inputType`"
+        explanation="Providing an `inputType` attribute on a text field improves usability because depending on the data to be input, optimized keyboards can be shown to the user (such as just digits and parentheses for a phone number). &#xA;&#xA;The lint detector also looks at the `id` of the view, and if the id offers a hint of the purpose of the field (for example, the `id` contains the phrase `phone` or `email`), then lint will also ensure that the `inputType` contains the corresponding type attributes.&#xA;&#xA;If you really want to keep the text field generic, you can suppress this warning by setting `inputType=&quot;text&quot;`."
+        errorLine1="            android:inputType=&quot;textAutoComplete&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="48"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="45"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        severity="Warning"
+        message="Missing `autofillHints` attribute"
+        category="Usability"
+        priority="3"
+        summary="Use Autofill"
+        explanation="Specify an `autofillHints` attribute when targeting SDK version 26 or higher or explicitly specify that the view is not important for autofill. Your app can help an autofill service classify the data correctly by providing the meaning of each view that could be autofillable, such as views representing usernames, passwords, credit card fields, email addresses, etc.&#xA;&#xA;The hints can have any value, but it is recommended to use predefined values like &apos;username&apos; for a username or &apos;creditCardNumber&apos; for a credit card number. For a list of all predefined autofill hint constants, see the `AUTOFILL_HINT_` constants in the `View` reference at https://developer.android.com/reference/android/view/View.html.&#xA;&#xA;You can mark a view unimportant for autofill by specifying an `importantForAutofill` attribute on that view or a parent view. See https://developer.android.com/reference/android/view/View.html#setImportantForAutofill(int)."
+        url="https://developer.android.com/guide/topics/text/autofill.html"
+        urls="https://developer.android.com/guide/topics/text/autofill.html"
+        errorLine1="        &lt;EditText android:id=&quot;@+id/input_server&quot;"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="32"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        severity="Warning"
+        message="Missing `autofillHints` attribute"
+        category="Usability"
+        priority="3"
+        summary="Use Autofill"
+        explanation="Specify an `autofillHints` attribute when targeting SDK version 26 or higher or explicitly specify that the view is not important for autofill. Your app can help an autofill service classify the data correctly by providing the meaning of each view that could be autofillable, such as views representing usernames, passwords, credit card fields, email addresses, etc.&#xA;&#xA;The hints can have any value, but it is recommended to use predefined values like &apos;username&apos; for a username or &apos;creditCardNumber&apos; for a credit card number. For a list of all predefined autofill hint constants, see the `AUTOFILL_HINT_` constants in the `View` reference at https://developer.android.com/reference/android/view/View.html.&#xA;&#xA;You can mark a view unimportant for autofill by specifying an `importantForAutofill` attribute on that view or a parent view. See https://developer.android.com/reference/android/view/View.html#setImportantForAutofill(int)."
+        url="https://developer.android.com/guide/topics/text/autofill.html"
+        urls="https://developer.android.com/guide/topics/text/autofill.html"
+        errorLine1="        &lt;EditText android:id=&quot;@+id/input_email&quot;"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="45"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        severity="Warning"
+        message="Missing `autofillHints` attribute"
+        category="Usability"
+        priority="3"
+        summary="Use Autofill"
+        explanation="Specify an `autofillHints` attribute when targeting SDK version 26 or higher or explicitly specify that the view is not important for autofill. Your app can help an autofill service classify the data correctly by providing the meaning of each view that could be autofillable, such as views representing usernames, passwords, credit card fields, email addresses, etc.&#xA;&#xA;The hints can have any value, but it is recommended to use predefined values like &apos;username&apos; for a username or &apos;creditCardNumber&apos; for a credit card number. For a list of all predefined autofill hint constants, see the `AUTOFILL_HINT_` constants in the `View` reference at https://developer.android.com/reference/android/view/View.html.&#xA;&#xA;You can mark a view unimportant for autofill by specifying an `importantForAutofill` attribute on that view or a parent view. See https://developer.android.com/reference/android/view/View.html#setImportantForAutofill(int)."
+        url="https://developer.android.com/guide/topics/text/autofill.html"
+        urls="https://developer.android.com/guide/topics/text/autofill.html"
+        errorLine1="        &lt;EditText android:id=&quot;@+id/input_password&quot;"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="59"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView android:src=&quot;@drawable/ic_launcher_evenement&quot;"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="14"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Adresse Serveur&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:hint=&quot;Adresse Serveur&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="36"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Identifiant ou courriel&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:hint=&quot;Identifiant ou courriel&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="49"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Mot de passe&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:hint=&quot;Mot de passe&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="63"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Enregistrer&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:text=&quot;Enregistrer&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_left.xml"
+            line="75"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`Gravity.START`&quot; instead of &quot;`Gravity.LEFT`&quot; to ensure correct behavior in right-to-left locales"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            drawerLayout.closeDrawer(Gravity.LEFT);"
+        errorLine2="                                             ~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java/com/evenement/eveControl/NavFragment.java"
+            line="85"
+            column="46"/>
+    </issue>
+
+</issues>

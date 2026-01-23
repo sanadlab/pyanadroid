@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/MainActivity.kt">
+	<error line="100" column="18" severity="warning" message="The function onCreate is too long (87). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="597" column="18" severity="warning" message="The function onOptionsItemSelected is too long (69). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="90" column="7" severity="warning" message="Class MainActivity is too large. Consider splitting it into smaller pieces." source="detekt.LargeClass" />
+	<error line="516" column="18" severity="warning" message="The function onRequestPermissionsResult appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="401" column="17" severity="warning" message="Function getUnknownCalendars is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="482" column="17" severity="warning" message="Function getUnknownTasks is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="1214" column="17" severity="warning" message="Function setCollectionInfo is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="90" column="7" severity="warning" message="Class &apos;MainActivity&apos; with &apos;31&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="910" column="63" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="225" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="234" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="224" column="57" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="143" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="910" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="309" column="17" severity="warning" message="Function getBooks has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="370" column="17" severity="warning" message="Function getCalendars has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="446" column="17" severity="warning" message="Function getTaskLists has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="482" column="17" severity="warning" message="Function getUnknownTasks has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="597" column="18" severity="warning" message="Function onOptionsItemSelected has 5 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="680" column="17" severity="warning" message="Function createAddressBookClicked has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="725" column="17" severity="warning" message="Function createCalendarClicked has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="770" column="17" severity="warning" message="Function createTaskListClicked has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="18" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="33" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="34" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="47" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_intro_directory.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="48" column="1" severity="warning" message="kotlinx.android.synthetic.main.collections.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="49" column="1" severity="warning" message="kotlinx.coroutines.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="50" column="1" severity="warning" message="kotlinx.serialization.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="51" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="57" column="1" severity="warning" message="org.decsync.cc.contacts.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="63" column="1" severity="warning" message="org.decsync.library.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="90" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="124" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="155" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="168" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="230" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="405" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="682" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="705" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="727" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="750" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="772" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="849" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="887" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="1042" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="1083" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="1093" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="1100" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="1192" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="160" column="9" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="628" column="21" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="710" column="37" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="497" column="17" severity="warning" message="The loop contains more than one break or continue statement. The code should be refactored to increase readability." source="detekt.LoopWithTooManyJumpStatements" />
+	<error line="161" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="167" column="102" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="421" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="506" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="787" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="822" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="836" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="866" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="880" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1037" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1105" column="62" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1229" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/IntroActivity.kt">
+	<error line="133" column="18" severity="warning" message="Function onActivityResult is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="175" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/IntroActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="19" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_intro_directory.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="22" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="48" column="84" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/AddDirectoryActivity.kt">
+	<error line="130" column="18" severity="warning" message="Function onActivityResult is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="196" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/AddDirectoryActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="18" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_add_directory.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="118" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/calendars/CalendarsWorker.kt">
+	<error line="51" column="26" severity="warning" message="Function sync is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="51" column="26" severity="warning" message="Function sync has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="22" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="29" column="1" severity="warning" message="androidx.work.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="33" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="53" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="56" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="57" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="131" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="155" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="168" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="169" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="188" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/calendars/CalendarsListeners.kt">
+	<error line="78" column="9" severity="warning" message="The function resourcesListener is too long (61). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="115" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="37" column="9" severity="warning" message="Function infoListener has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="78" column="9" severity="warning" message="Function resourcesListener has 5 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="25" column="1" severity="warning" message="at.bitfire.ical4android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="26" column="1" severity="warning" message="kotlinx.serialization.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="37" column="22" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/Utils.kt">
+	<error line="114" column="17" severity="warning" message="Function anyCalendarEnabledForDirs is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="27" column="8" severity="warning" message="Object &apos;Utils&apos; with &apos;14&apos; functions detected. Defined threshold inside objects is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="43" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="68" column="16" severity="warning" message="String.format(&quot;#%06X&quot;, color and 0xFFFFFF) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="114" column="17" severity="warning" message="Function anyCalendarEnabledForDirs has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="150" column="17" severity="warning" message="Function anyTaskListEnabledForDirs has 5 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="185" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/Utils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="115" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="68" column="49" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="129" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="167" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="105" column="25" severity="warning" message="Private function `anyCalendarEnabledForAnyDir` is unused." source="detekt.UnusedPrivateMember" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/ContactsListeners.kt">
+	<error line="36" column="9" severity="warning" message="Function infoListener is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="83" column="9" severity="warning" message="Function resourcesListener has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="26" column="1" severity="warning" message="at.bitfire.vcard4android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="27" column="1" severity="warning" message="kotlinx.serialization.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="28" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="98" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="57" column="54" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="36" column="22" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/CollectionWorker.kt">
+	<error line="38" column="26" severity="warning" message="The function doWork is too long (86). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="38" column="26" severity="warning" message="The function doWork appears to be too complex based on Cyclomatic Complexity (complexity: 21). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="38" column="26" severity="warning" message="Function doWork is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="56" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="38" column="26" severity="warning" message="Function doWork has 6 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="170" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/CollectionWorker.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="10" column="1" severity="warning" message="androidx.work.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="26" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="67" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="161" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="123" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="158" column="85" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/CollectionInfo.kt">
+	<error line="131" column="18" severity="warning" message="Function isEnabled is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="70" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="126" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="227" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="273" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/CollectionInfo.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="134" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="42" column="1" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="51" column="26" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="51" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="51" column="63" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="89" column="88" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="89" column="93" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="94" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="144" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="160" column="92" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="160" column="97" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="180" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="196" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="239" column="79" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="239" column="84" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/PrefUtils.kt">
+	<error line="274" column="17" severity="warning" message="The function checkAppUpgrade is too long (60). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="274" column="17" severity="warning" message="The function checkAppUpgrade appears to be too complex based on Cyclomatic Complexity (complexity: 17). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="274" column="17" severity="warning" message="Function checkAppUpgrade is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="35" column="8" severity="warning" message="Object &apos;PrefUtils&apos; with &apos;33&apos; functions detected. Defined threshold inside objects is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="32" column="1" severity="warning" message="org.decsync.library.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="54" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="71" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="282" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="285" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="333" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="54" column="9" severity="warning" message="currentAppVersion can be a `const val`." source="detekt.MayBeConst" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/TasksWorker.kt">
+	<error line="89" column="96" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="90" column="74" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="91" column="104" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="28" column="26" severity="warning" message="Function sync has 5 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="101" column="13" severity="warning" message="Function enqueueDir has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="5" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="9" column="1" severity="warning" message="androidx.work.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="30" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="51" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="89" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="90" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="91" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="50" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="120" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/TasksListeners.kt">
+	<error line="92" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="20" column="9" severity="warning" message="Function infoListener has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="67" column="9" severity="warning" message="Function resourcesListener has 5 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="115" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/TasksListeners.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="20" column="22" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/DecsyncUtils.kt">
+	<error line="29" column="12" severity="warning" message="The file name &apos;DecsyncUtils&apos; does not match the name of the single top-level declaration &apos;Extra&apos;." source="detekt.MatchingDeclarationName" />
+	<error line="52" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/DecsyncUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="26" column="1" severity="warning" message="org.decsync.library.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/GeneralPrefsActivity.kt">
+	<error line="29" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/SafUpdateActivity.kt">
+	<error line="122" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/SafUpdateActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="15" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_saf_update_directory.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="19" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="71" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/ConditionalListPreference.kt">
+	<error line="19" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/ui/ConditionalListPreference.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/Notifications.kt">
+	<error line="78" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/Notifications.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="21" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="34" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="47" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="14" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="27" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="40" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/calendars/CalendarsService.kt">
+	<error line="23" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="44" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/calendars/LocalEvent.kt">
+	<error line="23" column="1" severity="warning" message="at.bitfire.ical4android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/calendars/CalendarsUtils.kt">
+	<error line="68" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/calendars/CalendarsUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="28" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="47" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/App.kt">
+	<error line="17" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/App.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/TasksUtils.kt">
+	<error line="8" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/TasksUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/LocalTaskList.kt">
+	<error line="59" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/LocalTaskList.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/LocalTask.kt">
+	<error line="77" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/LocalTask.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="4" column="1" severity="warning" message="at.bitfire.ical4android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/TasksService.kt">
+	<error line="46" column="39" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/tasks/TasksService.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="5" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="26" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/AuthenticatorServiceNull.kt">
+	<error line="46" column="61" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/AuthenticatorServiceNull.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="34" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="36" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="37" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="39" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="40" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/ContactsWorker.kt">
+	<error line="57" column="26" severity="warning" message="Function sync has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="24" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="30" column="1" severity="warning" message="androidx.work.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="33" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="59" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="62" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="63" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="115" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="140" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="146" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="147" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="97" column="21" severity="warning" message="Private property `newContact` is unused." source="detekt.UnusedPrivateProperty" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/LocalContact.kt">
+	<error line="99" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/LocalContact.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="23" column="1" severity="warning" message="at.bitfire.vcard4android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="43" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="58" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="96" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/ContactsService.kt">
+	<error line="64" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/ContactsService.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="24" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="28" column="1" severity="warning" message="org.decsync.cc.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="44" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/ContactsUtils.kt">
+	<error line="74" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/contacts/ContactsUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="23" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="57" column="21" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="56" column="17" severity="warning" message="The loop contains more than one break or continue statement. The code should be refactored to increase readability." source="detekt.LoopWithTooManyJumpStatements" />
+	<error line="27" column="91" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="27" column="96" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="39" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="66" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/model/DecsyncDirectoryDao.kt">
+	<error line="33" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/model/DecsyncDirectoryDao.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="3" column="1" severity="warning" message="androidx.room.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/model/AppDatabase.kt">
+	<error line="19" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/model/AppDatabase.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/model/DecsyncDirectory.kt">
+	<error line="63" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/DecSyncCC/app/src/main/java/org/decsync/cc/model/DecsyncDirectory.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+</checkstyle>

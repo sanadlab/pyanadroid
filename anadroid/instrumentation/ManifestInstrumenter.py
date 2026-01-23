@@ -14,7 +14,6 @@ ANDROID_NS = 'http://schemas.android.com/apk/res/android'
 class AndroidManifestInstrumenter(AbstractInstrumenter):
     """
     Implements the AbstractInstrumenter interface to instrument an AndroidManifest.xml file.
-    This instrumenter ensures the app is fully debuggable for analysis.
     - It always sets `android:debuggable="true"`.
     - For projects targeting API 29 (Android 10) or higher, it also adds
       `<profileable android:shell="true" />` to allow low-overhead profiling tools
@@ -62,7 +61,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
         instr_type = kwargs.get("instr_type", INSTRUMENTATION_TYPE.MANIFEST)
         test_approach = kwargs.get("test_approach", TESTING_APPROACH.WHITEBOX)
         instr_strategy = kwargs.get("instr_strategy", INSTRUMENTATION_STRATEGY.METHOD_CALL)
-
+        set_debuggable = kwargs.get("set_debuggable", False)
         target_dir = os.path.join(android_project.proj_dir, self.mirror_dirname)
 
         if self.needs_reinstrumentation(android_project, test_approach, instr_type, instr_strategy):
@@ -85,7 +84,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
 
             try:
                 # Call the new method that handles both debuggable and profileable attributes
-                self.__make_app_debuggable_and_profileable(manifest_path_in_target, android_project)
+                self.__make_app_debuggable_and_profileable(manifest_path_in_target, set_debuggable)
 
                 self.write_instrumentation_log_file(android_project, test_approach, instr_type, instr_strategy)
                 logi(f"Successfully instrumented AndroidManifest.xml. Transformed project is at '{target_dir}'")
@@ -98,14 +97,13 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
 
         return target_dir
 
-    def __make_app_debuggable_and_profileable(self, manifest_path, android_project):
+    def __make_app_debuggable_and_profileable(self, manifest_path, add_debugabble=False):
         """
         Parses the XML file, sets android:debuggable="true", and adds a <profileable> tag
         if the project's target SDK is 29 or higher.
 
         Args:
             manifest_path (str): The full path to the AndroidManifest.xml file.
-            android_project: The project object, used to get the target SDK version.
         """
         logi(f"Modifying manifest at: {manifest_path}")
         tree = ET.parse(manifest_path)
@@ -134,13 +132,16 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
                     profileable_node.set(shell_attr_key, 'true')
                 else:
                     logw("<profileable> tag already exists. Skipping addition.")
-                    application_node.set(debuggable_attr_key, 'true')
+                    if add_debugabble:
+                        application_node.set(debuggable_attr_key, 'true')
             else:
                 logi(f"Target SDK ({target_sdk}) < 29. Skipping <profileable> tag addition.")
-                application_node.set(debuggable_attr_key, 'true')
+                if add_debugabble:
+                    application_node.set(debuggable_attr_key, 'true')
         except (ValueError, TypeError, AttributeError):
             logw(f"Could not determine target SDK version from project. Skipping <profileable> tag addition.")
-            application_node.set(debuggable_attr_key, 'true')
+            if add_debugabble:
+                application_node.set(debuggable_attr_key, 'true')
 
         # 3. Write all changes back to the file
         tree.write(manifest_path, encoding='utf-8', xml_declaration=True)

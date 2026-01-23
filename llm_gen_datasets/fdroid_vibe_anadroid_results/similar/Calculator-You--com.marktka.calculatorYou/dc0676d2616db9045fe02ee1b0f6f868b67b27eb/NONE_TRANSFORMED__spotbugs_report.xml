@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762933783599" analysisTimestamp="1762933795396" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/Calculator-You/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/Calculator-You/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="cddf866f2d07c769e2a98115ffcc72fd" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.forz.calculator.databinding.FragmentHistoryBinding.getRoot() may expose internal representation by returning FragmentHistoryBinding.rootView</LongMessage>
+    <Class classname="com.forz.calculator.databinding.FragmentHistoryBinding" primary="true">
+      <SourceLine classname="com.forz.calculator.databinding.FragmentHistoryBinding" start="34" end="90" sourcefile="FragmentHistoryBinding.java" sourcepath="com/forz/calculator/databinding/FragmentHistoryBinding.java">
+        <Message>At FragmentHistoryBinding.java:[lines 34-90]</Message>
+      </SourceLine>
+      <Message>In class com.forz.calculator.databinding.FragmentHistoryBinding</Message>
+    </Class>
+    <Method classname="com.forz.calculator.databinding.FragmentHistoryBinding" name="getRoot" signature="()Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="com.forz.calculator.databinding.FragmentHistoryBinding" start="44" end="44" startBytecode="0" endBytecode="46" sourcefile="FragmentHistoryBinding.java" sourcepath="com/forz/calculator/databinding/FragmentHistoryBinding.java"/>
+      <Message>In method com.forz.calculator.databinding.FragmentHistoryBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.forz.calculator.databinding.FragmentHistoryBinding" name="rootView" signature="Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="com.forz.calculator.databinding.FragmentHistoryBinding" sourcefile="FragmentHistoryBinding.java" sourcepath="com/forz/calculator/databinding/FragmentHistoryBinding.java">
+        <Message>In FragmentHistoryBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.forz.calculator.databinding.FragmentHistoryBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.forz.calculator.databinding.FragmentHistoryBinding" primary="true" start="44" end="44" startBytecode="4" endBytecode="4" sourcefile="FragmentHistoryBinding.java" sourcepath="com/forz/calculator/databinding/FragmentHistoryBinding.java">
+      <Message>At FragmentHistoryBinding.java:[line 44]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EQ_SELF_USE_OBJECT" priority="2" rank="8" abbrev="Eq" category="CORRECTNESS" instanceHash="e4983d0bbc5a57654602aaa1888fa8ce" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Covariant equals() method defined, Object.equals(Object) inherited</ShortMessage>
+    <LongMessage>org.javia.arity.Complex defines equals(Complex) method and uses Object.equals(Object)</LongMessage>
+    <Class classname="org.javia.arity.Complex" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="40" end="640" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+        <Message>At Complex.java:[lines 40-640]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Complex</Message>
+    </Class>
+    <Method classname="org.javia.arity.Complex" name="equals" signature="(Lorg/javia/arity/Complex;)Z" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="127" end="127" startBytecode="0" endBytecode="142" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java"/>
+      <Message>In method org.javia.arity.Complex.equals(Complex)</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.Complex" start="127" end="127" startBytecode="0" endBytecode="142" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java" synthetic="true">
+      <Message>At Complex.java:[line 127]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="FE_FLOATING_POINT_EQUALITY" priority="2" rank="17" abbrev="FE" category="STYLE" instanceHash="d9aee0219cca94028c8a875e386582ad" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Test for floating point equality</ShortMessage>
+    <LongMessage>Test for floating point equality in org.javia.arity.Complex.pow(Complex)</LongMessage>
+    <Class classname="org.javia.arity.Complex" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="40" end="640" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+        <Message>At Complex.java:[lines 40-640]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Complex</Message>
+    </Class>
+    <Method classname="org.javia.arity.Complex" name="pow" signature="(Lorg/javia/arity/Complex;)Lorg/javia/arity/Complex;" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="379" end="404" startBytecode="0" endBytecode="427" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java"/>
+      <Message>In method org.javia.arity.Complex.pow(Complex)</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.Complex" primary="true" start="393" end="393" startBytecode="83" endBytecode="83" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+      <Message>At Complex.java:[line 393]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="HE_EQUALS_USE_HASHCODE" priority="2" rank="16" abbrev="HE" category="BAD_PRACTICE" instanceHash="68d29989833d798f771c98ea3a3a8eb8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class defines equals() and uses Object.hashCode()</ShortMessage>
+    <LongMessage>org.javia.arity.Complex defines equals and uses Object.hashCode()</LongMessage>
+    <Class classname="org.javia.arity.Complex" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="40" end="640" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+        <Message>At Complex.java:[lines 40-640]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Complex</Message>
+    </Class>
+    <Method classname="org.javia.arity.Complex" name="equals" signature="(Lorg/javia/arity/Complex;)Z" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="127" end="127" startBytecode="0" endBytecode="142" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java" synthetic="true"/>
+      <Message>In method org.javia.arity.Complex.equals(Complex)</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.Complex" start="127" end="127" startBytecode="0" endBytecode="142" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java" synthetic="true">
+      <Message>At Complex.java:[line 127]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="649d9b009199128f983fc01935b3c6f0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field org.javia.arity.Complex.im is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="org.javia.arity.Complex" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="40" end="640" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+        <Message>At Complex.java:[lines 40-640]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Complex</Message>
+    </Class>
+    <Field classname="org.javia.arity.Complex" name="im" signature="D" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+        <Message>In Complex.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.Complex.im</Message>
+    </Field>
+    <SourceLine classname="org.javia.arity.Util" primary="true" start="187" end="187" startBytecode="1" endBytecode="1" sourcefile="Util.java" sourcepath="org/javia/arity/Util.java" relSourcepath="org/javia/arity/Util.java">
+      <Message>At Util.java:[line 187]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="925e52ed5caa600779b1598b2fff7b26" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field org.javia.arity.Complex.re is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="org.javia.arity.Complex" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" start="40" end="640" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+        <Message>At Complex.java:[lines 40-640]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Complex</Message>
+    </Class>
+    <Field classname="org.javia.arity.Complex" name="re" signature="D" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Complex" sourcefile="Complex.java" sourcepath="org/javia/arity/Complex.java" relSourcepath="org/javia/arity/Complex.java">
+        <Message>In Complex.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.Complex.re</Message>
+    </Field>
+    <SourceLine classname="org.javia.arity.Util" primary="true" start="188" end="188" startBytecode="10" endBytecode="10" sourcefile="Util.java" sourcepath="org/javia/arity/Util.java" relSourcepath="org/javia/arity/Util.java">
+      <Message>At Util.java:[line 188]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="53e97e893040a0913845770e25d61d96" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class org.javia.arity.Derivative at new org.javia.arity.Derivative(Function) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="org.javia.arity.Derivative" primary="true">
+      <SourceLine classname="org.javia.arity.Derivative" start="8" end="20" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java">
+        <Message>At Derivative.java:[lines 8-20]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Derivative</Message>
+    </Class>
+    <Method classname="org.javia.arity.Derivative" name="&lt;init&gt;" signature="(Lorg/javia/arity/Function;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Derivative" start="10" end="13" startBytecode="0" endBytecode="93" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java"/>
+      <Message>In method new org.javia.arity.Derivative(Function)</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.Derivative" primary="true" start="12" end="12" startBytecode="22" endBytecode="22" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java">
+      <Message>At Derivative.java:[line 12]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Derivative" start="12" end="12" startBytecode="22" endBytecode="22" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java">
+      <Message>At Derivative.java:[line 12]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="c90eb751a280ce706cdd5d99d6bafef8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new org.javia.arity.Derivative(Function) may expose internal representation by storing an externally mutable object into Derivative.f</LongMessage>
+    <Class classname="org.javia.arity.Derivative" primary="true">
+      <SourceLine classname="org.javia.arity.Derivative" start="8" end="20" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java">
+        <Message>At Derivative.java:[lines 8-20]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Derivative</Message>
+    </Class>
+    <Method classname="org.javia.arity.Derivative" name="&lt;init&gt;" signature="(Lorg/javia/arity/Function;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Derivative" start="10" end="13" startBytecode="0" endBytecode="93" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java"/>
+      <Message>In method new org.javia.arity.Derivative(Function)</Message>
+    </Method>
+    <Field classname="org.javia.arity.Derivative" name="f" signature="Lorg/javia/arity/Function;" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Derivative" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java">
+        <Message>In Derivative.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.Derivative.f</Message>
+    </Field>
+    <LocalVariable name="f" register="1" pc="17" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named f</Message>
+    </LocalVariable>
+    <SourceLine classname="org.javia.arity.Derivative" primary="true" start="11" end="11" startBytecode="17" endBytecode="17" sourcefile="Derivative.java" sourcepath="org/javia/arity/Derivative.java" relSourcepath="org/javia/arity/Derivative.java">
+      <Message>At Derivative.java:[line 11]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="4d556a4986c766e753c804e89cbb67a0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>org.javia.arity.Function.getDerivative() may expose internal representation by returning Function.cachedDerivate</LongMessage>
+    <Class classname="org.javia.arity.Function" primary="true">
+      <SourceLine classname="org.javia.arity.Function" start="30" end="150" sourcefile="Function.java" sourcepath="org/javia/arity/Function.java" relSourcepath="org/javia/arity/Function.java">
+        <Message>At Function.java:[lines 30-150]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Function</Message>
+    </Class>
+    <Method classname="org.javia.arity.Function" name="getDerivative" signature="()Lorg/javia/arity/Function;" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Function" start="42" end="45" startBytecode="0" endBytecode="82" sourcefile="Function.java" sourcepath="org/javia/arity/Function.java" relSourcepath="org/javia/arity/Function.java"/>
+      <Message>In method org.javia.arity.Function.getDerivative()</Message>
+    </Method>
+    <Field classname="org.javia.arity.Function" name="cachedDerivate" signature="Lorg/javia/arity/Function;" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Function" sourcefile="Function.java" sourcepath="org/javia/arity/Function.java" relSourcepath="org/javia/arity/Function.java">
+        <Message>In Function.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.Function.cachedDerivate</Message>
+    </Field>
+    <SourceLine classname="org.javia.arity.Function" primary="true" start="45" end="45" startBytecode="23" endBytecode="23" sourcefile="Function.java" sourcepath="org/javia/arity/Function.java" relSourcepath="org/javia/arity/Function.java">
+      <Message>At Function.java:[line 45]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="5d12d358ade144be3b7bd2a2eea88185" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: org.javia.arity.Function.comment</LongMessage>
+    <Class classname="org.javia.arity.Function" primary="true">
+      <SourceLine classname="org.javia.arity.Function" start="30" end="150" sourcefile="Function.java" sourcepath="org/javia/arity/Function.java" relSourcepath="org/javia/arity/Function.java">
+        <Message>At Function.java:[lines 30-150]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Function</Message>
+    </Class>
+    <Field classname="org.javia.arity.Function" name="comment" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Function" sourcefile="Function.java" sourcepath="org/javia/arity/Function.java" relSourcepath="org/javia/arity/Function.java">
+        <Message>In Function.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.Function.comment</Message>
+    </Field>
+    <SourceLine classname="org.javia.arity.Compiler" primary="true" start="67" end="67" startBytecode="174" endBytecode="174" sourcefile="Compiler.java" sourcepath="org/javia/arity/Compiler.java" relSourcepath="org/javia/arity/Compiler.java">
+      <Message>At Compiler.java:[line 67]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="f6392effa7d9d3b579d4ddf8dee2e8c3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to x in org.javia.arity.MoreMath.factorial(double)</LongMessage>
+    <Class classname="org.javia.arity.MoreMath" primary="true">
+      <SourceLine classname="org.javia.arity.MoreMath" start="20" end="212" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java">
+        <Message>At MoreMath.java:[lines 20-212]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.MoreMath</Message>
+    </Class>
+    <Method classname="org.javia.arity.MoreMath" name="factorial" signature="(D)D" isStatic="true" primary="true">
+      <SourceLine classname="org.javia.arity.MoreMath" start="108" end="135" startBytecode="0" endBytecode="89" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java"/>
+      <Message>In method org.javia.arity.MoreMath.factorial(double)</Message>
+    </Method>
+    <LocalVariable name="x" register="0" pc="130" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named x</Message>
+    </LocalVariable>
+    <SourceLine classname="org.javia.arity.MoreMath" primary="true" start="127" end="127" startBytecode="129" endBytecode="129" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java">
+      <Message>At MoreMath.java:[line 127]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.IS_PARAMETER" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="x"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.MANY_STORES" value="true"/>
+  </BugInstance>
+  <BugInstance type="FE_FLOATING_POINT_EQUALITY" priority="1" rank="15" abbrev="FE" category="STYLE" instanceHash="2ecf849a96c657a7cc70f3b03fb1c5d1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Test for floating point equality</ShortMessage>
+    <LongMessage>Test for floating point equality in org.javia.arity.MoreMath.isPiMultiple(double)</LongMessage>
+    <Class classname="org.javia.arity.MoreMath" primary="true">
+      <SourceLine classname="org.javia.arity.MoreMath" start="20" end="212" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java">
+        <Message>At MoreMath.java:[lines 20-212]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.MoreMath</Message>
+    </Class>
+    <Method classname="org.javia.arity.MoreMath" name="isPiMultiple" signature="(D)Z" isStatic="true" primary="true">
+      <SourceLine classname="org.javia.arity.MoreMath" start="189" end="190" startBytecode="0" endBytecode="90" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java"/>
+      <Message>In method org.javia.arity.MoreMath.isPiMultiple(double)</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.MoreMath" primary="true" start="190" end="190" startBytecode="12" endBytecode="12" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java">
+      <Message>At MoreMath.java:[line 190]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="FL_FLOATS_AS_LOOP_COUNTERS" priority="2" rank="7" abbrev="FL" category="CORRECTNESS" instanceHash="c60bab85d78eadc5568fb146d640fa8a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Do not use floating-point variables as loop counters</ShortMessage>
+    <LongMessage>Using floating-point loop counters can lead to unexpected behavior.</LongMessage>
+    <Class classname="org.javia.arity.MoreMath" primary="true">
+      <SourceLine classname="org.javia.arity.MoreMath" start="20" end="212" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java">
+        <Message>At MoreMath.java:[lines 20-212]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.MoreMath</Message>
+    </Class>
+    <Method classname="org.javia.arity.MoreMath" name="combinations" signature="(DD)D" isStatic="true" primary="true">
+      <SourceLine classname="org.javia.arity.MoreMath" start="139" end="157" startBytecode="0" endBytecode="324" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java"/>
+      <Message>In method org.javia.arity.MoreMath.combinations(double, double)</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.MoreMath" primary="true" start="151" end="151" startBytecode="102" endBytecode="102" sourcefile="MoreMath.java" sourcepath="org/javia/arity/MoreMath.java" relSourcepath="org/javia/arity/MoreMath.java">
+      <Message>At MoreMath.java:[line 151]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS" priority="2" rank="16" abbrev="BC" category="BAD_PRACTICE" instanceHash="5742f68cf5910b5e619a001d7ce31a21" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Equals method should not assume anything about the type of its argument</ShortMessage>
+    <LongMessage>Equals method for org.javia.arity.Symbol assumes the argument is of type Symbol</LongMessage>
+    <Class classname="org.javia.arity.Symbol" primary="true">
+      <SourceLine classname="org.javia.arity.Symbol" start="24" end="97" sourcefile="Symbol.java" sourcepath="org/javia/arity/Symbol.java" relSourcepath="org/javia/arity/Symbol.java">
+        <Message>At Symbol.java:[lines 24-97]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Symbol</Message>
+    </Class>
+    <Method classname="org.javia.arity.Symbol" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Symbol" start="92" end="93" startBytecode="0" endBytecode="117" sourcefile="Symbol.java" sourcepath="org/javia/arity/Symbol.java" relSourcepath="org/javia/arity/Symbol.java"/>
+      <Message>In method org.javia.arity.Symbol.equals(Object)</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.Symbol" primary="true" start="92" end="92" startBytecode="1" endBytecode="1" sourcefile="Symbol.java" sourcepath="org/javia/arity/Symbol.java" relSourcepath="org/javia/arity/Symbol.java">
+      <Message>At Symbol.java:[line 92]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT" priority="2" rank="11" abbrev="NP" category="BAD_PRACTICE" instanceHash="89b99dddbc8ffbd5365cfb3564051121" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>equals() method does not check for null argument</ShortMessage>
+    <LongMessage>org.javia.arity.Symbol.equals(Object) does not check for null argument</LongMessage>
+    <Class classname="org.javia.arity.Symbol" primary="true">
+      <SourceLine classname="org.javia.arity.Symbol" start="24" end="97" sourcefile="Symbol.java" sourcepath="org/javia/arity/Symbol.java" relSourcepath="org/javia/arity/Symbol.java">
+        <Message>At Symbol.java:[lines 24-97]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Symbol</Message>
+    </Class>
+    <Method classname="org.javia.arity.Symbol" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Symbol" start="92" end="93" startBytecode="0" endBytecode="117" sourcefile="Symbol.java" sourcepath="org/javia/arity/Symbol.java" relSourcepath="org/javia/arity/Symbol.java"/>
+      <Message>In method org.javia.arity.Symbol.equals(Object)</Message>
+    </Method>
+    <LocalVariable name="other" register="1" pc="0" role="LOCAL_VARIABLE_PARAMETER_NAMED">
+      <Message>Parameter other</Message>
+    </LocalVariable>
+    <SourceLine classname="org.javia.arity.Symbol" start="92" end="93" startBytecode="0" endBytecode="117" sourcefile="Symbol.java" sourcepath="org/javia/arity/Symbol.java" relSourcepath="org/javia/arity/Symbol.java" synthetic="true">
+      <Message>At Symbol.java:[lines 92-93]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="351f9c64802f6c5776eb529a84bd4c06" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class org.javia.arity.Symbols at new org.javia.arity.Symbols() will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="org.javia.arity.Symbols" primary="true">
+      <SourceLine classname="org.javia.arity.Symbols" start="59" end="336" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java">
+        <Message>At Symbols.java:[lines 59-336]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Symbols</Message>
+    </Class>
+    <Method classname="org.javia.arity.Symbols" name="&lt;init&gt;" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Symbols" start="131" end="146" startBytecode="0" endBytecode="297" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java"/>
+      <Message>In method new org.javia.arity.Symbols()</Message>
+    </Method>
+    <SourceLine classname="org.javia.arity.Symbols" primary="true" start="144" end="144" startBytecode="126" endBytecode="126" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java">
+      <Message>At Symbols.java:[line 144]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="144" end="144" startBytecode="126" endBytecode="126" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java">
+      <Message>At Symbols.java:[line 144]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IS2_INCONSISTENT_SYNC" priority="2" rank="17" abbrev="IS" category="MT_CORRECTNESS" instanceHash="1441679eb3b47e7b4772ce400b68636" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Inconsistent synchronization</ShortMessage>
+    <LongMessage>Inconsistent synchronization of org.javia.arity.Symbols.delta; locked 75% of time</LongMessage>
+    <Class classname="org.javia.arity.Symbols" primary="true">
+      <SourceLine classname="org.javia.arity.Symbols" start="59" end="336" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java">
+        <Message>At Symbols.java:[lines 59-336]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.Symbols</Message>
+    </Class>
+    <Field classname="org.javia.arity.Symbols" name="delta" signature="Ljava/util/HashSet;" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.Symbols" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java">
+        <Message>In Symbols.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.Symbols.delta</Message>
+    </Field>
+    <Int value="75" role="INT_SYNC_PERCENT">
+      <Message>Synchronized 75% of the time</Message>
+    </Int>
+    <SourceLine classname="org.javia.arity.Symbols" primary="true" start="283" end="283" startBytecode="1" endBytecode="1" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at Symbols.java:[line 283]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="283" end="283" startBytecode="15" endBytecode="15" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at Symbols.java:[line 283]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="323" end="323" startBytecode="36" endBytecode="36" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 323]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="326" end="326" startBytecode="54" endBytecode="54" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 326]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="324" end="324" startBytecode="50" endBytecode="50" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 324]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="327" end="327" startBytecode="65" endBytecode="65" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 327]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="266" end="266" startBytecode="1" endBytecode="1" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 266]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="267" end="267" startBytecode="8" endBytecode="8" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 267]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="275" end="275" startBytecode="77" endBytecode="77" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 275]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="254" end="254" startBytecode="5" endBytecode="5" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 254]</Message>
+    </SourceLine>
+    <SourceLine classname="org.javia.arity.Symbols" start="255" end="255" startBytecode="14" endBytecode="14" sourcefile="Symbols.java" sourcepath="org/javia/arity/Symbols.java" relSourcepath="org/javia/arity/Symbols.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at Symbols.java:[line 255]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="96eef88750923bbae37edc8973044c84" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field org.javia.arity.SyntaxException.message is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="org.javia.arity.SyntaxException" primary="true">
+      <SourceLine classname="org.javia.arity.SyntaxException" start="23" end="49" sourcefile="SyntaxException.java" sourcepath="org/javia/arity/SyntaxException.java" relSourcepath="org/javia/arity/SyntaxException.java">
+        <Message>At SyntaxException.java:[lines 23-49]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.SyntaxException</Message>
+    </Class>
+    <Field classname="org.javia.arity.SyntaxException" name="message" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.SyntaxException" sourcefile="SyntaxException.java" sourcepath="org/javia/arity/SyntaxException.java" relSourcepath="org/javia/arity/SyntaxException.java">
+        <Message>In SyntaxException.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.SyntaxException.message</Message>
+    </Field>
+    <SourceLine classname="org.javia.arity.SyntaxException" primary="true" start="40" end="40" startBytecode="13" endBytecode="13" sourcefile="SyntaxException.java" sourcepath="org/javia/arity/SyntaxException.java" relSourcepath="org/javia/arity/SyntaxException.java">
+      <Message>At SyntaxException.java:[line 40]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="42689d8fe616a65dc51a21670b0db183" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field org.javia.arity.SyntaxException.position is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="org.javia.arity.SyntaxException" primary="true">
+      <SourceLine classname="org.javia.arity.SyntaxException" start="23" end="49" sourcefile="SyntaxException.java" sourcepath="org/javia/arity/SyntaxException.java" relSourcepath="org/javia/arity/SyntaxException.java">
+        <Message>At SyntaxException.java:[lines 23-49]</Message>
+      </SourceLine>
+      <Message>In class org.javia.arity.SyntaxException</Message>
+    </Class>
+    <Field classname="org.javia.arity.SyntaxException" name="position" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="org.javia.arity.SyntaxException" sourcefile="SyntaxException.java" sourcepath="org/javia/arity/SyntaxException.java" relSourcepath="org/javia/arity/SyntaxException.java">
+        <Message>In SyntaxException.java</Message>
+      </SourceLine>
+      <Message>Field org.javia.arity.SyntaxException.position</Message>
+    </Field>
+    <SourceLine classname="org.javia.arity.SyntaxException" primary="true" start="40" end="40" startBytecode="37" endBytecode="37" sourcefile="SyntaxException.java" sourcepath="org/javia/arity/SyntaxException.java" relSourcepath="org/javia/arity/SyntaxException.java">
+      <Message>At SyntaxException.java:[line 40]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS" abbrev="BC" category="BAD_PRACTICE">
+    <ShortDescription>Equals method should not assume anything about the type of its argument</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+The <code>equals(Object o)</code> method shouldn't make any assumptions
+about the type of <code>o</code>. It should simply return
+false if <code>o</code> is not the same type as <code>this</code>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EQ_SELF_USE_OBJECT" abbrev="Eq" category="CORRECTNESS">
+    <ShortDescription>Covariant equals() method defined, Object.equals(Object) inherited</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class defines a covariant version of the <code>equals()</code>
+  method, but inherits the normal <code>equals(Object)</code> method
+  defined in the base <code>java.lang.Object</code> class.&nbsp;
+  The class should probably define a <code>boolean equals(Object)</code> method.
+  </p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="FL_FLOATS_AS_LOOP_COUNTERS" abbrev="FL" category="CORRECTNESS">
+    <ShortDescription>Do not use floating-point variables as loop counters</ShortDescription>
+    <Details><![CDATA[
+      <p>
+Using floating-point variables should not be used as loop counters, as they are not precise, which may result in incorrect loops. A loop counter is a variable that is changed with each iteration and controls when the loop should terminate. It is decreased or increased by a fixed amount each iteration.</p>
+<p>See rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/NUM09-J.+Do+not+use+floating-point+variables+as+loop+counters">NUM09-J</a>.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT" abbrev="NP" category="BAD_PRACTICE">
+    <ShortDescription>equals() method does not check for null argument</ShortDescription>
+    <Details><![CDATA[
+      
+      <p>
+      This implementation of equals(Object) violates the contract defined
+      by java.lang.Object.equals() because it does not check for null
+      being passed as the argument.  All equals() methods should return
+      false if passed a null value.
+      </p>
+      
+   ]]></Details>
+  </BugPattern>
+  <BugPattern type="FE_FLOATING_POINT_EQUALITY" abbrev="FE" category="STYLE">
+    <ShortDescription>Test for floating point equality</ShortDescription>
+    <Details><![CDATA[
+   
+    <p>
+    This operation compares two floating point values for equality.
+    Because floating point calculations may involve rounding,
+   calculated float and double values may not be accurate.
+    For values that must be precise, such as monetary values,
+   consider using a fixed-precision type such as BigDecimal.
+    For values that need not be precise, consider comparing for equality
+    within some range, for example:
+    <code>if ( Math.abs(x - y) &lt; .0000001 )</code>.
+   See the Java Language Specification, section 4.2.4.
+    </p>
+    
+     ]]></Details>
+  </BugPattern>
+  <BugPattern type="HE_EQUALS_USE_HASHCODE" abbrev="HE" category="BAD_PRACTICE">
+    <ShortDescription>Class defines equals() and uses Object.hashCode()</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class overrides <code>equals(Object)</code>, but does not
+  override <code>hashCode()</code>, and inherits the implementation of
+  <code>hashCode()</code> from <code>java.lang.Object</code> (which returns
+  the identity hash code, an arbitrary value assigned to the object
+  by the VM).&nbsp; Therefore, the class is very likely to violate the
+  invariant that equal objects must have equal hashcodes.</p>
+
+<p>If you don't think instances of this class will ever be inserted into a HashMap/HashTable,
+the recommended <code>hashCode</code> implementation to use is:</p>
+<pre><code>public int hashCode() {
+    assert false : "hashCode not designed";
+    return 42; // any arbitrary constant will do
+}
+</code></pre>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="IS2_INCONSISTENT_SYNC" abbrev="IS" category="MT_CORRECTNESS">
+    <ShortDescription>Inconsistent synchronization</ShortDescription>
+    <Details><![CDATA[
+
+  <p> The fields of this class appear to be accessed inconsistently with respect
+  to synchronization.&nbsp; This bug report indicates that the bug pattern detector
+  judged that
+  </p>
+  <ul>
+  <li> The class contains a mix of locked and unlocked accesses,</li>
+  <li> The class is <b>not</b> annotated as javax.annotation.concurrent.NotThreadSafe,</li>
+  <li> At least one locked access was performed by one of the class's own methods, and</li>
+  <li> The number of unsynchronized field accesses (reads and writes) was no more than
+       one third of all accesses, with writes being weighed twice as high as reads</li>
+  </ul>
+
+  <p> A typical bug matching this bug pattern is forgetting to synchronize
+  one of the methods in a class that is intended to be thread-safe.</p>
+
+  <p> You can select the nodes labeled "Unsynchronized access" to show the
+  code locations where the detector believed that a field was accessed
+  without synchronization.</p>
+
+  <p> Note that there are various sources of inaccuracy in this detector;
+  for example, the detector cannot statically detect all situations in which
+  a lock is held.&nbsp; Also, even when the detector is accurate in
+  distinguishing locked vs. unlocked accesses, the code in question may still
+  be correct.</p>
+
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="FL">
+    <Description>Use of floating point precision</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="IS" cweid="366">
+    <Description>Inconsistent synchronization</Description>
+  </BugCode>
+  <BugCode abbrev="Eq">
+    <Description>Problems with implementation of equals()</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="HE">
+    <Description>Equal objects must have equal hashcodes</Description>
+  </BugCode>
+  <BugCode abbrev="FE">
+    <Description>Test for floating point equality</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="28">
+    <MissingClass>androidx.appcompat.widget.AppCompatImageButton</MissingClass>
+    <MissingClass>androidx.appcompat.widget.AppCompatImageView</MissingClass>
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.Barrier</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.Guideline</MissingClass>
+    <MissingClass>androidx.coordinatorlayout.widget.CoordinatorLayout</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentContainerView</MissingClass>
+    <MissingClass>androidx.lifecycle.LiveData</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBindings</MissingClass>
+    <MissingClass>androidx.viewpager2.widget.ViewPager2</MissingClass>
+    <MissingClass>com.forz.calculator.R</MissingClass>
+    <MissingClass>com.forz.calculator.R$id</MissingClass>
+    <MissingClass>com.forz.calculator.R$layout</MissingClass>
+    <MissingClass>com.forz.calculator.calculator.CalculatorViewModel</MissingClass>
+    <MissingClass>com.forz.calculator.expression.ExpressionEditText</MissingClass>
+    <MissingClass>com.google.android.material.appbar.MaterialToolbar</MissingClass>
+    <MissingClass>com.google.android.material.button.MaterialButtonToggleGroup</MissingClass>
+    <MissingClass>com.google.android.material.card.MaterialCardView</MissingClass>
+    <MissingClass>com.google.android.material.materialswitch.MaterialSwitch</MissingClass>
+    <MissingClass>com.google.android.material.slider.Slider</MissingClass>
+    <MissingClass>com.google.android.material.tabs.TabLayout</MissingClass>
+    <MissingClass>com.google.android.material.textfield.MaterialAutoCompleteTextView</MissingClass>
+    <MissingClass>com.google.android.material.textfield.TextInputLayout</MissingClass>
+    <MissingClass>com.mikhaellopez.circleview.CircleView</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 11:49:43 +0400" total_classes="56" referenced_classes="95" total_bugs="19" total_size="4445" num_packages="2" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="28.79" clock_seconds="11.20" peak_mbytes="299.96" alloc_mbytes="768.00" gc_seconds="0.08" priority_2="18" priority_1="1">
+    <FileStats path="com/forz/calculator/databinding/ActivityAboutBinding.java" bugCount="0" size="258"/>
+    <FileStats path="com/forz/calculator/databinding/ActivityLicensesBinding.java" bugCount="0" size="36"/>
+    <FileStats path="com/forz/calculator/databinding/ActivityMainBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/forz/calculator/databinding/ActivitySettingsBinding.java" bugCount="0" size="450"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentCalculatorBinding.java" bugCount="0" size="156"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentDigitBinding.java" bugCount="0" size="87"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentHistoryBinding.java" bugCount="1" size="37" bugHash="3db1273de1f51f558db87112d155c12e"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentLandBinding.java" bugCount="0" size="87"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentLargeLandBinding.java" bugCount="0" size="99"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentMainBinding.java" bugCount="0" size="87"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentScientificFunctionBinding.java" bugCount="0" size="87"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentSmallBinding.java" bugCount="0" size="81"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentSmallLandBinding.java" bugCount="0" size="57"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentUnitConverterBinding.java" bugCount="0" size="57"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentXLargeLandBinding.java" bugCount="0" size="99"/>
+    <FileStats path="com/forz/calculator/databinding/FragmentXLargeLandCalculatorBinding.java" bugCount="0" size="282"/>
+    <FileStats path="com/forz/calculator/databinding/ItemColorBinding.java" bugCount="0" size="45"/>
+    <FileStats path="com/forz/calculator/databinding/ItemHistoryDataBinding.java" bugCount="0" size="51"/>
+    <FileStats path="com/forz/calculator/databinding/ItemLicenseBinding.java" bugCount="0" size="51"/>
+    <FileStats path="com/forz/calculator/databinding/ItemUnitBinding.java" bugCount="0" size="39"/>
+    <FileStats path="org/javia/arity/ArityException.java" bugCount="0" size="7"/>
+    <FileStats path="org/javia/arity/ByteStack.java" bugCount="0" size="23"/>
+    <FileStats path="org/javia/arity/CompiledFunction.java" bugCount="0" size="368"/>
+    <FileStats path="org/javia/arity/Compiler.java" bugCount="1" size="45" bugHash="8502390e7ded60cdd83194235d66b1bb"/>
+    <FileStats path="org/javia/arity/Complex.java" bugCount="3" size="303" bugHash="b55436afb28701e25fd91346bf44a70a"/>
+    <FileStats path="org/javia/arity/Constant.java" bugCount="0" size="14"/>
+    <FileStats path="org/javia/arity/ContextFunction.java" bugCount="0" size="73"/>
+    <FileStats path="org/javia/arity/Declaration.java" bugCount="0" size="25"/>
+    <FileStats path="org/javia/arity/DeclarationParser.java" bugCount="0" size="44"/>
+    <FileStats path="org/javia/arity/Derivative.java" bugCount="2" size="15" bugHash="095a1acc385b5531bcddca0d084ebcf8"/>
+    <FileStats path="org/javia/arity/DoubleStack.java" bugCount="0" size="48"/>
+    <FileStats path="org/javia/arity/EvalContext.java" bugCount="0" size="21"/>
+    <FileStats path="org/javia/arity/Function.java" bugCount="1" size="52" bugHash="ecb7f563ff1c40edb41e0a39f6b87f45"/>
+    <FileStats path="org/javia/arity/FunctionAndName.java" bugCount="0" size="8"/>
+    <FileStats path="org/javia/arity/FunctionStack.java" bugCount="0" size="23"/>
+    <FileStats path="org/javia/arity/IsComplexException.java" bugCount="0" size="3"/>
+    <FileStats path="org/javia/arity/Lexer.java" bugCount="0" size="151"/>
+    <FileStats path="org/javia/arity/MoreMath.java" bugCount="3" size="96" bugHash="4074716c20e08fb08310e93c385a8afb"/>
+    <FileStats path="org/javia/arity/OptCodeGen.java" bugCount="0" size="88"/>
+    <FileStats path="org/javia/arity/RPN.java" bugCount="0" size="80"/>
+    <FileStats path="org/javia/arity/SimpleCodeGen.java" bugCount="0" size="65"/>
+    <FileStats path="org/javia/arity/Symbol.java" bugCount="2" size="54" bugHash="22449eee4e668dcecfeed36fe58e1c47"/>
+    <FileStats path="org/javia/arity/Symbols.java" bugCount="2" size="118" bugHash="90a7bf6dfcd5c9b07d301022a6362c04"/>
+    <FileStats path="org/javia/arity/SyntaxException.java" bugCount="2" size="13" bugHash="60551793d87af39e90a015e33c912b43"/>
+    <FileStats path="org/javia/arity/Token.java" bugCount="0" size="39"/>
+    <FileStats path="org/javia/arity/TokenConsumer.java" bugCount="0" size="6"/>
+    <FileStats path="org/javia/arity/UnitTest.java" bugCount="0" size="313"/>
+    <FileStats path="org/javia/arity/Util.java" bugCount="2" size="125" bugHash="f3ebc3911c2320d4105a6bf5948862f5"/>
+    <FileStats path="org/javia/arity/VM.java" bugCount="0" size="55"/>
+    <PackageStats package="com.forz.calculator.databinding" total_bugs="1" total_types="20" total_size="2170" priority_2="1">
+      <ClassStats class="com.forz.calculator.databinding.ActivityAboutBinding" sourceFile="ActivityAboutBinding.java" interface="false" size="258" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.ActivityLicensesBinding" sourceFile="ActivityLicensesBinding.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.ActivityMainBinding" sourceFile="ActivityMainBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.ActivitySettingsBinding" sourceFile="ActivitySettingsBinding.java" interface="false" size="450" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentCalculatorBinding" sourceFile="FragmentCalculatorBinding.java" interface="false" size="156" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentDigitBinding" sourceFile="FragmentDigitBinding.java" interface="false" size="87" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentHistoryBinding" sourceFile="FragmentHistoryBinding.java" interface="false" size="37" bugs="1" priority_2="1"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentLandBinding" sourceFile="FragmentLandBinding.java" interface="false" size="87" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentLargeLandBinding" sourceFile="FragmentLargeLandBinding.java" interface="false" size="99" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentMainBinding" sourceFile="FragmentMainBinding.java" interface="false" size="87" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentScientificFunctionBinding" sourceFile="FragmentScientificFunctionBinding.java" interface="false" size="87" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentSmallBinding" sourceFile="FragmentSmallBinding.java" interface="false" size="81" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentSmallLandBinding" sourceFile="FragmentSmallLandBinding.java" interface="false" size="57" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentUnitConverterBinding" sourceFile="FragmentUnitConverterBinding.java" interface="false" size="57" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentXLargeLandBinding" sourceFile="FragmentXLargeLandBinding.java" interface="false" size="99" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.FragmentXLargeLandCalculatorBinding" sourceFile="FragmentXLargeLandCalculatorBinding.java" interface="false" size="282" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.ItemColorBinding" sourceFile="ItemColorBinding.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.ItemHistoryDataBinding" sourceFile="ItemHistoryDataBinding.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.ItemLicenseBinding" sourceFile="ItemLicenseBinding.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="com.forz.calculator.databinding.ItemUnitBinding" sourceFile="ItemUnitBinding.java" interface="false" size="39" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.javia.arity" total_bugs="18" total_types="36" total_size="2275" priority_2="17" priority_1="1">
+      <ClassStats class="org.javia.arity.ArityException" sourceFile="ArityException.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.javia.arity.ByteStack" sourceFile="ByteStack.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.javia.arity.CompiledFunction" sourceFile="CompiledFunction.java" interface="false" size="361" bugs="0"/>
+      <ClassStats class="org.javia.arity.CompiledFunction$1" sourceFile="CompiledFunction.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.javia.arity.Compiler" sourceFile="Compiler.java" interface="false" size="45" bugs="1" priority_2="1"/>
+      <ClassStats class="org.javia.arity.Complex" sourceFile="Complex.java" interface="false" size="303" bugs="3" priority_2="3"/>
+      <ClassStats class="org.javia.arity.Constant" sourceFile="Constant.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.javia.arity.ContextFunction" sourceFile="ContextFunction.java" interface="false" size="73" bugs="0"/>
+      <ClassStats class="org.javia.arity.Declaration" sourceFile="Declaration.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.javia.arity.DeclarationParser" sourceFile="DeclarationParser.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="org.javia.arity.Derivative" sourceFile="Derivative.java" interface="false" size="15" bugs="2" priority_2="2"/>
+      <ClassStats class="org.javia.arity.DoubleStack" sourceFile="DoubleStack.java" interface="false" size="48" bugs="0"/>
+      <ClassStats class="org.javia.arity.EvalCase" sourceFile="UnitTest.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.javia.arity.EvalContext" sourceFile="EvalContext.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.javia.arity.FormatCase" sourceFile="UnitTest.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.javia.arity.Function" sourceFile="Function.java" interface="false" size="52" bugs="1" priority_2="1"/>
+      <ClassStats class="org.javia.arity.FunctionAndName" sourceFile="FunctionAndName.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.javia.arity.FunctionStack" sourceFile="FunctionStack.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.javia.arity.IsComplexException" sourceFile="IsComplexException.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="org.javia.arity.Lexer" sourceFile="Lexer.java" interface="false" size="151" bugs="0"/>
+      <ClassStats class="org.javia.arity.MoreMath" sourceFile="MoreMath.java" interface="false" size="96" bugs="3" priority_2="2" priority_1="1"/>
+      <ClassStats class="org.javia.arity.MyFun" sourceFile="UnitTest.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.javia.arity.OptCodeGen" sourceFile="OptCodeGen.java" interface="false" size="88" bugs="0"/>
+      <ClassStats class="org.javia.arity.RPN" sourceFile="RPN.java" interface="false" size="80" bugs="0"/>
+      <ClassStats class="org.javia.arity.SimpleCodeGen" sourceFile="SimpleCodeGen.java" interface="false" size="65" bugs="0"/>
+      <ClassStats class="org.javia.arity.SizeCase" sourceFile="UnitTest.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.javia.arity.Symbol" sourceFile="Symbol.java" interface="false" size="54" bugs="2" priority_2="2"/>
+      <ClassStats class="org.javia.arity.Symbols" sourceFile="Symbols.java" interface="false" size="118" bugs="2" priority_2="2"/>
+      <ClassStats class="org.javia.arity.SyntaxException" sourceFile="SyntaxException.java" interface="false" size="13" bugs="2" priority_2="2"/>
+      <ClassStats class="org.javia.arity.TestEval" sourceFile="UnitTest.java" interface="false" size="53" bugs="0"/>
+      <ClassStats class="org.javia.arity.TestFormat" sourceFile="UnitTest.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.javia.arity.Token" sourceFile="Token.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.javia.arity.TokenConsumer" sourceFile="TokenConsumer.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.javia.arity.UnitTest" sourceFile="UnitTest.java" interface="false" size="179" bugs="0"/>
+      <ClassStats class="org.javia.arity.Util" sourceFile="Util.java" interface="false" size="125" bugs="2" priority_2="2"/>
+      <ClassStats class="org.javia.arity.VM" sourceFile="VM.java" interface="false" size="55" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="1197" invocations="353" avgMicrosecondsPerInvocation="3393" maxMicrosecondsPerInvocation="547479" standardDeviationMicrosecondsPerInvocation="30383"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="546" invocations="372" avgMicrosecondsPerInvocation="1467" maxMicrosecondsPerInvocation="37201" standardDeviationMicrosecondsPerInvocation="3131"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="514" invocations="353" avgMicrosecondsPerInvocation="1458" maxMicrosecondsPerInvocation="20504" standardDeviationMicrosecondsPerInvocation="2871"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="472" invocations="380" avgMicrosecondsPerInvocation="1242" maxMicrosecondsPerInvocation="36099" standardDeviationMicrosecondsPerInvocation="3199"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="465" invocations="449" avgMicrosecondsPerInvocation="1037" maxMicrosecondsPerInvocation="31274" standardDeviationMicrosecondsPerInvocation="2663"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="379" invocations="403" avgMicrosecondsPerInvocation="942" maxMicrosecondsPerInvocation="65271" standardDeviationMicrosecondsPerInvocation="4380"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="363" invocations="379" avgMicrosecondsPerInvocation="958" maxMicrosecondsPerInvocation="17270" standardDeviationMicrosecondsPerInvocation="2012"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="323" invocations="56" avgMicrosecondsPerInvocation="5771" maxMicrosecondsPerInvocation="32771" standardDeviationMicrosecondsPerInvocation="7538"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="314" invocations="376" avgMicrosecondsPerInvocation="837" maxMicrosecondsPerInvocation="13198" standardDeviationMicrosecondsPerInvocation="1445"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="233" invocations="315" avgMicrosecondsPerInvocation="740" maxMicrosecondsPerInvocation="9960" standardDeviationMicrosecondsPerInvocation="1401"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="233" invocations="56" avgMicrosecondsPerInvocation="4164" maxMicrosecondsPerInvocation="21539" standardDeviationMicrosecondsPerInvocation="6335"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="230" invocations="95" avgMicrosecondsPerInvocation="2423" maxMicrosecondsPerInvocation="38049" standardDeviationMicrosecondsPerInvocation="5131"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="198" invocations="95" avgMicrosecondsPerInvocation="2088" maxMicrosecondsPerInvocation="41065" standardDeviationMicrosecondsPerInvocation="5090"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="196" invocations="56" avgMicrosecondsPerInvocation="3505" maxMicrosecondsPerInvocation="91718" standardDeviationMicrosecondsPerInvocation="12136"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="185" invocations="376" avgMicrosecondsPerInvocation="493" maxMicrosecondsPerInvocation="28325" standardDeviationMicrosecondsPerInvocation="1878"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="170" invocations="376" avgMicrosecondsPerInvocation="454" maxMicrosecondsPerInvocation="18210" standardDeviationMicrosecondsPerInvocation="1208"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="168" invocations="148" avgMicrosecondsPerInvocation="1136" maxMicrosecondsPerInvocation="20997" standardDeviationMicrosecondsPerInvocation="2503"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="147" invocations="56" avgMicrosecondsPerInvocation="2638" maxMicrosecondsPerInvocation="22667" standardDeviationMicrosecondsPerInvocation="5040"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="145" invocations="56" avgMicrosecondsPerInvocation="2594" maxMicrosecondsPerInvocation="43174" standardDeviationMicrosecondsPerInvocation="6508"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="118" invocations="25688" avgMicrosecondsPerInvocation="4" maxMicrosecondsPerInvocation="3606" standardDeviationMicrosecondsPerInvocation="58"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="117" invocations="56" avgMicrosecondsPerInvocation="2099" maxMicrosecondsPerInvocation="10689" standardDeviationMicrosecondsPerInvocation="2300"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="116" invocations="372" avgMicrosecondsPerInvocation="314" maxMicrosecondsPerInvocation="9350" standardDeviationMicrosecondsPerInvocation="853"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="115" invocations="95" avgMicrosecondsPerInvocation="1215" maxMicrosecondsPerInvocation="8933" standardDeviationMicrosecondsPerInvocation="1952"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ResourceInMultipleThreadsDetector" totalMilliseconds="112" invocations="56" avgMicrosecondsPerInvocation="2013" maxMicrosecondsPerInvocation="28195" standardDeviationMicrosecondsPerInvocation="4019"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="101" invocations="56" avgMicrosecondsPerInvocation="1819" maxMicrosecondsPerInvocation="24867" standardDeviationMicrosecondsPerInvocation="3609"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUselessObjects" totalMilliseconds="94" invocations="56" avgMicrosecondsPerInvocation="1692" maxMicrosecondsPerInvocation="17416" standardDeviationMicrosecondsPerInvocation="2820"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="92" invocations="95" avgMicrosecondsPerInvocation="974" maxMicrosecondsPerInvocation="21315" standardDeviationMicrosecondsPerInvocation="2749"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindSelfComparison" totalMilliseconds="89" invocations="56" avgMicrosecondsPerInvocation="1598" maxMicrosecondsPerInvocation="24505" standardDeviationMicrosecondsPerInvocation="4487"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="81" invocations="365" avgMicrosecondsPerInvocation="223" maxMicrosecondsPerInvocation="8610" standardDeviationMicrosecondsPerInvocation="736"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SharedVariableAtomicityDetector" totalMilliseconds="79" invocations="56" avgMicrosecondsPerInvocation="1411" maxMicrosecondsPerInvocation="42496" standardDeviationMicrosecondsPerInvocation="5672"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="77" invocations="95" avgMicrosecondsPerInvocation="813" maxMicrosecondsPerInvocation="10267" standardDeviationMicrosecondsPerInvocation="1495"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="75" invocations="56" avgMicrosecondsPerInvocation="1356" maxMicrosecondsPerInvocation="9706" standardDeviationMicrosecondsPerInvocation="2237"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="74" invocations="56" avgMicrosecondsPerInvocation="1332" maxMicrosecondsPerInvocation="7794" standardDeviationMicrosecondsPerInvocation="1644"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="70" invocations="56" avgMicrosecondsPerInvocation="1261" maxMicrosecondsPerInvocation="10068" standardDeviationMicrosecondsPerInvocation="2108"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="67" invocations="353" avgMicrosecondsPerInvocation="190" maxMicrosecondsPerInvocation="8090" standardDeviationMicrosecondsPerInvocation="749"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

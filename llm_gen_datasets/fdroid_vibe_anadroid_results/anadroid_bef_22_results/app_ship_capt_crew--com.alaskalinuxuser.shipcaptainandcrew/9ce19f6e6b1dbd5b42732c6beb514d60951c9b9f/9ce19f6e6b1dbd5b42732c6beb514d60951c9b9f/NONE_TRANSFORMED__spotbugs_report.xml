@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767887344430" analysisTimestamp="1767887346596" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/app_ship_capt_crew/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-24/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/app_ship_capt_crew/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="476398b95f82db148ec9020e54d3079e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.alaskalinuxuser.shipcaptainandcrew.MainActivity.randomDice()</LongMessage>
+    <Class classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="33" end="1080" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>At MainActivity.java:[lines 33-1080]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.shipcaptainandcrew.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" name="randomDice" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="479" end="564" startBytecode="0" endBytecode="570" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.shipcaptainandcrew.MainActivity.randomDice()</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="36" end="36" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true" start="485" end="485" startBytecode="26" endBytecode="26" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+      <Message>At MainActivity.java:[line 485]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="493" end="493" startBytecode="52" endBytecode="52" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 493]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="501" end="501" startBytecode="78" endBytecode="78" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 501]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="509" end="509" startBytecode="104" endBytecode="104" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 509]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="517" end="517" startBytecode="130" endBytecode="130" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 517]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="9ca236618a034c3c248e19537333e106" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.alaskalinuxuser.shipcaptainandcrew.MainActivity.keepThem(View) where default case is missing</LongMessage>
+    <Class classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="33" end="1080" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>At MainActivity.java:[lines 33-1080]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.shipcaptainandcrew.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" name="keepThem" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="809" end="842" startBytecode="0" endBytecode="264" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.shipcaptainandcrew.MainActivity.keepThem(View)</Message>
+    </Method>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true" start="812" end="836" startBytecode="19" endBytecode="133" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+      <Message>At MainActivity.java:[lines 812-836]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UC_USELESS_CONDITION" priority="1" rank="14" abbrev="UC" category="STYLE" instanceHash="91e25da0bf1f858f1210a456c99e5836" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="570">
+    <ShortMessage>Condition has no effect</ShortMessage>
+    <LongMessage>Useless condition: it&apos;s known that this.myNumber != 4 at this point</LongMessage>
+    <Class classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="33" end="1080" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>At MainActivity.java:[lines 33-1080]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.shipcaptainandcrew.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" name="diceCheck" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="570" end="769" startBytecode="0" endBytecode="1429" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.shipcaptainandcrew.MainActivity.diceCheck()</Message>
+    </Method>
+    <String value="this.myNumber != 4">
+      <Message>Value this.myNumber != 4</Message>
+    </String>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="644" end="644" startBytecode="396" endBytecode="396" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" role="SOURCE_UNREACHABLE_CODE">
+      <Message>Unreachable code at MainActivity.java:[line 644]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true" start="641" end="641" startBytecode="393" endBytecode="393" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+      <Message>At MainActivity.java:[line 641]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UC_USELESS_CONDITION" priority="1" rank="14" abbrev="UC" category="STYLE" instanceHash="c9169d0352cbbbe0d45701b558ca43ae" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="570">
+    <ShortMessage>Condition has no effect</ShortMessage>
+    <LongMessage>Useless condition: it&apos;s known that this.myNumber != 5 at this point</LongMessage>
+    <Class classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="33" end="1080" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>At MainActivity.java:[lines 33-1080]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.shipcaptainandcrew.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" name="diceCheck" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="570" end="769" startBytecode="0" endBytecode="1429" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.shipcaptainandcrew.MainActivity.diceCheck()</Message>
+    </Method>
+    <String value="this.myNumber != 5">
+      <Message>Value this.myNumber != 5</Message>
+    </String>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="690" end="690" startBytecode="645" endBytecode="645" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" role="SOURCE_UNREACHABLE_CODE">
+      <Message>Unreachable code at MainActivity.java:[line 690]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true" start="687" end="687" startBytecode="642" endBytecode="642" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+      <Message>At MainActivity.java:[line 687]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UC_USELESS_CONDITION" priority="1" rank="14" abbrev="UC" category="STYLE" instanceHash="7a374c0e30f41911fd52e01656199e52" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="570">
+    <ShortMessage>Condition has no effect</ShortMessage>
+    <LongMessage>Useless condition: it&apos;s known that this.myNumber != 6 at this point</LongMessage>
+    <Class classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="33" end="1080" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>At MainActivity.java:[lines 33-1080]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.shipcaptainandcrew.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" name="diceCheck" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="570" end="769" startBytecode="0" endBytecode="1429" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.shipcaptainandcrew.MainActivity.diceCheck()</Message>
+    </Method>
+    <String value="this.myNumber != 6">
+      <Message>Value this.myNumber != 6</Message>
+    </String>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="736" end="736" startBytecode="881" endBytecode="881" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" role="SOURCE_UNREACHABLE_CODE">
+      <Message>Unreachable code at MainActivity.java:[line 736]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true" start="733" end="733" startBytecode="878" endBytecode="878" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+      <Message>At MainActivity.java:[line 733]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="e8734cd5a097418067afb67c2dcd0931" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.alaskalinuxuser.shipcaptainandcrew.MainActivity.die</LongMessage>
+    <Class classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="33" end="1080" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>At MainActivity.java:[lines 33-1080]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.shipcaptainandcrew.MainActivity</Message>
+    </Class>
+    <Field classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" name="die" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.shipcaptainandcrew.MainActivity.die</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true" start="172" end="172" startBytecode="100" endBytecode="100" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+      <Message>At MainActivity.java:[line 172]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="a0fae2db4fb34c18b58f860aca989d67" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.alaskalinuxuser.shipcaptainandcrew.MainActivity.inPlay</LongMessage>
+    <Class classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" start="33" end="1080" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>At MainActivity.java:[lines 33-1080]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.shipcaptainandcrew.MainActivity</Message>
+    </Class>
+    <Field classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" name="inPlay" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.shipcaptainandcrew.MainActivity.inPlay</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" primary="true" start="188" end="188" startBytecode="170" endBytecode="170" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" relSourcepath="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java">
+      <Message>At MainActivity.java:[line 188]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UC_USELESS_CONDITION" abbrev="UC" category="STYLE" cweid="570">
+    <ShortDescription>Condition has no effect</ShortDescription>
+    <Details><![CDATA[
+
+<p>This condition always produces the same result as the value of the involved variable that was narrowed before.
+Probably something else was meant or the condition can be removed.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/570.html">CWE-570: Expression is Always False</a>
+and <a href="https://cwe.mitre.org/data/definitions/571.html">CWE-571: Expression is Always True</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="UC">
+    <Description>Useless code</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="7">
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.alaskalinuxuser.shipcaptainandcrew.R</MissingClass>
+    <MissingClass>com.alaskalinuxuser.shipcaptainandcrew.R$drawable</MissingClass>
+    <MissingClass>com.alaskalinuxuser.shipcaptainandcrew.R$id</MissingClass>
+    <MissingClass>com.alaskalinuxuser.shipcaptainandcrew.R$layout</MissingClass>
+    <MissingClass>com.alaskalinuxuser.shipcaptainandcrew.R$raw</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 19:49:04 +0400" total_classes="3" referenced_classes="30" total_bugs="7" total_size="506" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.41" clock_seconds="0.53" peak_mbytes="264.91" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="3" priority_1="4">
+    <FileStats path="com/alaskalinuxuser/shipcaptainandcrew/AboutApp.java" bugCount="0" size="24"/>
+    <FileStats path="com/alaskalinuxuser/shipcaptainandcrew/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/alaskalinuxuser/shipcaptainandcrew/MainActivity.java" bugCount="7" size="471" bugHash="983e319232df318b6d3b38b2ff8bb625"/>
+    <PackageStats package="com.alaskalinuxuser.shipcaptainandcrew" total_bugs="7" total_types="3" total_size="506" priority_2="3" priority_1="4">
+      <ClassStats class="com.alaskalinuxuser.shipcaptainandcrew.AboutApp" sourceFile="AboutApp.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.alaskalinuxuser.shipcaptainandcrew.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.alaskalinuxuser.shipcaptainandcrew.MainActivity" sourceFile="MainActivity.java" interface="false" size="471" bugs="7" priority_2="3" priority_1="4"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="42" invocations="367" avgMicrosecondsPerInvocation="115" maxMicrosecondsPerInvocation="7745" standardDeviationMicrosecondsPerInvocation="486"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="20" invocations="30" avgMicrosecondsPerInvocation="684" maxMicrosecondsPerInvocation="9937" standardDeviationMicrosecondsPerInvocation="1760"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="16" invocations="25" avgMicrosecondsPerInvocation="652" maxMicrosecondsPerInvocation="5414" standardDeviationMicrosecondsPerInvocation="1228"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="15" invocations="25" avgMicrosecondsPerInvocation="631" maxMicrosecondsPerInvocation="2789" standardDeviationMicrosecondsPerInvocation="879"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="14" invocations="25" avgMicrosecondsPerInvocation="574" maxMicrosecondsPerInvocation="2480" standardDeviationMicrosecondsPerInvocation="699"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="12" invocations="25" avgMicrosecondsPerInvocation="513" maxMicrosecondsPerInvocation="3209" standardDeviationMicrosecondsPerInvocation="769"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="12" invocations="25" avgMicrosecondsPerInvocation="499" maxMicrosecondsPerInvocation="2364" standardDeviationMicrosecondsPerInvocation="632"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="11" invocations="3" avgMicrosecondsPerInvocation="3910" maxMicrosecondsPerInvocation="11301" standardDeviationMicrosecondsPerInvocation="5226"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="11" invocations="56" avgMicrosecondsPerInvocation="207" maxMicrosecondsPerInvocation="3756" standardDeviationMicrosecondsPerInvocation="638"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

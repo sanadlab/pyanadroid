@@ -1,0 +1,303 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T16:01:50.482+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/cameratimer/LibraryActivity.java",
+      "violations": [
+        {
+          "beginline": 82,
+          "begincolumn": 33,
+          "endline": 82,
+          "endcolumn": 82,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 83,
+          "begincolumn": 16,
+          "endline": 83,
+          "endcolumn": 29,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/cameratimer/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 77,
+          "begincolumn": 6,
+          "endline": 77,
+          "endcolumn": 22,
+          "description": "Avoid using redundant field initializer for \u0027currentPictureID\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 85,
+          "begincolumn": 6,
+          "endline": 85,
+          "endcolumn": 18,
+          "description": "Avoid using redundant field initializer for \u0027pictureTimer\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 90,
+          "begincolumn": 10,
+          "endline": 90,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027flashButtonConfigured\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 403,
+          "begincolumn": 24,
+          "endline": 403,
+          "endcolumn": 32,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 404,
+          "begincolumn": 4,
+          "endline": 404,
+          "endcolumn": 12,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 407,
+          "begincolumn": 31,
+          "endline": 407,
+          "endcolumn": 47,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/cameratimer/PictureView.java",
+      "violations": [
+        {
+          "beginline": 22,
+          "begincolumn": 10,
+          "endline": 22,
+          "endcolumn": 20,
+          "description": "Avoid using redundant field initializer for \u0027drawBorder\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/util/ARManager.java",
+      "violations": [
+        {
+          "beginline": 15,
+          "begincolumn": 10,
+          "endline": 15,
+          "endcolumn": 27,
+          "description": "Avoid using redundant field initializer for \u0027cameraInitialized\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 18,
+          "begincolumn": 10,
+          "endline": 18,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027cameraViewReady\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 19,
+          "begincolumn": 9,
+          "endline": 19,
+          "endcolumn": 17,
+          "description": "Avoid using redundant field initializer for \u0027cameraId\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 21,
+          "begincolumn": 6,
+          "endline": 21,
+          "endcolumn": 27,
+          "description": "Avoid using redundant field initializer for \u0027preferredPreviewWidth\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 21,
+          "begincolumn": 33,
+          "endline": 21,
+          "endcolumn": 55,
+          "description": "Avoid using redundant field initializer for \u0027preferredPreviewHeight\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 22,
+          "begincolumn": 6,
+          "endline": 22,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027numPreviewCallbackBuffers\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/util/AsyncImageLoader.java",
+      "violations": [
+        {
+          "beginline": 23,
+          "begincolumn": 13,
+          "endline": 23,
+          "endcolumn": 17,
+          "description": "Avoid using redundant field initializer for \u0027data\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/util/CameraUtils.java",
+      "violations": [
+        {
+          "beginline": 180,
+          "begincolumn": 20,
+          "endline": 180,
+          "endcolumn": 40,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/util/FrameRateManager.java",
+      "violations": [
+        {
+          "beginline": 21,
+          "begincolumn": 6,
+          "endline": 21,
+          "endcolumn": 22,
+          "description": "Avoid using redundant field initializer for \u0027currentRateIndex\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 34,
+          "begincolumn": 10,
+          "endline": 34,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027frameRateLocked\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 40,
+          "begincolumn": 6,
+          "endline": 40,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027goodFrames\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 41,
+          "begincolumn": 6,
+          "endline": 41,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027slowFrames\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 43,
+          "begincolumn": 7,
+          "endline": 43,
+          "endcolumn": 18,
+          "description": "Avoid using redundant field initializer for \u0027totalFrames\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/CamTimer/app/src/main/java/com/dozingcatsoftware/util/ScaledBitmapCache.java",
+      "violations": [
+        {
+          "beginline": 97,
+          "begincolumn": 46,
+          "endline": 97,
+          "endcolumn": 62,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

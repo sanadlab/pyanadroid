@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1764052534204" analysisTimestamp="1764052536957" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/VlcFreemote/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/VlcFreemote/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="4adbb8a43baa45fb82155eb3c012c289" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.nicolasbrailo.vlcfreemote.PlayerControllerView.onAttach(Context) may expose internal representation by storing an externally mutable object into PlayerControllerView.activity</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" start="43" end="252" sourcefile="PlayerControllerView.java" sourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" relSourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java">
+        <Message>At PlayerControllerView.java:[lines 43-252]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.PlayerControllerView</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" name="onAttach" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" start="74" end="76" startBytecode="0" endBytecode="73" sourcefile="PlayerControllerView.java" sourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" relSourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java"/>
+      <Message>In method com.nicolasbrailo.vlcfreemote.PlayerControllerView.onAttach(Context)</Message>
+    </Method>
+    <Field classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" name="activity" signature="Landroid/app/Activity;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" sourcefile="PlayerControllerView.java" sourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" relSourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java">
+        <Message>In PlayerControllerView.java</Message>
+      </SourceLine>
+      <Message>Field com.nicolasbrailo.vlcfreemote.PlayerControllerView.activity</Message>
+    </Field>
+    <LocalVariable name="activity" register="1" pc="10" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named activity</Message>
+    </LocalVariable>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" primary="true" start="75" end="75" startBytecode="10" endBytecode="10" sourcefile="PlayerControllerView.java" sourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" relSourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java">
+      <Message>At PlayerControllerView.java:[line 75]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="76e59a8afa6764dd1c5447e583576050" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.nicolasbrailo.vlcfreemote.PlayerControllerView.onProgressChanged(SeekBar, int, boolean) where default case is missing</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" start="43" end="252" sourcefile="PlayerControllerView.java" sourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" relSourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java">
+        <Message>At PlayerControllerView.java:[lines 43-252]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.PlayerControllerView</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" name="onProgressChanged" signature="(Landroid/widget/SeekBar;IZ)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" start="109" end="114" startBytecode="0" endBytecode="149" sourcefile="PlayerControllerView.java" sourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" relSourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java"/>
+      <Message>In method com.nicolasbrailo.vlcfreemote.PlayerControllerView.onProgressChanged(SeekBar, int, boolean)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.PlayerControllerView" primary="true" start="110" end="112" startBytecode="9" endBytecode="48" sourcefile="PlayerControllerView.java" sourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" relSourcepath="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java">
+      <Message>At PlayerControllerView.java:[lines 110-112]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="c615f924f5e361856bb9be6cf2104ca1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.nicolasbrailo.vlcfreemote.model.Server.displayName is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.model.Server" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.Server" start="11" end="43" sourcefile="Server.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/Server.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/Server.java">
+        <Message>At Server.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.model.Server</Message>
+    </Class>
+    <Field classname="com.nicolasbrailo.vlcfreemote.model.Server" name="displayName" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.Server" sourcefile="Server.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/Server.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/Server.java">
+        <Message>In Server.java</Message>
+      </SourceLine>
+      <Message>Field com.nicolasbrailo.vlcfreemote.model.Server.displayName</Message>
+    </Field>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.Server" primary="true" start="16" end="16" startBytecode="27" endBytecode="27" sourcefile="Server.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/Server.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/Server.java">
+      <Message>At Server.java:[line 16]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="476a53571840d048bf23cde6865ae97b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.nicolasbrailo.vlcfreemote.model.VlcPath(RemoteVlc$ConnectionProvider, Context, VlcPath$UICallback) may expose internal representation by storing an externally mutable object into VlcPath.dbContext</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.model.VlcPath" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.VlcPath" start="17" end="209" sourcefile="VlcPath.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java">
+        <Message>At VlcPath.java:[lines 17-209]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.model.VlcPath</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.model.VlcPath" name="&lt;init&gt;" signature="(Lcom/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc$ConnectionProvider;Landroid/content/Context;Lcom/nicolasbrailo/vlcfreemote/model/VlcPath$UICallback;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.VlcPath" start="56" end="70" startBytecode="0" endBytecode="257" sourcefile="VlcPath.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.model.VlcPath(RemoteVlc$ConnectionProvider, Context, VlcPath$UICallback)</Message>
+    </Method>
+    <Field classname="com.nicolasbrailo.vlcfreemote.model.VlcPath" name="dbContext" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.VlcPath" sourcefile="VlcPath.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java">
+        <Message>In VlcPath.java</Message>
+      </SourceLine>
+      <Message>Field com.nicolasbrailo.vlcfreemote.model.VlcPath.dbContext</Message>
+    </Field>
+    <LocalVariable name="dbContext" register="2" pc="84" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named dbContext</Message>
+    </LocalVariable>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.VlcPath" primary="true" start="68" end="68" startBytecode="84" endBytecode="84" sourcefile="VlcPath.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java">
+      <Message>At VlcPath.java:[line 68]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="b61a2401631f641b7c9e1dc213414b5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.nicolasbrailo.vlcfreemote.model.VlcPath$3.onContentAvailable(List)</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.model.VlcPath$3" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.VlcPath$3" start="162" end="183" sourcefile="VlcPath.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java">
+        <Message>At VlcPath.java:[lines 162-183]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.model.VlcPath$3</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.model.VlcPath$3" name="onContentAvailable" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.VlcPath$3" start="165" end="178" startBytecode="0" endBytecode="317" sourcefile="VlcPath.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java"/>
+      <Message>In method com.nicolasbrailo.vlcfreemote.model.VlcPath$3.onContentAvailable(List)</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="45" end="45" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.model.VlcPath$3" primary="true" start="175" end="175" startBytecode="111" endBytecode="111" sourcefile="VlcPath.java" sourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" relSourcepath="com/nicolasbrailo/vlcfreemote/model/VlcPath.java">
+      <Message>At VlcPath.java:[line 175]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="6316a08c4d05dcf9b791111fbb156be6" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList(String, List, Cmd_DirList$Callback) may expose internal representation by storing an externally mutable object into Cmd_DirList.filesPlayedInDir</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" start="9" end="45" sourcefile="Cmd_DirList.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java">
+        <Message>At Cmd_DirList.java:[lines 9-45]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/util/List;Lcom/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList$Callback;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" start="29" end="33" startBytecode="0" endBytecode="125" sourcefile="Cmd_DirList.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList(String, List, Cmd_DirList$Callback)</Message>
+    </Method>
+    <Field classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" name="filesPlayedInDir" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" sourcefile="Cmd_DirList.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java">
+        <Message>In Cmd_DirList.java</Message>
+      </SourceLine>
+      <Message>Field com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList.filesPlayedInDir</Message>
+    </Field>
+    <LocalVariable name="filesPlayedInDir" register="2" pc="16" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named filesPlayedInDir</Message>
+    </LocalVariable>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" primary="true" start="32" end="32" startBytecode="16" endBytecode="16" sourcefile="Cmd_DirList.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java">
+      <Message>At Cmd_DirList.java:[line 32]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="68ea9e3a0cd1280b02eac5c9f3c433c8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1.parseValue(Cmd_DirList$DirListEntry, String, String) where default case is missing</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1" start="69" end="89" sourcefile="Cmd_DirList.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java">
+        <Message>At Cmd_DirList.java:[lines 69-89]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1" name="parseValue" signature="(Lcom/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList$DirListEntry;Ljava/lang/String;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1" start="72" end="89" startBytecode="0" endBytecode="316" sourcefile="Cmd_DirList.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java"/>
+      <Message>In method com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1.parseValue(Cmd_DirList$DirListEntry, String, String)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1" primary="true" start="72" end="85" startBytecode="115" endBytecode="185" sourcefile="Cmd_DirList.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java">
+      <Message>At Cmd_DirList.java:[lines 72-85]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="a49cf552576803d29032e7d8f8a24c80" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1.parseValue(Cmd_GetPlaylist$PlaylistEntry, String, String) where default case is missing</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1" start="56" end="65" sourcefile="Cmd_GetPlaylist.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist.java">
+        <Message>At Cmd_GetPlaylist.java:[lines 56-65]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1" name="parseValue" signature="(Lcom/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist$PlaylistEntry;Ljava/lang/String;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1" start="59" end="65" startBytecode="0" endBytecode="303" sourcefile="Cmd_GetPlaylist.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist.java"/>
+      <Message>In method com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1.parseValue(Cmd_GetPlaylist$PlaylistEntry, String, String)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1" primary="true" start="59" end="63" startBytecode="115" endBytecode="184" sourcefile="Cmd_GetPlaylist.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist.java">
+      <Message>At Cmd_GetPlaylist.java:[lines 59-63]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="591836eb70710ee7e42fff2a0c3bb463" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent at new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent(float, VlcStatus$ObserverRegister) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent" start="10" end="28" sourcefile="Cmd_JumpRelativePercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java">
+        <Message>At Cmd_JumpRelativePercent.java:[lines 10-28]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent" name="&lt;init&gt;" signature="(FLcom/nicolasbrailo/vlcfreemote/model/VlcStatus$ObserverRegister;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent" start="10" end="20" startBytecode="0" endBytecode="227" sourcefile="Cmd_JumpRelativePercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent(float, VlcStatus$ObserverRegister)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent" primary="true" start="13" end="13" startBytecode="28" endBytecode="28" sourcefile="Cmd_JumpRelativePercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java">
+      <Message>At Cmd_JumpRelativePercent.java:[line 13]</Message>
+    </SourceLine>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent" start="13" end="13" startBytecode="28" endBytecode="28" sourcefile="Cmd_JumpRelativePercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java">
+      <Message>At Cmd_JumpRelativePercent.java:[line 13]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="6f2b52260c04f267a511b5a7d8836879" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent at new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent(float, VlcStatus$ObserverRegister) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent" start="10" end="23" sourcefile="Cmd_JumpToPositionPercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java">
+        <Message>At Cmd_JumpToPositionPercent.java:[lines 10-23]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent" name="&lt;init&gt;" signature="(FLcom/nicolasbrailo/vlcfreemote/model/VlcStatus$ObserverRegister;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent" start="10" end="17" startBytecode="0" endBytecode="155" sourcefile="Cmd_JumpToPositionPercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent(float, VlcStatus$ObserverRegister)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent" primary="true" start="13" end="13" startBytecode="27" endBytecode="27" sourcefile="Cmd_JumpToPositionPercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java">
+      <Message>At Cmd_JumpToPositionPercent.java:[line 13]</Message>
+    </SourceLine>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent" start="13" end="13" startBytecode="27" endBytecode="27" sourcefile="Cmd_JumpToPositionPercent.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java">
+      <Message>At Cmd_JumpToPositionPercent.java:[line 13]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="e007dbe3fd0b921d5eef67c70d853bba" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume at new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume(int, VlcStatus$ObserverRegister) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume" start="9" end="24" sourcefile="Cmd_SetVolume.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java">
+        <Message>At Cmd_SetVolume.java:[lines 9-24]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume" name="&lt;init&gt;" signature="(ILcom/nicolasbrailo/vlcfreemote/model/VlcStatus$ObserverRegister;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume" start="9" end="16" startBytecode="0" endBytecode="137" sourcefile="Cmd_SetVolume.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume(int, VlcStatus$ObserverRegister)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume" primary="true" start="12" end="12" startBytecode="24" endBytecode="24" sourcefile="Cmd_SetVolume.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java">
+      <Message>At Cmd_SetVolume.java:[line 12]</Message>
+    </SourceLine>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume" start="12" end="12" startBytecode="24" endBytecode="24" sourcefile="Cmd_SetVolume.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java">
+      <Message>At Cmd_SetVolume.java:[line 12]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="8447bae697ad17019c25f64ef807ea5c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in new com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc(Server, VlcCommand$GeneralCallback): String.getBytes()</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" start="31" end="118" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+        <Message>At RemoteVlc.java:[lines 31-118]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" name="&lt;init&gt;" signature="(Lcom/nicolasbrailo/vlcfreemote/model/Server;Lcom/nicolasbrailo/vlcfreemote/vlc_connector/VlcCommand$GeneralCallback;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" start="43" end="56" startBytecode="0" endBytecode="272" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc(Server, VlcCommand$GeneralCallback)</Message>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="89" end="89" startBytecode="0" endBytecode="51" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.getBytes()</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" primary="true" start="45" end="45" startBytecode="97" endBytecode="97" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+      <Message>At RemoteVlc.java:[line 45]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="a9fcf61bfed5069d305f8ab8da37cff2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc.getServer() may expose internal representation by returning RemoteVlc.srv</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" start="31" end="118" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+        <Message>At RemoteVlc.java:[lines 31-118]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" name="getServer" signature="()Lcom/nicolasbrailo/vlcfreemote/model/Server;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" start="61" end="61" startBytecode="0" endBytecode="46" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java"/>
+      <Message>In method com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc.getServer()</Message>
+    </Method>
+    <Field classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" name="srv" signature="Lcom/nicolasbrailo/vlcfreemote/model/Server;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+        <Message>In RemoteVlc.java</Message>
+      </SourceLine>
+      <Message>Field com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc.srv</Message>
+    </Field>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" primary="true" start="61" end="61" startBytecode="4" endBytecode="4" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+      <Message>At RemoteVlc.java:[line 61]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="6649c6bb1820c7c5f97d8a2265bddd56" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc(Server, VlcCommand$GeneralCallback) may expose internal representation by storing an externally mutable object into RemoteVlc.srv</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" start="31" end="118" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+        <Message>At RemoteVlc.java:[lines 31-118]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" name="&lt;init&gt;" signature="(Lcom/nicolasbrailo/vlcfreemote/model/Server;Lcom/nicolasbrailo/vlcfreemote/vlc_connector/VlcCommand$GeneralCallback;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" start="43" end="56" startBytecode="0" endBytecode="272" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc(Server, VlcCommand$GeneralCallback)</Message>
+    </Method>
+    <Field classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" name="srv" signature="Lcom/nicolasbrailo/vlcfreemote/model/Server;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+        <Message>In RemoteVlc.java</Message>
+      </SourceLine>
+      <Message>Field com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc.srv</Message>
+    </Field>
+    <LocalVariable name="srv" register="1" pc="128" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named srv</Message>
+    </LocalVariable>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" primary="true" start="48" end="48" startBytecode="128" endBytecode="128" sourcefile="RemoteVlc.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java">
+      <Message>At RemoteVlc.java:[line 48]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="919f69d5fa1cc958a99eae9168696fd1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier.xmlParserFactory from instance method new com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier(String, String, XmlMogrifier$XmlKeyValReader, XmlMogrifier$Callback)</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" start="20" end="136" sourcefile="XmlMogrifier.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java">
+        <Message>At XmlMogrifier.java:[lines 20-136]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Lcom/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier$XmlKeyValReader;Lcom/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier$Callback;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" start="61" end="73" startBytecode="0" endBytecode="280" sourcefile="XmlMogrifier.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java"/>
+      <Message>In method new com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier(String, String, XmlMogrifier$XmlKeyValReader, XmlMogrifier$Callback)</Message>
+    </Method>
+    <Field classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" name="xmlParserFactory" signature="Lorg/xmlpull/v1/XmlPullParserFactory;" isStatic="true" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" sourcefile="XmlMogrifier.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java">
+        <Message>In XmlMogrifier.java</Message>
+      </SourceLine>
+      <Message>Field com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier.xmlParserFactory</Message>
+    </Field>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" primary="true" start="64" end="64" startBytecode="18" endBytecode="18" sourcefile="XmlMogrifier.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java">
+      <Message>At XmlMogrifier.java:[line 64]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="673d0e568d6a328812d38b8ca68a475c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader.xmlParseImpl(XmlPullParser, XmlMogrifier$XmlKeyValReader, String) where default case is missing</LongMessage>
+    <Class classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader" start="12" end="59" sourcefile="XmlObjectReader.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlObjectReader.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlObjectReader.java">
+        <Message>At XmlObjectReader.java:[lines 12-59]</Message>
+      </SourceLine>
+      <Message>In class com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader</Message>
+    </Class>
+    <Method classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader" name="xmlParseImpl" signature="(Lorg/xmlpull/v1/XmlPullParser;Lcom/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier$XmlKeyValReader;Ljava/lang/String;)Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader" start="19" end="59" startBytecode="0" endBytecode="457" sourcefile="XmlObjectReader.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlObjectReader.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlObjectReader.java"/>
+      <Message>In method com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader.xmlParseImpl(XmlPullParser, XmlMogrifier$XmlKeyValReader, String)</Message>
+    </Method>
+    <SourceLine classname="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader" primary="true" start="26" end="47" startBytecode="26" endBytecode="124" sourcefile="XmlObjectReader.java" sourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlObjectReader.java" relSourcepath="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlObjectReader.java">
+      <Message>At XmlObjectReader.java:[lines 26-47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N" cweid="173">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/173.html">CWE-173: Improper Handling of Alternate Encoding</a>.
+</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="17">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentPagerAdapter</MissingClass>
+    <MissingClass>androidx.viewpager.widget.PagerAdapter</MissingClass>
+    <MissingClass>androidx.viewpager.widget.ViewPager</MissingClass>
+    <MissingClass>androidx.viewpager.widget.ViewPager$OnPageChangeListener</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.R</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.R$id</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.R$layout</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.R$menu</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.R$mipmap</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.R$string</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.R$style</MissingClass>
+    <MissingClass>com.nicolasbrailo.vlcfreemote.VlcFragment</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 25 Nov 2025 10:35:34 +0400" total_classes="104" referenced_classes="295" total_bugs="16" total_size="2355" num_packages="6" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="5.26" clock_seconds="1.11" peak_mbytes="306.80" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="14" priority_1="2">
+    <FileStats path="com/nicolasbrailo/vlcfreemote/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/DirListingView.java" bugCount="0" size="250"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/MainActivity.java" bugCount="0" size="210"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/MiniPlayerControllerWidget.java" bugCount="0" size="67"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/PlayerControllerView.java" bugCount="2" size="154" bugHash="71aff743df7a41e80a9094ea3f609a47"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/PlaylistView.java" bugCount="0" size="150"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/ServerSelectView.java" bugCount="0" size="257"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/VlcFragment.java" bugCount="0" size="17"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/local_settings/Bookmarks.java" bugCount="0" size="47"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/local_settings/LocalSettings.java" bugCount="0" size="41"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/local_settings/PlayedFiles.java" bugCount="0" size="56"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/local_settings/RememberedServers.java" bugCount="0" size="116"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/model/Server.java" bugCount="1" size="33" bugHash="d89d0ca8521e020ba06967bb53f0aee1"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/model/VlcPath.java" bugCount="2" size="144" bugHash="ed50cae73fee4b1ef4a4bea426d5d65a"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/model/VlcStatus.java" bugCount="0" size="52"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/net_utils/ServerScanner.java" bugCount="0" size="89"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_AddToPlaylist.java" bugCount="0" size="10"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_ClearPlaylist.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_CycleAudioTrack.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_CycleSubtitle.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_DirList.java" bugCount="2" size="82" bugHash="f81f07fbfea0c9bd38ff580a42e859ec"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_GetPlaylist.java" bugCount="1" size="66" bugHash="db8939577caeca7eb8835b8ef3f1267d"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpRelativePercent.java" bugCount="1" size="15" bugHash="777476a2463c21b4c606cd5a83c1a5e0"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_JumpToPositionPercent.java" bugCount="1" size="13" bugHash="2ce7464697b1e2b92ca1c767f52c2a8d"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_Next.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_Prev.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_RemoveFromPlaylist.java" bugCount="0" size="10"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_SetVolume.java" bugCount="1" size="12" bugHash="1a1d5dcbff419dd7e6f716225d2cfa3b"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_StartPlaying.java" bugCount="0" size="10"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_ToggleFullscreen.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_TogglePlay.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/Cmd_UpdateStatus.java" bugCount="0" size="8"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/RemoteVlc.java" bugCount="3" size="72" bugHash="6d0acd6e31971c989cec9bbd903f8f92"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/VlcCommand.java" bugCount="0" size="27"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/VlcCommand_ReturnsVlcStatus.java" bugCount="0" size="95"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/Wget.java" bugCount="0" size="63"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlListReader.java" bugCount="0" size="19"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlMogrifier.java" bugCount="1" size="78" bugHash="d99cd5d083ca5e323678e9dca85f586f"/>
+    <FileStats path="com/nicolasbrailo/vlcfreemote/vlc_connector/http_utils/XmlObjectReader.java" bugCount="1" size="26" bugHash="274b7b4d4e79936332dfed020aa08302"/>
+    <PackageStats package="com.nicolasbrailo.vlcfreemote" total_bugs="2" total_types="34" total_size="1115" priority_2="2">
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView" sourceFile="DirListingView.java" interface="false" size="157" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$1" sourceFile="DirListingView.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$2" sourceFile="DirListingView.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$3" sourceFile="DirListingView.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$4" sourceFile="DirListingView.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$BookmarkCallback" sourceFile="DirListingView.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$DirListEntry_ViewAdapter" sourceFile="DirListingView.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$DirListEntry_ViewAdapter$Row" sourceFile="DirListingView.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.DirListingView$DirListingCallback" sourceFile="DirListingView.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MainActivity" sourceFile="MainActivity.java" interface="false" size="131" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MainActivity$3" sourceFile="MainActivity.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MainActivity$4" sourceFile="MainActivity.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MainActivity$MainMenuNavigation" sourceFile="MainActivity.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MiniPlayerControllerWidget" sourceFile="MiniPlayerControllerWidget.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.MiniPlayerControllerWidget$WidgetVlcCallback" sourceFile="MiniPlayerControllerWidget.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.PlayerControllerView" sourceFile="PlayerControllerView.java" interface="false" size="142" bugs="2" priority_2="2"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.PlayerControllerView$1" sourceFile="PlayerControllerView.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.PlaylistView" sourceFile="PlaylistView.java" interface="false" size="76" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.PlaylistView$1" sourceFile="PlaylistView.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.PlaylistView$PlaylistEntry_ViewAdapter" sourceFile="PlaylistView.java" interface="false" size="53" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.PlaylistView$PlaylistEntry_ViewAdapter$Row" sourceFile="PlaylistView.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView" sourceFile="ServerSelectView.java" interface="false" size="144" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$1" sourceFile="ServerSelectView.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$2" sourceFile="ServerSelectView.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$3" sourceFile="ServerSelectView.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$4" sourceFile="ServerSelectView.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$5" sourceFile="ServerSelectView.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$ServerSelectionCallback" sourceFile="ServerSelectView.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$Servers_ViewAdapter" sourceFile="ServerSelectView.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.ServerSelectView$Servers_ViewAdapter$Row" sourceFile="ServerSelectView.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.VlcFragment" sourceFile="VlcFragment.java" interface="false" size="17" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.nicolasbrailo.vlcfreemote.local_settings" total_bugs="0" total_types="10" total_size="260">
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.Bookmarks" sourceFile="Bookmarks.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.Bookmarks$1" sourceFile="Bookmarks.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.LocalSettings" sourceFile="LocalSettings.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.LocalSettings$QueryReadCallback" sourceFile="LocalSettings.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.PlayedFiles" sourceFile="PlayedFiles.java" interface="false" size="47" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.PlayedFiles$1" sourceFile="PlayedFiles.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.RememberedServers" sourceFile="RememberedServers.java" interface="false" size="87" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.RememberedServers$1" sourceFile="RememberedServers.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.RememberedServers$2" sourceFile="RememberedServers.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.local_settings.RememberedServers$3" sourceFile="RememberedServers.java" interface="false" size="9" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.nicolasbrailo.vlcfreemote.model" total_bugs="3" total_types="11" total_size="229" priority_2="2" priority_1="1">
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.Server" sourceFile="Server.java" interface="false" size="33" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcPath" sourceFile="VlcPath.java" interface="false" size="90" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcPath$1" sourceFile="VlcPath.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcPath$2" sourceFile="VlcPath.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcPath$3" sourceFile="VlcPath.java" interface="false" size="20" bugs="1" priority_1="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcPath$RandomSubdirCallback" sourceFile="VlcPath.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcPath$UICallback" sourceFile="VlcPath.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcPath$VlcPath_ApplicationError" sourceFile="VlcPath.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcStatus" sourceFile="VlcStatus.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcStatus$Observer" sourceFile="VlcStatus.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.model.VlcStatus$ObserverRegister" sourceFile="VlcStatus.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.nicolasbrailo.vlcfreemote.net_utils" total_bugs="0" total_types="2" total_size="89">
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.net_utils.ServerScanner" sourceFile="ServerScanner.java" interface="false" size="84" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.net_utils.ServerScanner$Callback" sourceFile="ServerScanner.java" interface="true" size="5" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.nicolasbrailo.vlcfreemote.vlc_connector" total_bugs="9" total_types="36" total_size="476" priority_2="8" priority_1="1">
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_AddToPlaylist" sourceFile="Cmd_AddToPlaylist.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_ClearPlaylist" sourceFile="Cmd_ClearPlaylist.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_CycleAudioTrack" sourceFile="Cmd_CycleAudioTrack.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_CycleSubtitle" sourceFile="Cmd_CycleSubtitle.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList" sourceFile="Cmd_DirList.java" interface="false" size="19" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1" sourceFile="Cmd_DirList.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$1" sourceFile="Cmd_DirList.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$1$2" sourceFile="Cmd_DirList.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$Callback" sourceFile="Cmd_DirList.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_DirList$DirListEntry" sourceFile="Cmd_DirList.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist" sourceFile="Cmd_GetPlaylist.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1" sourceFile="Cmd_GetPlaylist.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$1" sourceFile="Cmd_GetPlaylist.java" interface="false" size="12" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$1$2" sourceFile="Cmd_GetPlaylist.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$Callback" sourceFile="Cmd_GetPlaylist.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_GetPlaylist$PlaylistEntry" sourceFile="Cmd_GetPlaylist.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpRelativePercent" sourceFile="Cmd_JumpRelativePercent.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_JumpToPositionPercent" sourceFile="Cmd_JumpToPositionPercent.java" interface="false" size="13" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_Next" sourceFile="Cmd_Next.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_Prev" sourceFile="Cmd_Prev.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_RemoveFromPlaylist" sourceFile="Cmd_RemoveFromPlaylist.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_SetVolume" sourceFile="Cmd_SetVolume.java" interface="false" size="12" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_StartPlaying" sourceFile="Cmd_StartPlaying.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_ToggleFullscreen" sourceFile="Cmd_ToggleFullscreen.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_TogglePlay" sourceFile="Cmd_TogglePlay.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.Cmd_UpdateStatus" sourceFile="Cmd_UpdateStatus.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc" sourceFile="RemoteVlc.java" interface="false" size="63" bugs="3" priority_2="2" priority_1="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc$1" sourceFile="RemoteVlc.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.RemoteVlc$ConnectionProvider" sourceFile="RemoteVlc.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.VlcCommand" sourceFile="VlcCommand.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.VlcCommand$GeneralCallback" sourceFile="VlcCommand.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.VlcCommand$Priority" sourceFile="VlcCommand.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.VlcCommand_ReturnsVlcStatus" sourceFile="VlcCommand_ReturnsVlcStatus.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.VlcCommand_ReturnsVlcStatus$1" sourceFile="VlcCommand_ReturnsVlcStatus.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.VlcCommand_ReturnsVlcStatus$1$1" sourceFile="VlcCommand_ReturnsVlcStatus.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.VlcCommand_ReturnsVlcStatus$1$2" sourceFile="VlcCommand_ReturnsVlcStatus.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils" total_bugs="2" total_types="11" total_size="186" priority_2="2">
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.Wget" sourceFile="Wget.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.Wget$Callback" sourceFile="Wget.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.Wget$CallbackWhenTaskFinished" sourceFile="Wget.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlListReader" sourceFile="XmlListReader.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier" sourceFile="XmlMogrifier.java" interface="false" size="49" bugs="1" priority_2="1"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier$1" sourceFile="XmlMogrifier.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier$Callback" sourceFile="XmlMogrifier.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier$CantCreateXmlParser" sourceFile="XmlMogrifier.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier$CantParseXmlResponse" sourceFile="XmlMogrifier.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlMogrifier$XmlKeyValReader" sourceFile="XmlMogrifier.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.nicolasbrailo.vlcfreemote.vlc_connector.http_utils.XmlObjectReader" sourceFile="XmlObjectReader.java" interface="false" size="26" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="59" invocations="699" avgMicrosecondsPerInvocation="85" maxMicrosecondsPerInvocation="6625" standardDeviationMicrosecondsPerInvocation="299"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="40" invocations="406" avgMicrosecondsPerInvocation="99" maxMicrosecondsPerInvocation="6006" standardDeviationMicrosecondsPerInvocation="323"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="37" invocations="295" avgMicrosecondsPerInvocation="125" maxMicrosecondsPerInvocation="4291" standardDeviationMicrosecondsPerInvocation="338"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="36" invocations="426" avgMicrosecondsPerInvocation="85" maxMicrosecondsPerInvocation="1366" standardDeviationMicrosecondsPerInvocation="140"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="35" invocations="433" avgMicrosecondsPerInvocation="82" maxMicrosecondsPerInvocation="3304" standardDeviationMicrosecondsPerInvocation="198"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="34" invocations="466" avgMicrosecondsPerInvocation="73" maxMicrosecondsPerInvocation="2600" standardDeviationMicrosecondsPerInvocation="143"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="31" invocations="435" avgMicrosecondsPerInvocation="72" maxMicrosecondsPerInvocation="2443" standardDeviationMicrosecondsPerInvocation="157"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="29" invocations="426" avgMicrosecondsPerInvocation="69" maxMicrosecondsPerInvocation="1179" standardDeviationMicrosecondsPerInvocation="123"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="22" invocations="347" avgMicrosecondsPerInvocation="64" maxMicrosecondsPerInvocation="2711" standardDeviationMicrosecondsPerInvocation="166"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="20" invocations="360" avgMicrosecondsPerInvocation="57" maxMicrosecondsPerInvocation="4247" standardDeviationMicrosecondsPerInvocation="236"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="20" invocations="466" avgMicrosecondsPerInvocation="44" maxMicrosecondsPerInvocation="6552" standardDeviationMicrosecondsPerInvocation="305"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="18" invocations="716" avgMicrosecondsPerInvocation="25" maxMicrosecondsPerInvocation="286" standardDeviationMicrosecondsPerInvocation="21"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="15" invocations="104" avgMicrosecondsPerInvocation="152" maxMicrosecondsPerInvocation="1630" standardDeviationMicrosecondsPerInvocation="228"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="15" invocations="104" avgMicrosecondsPerInvocation="148" maxMicrosecondsPerInvocation="6460" standardDeviationMicrosecondsPerInvocation="639"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="15" invocations="295" avgMicrosecondsPerInvocation="51" maxMicrosecondsPerInvocation="940" standardDeviationMicrosecondsPerInvocation="100"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="14" invocations="104" avgMicrosecondsPerInvocation="140" maxMicrosecondsPerInvocation="627" standardDeviationMicrosecondsPerInvocation="157"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="14" invocations="295" avgMicrosecondsPerInvocation="49" maxMicrosecondsPerInvocation="1246" standardDeviationMicrosecondsPerInvocation="123"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="14" invocations="295" avgMicrosecondsPerInvocation="47" maxMicrosecondsPerInvocation="2229" standardDeviationMicrosecondsPerInvocation="181"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="13" invocations="295" avgMicrosecondsPerInvocation="45" maxMicrosecondsPerInvocation="3466" standardDeviationMicrosecondsPerInvocation="216"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="12" invocations="104" avgMicrosecondsPerInvocation="120" maxMicrosecondsPerInvocation="1308" standardDeviationMicrosecondsPerInvocation="211"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="12" invocations="295" avgMicrosecondsPerInvocation="41" maxMicrosecondsPerInvocation="1689" standardDeviationMicrosecondsPerInvocation="156"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

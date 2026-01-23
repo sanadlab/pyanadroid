@@ -1,0 +1,94 @@
+#0
+app/src/main/java/org/secuso/privacyfriendly2048/activities/GameActivity.java:1054: error: Strict Mode Violation
+  `void GameActivity$7.onClick(DialogInterface,int)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  1052.                           getIntent().putExtra("new", true);
+  1053.                           initialize();
+  1054. >                         deleteStateFile();
+  1055.                           saveState = false;
+  1056.                           GameActivity.this.onBackPressed();
+
+#1
+app/src/main/java/org/secuso/privacyfriendly2048/activities/GameActivity.java:1128: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 1119 is not closed after the last access at line 1128. 
+  1126.               }
+  1127.           }
+  1128. >     }
+  1129.   
+  1130.       public boolean deleteStateFile() {
+
+#2
+app/src/main/java/org/secuso/privacyfriendly2048/activities/GameActivity.java:1167: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 1147 is not closed after the last access at line 1167. 
+  1165.               e.printStackTrace();
+  1166.           }
+  1167. >         return nS;
+  1168.       }
+  1169.   
+
+#3
+app/src/main/java/org/secuso/privacyfriendly2048/activities/GameActivity.java:1182: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 1174 is not closed after the last access at line 1182. 
+  1180.               e.printStackTrace();
+  1181.           }
+  1182. >         return gS;
+  1183.       }
+  1184.   
+
+#4
+app/src/main/java/org/secuso/privacyfriendly2048/activities/GameActivity.java:1196: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 1188 is not closed after the last access at line 1196. 
+  1194.               e.printStackTrace();
+  1195.           }
+  1196. >     }
+  1197.   }
+
+#5
+app/src/main/java/org/secuso/privacyfriendly2048/activities/MainActivity.java:123: error: Strict Mode Violation
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  121.           //checking resumable
+  122.           File directory = getFilesDir();
+  123. >         File[] files = directory.listFiles();
+  124.   
+  125.           for (int i = 0; i < files.length; i++) {
+
+#6
+app/src/main/java/org/secuso/privacyfriendly2048/activities/StatsActivity.java:142: error: Strict Mode Violation
+  `boolean StatsActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  140.                   //    mSectionsPagerAdapter.refresh(this);
+  141.   
+  142. >                 resetGameStatistics();
+  143.                   return true;
+  144.               case android.R.id.home:
+
+#7
+app/src/main/java/org/secuso/privacyfriendly2048/activities/StatsActivity.java:348: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 337 is not closed after the last access at line 348. 
+  346.                   e.printStackTrace();
+  347.               }
+  348. >             return gS;
+  349.           }
+  350.       }
+
+#8
+app/src/main/java/org/secuso/privacyfriendly2048/activities/adapter/HelpExpandableListAdapter.java:57: error: Null Dereference
+  null (null value originating from line 56) is dereferenced. 
+  55.       public Object getChild(int listPosition, int expandedListPosition) {
+  56.           return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
+  57. >                 .get(expandedListPosition);
+  58.       }
+  59.   
+
+#9
+app/src/main/java/org/secuso/privacyfriendly2048/activities/adapter/HelpExpandableListAdapter.java:83: error: Null Dereference
+  null (null value originating from line 82) is dereferenced. 
+  81.       public int getChildrenCount(int listPosition) {
+  82.           return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
+  83. >                 .size();
+  84.       }
+  85.   
+
+Found 10 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+            Resource Leak(PULSE_RESOURCE_LEAK): 5
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 3
+         Null Dereference(NULLPTR_DEREFERENCE): 2

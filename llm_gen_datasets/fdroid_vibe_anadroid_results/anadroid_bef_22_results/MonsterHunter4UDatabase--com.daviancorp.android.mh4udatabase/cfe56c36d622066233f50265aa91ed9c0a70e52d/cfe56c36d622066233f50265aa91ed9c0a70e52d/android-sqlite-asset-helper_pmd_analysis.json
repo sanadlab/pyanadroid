@@ -1,0 +1,97 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:42:36.833+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/MonsterHunter4UDatabase/android-sqlite-asset-helper/src/main/java/com/readystatesoftware/sqliteasset/SQLiteAssetHelper.java",
+      "violations": [
+        {
+          "beginline": 67,
+          "begincolumn": 28,
+          "endline": 67,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027mDatabase\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 68,
+          "begincolumn": 21,
+          "endline": 68,
+          "endcolumn": 36,
+          "description": "Avoid using redundant field initializer for \u0027mIsInitializing\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 76,
+          "begincolumn": 17,
+          "endline": 76,
+          "endcolumn": 38,
+          "description": "Avoid using redundant field initializer for \u0027mForcedUpgradeVersion\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 327,
+          "begincolumn": 29,
+          "endline": 327,
+          "endcolumn": 48,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 463,
+          "begincolumn": 57,
+          "endline": 463,
+          "endcolumn": 73,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 465,
+          "begincolumn": 56,
+          "endline": 465,
+          "endcolumn": 72,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/MonsterHunter4UDatabase/android-sqlite-asset-helper/src/main/java/com/readystatesoftware/sqliteasset/Utils.java",
+      "violations": [
+        {
+          "beginline": 30,
+          "begincolumn": 26,
+          "endline": 30,
+          "endcolumn": 45,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

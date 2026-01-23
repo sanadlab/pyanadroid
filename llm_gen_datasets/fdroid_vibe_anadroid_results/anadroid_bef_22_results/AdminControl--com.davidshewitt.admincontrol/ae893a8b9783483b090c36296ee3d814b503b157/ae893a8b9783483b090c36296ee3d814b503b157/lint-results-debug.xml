@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.0.2">
+
+    <issue
+        id="LintWarning"
+        severity="Warning"
+        message="Loaded lint jar file from /Users/rar9993/.android/lint (/Users/rar9993/.android/lint/customLintFatima.jar.name); this will stop working soon. If you need to push lint rules into a build, use the `ANDROID_LINT_JARS` environment variable or the `--lint-rule-jars` flag or a `lint.xml` file setting `&lt;lint lintJars=&quot;path&quot;...>`"
+        category="Lint"
+        priority="5"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include unsupported tags in configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/.android/lint/customLintFatima.jar"/>
+    </issue>
+
+    <issue
+        id="LintWarning"
+        severity="Warning"
+        message="Loaded lint jar file from /Users/rar9993/.android/lint (/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar.name); this will stop working soon. If you need to push lint rules into a build, use the `ANDROID_LINT_JARS` environment variable or the `--lint-rule-jars` flag or a `lint.xml` file setting `&lt;lint lintJars=&quot;path&quot;...>`"
+        category="Lint"
+        priority="5"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include unsupported tags in configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `sFingerprintLockscreenListener` of class `ControlYourDeviceActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    .setOnPreferenceChangeListener(sFingerprintLockscreenListener);"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/AdminControl/NONE_TRANSFORMED_/app/src/main/java/com/davidshewitt/admincontrol/ControlYourDeviceActivity.java"
+            line="90"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `lockNowListener` of class `ControlYourDeviceActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    .setOnPreferenceClickListener(lockNowListener);"
+        errorLine2="                                                  ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/AdminControl/NONE_TRANSFORMED_/app/src/main/java/com/davidshewitt/admincontrol/ControlYourDeviceActivity.java"
+            line="92"
+            column="51"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `promptDeviceAdmin` of class `ControlYourDeviceActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                       promptDeviceAdmin();"
+        errorLine2="                       ~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/AdminControl/NONE_TRANSFORMED_/app/src/main/java/com/davidshewitt/admincontrol/ControlYourDeviceActivity.java"
+            line="147"
+            column="24"/>
+    </issue>
+
+</issues>

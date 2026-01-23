@@ -1,0 +1,101 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:43:03.637+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/susi_android/app/src/main/java/ai/kitt/snowboy/AppResCopy.java",
+      "violations": [
+        {
+          "beginline": 46,
+          "begincolumn": 44,
+          "endline": 46,
+          "endcolumn": 60,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/susi_android/app/src/main/java/ai/kitt/snowboy/audio/AudioDataSaver.java",
+      "violations": [
+        {
+          "beginline": 16,
+          "begincolumn": 30,
+          "endline": 16,
+          "endcolumn": 54,
+          "description": "Avoid using redundant field initializer for \u0027dataOutputStreamInstance\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 37,
+          "begincolumn": 29,
+          "endline": 37,
+          "endcolumn": 45,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/susi_android/app/src/main/java/ai/kitt/snowboy/audio/RecordingThread.java",
+      "violations": [
+        {
+          "beginline": 114,
+          "begincolumn": 33,
+          "endline": 114,
+          "endcolumn": 66,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/susi_android/app/src/main/java/org/fossasia/susi/ai/speechinputanimation/SpeechProgressView.java",
+      "violations": [
+        {
+          "beginline": 214,
+          "begincolumn": 29,
+          "endline": 214,
+          "endcolumn": 106,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/susi_android/app/src/main/java/org/fossasia/susi/ai/speechinputanimation/TransformAnimator.java",
+      "violations": [
+        {
+          "beginline": 94,
+          "begincolumn": 27,
+          "endline": 94,
+          "endcolumn": 48,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

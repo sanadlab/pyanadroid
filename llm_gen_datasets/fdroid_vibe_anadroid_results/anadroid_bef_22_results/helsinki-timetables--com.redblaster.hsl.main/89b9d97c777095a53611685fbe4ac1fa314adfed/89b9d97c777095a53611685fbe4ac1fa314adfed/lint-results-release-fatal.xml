@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.3.2">
+
+    <issue
+        id="ExtraTranslation"
+        severity="Fatal"
+        message="&quot;wizard_import_extracting&quot; is translated here but not found in default locale"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Extra translation"
+        explanation="If a string appears in a specific language translation file, but there is no corresponding string in the default locale, then this string is probably unused. (It&apos;s technically possible that your application is only intended to run in a specific locale, but it&apos;s still a good idea to provide a fallback.)&#xA;&#xA;Note that these strings can lead to crashes if the string is looked up on any locale not providing a translation, so it&apos;s important to clean them up."
+        errorLine1="    &lt;string name=&quot;wizard_import_extracting&quot;>提取中&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/helsinki-timetables/NONE_TRANSFORMED_/src/main/res/values-zh/strings.xml"
+            line="37"
+            column="13"/>
+    </issue>
+
+</issues>

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762882029271" analysisTimestamp="1762882031557" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-23/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/eve-control/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="b386b249c3f2838d89b493af75e363e3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.evenement.eveControl.KeepSessionTask.readStream(InputStream): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="com.evenement.eveControl.KeepSessionTask" primary="true">
+      <SourceLine classname="com.evenement.eveControl.KeepSessionTask" start="28" end="277" sourcefile="KeepSessionTask.java" sourcepath="com/evenement/eveControl/KeepSessionTask.java" relSourcepath="com/evenement/eveControl/KeepSessionTask.java">
+        <Message>At KeepSessionTask.java:[lines 28-277]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.KeepSessionTask</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.KeepSessionTask" name="readStream" signature="(Ljava/io/InputStream;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.KeepSessionTask" start="82" end="106" startBytecode="0" endBytecode="302" sourcefile="KeepSessionTask.java" sourcepath="com/evenement/eveControl/KeepSessionTask.java" relSourcepath="com/evenement/eveControl/KeepSessionTask.java"/>
+      <Message>In method com.evenement.eveControl.KeepSessionTask.readStream(InputStream)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="5" end="5" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="com.evenement.eveControl.KeepSessionTask" primary="true" start="84" end="84" startBytecode="13" endBytecode="13" sourcefile="KeepSessionTask.java" sourcepath="com/evenement/eveControl/KeepSessionTask.java" relSourcepath="com/evenement/eveControl/KeepSessionTask.java">
+      <Message>At KeepSessionTask.java:[line 84]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="3f628da82f8c088136e76694304a273" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>com.evenement.eveControl.KeepSessionTask.postLogin(String) may fail to close stream</LongMessage>
+    <Class classname="com.evenement.eveControl.KeepSessionTask" primary="true">
+      <SourceLine classname="com.evenement.eveControl.KeepSessionTask" start="28" end="277" sourcefile="KeepSessionTask.java" sourcepath="com/evenement/eveControl/KeepSessionTask.java" relSourcepath="com/evenement/eveControl/KeepSessionTask.java">
+        <Message>At KeepSessionTask.java:[lines 28-277]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.KeepSessionTask</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.KeepSessionTask" name="postLogin" signature="(Ljava/lang/String;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.KeepSessionTask" start="216" end="248" startBytecode="0" endBytecode="74" sourcefile="KeepSessionTask.java" sourcepath="com/evenement/eveControl/KeepSessionTask.java" relSourcepath="com/evenement/eveControl/KeepSessionTask.java"/>
+      <Message>In method com.evenement.eveControl.KeepSessionTask.postLogin(String)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Writer;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Writer" start="2" end="16" sourcefile="Writer.java" sourcepath="java/io/Writer.java">
+        <Message>At Writer.java:[lines 2-16]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Writer </Message>
+    </Type>
+    <SourceLine classname="com.evenement.eveControl.KeepSessionTask" primary="true" start="232" end="232" startBytecode="88" endBytecode="88" sourcefile="KeepSessionTask.java" sourcepath="com/evenement/eveControl/KeepSessionTask.java" relSourcepath="com/evenement/eveControl/KeepSessionTask.java">
+      <Message>At KeepSessionTask.java:[line 232]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="d9ad79752a990fa9ed969f19b96438b8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.evenement.eveControl.LoginTask.readStream(InputStream): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="com.evenement.eveControl.LoginTask" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="32" end="338" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>At LoginTask.java:[lines 32-338]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.LoginTask</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.LoginTask" name="readStream" signature="(Ljava/io/InputStream;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="121" end="145" startBytecode="0" endBytecode="302" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java"/>
+      <Message>In method com.evenement.eveControl.LoginTask.readStream(InputStream)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="5" end="5" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="com.evenement.eveControl.LoginTask" primary="true" start="123" end="123" startBytecode="13" endBytecode="13" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+      <Message>At LoginTask.java:[line 123]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="e3c07943e6946208359746b547fc78b9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.evenement.eveControl.LoginTask(WebView, Context, String, String, String, DrawerLayout) may expose internal representation by storing an externally mutable object into LoginTask.context</LongMessage>
+    <Class classname="com.evenement.eveControl.LoginTask" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="32" end="338" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>At LoginTask.java:[lines 32-338]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.LoginTask</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.LoginTask" name="&lt;init&gt;" signature="(Landroid/webkit/WebView;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/widget/DrawerLayout;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="55" end="63" startBytecode="0" endBytecode="186" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java"/>
+      <Message>In method new com.evenement.eveControl.LoginTask(WebView, Context, String, String, String, DrawerLayout)</Message>
+    </Method>
+    <Field classname="com.evenement.eveControl.LoginTask" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>In LoginTask.java</Message>
+      </SourceLine>
+      <Message>Field com.evenement.eveControl.LoginTask.context</Message>
+    </Field>
+    <LocalVariable name="context" register="2" pc="22" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.evenement.eveControl.LoginTask" primary="true" start="58" end="58" startBytecode="22" endBytecode="22" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+      <Message>At LoginTask.java:[line 58]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="6e30cfb8903d15afc9bbda521904e580" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.evenement.eveControl.LoginTask(WebView, Context, String, String, String, DrawerLayout) may expose internal representation by storing an externally mutable object into LoginTask.webView</LongMessage>
+    <Class classname="com.evenement.eveControl.LoginTask" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="32" end="338" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>At LoginTask.java:[lines 32-338]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.LoginTask</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.LoginTask" name="&lt;init&gt;" signature="(Landroid/webkit/WebView;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/widget/DrawerLayout;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="55" end="63" startBytecode="0" endBytecode="186" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java"/>
+      <Message>In method new com.evenement.eveControl.LoginTask(WebView, Context, String, String, String, DrawerLayout)</Message>
+    </Method>
+    <Field classname="com.evenement.eveControl.LoginTask" name="webView" signature="Landroid/webkit/WebView;" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>In LoginTask.java</Message>
+      </SourceLine>
+      <Message>Field com.evenement.eveControl.LoginTask.webView</Message>
+    </Field>
+    <LocalVariable name="webView" register="1" pc="17" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named webView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.evenement.eveControl.LoginTask" primary="true" start="57" end="57" startBytecode="17" endBytecode="17" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+      <Message>At LoginTask.java:[line 57]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="c229321eb88433303d2f1eba01aff34a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>com.evenement.eveControl.LoginTask.postLogin(String) may fail to close stream</LongMessage>
+    <Class classname="com.evenement.eveControl.LoginTask" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="32" end="338" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>At LoginTask.java:[lines 32-338]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.LoginTask</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.LoginTask" name="postLogin" signature="(Ljava/lang/String;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="260" end="288" startBytecode="0" endBytecode="72" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java"/>
+      <Message>In method com.evenement.eveControl.LoginTask.postLogin(String)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Writer;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Writer" start="2" end="16" sourcefile="Writer.java" sourcepath="java/io/Writer.java">
+        <Message>At Writer.java:[lines 2-16]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Writer </Message>
+    </Type>
+    <SourceLine classname="com.evenement.eveControl.LoginTask" primary="true" start="272" end="272" startBytecode="85" endBytecode="85" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+      <Message>At LoginTask.java:[line 272]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="c3e5179ce19dd416f1ce17be821b84e8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.evenement.eveControl.LoginTask.uri; should this field be static?</LongMessage>
+    <Class classname="com.evenement.eveControl.LoginTask" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" start="32" end="338" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>At LoginTask.java:[lines 32-338]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.LoginTask</Message>
+    </Class>
+    <Field classname="com.evenement.eveControl.LoginTask" name="uri" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.LoginTask" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+        <Message>In LoginTask.java</Message>
+      </SourceLine>
+      <Message>Field com.evenement.eveControl.LoginTask.uri</Message>
+    </Field>
+    <SourceLine classname="com.evenement.eveControl.LoginTask" primary="true" start="44" end="44" startBytecode="12" endBytecode="12" sourcefile="LoginTask.java" sourcepath="com/evenement/eveControl/LoginTask.java" relSourcepath="com/evenement/eveControl/LoginTask.java">
+      <Message>At LoginTask.java:[line 44]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="871e7b66ebb405f6c8b2d04f4a868833" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to id in com.evenement.eveControl.MainActivity.onOptionsItemSelected(MenuItem)</LongMessage>
+    <Class classname="com.evenement.eveControl.MainActivity" primary="true">
+      <SourceLine classname="com.evenement.eveControl.MainActivity" start="25" end="255" sourcefile="MainActivity.java" sourcepath="com/evenement/eveControl/MainActivity.java" relSourcepath="com/evenement/eveControl/MainActivity.java">
+        <Message>At MainActivity.java:[lines 25-255]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.MainActivity</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.MainActivity" name="onOptionsItemSelected" signature="(Landroid/view/MenuItem;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.MainActivity" start="253" end="255" startBytecode="0" endBytecode="6" sourcefile="MainActivity.java" sourcepath="com/evenement/eveControl/MainActivity.java" relSourcepath="com/evenement/eveControl/MainActivity.java"/>
+      <Message>In method com.evenement.eveControl.MainActivity.onOptionsItemSelected(MenuItem)</Message>
+    </Method>
+    <LocalVariable name="id" register="2" pc="7" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named id</Message>
+    </LocalVariable>
+    <SourceLine classname="com.evenement.eveControl.MainActivity" primary="true" start="253" end="253" startBytecode="6" endBytecode="6" sourcefile="MainActivity.java" sourcepath="com/evenement/eveControl/MainActivity.java" relSourcepath="com/evenement/eveControl/MainActivity.java">
+      <Message>At MainActivity.java:[line 253]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="id"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DM_EXIT" priority="2" rank="16" abbrev="Dm" category="BAD_PRACTICE" instanceHash="4fa57052eb754cd17a8f8a16e2523f0f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="382">
+    <ShortMessage>Method invokes System.exit(...)</ShortMessage>
+    <LongMessage>com.evenement.eveControl.MainActivity$3.onClick(DialogInterface, int) invokes System.exit(...), which shuts down the entire virtual machine</LongMessage>
+    <Class classname="com.evenement.eveControl.MainActivity$3" primary="true">
+      <SourceLine classname="com.evenement.eveControl.MainActivity$3" start="231" end="236" sourcefile="MainActivity.java" sourcepath="com/evenement/eveControl/MainActivity.java" relSourcepath="com/evenement/eveControl/MainActivity.java">
+        <Message>At MainActivity.java:[lines 231-236]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.MainActivity$3</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.MainActivity$3" name="onClick" signature="(Landroid/content/DialogInterface;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.MainActivity$3" start="235" end="236" startBytecode="0" endBytecode="70" sourcefile="MainActivity.java" sourcepath="com/evenement/eveControl/MainActivity.java" relSourcepath="com/evenement/eveControl/MainActivity.java"/>
+      <Message>In method com.evenement.eveControl.MainActivity$3.onClick(DialogInterface, int)</Message>
+    </Method>
+    <SourceLine classname="com.evenement.eveControl.MainActivity$3" primary="true" start="235" end="235" startBytecode="1" endBytecode="1" sourcefile="MainActivity.java" sourcepath="com/evenement/eveControl/MainActivity.java" relSourcepath="com/evenement/eveControl/MainActivity.java">
+      <Message>At MainActivity.java:[line 235]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE" instanceHash="a9c4af7631c25fa49b1808fa6082b199" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Inefficient use of keySet iterator instead of entrySet iterator</ShortMessage>
+    <LongMessage>com.evenement.eveControl.WebCookieManager.put(URI, Map) makes inefficient use of keySet iterator instead of entrySet iterator</LongMessage>
+    <Class classname="com.evenement.eveControl.WebCookieManager" primary="true">
+      <SourceLine classname="com.evenement.eveControl.WebCookieManager" start="23" end="74" sourcefile="WebCookieManager.java" sourcepath="com/evenement/eveControl/WebCookieManager.java" relSourcepath="com/evenement/eveControl/WebCookieManager.java">
+        <Message>At WebCookieManager.java:[lines 23-74]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.WebCookieManager</Message>
+    </Class>
+    <Method classname="com.evenement.eveControl.WebCookieManager" name="put" signature="(Ljava/net/URI;Ljava/util/Map;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.evenement.eveControl.WebCookieManager" start="37" end="55" startBytecode="0" endBytecode="342" sourcefile="WebCookieManager.java" sourcepath="com/evenement/eveControl/WebCookieManager.java" relSourcepath="com/evenement/eveControl/WebCookieManager.java"/>
+      <Message>In method com.evenement.eveControl.WebCookieManager.put(URI, Map)</Message>
+    </Method>
+    <SourceLine classname="com.evenement.eveControl.WebCookieManager" primary="true" start="49" end="49" startBytecode="80" endBytecode="80" sourcefile="WebCookieManager.java" sourcepath="com/evenement/eveControl/WebCookieManager.java" relSourcepath="com/evenement/eveControl/WebCookieManager.java">
+      <Message>At WebCookieManager.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" rank="14" abbrev="Nm" category="BAD_PRACTICE" instanceHash="bf54c38a7afcc4783b7c5008bc3122c1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names shouldn&apos;t shadow simple name of superclass</ShortMessage>
+    <LongMessage>The class name com.evenement.eveControl.WebViewClient shadows the simple name of the superclass android.webkit.WebViewClient</LongMessage>
+    <Class classname="com.evenement.eveControl.WebViewClient" primary="true">
+      <SourceLine classname="com.evenement.eveControl.WebViewClient" start="13" end="27" sourcefile="WebViewClient.java" sourcepath="com/evenement/eveControl/WebViewClient.java" relSourcepath="com/evenement/eveControl/WebViewClient.java">
+        <Message>At WebViewClient.java:[lines 13-27]</Message>
+      </SourceLine>
+      <Message>In class com.evenement.eveControl.WebViewClient</Message>
+    </Class>
+    <Class classname="android.webkit.WebViewClient">
+      <SourceLine classname="android.webkit.WebViewClient" start="4" end="29" sourcefile="WebViewClient.java" sourcepath="android/webkit/WebViewClient.java">
+        <Message>At WebViewClient.java:[lines 4-29]</Message>
+      </SourceLine>
+      <Message>In class android.webkit.WebViewClient</Message>
+    </Class>
+    <SourceLine classname="com.evenement.eveControl.WebViewClient" start="13" end="27" sourcefile="WebViewClient.java" sourcepath="com/evenement/eveControl/WebViewClient.java" relSourcepath="com/evenement/eveControl/WebViewClient.java" synthetic="true">
+      <Message>At WebViewClient.java:[lines 13-27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="WMI_WRONG_MAP_ITERATOR" abbrev="WMI" category="PERFORMANCE">
+    <ShortDescription>Inefficient use of keySet iterator instead of entrySet iterator</ShortDescription>
+    <Details><![CDATA[
+
+<p> This method accesses the value of a Map entry, using a key that was retrieved from
+a keySet iterator. It is more efficient to use an iterator on the entrySet of the map, to avoid the
+Map.get(key) lookup.</p>
+
+        ]]></Details>
+  </BugPattern>
+  <BugPattern type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Class names shouldn&apos;t shadow simple name of superclass</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class has a simple name that is identical to that of its superclass, except
+that its superclass is in a different package (e.g., <code>alpha.Foo</code> extends <code>beta.Foo</code>).
+This can be exceptionally confusing, create lots of situations in which you have to look at import statements
+to resolve references and creates many
+opportunities to accidentally define methods that do not override methods in their superclasses.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N" cweid="173">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/173.html">CWE-173: Improper Handling of Alternate Encoding</a>.
+</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_EXIT" abbrev="Dm" category="BAD_PRACTICE" cweid="382">
+    <ShortDescription>Method invokes System.exit(...)</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Invoking System.exit shuts down the entire Java virtual machine. This
+   should only been done when it is appropriate. Such calls make it
+   hard or impossible for your code to be invoked by other code.
+   Consider throwing a RuntimeException instead.</p>
+   <p>See <a href="https://cwe.mitre.org/data/definitions/382.html">CWE-382: J2EE Bad Practices: Use of System.exit()</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE" cweid="459">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/459.html">CWE-459: Incomplete Cleanup</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="WMI">
+    <Description>Inefficient Map Iterator</Description>
+  </BugCode>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="18">
+    <MissingClass>android.support.v4.view.GravityCompat</MissingClass>
+    <MissingClass>android.support.v4.widget.DrawerLayout</MissingClass>
+    <MissingClass>android.support.v4.widget.DrawerLayout$DrawerListener</MissingClass>
+    <MissingClass>android.support.v7.app.ActionBar</MissingClass>
+    <MissingClass>android.support.v7.app.ActionBarDrawerToggle</MissingClass>
+    <MissingClass>android.support.v7.app.AlertDialog</MissingClass>
+    <MissingClass>android.support.v7.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>android.support.v7.widget.Toolbar</MissingClass>
+    <MissingClass>com.evenement.eveControl.R</MissingClass>
+    <MissingClass>com.evenement.eveControl.R$id</MissingClass>
+    <MissingClass>com.evenement.eveControl.R$layout</MissingClass>
+    <MissingClass>com.evenement.eveControl.R$menu</MissingClass>
+    <MissingClass>com.evenement.eveControl.R$string</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>org.jsoup.Jsoup</MissingClass>
+    <MissingClass>org.jsoup.nodes.Document</MissingClass>
+    <MissingClass>org.jsoup.select.Elements</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 21:27:09 +0400" total_classes="12" referenced_classes="157" total_bugs="11" total_size="507" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.71" clock_seconds="0.58" peak_mbytes="255.42" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="8" priority_1="3">
+    <FileStats path="com/evenement/eveControl/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/evenement/eveControl/HostVerifier.java" bugCount="0" size="6"/>
+    <FileStats path="com/evenement/eveControl/KeepSessionTask.java" bugCount="2" size="119" bugHash="051e09aba8fc70433775444cea84e64a"/>
+    <FileStats path="com/evenement/eveControl/LoginTask.java" bugCount="5" size="150" bugHash="93827665ac0b3df418d8ccaf5a90798e"/>
+    <FileStats path="com/evenement/eveControl/MainActivity.java" bugCount="2" size="128" bugHash="0a43514db6de2171cfb53b5a3bb02bd5"/>
+    <FileStats path="com/evenement/eveControl/NavFragment.java" bugCount="0" size="46"/>
+    <FileStats path="com/evenement/eveControl/TrustManager.java" bugCount="0" size="9"/>
+    <FileStats path="com/evenement/eveControl/WebCookieManager.java" bugCount="1" size="28" bugHash="6d47663c85b5397016741be3367257de"/>
+    <FileStats path="com/evenement/eveControl/WebViewClient.java" bugCount="1" size="10" bugHash="f27b70301e81246dd4d2515e5f75b26d"/>
+    <PackageStats package="com.evenement.eveControl" total_bugs="11" total_types="12" total_size="507" priority_2="8" priority_1="3">
+      <ClassStats class="com.evenement.eveControl.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.evenement.eveControl.HostVerifier" sourceFile="HostVerifier.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.evenement.eveControl.KeepSessionTask" sourceFile="KeepSessionTask.java" interface="false" size="119" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="com.evenement.eveControl.LoginTask" sourceFile="LoginTask.java" interface="false" size="150" bugs="5" priority_2="4" priority_1="1"/>
+      <ClassStats class="com.evenement.eveControl.MainActivity" sourceFile="MainActivity.java" interface="false" size="104" bugs="1" priority_2="1"/>
+      <ClassStats class="com.evenement.eveControl.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.evenement.eveControl.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.evenement.eveControl.MainActivity$3" sourceFile="MainActivity.java" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="com.evenement.eveControl.NavFragment" sourceFile="NavFragment.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="com.evenement.eveControl.TrustManager" sourceFile="TrustManager.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.evenement.eveControl.WebCookieManager" sourceFile="WebCookieManager.java" interface="false" size="28" bugs="1" priority_2="1"/>
+      <ClassStats class="com.evenement.eveControl.WebViewClient" sourceFile="WebViewClient.java" interface="false" size="10" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="50" invocations="524" avgMicrosecondsPerInvocation="95" maxMicrosecondsPerInvocation="6211" standardDeviationMicrosecondsPerInvocation="344"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="23" invocations="157" avgMicrosecondsPerInvocation="147" maxMicrosecondsPerInvocation="2949" standardDeviationMicrosecondsPerInvocation="331"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="15" invocations="73" avgMicrosecondsPerInvocation="215" maxMicrosecondsPerInvocation="3899" standardDeviationMicrosecondsPerInvocation="494"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="15" invocations="71" avgMicrosecondsPerInvocation="217" maxMicrosecondsPerInvocation="1702" standardDeviationMicrosecondsPerInvocation="320"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="15" invocations="217" avgMicrosecondsPerInvocation="69" maxMicrosecondsPerInvocation="3975" standardDeviationMicrosecondsPerInvocation="287"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="13" invocations="75" avgMicrosecondsPerInvocation="175" maxMicrosecondsPerInvocation="2884" standardDeviationMicrosecondsPerInvocation="359"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="13" invocations="71" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="2952" standardDeviationMicrosecondsPerInvocation="361"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="12" invocations="67" avgMicrosecondsPerInvocation="191" maxMicrosecondsPerInvocation="963" standardDeviationMicrosecondsPerInvocation="223"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="12" invocations="539" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="260" standardDeviationMicrosecondsPerInvocation="22"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="12" invocations="71" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="1847" standardDeviationMicrosecondsPerInvocation="282"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="11" invocations="12" avgMicrosecondsPerInvocation="990" maxMicrosecondsPerInvocation="9857" standardDeviationMicrosecondsPerInvocation="2679"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="11" invocations="71" avgMicrosecondsPerInvocation="155" maxMicrosecondsPerInvocation="6907" standardDeviationMicrosecondsPerInvocation="809"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

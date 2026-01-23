@@ -1,0 +1,270 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:56:57.236+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/activity/HostActivity.java",
+      "violations": [
+        {
+          "beginline": 278,
+          "begincolumn": 13,
+          "endline": 278,
+          "endcolumn": 17,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 283,
+          "begincolumn": 13,
+          "endline": 283,
+          "endcolumn": 17,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/async/ScanHostsAsyncTask.java",
+      "violations": [
+        {
+          "beginline": 81,
+          "begincolumn": 30,
+          "endline": 81,
+          "endcolumn": 99,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 185,
+          "begincolumn": 28,
+          "endline": 185,
+          "endcolumn": 56,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 213,
+          "begincolumn": 64,
+          "endline": 213,
+          "endcolumn": 121,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 217,
+          "begincolumn": 60,
+          "endline": 217,
+          "endcolumn": 120,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/async/ScanPortsAsyncTask.java",
+      "violations": [
+        {
+          "beginline": 70,
+          "begincolumn": 35,
+          "endline": 70,
+          "endcolumn": 108,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/db/Database.java",
+      "violations": [
+        {
+          "beginline": 94,
+          "begincolumn": 9,
+          "endline": 100,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/network/MDNSResolver.java",
+      "violations": [
+        {
+          "beginline": 39,
+          "begincolumn": 22,
+          "endline": 39,
+          "endcolumn": 50,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/parser/PortParser.java",
+      "violations": [
+        {
+          "beginline": 24,
+          "begincolumn": 44,
+          "endline": 24,
+          "endcolumn": 64,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 27,
+          "begincolumn": 42,
+          "endline": 27,
+          "endcolumn": 59,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/runnable/ScanHostsRunnable.java",
+      "violations": [
+        {
+          "beginline": 39,
+          "begincolumn": 34,
+          "endline": 39,
+          "endcolumn": 46,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 42,
+          "begincolumn": 32,
+          "endline": 42,
+          "endcolumn": 89,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/PortAuthority/app/src/main/java/com/aaronjwood/portauthority/runnable/ScanPortsRunnable.java",
+      "violations": [
+        {
+          "beginline": 53,
+          "begincolumn": 29,
+          "endline": 53,
+          "endcolumn": 41,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 57,
+          "begincolumn": 32,
+          "endline": 57,
+          "endcolumn": 60,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 66,
+          "begincolumn": 44,
+          "endline": 66,
+          "endcolumn": 63,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 69,
+          "begincolumn": 43,
+          "endline": 69,
+          "endcolumn": 113,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 70,
+          "begincolumn": 43,
+          "endline": 70,
+          "endcolumn": 68,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 74,
+          "begincolumn": 39,
+          "endline": 74,
+          "endcolumn": 134,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 74,
+          "begincolumn": 55,
+          "endline": 74,
+          "endcolumn": 127,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.0.2">
+
+    <issue
+        id="LintWarning"
+        severity="Warning"
+        message="Loaded lint jar file from /Users/rar9993/.android/lint (/Users/rar9993/.android/lint/customLintFatima.jar.name); this will stop working soon. If you need to push lint rules into a build, use the `ANDROID_LINT_JARS` environment variable or the `--lint-rule-jars` flag or a `lint.xml` file setting `&lt;lint lintJars=&quot;path&quot;...>`"
+        category="Lint"
+        priority="5"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include unsupported tags in configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/.android/lint/customLintFatima.jar"/>
+    </issue>
+
+    <issue
+        id="LintWarning"
+        severity="Warning"
+        message="Loaded lint jar file from /Users/rar9993/.android/lint (/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar.name); this will stop working soon. If you need to push lint rules into a build, use the `ANDROID_LINT_JARS` environment variable or the `--lint-rule-jars` flag or a `lint.xml` file setting `&lt;lint lintJars=&quot;path&quot;...>`"
+        category="Lint"
+        priority="5"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include unsupported tags in configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 23"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/PrefsRootFragment.java"
+            line="333"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mOffset.x: &quot; + mOffset.x);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="279"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mOffset.y: &quot; + mOffset.y);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="280"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;event.getRawX(): &quot; + mInScreen.x);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="281"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;event.getRawY(): &quot; + mInScreen.y);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="282"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mLayoutParams.x: &quot; + mLayoutParams.x);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="283"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mLayoutParams.y: &quot; + mLayoutParams.y);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="284"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;event.getX(): &quot; + event.getX());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="285"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;event.getY(): &quot; + event.getY());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="286"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;pointerCoords.x: &quot; + pointerCoords.x);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="289"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;pointerCoords.y: &quot; + pointerCoords.y);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="290"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;getLocationOnScreen [0]: &quot; + (location[0]));"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="293"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;getLocationOnScreen [1]: &quot; + location[1]);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="294"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;getLocationOnScreen + event.getX(): &quot; + (location[0]"
+        errorLine2="        ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="296"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;getLocationOnScreen + event.getY(): &quot; + (location[1]"
+        errorLine2="        ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="299"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;DragViewLayout.this.getX(): &quot; + TriggerView.this.getX());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="303"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;DragViewLayout.this.getX(): &quot; + TriggerView.this.getY());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="304"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mTriggerbutton.getX(): &quot; + mTriggerbutton.getX());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="306"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mTriggerbutton.getX(): &quot; + mTriggerbutton.getY());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="307"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mWindowManager.getDefaultDisplay().getSize.x: &quot; + p.x);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="311"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mWindowManager.getDefaultDisplay().getSize.y: &quot; + p.y);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="312"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;Resources.getSystem().getDisplayMetrics().widthPixels: &quot;"
+        errorLine2="        ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="314"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;Resources.getSystem().getDisplayMetrics().heightPixels: &quot;"
+        errorLine2="        ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="316"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;my custom fun width: &quot; + DroidUtils.getScreenWidthMinusInsets(mCtx));"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="319"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;my custom fun height: &quot; + DroidUtils.getScreenHeightMinusInsets(mCtx));"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="320"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mMaxLayoutParams.x: &quot; + mPosition.getXMax());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="322"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;mMaxLayoutParams.y: &quot; + mPosition.getYMax());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java/com/concept1tech/instalate/TriggerView.java"
+            line="323"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.appBarLayout` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="        android:id=&quot;@+id/appBarLayout&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/res/layout/activity_prefs.xml"
+            line="30"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.ib_settings` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                android:id=&quot;@+id/ib_settings&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/res/layout/activity_translation_dialog.xml"
+            line="39"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.ib_close` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                android:id=&quot;@+id/ib_close&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/res/layout/activity_translation_dialog.xml"
+            line="52"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.LinearLayout` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    android:id=&quot;@+id/LinearLayout&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/res/layout/my_select_dialog_singlechoice_material.xml"
+            line="22"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.trigger_button_parent_layout` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    android:id=&quot;@+id/trigger_button_parent_layout&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/res/layout/view_trigger.xml"
+            line="21"
+            column="5"/>
+    </issue>
+
+</issues>

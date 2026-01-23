@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762903948377" analysisTimestamp="1762903950787" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-31/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/instalate/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="b9e9c6a3e4a038089eee819e3d23f323" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.ClipboardListenerService.sIsStarted should be package protected</LongMessage>
+    <Class classname="com.concept1tech.instalate.ClipboardListenerService" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" start="45" end="227" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>At ClipboardListenerService.java:[lines 45-227]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.ClipboardListenerService</Message>
+    </Class>
+    <Field classname="com.concept1tech.instalate.ClipboardListenerService" name="sIsStarted" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>In ClipboardListenerService.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.ClipboardListenerService.sIsStarted</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" primary="true" start="53" end="53" startBytecode="1" endBytecode="1" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+      <Message>At ClipboardListenerService.java:[line 53]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="62987bdafacf88975000134661974d99" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.concept1tech.instalate.ClipboardListenerService.sIsStarted is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.concept1tech.instalate.ClipboardListenerService" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" start="45" end="227" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>At ClipboardListenerService.java:[lines 45-227]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.ClipboardListenerService</Message>
+    </Class>
+    <Field classname="com.concept1tech.instalate.ClipboardListenerService" name="sIsStarted" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>In ClipboardListenerService.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.ClipboardListenerService.sIsStarted</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.PrefsRootFragment" primary="true" start="77" end="77" startBytecode="6" endBytecode="6" sourcefile="PrefsRootFragment.java" sourcepath="com/concept1tech/instalate/PrefsRootFragment.java" relSourcepath="com/concept1tech/instalate/PrefsRootFragment.java">
+      <Message>At PrefsRootFragment.java:[line 77]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" instanceHash="9ea63b831de94fd3fa9dc02292deb097" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.concept1tech.instalate.ClipboardListenerService.sIsStarted from instance method com.concept1tech.instalate.ClipboardListenerService.onStartCommand(Intent, int, int)</LongMessage>
+    <Class classname="com.concept1tech.instalate.ClipboardListenerService" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" start="45" end="227" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>At ClipboardListenerService.java:[lines 45-227]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.ClipboardListenerService</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.ClipboardListenerService" name="onStartCommand" signature="(Landroid/content/Intent;II)I" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" start="95" end="126" startBytecode="0" endBytecode="463" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java"/>
+      <Message>In method com.concept1tech.instalate.ClipboardListenerService.onStartCommand(Intent, int, int)</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.ClipboardListenerService" name="sIsStarted" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>In ClipboardListenerService.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.ClipboardListenerService.sIsStarted</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" primary="true" start="102" end="102" startBytecode="210" endBytecode="210" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+      <Message>At ClipboardListenerService.java:[line 102]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="e4047554bcab65ff610a5fa1a6f1368b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.concept1tech.instalate.ClipboardListenerService.sIsStarted from instance method com.concept1tech.instalate.ClipboardListenerService.onDestroy()</LongMessage>
+    <Class classname="com.concept1tech.instalate.ClipboardListenerService" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" start="45" end="227" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>At ClipboardListenerService.java:[lines 45-227]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.ClipboardListenerService</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.ClipboardListenerService" name="onDestroy" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" start="85" end="90" startBytecode="0" endBytecode="111" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java"/>
+      <Message>In method com.concept1tech.instalate.ClipboardListenerService.onDestroy()</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.ClipboardListenerService" name="sIsStarted" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+        <Message>In ClipboardListenerService.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.ClipboardListenerService.sIsStarted</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.ClipboardListenerService" primary="true" start="88" end="88" startBytecode="23" endBytecode="23" sourcefile="ClipboardListenerService.java" sourcepath="com/concept1tech/instalate/ClipboardListenerService.java" relSourcepath="com/concept1tech/instalate/ClipboardListenerService.java">
+      <Message>At ClipboardListenerService.java:[line 88]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EQ_COMPARETO_USE_OBJECT_EQUALS" priority="2" rank="16" abbrev="Eq" category="BAD_PRACTICE" instanceHash="ae56ada5770d4851bb844847e2baf5cc" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class defines compareTo(...) and uses Object.equals()</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.EntryItem defines compareTo(EntryItem) and uses Object.equals()</LongMessage>
+    <Class classname="com.concept1tech.instalate.EntryItem" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.EntryItem" start="27" end="81" sourcefile="EntryItem.java" sourcepath="com/concept1tech/instalate/EntryItem.java" relSourcepath="com/concept1tech/instalate/EntryItem.java">
+        <Message>At EntryItem.java:[lines 27-81]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.EntryItem</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.EntryItem" name="compareTo" signature="(Lcom/concept1tech/instalate/EntryItem;)I" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.EntryItem" start="81" end="81" startBytecode="0" endBytecode="63" sourcefile="EntryItem.java" sourcepath="com/concept1tech/instalate/EntryItem.java" relSourcepath="com/concept1tech/instalate/EntryItem.java"/>
+      <Message>In method com.concept1tech.instalate.EntryItem.compareTo(EntryItem)</Message>
+    </Method>
+    <SourceLine classname="com.concept1tech.instalate.EntryItem" start="81" end="81" startBytecode="0" endBytecode="63" sourcefile="EntryItem.java" sourcepath="com/concept1tech/instalate/EntryItem.java" relSourcepath="com/concept1tech/instalate/EntryItem.java" synthetic="true">
+      <Message>At EntryItem.java:[line 81]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="2ba78b56c5d95d7755a3452df3498cb0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.Provider.getCombinations() may expose internal representation by returning Provider.mCombinations</LongMessage>
+    <Class classname="com.concept1tech.instalate.Provider" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="49" end="133" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>At Provider.java:[lines 49-133]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.Provider</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.Provider" name="getCombinations" signature="()[[[Ljava/lang/Boolean;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="107" end="107" startBytecode="0" endBytecode="46" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java"/>
+      <Message>In method com.concept1tech.instalate.Provider.getCombinations()</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.Provider" name="mCombinations" signature="[[[Ljava/lang/Boolean;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>In Provider.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.Provider.mCombinations</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.Provider" primary="true" start="107" end="107" startBytecode="4" endBytecode="4" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+      <Message>At Provider.java:[line 107]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="af8de7f1792d82bafdf134242ddf8f37" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.Provider.setCombinations(Boolean[][][]) may expose internal representation by storing an externally mutable object into Provider.mCombinations</LongMessage>
+    <Class classname="com.concept1tech.instalate.Provider" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="49" end="133" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>At Provider.java:[lines 49-133]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.Provider</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.Provider" name="setCombinations" signature="([[[Ljava/lang/Boolean;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="110" end="111" startBytecode="0" endBytecode="61" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java"/>
+      <Message>In method com.concept1tech.instalate.Provider.setCombinations(Boolean[][][])</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.Provider" name="mCombinations" signature="[[[Ljava/lang/Boolean;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>In Provider.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.Provider.mCombinations</Message>
+    </Field>
+    <LocalVariable name="combinations" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named combinations</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.Provider" primary="true" start="110" end="110" startBytecode="2" endBytecode="2" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+      <Message>At Provider.java:[line 110]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="LI_LAZY_INIT_UPDATE_STATIC" priority="1" rank="6" abbrev="LI" category="MT_CORRECTNESS" instanceHash="d3cbd0c694576a5700cea7f694b228f3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="543">
+    <ShortMessage>Incorrect lazy initialization and update of static field</ShortMessage>
+    <LongMessage>Incorrect lazy initialization and update of static field com.concept1tech.instalate.Provider.sProviders in com.concept1tech.instalate.Provider.getAll(Context)</LongMessage>
+    <Class classname="com.concept1tech.instalate.Provider" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="49" end="133" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>At Provider.java:[lines 49-133]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.Provider</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.Provider" name="getAll" signature="(Landroid/content/Context;)Ljava/util/HashMap;" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="49" end="65" startBytecode="0" endBytecode="184" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java"/>
+      <Message>In method com.concept1tech.instalate.Provider.getAll(Context)</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.Provider" name="sProviders" signature="Ljava/util/HashMap;" isStatic="true" primary="true" role="FIELD_ON">
+      <SourceLine classname="com.concept1tech.instalate.Provider" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>In Provider.java</Message>
+      </SourceLine>
+      <Message>On field com.concept1tech.instalate.Provider.sProviders</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.Provider" primary="true" start="49" end="50" startBytecode="0" endBytecode="13" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+      <Message>At Provider.java:[lines 49-50]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="c18573087579d57fac40757c64959743" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Public static method may expose internal representation by returning a mutable object or array</ShortMessage>
+    <LongMessage>Public static com.concept1tech.instalate.Provider.getAll(Context) may expose internal representation by returning Provider.sProviders</LongMessage>
+    <Class classname="com.concept1tech.instalate.Provider" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="49" end="133" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>At Provider.java:[lines 49-133]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.Provider</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.Provider" name="getAll" signature="(Landroid/content/Context;)Ljava/util/HashMap;" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" start="49" end="65" startBytecode="0" endBytecode="454" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java"/>
+      <Message>In method com.concept1tech.instalate.Provider.getAll(Context)</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.Provider" name="sProviders" signature="Ljava/util/HashMap;" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Provider" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+        <Message>In Provider.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.Provider.sProviders</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.Provider" primary="true" start="65" end="65" startBytecode="301" endBytecode="301" sourcefile="Provider.java" sourcepath="com/concept1tech/instalate/Provider.java" relSourcepath="com/concept1tech/instalate/Provider.java">
+      <Message>At Provider.java:[line 65]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" instanceHash="fd7a3559efe0f7fa53afe4f193cf95b0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Format string should use %n rather than \n</ShortMessage>
+    <LongMessage>Format string should use %n rather than \n in com.concept1tech.instalate.Providers.Dictcc.postProcess(Context, TranslationData)</LongMessage>
+    <Class classname="com.concept1tech.instalate.Providers.Dictcc" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Providers.Dictcc" start="45" end="170" sourcefile="Dictcc.java" sourcepath="com/concept1tech/instalate/Providers/Dictcc.java" relSourcepath="com/concept1tech/instalate/Providers/Dictcc.java">
+        <Message>At Dictcc.java:[lines 45-170]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.Providers.Dictcc</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.Providers.Dictcc" name="postProcess" signature="(Landroid/content/Context;Lcom/concept1tech/instalate/TranslationData;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Providers.Dictcc" start="110" end="144" startBytecode="0" endBytecode="662" sourcefile="Dictcc.java" sourcepath="com/concept1tech/instalate/Providers/Dictcc.java" relSourcepath="com/concept1tech/instalate/Providers/Dictcc.java"/>
+      <Message>In method com.concept1tech.instalate.Providers.Dictcc.postProcess(Context, TranslationData)</Message>
+    </Method>
+    <Method classname="java.lang.String" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED" classAnnotationNames="androidx.annotation.RecentlyNonNull">
+      <SourceLine classname="java.lang.String" start="1994" end="1994" startBytecode="0" endBytecode="61" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.format(String, Object[])</Message>
+    </Method>
+    <String value="∙ %s\n" role="STRING_FORMAT_STRING">
+      <Message>Format string &quot;∙ %s\n&quot;</Message>
+    </String>
+    <SourceLine classname="com.concept1tech.instalate.Providers.Dictcc" primary="true" start="132" end="132" startBytecode="185" endBytecode="185" sourcefile="Dictcc.java" sourcepath="com/concept1tech/instalate/Providers/Dictcc.java" relSourcepath="com/concept1tech/instalate/Providers/Dictcc.java">
+      <Message>At Dictcc.java:[line 132]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" instanceHash="d81e51964ca4687b70ccb7805ee26fc9" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Format string should use %n rather than \n</ShortMessage>
+    <LongMessage>Format string should use %n rather than \n in com.concept1tech.instalate.Providers.Gcide.postProcess(Context, TranslationData)</LongMessage>
+    <Class classname="com.concept1tech.instalate.Providers.Gcide" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Providers.Gcide" start="48" end="151" sourcefile="Gcide.java" sourcepath="com/concept1tech/instalate/Providers/Gcide.java" relSourcepath="com/concept1tech/instalate/Providers/Gcide.java">
+        <Message>At Gcide.java:[lines 48-151]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.Providers.Gcide</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.Providers.Gcide" name="postProcess" signature="(Landroid/content/Context;Lcom/concept1tech/instalate/TranslationData;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Providers.Gcide" start="86" end="151" startBytecode="0" endBytecode="1496" sourcefile="Gcide.java" sourcepath="com/concept1tech/instalate/Providers/Gcide.java" relSourcepath="com/concept1tech/instalate/Providers/Gcide.java"/>
+      <Message>In method com.concept1tech.instalate.Providers.Gcide.postProcess(Context, TranslationData)</Message>
+    </Method>
+    <Method classname="java.lang.String" name="format" signature="(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED" classAnnotationNames="androidx.annotation.RecentlyNonNull">
+      <SourceLine classname="java.lang.String" start="2035" end="2035" startBytecode="0" endBytecode="71" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.format(Locale, String, Object[])</Message>
+    </Method>
+    <String value="Definition %d:\n" role="STRING_FORMAT_STRING">
+      <Message>Format string &quot;Definition %d:\n&quot;</Message>
+    </String>
+    <SourceLine classname="com.concept1tech.instalate.Providers.Gcide" primary="true" start="111" end="111" startBytecode="247" endBytecode="247" sourcefile="Gcide.java" sourcepath="com/concept1tech/instalate/Providers/Gcide.java" relSourcepath="com/concept1tech/instalate/Providers/Gcide.java">
+      <Message>At Gcide.java:[line 111]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="74bb2a650aa3ab9308ff4c5ce21eac8c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.concept1tech.instalate.Providers.WiktionaryLinks.mSep; should this field be static?</LongMessage>
+    <Class classname="com.concept1tech.instalate.Providers.WiktionaryLinks" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Providers.WiktionaryLinks" start="45" end="181" sourcefile="WiktionaryLinks.java" sourcepath="com/concept1tech/instalate/Providers/WiktionaryLinks.java" relSourcepath="com/concept1tech/instalate/Providers/WiktionaryLinks.java">
+        <Message>At WiktionaryLinks.java:[lines 45-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.Providers.WiktionaryLinks</Message>
+    </Class>
+    <Field classname="com.concept1tech.instalate.Providers.WiktionaryLinks" name="mSep" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.Providers.WiktionaryLinks" sourcefile="WiktionaryLinks.java" sourcepath="com/concept1tech/instalate/Providers/WiktionaryLinks.java" relSourcepath="com/concept1tech/instalate/Providers/WiktionaryLinks.java">
+        <Message>In WiktionaryLinks.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.Providers.WiktionaryLinks.mSep</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.Providers.WiktionaryLinks" primary="true" start="45" end="45" startBytecode="10" endBytecode="10" sourcefile="WiktionaryLinks.java" sourcepath="com/concept1tech/instalate/Providers/WiktionaryLinks.java" relSourcepath="com/concept1tech/instalate/Providers/WiktionaryLinks.java">
+      <Message>At WiktionaryLinks.java:[line 45]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="e32fc8e4941a9acdb3f20a7405374a1e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TranslationAdapter.setTranslationItems(List) may expose internal representation by storing an externally mutable object into TranslationAdapter.mTranslationItems</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationAdapter" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationAdapter" start="35" end="64" sourcefile="TranslationAdapter.java" sourcepath="com/concept1tech/instalate/TranslationAdapter.java" relSourcepath="com/concept1tech/instalate/TranslationAdapter.java">
+        <Message>At TranslationAdapter.java:[lines 35-64]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationAdapter</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationAdapter" name="setTranslationItems" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationAdapter" start="47" end="48" startBytecode="0" endBytecode="79" sourcefile="TranslationAdapter.java" sourcepath="com/concept1tech/instalate/TranslationAdapter.java" relSourcepath="com/concept1tech/instalate/TranslationAdapter.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationAdapter.setTranslationItems(List)</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationAdapter" name="mTranslationItems" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationAdapter" sourcefile="TranslationAdapter.java" sourcepath="com/concept1tech/instalate/TranslationAdapter.java" relSourcepath="com/concept1tech/instalate/TranslationAdapter.java">
+        <Message>In TranslationAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationAdapter.mTranslationItems</Message>
+    </Field>
+    <LocalVariable name="translationItems" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named translationItems</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TranslationAdapter" primary="true" start="47" end="47" startBytecode="2" endBytecode="2" sourcefile="TranslationAdapter.java" sourcepath="com/concept1tech/instalate/TranslationAdapter.java" relSourcepath="com/concept1tech/instalate/TranslationAdapter.java">
+      <Message>At TranslationAdapter.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="921ac0ae6cc47e10ccbb6e84bda24980" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.concept1tech.instalate.TranslationData at new com.concept1tech.instalate.TranslationData(Context, String) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationData" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="37" end="181" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>At TranslationData.java:[lines 37-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationData</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationData" name="&lt;init&gt;" signature="(Landroid/content/Context;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="48" end="64" startBytecode="0" endBytecode="480" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java"/>
+      <Message>In method new com.concept1tech.instalate.TranslationData(Context, String)</Message>
+    </Method>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" primary="true" start="51" end="51" startBytecode="59" endBytecode="59" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 51]</Message>
+    </SourceLine>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" start="51" end="51" startBytecode="59" endBytecode="59" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 51]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="d00f10c041b549892d52a4708b8ce862" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TranslationData.getActiveLangs() may expose internal representation by returning TranslationData.mActiveLangs</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationData" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="37" end="181" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>At TranslationData.java:[lines 37-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationData</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationData" name="getActiveLangs" signature="()[Ljava/lang/Integer;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="80" end="80" startBytecode="0" endBytecode="46" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationData.getActiveLangs()</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationData" name="mActiveLangs" signature="[Ljava/lang/Integer;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>In TranslationData.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationData.mActiveLangs</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" primary="true" start="80" end="80" startBytecode="4" endBytecode="4" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 80]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="d11d05171350a99f97c79fcf17bfaebb" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TranslationData.getSrcLang() may expose internal representation by returning TranslationData.mSrcLang</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationData" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="37" end="181" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>At TranslationData.java:[lines 37-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationData</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationData" name="getSrcLang" signature="()Lcom/concept1tech/instalate/Language;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="124" end="124" startBytecode="0" endBytecode="46" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationData.getSrcLang()</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationData" name="mSrcLang" signature="Lcom/concept1tech/instalate/Language;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>In TranslationData.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationData.mSrcLang</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" primary="true" start="124" end="124" startBytecode="4" endBytecode="4" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 124]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="2cc41664fd6eddfd16c6faad410f604a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TranslationData.getTgtLang() may expose internal representation by returning TranslationData.mTgtLang</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationData" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="37" end="181" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>At TranslationData.java:[lines 37-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationData</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationData" name="getTgtLang" signature="()Lcom/concept1tech/instalate/Language;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="127" end="127" startBytecode="0" endBytecode="46" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationData.getTgtLang()</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationData" name="mTgtLang" signature="Lcom/concept1tech/instalate/Language;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>In TranslationData.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationData.mTgtLang</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" primary="true" start="127" end="127" startBytecode="4" endBytecode="4" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 127]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="d6fb238129be81428bc5945130cc284b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TranslationData.getTranslationList() may expose internal representation by returning TranslationData.mTList</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationData" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="37" end="181" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>At TranslationData.java:[lines 37-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationData</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationData" name="getTranslationList" signature="()Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="118" end="118" startBytecode="0" endBytecode="46" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationData.getTranslationList()</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationData" name="mTList" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>In TranslationData.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationData.mTList</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" primary="true" start="118" end="118" startBytecode="4" endBytecode="4" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 118]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="61569ec6e14b4afc1fccf49a5a2ec422" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TranslationData.setActiveLangs(Integer[]) may expose internal representation by storing an externally mutable object into TranslationData.mActiveLangs</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationData" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="37" end="181" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>At TranslationData.java:[lines 37-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationData</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationData" name="setActiveLangs" signature="([Ljava/lang/Integer;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="83" end="84" startBytecode="0" endBytecode="61" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationData.setActiveLangs(Integer[])</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationData" name="mActiveLangs" signature="[Ljava/lang/Integer;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>In TranslationData.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationData.mActiveLangs</Message>
+    </Field>
+    <LocalVariable name="activeLangs" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named activeLangs</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" primary="true" start="83" end="83" startBytecode="2" endBytecode="2" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 83]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="f9ee0b106215f3357130568763f6e1db" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TranslationData.setTranslationList(List) may expose internal representation by storing an externally mutable object into TranslationData.mTList</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationData" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="37" end="181" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>At TranslationData.java:[lines 37-181]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationData</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationData" name="setTranslationList" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" start="121" end="122" startBytecode="0" endBytecode="79" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationData.setTranslationList(List)</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationData" name="mTList" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationData" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+        <Message>In TranslationData.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationData.mTList</Message>
+    </Field>
+    <LocalVariable name="tList" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named tList</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TranslationData" primary="true" start="121" end="121" startBytecode="2" endBytecode="2" sourcefile="TranslationData.java" sourcepath="com/concept1tech/instalate/TranslationData.java" relSourcepath="com/concept1tech/instalate/TranslationData.java">
+      <Message>At TranslationData.java:[line 121]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" instanceHash="aab6408c9f42b9fdb3240fdceb78fbce" instanceOccurrenceNum="0" instanceOccurrenceMax="3">
+    <ShortMessage>Format string should use %n rather than \n</ShortMessage>
+    <LongMessage>Format string should use %n rather than \n in com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="45" end="235" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+        <Message>At TranslationDialogActivity.java:[lines 45-235]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationDialogActivity</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationDialogActivity" name="setActivityUp" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="153" end="206" startBytecode="0" endBytecode="869" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</Message>
+    </Method>
+    <Method classname="java.lang.String" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED" classAnnotationNames="androidx.annotation.RecentlyNonNull">
+      <SourceLine classname="java.lang.String" start="1994" end="1994" startBytecode="0" endBytecode="61" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.format(String, Object[])</Message>
+    </Method>
+    <String value="%s\n\n%s: %s \n" role="STRING_FORMAT_STRING">
+      <Message>Format string &quot;%s\n\n%s: %s \n&quot;</Message>
+    </String>
+    <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true" start="172" end="172" startBytecode="204" endBytecode="204" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+      <Message>At TranslationDialogActivity.java:[line 172]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" instanceHash="aab6408c9f42b9fdb3240fdceb78fbce" instanceOccurrenceNum="1" instanceOccurrenceMax="3">
+    <ShortMessage>Format string should use %n rather than \n</ShortMessage>
+    <LongMessage>Format string should use %n rather than \n in com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="45" end="235" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+        <Message>At TranslationDialogActivity.java:[lines 45-235]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationDialogActivity</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationDialogActivity" name="setActivityUp" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="153" end="206" startBytecode="0" endBytecode="869" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</Message>
+    </Method>
+    <Method classname="java.lang.String" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED" classAnnotationNames="androidx.annotation.RecentlyNonNull">
+      <SourceLine classname="java.lang.String" start="1994" end="1994" startBytecode="0" endBytecode="61" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.format(String, Object[])</Message>
+    </Method>
+    <String value="%s\n\n%s: %s \n" role="STRING_FORMAT_STRING">
+      <Message>Format string &quot;%s\n\n%s: %s \n&quot;</Message>
+    </String>
+    <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true" start="174" end="174" startBytecode="251" endBytecode="251" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+      <Message>At TranslationDialogActivity.java:[line 174]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" instanceHash="aab6408c9f42b9fdb3240fdceb78fbce" instanceOccurrenceNum="2" instanceOccurrenceMax="3">
+    <ShortMessage>Format string should use %n rather than \n</ShortMessage>
+    <LongMessage>Format string should use %n rather than \n in com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="45" end="235" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+        <Message>At TranslationDialogActivity.java:[lines 45-235]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationDialogActivity</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationDialogActivity" name="setActivityUp" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="153" end="206" startBytecode="0" endBytecode="869" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</Message>
+    </Method>
+    <Method classname="java.lang.String" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED" classAnnotationNames="androidx.annotation.RecentlyNonNull">
+      <SourceLine classname="java.lang.String" start="1994" end="1994" startBytecode="0" endBytecode="61" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.format(String, Object[])</Message>
+    </Method>
+    <String value="%s\n\n%s: %s \n" role="STRING_FORMAT_STRING">
+      <Message>Format string &quot;%s\n\n%s: %s \n&quot;</Message>
+    </String>
+    <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true" start="176" end="176" startBytecode="298" endBytecode="298" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+      <Message>At TranslationDialogActivity.java:[line 176]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" instanceHash="aab6408c9f42b9fdb3240fdceb78fbce" instanceOccurrenceNum="3" instanceOccurrenceMax="3">
+    <ShortMessage>Format string should use %n rather than \n</ShortMessage>
+    <LongMessage>Format string should use %n rather than \n in com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="45" end="235" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+        <Message>At TranslationDialogActivity.java:[lines 45-235]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationDialogActivity</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationDialogActivity" name="setActivityUp" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" start="153" end="206" startBytecode="0" endBytecode="869" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationDialogActivity.setActivityUp()</Message>
+    </Method>
+    <Method classname="java.lang.String" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;" isStatic="true" role="METHOD_CALLED" classAnnotationNames="androidx.annotation.RecentlyNonNull">
+      <SourceLine classname="java.lang.String" start="1994" end="1994" startBytecode="0" endBytecode="61" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method String.format(String, Object[])</Message>
+    </Method>
+    <String value="%s\n\n%s: %s \n" role="STRING_FORMAT_STRING">
+      <Message>Format string &quot;%s\n\n%s: %s \n&quot;</Message>
+    </String>
+    <SourceLine classname="com.concept1tech.instalate.TranslationDialogActivity" primary="true" start="178" end="178" startBytecode="345" endBytecode="345" sourcefile="TranslationDialogActivity.java" sourcepath="com/concept1tech/instalate/TranslationDialogActivity.java" relSourcepath="com/concept1tech/instalate/TranslationDialogActivity.java">
+      <Message>At TranslationDialogActivity.java:[line 178]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="873b26fb05902729a48b611f69188daf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.concept1tech.instalate.TranslationTask.executeTranslation(String) due to return value of called method</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationTask" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="32" end="102" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java">
+        <Message>At TranslationTask.java:[lines 32-102]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationTask</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationTask" name="executeTranslation" signature="(Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="50" end="69" startBytecode="0" endBytecode="278" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationTask.executeTranslation(String)</Message>
+    </Method>
+    <LocalVariable name="ctx" register="2" pc="27" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from ctx</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TranslationTask" primary="true" start="52" end="52" startBytecode="28" endBytecode="28" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java" role="SOURCE_LINE_INVOKED">
+      <Message>Method invoked at TranslationTask.java:[line 52]</Message>
+    </SourceLine>
+    <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="51" end="51" startBytecode="14" endBytecode="14" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at TranslationTask.java:[line 51]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="bc96235b894c4a21c2833311e51f2a9f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.concept1tech.instalate.TranslationTask.showActivity(TranslationData) due to return value of called method</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationTask" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="32" end="102" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java">
+        <Message>At TranslationTask.java:[lines 32-102]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationTask</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationTask" name="showActivity" signature="(Lcom/concept1tech/instalate/TranslationData;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="92" end="98" startBytecode="0" endBytecode="140" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationTask.showActivity(TranslationData)</Message>
+    </Method>
+    <LocalVariable name="ctx" register="2" pc="35" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from ctx</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TranslationTask" primary="true" start="96" end="96" startBytecode="36" endBytecode="36" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at TranslationTask.java:[line 96]</Message>
+    </SourceLine>
+    <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="93" end="93" startBytecode="14" endBytecode="14" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at TranslationTask.java:[line 93]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="dac74d6ac8d9402bd23f981f68f9376" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.concept1tech.instalate.TranslationTask.sOldData from instance method com.concept1tech.instalate.TranslationTask.onPostExecute(PageResponse)</LongMessage>
+    <Class classname="com.concept1tech.instalate.TranslationTask" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="32" end="102" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java">
+        <Message>At TranslationTask.java:[lines 32-102]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TranslationTask</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TranslationTask" name="onPostExecute" signature="(Lcom/concept1tech/unn/PageResponse;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationTask" start="79" end="88" startBytecode="0" endBytecode="152" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java"/>
+      <Message>In method com.concept1tech.instalate.TranslationTask.onPostExecute(PageResponse)</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TranslationTask" name="sOldData" signature="Lcom/concept1tech/instalate/TranslationData;" isStatic="true" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TranslationTask" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java">
+        <Message>In TranslationTask.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TranslationTask.sOldData</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.TranslationTask" primary="true" start="84" end="84" startBytecode="51" endBytecode="51" sourcefile="TranslationTask.java" sourcepath="com/concept1tech/instalate/TranslationTask.java" relSourcepath="com/concept1tech/instalate/TranslationTask.java">
+      <Message>At TranslationTask.java:[line 84]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="e21a1d37f4aaf87aae629b70a7ced2c3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.concept1tech.instalate.TriggerView at new com.concept1tech.instalate.TriggerView(Context) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.concept1tech.instalate.TriggerView" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="47" end="342" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+        <Message>At TriggerView.java:[lines 47-342]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TriggerView</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TriggerView" name="&lt;init&gt;" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="72" end="74" startBytecode="0" endBytecode="153" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java"/>
+      <Message>In method new com.concept1tech.instalate.TriggerView(Context)</Message>
+    </Method>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" primary="true" start="73" end="73" startBytecode="70" endBytecode="70" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 73]</Message>
+    </SourceLine>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" start="73" end="73" startBytecode="70" endBytecode="70" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 73]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="1a5c70448602d0eb91cf4f46eabafee4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.concept1tech.instalate.TriggerView at new com.concept1tech.instalate.TriggerView(Context, AttributeSet) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.concept1tech.instalate.TriggerView" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="47" end="342" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+        <Message>At TriggerView.java:[lines 47-342]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TriggerView</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TriggerView" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/util/AttributeSet;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="77" end="79" startBytecode="0" endBytecode="164" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java"/>
+      <Message>In method new com.concept1tech.instalate.TriggerView(Context, AttributeSet)</Message>
+    </Method>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" primary="true" start="78" end="78" startBytecode="71" endBytecode="71" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 78]</Message>
+    </SourceLine>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" start="78" end="78" startBytecode="71" endBytecode="71" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 78]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="5775b671706f943dd4ea215a462ff104" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.concept1tech.instalate.TriggerView at new com.concept1tech.instalate.TriggerView(Context, AttributeSet, int) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.concept1tech.instalate.TriggerView" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="47" end="342" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+        <Message>At TriggerView.java:[lines 47-342]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TriggerView</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TriggerView" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/util/AttributeSet;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="81" end="83" startBytecode="0" endBytecode="175" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java"/>
+      <Message>In method new com.concept1tech.instalate.TriggerView(Context, AttributeSet, int)</Message>
+    </Method>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" primary="true" start="82" end="82" startBytecode="72" endBytecode="72" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 82]</Message>
+    </SourceLine>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" start="82" end="82" startBytecode="72" endBytecode="72" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 82]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="c5aba3c9da877ba6dc1faed111335414" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.concept1tech.instalate.TriggerView at new com.concept1tech.instalate.TriggerView(Context, AttributeSet, int, int) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.concept1tech.instalate.TriggerView" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="47" end="342" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+        <Message>At TriggerView.java:[lines 47-342]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TriggerView</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TriggerView" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/util/AttributeSet;II)V" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.RequiresApi">
+      <SourceLine classname="com.concept1tech.instalate.TriggerView" start="87" end="89" startBytecode="0" endBytecode="187" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java"/>
+      <Message>In method new com.concept1tech.instalate.TriggerView(Context, AttributeSet, int, int)</Message>
+    </Method>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" primary="true" start="88" end="88" startBytecode="74" endBytecode="74" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 88]</Message>
+    </SourceLine>
+    <SourceLine classname="com.concept1tech.instalate.TriggerView" start="88" end="88" startBytecode="74" endBytecode="74" sourcefile="TriggerView.java" sourcepath="com/concept1tech/instalate/TriggerView.java" relSourcepath="com/concept1tech/instalate/TriggerView.java">
+      <Message>At TriggerView.java:[line 88]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="9c4c1f74b016e698598f7ca3731af4ef" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TripleListPreference.setActiveValues(String[]) may expose internal representation by storing an externally mutable object into TripleListPreference.mActiveValues</LongMessage>
+    <Class classname="com.concept1tech.instalate.TripleListPreference" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" start="43" end="164" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>At TripleListPreference.java:[lines 43-164]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TripleListPreference</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TripleListPreference" name="setActiveValues" signature="([Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" start="133" end="136" startBytecode="0" endBytecode="84" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java"/>
+      <Message>In method com.concept1tech.instalate.TripleListPreference.setActiveValues(String[])</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TripleListPreference" name="mActiveValues" signature="[Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>In TripleListPreference.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TripleListPreference.mActiveValues</Message>
+    </Field>
+    <LocalVariable name="activeValues" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named activeValues</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TripleListPreference" primary="true" start="133" end="133" startBytecode="2" endBytecode="2" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+      <Message>At TripleListPreference.java:[line 133]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="1e4f80bfe54430abf70ad6401fa02ee1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TripleListPreference.setEntryItems(List[]) may expose internal representation by storing an externally mutable object into TripleListPreference.mEntryItems</LongMessage>
+    <Class classname="com.concept1tech.instalate.TripleListPreference" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" start="43" end="164" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>At TripleListPreference.java:[lines 43-164]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TripleListPreference</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TripleListPreference" name="setEntryItems" signature="([Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" start="129" end="130" startBytecode="0" endBytecode="79" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java"/>
+      <Message>In method com.concept1tech.instalate.TripleListPreference.setEntryItems(List[])</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TripleListPreference" name="mEntryItems" signature="[Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>In TripleListPreference.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TripleListPreference.mEntryItems</Message>
+    </Field>
+    <LocalVariable name="items" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named items</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TripleListPreference" primary="true" start="129" end="129" startBytecode="2" endBytecode="2" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+      <Message>At TripleListPreference.java:[line 129]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="ea32d2f5a3c162c72e6e2469c7dac262" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.concept1tech.instalate.TripleListPreference.setTitles(String[]) may expose internal representation by storing an externally mutable object into TripleListPreference.mTitles</LongMessage>
+    <Class classname="com.concept1tech.instalate.TripleListPreference" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" start="43" end="164" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>At TripleListPreference.java:[lines 43-164]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TripleListPreference</Message>
+    </Class>
+    <Method classname="com.concept1tech.instalate.TripleListPreference" name="setTitles" signature="([Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" start="146" end="147" startBytecode="0" endBytecode="61" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java"/>
+      <Message>In method com.concept1tech.instalate.TripleListPreference.setTitles(String[])</Message>
+    </Method>
+    <Field classname="com.concept1tech.instalate.TripleListPreference" name="mTitles" signature="[Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>In TripleListPreference.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TripleListPreference.mTitles</Message>
+    </Field>
+    <LocalVariable name="titles" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named titles</Message>
+    </LocalVariable>
+    <SourceLine classname="com.concept1tech.instalate.TripleListPreference" primary="true" start="146" end="146" startBytecode="2" endBytecode="2" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+      <Message>At TripleListPreference.java:[line 146]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="e7234bd8bff1a4442855ee27529c0f87" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.concept1tech.instalate.TripleListPreference.mNegativeButtonText; should this field be static?</LongMessage>
+    <Class classname="com.concept1tech.instalate.TripleListPreference" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" start="43" end="164" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>At TripleListPreference.java:[lines 43-164]</Message>
+      </SourceLine>
+      <Message>In class com.concept1tech.instalate.TripleListPreference</Message>
+    </Class>
+    <Field classname="com.concept1tech.instalate.TripleListPreference" name="mNegativeButtonText" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.concept1tech.instalate.TripleListPreference" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+        <Message>In TripleListPreference.java</Message>
+      </SourceLine>
+      <Message>Field com.concept1tech.instalate.TripleListPreference.mNegativeButtonText</Message>
+    </Field>
+    <SourceLine classname="com.concept1tech.instalate.TripleListPreference" primary="true" start="50" end="50" startBytecode="59" endBytecode="59" sourcefile="TripleListPreference.java" sourcepath="com/concept1tech/instalate/TripleListPreference.java" relSourcepath="com/concept1tech/instalate/TripleListPreference.java">
+      <Message>At TripleListPreference.java:[line 50]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EQ_COMPARETO_USE_OBJECT_EQUALS" abbrev="Eq" category="BAD_PRACTICE">
+    <ShortDescription>Class defines compareTo(...) and uses Object.equals()</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class defines a <code>compareTo(...)</code> method but inherits its
+  <code>equals()</code> method from <code>java.lang.Object</code>.
+    Generally, the value of compareTo should return zero if and only if
+    equals returns true. If this is violated, weird and unpredictable
+    failures will occur in classes such as PriorityQueue.
+    In Java 5 the PriorityQueue.remove method uses the compareTo method,
+    while in Java 6 it uses the equals method.</p>
+
+<p>From the JavaDoc for the compareTo method in the Comparable interface:
+<blockquote>
+It is strongly recommended, but not strictly required that <code>(x.compareTo(y)==0) == (x.equals(y))</code>.
+Generally speaking, any class that implements the Comparable interface and violates this condition
+should clearly indicate this fact. The recommended language
+is "Note: this class has a natural ordering that is inconsistent with equals."
+</blockquote></p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="VA_FORMAT_STRING_USES_NEWLINE" abbrev="FS" category="BAD_PRACTICE">
+    <ShortDescription>Format string should use %n rather than \n</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This format string includes a newline character (\n). In format strings, it is generally
+ preferable to use %n, which will produce the platform-specific line separator.
+
+ When using text blocks introduced in Java 15, use the <code>\</code> escape sequence:
+
+<code>String value = """
+                first line%n\
+                second line%n\
+                """;</code>
+</p>
+
+     ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" abbrev="NP" category="STYLE">
+    <ShortDescription>Possible null pointer dereference due to return value of called method</ShortDescription>
+    <Details><![CDATA[
+      
+<p> The return value from a method is dereferenced without a null check,
+and the return value of that method is one that should generally be checked
+for null.  This may lead to a <code>NullPointerException</code> when the code is executed.
+</p>
+      
+   ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_EXPOSE_REP" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Public static method may expose internal representation by returning a mutable object or array</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A public static method returns a reference to a mutable object or
+   an array that is part of the static state of the class.
+   Any code that calls this method can freely modify
+   the underlying array.
+   One fix is to return a copy of the array.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="LI_LAZY_INIT_UPDATE_STATIC" abbrev="LI" category="MT_CORRECTNESS" cweid="543">
+    <ShortDescription>Incorrect lazy initialization and update of static field</ShortDescription>
+    <Details><![CDATA[
+
+<p> This method contains an unsynchronized lazy initialization of a static field.
+After the field is set, the object stored into that location is further updated or accessed.
+The setting of the field is visible to other threads as soon as it is set. If the
+further accesses in the method that set the field serve to initialize the object, then
+you have a <em>very serious</em> multithreading bug, unless something else prevents
+any other thread from accessing the stored object until it is fully initialized.
+</p>
+<p>Even if you feel confident that the method is never called by multiple
+threads, it might be better to not set the static field until the value
+you are setting it to is fully populated/initialized.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/543.html">CWE-543: Use of Singleton Pattern Without Synchronization in a Multithreaded Context</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="Eq">
+    <Description>Problems with implementation of equals()</Description>
+  </BugCode>
+  <BugCode abbrev="LI">
+    <Description>Unsynchronized Lazy Initialization</Description>
+  </BugCode>
+  <BugCode abbrev="FS">
+    <Description>Format string problem</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="62">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.annotation.RequiresApi</MissingClass>
+    <MissingClass>androidx.appcompat.app.ActionBar</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatDelegate</MissingClass>
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.Group</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat$Builder</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentFactory</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>androidx.preference.ListPreference</MissingClass>
+    <MissingClass>androidx.preference.Preference</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceChangeListener</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceClickListener</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat$OnPreferenceStartFragmentCallback</MissingClass>
+    <MissingClass>androidx.preference.PreferenceManager</MissingClass>
+    <MissingClass>androidx.preference.PreferenceViewHolder</MissingClass>
+    <MissingClass>androidx.preference.SwitchPreferenceCompat</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.LinearLayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$Adapter</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$LayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$ViewHolder</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$array</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$color</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$dimen</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$drawable</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$id</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$integer</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$layout</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$menu</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$string</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$styleable</MissingClass>
+    <MissingClass>com.concept1tech.instalate.R$xml</MissingClass>
+    <MissingClass>com.concept1tech.unn.ArrayUtils</MissingClass>
+    <MissingClass>com.concept1tech.unn.DroidUtils</MissingClass>
+    <MissingClass>com.concept1tech.unn.HTTPHeaders</MissingClass>
+    <MissingClass>com.concept1tech.unn.MySpannableStringBuilder</MissingClass>
+    <MissingClass>com.concept1tech.unn.NetworkUtils</MissingClass>
+    <MissingClass>com.concept1tech.unn.PageRequest</MissingClass>
+    <MissingClass>com.concept1tech.unn.PageResponse</MissingClass>
+    <MissingClass>com.concept1tech.unn.ParcelableCharSequence</MissingClass>
+    <MissingClass>com.google.android.material.snackbar.Snackbar</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>org.jsoup.Jsoup</MissingClass>
+    <MissingClass>org.jsoup.nodes.Document</MissingClass>
+    <MissingClass>org.jsoup.nodes.Document$OutputSettings</MissingClass>
+    <MissingClass>org.jsoup.nodes.Element</MissingClass>
+    <MissingClass>org.jsoup.safety.Whitelist</MissingClass>
+    <MissingClass>org.jsoup.select.Elements</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 03:32:28 +0400" total_classes="37" referenced_classes="239" total_bugs="35" total_size="2160" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="3.47" clock_seconds="1.23" peak_mbytes="347.88" alloc_mbytes="768.00" gc_seconds="0.03" priority_2="33" priority_1="2">
+    <FileStats path="com/concept1tech/instalate/App.java" bugCount="0" size="45"/>
+    <FileStats path="com/concept1tech/instalate/BootCompletedReceiver.java" bugCount="0" size="12"/>
+    <FileStats path="com/concept1tech/instalate/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/concept1tech/instalate/ClipboardListenerService.java" bugCount="3" size="112" bugHash="73b1016a25a9e100d858ff0f80a62ef4"/>
+    <FileStats path="com/concept1tech/instalate/EntryItem.java" bugCount="1" size="41" bugHash="6ab280ed7ed6d158952803208ed203fd"/>
+    <FileStats path="com/concept1tech/instalate/Language.java" bugCount="0" size="48"/>
+    <FileStats path="com/concept1tech/instalate/ListPreferencePlus.java" bugCount="0" size="34"/>
+    <FileStats path="com/concept1tech/instalate/PrefsActivity.java" bugCount="0" size="40"/>
+    <FileStats path="com/concept1tech/instalate/PrefsLicensesFragment.java" bugCount="0" size="6"/>
+    <FileStats path="com/concept1tech/instalate/PrefsRootFragment.java" bugCount="1" size="237" bugHash="3fc87c45337a6d785b55d21dd0f9af19"/>
+    <FileStats path="com/concept1tech/instalate/Provider.java" bugCount="4" size="67" bugHash="c9752429762b7e6084ee191613e2f4bd"/>
+    <FileStats path="com/concept1tech/instalate/Providers/Beolingus.java" bugCount="0" size="75"/>
+    <FileStats path="com/concept1tech/instalate/Providers/DeepL.java" bugCount="0" size="34"/>
+    <FileStats path="com/concept1tech/instalate/Providers/Dictcc.java" bugCount="1" size="66" bugHash="ddc197eca98f647b7f872c1e2957d750"/>
+    <FileStats path="com/concept1tech/instalate/Providers/Gcide.java" bugCount="1" size="72" bugHash="eae8f159ce61d6fda99158aaced05a69"/>
+    <FileStats path="com/concept1tech/instalate/Providers/Heinzelnisse.java" bugCount="0" size="81"/>
+    <FileStats path="com/concept1tech/instalate/Providers/LibreTranslate.java" bugCount="0" size="59"/>
+    <FileStats path="com/concept1tech/instalate/Providers/Linguee.java" bugCount="0" size="90"/>
+    <FileStats path="com/concept1tech/instalate/Providers/WikDict.java" bugCount="0" size="146"/>
+    <FileStats path="com/concept1tech/instalate/Providers/WiktionaryLinks.java" bugCount="1" size="73" bugHash="7f35b6145ad46d037a7efff9f4d40515"/>
+    <FileStats path="com/concept1tech/instalate/TranslationAdapter.java" bugCount="1" size="34" bugHash="67259fdee370ea7c12467d92fd097dfa"/>
+    <FileStats path="com/concept1tech/instalate/TranslationData.java" bugCount="7" size="119" bugHash="4b7628d45e90eb418f93f03e582baf76"/>
+    <FileStats path="com/concept1tech/instalate/TranslationDialogActivity.java" bugCount="4" size="147" bugHash="a4d0d030cc753dc537d3a9b4b767266b"/>
+    <FileStats path="com/concept1tech/instalate/TranslationTask.java" bugCount="3" size="52" bugHash="1be0e0f59abb07a7d69f4e48cb62cc0b"/>
+    <FileStats path="com/concept1tech/instalate/TriggerView.java" bugCount="4" size="337" bugHash="b31542ff778ddc7ad86c5b1f5ea6a58e"/>
+    <FileStats path="com/concept1tech/instalate/TripleListPreference.java" bugCount="4" size="123" bugHash="ba67b9968f354f58415ded1b74d915fe"/>
+    <PackageStats package="com.concept1tech.instalate" total_bugs="32" total_types="28" total_size="1464" priority_2="30" priority_1="2">
+      <ClassStats class="com.concept1tech.instalate.App" sourceFile="App.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.BootCompletedReceiver" sourceFile="BootCompletedReceiver.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.ClipboardListenerService" sourceFile="ClipboardListenerService.java" interface="false" size="112" bugs="3" priority_2="2" priority_1="1"/>
+      <ClassStats class="com.concept1tech.instalate.EntryItem" sourceFile="EntryItem.java" interface="false" size="41" bugs="1" priority_2="1"/>
+      <ClassStats class="com.concept1tech.instalate.Language" sourceFile="Language.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.Language$1" sourceFile="Language.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.ListPreferencePlus" sourceFile="ListPreferencePlus.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.PrefsActivity" sourceFile="PrefsActivity.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.PrefsLicensesFragment" sourceFile="PrefsLicensesFragment.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.PrefsRootFragment" sourceFile="PrefsRootFragment.java" interface="false" size="237" bugs="1" priority_2="1"/>
+      <ClassStats class="com.concept1tech.instalate.Provider" sourceFile="Provider.java" interface="false" size="67" bugs="4" priority_2="3" priority_1="1"/>
+      <ClassStats class="com.concept1tech.instalate.TranslationAdapter" sourceFile="TranslationAdapter.java" interface="false" size="24" bugs="1" priority_2="1"/>
+      <ClassStats class="com.concept1tech.instalate.TranslationAdapter$ViewHolder" sourceFile="TranslationAdapter.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TranslationData" sourceFile="TranslationData.java" interface="false" size="110" bugs="7" priority_2="7"/>
+      <ClassStats class="com.concept1tech.instalate.TranslationData$1" sourceFile="TranslationData.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TranslationDialogActivity" sourceFile="TranslationDialogActivity.java" interface="false" size="145" bugs="4" priority_2="4"/>
+      <ClassStats class="com.concept1tech.instalate.TranslationDialogActivity$OnCancelListener" sourceFile="TranslationDialogActivity.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TranslationTask" sourceFile="TranslationTask.java" interface="false" size="52" bugs="3" priority_2="3"/>
+      <ClassStats class="com.concept1tech.instalate.TriggerView" sourceFile="TriggerView.java" interface="false" size="208" bugs="4" priority_2="4"/>
+      <ClassStats class="com.concept1tech.instalate.TriggerView$1" sourceFile="TriggerView.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TriggerView$OnNewDropPositionListener" sourceFile="TriggerView.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TriggerView$OnNewRelativeDropPositionListener" sourceFile="TriggerView.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TriggerView$Position" sourceFile="TriggerView.java" interface="false" size="114" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TripleListPreference" sourceFile="TripleListPreference.java" interface="false" size="93" bugs="4" priority_2="4"/>
+      <ClassStats class="com.concept1tech.instalate.TripleListPreference$MyListAdapter" sourceFile="TripleListPreference.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TripleListPreference$OnPreferenceButtonChangeListener" sourceFile="TripleListPreference.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.TripleListPreference$OnPreferenceChangeListener" sourceFile="TripleListPreference.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.concept1tech.instalate.Providers" total_bugs="3" total_types="9" total_size="696" priority_2="3">
+      <ClassStats class="com.concept1tech.instalate.Providers.Beolingus" sourceFile="Beolingus.java" interface="false" size="75" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.DeepL" sourceFile="DeepL.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.Dictcc" sourceFile="Dictcc.java" interface="false" size="66" bugs="1" priority_2="1"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.Gcide" sourceFile="Gcide.java" interface="false" size="72" bugs="1" priority_2="1"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.Heinzelnisse" sourceFile="Heinzelnisse.java" interface="false" size="81" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.LibreTranslate" sourceFile="LibreTranslate.java" interface="false" size="59" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.Linguee" sourceFile="Linguee.java" interface="false" size="90" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.WikDict" sourceFile="WikDict.java" interface="false" size="146" bugs="0"/>
+      <ClassStats class="com.concept1tech.instalate.Providers.WiktionaryLinks" sourceFile="WiktionaryLinks.java" interface="false" size="73" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="65" invocations="698" avgMicrosecondsPerInvocation="94" maxMicrosecondsPerInvocation="5623" standardDeviationMicrosecondsPerInvocation="272"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="50" invocations="300" avgMicrosecondsPerInvocation="168" maxMicrosecondsPerInvocation="3198" standardDeviationMicrosecondsPerInvocation="342"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="50" invocations="309" avgMicrosecondsPerInvocation="162" maxMicrosecondsPerInvocation="7539" standardDeviationMicrosecondsPerInvocation="489"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="47" invocations="307" avgMicrosecondsPerInvocation="153" maxMicrosecondsPerInvocation="6046" standardDeviationMicrosecondsPerInvocation="502"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="45" invocations="317" avgMicrosecondsPerInvocation="144" maxMicrosecondsPerInvocation="4192" standardDeviationMicrosecondsPerInvocation="441"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="44" invocations="239" avgMicrosecondsPerInvocation="186" maxMicrosecondsPerInvocation="4329" standardDeviationMicrosecondsPerInvocation="409"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="38" invocations="314" avgMicrosecondsPerInvocation="122" maxMicrosecondsPerInvocation="3032" standardDeviationMicrosecondsPerInvocation="283"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="31" invocations="316" avgMicrosecondsPerInvocation="100" maxMicrosecondsPerInvocation="2506" standardDeviationMicrosecondsPerInvocation="194"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="23" invocations="246" avgMicrosecondsPerInvocation="96" maxMicrosecondsPerInvocation="1479" standardDeviationMicrosecondsPerInvocation="184"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="23" invocations="339" avgMicrosecondsPerInvocation="68" maxMicrosecondsPerInvocation="4085" standardDeviationMicrosecondsPerInvocation="248"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="19" invocations="239" avgMicrosecondsPerInvocation="80" maxMicrosecondsPerInvocation="1327" standardDeviationMicrosecondsPerInvocation="163"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="18" invocations="37" avgMicrosecondsPerInvocation="503" maxMicrosecondsPerInvocation="7127" standardDeviationMicrosecondsPerInvocation="1187"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="18" invocations="316" avgMicrosecondsPerInvocation="58" maxMicrosecondsPerInvocation="6135" standardDeviationMicrosecondsPerInvocation="349"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="17" invocations="239" avgMicrosecondsPerInvocation="72" maxMicrosecondsPerInvocation="1068" standardDeviationMicrosecondsPerInvocation="135"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="16" invocations="718" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="250" standardDeviationMicrosecondsPerInvocation="20"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="15" invocations="37" avgMicrosecondsPerInvocation="425" maxMicrosecondsPerInvocation="2595" standardDeviationMicrosecondsPerInvocation="477"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="15" invocations="239" avgMicrosecondsPerInvocation="64" maxMicrosecondsPerInvocation="1561" standardDeviationMicrosecondsPerInvocation="167"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="14" invocations="239" avgMicrosecondsPerInvocation="62" maxMicrosecondsPerInvocation="3106" standardDeviationMicrosecondsPerInvocation="225"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="14" invocations="309" avgMicrosecondsPerInvocation="46" maxMicrosecondsPerInvocation="1303" standardDeviationMicrosecondsPerInvocation="121"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="14" invocations="322" avgMicrosecondsPerInvocation="43" maxMicrosecondsPerInvocation="2281" standardDeviationMicrosecondsPerInvocation="168"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="13" invocations="239" avgMicrosecondsPerInvocation="57" maxMicrosecondsPerInvocation="928" standardDeviationMicrosecondsPerInvocation="134"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="13" invocations="37" avgMicrosecondsPerInvocation="356" maxMicrosecondsPerInvocation="1449" standardDeviationMicrosecondsPerInvocation="333"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="12" invocations="239" avgMicrosecondsPerInvocation="52" maxMicrosecondsPerInvocation="1901" standardDeviationMicrosecondsPerInvocation="206"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ResourceInMultipleThreadsDetector" totalMilliseconds="11" invocations="37" avgMicrosecondsPerInvocation="313" maxMicrosecondsPerInvocation="1544" standardDeviationMicrosecondsPerInvocation="317"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="11" invocations="316" avgMicrosecondsPerInvocation="36" maxMicrosecondsPerInvocation="3198" standardDeviationMicrosecondsPerInvocation="220"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

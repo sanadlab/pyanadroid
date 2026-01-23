@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762928737532" analysisTimestamp="1762928740775" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/FlappyBird/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/FlappyBird/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="AT_NONATOMIC_64BIT_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="2ed92d78e038cd83ba75d97919619832" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this 64-bit primitive variable may not atomic</ShortMessage>
+    <LongMessage>This write of the 64-bit primitive variable &quot;lastFrameTime&quot; may not atomic</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="resetGame" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="185" end="194" startBytecode="0" endBytecode="141" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.resetGame()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="lastFrameTime" signature="J" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.lastFrameTime</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="193" end="193" startBytecode="60" endBytecode="60" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 193]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_NONATOMIC_64BIT_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="929a363f085fe0b36d574c912c3ad6f1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this 64-bit primitive variable may not atomic</ShortMessage>
+    <LongMessage>This write of the 64-bit primitive variable &quot;lastFrameTime&quot; may not atomic</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="surfaceCreated" signature="(Landroid/view/SurfaceHolder;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="415" end="436" startBytecode="0" endBytecode="207" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.surfaceCreated(SurfaceHolder)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="lastFrameTime" signature="J" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.lastFrameTime</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="421" end="421" startBytecode="54" endBytecode="54" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 421]</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="425" end="425" startBytecode="69" endBytecode="69" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at GameView.java:[line 425]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="8dd9fbbdf8ad7e9d81638dfb362ee125" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;isGameOver&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="gameOver" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="309" end="315" startBytecode="0" endBytecode="84" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.gameOver()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="isGameOver" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.isGameOver</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="311" end="311" startBytecode="18" endBytecode="18" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 311]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="ec202e013381f2b7f46e9d512b749121" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;scaledBirdHeight&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="init" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="102" end="182" startBytecode="0" endBytecode="772" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.init(Context)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="scaledBirdHeight" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.scaledBirdHeight</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="139" end="139" startBytecode="249" endBytecode="249" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 139]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="ea3be6372e964b2e1833635abe58a6a3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;scaledBirdWidth&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="init" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="102" end="182" startBytecode="0" endBytecode="772" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.init(Context)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="scaledBirdWidth" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.scaledBirdWidth</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="141" end="141" startBytecode="273" endBytecode="273" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 141]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="53c79265f131494fcc1188ad0ec3195f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;scaledPipeWidth&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="init" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="102" end="182" startBytecode="0" endBytecode="772" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.init(Context)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="scaledPipeWidth" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.scaledPipeWidth</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="152" end="152" startBytecode="347" endBytecode="347" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 152]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="1b9ef335f8e63d060da06406e2312d1f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;screenHeight&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="init" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="102" end="182" startBytecode="0" endBytecode="772" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.init(Context)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="screenHeight" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.screenHeight</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="112" end="112" startBytecode="70" endBytecode="70" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 112]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="25ceca313dd44431dc68feac37e4c8a8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;screenWidth&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="init" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="102" end="182" startBytecode="0" endBytecode="772" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.init(Context)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="screenWidth" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.screenWidth</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="111" end="111" startBytecode="61" endBytecode="61" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 111]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="29c11f93a356c0ac0e30f8186733593c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;birdVelocityY&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="onTouchEvent" signature="(Landroid/view/MotionEvent;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="397" end="408" startBytecode="0" endBytecode="117" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.onTouchEvent(MotionEvent)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="birdVelocityY" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.birdVelocityY</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="403" end="403" startBytecode="24" endBytecode="24" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 403]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="9954daccd31aeed1f7e89fb0877c4ffe" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;birdVelocityY&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="resetGame" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="185" end="194" startBytecode="0" endBytecode="141" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.resetGame()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="birdVelocityY" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.birdVelocityY</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="187" end="187" startBytecode="22" endBytecode="22" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 187]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="1bc60089399a6030e46c7046e2c0552c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;birdX&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="resetGame" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="185" end="194" startBytecode="0" endBytecode="141" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.resetGame()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="birdX" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.birdX</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="185" end="185" startBytecode="7" endBytecode="7" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 185]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="a2bd14f07578caf4b7deba6f23600406" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;birdY&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="resetGame" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="185" end="194" startBytecode="0" endBytecode="141" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.resetGame()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="birdY" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.birdY</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="186" end="186" startBytecode="17" endBytecode="17" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 186]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="204b80e566f61ed7ce08fc8221aea76" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;isGameOver&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="resetGame" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="185" end="194" startBytecode="0" endBytecode="141" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.resetGame()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="isGameOver" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.isGameOver</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="190" end="190" startBytecode="41" endBytecode="41" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 190]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="922e31c84a0535a5658bc6993f64b320" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;lastPipeX&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="resetGame" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="185" end="194" startBytecode="0" endBytecode="141" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.resetGame()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="lastPipeX" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.lastPipeX</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="191" end="191" startBytecode="49" endBytecode="49" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 191]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="31ff1d5a9971f6408cf67d9855ab8e75" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;score&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="resetGame" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="185" end="194" startBytecode="0" endBytecode="141" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.resetGame()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="score" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.score</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="188" end="188" startBytecode="27" endBytecode="27" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 188]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="8209f24aae5aa48c2c48061795668ddf" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;lastPipeX&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="spawnInitialPipes" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="198" end="204" startBytecode="0" endBytecode="144" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.spawnInitialPipes()</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="lastPipeX" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.lastPipeX</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="203" end="203" startBytecode="39" endBytecode="39" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 203]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="77c7d16cc6579e417bb4bb6607422d2c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;screenHeight&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="surfaceChanged" signature="(Landroid/view/SurfaceHolder;III)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="440" end="448" startBytecode="0" endBytecode="142" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.surfaceChanged(SurfaceHolder, int, int, int)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="screenHeight" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.screenHeight</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="444" end="444" startBytecode="45" endBytecode="45" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 444]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="afa785739c884564d9ae5c41e54444e3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;screenWidth&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="surfaceChanged" signature="(Landroid/view/SurfaceHolder;III)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="440" end="448" startBytecode="0" endBytecode="142" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.surfaceChanged(SurfaceHolder, int, int, int)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="screenWidth" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.screenWidth</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="443" end="443" startBytecode="39" endBytecode="39" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 443]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="a6a1521a12f4771250e8b6135c77ea0d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.FLAP_STRENGTH; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="FLAP_STRENGTH" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.FLAP_STRENGTH</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="55" end="55" startBytecode="23" endBytecode="23" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 55]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="8faf07bf1cfec2385ab49f8672464082" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.GRAVITY; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="GRAVITY" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.GRAVITY</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="54" end="54" startBytecode="17" endBytecode="17" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 54]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="a47666c0517d3f5209e2fa0ab65ae613" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_GAP; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="PIPE_GAP" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_GAP</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="60" end="60" startBytecode="36" endBytecode="36" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 60]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="93945f867f443cbf95c8405becd78df2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_SPAWN_DISTANCE; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="PIPE_SPAWN_DISTANCE" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_SPAWN_DISTANCE</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="62" end="62" startBytecode="50" endBytecode="50" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 62]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="2b0fd03741e7057ba299c991a6c46b3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_SPEED; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="PIPE_SPEED" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_SPEED</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="59" end="59" startBytecode="29" endBytecode="29" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="f0ad6f255796f3bd0ecc4247f27bb3a1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_WIDTH; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="PIPE_WIDTH" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.PIPE_WIDTH</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="61" end="61" startBytecode="43" endBytecode="43" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 61]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="f51a7eff093ce18ec3355504319e5d82" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.TARGET_FRAME_TIME; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="TARGET_FRAME_TIME" signature="J" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.TARGET_FRAME_TIME</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="74" end="74" startBytecode="62" endBytecode="62" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="b6732b75cba26fa301abfabd7f0c9c3d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.scaleFactorX</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="scaleFactorX" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.scaleFactorX</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="77" end="77" startBytecode="67" endBytecode="67" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 77]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="aa608a7c540bd94ab20cd0d0570b6426" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.scaleFactorY</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" start="30" end="478" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 30-478]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" name="scaleFactorY" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView.scaleFactorY</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" primary="true" start="78" end="78" startBytecode="72" endBytecode="72" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 78]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="8b1c8535c0545937c878567a2573e8fe" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to bottomPipeHeight in com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair.draw(Canvas)</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair" start="484" end="534" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+        <Message>At GameView.java:[lines 484-534]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair" name="draw" signature="(Landroid/graphics/Canvas;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair" start="495" end="525" startBytecode="0" endBytecode="154" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair.draw(Canvas)</Message>
+    </Method>
+    <LocalVariable name="bottomPipeHeight" register="5" pc="125" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named bottomPipeHeight</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair" primary="true" start="507" end="507" startBytecode="123" endBytecode="123" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java">
+      <Message>At GameView.java:[line 507]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="bottomPipeHeight"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS">
+    <ShortDescription>This write of this shared primitive variable may not be visible to other threads</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA00-J.+Ensure+visibility+when+accessing+shared+primitive+variables">SEI CERT rule VNA00-J</a>
+          describes that reading a shared primitive variable in one thread may not yield the value of the most recent write to the variable from another thread.
+          Consequently, the thread may observe a stale value of the shared variable.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+          This guarantees that 64-bit primitive long and double variables are accessed atomically.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_NONATOMIC_64BIT_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS">
+    <ShortDescription>This write of this 64-bit primitive variable may not atomic</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          The long and the double are 64-bit primitive types, and depending on the Java Virtual Machine implementation assigning a value to them can be treated as two separate 32-bit writes, and as such it's not atomic.
+          See <a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.7">JSL 17.7. Non-Atomic Treatment of double and long</a>.
+          See SEI CERT rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA05-J.+Ensure+atomicity+when+reading+and+writing+64-bit+values">VNA05-J. Ensure atomicity when reading and writing 64-bit values</a> for more info.
+
+          This bug can be ignored in platforms which guarantee that 64-bit long and double type read and write operations are atomic.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="AT">
+    <Description>Possible atomicity violation</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="6">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.flappybird.R</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.flappybird.R$drawable</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.flappybird.R$id</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.flappybird.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:25:37 +0400" total_classes="3" referenced_classes="109" total_bugs="28" total_size="336" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="7.34" clock_seconds="3.39" peak_mbytes="258.60" alloc_mbytes="768.00" gc_seconds="0.02" priority_2="28">
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/flappybird/GameView.java" bugCount="28" size="309" bugHash="ded78b2cfcf46b0c4e21e067fe2e7c44"/>
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/flappybird/MainActivity.java" bugCount="0" size="27"/>
+    <PackageStats package="com.sanad.gemini_2_dot_5_pro_preview.flappybird" total_bugs="28" total_types="3" total_size="336" priority_2="28">
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView" sourceFile="GameView.java" interface="false" size="269" bugs="27" priority_2="27"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.flappybird.GameView$PipePair" sourceFile="GameView.java" interface="false" size="40" bugs="1" priority_2="1"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.flappybird.MainActivity" sourceFile="MainActivity.java" interface="false" size="27" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="442" invocations="443" avgMicrosecondsPerInvocation="997" maxMicrosecondsPerInvocation="65806" standardDeviationMicrosecondsPerInvocation="3816"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="217" invocations="109" avgMicrosecondsPerInvocation="1992" maxMicrosecondsPerInvocation="61305" standardDeviationMicrosecondsPerInvocation="6336"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="126" invocations="28" avgMicrosecondsPerInvocation="4503" maxMicrosecondsPerInvocation="24345" standardDeviationMicrosecondsPerInvocation="6591"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="116" invocations="26" avgMicrosecondsPerInvocation="4485" maxMicrosecondsPerInvocation="39584" standardDeviationMicrosecondsPerInvocation="8879"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="107" invocations="26" avgMicrosecondsPerInvocation="4125" maxMicrosecondsPerInvocation="15790" standardDeviationMicrosecondsPerInvocation="4237"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="94" invocations="135" avgMicrosecondsPerInvocation="702" maxMicrosecondsPerInvocation="9918" standardDeviationMicrosecondsPerInvocation="1354"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="83" invocations="109" avgMicrosecondsPerInvocation="768" maxMicrosecondsPerInvocation="40131" standardDeviationMicrosecondsPerInvocation="4418"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="79" invocations="3" avgMicrosecondsPerInvocation="26465" maxMicrosecondsPerInvocation="52149" standardDeviationMicrosecondsPerInvocation="18883"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="74" invocations="26" avgMicrosecondsPerInvocation="2883" maxMicrosecondsPerInvocation="20227" standardDeviationMicrosecondsPerInvocation="4348"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="74" invocations="385" avgMicrosecondsPerInvocation="192" maxMicrosecondsPerInvocation="6511" standardDeviationMicrosecondsPerInvocation="654"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="73" invocations="109" avgMicrosecondsPerInvocation="670" maxMicrosecondsPerInvocation="8924" standardDeviationMicrosecondsPerInvocation="1243"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="72" invocations="30" avgMicrosecondsPerInvocation="2404" maxMicrosecondsPerInvocation="14646" standardDeviationMicrosecondsPerInvocation="3456"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="71" invocations="109" avgMicrosecondsPerInvocation="652" maxMicrosecondsPerInvocation="12788" standardDeviationMicrosecondsPerInvocation="1907"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="70" invocations="26" avgMicrosecondsPerInvocation="2721" maxMicrosecondsPerInvocation="10874" standardDeviationMicrosecondsPerInvocation="2840"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="68" invocations="109" avgMicrosecondsPerInvocation="626" maxMicrosecondsPerInvocation="6584" standardDeviationMicrosecondsPerInvocation="1234"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="63" invocations="26" avgMicrosecondsPerInvocation="2437" maxMicrosecondsPerInvocation="41691" standardDeviationMicrosecondsPerInvocation="7888"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="59" invocations="26" avgMicrosecondsPerInvocation="2294" maxMicrosecondsPerInvocation="14227" standardDeviationMicrosecondsPerInvocation="3065"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="56" invocations="109" avgMicrosecondsPerInvocation="519" maxMicrosecondsPerInvocation="7675" standardDeviationMicrosecondsPerInvocation="1166"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="50" invocations="455" avgMicrosecondsPerInvocation="111" maxMicrosecondsPerInvocation="4484" standardDeviationMicrosecondsPerInvocation="284"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindPuzzlers" totalMilliseconds="49" invocations="3" avgMicrosecondsPerInvocation="16491" maxMicrosecondsPerInvocation="48957" standardDeviationMicrosecondsPerInvocation="22957"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SharedVariableAtomicityDetector" totalMilliseconds="46" invocations="3" avgMicrosecondsPerInvocation="15567" maxMicrosecondsPerInvocation="45357" standardDeviationMicrosecondsPerInvocation="21065"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="40" invocations="3" avgMicrosecondsPerInvocation="13539" maxMicrosecondsPerInvocation="37639" standardDeviationMicrosecondsPerInvocation="17045"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="35" invocations="3" avgMicrosecondsPerInvocation="11865" maxMicrosecondsPerInvocation="22491" standardDeviationMicrosecondsPerInvocation="8015"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadEndOfStreamCheck" totalMilliseconds="34" invocations="3" avgMicrosecondsPerInvocation="11406" maxMicrosecondsPerInvocation="33661" standardDeviationMicrosecondsPerInvocation="15737"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

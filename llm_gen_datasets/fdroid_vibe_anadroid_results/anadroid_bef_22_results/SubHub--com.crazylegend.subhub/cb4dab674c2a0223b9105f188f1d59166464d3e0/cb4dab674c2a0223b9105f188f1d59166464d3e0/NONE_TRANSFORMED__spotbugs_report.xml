@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762893777637" analysisTimestamp="1762893781935" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/SubHub/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/SubHub/NONE_TRANSFORMED_/app/build/generated/source/kapt/debug</SrcDir>
+  </Project>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="a533a6ae9f13008b60f528469c9a5ea2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.RelativeLayout in com.crazylegend.subhub.databinding.DialogChooseLanguageBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" start="20" end="101" sourcefile="DialogChooseLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java">
+        <Message>At DialogChooseLanguageBinding.java:[lines 20-101]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.DialogChooseLanguageBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/DialogChooseLanguageBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" start="73" end="101" startBytecode="0" endBytecode="61" sourcefile="DialogChooseLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.DialogChooseLanguageBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/RelativeLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.RelativeLayout" start="20" end="62" sourcefile="RelativeLayout.java" sourcepath="android/widget/RelativeLayout.java">
+        <Message>At RelativeLayout.java:[lines 20-62]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.RelativeLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="84" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" primary="true" start="97" end="97" startBytecode="85" endBytecode="85" sourcefile="DialogChooseLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java">
+      <Message>At DialogChooseLanguageBinding.java:[line 97]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="81837edd2e2319ec254c328441fab306" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.DialogChooseLanguageBinding.getRoot() may expose internal representation by returning DialogChooseLanguageBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" start="20" end="101" sourcefile="DialogChooseLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java">
+        <Message>At DialogChooseLanguageBinding.java:[lines 20-101]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.DialogChooseLanguageBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" name="getRoot" signature="()Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" start="49" end="49" startBytecode="0" endBytecode="46" sourcefile="DialogChooseLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.DialogChooseLanguageBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" name="rootView" signature="Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" sourcefile="DialogChooseLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java">
+        <Message>In DialogChooseLanguageBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.DialogChooseLanguageBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" primary="true" start="49" end="49" startBytecode="4" endBytecode="4" sourcefile="DialogChooseLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java">
+      <Message>At DialogChooseLanguageBinding.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="c4b12baebea87f2b17ec6000fbcb95b8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.RelativeLayout in com.crazylegend.subhub.databinding.DialogConfirmationBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" start="20" end="122" sourcefile="DialogConfirmationBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java">
+        <Message>At DialogConfirmationBinding.java:[lines 20-122]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.DialogConfirmationBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/DialogConfirmationBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" start="82" end="122" startBytecode="0" endBytecode="83" sourcefile="DialogConfirmationBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.DialogConfirmationBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/RelativeLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.RelativeLayout" start="20" end="62" sourcefile="RelativeLayout.java" sourcepath="android/widget/RelativeLayout.java">
+        <Message>At RelativeLayout.java:[lines 20-62]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.RelativeLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="126" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" primary="true" start="118" end="118" startBytecode="127" endBytecode="127" sourcefile="DialogConfirmationBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java">
+      <Message>At DialogConfirmationBinding.java:[line 118]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="38d304dc0c3314fd7d2a9f5bb16423eb" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.DialogConfirmationBinding.getRoot() may expose internal representation by returning DialogConfirmationBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" start="20" end="122" sourcefile="DialogConfirmationBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java">
+        <Message>At DialogConfirmationBinding.java:[lines 20-122]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.DialogConfirmationBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" name="getRoot" signature="()Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" start="58" end="58" startBytecode="0" endBytecode="46" sourcefile="DialogConfirmationBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.DialogConfirmationBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" name="rootView" signature="Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" sourcefile="DialogConfirmationBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java">
+        <Message>In DialogConfirmationBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.DialogConfirmationBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.DialogConfirmationBinding" primary="true" start="58" end="58" startBytecode="4" endBytecode="4" sourcefile="DialogConfirmationBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java">
+      <Message>At DialogConfirmationBinding.java:[line 58]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="8984d8933dce20b445dcf24454b40b44" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.RelativeLayout in com.crazylegend.subhub.databinding.DialogManualSubSearchBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" start="21" end="167" sourcefile="DialogManualSubSearchBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java">
+        <Message>At DialogManualSubSearchBinding.java:[lines 21-167]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.DialogManualSubSearchBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/DialogManualSubSearchBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" start="102" end="167" startBytecode="0" endBytecode="127" sourcefile="DialogManualSubSearchBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.DialogManualSubSearchBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/RelativeLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.RelativeLayout" start="20" end="62" sourcefile="RelativeLayout.java" sourcepath="android/widget/RelativeLayout.java">
+        <Message>At RelativeLayout.java:[lines 20-62]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.RelativeLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="210" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" primary="true" start="162" end="162" startBytecode="211" endBytecode="211" sourcefile="DialogManualSubSearchBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java">
+      <Message>At DialogManualSubSearchBinding.java:[line 162]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="efa9fe5c6552db43d3cb9be794f6297c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.DialogManualSubSearchBinding.getRoot() may expose internal representation by returning DialogManualSubSearchBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" start="21" end="167" sourcefile="DialogManualSubSearchBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java">
+        <Message>At DialogManualSubSearchBinding.java:[lines 21-167]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.DialogManualSubSearchBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" name="getRoot" signature="()Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" start="78" end="78" startBytecode="0" endBytecode="46" sourcefile="DialogManualSubSearchBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.DialogManualSubSearchBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" name="rootView" signature="Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" sourcefile="DialogManualSubSearchBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java">
+        <Message>In DialogManualSubSearchBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.DialogManualSubSearchBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" primary="true" start="78" end="78" startBytecode="4" endBytecode="4" sourcefile="DialogManualSubSearchBinding.java" sourcepath="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java">
+      <Message>At DialogManualSubSearchBinding.java:[line 78]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="f2eae1ab1f8fe80335141054477b49c4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.RelativeLayout in com.crazylegend.subhub.databinding.FragmentLoadSubsBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" start="18" end="90" sourcefile="FragmentLoadSubsBinding.java" sourcepath="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java">
+        <Message>At FragmentLoadSubsBinding.java:[lines 18-90]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.FragmentLoadSubsBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/FragmentLoadSubsBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" start="67" end="90" startBytecode="0" endBytecode="52" sourcefile="FragmentLoadSubsBinding.java" sourcepath="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.FragmentLoadSubsBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/RelativeLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.RelativeLayout" start="20" end="62" sourcefile="RelativeLayout.java" sourcepath="android/widget/RelativeLayout.java">
+        <Message>At RelativeLayout.java:[lines 20-62]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.RelativeLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="67" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" primary="true" start="86" end="86" startBytecode="68" endBytecode="68" sourcefile="FragmentLoadSubsBinding.java" sourcepath="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java">
+      <Message>At FragmentLoadSubsBinding.java:[line 86]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="ab4e962dfd530938b86da7007e37c9f8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.FragmentLoadSubsBinding.getRoot() may expose internal representation by returning FragmentLoadSubsBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" start="18" end="90" sourcefile="FragmentLoadSubsBinding.java" sourcepath="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java">
+        <Message>At FragmentLoadSubsBinding.java:[lines 18-90]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.FragmentLoadSubsBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" name="getRoot" signature="()Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" start="43" end="43" startBytecode="0" endBytecode="46" sourcefile="FragmentLoadSubsBinding.java" sourcepath="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.FragmentLoadSubsBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" name="rootView" signature="Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" sourcefile="FragmentLoadSubsBinding.java" sourcepath="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java">
+        <Message>In FragmentLoadSubsBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.FragmentLoadSubsBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" primary="true" start="43" end="43" startBytecode="4" endBytecode="4" sourcefile="FragmentLoadSubsBinding.java" sourcepath="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java">
+      <Message>At FragmentLoadSubsBinding.java:[line 43]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="2712931976e2f74154673e803edcb2f1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.LinearLayout in com.crazylegend.subhub.databinding.ItemviewLanguageBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" start="18" end="88" sourcefile="ItemviewLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java">
+        <Message>At ItemviewLanguageBinding.java:[lines 18-88]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.ItemviewLanguageBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/ItemviewLanguageBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" start="66" end="88" startBytecode="0" endBytecode="50" sourcefile="ItemviewLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.ItemviewLanguageBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/LinearLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.LinearLayout" start="20" end="92" sourcefile="LinearLayout.java" sourcepath="android/widget/LinearLayout.java">
+        <Message>At LinearLayout.java:[lines 20-92]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.LinearLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="63" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" primary="true" start="84" end="84" startBytecode="64" endBytecode="64" sourcefile="ItemviewLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java">
+      <Message>At ItemviewLanguageBinding.java:[line 84]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="3b0e0aea3d8a2b06120ee90177b276dc" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.ItemviewLanguageBinding.getRoot() may expose internal representation by returning ItemviewLanguageBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" start="18" end="88" sourcefile="ItemviewLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java">
+        <Message>At ItemviewLanguageBinding.java:[lines 18-88]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.ItemviewLanguageBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" name="getRoot" signature="()Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" start="42" end="42" startBytecode="0" endBytecode="46" sourcefile="ItemviewLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.ItemviewLanguageBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" name="rootView" signature="Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" sourcefile="ItemviewLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java">
+        <Message>In ItemviewLanguageBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.ItemviewLanguageBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" primary="true" start="42" end="42" startBytecode="4" endBytecode="4" sourcefile="ItemviewLanguageBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java">
+      <Message>At ItemviewLanguageBinding.java:[line 42]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="677e7133271309d6095dd6c394bb7ce5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.RelativeLayout in com.crazylegend.subhub.databinding.ItemviewVideoBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" start="19" end="100" sourcefile="ItemviewVideoBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java">
+        <Message>At ItemviewVideoBinding.java:[lines 19-100]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.ItemviewVideoBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/ItemviewVideoBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" start="72" end="100" startBytecode="0" endBytecode="61" sourcefile="ItemviewVideoBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.ItemviewVideoBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/RelativeLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.RelativeLayout" start="20" end="62" sourcefile="RelativeLayout.java" sourcepath="android/widget/RelativeLayout.java">
+        <Message>At RelativeLayout.java:[lines 20-62]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.RelativeLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="84" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" primary="true" start="96" end="96" startBytecode="85" endBytecode="85" sourcefile="ItemviewVideoBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java">
+      <Message>At ItemviewVideoBinding.java:[line 96]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="173170e962e58901b08d8e2d3553e8a0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.ItemviewVideoBinding.getRoot() may expose internal representation by returning ItemviewVideoBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" start="19" end="100" sourcefile="ItemviewVideoBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java">
+        <Message>At ItemviewVideoBinding.java:[lines 19-100]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.ItemviewVideoBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" name="getRoot" signature="()Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" start="48" end="48" startBytecode="0" endBytecode="46" sourcefile="ItemviewVideoBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.ItemviewVideoBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" name="rootView" signature="Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" sourcefile="ItemviewVideoBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java">
+        <Message>In ItemviewVideoBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.ItemviewVideoBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.ItemviewVideoBinding" primary="true" start="48" end="48" startBytecode="4" endBytecode="4" sourcefile="ItemviewVideoBinding.java" sourcepath="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java">
+      <Message>At ItemviewVideoBinding.java:[line 48]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="e13f99f52067590039b4bf671ea90cbb" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.RelativeLayout in com.crazylegend.subhub.databinding.NoDataTextBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.NoDataTextBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoDataTextBinding" start="18" end="77" sourcefile="NoDataTextBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoDataTextBinding.java">
+        <Message>At NoDataTextBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.NoDataTextBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.NoDataTextBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/NoDataTextBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoDataTextBinding" start="62" end="77" startBytecode="0" endBytecode="39" sourcefile="NoDataTextBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoDataTextBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.NoDataTextBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/RelativeLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.RelativeLayout" start="20" end="62" sourcefile="RelativeLayout.java" sourcepath="android/widget/RelativeLayout.java">
+        <Message>At RelativeLayout.java:[lines 20-62]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.RelativeLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="42" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.NoDataTextBinding" primary="true" start="74" end="74" startBytecode="43" endBytecode="43" sourcefile="NoDataTextBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoDataTextBinding.java">
+      <Message>At NoDataTextBinding.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="c03a2efe4a8132ecca293d9c072d9b13" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.NoDataTextBinding.getRoot() may expose internal representation by returning NoDataTextBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.NoDataTextBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoDataTextBinding" start="18" end="77" sourcefile="NoDataTextBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoDataTextBinding.java">
+        <Message>At NoDataTextBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.NoDataTextBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.NoDataTextBinding" name="getRoot" signature="()Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoDataTextBinding" start="38" end="38" startBytecode="0" endBytecode="46" sourcefile="NoDataTextBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoDataTextBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.NoDataTextBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.NoDataTextBinding" name="rootView" signature="Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoDataTextBinding" sourcefile="NoDataTextBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoDataTextBinding.java">
+        <Message>In NoDataTextBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.NoDataTextBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.NoDataTextBinding" primary="true" start="38" end="38" startBytecode="4" endBytecode="4" sourcefile="NoDataTextBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoDataTextBinding.java">
+      <Message>At NoDataTextBinding.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="ec2b1c98f5306bde2ae070e631424eb4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.FrameLayout in com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding.bind(View)</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" start="17" end="66" sourcefile="NoFoldersSelectedLayoutBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java">
+        <Message>At NoFoldersSelectedLayoutBinding.java:[lines 17-66]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" name="bind" signature="(Landroid/view/View;)Lcom/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" start="57" end="66" startBytecode="0" endBytecode="28" sourcefile="NoFoldersSelectedLayoutBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/FrameLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.FrameLayout" start="20" end="55" sourcefile="FrameLayout.java" sourcepath="android/widget/FrameLayout.java">
+        <Message>At FrameLayout.java:[lines 20-55]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.FrameLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="23" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" primary="true" start="63" end="63" startBytecode="24" endBytecode="24" sourcefile="NoFoldersSelectedLayoutBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java">
+      <Message>At NoFoldersSelectedLayoutBinding.java:[line 63]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="1467c4571714537aa7085ffec0cc33d3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding.getRoot() may expose internal representation by returning NoFoldersSelectedLayoutBinding.rootView</LongMessage>
+    <Class classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" start="17" end="66" sourcefile="NoFoldersSelectedLayoutBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java">
+        <Message>At NoFoldersSelectedLayoutBinding.java:[lines 17-66]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" name="getRoot" signature="()Landroid/widget/FrameLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" start="33" end="33" startBytecode="0" endBytecode="46" sourcefile="NoFoldersSelectedLayoutBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java"/>
+      <Message>In method com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" name="rootView" signature="Landroid/widget/FrameLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" sourcefile="NoFoldersSelectedLayoutBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java">
+        <Message>In NoFoldersSelectedLayoutBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" primary="true" start="33" end="33" startBytecode="4" endBytecode="4" sourcefile="NoFoldersSelectedLayoutBinding.java" sourcepath="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java">
+      <Message>At NoFoldersSelectedLayoutBinding.java:[line 33]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="9628dde330b6695620c7c63433bd9d6a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog.getContext() may expose internal representation by returning Hilt_ChooseLanguageDialog.componentContext</LongMessage>
+    <Class classname="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" start="24" end="104" sourcefile="Hilt_ChooseLanguageDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java">
+        <Message>At Hilt_ChooseLanguageDialog.java:[lines 24-104]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" name="getContext" signature="()Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" start="65" end="65" startBytecode="0" endBytecode="46" sourcefile="Hilt_ChooseLanguageDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java"/>
+      <Message>In method com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog.getContext()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" name="componentContext" signature="Landroid/content/ContextWrapper;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" sourcefile="Hilt_ChooseLanguageDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java">
+        <Message>In Hilt_ChooseLanguageDialog.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog.componentContext</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" primary="true" start="65" end="65" startBytecode="4" endBytecode="4" sourcefile="Hilt_ChooseLanguageDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java">
+      <Message>At Hilt_ChooseLanguageDialog.java:[line 65]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="93aedb9eeb0d0bb8983c4e9e913b7d7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog.getContext() may expose internal representation by returning Hilt_ManualSubtitleSearchDialog.componentContext</LongMessage>
+    <Class classname="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" start="24" end="104" sourcefile="Hilt_ManualSubtitleSearchDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java">
+        <Message>At Hilt_ManualSubtitleSearchDialog.java:[lines 24-104]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" name="getContext" signature="()Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" start="65" end="65" startBytecode="0" endBytecode="46" sourcefile="Hilt_ManualSubtitleSearchDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java"/>
+      <Message>In method com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog.getContext()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" name="componentContext" signature="Landroid/content/ContextWrapper;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" sourcefile="Hilt_ManualSubtitleSearchDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java">
+        <Message>In Hilt_ManualSubtitleSearchDialog.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog.componentContext</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" primary="true" start="65" end="65" startBytecode="4" endBytecode="4" sourcefile="Hilt_ManualSubtitleSearchDialog.java" sourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java" relSourcepath="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java">
+      <Message>At Hilt_ManualSubtitleSearchDialog.java:[line 65]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="c6c787bab77eac71192e5c74364ef06c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment.getContext() may expose internal representation by returning Hilt_LoadSubtitlesFragment.componentContext</LongMessage>
+    <Class classname="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" start="24" end="104" sourcefile="Hilt_LoadSubtitlesFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java">
+        <Message>At Hilt_LoadSubtitlesFragment.java:[lines 24-104]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" name="getContext" signature="()Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" start="65" end="65" startBytecode="0" endBytecode="46" sourcefile="Hilt_LoadSubtitlesFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java"/>
+      <Message>In method com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment.getContext()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" name="componentContext" signature="Landroid/content/ContextWrapper;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" sourcefile="Hilt_LoadSubtitlesFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java">
+        <Message>In Hilt_LoadSubtitlesFragment.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment.componentContext</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" primary="true" start="65" end="65" startBytecode="4" endBytecode="4" sourcefile="Hilt_LoadSubtitlesFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java">
+      <Message>At Hilt_LoadSubtitlesFragment.java:[line 65]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="9bd4dda80a82f5a974a910005f840b0c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.crazylegend.subhub.ui.Hilt_MainFragment.getContext() may expose internal representation by returning Hilt_MainFragment.componentContext</LongMessage>
+    <Class classname="com.crazylegend.subhub.ui.Hilt_MainFragment" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.ui.Hilt_MainFragment" start="24" end="104" sourcefile="Hilt_MainFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java">
+        <Message>At Hilt_MainFragment.java:[lines 24-104]</Message>
+      </SourceLine>
+      <Message>In class com.crazylegend.subhub.ui.Hilt_MainFragment</Message>
+    </Class>
+    <Method classname="com.crazylegend.subhub.ui.Hilt_MainFragment" name="getContext" signature="()Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.ui.Hilt_MainFragment" start="65" end="65" startBytecode="0" endBytecode="46" sourcefile="Hilt_MainFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java"/>
+      <Message>In method com.crazylegend.subhub.ui.Hilt_MainFragment.getContext()</Message>
+    </Method>
+    <Field classname="com.crazylegend.subhub.ui.Hilt_MainFragment" name="componentContext" signature="Landroid/content/ContextWrapper;" isStatic="false" primary="true">
+      <SourceLine classname="com.crazylegend.subhub.ui.Hilt_MainFragment" sourcefile="Hilt_MainFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java">
+        <Message>In Hilt_MainFragment.java</Message>
+      </SourceLine>
+      <Message>Field com.crazylegend.subhub.ui.Hilt_MainFragment.componentContext</Message>
+    </Field>
+    <SourceLine classname="com.crazylegend.subhub.ui.Hilt_MainFragment" primary="true" start="65" end="65" startBytecode="4" endBytecode="4" sourcefile="Hilt_MainFragment.java" sourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java" relSourcepath="com/crazylegend/subhub/ui/Hilt_MainFragment.java">
+      <Message>At Hilt_MainFragment.java:[line 65]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="129">
+    <MissingClass>androidx.activity.ComponentActivity</MissingClass>
+    <MissingClass>androidx.activity.contextaware.OnContextAvailableListener</MissingClass>
+    <MissingClass>androidx.annotation.CallSuper</MissingClass>
+    <MissingClass>androidx.annotation.MainThread</MissingClass>
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.appcompat.widget.AppCompatImageView</MissingClass>
+    <MissingClass>androidx.appcompat.widget.AppCompatTextView</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentContainerView</MissingClass>
+    <MissingClass>androidx.hilt.work.HiltWrapper_WorkerFactoryModule</MissingClass>
+    <MissingClass>androidx.lifecycle.SavedStateHandle</MissingClass>
+    <MissingClass>androidx.lifecycle.ViewModelProvider</MissingClass>
+    <MissingClass>androidx.lifecycle.ViewModelProvider$Factory</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>com.crazylegend.customviews.DividerView</MissingClass>
+    <MissingClass>com.crazylegend.customviews.ui.ColorProgressBar</MissingClass>
+    <MissingClass>com.crazylegend.kotlinextensions.toaster.Toaster</MissingClass>
+    <MissingClass>com.crazylegend.subhub.AppLevel</MissingClass>
+    <MissingClass>com.crazylegend.subhub.MainActivity</MissingClass>
+    <MissingClass>com.crazylegend.subhub.R</MissingClass>
+    <MissingClass>com.crazylegend.subhub.R$id</MissingClass>
+    <MissingClass>com.crazylegend.subhub.R$layout</MissingClass>
+    <MissingClass>com.crazylegend.subhub.core.AbstractActivity</MissingClass>
+    <MissingClass>com.crazylegend.subhub.core.AbstractDialogFragment</MissingClass>
+    <MissingClass>com.crazylegend.subhub.core.AbstractFragment</MissingClass>
+    <MissingClass>com.crazylegend.subhub.di.modules.AppModule</MissingClass>
+    <MissingClass>com.crazylegend.subhub.di.providers.AdaptersProvider</MissingClass>
+    <MissingClass>com.crazylegend.subhub.di.providers.PermissionsProvider</MissingClass>
+    <MissingClass>com.crazylegend.subhub.dialogs.ChooseLanguageDialog</MissingClass>
+    <MissingClass>com.crazylegend.subhub.dialogs.ManualSubtitleSearchDialog</MissingClass>
+    <MissingClass>com.crazylegend.subhub.ui.LoadSubtitlesFragment</MissingClass>
+    <MissingClass>com.crazylegend.subhub.ui.MainFragment</MissingClass>
+    <MissingClass>com.crazylegend.subhub.vms.loadSubs.LoadSubsVM</MissingClass>
+    <MissingClass>com.funkymuse.opensubs.api.OpenSubsHeader</MissingClass>
+    <MissingClass>com.funkymuse.opensubshiltsealed.OpenSubsSealedHiltModule</MissingClass>
+    <MissingClass>com.funkymuse.opensubshiltsealed.OpenSubsSealedHiltModule_HeaderFactory</MissingClass>
+    <MissingClass>com.funkymuse.opensubshiltsealed.OpenSubsSealedHiltModule_SubsRetrofitFactory</MissingClass>
+    <MissingClass>com.funkymuse.opensubshiltsealed.OpenSubtitleSealedHiltRepository</MissingClass>
+    <MissingClass>com.funkymuse.opensubssealed.api.OpenSubsAPISealed</MissingClass>
+    <MissingClass>com.google.android.material.bottomnavigation.BottomNavigationView</MissingClass>
+    <MissingClass>com.google.android.material.button.MaterialButton</MissingClass>
+    <MissingClass>com.google.android.material.card.MaterialCardView</MissingClass>
+    <MissingClass>com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton</MissingClass>
+    <MissingClass>com.google.android.material.textfield.TextInputEditText</MissingClass>
+    <MissingClass>com.google.android.material.textfield.TextInputLayout</MissingClass>
+    <MissingClass>com.google.android.material.textview.MaterialTextView</MissingClass>
+    <MissingClass>com.google.gson.Gson</MissingClass>
+    <MissingClass>dagger.Binds</MissingClass>
+    <MissingClass>dagger.Component</MissingClass>
+    <MissingClass>dagger.MembersInjector</MissingClass>
+    <MissingClass>dagger.Module</MissingClass>
+    <MissingClass>dagger.Provides</MissingClass>
+    <MissingClass>dagger.Subcomponent</MissingClass>
+    <MissingClass>dagger.Subcomponent$Builder</MissingClass>
+    <MissingClass>dagger.hilt.InstallIn</MissingClass>
+    <MissingClass>dagger.hilt.android.ActivityRetainedLifecycle</MissingClass>
+    <MissingClass>dagger.hilt.android.components.ActivityComponent</MissingClass>
+    <MissingClass>dagger.hilt.android.components.ActivityRetainedComponent</MissingClass>
+    <MissingClass>dagger.hilt.android.components.FragmentComponent</MissingClass>
+    <MissingClass>dagger.hilt.android.components.ServiceComponent</MissingClass>
+    <MissingClass>dagger.hilt.android.components.ViewComponent</MissingClass>
+    <MissingClass>dagger.hilt.android.components.ViewModelComponent</MissingClass>
+    <MissingClass>dagger.hilt.android.components.ViewWithFragmentComponent</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.builders.ActivityComponentBuilder</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.builders.ActivityRetainedComponentBuilder</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.builders.FragmentComponentBuilder</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.builders.ServiceComponentBuilder</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.builders.ViewComponentBuilder</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.builders.ViewModelComponentBuilder</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.builders.ViewWithFragmentComponentBuilder</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories$ActivityEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories$FragmentEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories$InternalFactoryFactory</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories_InternalFactoryFactory_Factory</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.HiltViewModelFactory</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.HiltViewModelFactory$ViewModelFactoriesEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.HiltViewModelMap</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.HiltViewModelMap$KeySet</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.lifecycle.HiltWrapper_HiltViewModelFactory_ActivityCreatorEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ActivityComponentManager</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ActivityComponentManager$ActivityComponentBuilderEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ActivityRetainedComponentManager</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ActivityRetainedComponentManager$Lifecycle</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ActivityRetainedComponentManager_Lifecycle_Factory</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ApplicationComponentManager</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ComponentSupplier</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.FragmentComponentManager</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.FragmentComponentManager$FragmentComponentBuilderEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedComponentBuilderEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedLifecycleEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ServiceComponentManager</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ServiceComponentManager$ServiceComponentBuilderEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ViewComponentManager</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ViewComponentManager$ViewComponentBuilderEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.managers.ViewComponentManager$ViewWithFragmentComponentBuilderEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.modules.ApplicationContextModule</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideApplicationFactory</MissingClass>
+    <MissingClass>dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory</MissingClass>
+    <MissingClass>dagger.hilt.android.scopes.ActivityRetainedScoped</MissingClass>
+    <MissingClass>dagger.hilt.android.scopes.ActivityScoped</MissingClass>
+    <MissingClass>dagger.hilt.android.scopes.FragmentScoped</MissingClass>
+    <MissingClass>dagger.hilt.android.scopes.ServiceScoped</MissingClass>
+    <MissingClass>dagger.hilt.android.scopes.ViewModelScoped</MissingClass>
+    <MissingClass>dagger.hilt.android.scopes.ViewScoped</MissingClass>
+    <MissingClass>dagger.hilt.codegen.OriginatingElement</MissingClass>
+    <MissingClass>dagger.hilt.components.SingletonComponent</MissingClass>
+    <MissingClass>dagger.hilt.internal.GeneratedComponent</MissingClass>
+    <MissingClass>dagger.hilt.internal.GeneratedComponentManagerHolder</MissingClass>
+    <MissingClass>dagger.hilt.internal.GeneratedEntryPoint</MissingClass>
+    <MissingClass>dagger.hilt.internal.Preconditions</MissingClass>
+    <MissingClass>dagger.hilt.internal.UnsafeCasts</MissingClass>
+    <MissingClass>dagger.hilt.migration.DisableInstallInCheck</MissingClass>
+    <MissingClass>dagger.hilt.processor.internal.aggregateddeps.AggregatedDeps</MissingClass>
+    <MissingClass>dagger.internal.DaggerGenerated</MissingClass>
+    <MissingClass>dagger.internal.DoubleCheck</MissingClass>
+    <MissingClass>dagger.internal.Factory</MissingClass>
+    <MissingClass>dagger.internal.InjectedFieldSignature</MissingClass>
+    <MissingClass>dagger.internal.MemoizedSentinel</MissingClass>
+    <MissingClass>dagger.internal.Preconditions</MissingClass>
+    <MissingClass>dagger.multibindings.IntoMap</MissingClass>
+    <MissingClass>dagger.multibindings.IntoSet</MissingClass>
+    <MissingClass>dagger.multibindings.StringKey</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>javax.inject.Provider</MissingClass>
+    <MissingClass>javax.inject.Singleton</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 00:42:57 +0400" total_classes="92" referenced_classes="139" total_bugs="20" total_size="1420" num_packages="8" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.99" clock_seconds="0.81" peak_mbytes="258.11" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="20">
+    <FileStats path="com/crazylegend/subhub/AppLevel_GeneratedInjector.java" bugCount="0" size="2"/>
+    <FileStats path="com/crazylegend/subhub/AppLevel_HiltComponents.java" bugCount="0" size="49"/>
+    <FileStats path="com/crazylegend/subhub/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/crazylegend/subhub/DaggerAppLevel_HiltComponents_SingletonC.java" bugCount="0" size="354"/>
+    <FileStats path="com/crazylegend/subhub/Hilt_AppLevel.java" bugCount="0" size="22"/>
+    <FileStats path="com/crazylegend/subhub/Hilt_MainActivity.java" bugCount="0" size="40"/>
+    <FileStats path="com/crazylegend/subhub/MainActivity_GeneratedInjector.java" bugCount="0" size="2"/>
+    <FileStats path="com/crazylegend/subhub/databinding/ActivityMainBinding.java" bugCount="0" size="36"/>
+    <FileStats path="com/crazylegend/subhub/databinding/DialogChooseLanguageBinding.java" bugCount="2" size="45" bugHash="70fc3619aede138c05bf8ab7301b25ae"/>
+    <FileStats path="com/crazylegend/subhub/databinding/DialogConfirmationBinding.java" bugCount="2" size="57" bugHash="55ad90baa05feea70b4ebb57dda0f6f5"/>
+    <FileStats path="com/crazylegend/subhub/databinding/DialogManualSubSearchBinding.java" bugCount="2" size="81" bugHash="c3adfd980a8b6f0226e815ba9cf7d4f5"/>
+    <FileStats path="com/crazylegend/subhub/databinding/FragmentLoadSubsBinding.java" bugCount="2" size="40" bugHash="0c33fa71fb32d07e117c54cc9fefe391"/>
+    <FileStats path="com/crazylegend/subhub/databinding/FragmentMainBinding.java" bugCount="0" size="46"/>
+    <FileStats path="com/crazylegend/subhub/databinding/ItemviewLanguageBinding.java" bugCount="2" size="39" bugHash="e96ffbf7b7693bfc7c5bb9c2ec5840f6"/>
+    <FileStats path="com/crazylegend/subhub/databinding/ItemviewSubtitleBinding.java" bugCount="0" size="63"/>
+    <FileStats path="com/crazylegend/subhub/databinding/ItemviewVideoBinding.java" bugCount="2" size="45" bugHash="386acd2a5f59f73400b5b3c849212388"/>
+    <FileStats path="com/crazylegend/subhub/databinding/NoDataTextBinding.java" bugCount="2" size="33" bugHash="df93c2659d2aeab3679ece527e0bcbe0"/>
+    <FileStats path="com/crazylegend/subhub/databinding/NoFoldersSelectedLayoutBinding.java" bugCount="2" size="27" bugHash="39555d1a861a0015f62a674cad831648"/>
+    <FileStats path="com/crazylegend/subhub/di/modules/AppModule_GsonFactory.java" bugCount="0" size="18"/>
+    <FileStats path="com/crazylegend/subhub/di/modules/AppModule_ToasterFactory.java" bugCount="0" size="14"/>
+    <FileStats path="com/crazylegend/subhub/di/providers/AdaptersProvider_Factory.java" bugCount="0" size="18"/>
+    <FileStats path="com/crazylegend/subhub/di/providers/PermissionsProvider_Factory.java" bugCount="0" size="14"/>
+    <FileStats path="com/crazylegend/subhub/dialogs/ChooseLanguageDialog_GeneratedInjector.java" bugCount="0" size="2"/>
+    <FileStats path="com/crazylegend/subhub/dialogs/ChooseLanguageDialog_MembersInjector.java" bugCount="0" size="22"/>
+    <FileStats path="com/crazylegend/subhub/dialogs/Hilt_ChooseLanguageDialog.java" bugCount="1" size="49" bugHash="806f246a10ac5aee07b5b2c49b973b05"/>
+    <FileStats path="com/crazylegend/subhub/dialogs/Hilt_ManualSubtitleSearchDialog.java" bugCount="1" size="49" bugHash="e3faf5d6eb43d340fbd7fc9eb8c7b8db"/>
+    <FileStats path="com/crazylegend/subhub/dialogs/ManualSubtitleSearchDialog_GeneratedInjector.java" bugCount="0" size="2"/>
+    <FileStats path="com/crazylegend/subhub/dialogs/ManualSubtitleSearchDialog_MembersInjector.java" bugCount="0" size="16"/>
+    <FileStats path="com/crazylegend/subhub/ui/Hilt_LoadSubtitlesFragment.java" bugCount="1" size="49" bugHash="d691606db278e6fe5cdbdd2a1aa179d6"/>
+    <FileStats path="com/crazylegend/subhub/ui/Hilt_MainFragment.java" bugCount="1" size="49" bugHash="c6498b9e398cf438420d43f667d6e92f"/>
+    <FileStats path="com/crazylegend/subhub/ui/LoadSubtitlesFragment_GeneratedInjector.java" bugCount="0" size="2"/>
+    <FileStats path="com/crazylegend/subhub/ui/LoadSubtitlesFragment_MembersInjector.java" bugCount="0" size="22"/>
+    <FileStats path="com/crazylegend/subhub/ui/MainFragment_GeneratedInjector.java" bugCount="0" size="2"/>
+    <FileStats path="com/crazylegend/subhub/ui/MainFragment_MembersInjector.java" bugCount="0" size="22"/>
+    <FileStats path="com/crazylegend/subhub/vms/loadSubs/LoadSubsVM_Factory.java" bugCount="0" size="20"/>
+    <FileStats path="com/crazylegend/subhub/vms/loadSubs/LoadSubsVM_HiltModules.java" bugCount="0" size="14"/>
+    <FileStats path="com/crazylegend/subhub/vms/loadSubs/LoadSubsVM_HiltModules_KeyModule_ProvideFactory.java" bugCount="0" size="18"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_AppLevel_GeneratedInjectorModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_MainActivity_GeneratedInjectorModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_di_modules_AppModuleModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_dialogs_ChooseLanguageDialog_GeneratedInjectorModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_dialogs_ManualSubtitleSearchDialog_GeneratedInjectorModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_ui_LoadSubtitlesFragment_GeneratedInjectorModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_ui_MainFragment_GeneratedInjectorModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_vms_loadSubs_LoadSubsVM_HiltModules_BindsModuleModuleDeps.java" bugCount="0" size="3"/>
+    <FileStats path="hilt_aggregated_deps/com_crazylegend_subhub_vms_loadSubs_LoadSubsVM_HiltModules_KeyModuleModuleDeps.java" bugCount="0" size="3"/>
+    <PackageStats package="com.crazylegend.subhub" total_bugs="0" total_types="48" total_size="479">
+      <ClassStats class="com.crazylegend.subhub.AppLevel_GeneratedInjector" sourceFile="AppLevel_GeneratedInjector.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents" sourceFile="AppLevel_HiltComponents.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ActivityC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ActivityC$Builder" sourceFile="AppLevel_HiltComponents.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ActivityCBuilderModule" sourceFile="AppLevel_HiltComponents.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ActivityRetainedC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ActivityRetainedC$Builder" sourceFile="AppLevel_HiltComponents.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ActivityRetainedCBuilderModule" sourceFile="AppLevel_HiltComponents.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$FragmentC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$FragmentC$Builder" sourceFile="AppLevel_HiltComponents.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$FragmentCBuilderModule" sourceFile="AppLevel_HiltComponents.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ServiceC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ServiceC$Builder" sourceFile="AppLevel_HiltComponents.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ServiceCBuilderModule" sourceFile="AppLevel_HiltComponents.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$SingletonC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewC$Builder" sourceFile="AppLevel_HiltComponents.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewCBuilderModule" sourceFile="AppLevel_HiltComponents.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewModelC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewModelC$Builder" sourceFile="AppLevel_HiltComponents.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewModelCBuilderModule" sourceFile="AppLevel_HiltComponents.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewWithFragmentC" sourceFile="AppLevel_HiltComponents.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewWithFragmentC$Builder" sourceFile="AppLevel_HiltComponents.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.AppLevel_HiltComponents$ViewWithFragmentCBuilderModule" sourceFile="AppLevel_HiltComponents.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="80" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$1" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCBuilder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCBuilder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCImpl" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCImpl$FragmentCBuilder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCImpl$FragmentCI" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="64" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCImpl$FragmentCI$ViewWithFragmentCBuilder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCImpl$FragmentCI$ViewWithFragmentCI" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCImpl$ViewCBuilder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ActivityCImpl$ViewCI" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ViewModelCBuilder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ViewModelCImpl" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ActivityRetainedCImpl$ViewModelCImpl$SwitchingProvider" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$Builder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ServiceCBuilder" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.DaggerAppLevel_HiltComponents_SingletonC$ServiceCImpl" sourceFile="DaggerAppLevel_HiltComponents_SingletonC.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.Hilt_AppLevel" sourceFile="Hilt_AppLevel.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.Hilt_AppLevel$1" sourceFile="Hilt_AppLevel.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.Hilt_MainActivity" sourceFile="Hilt_MainActivity.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.Hilt_MainActivity$1" sourceFile="Hilt_MainActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.MainActivity_GeneratedInjector" sourceFile="MainActivity_GeneratedInjector.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.crazylegend.subhub.databinding" total_bugs="16" total_types="11" total_size="512" priority_2="16">
+      <ClassStats class="com.crazylegend.subhub.databinding.ActivityMainBinding" sourceFile="ActivityMainBinding.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.DialogChooseLanguageBinding" sourceFile="DialogChooseLanguageBinding.java" interface="false" size="45" bugs="2" priority_2="2"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.DialogConfirmationBinding" sourceFile="DialogConfirmationBinding.java" interface="false" size="57" bugs="2" priority_2="2"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.DialogManualSubSearchBinding" sourceFile="DialogManualSubSearchBinding.java" interface="false" size="81" bugs="2" priority_2="2"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.FragmentLoadSubsBinding" sourceFile="FragmentLoadSubsBinding.java" interface="false" size="40" bugs="2" priority_2="2"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.FragmentMainBinding" sourceFile="FragmentMainBinding.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.ItemviewLanguageBinding" sourceFile="ItemviewLanguageBinding.java" interface="false" size="39" bugs="2" priority_2="2"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.ItemviewSubtitleBinding" sourceFile="ItemviewSubtitleBinding.java" interface="false" size="63" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.ItemviewVideoBinding" sourceFile="ItemviewVideoBinding.java" interface="false" size="45" bugs="2" priority_2="2"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.NoDataTextBinding" sourceFile="NoDataTextBinding.java" interface="false" size="33" bugs="2" priority_2="2"/>
+      <ClassStats class="com.crazylegend.subhub.databinding.NoFoldersSelectedLayoutBinding" sourceFile="NoFoldersSelectedLayoutBinding.java" interface="false" size="27" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <PackageStats package="com.crazylegend.subhub.di.modules" total_bugs="0" total_types="3" total_size="32">
+      <ClassStats class="com.crazylegend.subhub.di.modules.AppModule_GsonFactory" sourceFile="AppModule_GsonFactory.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.di.modules.AppModule_GsonFactory$InstanceHolder" sourceFile="AppModule_GsonFactory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.di.modules.AppModule_ToasterFactory" sourceFile="AppModule_ToasterFactory.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.crazylegend.subhub.di.providers" total_bugs="0" total_types="3" total_size="32">
+      <ClassStats class="com.crazylegend.subhub.di.providers.AdaptersProvider_Factory" sourceFile="AdaptersProvider_Factory.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.di.providers.AdaptersProvider_Factory$InstanceHolder" sourceFile="AdaptersProvider_Factory.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.di.providers.PermissionsProvider_Factory" sourceFile="PermissionsProvider_Factory.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.crazylegend.subhub.dialogs" total_bugs="2" total_types="6" total_size="140" priority_2="2">
+      <ClassStats class="com.crazylegend.subhub.dialogs.ChooseLanguageDialog_GeneratedInjector" sourceFile="ChooseLanguageDialog_GeneratedInjector.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.dialogs.ChooseLanguageDialog_MembersInjector" sourceFile="ChooseLanguageDialog_MembersInjector.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.dialogs.Hilt_ChooseLanguageDialog" sourceFile="Hilt_ChooseLanguageDialog.java" interface="false" size="49" bugs="1" priority_2="1"/>
+      <ClassStats class="com.crazylegend.subhub.dialogs.Hilt_ManualSubtitleSearchDialog" sourceFile="Hilt_ManualSubtitleSearchDialog.java" interface="false" size="49" bugs="1" priority_2="1"/>
+      <ClassStats class="com.crazylegend.subhub.dialogs.ManualSubtitleSearchDialog_GeneratedInjector" sourceFile="ManualSubtitleSearchDialog_GeneratedInjector.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.dialogs.ManualSubtitleSearchDialog_MembersInjector" sourceFile="ManualSubtitleSearchDialog_MembersInjector.java" interface="false" size="16" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.crazylegend.subhub.ui" total_bugs="2" total_types="6" total_size="146" priority_2="2">
+      <ClassStats class="com.crazylegend.subhub.ui.Hilt_LoadSubtitlesFragment" sourceFile="Hilt_LoadSubtitlesFragment.java" interface="false" size="49" bugs="1" priority_2="1"/>
+      <ClassStats class="com.crazylegend.subhub.ui.Hilt_MainFragment" sourceFile="Hilt_MainFragment.java" interface="false" size="49" bugs="1" priority_2="1"/>
+      <ClassStats class="com.crazylegend.subhub.ui.LoadSubtitlesFragment_GeneratedInjector" sourceFile="LoadSubtitlesFragment_GeneratedInjector.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.ui.LoadSubtitlesFragment_MembersInjector" sourceFile="LoadSubtitlesFragment_MembersInjector.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.ui.MainFragment_GeneratedInjector" sourceFile="MainFragment_GeneratedInjector.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.ui.MainFragment_MembersInjector" sourceFile="MainFragment_MembersInjector.java" interface="false" size="22" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.crazylegend.subhub.vms.loadSubs" total_bugs="0" total_types="6" total_size="52">
+      <ClassStats class="com.crazylegend.subhub.vms.loadSubs.LoadSubsVM_Factory" sourceFile="LoadSubsVM_Factory.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.vms.loadSubs.LoadSubsVM_HiltModules" sourceFile="LoadSubsVM_HiltModules.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.vms.loadSubs.LoadSubsVM_HiltModules$BindsModule" sourceFile="LoadSubsVM_HiltModules.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.vms.loadSubs.LoadSubsVM_HiltModules$KeyModule" sourceFile="LoadSubsVM_HiltModules.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.vms.loadSubs.LoadSubsVM_HiltModules_KeyModule_ProvideFactory" sourceFile="LoadSubsVM_HiltModules_KeyModule_ProvideFactory.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.crazylegend.subhub.vms.loadSubs.LoadSubsVM_HiltModules_KeyModule_ProvideFactory$InstanceHolder" sourceFile="LoadSubsVM_HiltModules_KeyModule_ProvideFactory.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="hilt_aggregated_deps" total_bugs="0" total_types="9" total_size="27">
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_AppLevel_GeneratedInjectorModuleDeps" sourceFile="com_crazylegend_subhub_AppLevel_GeneratedInjectorModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_MainActivity_GeneratedInjectorModuleDeps" sourceFile="com_crazylegend_subhub_MainActivity_GeneratedInjectorModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_di_modules_AppModuleModuleDeps" sourceFile="com_crazylegend_subhub_di_modules_AppModuleModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_dialogs_ChooseLanguageDialog_GeneratedInjectorModuleDeps" sourceFile="com_crazylegend_subhub_dialogs_ChooseLanguageDialog_GeneratedInjectorModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_dialogs_ManualSubtitleSearchDialog_GeneratedInjectorModuleDeps" sourceFile="com_crazylegend_subhub_dialogs_ManualSubtitleSearchDialog_GeneratedInjectorModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_ui_LoadSubtitlesFragment_GeneratedInjectorModuleDeps" sourceFile="com_crazylegend_subhub_ui_LoadSubtitlesFragment_GeneratedInjectorModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_ui_MainFragment_GeneratedInjectorModuleDeps" sourceFile="com_crazylegend_subhub_ui_MainFragment_GeneratedInjectorModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_vms_loadSubs_LoadSubsVM_HiltModules_BindsModuleModuleDeps" sourceFile="com_crazylegend_subhub_vms_loadSubs_LoadSubsVM_HiltModules_BindsModuleModuleDeps.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="hilt_aggregated_deps.com_crazylegend_subhub_vms_loadSubs_LoadSubsVM_HiltModules_KeyModuleModuleDeps" sourceFile="com_crazylegend_subhub_vms_loadSubs_LoadSubsVM_HiltModules_KeyModuleModuleDeps.java" interface="false" size="3" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="51" invocations="623" avgMicrosecondsPerInvocation="83" maxMicrosecondsPerInvocation="4551" standardDeviationMicrosecondsPerInvocation="242"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="25" invocations="320" avgMicrosecondsPerInvocation="80" maxMicrosecondsPerInvocation="4580" standardDeviationMicrosecondsPerInvocation="287"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="24" invocations="280" avgMicrosecondsPerInvocation="87" maxMicrosecondsPerInvocation="2868" standardDeviationMicrosecondsPerInvocation="222"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="24" invocations="139" avgMicrosecondsPerInvocation="173" maxMicrosecondsPerInvocation="4078" standardDeviationMicrosecondsPerInvocation="452"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="22" invocations="334" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="2803" standardDeviationMicrosecondsPerInvocation="165"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="19" invocations="320" avgMicrosecondsPerInvocation="60" maxMicrosecondsPerInvocation="3561" standardDeviationMicrosecondsPerInvocation="206"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="17" invocations="326" avgMicrosecondsPerInvocation="53" maxMicrosecondsPerInvocation="2644" standardDeviationMicrosecondsPerInvocation="155"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="16" invocations="92" avgMicrosecondsPerInvocation="182" maxMicrosecondsPerInvocation="7880" standardDeviationMicrosecondsPerInvocation="828"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="15" invocations="334" avgMicrosecondsPerInvocation="47" maxMicrosecondsPerInvocation="6569" standardDeviationMicrosecondsPerInvocation="364"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="15" invocations="290" avgMicrosecondsPerInvocation="53" maxMicrosecondsPerInvocation="596" standardDeviationMicrosecondsPerInvocation="76"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="223" avgMicrosecondsPerInvocation="65" maxMicrosecondsPerInvocation="4008" standardDeviationMicrosecondsPerInvocation="286"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="14" invocations="636" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="238" standardDeviationMicrosecondsPerInvocation="22"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="11" invocations="92" avgMicrosecondsPerInvocation="123" maxMicrosecondsPerInvocation="4847" standardDeviationMicrosecondsPerInvocation="530"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="11" invocations="139" avgMicrosecondsPerInvocation="79" maxMicrosecondsPerInvocation="1128" standardDeviationMicrosecondsPerInvocation="182"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767884626374" analysisTimestamp="1767884628451" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/HexColorTime/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-25/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/HexColorTime/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" instanceHash="f706e4a02b8cf19baf45e4fc09a63ce8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="192">
+    <ShortMessage>Integral division result cast to double or float</ShortMessage>
+    <LongMessage>Integral division result cast to double or float in com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine.draw()</LongMessage>
+    <Class classname="com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine" primary="true">
+      <SourceLine classname="com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine" start="28" end="156" sourcefile="Wallpaper.java" sourcepath="com/eneko/hexcolortimewallpaper/Wallpaper.java" relSourcepath="com/eneko/hexcolortimewallpaper/Wallpaper.java">
+        <Message>At Wallpaper.java:[lines 28-156]</Message>
+      </SourceLine>
+      <Message>In class com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine</Message>
+    </Class>
+    <Method classname="com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine" name="draw" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine" start="75" end="106" startBytecode="0" endBytecode="442" sourcefile="Wallpaper.java" sourcepath="com/eneko/hexcolortimewallpaper/Wallpaper.java" relSourcepath="com/eneko/hexcolortimewallpaper/Wallpaper.java"/>
+      <Message>In method com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine.draw()</Message>
+    </Method>
+    <SourceLine classname="com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine" primary="true" start="89" end="89" startBytecode="89" endBytecode="89" sourcefile="Wallpaper.java" sourcepath="com/eneko/hexcolortimewallpaper/Wallpaper.java" relSourcepath="com/eneko/hexcolortimewallpaper/Wallpaper.java">
+      <Message>At Wallpaper.java:[line 89]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="ICAST_IDIV_CAST_TO_DOUBLE" abbrev="ICAST" category="STYLE">
+    <ShortDescription>Integral division result cast to double or float</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This code casts the result of an integral division (e.g., int or long division)
+operation to double or float.
+Doing division on integers truncates the result
+to the integer value closest to zero. The fact that the result
+was cast to double suggests that this precision should have been retained.
+What was probably meant was to cast one or both of the operands to
+double <em>before</em> performing the division.  Here is an example:
+</p>
+<pre><code>int x = 2;
+int y = 5;
+// Wrong: yields result 0.0
+double value1 = x / y;
+
+// Right: yields result 0.4
+double value2 = x / (double) y;
+</code></pre>
+<p>See <a href="https://cwe.mitre.org/data/definitions/192.html">CWE-192: Integer Coercion Error</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="ICAST" cweid="192">
+    <Description>Casting from integer values</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="6">
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.eneko.hexcolortimewallpaper.R</MissingClass>
+    <MissingClass>com.eneko.hexcolortimewallpaper.R$id</MissingClass>
+    <MissingClass>com.eneko.hexcolortimewallpaper.R$layout</MissingClass>
+    <MissingClass>com.eneko.hexcolortimewallpaper.R$xml</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 19:03:46 +0400" total_classes="10" referenced_classes="144" total_bugs="1" total_size="180" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.23" clock_seconds="0.48" peak_mbytes="273.27" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="1">
+    <FileStats path="com/eneko/hexcolortimewallpaper/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/eneko/hexcolortimewallpaper/MainActivity.java" bugCount="0" size="7"/>
+    <FileStats path="com/eneko/hexcolortimewallpaper/Preferences.java" bugCount="0" size="19"/>
+    <FileStats path="com/eneko/hexcolortimewallpaper/TextSizePreference.java" bugCount="0" size="42"/>
+    <FileStats path="com/eneko/hexcolortimewallpaper/Wallpaper.java" bugCount="1" size="101" bugHash="a2a412f2ea0dc36803ffdb7aa5949588"/>
+    <PackageStats package="com.eneko.hexcolortimewallpaper" total_bugs="1" total_types="10" total_size="180" priority_2="1">
+      <ClassStats class="com.eneko.hexcolortimewallpaper.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.MainActivity" sourceFile="MainActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.Preferences" sourceFile="Preferences.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.Preferences$1" sourceFile="Preferences.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.TextSizePreference" sourceFile="TextSizePreference.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.TextSizePreference$1" sourceFile="TextSizePreference.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.Wallpaper" sourceFile="Wallpaper.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.Wallpaper$1" sourceFile="Wallpaper.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine" sourceFile="Wallpaper.java" interface="false" size="85" bugs="1" priority_2="1"/>
+      <ClassStats class="com.eneko.hexcolortimewallpaper.Wallpaper$WallpaperEngine$1" sourceFile="Wallpaper.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="51" invocations="504" avgMicrosecondsPerInvocation="102" maxMicrosecondsPerInvocation="5022" standardDeviationMicrosecondsPerInvocation="307"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="26" invocations="144" avgMicrosecondsPerInvocation="181" maxMicrosecondsPerInvocation="2781" standardDeviationMicrosecondsPerInvocation="340"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="15" invocations="179" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="4248" standardDeviationMicrosecondsPerInvocation="335"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="13" invocations="144" avgMicrosecondsPerInvocation="92" maxMicrosecondsPerInvocation="1654" standardDeviationMicrosecondsPerInvocation="183"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="12" invocations="521" avgMicrosecondsPerInvocation="23" maxMicrosecondsPerInvocation="288" standardDeviationMicrosecondsPerInvocation="21"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

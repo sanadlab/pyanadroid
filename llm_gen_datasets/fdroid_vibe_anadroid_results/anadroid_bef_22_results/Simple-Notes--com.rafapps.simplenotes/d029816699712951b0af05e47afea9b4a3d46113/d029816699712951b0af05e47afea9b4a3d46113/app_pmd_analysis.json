@@ -1,0 +1,42 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:42.055+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Simple-Notes/app/src/main/java/com/rafapps/simplenotes/HelperUtils.java",
+      "violations": [
+        {
+          "beginline": 98,
+          "begincolumn": 48,
+          "endline": 98,
+          "endcolumn": 52,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Simple-Notes/app/src/main/java/com/rafapps/simplenotes/NoteActivity.java",
+      "violations": [
+        {
+          "beginline": 249,
+          "begincolumn": 21,
+          "endline": 249,
+          "endcolumn": 25,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

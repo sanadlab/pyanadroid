@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1764068267530" analysisTimestamp="1764068269448" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-23/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/DiolinuxApp/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="c35c6bedfe59be01ce66a38748b899b6" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.diolinux.webviews.DIOWebChromeClient.getVideoLoadingProgressView() may expose internal representation by returning DIOWebChromeClient.viewLoading</LongMessage>
+    <Class classname="com.diolinux.webviews.DIOWebChromeClient" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="80" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>At DIOWebChromeClient.java:[lines 25-80]</Message>
+      </SourceLine>
+      <Message>In class com.diolinux.webviews.DIOWebChromeClient</Message>
+    </Class>
+    <Method classname="com.diolinux.webviews.DIOWebChromeClient" name="getVideoLoadingProgressView" signature="()Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="46" end="51" startBytecode="0" endBytecode="123" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java"/>
+      <Message>In method com.diolinux.webviews.DIOWebChromeClient.getVideoLoadingProgressView()</Message>
+    </Method>
+    <Field classname="com.diolinux.webviews.DIOWebChromeClient" name="viewLoading" signature="Landroid/view/ViewGroup;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>In DIOWebChromeClient.java</Message>
+      </SourceLine>
+      <Message>Field com.diolinux.webviews.DIOWebChromeClient.viewLoading</Message>
+    </Field>
+    <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" primary="true" start="51" end="51" startBytecode="46" endBytecode="46" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+      <Message>At DIOWebChromeClient.java:[line 51]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="1db7bc1e2d9c9a6fb77886ed54c4de7b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.diolinux.webviews.DIOWebChromeClient(Context, WebView, FrameLayout) may expose internal representation by storing an externally mutable object into DIOWebChromeClient.context</LongMessage>
+    <Class classname="com.diolinux.webviews.DIOWebChromeClient" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="80" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>At DIOWebChromeClient.java:[lines 25-80]</Message>
+      </SourceLine>
+      <Message>In class com.diolinux.webviews.DIOWebChromeClient</Message>
+    </Class>
+    <Method classname="com.diolinux.webviews.DIOWebChromeClient" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/webkit/WebView;Landroid/widget/FrameLayout;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="29" startBytecode="0" endBytecode="107" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java"/>
+      <Message>In method new com.diolinux.webviews.DIOWebChromeClient(Context, WebView, FrameLayout)</Message>
+    </Method>
+    <Field classname="com.diolinux.webviews.DIOWebChromeClient" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>In DIOWebChromeClient.java</Message>
+      </SourceLine>
+      <Message>Field com.diolinux.webviews.DIOWebChromeClient.context</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" primary="true" start="26" end="26" startBytecode="6" endBytecode="6" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+      <Message>At DIOWebChromeClient.java:[line 26]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="6b543f9f632dea55f9b408e5f349a0a2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.diolinux.webviews.DIOWebChromeClient(Context, WebView, FrameLayout) may expose internal representation by storing an externally mutable object into DIOWebChromeClient.frameLayoutContainer</LongMessage>
+    <Class classname="com.diolinux.webviews.DIOWebChromeClient" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="80" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>At DIOWebChromeClient.java:[lines 25-80]</Message>
+      </SourceLine>
+      <Message>In class com.diolinux.webviews.DIOWebChromeClient</Message>
+    </Class>
+    <Method classname="com.diolinux.webviews.DIOWebChromeClient" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/webkit/WebView;Landroid/widget/FrameLayout;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="29" startBytecode="0" endBytecode="107" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java"/>
+      <Message>In method new com.diolinux.webviews.DIOWebChromeClient(Context, WebView, FrameLayout)</Message>
+    </Method>
+    <Field classname="com.diolinux.webviews.DIOWebChromeClient" name="frameLayoutContainer" signature="Landroid/widget/FrameLayout;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>In DIOWebChromeClient.java</Message>
+      </SourceLine>
+      <Message>Field com.diolinux.webviews.DIOWebChromeClient.frameLayoutContainer</Message>
+    </Field>
+    <LocalVariable name="frameLayoutContainer" register="3" pc="16" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named frameLayoutContainer</Message>
+    </LocalVariable>
+    <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" primary="true" start="28" end="28" startBytecode="16" endBytecode="16" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+      <Message>At DIOWebChromeClient.java:[line 28]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="7bcdb8ce7f05e4b94e9027d54e5faa99" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.diolinux.webviews.DIOWebChromeClient(Context, WebView, FrameLayout) may expose internal representation by storing an externally mutable object into DIOWebChromeClient.webView</LongMessage>
+    <Class classname="com.diolinux.webviews.DIOWebChromeClient" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="80" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>At DIOWebChromeClient.java:[lines 25-80]</Message>
+      </SourceLine>
+      <Message>In class com.diolinux.webviews.DIOWebChromeClient</Message>
+    </Class>
+    <Method classname="com.diolinux.webviews.DIOWebChromeClient" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/webkit/WebView;Landroid/widget/FrameLayout;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="29" startBytecode="0" endBytecode="107" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java"/>
+      <Message>In method new com.diolinux.webviews.DIOWebChromeClient(Context, WebView, FrameLayout)</Message>
+    </Method>
+    <Field classname="com.diolinux.webviews.DIOWebChromeClient" name="webView" signature="Landroid/webkit/WebView;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>In DIOWebChromeClient.java</Message>
+      </SourceLine>
+      <Message>Field com.diolinux.webviews.DIOWebChromeClient.webView</Message>
+    </Field>
+    <LocalVariable name="webView" register="2" pc="11" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named webView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" primary="true" start="27" end="27" startBytecode="11" endBytecode="11" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+      <Message>At DIOWebChromeClient.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="e7455b2828b22423123b27815b2e500a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.diolinux.webviews.DIOWebChromeClient.onShowCustomView(View, WebChromeClient$CustomViewCallback) may expose internal representation by storing an externally mutable object into DIOWebChromeClient.viewCustom</LongMessage>
+    <Class classname="com.diolinux.webviews.DIOWebChromeClient" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="25" end="80" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>At DIOWebChromeClient.java:[lines 25-80]</Message>
+      </SourceLine>
+      <Message>In class com.diolinux.webviews.DIOWebChromeClient</Message>
+    </Class>
+    <Method classname="com.diolinux.webviews.DIOWebChromeClient" name="onShowCustomView" signature="(Landroid/view/View;Landroid/webkit/WebChromeClient$CustomViewCallback;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" start="33" end="42" startBytecode="0" endBytecode="151" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java"/>
+      <Message>In method com.diolinux.webviews.DIOWebChromeClient.onShowCustomView(View, WebChromeClient$CustomViewCallback)</Message>
+    </Method>
+    <Field classname="com.diolinux.webviews.DIOWebChromeClient" name="viewCustom" signature="Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+        <Message>In DIOWebChromeClient.java</Message>
+      </SourceLine>
+      <Message>Field com.diolinux.webviews.DIOWebChromeClient.viewCustom</Message>
+    </Field>
+    <LocalVariable name="view" register="1" pc="9" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named view</Message>
+    </LocalVariable>
+    <SourceLine classname="com.diolinux.webviews.DIOWebChromeClient" primary="true" start="34" end="34" startBytecode="9" endBytecode="9" sourcefile="DIOWebChromeClient.java" sourcepath="com/diolinux/webviews/DIOWebChromeClient.java" relSourcepath="com/diolinux/webviews/DIOWebChromeClient.java">
+      <Message>At DIOWebChromeClient.java:[line 34]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="5bbf28039cb7f9552b22f5dcb2a96e49" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.diolinux.webviews.DIOWebViewClient(Bundle, ViewGroup) may expose internal representation by storing an externally mutable object into DIOWebViewClient.savedInstanceState</LongMessage>
+    <Class classname="com.diolinux.webviews.DIOWebViewClient" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" start="17" end="48" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java">
+        <Message>At DIOWebViewClient.java:[lines 17-48]</Message>
+      </SourceLine>
+      <Message>In class com.diolinux.webviews.DIOWebViewClient</Message>
+    </Class>
+    <Method classname="com.diolinux.webviews.DIOWebViewClient" name="&lt;init&gt;" signature="(Landroid/os/Bundle;Landroid/view/ViewGroup;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" start="19" end="22" startBytecode="0" endBytecode="97" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java"/>
+      <Message>In method new com.diolinux.webviews.DIOWebViewClient(Bundle, ViewGroup)</Message>
+    </Method>
+    <Field classname="com.diolinux.webviews.DIOWebViewClient" name="savedInstanceState" signature="Landroid/os/Bundle;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java">
+        <Message>In DIOWebViewClient.java</Message>
+      </SourceLine>
+      <Message>Field com.diolinux.webviews.DIOWebViewClient.savedInstanceState</Message>
+    </Field>
+    <LocalVariable name="savedInstanceState" register="1" pc="11" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named savedInstanceState</Message>
+    </LocalVariable>
+    <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" primary="true" start="20" end="20" startBytecode="11" endBytecode="11" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java">
+      <Message>At DIOWebViewClient.java:[line 20]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="69e43916237864536e9e70b7803777b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.diolinux.webviews.DIOWebViewClient(Bundle, ViewGroup) may expose internal representation by storing an externally mutable object into DIOWebViewClient.viewLoading</LongMessage>
+    <Class classname="com.diolinux.webviews.DIOWebViewClient" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" start="17" end="48" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java">
+        <Message>At DIOWebViewClient.java:[lines 17-48]</Message>
+      </SourceLine>
+      <Message>In class com.diolinux.webviews.DIOWebViewClient</Message>
+    </Class>
+    <Method classname="com.diolinux.webviews.DIOWebViewClient" name="&lt;init&gt;" signature="(Landroid/os/Bundle;Landroid/view/ViewGroup;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" start="19" end="22" startBytecode="0" endBytecode="97" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java"/>
+      <Message>In method new com.diolinux.webviews.DIOWebViewClient(Bundle, ViewGroup)</Message>
+    </Method>
+    <Field classname="com.diolinux.webviews.DIOWebViewClient" name="viewLoading" signature="Landroid/view/ViewGroup;" isStatic="false" primary="true">
+      <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java">
+        <Message>In DIOWebViewClient.java</Message>
+      </SourceLine>
+      <Message>Field com.diolinux.webviews.DIOWebViewClient.viewLoading</Message>
+    </Field>
+    <LocalVariable name="viewLoading" register="2" pc="16" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named viewLoading</Message>
+    </LocalVariable>
+    <SourceLine classname="com.diolinux.webviews.DIOWebViewClient" primary="true" start="21" end="21" startBytecode="16" endBytecode="16" sourcefile="DIOWebViewClient.java" sourcepath="com/diolinux/webviews/DIOWebViewClient.java" relSourcepath="com/diolinux/webviews/DIOWebViewClient.java">
+      <Message>At DIOWebViewClient.java:[line 21]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="12">
+    <MissingClass>android.support.v7.app.ActionBar</MissingClass>
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>android.support.v7.widget.Toolbar</MissingClass>
+    <MissingClass>com.example.webview.R</MissingClass>
+    <MissingClass>com.example.webview.R$id</MissingClass>
+    <MissingClass>com.example.webview.R$layout</MissingClass>
+    <MissingClass>com.example.webview.R$menu</MissingClass>
+    <MissingClass>com.example.webview.R$string</MissingClass>
+    <MissingClass>com.google.android.gms.ads.AdRequest</MissingClass>
+    <MissingClass>com.google.android.gms.ads.AdRequest$Builder</MissingClass>
+    <MissingClass>com.google.android.gms.ads.AdView</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 25 Nov 2025 14:57:47 +0400" total_classes="8" referenced_classes="100" total_bugs="7" total_size="237" num_packages="4" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.91" clock_seconds="0.43" peak_mbytes="193.19" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="7">
+    <FileStats path="com/diolinux/ui/MainActivity.java" bugCount="0" size="106"/>
+    <FileStats path="com/diolinux/ui/SplashScreenActivity.java" bugCount="0" size="23"/>
+    <FileStats path="com/diolinux/utils/Constants.java" bugCount="0" size="12"/>
+    <FileStats path="com/diolinux/utils/DeviceProvider.java" bugCount="0" size="9"/>
+    <FileStats path="com/diolinux/webviews/DIOWebChromeClient.java" bugCount="5" size="49" bugHash="dc7bb8393e75a150fd9c351bcb540991"/>
+    <FileStats path="com/diolinux/webviews/DIOWebViewClient.java" bugCount="2" size="27" bugHash="b87a029485b461b42ac4aba54f713493"/>
+    <FileStats path="com/example/webview/BuildConfig.java" bugCount="0" size="11"/>
+    <PackageStats package="com.diolinux.ui" total_bugs="0" total_types="3" total_size="129">
+      <ClassStats class="com.diolinux.ui.MainActivity" sourceFile="MainActivity.java" interface="false" size="106" bugs="0"/>
+      <ClassStats class="com.diolinux.ui.SplashScreenActivity" sourceFile="SplashScreenActivity.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.diolinux.ui.SplashScreenActivity$1" sourceFile="SplashScreenActivity.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.diolinux.utils" total_bugs="0" total_types="2" total_size="21">
+      <ClassStats class="com.diolinux.utils.Constants" sourceFile="Constants.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.diolinux.utils.DeviceProvider" sourceFile="DeviceProvider.java" interface="false" size="9" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.diolinux.webviews" total_bugs="7" total_types="2" total_size="76" priority_2="7">
+      <ClassStats class="com.diolinux.webviews.DIOWebChromeClient" sourceFile="DIOWebChromeClient.java" interface="false" size="49" bugs="5" priority_2="5"/>
+      <ClassStats class="com.diolinux.webviews.DIOWebViewClient" sourceFile="DIOWebViewClient.java" interface="false" size="27" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <PackageStats package="com.example.webview" total_bugs="0" total_types="1" total_size="11">
+      <ClassStats class="com.example.webview.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="41" invocations="447" avgMicrosecondsPerInvocation="92" maxMicrosecondsPerInvocation="4675" standardDeviationMicrosecondsPerInvocation="329"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="21" invocations="100" avgMicrosecondsPerInvocation="212" maxMicrosecondsPerInvocation="3218" standardDeviationMicrosecondsPerInvocation="480"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="142" avgMicrosecondsPerInvocation="99" maxMicrosecondsPerInvocation="3706" standardDeviationMicrosecondsPerInvocation="343"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

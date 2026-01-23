@@ -1,0 +1,376 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:58:06.742+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/BaseActivity.java",
+      "violations": [
+        {
+          "beginline": 162,
+          "begincolumn": 9,
+          "endline": 176,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/SavedTootActivity.java",
+      "violations": [
+        {
+          "beginline": 123,
+          "begincolumn": 9,
+          "endline": 128,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/ViewTagActivity.java",
+      "violations": [
+        {
+          "beginline": 77,
+          "begincolumn": 9,
+          "endline": 82,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/ViewThreadActivity.java",
+      "violations": [
+        {
+          "beginline": 112,
+          "begincolumn": 9,
+          "endline": 121,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/components/common/DownsizeImageTask.java",
+      "violations": [
+        {
+          "beginline": 88,
+          "begincolumn": 45,
+          "endline": 88,
+          "endcolumn": 72,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 103,
+          "begincolumn": 30,
+          "endline": 103,
+          "endcolumn": 60,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 103,
+          "begincolumn": 34,
+          "endline": 103,
+          "endcolumn": 50,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/components/compose/view/ComposeScheduleView.java",
+      "violations": [
+        {
+          "beginline": 131,
+          "begincolumn": 26,
+          "endline": 131,
+          "endcolumn": 66,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/components/notifications/NotificationHelper.java",
+      "violations": [
+        {
+          "beginline": 81,
+          "begincolumn": 24,
+          "endline": 81,
+          "endcolumn": 38,
+          "description": "Avoid using redundant field initializer for \u0027notificationId\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 446,
+          "begincolumn": 47,
+          "endline": 446,
+          "endcolumn": 92,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/fragment/NotificationsFragment.java",
+      "violations": [
+        {
+          "beginline": 122,
+          "begincolumn": 17,
+          "endline": 122,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027maxPlaceholderId\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/fragment/SFragment.java",
+      "violations": [
+        {
+          "beginline": 546,
+          "begincolumn": 47,
+          "endline": 546,
+          "endcolumn": 79,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/fragment/TimelineFragment.java",
+      "violations": [
+        {
+          "beginline": 144,
+          "begincolumn": 21,
+          "endline": 144,
+          "endcolumn": 36,
+          "description": "Avoid using redundant field initializer for \u0027eventRegistered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 170,
+          "begincolumn": 21,
+          "endline": 170,
+          "endcolumn": 40,
+          "description": "Avoid using redundant field initializer for \u0027initialUpdateFailed\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/fragment/ViewThreadFragment.java",
+      "violations": [
+        {
+          "beginline": 92,
+          "begincolumn": 17,
+          "endline": 92,
+          "endcolumn": 28,
+          "description": "Avoid using redundant field initializer for \u0027statusIndex\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 210,
+          "begincolumn": 21,
+          "endline": 210,
+          "endcolumn": 83,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/util/HttpHeaderLink.java",
+      "violations": [
+        {
+          "beginline": 102,
+          "begincolumn": 47,
+          "endline": 102,
+          "endcolumn": 68,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 108,
+          "begincolumn": 35,
+          "endline": 108,
+          "endcolumn": 50,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 132,
+          "begincolumn": 39,
+          "endline": 132,
+          "endcolumn": 62,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/util/IOUtils.java",
+      "violations": [
+        {
+          "beginline": 48,
+          "begincolumn": 22,
+          "endline": 48,
+          "endcolumn": 38,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/util/LinkHelper.java",
+      "violations": [
+        {
+          "beginline": 90,
+          "begincolumn": 30,
+          "endline": 93,
+          "endcolumn": 18,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 111,
+          "begincolumn": 34,
+          "endline": 114,
+          "endcolumn": 22,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 119,
+          "begincolumn": 30,
+          "endline": 124,
+          "endcolumn": 18,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 164,
+          "begincolumn": 40,
+          "endline": 167,
+          "endcolumn": 14,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/view/EmojiKeyboard.java",
+      "violations": [
+        {
+          "beginline": 33,
+          "begincolumn": 20,
+          "endline": 33,
+          "endcolumn": 28,
+          "description": "Avoid using redundant field initializer for \u0027isSticky\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/android-native/app/src/main/java/com/keylesspalace/tusky/viewdata/StatusViewData.java",
+      "violations": [
+        {
+          "beginline": 403,
+          "begincolumn": 35,
+          "endline": 403,
+          "endcolumn": 80,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

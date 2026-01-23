@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762929077442" analysisTimestamp="1762929080322" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/GPTPhotoGallery/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/GPTPhotoGallery/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="9ccc4844127739d67198441c107e714c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.sanad.gpt4o.gptphotogallery.PhotoAdapter(Context, List, int) may expose internal representation by storing an externally mutable object into PhotoAdapter.context</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" start="14" end="51" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java">
+        <Message>At PhotoAdapter.java:[lines 14-51]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptphotogallery.PhotoAdapter</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;Ljava/util/List;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" start="20" end="24" startBytecode="0" endBytecode="125" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java"/>
+      <Message>In method new com.sanad.gpt4o.gptphotogallery.PhotoAdapter(Context, List, int)</Message>
+    </Method>
+    <Field classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java">
+        <Message>In PhotoAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptphotogallery.PhotoAdapter.context</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" primary="true" start="21" end="21" startBytecode="6" endBytecode="6" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java">
+      <Message>At PhotoAdapter.java:[line 21]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="72f9efeaf125d6a7a12def7529104bc0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.sanad.gpt4o.gptphotogallery.PhotoAdapter(Context, List, int) may expose internal representation by storing an externally mutable object into PhotoAdapter.photos</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" start="14" end="51" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java">
+        <Message>At PhotoAdapter.java:[lines 14-51]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptphotogallery.PhotoAdapter</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;Ljava/util/List;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" start="20" end="24" startBytecode="0" endBytecode="125" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java"/>
+      <Message>In method new com.sanad.gpt4o.gptphotogallery.PhotoAdapter(Context, List, int)</Message>
+    </Method>
+    <Field classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" name="photos" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java">
+        <Message>In PhotoAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptphotogallery.PhotoAdapter.photos</Message>
+    </Field>
+    <LocalVariable name="photos" register="2" pc="11" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named photos</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" primary="true" start="22" end="22" startBytecode="11" endBytecode="11" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" relSourcepath="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java">
+      <Message>At PhotoAdapter.java:[line 22]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="19">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.core.app.ActivityCompat</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.GridLayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.LinearLayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$Adapter</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$LayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$ViewHolder</MissingClass>
+    <MissingClass>com.bumptech.glide.Glide</MissingClass>
+    <MissingClass>com.bumptech.glide.RequestBuilder</MissingClass>
+    <MissingClass>com.bumptech.glide.RequestManager</MissingClass>
+    <MissingClass>com.bumptech.glide.request.target.ViewTarget</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptphotogallery.R</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptphotogallery.R$id</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptphotogallery.R$layout</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:31:17 +0400" total_classes="6" referenced_classes="110" total_bugs="2" total_size="112" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="5.26" clock_seconds="2.48" peak_mbytes="202.50" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="2">
+    <FileStats path="com/sanad/gpt4o/gptphotogallery/MainActivity.java" bugCount="0" size="58"/>
+    <FileStats path="com/sanad/gpt4o/gptphotogallery/Photo.java" bugCount="0" size="8"/>
+    <FileStats path="com/sanad/gpt4o/gptphotogallery/PhotoAdapter.java" bugCount="2" size="36" bugHash="ba7e00d6353c1a18a612de3f4ef0fc8f"/>
+    <FileStats path="com/sanad/gpt4o/gptphotogallery/PhotoDetailActivity.java" bugCount="0" size="10"/>
+    <PackageStats package="com.sanad.gpt4o.gptphotogallery" total_bugs="2" total_types="6" total_size="112" priority_2="2">
+      <ClassStats class="com.sanad.gpt4o.gptphotogallery.MainActivity" sourceFile="MainActivity.java" interface="false" size="49" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptphotogallery.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptphotogallery.Photo" sourceFile="Photo.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptphotogallery.PhotoAdapter" sourceFile="PhotoAdapter.java" interface="false" size="30" bugs="2" priority_2="2"/>
+      <ClassStats class="com.sanad.gpt4o.gptphotogallery.PhotoAdapter$PhotoViewHolder" sourceFile="PhotoAdapter.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptphotogallery.PhotoDetailActivity" sourceFile="PhotoDetailActivity.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="385" invocations="480" avgMicrosecondsPerInvocation="803" maxMicrosecondsPerInvocation="71702" standardDeviationMicrosecondsPerInvocation="3710"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="154" invocations="110" avgMicrosecondsPerInvocation="1401" maxMicrosecondsPerInvocation="15573" standardDeviationMicrosecondsPerInvocation="2763"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="117" invocations="156" avgMicrosecondsPerInvocation="753" maxMicrosecondsPerInvocation="14696" standardDeviationMicrosecondsPerInvocation="1802"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="76" invocations="110" avgMicrosecondsPerInvocation="693" maxMicrosecondsPerInvocation="9022" standardDeviationMicrosecondsPerInvocation="1647"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="70" invocations="110" avgMicrosecondsPerInvocation="643" maxMicrosecondsPerInvocation="7239" standardDeviationMicrosecondsPerInvocation="1210"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="69" invocations="110" avgMicrosecondsPerInvocation="629" maxMicrosecondsPerInvocation="15384" standardDeviationMicrosecondsPerInvocation="1858"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="62" invocations="409" avgMicrosecondsPerInvocation="152" maxMicrosecondsPerInvocation="6444" standardDeviationMicrosecondsPerInvocation="533"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="57" invocations="6" avgMicrosecondsPerInvocation="9547" maxMicrosecondsPerInvocation="41923" standardDeviationMicrosecondsPerInvocation="14645"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="51" invocations="495" avgMicrosecondsPerInvocation="103" maxMicrosecondsPerInvocation="4018" standardDeviationMicrosecondsPerInvocation="288"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="48" invocations="110" avgMicrosecondsPerInvocation="444" maxMicrosecondsPerInvocation="8739" standardDeviationMicrosecondsPerInvocation="1260"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="48" invocations="22" avgMicrosecondsPerInvocation="2183" maxMicrosecondsPerInvocation="10449" standardDeviationMicrosecondsPerInvocation="2720"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="39" invocations="22" avgMicrosecondsPerInvocation="1783" maxMicrosecondsPerInvocation="6481" standardDeviationMicrosecondsPerInvocation="1891"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="36" invocations="110" avgMicrosecondsPerInvocation="332" maxMicrosecondsPerInvocation="11127" standardDeviationMicrosecondsPerInvocation="1660"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="34" invocations="20" avgMicrosecondsPerInvocation="1738" maxMicrosecondsPerInvocation="8428" standardDeviationMicrosecondsPerInvocation="2224"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="33" invocations="22" avgMicrosecondsPerInvocation="1516" maxMicrosecondsPerInvocation="5655" standardDeviationMicrosecondsPerInvocation="1799"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="33" invocations="22" avgMicrosecondsPerInvocation="1514" maxMicrosecondsPerInvocation="7508" standardDeviationMicrosecondsPerInvocation="1997"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="33" invocations="22" avgMicrosecondsPerInvocation="1501" maxMicrosecondsPerInvocation="10080" standardDeviationMicrosecondsPerInvocation="2092"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="27" invocations="6" avgMicrosecondsPerInvocation="4610" maxMicrosecondsPerInvocation="21576" standardDeviationMicrosecondsPerInvocation="7793"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="27" invocations="6" avgMicrosecondsPerInvocation="4506" maxMicrosecondsPerInvocation="26458" standardDeviationMicrosecondsPerInvocation="9817"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="25" invocations="110" avgMicrosecondsPerInvocation="236" maxMicrosecondsPerInvocation="8319" standardDeviationMicrosecondsPerInvocation="879"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="25" invocations="22" avgMicrosecondsPerInvocation="1164" maxMicrosecondsPerInvocation="16419" standardDeviationMicrosecondsPerInvocation="3371"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="24" invocations="110" avgMicrosecondsPerInvocation="223" maxMicrosecondsPerInvocation="5189" standardDeviationMicrosecondsPerInvocation="663"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="23" invocations="110" avgMicrosecondsPerInvocation="212" maxMicrosecondsPerInvocation="9113" standardDeviationMicrosecondsPerInvocation="918"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="23" invocations="22" avgMicrosecondsPerInvocation="1055" maxMicrosecondsPerInvocation="7498" standardDeviationMicrosecondsPerInvocation="1925"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="22" invocations="110" avgMicrosecondsPerInvocation="205" maxMicrosecondsPerInvocation="3971" standardDeviationMicrosecondsPerInvocation="458"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

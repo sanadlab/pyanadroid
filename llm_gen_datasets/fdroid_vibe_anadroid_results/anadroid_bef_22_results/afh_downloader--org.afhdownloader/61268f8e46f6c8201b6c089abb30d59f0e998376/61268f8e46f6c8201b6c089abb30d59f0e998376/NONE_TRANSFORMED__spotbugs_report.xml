@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762893361031" analysisTimestamp="1762893363486" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/afh_downloader/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-25/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/afh_downloader/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="aa81087007cc058b9c95124003b807d3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in org.afhdownloader.DirectoryPicker.onCreate(Bundle) due to return value of called method</LongMessage>
+    <Class classname="org.afhdownloader.DirectoryPicker" primary="true">
+      <SourceLine classname="org.afhdownloader.DirectoryPicker" start="45" end="166" sourcefile="DirectoryPicker.java" sourcepath="org/afhdownloader/DirectoryPicker.java" relSourcepath="org/afhdownloader/DirectoryPicker.java">
+        <Message>At DirectoryPicker.java:[lines 45-166]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.DirectoryPicker</Message>
+    </Class>
+    <Method classname="org.afhdownloader.DirectoryPicker" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.DirectoryPicker" start="58" end="116" startBytecode="0" endBytecode="641" sourcefile="DirectoryPicker.java" sourcepath="org/afhdownloader/DirectoryPicker.java" relSourcepath="org/afhdownloader/DirectoryPicker.java"/>
+      <Message>In method org.afhdownloader.DirectoryPicker.onCreate(Bundle)</Message>
+    </Method>
+    <Method classname="java.io.File" name="listFiles" signature="()[Ljava/io/File;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="60" end="60" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.listFiles()</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.DirectoryPicker" primary="true" start="99" end="99" startBytecode="247" endBytecode="247" sourcefile="DirectoryPicker.java" sourcepath="org/afhdownloader/DirectoryPicker.java" relSourcepath="org/afhdownloader/DirectoryPicker.java" role="SOURCE_LINE_INVOKED">
+      <Message>Method invoked at DirectoryPicker.java:[line 99]</Message>
+    </SourceLine>
+    <SourceLine classname="org.afhdownloader.DirectoryPicker" start="99" end="99" startBytecode="236" endBytecode="236" sourcefile="DirectoryPicker.java" sourcepath="org/afhdownloader/DirectoryPicker.java" relSourcepath="org/afhdownloader/DirectoryPicker.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at DirectoryPicker.java:[line 99]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="fae7725de1432518fbdfa745bbcc1eac" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in org.afhdownloader.Download.download(String, String, String, String) due to return value of called method</LongMessage>
+    <Class classname="org.afhdownloader.Download" primary="true">
+      <SourceLine classname="org.afhdownloader.Download" start="36" end="350" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java">
+        <Message>At Download.java:[lines 36-350]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.Download</Message>
+    </Class>
+    <Method classname="org.afhdownloader.Download" name="download" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.Download" start="276" end="350" startBytecode="0" endBytecode="969" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java"/>
+      <Message>In method org.afhdownloader.Download.download(String, String, String, String)</Message>
+    </Method>
+    <LocalVariable name="file" register="12" pc="189" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from file</Message>
+    </LocalVariable>
+    <SourceLine classname="org.afhdownloader.Download" primary="true" start="303" end="303" startBytecode="191" endBytecode="191" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at Download.java:[line 303]</Message>
+    </SourceLine>
+    <SourceLine classname="org.afhdownloader.Download" start="302" end="302" startBytecode="179" endBytecode="179" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at Download.java:[line 302]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" instanceHash="7a44a8c599186e6311084174e84a1aee" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="253">
+    <ShortMessage>Method ignores exceptional return value</ShortMessage>
+    <LongMessage>Exceptional return value of java.io.File.mkdirs() ignored in org.afhdownloader.Download.download(String, String, String, String)</LongMessage>
+    <Class classname="org.afhdownloader.Download" primary="true">
+      <SourceLine classname="org.afhdownloader.Download" start="36" end="350" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java">
+        <Message>At Download.java:[lines 36-350]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.Download</Message>
+    </Class>
+    <Method classname="org.afhdownloader.Download" name="download" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.Download" start="276" end="350" startBytecode="0" endBytecode="969" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java"/>
+      <Message>In method org.afhdownloader.Download.download(String, String, String, String)</Message>
+    </Method>
+    <Method classname="java.io.File" name="mkdirs" signature="()Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="64" end="64" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.mkdirs()</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.Download" primary="true" start="293" end="293" startBytecode="146" endBytecode="146" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java">
+      <Message>At Download.java:[line 293]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="3042d054fddfebbd6612d3d5c6cbfc28" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in org.afhdownloader.Download$dlMd5.doInBackground(String[]): new java.io.OutputStreamWriter(OutputStream)</LongMessage>
+    <Class classname="org.afhdownloader.Download$dlMd5" primary="true">
+      <SourceLine classname="org.afhdownloader.Download$dlMd5" start="207" end="227" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java">
+        <Message>At Download.java:[lines 207-227]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.Download$dlMd5</Message>
+    </Class>
+    <Method classname="org.afhdownloader.Download$dlMd5" name="doInBackground" signature="([Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.Download$dlMd5" start="211" end="227" startBytecode="0" endBytecode="416" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java"/>
+      <Message>In method org.afhdownloader.Download$dlMd5.doInBackground(String[])</Message>
+    </Method>
+    <Method classname="java.io.OutputStreamWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.OutputStreamWriter" start="31" end="31" startBytecode="0" endBytecode="65" sourcefile="OutputStreamWriter.java" sourcepath="java/io/OutputStreamWriter.java"/>
+      <Message>Called method new java.io.OutputStreamWriter(OutputStream)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.Download$dlMd5" primary="true" start="220" end="220" startBytecode="168" endBytecode="168" sourcefile="Download.java" sourcepath="org/afhdownloader/Download.java" relSourcepath="org/afhdownloader/Download.java">
+      <Message>At Download.java:[line 220]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="8cf66249bfa5338d00cfbfa2c154cc08" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in org.afhdownloader.MainActivity.readFile(String): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity" name="readFile" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="258" end="273" startBytecode="0" endBytecode="313" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity.readFile(String)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="30" end="30" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="261" end="261" startBytecode="19" endBytecode="19" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 261]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="83d18fe78bfe2a4dbc3cd7e057e33888" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in org.afhdownloader.MainActivity.writeFile(String, String): new java.io.OutputStreamWriter(OutputStream)</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity" name="writeFile" signature="(Ljava/lang/String;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="278" end="285" startBytecode="0" endBytecode="199" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity.writeFile(String, String)</Message>
+    </Method>
+    <Method classname="java.io.OutputStreamWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.OutputStreamWriter" start="31" end="31" startBytecode="0" endBytecode="65" sourcefile="OutputStreamWriter.java" sourcepath="java/io/OutputStreamWriter.java"/>
+      <Message>Called method new java.io.OutputStreamWriter(OutputStream)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="279" end="279" startBytecode="12" endBytecode="12" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 279]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_FINAL_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="f11c1f6204953b53eadd6e7dff96c1b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field should be both final and package protected</ShortMessage>
+    <LongMessage>org.afhdownloader.MainActivity.perms should be both final and package protected</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Field classname="org.afhdownloader.MainActivity" name="perms" signature="[Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MainActivity.perms</Message>
+    </Field>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="42" end="42" startBytecode="17" endBytecode="17" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 42]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_FINAL_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="affc3567f31e8ce43e2ecb5c69fc430c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field should be both final and package protected</ShortMessage>
+    <LongMessage>org.afhdownloader.MainActivity.perms2 should be both final and package protected</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Field classname="org.afhdownloader.MainActivity" name="perms2" signature="[Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MainActivity.perms2</Message>
+    </Field>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="43" end="43" startBytecode="29" endBytecode="29" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 43]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="693c989bfa91fa76db4507b8cddb8e88" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>org.afhdownloader.MainActivity.instance should be package protected</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Field classname="org.afhdownloader.MainActivity" name="instance" signature="Lorg/afhdownloader/MainActivity;" isStatic="true" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MainActivity.instance</Message>
+    </Field>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="47" end="47" startBytecode="33" endBytecode="33" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="5a9403b1d9115f3e9f1aca3fcd0b3d08" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method names should start with a lower case letter</ShortMessage>
+    <LongMessage>The method name org.afhdownloader.MainActivity.CancelAlarm(Context) doesn&apos;t start with a lower case letter</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity" name="CancelAlarm" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="163" end="169" startBytecode="0" endBytecode="135" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity.CancelAlarm(Context)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.MainActivity" start="163" end="169" startBytecode="0" endBytecode="135" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java" synthetic="true">
+      <Message>At MainActivity.java:[lines 163-169]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="57d9ec715542f8da70b984a0350759da" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>org.afhdownloader.MainActivity.readFile(String) may fail to close stream</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity" name="readFile" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="258" end="273" startBytecode="0" endBytecode="45" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity.readFile(String)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Reader;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Reader" start="30" end="40" sourcefile="Reader.java" sourcepath="java/io/Reader.java">
+        <Message>At Reader.java:[lines 30-40]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Reader </Message>
+    </Type>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="262" end="262" startBytecode="24" endBytecode="24" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 262]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="4d4945609e8dfe4dd41bb590f6d627fd" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field org.afhdownloader.MainActivity.directory is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Field classname="org.afhdownloader.MainActivity" name="directory" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MainActivity.directory</Message>
+    </Field>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="289" end="289" startBytecode="20" endBytecode="20" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 289]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="cb0fb6481a507b7312e063ce8b6e37" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field org.afhdownloader.MainActivity.instance is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Field classname="org.afhdownloader.MainActivity" name="instance" signature="Lorg/afhdownloader/MainActivity;" isStatic="true" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MainActivity.instance</Message>
+    </Field>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="47" end="47" startBytecode="33" endBytecode="33" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" instanceHash="d7fe410f1cc6d440c550266363032a04" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="253">
+    <ShortMessage>Method ignores exceptional return value</ShortMessage>
+    <LongMessage>Exceptional return value of java.io.File.mkdirs() ignored in org.afhdownloader.MainActivity.setList(List)</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity" name="setList" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="288" end="428" startBytecode="0" endBytecode="1400" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity.setList(List)</Message>
+    </Method>
+    <Method classname="java.io.File" name="mkdirs" signature="()Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="64" end="64" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.mkdirs()</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="302" end="302" startBytecode="128" endBytecode="128" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 302]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="3c09fe96dff4c60a2d0ecbbee81f87b4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field org.afhdownloader.MainActivity.instance from instance method org.afhdownloader.MainActivity.onPause()</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity" name="onPause" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="502" end="504" startBytecode="0" endBytecode="58" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity.onPause()</Message>
+    </Method>
+    <Field classname="org.afhdownloader.MainActivity" name="instance" signature="Lorg/afhdownloader/MainActivity;" isStatic="true" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MainActivity.instance</Message>
+    </Field>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="503" end="503" startBytecode="5" endBytecode="5" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 503]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="f600a69bff6af4e411edf138ed10b8fe" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field org.afhdownloader.MainActivity.instance from instance method org.afhdownloader.MainActivity.onResume()</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="38" end="504" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 38-504]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity" name="onResume" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" start="496" end="498" startBytecode="0" endBytecode="58" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity.onResume()</Message>
+    </Method>
+    <Field classname="org.afhdownloader.MainActivity" name="instance" signature="Lorg/afhdownloader/MainActivity;" isStatic="true" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MainActivity.instance</Message>
+    </Field>
+    <SourceLine classname="org.afhdownloader.MainActivity" primary="true" start="497" end="497" startBytecode="5" endBytecode="5" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 497]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" instanceHash="3a1b547a71215e26d63f25ca141f9523" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="253">
+    <ShortMessage>Method ignores exceptional return value</ShortMessage>
+    <LongMessage>Exceptional return value of java.io.File.delete() ignored in org.afhdownloader.MainActivity$2$1.onClick(DialogInterface, int)</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity$2$1" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity$2$1" start="391" end="401" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 391-401]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity$2$1</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity$2$1" name="onClick" signature="(Landroid/content/DialogInterface;I)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity$2$1" start="393" end="401" startBytecode="0" endBytecode="352" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity$2$1.onClick(DialogInterface, int)</Message>
+    </Method>
+    <Method classname="java.io.File" name="delete" signature="()Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="56" end="56" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.delete()</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.MainActivity$2$1" primary="true" start="395" end="395" startBytecode="114" endBytecode="114" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 395]</Message>
+    </SourceLine>
+    <SourceLine classname="org.afhdownloader.MainActivity$2$1" start="397" end="397" startBytecode="198" endBytecode="198" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 397]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="2de36e057aeab3c3274462c82a18a576" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>org.afhdownloader.MainActivity$ExecuteAsRootBase.execute() may fail to close stream</LongMessage>
+    <Class classname="org.afhdownloader.MainActivity$ExecuteAsRootBase" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity$ExecuteAsRootBase" start="447" end="487" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+        <Message>At MainActivity.java:[lines 447-487]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MainActivity$ExecuteAsRootBase</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MainActivity$ExecuteAsRootBase" name="execute" signature="()Z" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MainActivity$ExecuteAsRootBase" start="449" end="487" startBytecode="0" endBytecode="96" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java"/>
+      <Message>In method org.afhdownloader.MainActivity$ExecuteAsRootBase.execute()</Message>
+    </Method>
+    <Type descriptor="Ljava/io/OutputStream;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.OutputStream" start="30" end="35" sourcefile="OutputStream.java" sourcepath="java/io/OutputStream.java">
+        <Message>At OutputStream.java:[lines 30-35]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.OutputStream </Message>
+    </Type>
+    <SourceLine classname="org.afhdownloader.MainActivity$ExecuteAsRootBase" primary="true" start="455" end="455" startBytecode="28" endBytecode="28" sourcefile="MainActivity.java" sourcepath="org/afhdownloader/MainActivity.java" relSourcepath="org/afhdownloader/MainActivity.java">
+      <Message>At MainActivity.java:[line 455]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="28a0abf5e722422ce507529be53f1136" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[]) may expose internal representation by storing an externally mutable object into MyCustomAdapter.context</LongMessage>
+    <Class classname="org.afhdownloader.MyCustomAdapter" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="19" end="71" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>At MyCustomAdapter.java:[lines 19-71]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MyCustomAdapter</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MyCustomAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;[Ljava/lang/String;[Ljava/io/File;[Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="23" end="28" startBytecode="0" endBytecode="131" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java"/>
+      <Message>In method new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[])</Message>
+    </Method>
+    <Field classname="org.afhdownloader.MyCustomAdapter" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>In MyCustomAdapter.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MyCustomAdapter.context</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="10" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="org.afhdownloader.MyCustomAdapter" primary="true" start="24" end="24" startBytecode="10" endBytecode="10" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+      <Message>At MyCustomAdapter.java:[line 24]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="b221a5ec37267d12b3099f23ea4a2b9e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[]) may expose internal representation by storing an externally mutable object into MyCustomAdapter.file</LongMessage>
+    <Class classname="org.afhdownloader.MyCustomAdapter" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="19" end="71" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>At MyCustomAdapter.java:[lines 19-71]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MyCustomAdapter</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MyCustomAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;[Ljava/lang/String;[Ljava/io/File;[Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="23" end="28" startBytecode="0" endBytecode="131" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java"/>
+      <Message>In method new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[])</Message>
+    </Method>
+    <Field classname="org.afhdownloader.MyCustomAdapter" name="file" signature="[Ljava/io/File;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>In MyCustomAdapter.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MyCustomAdapter.file</Message>
+    </Field>
+    <LocalVariable name="file" register="3" pc="20" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named file</Message>
+    </LocalVariable>
+    <SourceLine classname="org.afhdownloader.MyCustomAdapter" primary="true" start="26" end="26" startBytecode="20" endBytecode="20" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+      <Message>At MyCustomAdapter.java:[line 26]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="7f5d89abf101f34472b4e8b710ee7b08" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[]) may expose internal representation by storing an externally mutable object into MyCustomAdapter.md5check</LongMessage>
+    <Class classname="org.afhdownloader.MyCustomAdapter" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="19" end="71" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>At MyCustomAdapter.java:[lines 19-71]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MyCustomAdapter</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MyCustomAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;[Ljava/lang/String;[Ljava/io/File;[Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="23" end="28" startBytecode="0" endBytecode="131" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java"/>
+      <Message>In method new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[])</Message>
+    </Method>
+    <Field classname="org.afhdownloader.MyCustomAdapter" name="md5check" signature="[Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>In MyCustomAdapter.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MyCustomAdapter.md5check</Message>
+    </Field>
+    <LocalVariable name="md5check" register="4" pc="26" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named md5check</Message>
+    </LocalVariable>
+    <SourceLine classname="org.afhdownloader.MyCustomAdapter" primary="true" start="27" end="27" startBytecode="26" endBytecode="26" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+      <Message>At MyCustomAdapter.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="d9ae7f018a8c018bf0db930e49ea06b2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[]) may expose internal representation by storing an externally mutable object into MyCustomAdapter.values</LongMessage>
+    <Class classname="org.afhdownloader.MyCustomAdapter" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="19" end="71" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>At MyCustomAdapter.java:[lines 19-71]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.MyCustomAdapter</Message>
+    </Class>
+    <Method classname="org.afhdownloader.MyCustomAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;[Ljava/lang/String;[Ljava/io/File;[Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" start="23" end="28" startBytecode="0" endBytecode="131" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java"/>
+      <Message>In method new org.afhdownloader.MyCustomAdapter(Context, String[], File[], String[])</Message>
+    </Method>
+    <Field classname="org.afhdownloader.MyCustomAdapter" name="values" signature="[Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.MyCustomAdapter" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+        <Message>In MyCustomAdapter.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.MyCustomAdapter.values</Message>
+    </Field>
+    <LocalVariable name="values" register="2" pc="15" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named values</Message>
+    </LocalVariable>
+    <SourceLine classname="org.afhdownloader.MyCustomAdapter" primary="true" start="25" end="25" startBytecode="15" endBytecode="15" sourcefile="MyCustomAdapter.java" sourcepath="org/afhdownloader/MyCustomAdapter.java" relSourcepath="org/afhdownloader/MyCustomAdapter.java">
+      <Message>At MyCustomAdapter.java:[line 25]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="9f060e661272876fd63fce3ac923100" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class org.afhdownloader.SwipeDismissListViewTouchListener at new org.afhdownloader.SwipeDismissListViewTouchListener(ListView, SwipeDismissListViewTouchListener$DismissCallbacks) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissListViewTouchListener" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" start="78" end="412" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+        <Message>At SwipeDismissListViewTouchListener.java:[lines 78-412]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissListViewTouchListener</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissListViewTouchListener" name="&lt;init&gt;" signature="(Landroid/widget/ListView;Lorg/afhdownloader/SwipeDismissListViewTouchListener$DismissCallbacks;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" start="130" end="139" startBytecode="0" endBytecode="203" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java"/>
+      <Message>In method new org.afhdownloader.SwipeDismissListViewTouchListener(ListView, SwipeDismissListViewTouchListener$DismissCallbacks)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" primary="true" start="135" end="135" startBytecode="70" endBytecode="70" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+      <Message>At SwipeDismissListViewTouchListener.java:[line 135]</Message>
+    </SourceLine>
+    <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" start="135" end="135" startBytecode="70" endBytecode="70" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+      <Message>At SwipeDismissListViewTouchListener.java:[line 135]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="bab08f0dd54de5938ebe8ee443ef8cb2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new org.afhdownloader.SwipeDismissListViewTouchListener(ListView, SwipeDismissListViewTouchListener$DismissCallbacks) may expose internal representation by storing an externally mutable object into SwipeDismissListViewTouchListener.mListView</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissListViewTouchListener" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" start="78" end="412" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+        <Message>At SwipeDismissListViewTouchListener.java:[lines 78-412]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissListViewTouchListener</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissListViewTouchListener" name="&lt;init&gt;" signature="(Landroid/widget/ListView;Lorg/afhdownloader/SwipeDismissListViewTouchListener$DismissCallbacks;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" start="130" end="139" startBytecode="0" endBytecode="203" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java"/>
+      <Message>In method new org.afhdownloader.SwipeDismissListViewTouchListener(ListView, SwipeDismissListViewTouchListener$DismissCallbacks)</Message>
+    </Method>
+    <Field classname="org.afhdownloader.SwipeDismissListViewTouchListener" name="mListView" signature="Landroid/widget/ListView;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+        <Message>In SwipeDismissListViewTouchListener.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.SwipeDismissListViewTouchListener.mListView</Message>
+    </Field>
+    <LocalVariable name="listView" register="1" pc="79" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named listView</Message>
+    </LocalVariable>
+    <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" primary="true" start="137" end="137" startBytecode="79" endBytecode="79" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+      <Message>At SwipeDismissListViewTouchListener.java:[line 137]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" instanceHash="cfa7e03b566801d3c61a4497d018e37c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="192">
+    <ShortMessage>Integral division result cast to double or float</ShortMessage>
+    <LongMessage>Integral division result cast to double or float in org.afhdownloader.SwipeDismissListViewTouchListener.onTouch(View, MotionEvent)</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissListViewTouchListener" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" start="78" end="412" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+        <Message>At SwipeDismissListViewTouchListener.java:[lines 78-412]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissListViewTouchListener</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissListViewTouchListener" name="onTouch" signature="(Landroid/view/View;Landroid/view/MotionEvent;)Z" isStatic="false" primary="true" classAnnotationNames="android.annotation.TargetApi">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" start="175" end="333" startBytecode="0" endBytecode="1885" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java"/>
+      <Message>In method org.afhdownloader.SwipeDismissListViewTouchListener.onTouch(View, MotionEvent)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener" primary="true" start="253" end="253" startBytecode="421" endBytecode="421" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+      <Message>At SwipeDismissListViewTouchListener.java:[line 253]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EQ_COMPARETO_USE_OBJECT_EQUALS" priority="2" rank="16" abbrev="Eq" category="BAD_PRACTICE" instanceHash="dec89e2bfa12358bfa1cac594398b543" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class defines compareTo(...) and uses Object.equals()</ShortMessage>
+    <LongMessage>org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData defines compareTo(SwipeDismissListViewTouchListener$PendingDismissData) and uses Object.equals()</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" start="336" end="348" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+        <Message>At SwipeDismissListViewTouchListener.java:[lines 336-348]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" name="compareTo" signature="(Lorg/afhdownloader/SwipeDismissListViewTouchListener$PendingDismissData;)I" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" start="348" end="348" startBytecode="0" endBytecode="61" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java"/>
+      <Message>In method org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData.compareTo(SwipeDismissListViewTouchListener$PendingDismissData)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" start="348" end="348" startBytecode="0" endBytecode="61" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" synthetic="true">
+      <Message>At SwipeDismissListViewTouchListener.java:[line 348]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="cd1068d7df933fbdd18892cbdd96f99b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData be a _static_ inner class?</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" start="336" end="348" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java">
+        <Message>At SwipeDismissListViewTouchListener.java:[lines 336-348]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData</Message>
+    </Class>
+    <SourceLine classname="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" start="336" end="348" sourcefile="SwipeDismissListViewTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissListViewTouchListener.java" synthetic="true">
+      <Message>At SwipeDismissListViewTouchListener.java:[lines 336-348]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="c4b732e580d2de80ff9fbd562eb7abb1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class org.afhdownloader.SwipeDismissTouchListener at new org.afhdownloader.SwipeDismissTouchListener(View, Object, SwipeDismissTouchListener$DismissCallbacks) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissTouchListener" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="62" end="288" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+        <Message>At SwipeDismissTouchListener.java:[lines 62-288]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissTouchListener</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissTouchListener" name="&lt;init&gt;" signature="(Landroid/view/View;Ljava/lang/Object;Lorg/afhdownloader/SwipeDismissTouchListener$DismissCallbacks;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="110" end="120" startBytecode="0" endBytecode="202" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java"/>
+      <Message>In method new org.afhdownloader.SwipeDismissTouchListener(View, Object, SwipeDismissTouchListener$DismissCallbacks)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" primary="true" start="115" end="115" startBytecode="58" endBytecode="58" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+      <Message>At SwipeDismissTouchListener.java:[line 115]</Message>
+    </SourceLine>
+    <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="115" end="115" startBytecode="58" endBytecode="58" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+      <Message>At SwipeDismissTouchListener.java:[line 115]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="875228ed502a9a1f79b141fa3a4d20ed" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new org.afhdownloader.SwipeDismissTouchListener(View, Object, SwipeDismissTouchListener$DismissCallbacks) may expose internal representation by storing an externally mutable object into SwipeDismissTouchListener.mView</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissTouchListener" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="62" end="288" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+        <Message>At SwipeDismissTouchListener.java:[lines 62-288]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissTouchListener</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissTouchListener" name="&lt;init&gt;" signature="(Landroid/view/View;Ljava/lang/Object;Lorg/afhdownloader/SwipeDismissTouchListener$DismissCallbacks;)V" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="110" end="120" startBytecode="0" endBytecode="202" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java"/>
+      <Message>In method new org.afhdownloader.SwipeDismissTouchListener(View, Object, SwipeDismissTouchListener$DismissCallbacks)</Message>
+    </Method>
+    <Field classname="org.afhdownloader.SwipeDismissTouchListener" name="mView" signature="Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+        <Message>In SwipeDismissTouchListener.java</Message>
+      </SourceLine>
+      <Message>Field org.afhdownloader.SwipeDismissTouchListener.mView</Message>
+    </Field>
+    <LocalVariable name="view" register="1" pc="67" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named view</Message>
+    </LocalVariable>
+    <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" primary="true" start="117" end="117" startBytecode="67" endBytecode="67" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+      <Message>At SwipeDismissTouchListener.java:[line 117]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" instanceHash="88ef87849381cd0b56429f1527ac81f9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="192">
+    <ShortMessage>Integral division result cast to double or float</ShortMessage>
+    <LongMessage>Integral division result cast to double or float in org.afhdownloader.SwipeDismissTouchListener.onTouch(View, MotionEvent)</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissTouchListener" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="62" end="288" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+        <Message>At SwipeDismissTouchListener.java:[lines 62-288]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissTouchListener</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissTouchListener" name="onTouch" signature="(Landroid/view/View;Landroid/view/MotionEvent;)Z" isStatic="false" primary="true" classAnnotationNames="android.annotation.TargetApi">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="126" end="254" startBytecode="0" endBytecode="1430" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java"/>
+      <Message>In method org.afhdownloader.SwipeDismissTouchListener.onTouch(View, MotionEvent)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" primary="true" start="156" end="156" startBytecode="195" endBytecode="195" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+      <Message>At SwipeDismissTouchListener.java:[line 156]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RpC_REPEATED_CONDITIONAL_TEST" priority="1" rank="6" abbrev="RpC" category="CORRECTNESS" instanceHash="88eb294a636538d41d42e238d746f623" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Repeated conditional tests</ShortMessage>
+    <LongMessage>Repeated conditional test in org.afhdownloader.SwipeDismissTouchListener.onTouch(View, MotionEvent)</LongMessage>
+    <Class classname="org.afhdownloader.SwipeDismissTouchListener" primary="true">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="62" end="288" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+        <Message>At SwipeDismissTouchListener.java:[lines 62-288]</Message>
+      </SourceLine>
+      <Message>In class org.afhdownloader.SwipeDismissTouchListener</Message>
+    </Class>
+    <Method classname="org.afhdownloader.SwipeDismissTouchListener" name="onTouch" signature="(Landroid/view/View;Landroid/view/MotionEvent;)Z" isStatic="false" primary="true" classAnnotationNames="android.annotation.TargetApi">
+      <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="126" end="254" startBytecode="0" endBytecode="1430" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java"/>
+      <Message>In method org.afhdownloader.SwipeDismissTouchListener.onTouch(View, MotionEvent)</Message>
+    </Method>
+    <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" primary="true" start="159" end="159" startBytecode="248" endBytecode="252" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+      <Message>At SwipeDismissTouchListener.java:[line 159]</Message>
+    </SourceLine>
+    <SourceLine classname="org.afhdownloader.SwipeDismissTouchListener" start="159" end="159" startBytecode="256" endBytecode="260" sourcefile="SwipeDismissTouchListener.java" sourcepath="org/afhdownloader/SwipeDismissTouchListener.java" relSourcepath="org/afhdownloader/SwipeDismissTouchListener.java">
+      <Message>At SwipeDismissTouchListener.java:[line 159]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ICAST_IDIV_CAST_TO_DOUBLE" abbrev="ICAST" category="STYLE">
+    <ShortDescription>Integral division result cast to double or float</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This code casts the result of an integral division (e.g., int or long division)
+operation to double or float.
+Doing division on integers truncates the result
+to the integer value closest to zero. The fact that the result
+was cast to double suggests that this precision should have been retained.
+What was probably meant was to cast one or both of the operands to
+double <em>before</em> performing the division.  Here is an example:
+</p>
+<pre><code>int x = 2;
+int y = 5;
+// Wrong: yields result 0.0
+double value1 = x / y;
+
+// Right: yields result 0.4
+double value2 = x / (double) y;
+</code></pre>
+<p>See <a href="https://cwe.mitre.org/data/definitions/192.html">CWE-192: Integer Coercion Error</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SIC_INNER_SHOULD_BE_STATIC" abbrev="SIC" category="PERFORMANCE">
+    <ShortDescription>Should be a static inner class</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" abbrev="NP" category="STYLE">
+    <ShortDescription>Possible null pointer dereference due to return value of called method</ShortDescription>
+    <Details><![CDATA[
+      
+<p> The return value from a method is dereferenced without a null check,
+and the return value of that method is one that should generally be checked
+for null.  This may lead to a <code>NullPointerException</code> when the code is executed.
+</p>
+      
+   ]]></Details>
+  </BugPattern>
+  <BugPattern type="NM_METHOD_NAMING_CONVENTION" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Method names should start with a lower case letter</ShortDescription>
+    <Details><![CDATA[
+
+  <p>
+Methods should be verbs, in mixed case with the first letter lowercase, with the first letter of each internal word capitalized.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EQ_COMPARETO_USE_OBJECT_EQUALS" abbrev="Eq" category="BAD_PRACTICE">
+    <ShortDescription>Class defines compareTo(...) and uses Object.equals()</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class defines a <code>compareTo(...)</code> method but inherits its
+  <code>equals()</code> method from <code>java.lang.Object</code>.
+    Generally, the value of compareTo should return zero if and only if
+    equals returns true. If this is violated, weird and unpredictable
+    failures will occur in classes such as PriorityQueue.
+    In Java 5 the PriorityQueue.remove method uses the compareTo method,
+    while in Java 6 it uses the equals method.</p>
+
+<p>From the JavaDoc for the compareTo method in the Comparable interface:
+<blockquote>
+It is strongly recommended, but not strictly required that <code>(x.compareTo(y)==0) == (x.equals(y))</code>.
+Generally speaking, any class that implements the Comparable interface and violates this condition
+should clearly indicate this fact. The recommended language
+is "Note: this class has a natural ordering that is inconsistent with equals."
+</blockquote></p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="RpC_REPEATED_CONDITIONAL_TEST" abbrev="RpC" category="CORRECTNESS">
+    <ShortDescription>Repeated conditional tests</ShortDescription>
+    <Details><![CDATA[
+
+<p>The code contains a conditional test is performed twice, one right after the other
+(e.g., <code>x == 0 || x == 0</code>). Perhaps the second occurrence is intended to be something else
+(e.g., <code>x == 0 || y == 0</code>).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_FINAL_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Field should be both final and package protected</ShortDescription>
+    <Details><![CDATA[
+
+ <p>
+   A mutable static field could be changed by malicious code or
+        by accident from another package.
+        The field could be made package protected and/or made final
+   to avoid
+        this vulnerability.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N" cweid="173">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/173.html">CWE-173: Improper Handling of Alternate Encoding</a>.
+</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" abbrev="RV" category="BAD_PRACTICE" cweid="253">
+    <ShortDescription>Method ignores exceptional return value</ShortDescription>
+    <Details><![CDATA[
+
+   <p> This method returns a value that is not checked. The return value should be checked
+since it can indicate an unusual or unexpected function execution. For
+example, the <code>File.delete()</code> method returns false
+if the file could not be successfully deleted (rather than
+throwing an Exception).
+If you don't check the result, you won't notice if the method invocation
+signals unexpected behavior by returning an atypical return value.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/253.html">CWE-253: Incorrect Check of Function Return Value</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE" cweid="459">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/459.html">CWE-459: Incomplete Cleanup</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="RV" cweid="440">
+    <Description>Bad use of return value from method</Description>
+  </BugCode>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="RpC">
+    <Description>Repeated conditional test</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="ICAST" cweid="192">
+    <Description>Casting from integer values</Description>
+  </BugCode>
+  <BugCode abbrev="Eq">
+    <Description>Problems with implementation of equals()</Description>
+  </BugCode>
+  <BugCode abbrev="SIC">
+    <Description>Inner class could be made static</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="25">
+    <MissingClass>android.support.annotation.StringRes</MissingClass>
+    <MissingClass>android.support.v4.app.ActivityCompat</MissingClass>
+    <MissingClass>android.support.v4.app.ActivityCompat$OnRequestPermissionsResultCallback</MissingClass>
+    <MissingClass>android.support.v4.app.Fragment</MissingClass>
+    <MissingClass>android.support.v4.app.FragmentActivity</MissingClass>
+    <MissingClass>android.support.v4.content.ContextCompat</MissingClass>
+    <MissingClass>android.support.v7.app.ActionBar</MissingClass>
+    <MissingClass>android.support.v7.app.AlertDialog</MissingClass>
+    <MissingClass>android.support.v7.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>android.support.v7.widget.Toolbar</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>org.afhdownloader.R</MissingClass>
+    <MissingClass>org.afhdownloader.R$color</MissingClass>
+    <MissingClass>org.afhdownloader.R$drawable</MissingClass>
+    <MissingClass>org.afhdownloader.R$id</MissingClass>
+    <MissingClass>org.afhdownloader.R$layout</MissingClass>
+    <MissingClass>org.afhdownloader.R$menu</MissingClass>
+    <MissingClass>org.afhdownloader.R$string</MissingClass>
+    <MissingClass>org.afhdownloader.R$xml</MissingClass>
+    <MissingClass>org.jsoup.Connection</MissingClass>
+    <MissingClass>org.jsoup.Jsoup</MissingClass>
+    <MissingClass>org.jsoup.nodes.Document</MissingClass>
+    <MissingClass>org.jsoup.nodes.Element</MissingClass>
+    <MissingClass>org.jsoup.select.Elements</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 00:36:01 +0400" total_classes="44" referenced_classes="296" total_bugs="31" total_size="1333" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="4.49" clock_seconds="0.95" peak_mbytes="289.85" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="27" priority_1="4">
+    <FileStats path="org/afhdownloader/AfterPermissionGranted.java" bugCount="0" size="2"/>
+    <FileStats path="org/afhdownloader/AlarmReceiver.java" bugCount="0" size="20"/>
+    <FileStats path="org/afhdownloader/BootReceiver.java" bugCount="0" size="25"/>
+    <FileStats path="org/afhdownloader/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="org/afhdownloader/DirectoryPicker.java" bugCount="1" size="113" bugHash="84f5e32da7486927f3fab7c1bc4f7d59"/>
+    <FileStats path="org/afhdownloader/Download.java" bugCount="3" size="228" bugHash="291de307ce3d75ad730883f82d0c820b"/>
+    <FileStats path="org/afhdownloader/EasyPermissions.java" bugCount="0" size="110"/>
+    <FileStats path="org/afhdownloader/LogUtil.java" bugCount="0" size="5"/>
+    <FileStats path="org/afhdownloader/MD5.java" bugCount="0" size="42"/>
+    <FileStats path="org/afhdownloader/MainActivity.java" bugCount="14" size="304" bugHash="e01de076b1777c7e77515cbeff4bea6c"/>
+    <FileStats path="org/afhdownloader/MainActivityFragment.java" bugCount="0" size="6"/>
+    <FileStats path="org/afhdownloader/MyCustomAdapter.java" bugCount="4" size="52" bugHash="1fdb2b5d927af1d9aaf28a0b606f9dc2"/>
+    <FileStats path="org/afhdownloader/PrefsFragment.java" bugCount="0" size="17"/>
+    <FileStats path="org/afhdownloader/SetPreferenceActivity.java" bugCount="0" size="11"/>
+    <FileStats path="org/afhdownloader/SwipeDismissListViewTouchListener.java" bugCount="5" size="229" bugHash="cd6858e5729b966244cfa82806189dac"/>
+    <FileStats path="org/afhdownloader/SwipeDismissTouchListener.java" bugCount="4" size="158" bugHash="514487c7fb04efae088069adc2d2c195"/>
+    <PackageStats package="org.afhdownloader" total_bugs="31" total_types="44" total_size="1333" priority_2="27" priority_1="4">
+      <ClassStats class="org.afhdownloader.AfterPermissionGranted" sourceFile="AfterPermissionGranted.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.afhdownloader.AlarmReceiver" sourceFile="AlarmReceiver.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.afhdownloader.BootReceiver" sourceFile="BootReceiver.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.afhdownloader.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="org.afhdownloader.DirectoryPicker" sourceFile="DirectoryPicker.java" interface="false" size="91" bugs="1" priority_2="1"/>
+      <ClassStats class="org.afhdownloader.DirectoryPicker$1" sourceFile="DirectoryPicker.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.afhdownloader.DirectoryPicker$2" sourceFile="DirectoryPicker.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.afhdownloader.Download" sourceFile="Download.java" interface="false" size="152" bugs="2" priority_2="2"/>
+      <ClassStats class="org.afhdownloader.Download$1" sourceFile="Download.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.afhdownloader.Download$ParseURL" sourceFile="Download.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.afhdownloader.Download$ParseURLDownload" sourceFile="Download.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.afhdownloader.Download$dlMd5" sourceFile="Download.java" interface="false" size="23" bugs="1" priority_1="1"/>
+      <ClassStats class="org.afhdownloader.Download$downloadFirstThread" sourceFile="Download.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.afhdownloader.EasyPermissions" sourceFile="EasyPermissions.java" interface="false" size="89" bugs="0"/>
+      <ClassStats class="org.afhdownloader.EasyPermissions$1" sourceFile="EasyPermissions.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.afhdownloader.EasyPermissions$2" sourceFile="EasyPermissions.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.afhdownloader.EasyPermissions$PermissionCallbacks" sourceFile="EasyPermissions.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.afhdownloader.LogUtil" sourceFile="LogUtil.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.afhdownloader.MD5" sourceFile="MD5.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="org.afhdownloader.MainActivity" sourceFile="MainActivity.java" interface="false" size="213" bugs="12" priority_2="10" priority_1="2"/>
+      <ClassStats class="org.afhdownloader.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.afhdownloader.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.afhdownloader.MainActivity$2$1" sourceFile="MainActivity.java" interface="false" size="14" bugs="1" priority_2="1"/>
+      <ClassStats class="org.afhdownloader.MainActivity$3" sourceFile="MainActivity.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.afhdownloader.MainActivity$4" sourceFile="MainActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.afhdownloader.MainActivity$ExecuteAsRootBase" sourceFile="MainActivity.java" interface="false" size="32" bugs="1" priority_2="1"/>
+      <ClassStats class="org.afhdownloader.MainActivityFragment" sourceFile="MainActivityFragment.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.afhdownloader.MyCustomAdapter" sourceFile="MyCustomAdapter.java" interface="false" size="47" bugs="4" priority_2="4"/>
+      <ClassStats class="org.afhdownloader.MyCustomAdapter$ViewHolder" sourceFile="MyCustomAdapter.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.afhdownloader.PrefsFragment" sourceFile="PrefsFragment.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.afhdownloader.PrefsFragment$1" sourceFile="PrefsFragment.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SetPreferenceActivity" sourceFile="SetPreferenceActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissListViewTouchListener" sourceFile="SwipeDismissListViewTouchListener.java" interface="false" size="159" bugs="3" priority_2="3"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissListViewTouchListener$1" sourceFile="SwipeDismissListViewTouchListener.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissListViewTouchListener$2" sourceFile="SwipeDismissListViewTouchListener.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissListViewTouchListener$3" sourceFile="SwipeDismissListViewTouchListener.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissListViewTouchListener$4" sourceFile="SwipeDismissListViewTouchListener.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissListViewTouchListener$DismissCallbacks" sourceFile="SwipeDismissListViewTouchListener.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissListViewTouchListener$PendingDismissData" sourceFile="SwipeDismissListViewTouchListener.java" interface="false" size="13" bugs="2" priority_2="2"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissTouchListener" sourceFile="SwipeDismissTouchListener.java" interface="false" size="126" bugs="4" priority_2="3" priority_1="1"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissTouchListener$1" sourceFile="SwipeDismissTouchListener.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissTouchListener$2" sourceFile="SwipeDismissTouchListener.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissTouchListener$3" sourceFile="SwipeDismissTouchListener.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.afhdownloader.SwipeDismissTouchListener$DismissCallbacks" sourceFile="SwipeDismissTouchListener.java" interface="true" size="3" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="48" invocations="686" avgMicrosecondsPerInvocation="71" maxMicrosecondsPerInvocation="5168" standardDeviationMicrosecondsPerInvocation="253"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="38" invocations="296" avgMicrosecondsPerInvocation="130" maxMicrosecondsPerInvocation="3671" standardDeviationMicrosecondsPerInvocation="337"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="35" invocations="161" avgMicrosecondsPerInvocation="219" maxMicrosecondsPerInvocation="3732" standardDeviationMicrosecondsPerInvocation="464"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="33" invocations="165" avgMicrosecondsPerInvocation="201" maxMicrosecondsPerInvocation="3683" standardDeviationMicrosecondsPerInvocation="436"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="33" invocations="153" avgMicrosecondsPerInvocation="216" maxMicrosecondsPerInvocation="2767" standardDeviationMicrosecondsPerInvocation="457"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="32" invocations="166" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="2774" standardDeviationMicrosecondsPerInvocation="454"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="29" invocations="161" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="3134" standardDeviationMicrosecondsPerInvocation="446"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="24" invocations="169" avgMicrosecondsPerInvocation="142" maxMicrosecondsPerInvocation="2791" standardDeviationMicrosecondsPerInvocation="271"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="20" invocations="357" avgMicrosecondsPerInvocation="56" maxMicrosecondsPerInvocation="4013" standardDeviationMicrosecondsPerInvocation="227"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="19" invocations="141" avgMicrosecondsPerInvocation="137" maxMicrosecondsPerInvocation="1848" standardDeviationMicrosecondsPerInvocation="279"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="15" invocations="296" avgMicrosecondsPerInvocation="53" maxMicrosecondsPerInvocation="849" standardDeviationMicrosecondsPerInvocation="99"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="15" invocations="169" avgMicrosecondsPerInvocation="92" maxMicrosecondsPerInvocation="6738" standardDeviationMicrosecondsPerInvocation="527"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="15" invocations="703" avgMicrosecondsPerInvocation="21" maxMicrosecondsPerInvocation="276" standardDeviationMicrosecondsPerInvocation="21"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="13" invocations="180" avgMicrosecondsPerInvocation="74" maxMicrosecondsPerInvocation="2244" standardDeviationMicrosecondsPerInvocation="220"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="13" invocations="44" avgMicrosecondsPerInvocation="301" maxMicrosecondsPerInvocation="4088" standardDeviationMicrosecondsPerInvocation="646"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="13" invocations="296" avgMicrosecondsPerInvocation="44" maxMicrosecondsPerInvocation="2180" standardDeviationMicrosecondsPerInvocation="161"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="12" invocations="44" avgMicrosecondsPerInvocation="283" maxMicrosecondsPerInvocation="1508" standardDeviationMicrosecondsPerInvocation="392"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="12" invocations="296" avgMicrosecondsPerInvocation="41" maxMicrosecondsPerInvocation="2694" standardDeviationMicrosecondsPerInvocation="170"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="11" invocations="296" avgMicrosecondsPerInvocation="40" maxMicrosecondsPerInvocation="755" standardDeviationMicrosecondsPerInvocation="91"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="11" invocations="44" avgMicrosecondsPerInvocation="270" maxMicrosecondsPerInvocation="7102" standardDeviationMicrosecondsPerInvocation="1050"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="11" invocations="44" avgMicrosecondsPerInvocation="268" maxMicrosecondsPerInvocation="4409" standardDeviationMicrosecondsPerInvocation="857"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

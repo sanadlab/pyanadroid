@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762884724922" analysisTimestamp="1762884727495" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/PolyCal/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-31/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/PolyCal/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="1e2e1d8ffc871a3880b8bb082e9c5d70" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.gyorog.polycal.CalendarRemoteViewsFactory(Context, Intent) may expose internal representation by storing an externally mutable object into CalendarRemoteViewsFactory.mContext</LongMessage>
+    <Class classname="com.gyorog.polycal.CalendarRemoteViewsFactory" primary="true">
+      <SourceLine classname="com.gyorog.polycal.CalendarRemoteViewsFactory" start="41" end="212" sourcefile="CalendarRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java">
+        <Message>At CalendarRemoteViewsFactory.java:[lines 41-212]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.CalendarRemoteViewsFactory</Message>
+    </Class>
+    <Method classname="com.gyorog.polycal.CalendarRemoteViewsFactory" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.CalendarRemoteViewsFactory" start="41" end="46" startBytecode="0" endBytecode="133" sourcefile="CalendarRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java"/>
+      <Message>In method new com.gyorog.polycal.CalendarRemoteViewsFactory(Context, Intent)</Message>
+    </Method>
+    <Field classname="com.gyorog.polycal.CalendarRemoteViewsFactory" name="mContext" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.CalendarRemoteViewsFactory" sourcefile="CalendarRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java">
+        <Message>In CalendarRemoteViewsFactory.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.CalendarRemoteViewsFactory.mContext</Message>
+    </Field>
+    <LocalVariable name="applicationContext" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named applicationContext</Message>
+    </LocalVariable>
+    <SourceLine classname="com.gyorog.polycal.CalendarRemoteViewsFactory" primary="true" start="42" end="42" startBytecode="6" endBytecode="6" sourcefile="CalendarRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java">
+      <Message>At CalendarRemoteViewsFactory.java:[line 42]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="bfd1aaf5c5720108dd23952419d99d31" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.gyorog.polycal.CalendarRemoteViewsFactory.EVENT_COLUMN_LIST should be package protected</LongMessage>
+    <Class classname="com.gyorog.polycal.CalendarRemoteViewsFactory" primary="true">
+      <SourceLine classname="com.gyorog.polycal.CalendarRemoteViewsFactory" start="41" end="212" sourcefile="CalendarRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java">
+        <Message>At CalendarRemoteViewsFactory.java:[lines 41-212]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.CalendarRemoteViewsFactory</Message>
+    </Class>
+    <Field classname="com.gyorog.polycal.CalendarRemoteViewsFactory" name="EVENT_COLUMN_LIST" signature="[Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.gyorog.polycal.CalendarRemoteViewsFactory" sourcefile="CalendarRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java">
+        <Message>In CalendarRemoteViewsFactory.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.CalendarRemoteViewsFactory.EVENT_COLUMN_LIST</Message>
+    </Field>
+    <SourceLine classname="com.gyorog.polycal.CalendarRemoteViewsFactory" primary="true" start="163" end="163" startBytecode="47" endBytecode="47" sourcefile="CalendarRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/CalendarRemoteViewsFactory.java">
+      <Message>At CalendarRemoteViewsFactory.java:[line 163]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="6607bd147b0065656979980a1eeb50bd" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.gyorog.polycal.MainActivity.TAG; should this field be static?</LongMessage>
+    <Class classname="com.gyorog.polycal.MainActivity" primary="true">
+      <SourceLine classname="com.gyorog.polycal.MainActivity" start="22" end="89" sourcefile="MainActivity.java" sourcepath="com/gyorog/polycal/MainActivity.java" relSourcepath="com/gyorog/polycal/MainActivity.java">
+        <Message>At MainActivity.java:[lines 22-89]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.MainActivity</Message>
+    </Class>
+    <Field classname="com.gyorog.polycal.MainActivity" name="TAG" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.MainActivity" sourcefile="MainActivity.java" sourcepath="com/gyorog/polycal/MainActivity.java" relSourcepath="com/gyorog/polycal/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.MainActivity.TAG</Message>
+    </Field>
+    <SourceLine classname="com.gyorog.polycal.MainActivity" primary="true" start="24" end="24" startBytecode="7" endBytecode="7" sourcefile="MainActivity.java" sourcepath="com/gyorog/polycal/MainActivity.java" relSourcepath="com/gyorog/polycal/MainActivity.java">
+      <Message>At MainActivity.java:[line 24]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="e987d02076e73289b2741609279581dd" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method names should start with a lower case letter</ShortMessage>
+    <LongMessage>The method name com.gyorog.polycal.PolyCalWidgetProvider.LogIntent(String, Intent) doesn&apos;t start with a lower case letter</LongMessage>
+    <Class classname="com.gyorog.polycal.PolyCalWidgetProvider" primary="true">
+      <SourceLine classname="com.gyorog.polycal.PolyCalWidgetProvider" start="20" end="145" sourcefile="PolyCalWidgetProvider.java" sourcepath="com/gyorog/polycal/PolyCalWidgetProvider.java" relSourcepath="com/gyorog/polycal/PolyCalWidgetProvider.java">
+        <Message>At PolyCalWidgetProvider.java:[lines 20-145]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.PolyCalWidgetProvider</Message>
+    </Class>
+    <Method classname="com.gyorog.polycal.PolyCalWidgetProvider" name="LogIntent" signature="(Ljava/lang/String;Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.PolyCalWidgetProvider" start="142" end="145" startBytecode="0" endBytecode="212" sourcefile="PolyCalWidgetProvider.java" sourcepath="com/gyorog/polycal/PolyCalWidgetProvider.java" relSourcepath="com/gyorog/polycal/PolyCalWidgetProvider.java"/>
+      <Message>In method com.gyorog.polycal.PolyCalWidgetProvider.LogIntent(String, Intent)</Message>
+    </Method>
+    <SourceLine classname="com.gyorog.polycal.PolyCalWidgetProvider" start="142" end="145" startBytecode="0" endBytecode="212" sourcefile="PolyCalWidgetProvider.java" sourcepath="com/gyorog/polycal/PolyCalWidgetProvider.java" relSourcepath="com/gyorog/polycal/PolyCalWidgetProvider.java" synthetic="true">
+      <Message>At PolyCalWidgetProvider.java:[lines 142-145]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="988993857d61e47a17bfa99c924e233a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.gyorog.polycal.ScreenshotRemoteViewsFactory(Context, Intent) may expose internal representation by storing an externally mutable object into ScreenshotRemoteViewsFactory.mContext</LongMessage>
+    <Class classname="com.gyorog.polycal.ScreenshotRemoteViewsFactory" primary="true">
+      <SourceLine classname="com.gyorog.polycal.ScreenshotRemoteViewsFactory" start="44" end="157" sourcefile="ScreenshotRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java">
+        <Message>At ScreenshotRemoteViewsFactory.java:[lines 44-157]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.ScreenshotRemoteViewsFactory</Message>
+    </Class>
+    <Method classname="com.gyorog.polycal.ScreenshotRemoteViewsFactory" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.ScreenshotRemoteViewsFactory" start="65" end="70" startBytecode="0" endBytecode="133" sourcefile="ScreenshotRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java"/>
+      <Message>In method new com.gyorog.polycal.ScreenshotRemoteViewsFactory(Context, Intent)</Message>
+    </Method>
+    <Field classname="com.gyorog.polycal.ScreenshotRemoteViewsFactory" name="mContext" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.ScreenshotRemoteViewsFactory" sourcefile="ScreenshotRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java">
+        <Message>In ScreenshotRemoteViewsFactory.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.ScreenshotRemoteViewsFactory.mContext</Message>
+    </Field>
+    <LocalVariable name="applicationContext" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named applicationContext</Message>
+    </LocalVariable>
+    <SourceLine classname="com.gyorog.polycal.ScreenshotRemoteViewsFactory" primary="true" start="66" end="66" startBytecode="6" endBytecode="6" sourcefile="ScreenshotRemoteViewsFactory.java" sourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java" relSourcepath="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java">
+      <Message>At ScreenshotRemoteViewsFactory.java:[line 66]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="e98a65080008f2a8cad27c2ed203fcc7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.gyorog.polycal.SettingsActivity.CALENDAR_COLUMN_LIST should be package protected</LongMessage>
+    <Class classname="com.gyorog.polycal.SettingsActivity" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" start="33" end="321" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 33-321]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.SettingsActivity</Message>
+    </Class>
+    <Field classname="com.gyorog.polycal.SettingsActivity" name="CALENDAR_COLUMN_LIST" signature="[Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>In SettingsActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.SettingsActivity.CALENDAR_COLUMN_LIST</Message>
+    </Field>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity" primary="true" start="300" end="300" startBytecode="14" endBytecode="14" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+      <Message>At SettingsActivity.java:[line 300]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="2af51838892df3bbcd2b3e32944d45ca" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.gyorog.polycal.SettingsActivity.widget_id should be package protected</LongMessage>
+    <Class classname="com.gyorog.polycal.SettingsActivity" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" start="33" end="321" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 33-321]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.SettingsActivity</Message>
+    </Class>
+    <Field classname="com.gyorog.polycal.SettingsActivity" name="widget_id" signature="I" isStatic="true" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>In SettingsActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.SettingsActivity.widget_id</Message>
+    </Field>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java" synthetic="true">
+      <Message>In SettingsActivity.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="bcb530b1d1a707e156ea0bee5c91fe79" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.gyorog.polycal.SettingsActivity.widget_id is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.gyorog.polycal.SettingsActivity" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" start="33" end="321" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 33-321]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.SettingsActivity</Message>
+    </Class>
+    <Field classname="com.gyorog.polycal.SettingsActivity" name="widget_id" signature="I" isStatic="true" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>In SettingsActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.SettingsActivity.widget_id</Message>
+    </Field>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment$4" primary="true" start="155" end="155" startBytecode="14" endBytecode="14" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+      <Message>At SettingsActivity.java:[line 155]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="34cbd25d53c9c3014252c08ba5a3a0ea" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.gyorog.polycal.SettingsActivity.widget_id from instance method com.gyorog.polycal.SettingsActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.gyorog.polycal.SettingsActivity" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" start="33" end="321" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 33-321]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.SettingsActivity</Message>
+    </Class>
+    <Method classname="com.gyorog.polycal.SettingsActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" start="42" end="84" startBytecode="0" endBytecode="432" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java"/>
+      <Message>In method com.gyorog.polycal.SettingsActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.gyorog.polycal.SettingsActivity" name="widget_id" signature="I" isStatic="true" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>In SettingsActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.SettingsActivity.widget_id</Message>
+    </Field>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity" primary="true" start="46" end="46" startBytecode="24" endBytecode="24" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+      <Message>At SettingsActivity.java:[line 46]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_STRING_VOID_CTOR" priority="2" rank="18" abbrev="Dm" category="PERFORMANCE" instanceHash="d72e5ebede7bc9d4ef72a30f25a3e9c5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method invokes inefficient new String() constructor</ShortMessage>
+    <LongMessage>com.gyorog.polycal.SettingsActivity$SettingsFragment.UpdatePreferences() invokes inefficient new String() constructor</LongMessage>
+    <Class classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" start="87" end="295" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 87-295]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.SettingsActivity$SettingsFragment</Message>
+    </Class>
+    <Method classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" name="UpdatePreferences" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" start="214" end="268" startBytecode="0" endBytecode="912" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java"/>
+      <Message>In method com.gyorog.polycal.SettingsActivity$SettingsFragment.UpdatePreferences()</Message>
+    </Method>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" primary="true" start="255" end="255" startBytecode="346" endBytecode="346" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+      <Message>At SettingsActivity.java:[line 255]</Message>
+    </SourceLine>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" start="261" end="261" startBytecode="397" endBytecode="397" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at SettingsActivity.java:[line 261]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="ccdac54d810fd91ed8eac945d5361e2a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method names should start with a lower case letter</ShortMessage>
+    <LongMessage>The method name com.gyorog.polycal.SettingsActivity$SettingsFragment.UpdatePreferences() doesn&apos;t start with a lower case letter</LongMessage>
+    <Class classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" start="87" end="295" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 87-295]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.SettingsActivity$SettingsFragment</Message>
+    </Class>
+    <Method classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" name="UpdatePreferences" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" start="214" end="268" startBytecode="0" endBytecode="912" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java"/>
+      <Message>In method com.gyorog.polycal.SettingsActivity$SettingsFragment.UpdatePreferences()</Message>
+    </Method>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" start="214" end="268" startBytecode="0" endBytecode="912" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java" synthetic="true">
+      <Message>At SettingsActivity.java:[lines 214-268]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="7f123e8d5dbdf23acc61a9ea66b3e3a0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.gyorog.polycal.SettingsActivity$SettingsFragment.READ_CALENDAR_CONSTANT; should this field be static?</LongMessage>
+    <Class classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" start="87" end="295" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 87-295]</Message>
+      </SourceLine>
+      <Message>In class com.gyorog.polycal.SettingsActivity$SettingsFragment</Message>
+    </Class>
+    <Field classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" name="READ_CALENDAR_CONSTANT" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+        <Message>In SettingsActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.gyorog.polycal.SettingsActivity$SettingsFragment.READ_CALENDAR_CONSTANT</Message>
+    </Field>
+    <SourceLine classname="com.gyorog.polycal.SettingsActivity$SettingsFragment" primary="true" start="88" end="88" startBytecode="6" endBytecode="6" sourcefile="SettingsActivity.java" sourcepath="com/gyorog/polycal/SettingsActivity.java" relSourcepath="com/gyorog/polycal/SettingsActivity.java">
+      <Message>At SettingsActivity.java:[line 88]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_STRING_VOID_CTOR" abbrev="Dm" category="PERFORMANCE">
+    <ShortDescription>Method invokes inefficient new String() constructor</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Creating a new <code>java.lang.String</code> object using the
+  no-argument constructor wastes memory because the object so created will
+  be functionally indistinguishable from the empty string constant
+  <code>""</code>.&nbsp; Java guarantees that identical string constants
+  will be represented by the same <code>String</code> object.&nbsp; Therefore,
+  you should just use the empty string constant directly.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NM_METHOD_NAMING_CONVENTION" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Method names should start with a lower case letter</ShortDescription>
+    <Details><![CDATA[
+
+  <p>
+Methods should be verbs, in mixed case with the first letter lowercase, with the first letter of each internal word capitalized.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="18">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.core.app.ActivityCompat</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.preference.ListPreference</MissingClass>
+    <MissingClass>androidx.preference.MultiSelectListPreference</MissingClass>
+    <MissingClass>androidx.preference.Preference</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceChangeListener</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceClickListener</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat</MissingClass>
+    <MissingClass>androidx.preference.SeekBarPreference</MissingClass>
+    <MissingClass>androidx.preference.SwitchPreference</MissingClass>
+    <MissingClass>com.gyorog.polycal.R</MissingClass>
+    <MissingClass>com.gyorog.polycal.R$id</MissingClass>
+    <MissingClass>com.gyorog.polycal.R$layout</MissingClass>
+    <MissingClass>com.gyorog.polycal.R$string</MissingClass>
+    <MissingClass>com.gyorog.polycal.R$xml</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 22:12:04 +0400" total_classes="20" referenced_classes="154" total_bugs="12" total_size="627" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="3.55" clock_seconds="0.75" peak_mbytes="274.93" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="12">
+    <FileStats path="com/gyorog/polycal/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/gyorog/polycal/CalendarRemoteViewsFactory.java" bugCount="2" size="113" bugHash="5e3a35ae8399145542c35ca21c2e5597"/>
+    <FileStats path="com/gyorog/polycal/CalendarRemoteViewsService.java" bugCount="0" size="5"/>
+    <FileStats path="com/gyorog/polycal/MainActivity.java" bugCount="1" size="65" bugHash="e65e0bcc0a2a478b24f519e35a5222d5"/>
+    <FileStats path="com/gyorog/polycal/PolyCalDateFormats.java" bugCount="0" size="20"/>
+    <FileStats path="com/gyorog/polycal/PolyCalWidgetProvider.java" bugCount="1" size="85" bugHash="b4434edbf9768c83a84be9fb477e4db6"/>
+    <FileStats path="com/gyorog/polycal/ScreenshotRemoteViewsFactory.java" bugCount="1" size="97" bugHash="bdfd430ab0bf1c7d0c606f28fa4defbc"/>
+    <FileStats path="com/gyorog/polycal/ScreenshotRemoteViewsService.java" bugCount="0" size="6"/>
+    <FileStats path="com/gyorog/polycal/SettingsActivity.java" bugCount="7" size="226" bugHash="fc20a84cebc940dbcbc1ee8b09e072fe"/>
+    <PackageStats package="com.gyorog.polycal" total_bugs="12" total_types="20" total_size="627" priority_2="12">
+      <ClassStats class="com.gyorog.polycal.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.CalendarRemoteViewsFactory" sourceFile="CalendarRemoteViewsFactory.java" interface="false" size="113" bugs="2" priority_2="2"/>
+      <ClassStats class="com.gyorog.polycal.CalendarRemoteViewsService" sourceFile="CalendarRemoteViewsService.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.MainActivity" sourceFile="MainActivity.java" interface="false" size="46" bugs="1" priority_2="1"/>
+      <ClassStats class="com.gyorog.polycal.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.PolyCalDateFormats" sourceFile="PolyCalDateFormats.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.PolyCalWidgetProvider" sourceFile="PolyCalWidgetProvider.java" interface="false" size="85" bugs="1" priority_2="1"/>
+      <ClassStats class="com.gyorog.polycal.ScreenshotRemoteViewsFactory" sourceFile="ScreenshotRemoteViewsFactory.java" interface="false" size="83" bugs="1" priority_2="1"/>
+      <ClassStats class="com.gyorog.polycal.ScreenshotRemoteViewsFactory$EventEntry" sourceFile="ScreenshotRemoteViewsFactory.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.ScreenshotRemoteViewsService" sourceFile="ScreenshotRemoteViewsService.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity" sourceFile="SettingsActivity.java" interface="false" size="55" bugs="3" priority_2="3"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$1" sourceFile="SettingsActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$SettingsFragment" sourceFile="SettingsActivity.java" interface="false" size="78" bugs="3" priority_2="3"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$SettingsFragment$1" sourceFile="SettingsActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$SettingsFragment$2" sourceFile="SettingsActivity.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$SettingsFragment$3" sourceFile="SettingsActivity.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$SettingsFragment$4" sourceFile="SettingsActivity.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$SettingsFragment$5" sourceFile="SettingsActivity.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.gyorog.polycal.SettingsActivity$SettingsFragment$6" sourceFile="SettingsActivity.java" interface="false" size="15" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="58" invocations="561" avgMicrosecondsPerInvocation="104" maxMicrosecondsPerInvocation="5925" standardDeviationMicrosecondsPerInvocation="359"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="29" invocations="154" avgMicrosecondsPerInvocation="192" maxMicrosecondsPerInvocation="3951" standardDeviationMicrosecondsPerInvocation="433"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="23" invocations="74" avgMicrosecondsPerInvocation="318" maxMicrosecondsPerInvocation="7330" standardDeviationMicrosecondsPerInvocation="901"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="23" invocations="74" avgMicrosecondsPerInvocation="316" maxMicrosecondsPerInvocation="5019" standardDeviationMicrosecondsPerInvocation="715"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="21" invocations="78" avgMicrosecondsPerInvocation="279" maxMicrosecondsPerInvocation="3981" standardDeviationMicrosecondsPerInvocation="595"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="19" invocations="75" avgMicrosecondsPerInvocation="256" maxMicrosecondsPerInvocation="3667" standardDeviationMicrosecondsPerInvocation="584"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="18" invocations="208" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="4648" standardDeviationMicrosecondsPerInvocation="340"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="18" invocations="74" avgMicrosecondsPerInvocation="246" maxMicrosecondsPerInvocation="3105" standardDeviationMicrosecondsPerInvocation="521"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="15" invocations="74" avgMicrosecondsPerInvocation="211" maxMicrosecondsPerInvocation="2724" standardDeviationMicrosecondsPerInvocation="394"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="14" invocations="154" avgMicrosecondsPerInvocation="92" maxMicrosecondsPerInvocation="4922" standardDeviationMicrosecondsPerInvocation="417"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="13" invocations="576" avgMicrosecondsPerInvocation="24" maxMicrosecondsPerInvocation="289" standardDeviationMicrosecondsPerInvocation="22"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="13" invocations="20" avgMicrosecondsPerInvocation="673" maxMicrosecondsPerInvocation="12134" standardDeviationMicrosecondsPerInvocation="2629"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="12" invocations="154" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="1042" standardDeviationMicrosecondsPerInvocation="158"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="12" invocations="154" avgMicrosecondsPerInvocation="78" maxMicrosecondsPerInvocation="1110" standardDeviationMicrosecondsPerInvocation="168"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="12" invocations="154" avgMicrosecondsPerInvocation="78" maxMicrosecondsPerInvocation="3013" standardDeviationMicrosecondsPerInvocation="293"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="11" invocations="74" avgMicrosecondsPerInvocation="155" maxMicrosecondsPerInvocation="6704" standardDeviationMicrosecondsPerInvocation="771"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

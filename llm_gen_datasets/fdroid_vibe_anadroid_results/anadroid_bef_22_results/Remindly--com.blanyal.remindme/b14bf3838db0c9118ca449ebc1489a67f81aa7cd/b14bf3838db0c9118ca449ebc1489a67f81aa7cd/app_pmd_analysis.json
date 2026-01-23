@@ -1,0 +1,69 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:54:06.376+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Remindly/app/src/main/java/com/blanyal/remindme/AlarmReceiver.java",
+      "violations": [
+        {
+          "beginline": 81,
+          "begincolumn": 28,
+          "endline": 81,
+          "endcolumn": 47,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 107,
+          "begincolumn": 28,
+          "endline": 107,
+          "endcolumn": 47,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Remindly/app/src/main/java/com/blanyal/remindme/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 243,
+          "begincolumn": 9,
+          "endline": 252,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Remindly/app/src/main/java/com/blanyal/remindme/ReminderDatabase.java",
+      "violations": [
+        {
+          "beginline": 142,
+          "begincolumn": 37,
+          "endline": 142,
+          "endcolumn": 51,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

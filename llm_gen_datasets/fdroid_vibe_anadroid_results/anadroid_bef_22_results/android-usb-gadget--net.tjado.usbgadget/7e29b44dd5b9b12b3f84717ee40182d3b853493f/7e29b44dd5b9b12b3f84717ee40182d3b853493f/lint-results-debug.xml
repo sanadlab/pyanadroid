@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.2.2">
+
+    <issue
+        id="ObsoleteLayoutParam"
+        severity="Warning"
+        message="Invalid layout param in a `LinearLayout`: `layout_alignParentTop`"
+        category="Performance"
+        priority="6"
+        summary="Obsolete layout params"
+        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
+        errorLine1="                                android:layout_alignParentTop=&quot;true&quot;"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="175"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="DisableBaselineAlignment"
+        severity="Warning"
+        message="Set `android:baselineAligned=&quot;false&quot;` on this element for better performance"
+        category="Performance"
+        priority="3"
+        summary="Missing `baselineAligned` attribute"
+        explanation="When a `LinearLayout` is used to distribute the space proportionally between nested layouts, the baseline alignment property should be turned off to make the layout computation faster."
+        errorLine1="        &lt;LinearLayout"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="39"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/colorPrimaryDescent` with a theme that also paints a background (inferred theme is `@style/AppTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;@color/colorPrimaryDescent&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="8"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/colorPrimaryDescent` with a theme that also paints a background (inferred theme is `@style/AppTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;@color/colorPrimaryDescent&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="8"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/colorPrimaryDescent` with a theme that also paints a background (inferred theme is `@style/AppTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;@color/colorPrimaryDescent&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget_manager.xml"
+            line="8"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/colorPrimaryDescent` with a theme that also paints a background (inferred theme is `@style/AppTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;@color/colorPrimaryDescent&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_overview.xml"
+            line="8"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.baseline_help_24` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/drawable-v24/baseline_help_24.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_launcher_foreground` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.activate` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;activate&quot;>Activate!&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="4"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.deactivate` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;deactivate&quot;>Deactivate!&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="5"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.info` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;info&quot;>Information&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="8"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.card_head_gadget_boot_activate` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;card_head_gadget_boot_activate&quot;>Activate gadget during boot:&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="31"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `getBinding` of class `GadgetManagerFragment` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    binding.spinnerBootActivate.setSelection(spinnerGadgetList.indexOf(gmPreferences.getActiveBootGadget()), false)"
+        errorLine2="                    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/java/net/tjado/usbgadget/GadgetManagerFragment.kt"
+            line="76"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `getBinding` of class `GadgetManagerFragment` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                    binding.spinnerBootActivate.setSelection(spinnerGadgetList.indexOf(gmPreferences.getActiveBootGadget()), false)"
+        errorLine2="                    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/java/net/tjado/usbgadget/GadgetManagerFragment.kt"
+            line="76"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This `TableLayout` layout or its `LinearLayout` parent is unnecessary"
+        category="Performance"
+        priority="2"
+        summary="Unnecessary parent layout"
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="                &lt;TableLayout"
+        errorLine2="                 ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="51"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This `TableRow` layout or its `TableLayout` parent is unnecessary"
+        category="Performance"
+        priority="2"
+        summary="Unnecessary parent layout"
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="            &lt;TableRow"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget_profile.xml"
+            line="42"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This `ViewFlipper` layout or its `LinearLayout` parent is possibly unnecessary; transfer the `background` attribute to the other view"
+        category="Performance"
+        priority="2"
+        summary="Unnecessary parent layout"
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="        &lt;ViewFlipper"
+        errorLine2="         ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="19"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This `ViewFlipper` layout or its `LinearLayout` parent is possibly unnecessary; transfer the `background` attribute to the other view"
+        category="Performance"
+        priority="2"
+        summary="Unnecessary parent layout"
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="        &lt;ViewFlipper"
+        errorLine2="         ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_overview.xml"
+            line="19"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="TooDeepLayout"
+        severity="Warning"
+        message="`fragment_gadget.xml` has more than 10 levels, bad for performance"
+        category="Performance"
+        priority="1"
+        summary="Layout hierarchy is too deep"
+        explanation="Layouts with too much nesting is bad for performance. Consider using a flatter layout (such as `RelativeLayout` or `GridLayout`).The default maximum depth is 10 but can be configured with the environment variable `ANDROID_LINT_MAX_DEPTH`."
+        errorLine1="                                    &lt;Switch"
+        errorLine2="                                     ~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="153"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.viewpager` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/viewpager&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="28"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.cv_gadget` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    android:id=&quot;@+id/cv_gadget&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_path_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                android:id=&quot;@+id/tv_gadget_path_header&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="22"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_path` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                android:id=&quot;@+id/tv_gadget_path&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="29"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_manufacturer_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_manufacturer_header&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="58"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_manufacturer` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_manufacturer&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="65"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_product_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_product_header&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="77"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_product` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_product&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="84"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_sn_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_sn_header&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="96"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_sn` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_sn&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="103"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_udc_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_udc_header&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="115"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_udc` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/tv_gadget_udc&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="122"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_functions_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/tv_gadget_functions_header&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="140"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_functions` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/tv_gadget_functions&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="146"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_status` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                        android:id=&quot;@+id/tv_gadget_status&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget.xml"
+            line="159"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.cv_gadget_profiles` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    android:id=&quot;@+id/cv_gadget_profiles&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget_profile.xml"
+            line="4"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_profile` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                android:id=&quot;@+id/tv_gadget_profile&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget_profile.xml"
+            line="29"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_boot_create_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/tv_gadget_boot_create_header&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget_profile.xml"
+            line="46"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.gadget_boot_create` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                        android:id=&quot;@+id/gadget_boot_create&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/cardview_gadget_profile.xml"
+            line="55"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.scrollView2` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="        android:id=&quot;@+id/scrollView2&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_device_info.xml"
+            line="8"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.cardView` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/cardView&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_device_info.xml"
+            line="17"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.list_device_data` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/list_device_data&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_device_info.xml"
+            line="31"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.flipper` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/flipper&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="20"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_status_header` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                                    android:id=&quot;@+id/tv_gadget_status_header&quot;"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="145"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.header_name` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                                android:id=&quot;@+id/header_name&quot;"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="172"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.list_functons` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/list_functons&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="199"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.no_root` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/no_root&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget.xml"
+            line="214"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_card_info` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/tv_card_info&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget_manager.xml"
+            line="32"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_gadget_boot_activate_head` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/tv_gadget_boot_activate_head&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget_manager.xml"
+            line="42"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.spinner_layout` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                        android:id=&quot;@+id/spinner_layout&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget_manager.xml"
+            line="51"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.spinner_boot_activate` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                            android:id=&quot;@+id/spinner_boot_activate&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget_manager.xml"
+            line="60"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.tv_card_info2` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/tv_card_info2&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget_manager.xml"
+            line="83"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.rv_gadget_profiles` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/rv_gadget_profiles&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_gadget_manager.xml"
+            line="94"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.log` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/log&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_log.xml"
+            line="13"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.rv_gadgets` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="                    android:id=&quot;@+id/rv_gadgets&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_overview.xml"
+            line="38"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.name` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/name&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/row_device_info.xml"
+            line="14"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.value` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/value&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/row_device_info.xml"
+            line="27"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedIds"
+        severity="Warning"
+        message="The resource `R.id.status` appears to be unused"
+        category="Performance"
+        priority="1"
+        summary="Unused id"
+        explanation="This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="            android:id=&quot;@+id/status&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/res/layout/row_function.xml"
+            line="27"
+            column="13"/>
+    </issue>
+
+</issues>

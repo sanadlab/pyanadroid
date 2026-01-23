@@ -1,0 +1,124 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:55:34.902+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WorkoutLog/app/src/main/java/com/github/yeriomin/workoutlog/Adapter/ExerciseAdapter.java",
+      "violations": [
+        {
+          "beginline": 40,
+          "begincolumn": 28,
+          "endline": 40,
+          "endcolumn": 62,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 45,
+          "begincolumn": 27,
+          "endline": 45,
+          "endcolumn": 44,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 58,
+          "begincolumn": 44,
+          "endline": 58,
+          "endcolumn": 72,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WorkoutLog/app/src/main/java/com/github/yeriomin/workoutlog/Adapter/ExerciseSet.java",
+      "violations": [
+        {
+          "beginline": 25,
+          "begincolumn": 36,
+          "endline": 25,
+          "endcolumn": 72,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 26,
+          "begincolumn": 29,
+          "endline": 26,
+          "endcolumn": 63,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/WorkoutLog/app/src/main/java/com/github/yeriomin/workoutlog/Model/ExerciseDao.java",
+      "violations": [
+        {
+          "beginline": 143,
+          "begincolumn": 37,
+          "endline": 143,
+          "endcolumn": 65,
+          "description": "StringBuilder has been initialized with size 23, but has at least 76 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 147,
+          "begincolumn": 13,
+          "endline": 147,
+          "endcolumn": 48,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 147,
+          "begincolumn": 28,
+          "endline": 147,
+          "endcolumn": 46,
+          "description": "StringBuffer (or StringBuilder).append is called 3 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 148,
+          "begincolumn": 13,
+          "endline": 148,
+          "endcolumn": 87,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

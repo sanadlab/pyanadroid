@@ -1,0 +1,40 @@
+#0
+app/src/main/java/app/fedilab/openmaps/MainActivity.java:230: warning: Ipc On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int ContextWrapper.checkSelfPermission(String)`. 
+  228.   
+  229.           if (Build.VERSION.SDK_INT >= 23) {
+  230. >             permissionsAPI();
+  231.           }
+  232.           final FloatingActionButton maps = findViewById(R.id.maps);
+
+#1
+app/src/main/java/app/fedilab/openmaps/webview/OpenMapsWebViewClient.java:158: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 86 is not closed after the last access at line 158. 
+  156.           }
+  157.           else{
+  158. >             return super.shouldInterceptRequest(view, url);
+  159.           }
+  160.       }
+
+#2
+app/src/main/java/app/fedilab/openmaps/webview/OpenMapsWebViewClient.java:209: warning: Ipc On Ui Thread
+  `void OpenMapsWebViewClient.onReceivedError(WebView,WebResourceRequest,WebResourceError)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  207.   
+  208.   
+  209. >         if (!isConnected()) {
+  210.               final Snackbar snackBar = Snackbar.make(rootView, activity.getString(R.string.no_internet), Snackbar.LENGTH_INDEFINITE);
+  211.               snackBar.setAction(activity.getString(R.string.enable_data), v -> {
+
+#3
+app/src/main/java/app/fedilab/openmaps/webview/OpenMapsWebViewClient.java:228: warning: Ipc On Ui Thread
+  `void OpenMapsWebViewClient.onReceivedHttpError(WebView,WebResourceRequest,WebResourceResponse)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  226.                                       WebResourceRequest request, WebResourceResponse errorResponse) {
+  227.   
+  228. >         if (!isConnected()) {
+  229.               final Snackbar snackBar = Snackbar.make(rootView, activity.getString(R.string.no_internet), Snackbar.LENGTH_INDEFINITE);
+  230.               snackBar.setAction(activity.getString(R.string.enable_data), v -> {
+
+Found 4 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Ipc On Ui Thread(IPC_ON_UI_THREAD): 3
+  Resource Leak(PULSE_RESOURCE_LEAK): 1

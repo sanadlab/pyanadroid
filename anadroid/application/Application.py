@@ -76,7 +76,7 @@ class App(AbstractApplication):
         all_dir = os.path.join(self.local_res, "all")
         old_runs_dir = os.path.join(self.local_res, "oldRuns")
         if not os.path.exists(self.local_res):
-            os.mkdir(self.local_res)
+            os.makedirs(self.local_res)
         if not os.path.exists(all_dir):
             os.mkdir(all_dir)
         if not os.path.exists(old_runs_dir):

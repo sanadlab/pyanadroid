@@ -121,13 +121,11 @@ class EcoAndroidAnalysis(StaticAnalyzer):
             os.path.relpath(output_dir, os.path.curdir) + os.sep,
             os.path.abspath(os.path.dirname(project.proj_dir)) + os.sep,
             os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
-
             "~" + os.sep + os.path.relpath(output_dir, expanduser("~")) + os.sep,
             os.path.relpath(output_dir, expanduser("~")) + os.sep,
             os.path.relpath(output_dir, os.path.curdir) + os.sep,
             os.path.abspath(output_dir) + os.sep,
             os.path.basename(output_dir) + os.sep,
-
         ]
 
         if not os.path.exists(output_dir):

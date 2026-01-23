@@ -1,0 +1,152 @@
+#0
+app/src/main/java/ca/fuwafuwa/kaku/MainService.java:220: warning: Ipc On Ui Thread
+  `int MainService.onStartCommand(Intent,int,int)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `void Display.getRealSize(Point)`. 
+  218.           {
+  219.               // Re-init CaptureWindow as well as prefs may have changed (BroadcastReceiver go to onStartCommand())
+  220. >             mWindowCoordinator.getWindow(Constants.WINDOW_CAPTURE).reInit(new Window.ReinitOptions());
+  221.           }
+  222.           else
+
+#1
+app/src/main/java/ca/fuwafuwa/kaku/MainService.java:248: warning: Ipc On Ui Thread
+  `void MainService.onConfigurationChanged(Configuration)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `void Display.getRealSize(Point)`. 
+  246.                   Log.d(TAG, "Orientation changed");
+  247.                   mRotation = rotation;
+  248. >                 createVirtualDisplay();
+  249.                   mWindowCoordinator.reinitAllWindows();
+  250.               }
+
+#2
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:122: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.reInit(...)` indirectly reads with synchronization from `this.params.height`, which races with the unsynchronized write in method `Window.onScroll(...)`.
+ Reporting because this access may occur on a background thread. 
+  120.               if (options.reinitViewLayout)
+  121.               {
+  122. >                 fixBoxBounds();
+  123.   
+  124.                   if (addedToWindowManager){
+
+#3
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:173: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.show()` reads without synchronization from `this.addedToWindowManager`, which races with the write in method `Window.show()`.
+ Reporting because this access may occur on a background thread. 
+  171.       public void show()
+  172.       {
+  173. >         Log.d(TAG, String.format("Window.show() for %s called, %b", this.getClass(), addedToWindowManager));
+  174.   
+  175.           synchronized (this)
+
+#4
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:189: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.hide()` reads without synchronization from `this.addedToWindowManager`, which races with the write in method `Window.show()`.
+ Reporting because this access may occur on a background thread. 
+  187.       public void hide()
+  188.       {
+  189. >         Log.d(TAG, String.format("Window.hide() for %s called, %b", this.getClass(), addedToWindowManager));
+  190.   
+  191.           synchronized (this)
+
+#5
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:214: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.onTouch(...)` indirectly reads without synchronization from `this.context`, which races with the write in method `Window.stop()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  212.                   return true;
+  213.               case MotionEvent.ACTION_UP:
+  214. >                 fixBoxBounds();
+  215.                   windowManager.updateViewLayout(window, params);
+  216.                   onUp(e);
+
+#6
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:234: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.onScroll(...)` indirectly reads with synchronization from `this.context`, which races with the unsynchronized write in method `Window.stop()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  232.           params.x = mDX + (int) e2.getRawX();
+  233.           params.y = mDY + (int) e2.getRawY();
+  234. >         fixBoxBounds();
+  235.           windowManager.updateViewLayout(window, params);
+  236.           return true;
+
+#7
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:319: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.onResize(...)` reads without synchronization from `this.params.height`, which races with the write in method `Window.reInit(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  317.               case MotionEvent.ACTION_DOWN:
+  318.                   mDX = params.width - (int) e.getRawX();
+  319. >                 mDY = params.height - (int) e.getRawY();
+  320.                   return true;
+  321.               case MotionEvent.ACTION_UP:
+
+#8
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:322: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.onResize(...)` indirectly reads without synchronization from `this.context`, which races with the write in method `Window.stop()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  320.                   return true;
+  321.               case MotionEvent.ACTION_UP:
+  322. >                 fixBoxBounds();
+  323.                   windowManager.updateViewLayout(window, params);
+  324.                   onUp(e);
+
+#9
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:328: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Window.onResize(...)` writes to field `this.params.height` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  326.               case MotionEvent.ACTION_MOVE:
+  327.                   params.width = mDX + (int) e.getRawX();
+  328. >                 params.height = mDY + (int) e.getRawY();
+  329.                   fixBoxBounds();
+  330.                   long currTime = System.currentTimeMillis();
+
+#10
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:329: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.onResize(...)` indirectly reads without synchronization from `this.mRealDisplaySize`, which races with the write in method `Window.reInit(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  327.                   params.width = mDX + (int) e.getRawX();
+  328.                   params.height = mDY + (int) e.getRawY();
+  329. >                 fixBoxBounds();
+  330.                   long currTime = System.currentTimeMillis();
+  331.                   if (currTime - mParamUpdateTimer > 50){
+
+#11
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:364: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.getDefaultParams()` reads without synchronization from `this.context`, which races with the write in method `Window.stop()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  362.       protected WindowManager.LayoutParams getDefaultParams(){
+  363.           WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+  364. >         params.width = KakuTools.dpToPx(context, 150);
+  365.           params.height = KakuTools.dpToPx(context, 150);
+  366.           params.type = Build.VERSION.SDK_INT > 25 ? WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY : WindowManager.LayoutParams.TYPE_PHONE;
+
+#12
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:381: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.getRealDisplaySize()` reads without synchronization from `this.mRealDisplaySize`, which races with the write in method `Window.reInit(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  379.       protected Point getRealDisplaySize()
+  380.       {
+  381. >         return new Point(mRealDisplaySize);
+  382.       }
+  383.   
+
+#13
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:389: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.getStatusBarHeight()` reads without synchronization from `this.mRealDisplaySize`, which races with the write in method `Window.reInit(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  387.       protected int getStatusBarHeight()
+  388.       {
+  389. >         Log.d(TAG, String.format("Window - getStatusBarHeight %d vs %d", mRealDisplaySize.y, mViewHeight));
+  390.   
+  391.           if (mRealDisplaySize.y == mViewHeight)
+
+#14
+app/src/main/java/ca/fuwafuwa/kaku/Windows/Window.java:397: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Window.getStatusBarHeight()` reads without synchronization from `this.context`, which races with the write in method `Window.stop()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  395.   
+  396.           int result = 0;
+  397. >         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+  398.           if (resourceId > 0)
+  399.           {
+
+Found 15 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 13
+                Ipc On Ui Thread(IPC_ON_UI_THREAD): 2

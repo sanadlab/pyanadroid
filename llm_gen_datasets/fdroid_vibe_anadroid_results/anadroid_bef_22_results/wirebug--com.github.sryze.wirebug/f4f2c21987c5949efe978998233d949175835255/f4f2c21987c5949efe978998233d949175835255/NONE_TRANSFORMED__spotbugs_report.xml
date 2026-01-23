@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762898831512" analysisTimestamp="1762898833974" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/wirebug/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/wirebug/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="98e57809f77435e692140a85d3b6b9c0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.github.sryze.wirebug.MainActivity.onOptionsItemSelected(MenuItem) where default case is missing</LongMessage>
+    <Class classname="com.github.sryze.wirebug.MainActivity" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.MainActivity" start="47" end="225" sourcefile="MainActivity.java" sourcepath="com/github/sryze/wirebug/MainActivity.java" relSourcepath="com/github/sryze/wirebug/MainActivity.java">
+        <Message>At MainActivity.java:[lines 47-225]</Message>
+      </SourceLine>
+      <Message>In class com.github.sryze.wirebug.MainActivity</Message>
+    </Class>
+    <Method classname="com.github.sryze.wirebug.MainActivity" name="onOptionsItemSelected" signature="(Landroid/view/MenuItem;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.MainActivity" start="198" end="204" startBytecode="0" endBytecode="129" sourcefile="MainActivity.java" sourcepath="com/github/sryze/wirebug/MainActivity.java" relSourcepath="com/github/sryze/wirebug/MainActivity.java"/>
+      <Message>In method com.github.sryze.wirebug.MainActivity.onOptionsItemSelected(MenuItem)</Message>
+    </Method>
+    <SourceLine classname="com.github.sryze.wirebug.MainActivity" primary="true" start="198" end="201" startBytecode="6" endBytecode="39" sourcefile="MainActivity.java" sourcepath="com/github/sryze/wirebug/MainActivity.java" relSourcepath="com/github/sryze/wirebug/MainActivity.java">
+      <Message>At MainActivity.java:[lines 198-201]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="ed6640b658945f2ab845b59511fad134" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.github.sryze.wirebug.MainActivity$2.onReceive(Context, Intent) where default case is missing</LongMessage>
+    <Class classname="com.github.sryze.wirebug.MainActivity$2" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.MainActivity$2" start="144" end="160" sourcefile="MainActivity.java" sourcepath="com/github/sryze/wirebug/MainActivity.java" relSourcepath="com/github/sryze/wirebug/MainActivity.java">
+        <Message>At MainActivity.java:[lines 144-160]</Message>
+      </SourceLine>
+      <Message>In class com.github.sryze.wirebug.MainActivity$2</Message>
+    </Class>
+    <Method classname="com.github.sryze.wirebug.MainActivity$2" name="onReceive" signature="(Landroid/content/Context;Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.MainActivity$2" start="147" end="160" startBytecode="0" endBytecode="235" sourcefile="MainActivity.java" sourcepath="com/github/sryze/wirebug/MainActivity.java" relSourcepath="com/github/sryze/wirebug/MainActivity.java"/>
+      <Message>In method com.github.sryze.wirebug.MainActivity$2.onReceive(Context, Intent)</Message>
+    </Method>
+    <SourceLine classname="com.github.sryze.wirebug.MainActivity$2" primary="true" start="149" end="156" startBytecode="30" endBytecode="103" sourcefile="MainActivity.java" sourcepath="com/github/sryze/wirebug/MainActivity.java" relSourcepath="com/github/sryze/wirebug/MainActivity.java">
+      <Message>At MainActivity.java:[lines 149-156]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="896b169080bf64f3bf63c0e699dea3f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.github.sryze.wirebug.Shell.getProcessOutput(Process): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="com.github.sryze.wirebug.Shell" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="33" end="128" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+        <Message>At Shell.java:[lines 33-128]</Message>
+      </SourceLine>
+      <Message>In class com.github.sryze.wirebug.Shell</Message>
+    </Class>
+    <Method classname="com.github.sryze.wirebug.Shell" name="getProcessOutput" signature="(Ljava/lang/Process;)Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="56" end="71" startBytecode="0" endBytecode="255" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java"/>
+      <Message>In method com.github.sryze.wirebug.Shell.getProcessOutput(Process)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="33" end="33" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="com.github.sryze.wirebug.Shell" primary="true" start="60" end="60" startBytecode="20" endBytecode="20" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+      <Message>At Shell.java:[line 60]</Message>
+    </SourceLine>
+    <SourceLine classname="com.github.sryze.wirebug.Shell" start="66" end="66" startBytecode="62" endBytecode="62" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at Shell.java:[line 66]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="c0754a8688187604ef8ba6c8a6931652" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.github.sryze.wirebug.Shell(Runtime) may expose internal representation by storing an externally mutable object into Shell.runtime</LongMessage>
+    <Class classname="com.github.sryze.wirebug.Shell" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="33" end="128" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+        <Message>At Shell.java:[lines 33-128]</Message>
+      </SourceLine>
+      <Message>In class com.github.sryze.wirebug.Shell</Message>
+    </Class>
+    <Method classname="com.github.sryze.wirebug.Shell" name="&lt;init&gt;" signature="(Ljava/lang/Runtime;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="36" end="38" startBytecode="0" endBytecode="87" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java"/>
+      <Message>In method new com.github.sryze.wirebug.Shell(Runtime)</Message>
+    </Method>
+    <Field classname="com.github.sryze.wirebug.Shell" name="runtime" signature="Ljava/lang/Runtime;" isStatic="false" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+        <Message>In Shell.java</Message>
+      </SourceLine>
+      <Message>Field com.github.sryze.wirebug.Shell.runtime</Message>
+    </Field>
+    <LocalVariable name="runtime" register="1" pc="16" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named runtime</Message>
+    </LocalVariable>
+    <SourceLine classname="com.github.sryze.wirebug.Shell" primary="true" start="37" end="37" startBytecode="16" endBytecode="16" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+      <Message>At Shell.java:[line 37]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="84f2c5d08846b5f51996c040ecc73192" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Public static method may expose internal representation by returning a mutable object or array</ShortMessage>
+    <LongMessage>Public static com.github.sryze.wirebug.Shell.getShell() may expose internal representation by returning Shell.globalShell</LongMessage>
+    <Class classname="com.github.sryze.wirebug.Shell" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="33" end="128" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+        <Message>At Shell.java:[lines 33-128]</Message>
+      </SourceLine>
+      <Message>In class com.github.sryze.wirebug.Shell</Message>
+    </Class>
+    <Method classname="com.github.sryze.wirebug.Shell" name="getShell" signature="()Lcom/github/sryze/wirebug/Shell;" isStatic="true" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="75" end="78" startBytecode="0" endBytecode="63" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java"/>
+      <Message>In method com.github.sryze.wirebug.Shell.getShell()</Message>
+    </Method>
+    <Field classname="com.github.sryze.wirebug.Shell" name="globalShell" signature="Lcom/github/sryze/wirebug/Shell;" isStatic="true" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+        <Message>In Shell.java</Message>
+      </SourceLine>
+      <Message>Field com.github.sryze.wirebug.Shell.globalShell</Message>
+    </Field>
+    <SourceLine classname="com.github.sryze.wirebug.Shell" primary="true" start="78" end="78" startBytecode="22" endBytecode="22" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+      <Message>At Shell.java:[line 78]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="33ceee8b0ad40041fd3bacf62b922427" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>com.github.sryze.wirebug.Shell.getProcessOutput(Process) may fail to close stream</LongMessage>
+    <Class classname="com.github.sryze.wirebug.Shell" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="33" end="128" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+        <Message>At Shell.java:[lines 33-128]</Message>
+      </SourceLine>
+      <Message>In class com.github.sryze.wirebug.Shell</Message>
+    </Class>
+    <Method classname="com.github.sryze.wirebug.Shell" name="getProcessOutput" signature="(Ljava/lang/Process;)Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.github.sryze.wirebug.Shell" start="56" end="71" startBytecode="0" endBytecode="46" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java"/>
+      <Message>In method com.github.sryze.wirebug.Shell.getProcessOutput(Process)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Reader;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Reader" start="33" end="53" sourcefile="Reader.java" sourcepath="java/io/Reader.java">
+        <Message>At Reader.java:[lines 33-53]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Reader </Message>
+    </Type>
+    <SourceLine classname="com.github.sryze.wirebug.Shell" primary="true" start="59" end="59" startBytecode="8" endBytecode="8" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java">
+      <Message>At Shell.java:[line 59]</Message>
+    </SourceLine>
+    <SourceLine classname="com.github.sryze.wirebug.Shell" start="65" end="65" startBytecode="50" endBytecode="50" sourcefile="Shell.java" sourcepath="com/github/sryze/wirebug/Shell.java" relSourcepath="com/github/sryze/wirebug/Shell.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at Shell.java:[line 65]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N" cweid="173">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/173.html">CWE-173: Improper Handling of Alternate Encoding</a>.
+</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_EXPOSE_REP" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Public static method may expose internal representation by returning a mutable object or array</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A public static method returns a reference to a mutable object or
+   an array that is part of the static state of the class.
+   Any code that calls this method can freely modify
+   the underlying array.
+   One fix is to return a copy of the array.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE" cweid="459">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/459.html">CWE-459: Incomplete Cleanup</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="25">
+    <MissingClass>androidx.annotation.LayoutRes</MissingClass>
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.appcompat.app.ActionBar</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatCallback</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatDelegate</MissingClass>
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.core.app.NavUtils</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat$Builder</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$color</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$drawable</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$id</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$layout</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$menu</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$mipmap</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$string</MissingClass>
+    <MissingClass>com.github.sryze.wirebug.R$xml</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>timber.log.Timber</MissingClass>
+    <MissingClass>timber.log.Timber$DebugTree</MissingClass>
+    <MissingClass>timber.log.Timber$Tree</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 02:07:11 +0400" total_classes="16" referenced_classes="214" total_bugs="6" total_size="524" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="3.07" clock_seconds="0.66" peak_mbytes="259.33" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="5" priority_1="1">
+    <FileStats path="com/github/sryze/wirebug/AppCompatPreferenceActivity.java" bugCount="0" size="59"/>
+    <FileStats path="com/github/sryze/wirebug/BootCompletedReceiver.java" bugCount="0" size="9"/>
+    <FileStats path="com/github/sryze/wirebug/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/github/sryze/wirebug/DebugManager.java" bugCount="0" size="35"/>
+    <FileStats path="com/github/sryze/wirebug/DebugStatusService.java" bugCount="0" size="128"/>
+    <FileStats path="com/github/sryze/wirebug/MainActivity.java" bugCount="2" size="151" bugHash="f53bc20b0d87617b8edad56187344a4f"/>
+    <FileStats path="com/github/sryze/wirebug/NetworkUtils.java" bugCount="0" size="25"/>
+    <FileStats path="com/github/sryze/wirebug/SettingsActivity.java" bugCount="0" size="28"/>
+    <FileStats path="com/github/sryze/wirebug/Shell.java" bugCount="4" size="67" bugHash="75805688030e50b8cbf584566720af9f"/>
+    <FileStats path="com/github/sryze/wirebug/ShellException.java" bugCount="0" size="4"/>
+    <FileStats path="com/github/sryze/wirebug/WirebugApp.java" bugCount="0" size="8"/>
+    <PackageStats package="com.github.sryze.wirebug" total_bugs="6" total_types="16" total_size="524" priority_2="5" priority_1="1">
+      <ClassStats class="com.github.sryze.wirebug.AppCompatPreferenceActivity" sourceFile="AppCompatPreferenceActivity.java" interface="false" size="59" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.BootCompletedReceiver" sourceFile="BootCompletedReceiver.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.DebugManager" sourceFile="DebugManager.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.DebugStatusService" sourceFile="DebugStatusService.java" interface="false" size="128" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.MainActivity" sourceFile="MainActivity.java" interface="false" size="102" bugs="1" priority_2="1"/>
+      <ClassStats class="com.github.sryze.wirebug.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="com.github.sryze.wirebug.MainActivity$3" sourceFile="MainActivity.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.MainActivity$4" sourceFile="MainActivity.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.NetworkUtils" sourceFile="NetworkUtils.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.SettingsActivity" sourceFile="SettingsActivity.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.SettingsActivity$SettingsFragment" sourceFile="SettingsActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.Shell" sourceFile="Shell.java" interface="false" size="67" bugs="4" priority_2="3" priority_1="1"/>
+      <ClassStats class="com.github.sryze.wirebug.ShellException" sourceFile="ShellException.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.github.sryze.wirebug.WirebugApp" sourceFile="WirebugApp.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="63" invocations="634" avgMicrosecondsPerInvocation="100" maxMicrosecondsPerInvocation="5245" standardDeviationMicrosecondsPerInvocation="300"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="34" invocations="214" avgMicrosecondsPerInvocation="159" maxMicrosecondsPerInvocation="4753" standardDeviationMicrosecondsPerInvocation="405"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="20" invocations="257" avgMicrosecondsPerInvocation="79" maxMicrosecondsPerInvocation="4260" standardDeviationMicrosecondsPerInvocation="283"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="17" invocations="90" avgMicrosecondsPerInvocation="195" maxMicrosecondsPerInvocation="4278" standardDeviationMicrosecondsPerInvocation="544"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="17" invocations="214" avgMicrosecondsPerInvocation="80" maxMicrosecondsPerInvocation="1801" standardDeviationMicrosecondsPerInvocation="192"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="16" invocations="83" avgMicrosecondsPerInvocation="194" maxMicrosecondsPerInvocation="2738" standardDeviationMicrosecondsPerInvocation="330"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="15" invocations="89" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="3855" standardDeviationMicrosecondsPerInvocation="415"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="14" invocations="652" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="309" standardDeviationMicrosecondsPerInvocation="23"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="14" invocations="214" avgMicrosecondsPerInvocation="66" maxMicrosecondsPerInvocation="3598" standardDeviationMicrosecondsPerInvocation="264"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="13" invocations="214" avgMicrosecondsPerInvocation="63" maxMicrosecondsPerInvocation="3085" standardDeviationMicrosecondsPerInvocation="237"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="13" invocations="83" avgMicrosecondsPerInvocation="159" maxMicrosecondsPerInvocation="2905" standardDeviationMicrosecondsPerInvocation="320"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="13" invocations="214" avgMicrosecondsPerInvocation="61" maxMicrosecondsPerInvocation="1057" standardDeviationMicrosecondsPerInvocation="137"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="11" invocations="83" avgMicrosecondsPerInvocation="143" maxMicrosecondsPerInvocation="1082" standardDeviationMicrosecondsPerInvocation="188"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="11" invocations="83" avgMicrosecondsPerInvocation="141" maxMicrosecondsPerInvocation="6615" standardDeviationMicrosecondsPerInvocation="723"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="11" invocations="83" avgMicrosecondsPerInvocation="140" maxMicrosecondsPerInvocation="1456" standardDeviationMicrosecondsPerInvocation="222"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

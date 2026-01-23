@@ -212,7 +212,7 @@ class AnaDroid(object):
                                   #ADoctorAnalysis(),
                                   #EcoAndroidAnalysis(),
                                   #LintAnalysis(),
-                                  #SCCAnalyzer()
+                                  SCCAnalyzer()
                                   ])
 
 
@@ -314,13 +314,25 @@ class AnaDroid(object):
 
     def exec_command(self):
         try:
-            for app in self.apps:
+            if len(self.apps) > 0:
+                for app in self.apps:
+                    self.testing_framework.init_default_workload(app.package_name)
+                    app.init_local_test_(self.testing_framework.id, self.instrumentation_type)
+                    self.testing_framework.test_app(self.device, app=app)
+                    self.post_execution_analyzers.analyze_tests(results_dir=self.testing_framework.get_default_test_dir(), **{
+                                                        'testing_framework': self.testing_framework,
+                                                        })
+            else:
+                app = App(self.device, proj=AndroidProject('unknown_proj', '.', self.results_dir),
+                          package_name='unknown_pkg', apk_path=None,
+                          local_res_dir=os.path.join(self.results_dir, 'unknown_pkg'))
                 self.testing_framework.init_default_workload(app.package_name)
                 app.init_local_test_(self.testing_framework.id, self.instrumentation_type)
                 self.testing_framework.test_app(self.device, app=app)
-                self.post_execution_analyzers.analyze_tests(results_dir=self.testing_framework.get_default_test_dir(), **{
-                                                    'testing_framework': self.testing_framework,
-                                                    })
+                self.post_execution_analyzers.analyze_tests(results_dir=self.testing_framework.get_default_test_dir(),
+                                                            **{
+                                                                'testing_framework': self.testing_framework,
+                                                            })
         except Exception:
             loge(traceback.format_exc())
 
@@ -352,7 +364,7 @@ class AnaDroid(object):
         self.builder.set_project(instr_proj)
         return instr_proj if instr_proj else original_proj
 
-    def build_app_project(self, app_project, build_apks=False, retry=False, skip_analyzers=False):
+    def build_app_project(self, app_project, build_apks=False, retry=False, skip_analyzers=False, build_project=True):
         app_name = os.path.basename(app_project)
         logi("Processing app " + app_name + " in " + app_project)
         res = False
@@ -365,6 +377,8 @@ class AnaDroid(object):
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=self.results_dir)
             if not skip_analyzers:
                 self.pre_build_analyzers.analyze_project(instr_proj, retry=retry)
+            if not build_project:
+                return instr_proj if instr_proj else original_proj
             self.builder.set_project(instr_proj)
             if build_apks:
                 res = self.builder.build_proj_and_apk(build_type=self.build_type,
@@ -386,7 +400,7 @@ class AnaDroid(object):
             app_name = os.path.basename(app_proj)
             logi("Processing app " + app_name + " in " + app_proj)
             for app_inner_proj in self.app_projects_ut:
-                instr_proj = self.build_app_project(app_inner_proj, build_apks=True, retry=retry)
+                instr_proj = self.build_app_project(app_inner_proj, build_project=False, build_apks=False, retry=retry)
                 installed_apps_list = self.device.install_apks(instr_proj, build_type=self.build_type)
                 for app in installed_apps_list:
                     self.post_build_analyzers.analyze_app(app)

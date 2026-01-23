@@ -1,0 +1,163 @@
+#0
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/USBGpsApplication.java:71: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsApplication.getLogLines()` reads without synchronization from container `this.logLines` via call to `ArrayList.toArray(...)`, which races with the write in method `USBGpsApplication.notifyNewSentence(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  69.   
+  70.       public String[] getLogLines() {
+  71. >         return logLines.toArray(new String[logLines.size()]);
+  72.       }
+  73.   
+
+#1
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/USBGpsApplication.java:75: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsApplication.getLastLocation()` reads without synchronization from `this.lastLocation`, which races with the write in method `USBGpsApplication.notifyNewLocation(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  73.   
+  74.       public Location getLastLocation() {
+  75. >         return lastLocation;
+  76.       }
+  77.   
+
+#2
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/USBGpsApplication.java:87: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsApplication.notifyNewSentence(...)` reads without synchronization from container `this.logLines` via call to `ArrayList.size()`, which races with the write in method `USBGpsApplication.onCreate()`.
+ Reporting because this access may occur on a background thread. 
+  85.   
+  86.       public void notifyNewSentence(final String sentence) {
+  87. >         if (logLines.size() > LOG_SIZE) {
+  88.               logLines.remove(0);
+  89.           }
+
+#3
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/USBGpsApplication.java:88: warning: Thread Safety Violation
+  Unprotected write. Non-private method `USBGpsApplication.notifyNewSentence(...)` mutates container `this.logLines` via call to `ArrayList.remove(...)` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  86.       public void notifyNewSentence(final String sentence) {
+  87.           if (logLines.size() > LOG_SIZE) {
+  88. >             logLines.remove(0);
+  89.           }
+  90.   
+
+#4
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/USBGpsApplication.java:94: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsApplication.notifyNewSentence(...)` reads with synchronization from `this.mainHandler`, which races with the unsynchronized write in method `USBGpsApplication.onCreate()`.
+ Reporting because this access may occur on a background thread. 
+  92.   
+  93.           synchronized (serviceDataListeners) {
+  94. >             mainHandler.post(new Runnable() {
+  95.                   @Override
+  96.                   public void run() {
+
+#5
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/USBGpsApplication.java:107: warning: Thread Safety Violation
+  Unprotected write. Non-private method `USBGpsApplication.notifyNewLocation(...)` writes to field `this.lastLocation` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  105.   
+  106.       public void notifyNewLocation(final Location location) {
+  107. >         lastLocation = location;
+  108.           synchronized (serviceDataListeners) {
+  109.               mainHandler.post(new Runnable() {
+
+#6
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/USBGpsApplication.java:109: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsApplication.notifyNewLocation(...)` reads with synchronization from `this.mainHandler`, which races with the unsynchronized write in method `USBGpsApplication.onCreate()`.
+ Reporting because this access may occur on a background thread. 
+  107.           lastLocation = location;
+  108.           synchronized (serviceDataListeners) {
+  109. >             mainHandler.post(new Runnable() {
+  110.                   @Override
+  111.                   public void run() {
+
+#7
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:645: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader() on line 634 is not closed after the last access at line 645. 
+  643.                   // is not usable
+  644.                   lastRead = now + 45000;
+  645. >                 while ((enabled) && (now < lastRead + 4000) && (!closed)) {
+  646.   
+  647.                       try {
+
+#8
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:885: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsManager.getDisableReason()` reads without synchronization from `this.disableReason`, which races with the write in method `USBGpsManager.enable()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  883.        */
+  884.       public int getDisableReason() {
+  885. >         return disableReason;
+  886.       }
+  887.   
+
+#9
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:1305: warning: Thread Safety Violation
+  Unprotected write. Non-private method `USBGpsManager.enableMockLocationProvider(...)` indirectly writes to field `this.parser.mockGpsAutoEnabled` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1303.           if (parser != null) {
+  1304.               debugLog("enabling mock locations provider: " + gpsName);
+  1305. >             parser.enableMockLocationProvider(gpsName, force);
+  1306.           }
+  1307.       }
+
+#10
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:1321: warning: Thread Safety Violation
+  Unprotected write. Non-private method `USBGpsManager.enableMockLocationProvider(...)` indirectly writes to field `this.parser.mockGpsAutoEnabled` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1319.                       USBGpsProviderService.PREF_FORCE_ENABLE_PROVIDER, true
+  1320.               );
+  1321. >             parser.enableMockLocationProvider(gpsName, force);
+  1322.           }
+  1323.       }
+
+#11
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:1334: warning: Thread Safety Violation
+  Unprotected write. Non-private method `USBGpsManager.disableMockLocationProvider()` indirectly writes to field `this.parser.mockGpsAutoEnabled` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1332.           if (parser != null) {
+  1333.               debugLog("disabling mock locations provider");
+  1334. >             parser.disableMockLocationProvider();
+  1335.           }
+  1336.       }
+
+#12
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:1348: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsManager.isMockGpsEnabled()` indirectly reads without synchronization from `this.parser.mockGpsEnabled`, which races with the write in method `USBGpsManager.enable()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1346.           boolean mockGpsEnabled = false;
+  1347.           if (parser != null) {
+  1348. >             mockGpsEnabled = parser.isMockGpsEnabled();
+  1349.           }
+  1350.           return mockGpsEnabled;
+
+#13
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:1363: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsManager.getMockLocationProvider()` indirectly reads without synchronization from `this.parser.mockLocationProvider`, which races with the write in method `USBGpsManager.enable()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1361.           String mockLocationProvider = null;
+  1362.           if (parser != null) {
+  1363. >             mockLocationProvider = parser.getMockLocationProvider();
+  1364.           }
+  1365.           return mockLocationProvider;
+
+#14
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:1642: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsManager.enableSirfConfig(...)` reads without synchronization from `this.notificationPool`, which races with the write in method `USBGpsManager.enable()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1640.           debugLog("spooling SiRF config: " + extra);
+  1641.           if (isEnabled()) {
+  1642. >             notificationPool.execute(new Runnable() {
+  1643.                   @Override
+  1644.                   public void run() {
+
+#15
+app/src/main/java/org/broeuschmeul/android/gps/usb/provider/driver/USBGpsManager.java:1690: warning: Thread Safety Violation
+  Read/Write race. Non-private method `USBGpsManager.enableSirfConfig(...)` reads without synchronization from `this.notificationPool`, which races with the write in method `USBGpsManager.enable()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1688.           debugLog("spooling SiRF config: " + extra);
+  1689.           if (isEnabled()) {
+  1690. >             notificationPool.execute(new Runnable() {
+  1691.                   @Override
+  1692.                   public void run() {
+
+Found 16 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 15
+                Resource Leak(PULSE_RESOURCE_LEAK): 1

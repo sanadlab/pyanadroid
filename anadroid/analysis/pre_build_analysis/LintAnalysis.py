@@ -56,7 +56,7 @@ class LintAnalysis(StaticAnalyzer):
             "LifecycleAnnotationProcessorWithJava8": KnownStaticPerformanceIssues.LIFECYCLE_ANNOTATION_PROCESSOR_WITH_JAVA8,
             "LogConditional": KnownStaticPerformanceIssues.LOG_CONDITIONAL,
             "MergeRootFrame": KnownStaticPerformanceIssues.MERGE_ROOT_FRAME,
-            "NestedWeights": KnownStaticPerformanceIssues.INEFFICIENT_WEIGHT,
+            "NestedWeight": KnownStaticPerformanceIssues.INEFFICIENT_WEIGHT,
             "NotificationTrampoline": KnownStaticPerformanceIssues.NOTIFICATION_TRAMPOLINE,
             "NotifyDataSetChanged": KnownStaticPerformanceIssues.NOTIFY_DATA_SET_CHANGED,
             "ObsoleteLayoutParam": KnownStaticPerformanceIssues.OBSOLETE_LAYOUT_PARAM,

@@ -1,4 +1,5 @@
 import os
+from fileinput import filename
 from shutil import copy
 
 from textops import grep, cat, sed, head, echo
@@ -618,9 +619,11 @@ class GradleBuilder(AbstractBuilder):
 		Returns:
 			bool: True if build was successful, False otherwise.
 		"""
-		filepath = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE) if os.path.exists(
-			os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)) else os.path.join(self.proj.results_dir,
+		filename = f"{self.name}_{BUILD_RESULTS_FILE}"
+		filepath = os.path.join(self.proj.proj_dir, filename) if os.path.exists(
+			os.path.join(self.proj.proj_dir, filename)) else os.path.join(self.proj.results_dir,
 																				   BUILD_RESULTS_FILE)
+		print(filepath)
 		if os.path.exists(filepath):
 			with open(filepath, 'r') as fl:
 				js = json.load(fl)

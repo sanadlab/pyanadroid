@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767885004265" analysisTimestamp="1767885006231" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/miracast-widget/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/miracast-widget/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="3bad3944a19076a12403a7c0780dba7a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should com.mattgmg.miracastwidget.MiracastWidgetProvider$MiracastDisplayListener be a _static_ inner class?</LongMessage>
+    <Class classname="com.mattgmg.miracastwidget.MiracastWidgetProvider$MiracastDisplayListener" primary="true">
+      <SourceLine classname="com.mattgmg.miracastwidget.MiracastWidgetProvider$MiracastDisplayListener" start="58" end="100" sourcefile="MiracastWidgetProvider.java" sourcepath="com/mattgmg/miracastwidget/MiracastWidgetProvider.java" relSourcepath="com/mattgmg/miracastwidget/MiracastWidgetProvider.java">
+        <Message>At MiracastWidgetProvider.java:[lines 58-100]</Message>
+      </SourceLine>
+      <Message>In class com.mattgmg.miracastwidget.MiracastWidgetProvider$MiracastDisplayListener</Message>
+    </Class>
+    <SourceLine classname="com.mattgmg.miracastwidget.MiracastWidgetProvider$MiracastDisplayListener" start="58" end="100" sourcefile="MiracastWidgetProvider.java" sourcepath="com/mattgmg/miracastwidget/MiracastWidgetProvider.java" relSourcepath="com/mattgmg/miracastwidget/MiracastWidgetProvider.java" synthetic="true">
+      <Message>At MiracastWidgetProvider.java:[lines 58-100]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugPattern type="SIC_INNER_SHOULD_BE_STATIC" abbrev="SIC" category="PERFORMANCE">
+    <ShortDescription>Should be a static inner class</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SIC">
+    <Description>Inner class could be made static</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="6">
+    <MissingClass>com.mattgmg.miracastwidget.R</MissingClass>
+    <MissingClass>com.mattgmg.miracastwidget.R$id</MissingClass>
+    <MissingClass>com.mattgmg.miracastwidget.R$layout</MissingClass>
+    <MissingClass>com.mattgmg.miracastwidget.R$menu</MissingClass>
+    <MissingClass>com.mattgmg.miracastwidget.R$string</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 19:10:04 +0400" total_classes="4" referenced_classes="136" total_bugs="1" total_size="138" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.04" clock_seconds="0.44" peak_mbytes="221.50" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="1">
+    <FileStats path="com/mattgmg/miracastwidget/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/mattgmg/miracastwidget/MainActivity.java" bugCount="0" size="64"/>
+    <FileStats path="com/mattgmg/miracastwidget/MiracastWidgetProvider.java" bugCount="1" size="64" bugHash="082ec7d58bf82eec81f61a956f53808a"/>
+    <PackageStats package="com.mattgmg.miracastwidget" total_bugs="1" total_types="4" total_size="138" priority_2="1">
+      <ClassStats class="com.mattgmg.miracastwidget.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.mattgmg.miracastwidget.MainActivity" sourceFile="MainActivity.java" interface="false" size="64" bugs="0"/>
+      <ClassStats class="com.mattgmg.miracastwidget.MiracastWidgetProvider" sourceFile="MiracastWidgetProvider.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="com.mattgmg.miracastwidget.MiracastWidgetProvider$MiracastDisplayListener" sourceFile="MiracastWidgetProvider.java" interface="false" size="34" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="51" invocations="462" avgMicrosecondsPerInvocation="111" maxMicrosecondsPerInvocation="5635" standardDeviationMicrosecondsPerInvocation="397"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="24" invocations="136" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="2984" standardDeviationMicrosecondsPerInvocation="387"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="15" invocations="167" avgMicrosecondsPerInvocation="94" maxMicrosecondsPerInvocation="4133" standardDeviationMicrosecondsPerInvocation="348"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="11" invocations="136" avgMicrosecondsPerInvocation="83" maxMicrosecondsPerInvocation="1911" standardDeviationMicrosecondsPerInvocation="207"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="476" avgMicrosecondsPerInvocation="23" maxMicrosecondsPerInvocation="265" standardDeviationMicrosecondsPerInvocation="22"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

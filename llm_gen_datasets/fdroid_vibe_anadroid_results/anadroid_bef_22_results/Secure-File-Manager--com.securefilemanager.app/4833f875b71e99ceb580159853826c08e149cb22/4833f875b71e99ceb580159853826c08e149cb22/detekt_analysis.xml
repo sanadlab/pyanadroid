@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/asynctasks/CopyMoveTask.kt">
+	<error line="25" column="19" severity="warning" message="The constructor(activity: BaseAbstractActivity, copyOnly: Boolean, copyMediaOnly: Boolean, conflictResolutions: LinkedHashMap&lt;String, Int&gt;, listener: CopyMoveListener, encryptionAction: EncryptionAction, hideAction: HideAction) has too many parameters. The current threshold is set to 7." source="detekt.LongParameterList" />
+	<error line="297" column="17" severity="warning" message="The function copyFile is too long (80). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="57" column="18" severity="warning" message="The function doInBackground is too long (87). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="57" column="18" severity="warning" message="The function doInBackground appears to be too complex based on Cyclomatic Complexity (complexity: 27). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="246" column="17" severity="warning" message="The function copyDirectory appears to be too complex based on Cyclomatic Complexity (complexity: 15). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="297" column="17" severity="warning" message="The function copyFile appears to be too complex based on Cyclomatic Complexity (complexity: 23). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="57" column="18" severity="warning" message="Function doInBackground is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="246" column="17" severity="warning" message="Function copyDirectory is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="74" column="17" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="346" column="17" severity="warning" message="This condition is too complex (6). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="141" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="377" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="383" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="57" column="18" severity="warning" message="Function doInBackground has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="15" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="16" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="126" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="89" column="9" severity="warning" message="The loop contains more than one break or continue statement. The code should be refactored to increase readability." source="detekt.LoopWithTooManyJumpStatements" />
+	<error line="260" column="17" severity="warning" message="The loop contains more than one break or continue statement. The code should be refactored to increase readability." source="detekt.LoopWithTooManyJumpStatements" />
+	<error line="80" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="220" column="55" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="228" column="36" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/fragments/settings/SettingsAbstractFragment.kt">
+	<error line="17" column="16" severity="warning" message="Class &apos;SettingsAbstractFragment&apos; with &apos;36&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="6" column="1" severity="warning" message="androidx.preference.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="11" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="12" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/fragments/ItemsFragment.kt">
+	<error line="355" column="9" severity="warning" message="The function searchQueryChanged is too long (73). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="355" column="9" severity="warning" message="The function searchQueryChanged appears to be too complex based on Cyclomatic Complexity (complexity: 15). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="39" column="7" severity="warning" message="Class &apos;ItemsFragment&apos; with &apos;33&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="573" column="71" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="581" column="72" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="582" column="72" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="26" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="27" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="34" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_items.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="123" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="563" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/models/FileDirItem.kt">
+	<error line="26" column="18" severity="warning" message="The function compareTo appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="10" column="12" severity="warning" message="Class &apos;FileDirItem&apos; with &apos;17&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="5" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="6" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="24" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Context.kt">
+	<error line="1" column="1" severity="warning" message="File &apos;/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Context.kt&apos; with &apos;48&apos; functions detected. Defined threshold inside files is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="69" column="28" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="160" column="28" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="217" column="28" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="229" column="44" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="69" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="160" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="217" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="69" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="160" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="217" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="229" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="74" column="13" severity="warning" message="Function doToast has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="101" column="13" severity="warning" message="Function getRealPathFromURI has 5 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="29" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="182" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/File.kt">
+	<error line="19" column="13" severity="warning" message="Function getDirectorySize is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="44" column="13" severity="warning" message="Function getDirectoryFileCount is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="1" column="1" severity="warning" message="File &apos;/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/File.kt&apos; with &apos;13&apos; functions detected. Defined threshold inside files is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="4" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="82" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/String.kt">
+	<error line="192" column="12" severity="warning" message="The function getMimeType is too long (604). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="1" column="1" severity="warning" message="File &apos;/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/String.kt&apos; with &apos;32&apos; functions detected. Defined threshold inside files is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="131" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="184" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="131" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="184" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="77" column="12" severity="warning" message="Function highlightTextPart has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="13" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="77" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="103" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="130" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Context-storage.kt">
+	<error line="407" column="13" severity="warning" message="Function getFolderLastModifieds is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="1" column="1" severity="warning" message="File &apos;/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Context-storage.kt&apos; with &apos;34&apos; functions detected. Defined threshold inside files is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="430" column="40" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="134" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="343" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="358" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="430" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="134" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="430" column="26" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="84" column="27" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="142" column="13" severity="warning" message="Function getFastDocumentFile has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="21" column="1" severity="warning" message="java.io.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="38" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="229" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="265" column="67" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="425" column="86" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Activity.kt">
+	<error line="420" column="30" severity="warning" message="The function setupDialogStuff(view: View, dialog: AlertDialog, titleId: Int, titleText: String, canceledOnTouchOutside: Boolean, callback: (() -&gt; Unit)?) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="319" column="26" severity="warning" message="The function renameFile is too long (67). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="1" column="1" severity="warning" message="File &apos;/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Activity.kt&apos; with &apos;30&apos; functions detected. Defined threshold inside files is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="511" column="16" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="44" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="84" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="140" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="155" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="360" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="152" column="14" severity="warning" message="Function getFinalUriFromPath has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="400" column="26" severity="warning" message="Function createDirectorySync has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="21" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="23" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_title.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="511" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/adapters/ManageFavoritesAdapter.kt">
+	<error line="15" column="7" severity="warning" message="Class &apos;ManageFavoritesAdapter&apos; with &apos;15&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="45" column="40" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="47" column="42" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="49" column="48" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="12" column="1" severity="warning" message="kotlinx.android.synthetic.main.item_manage_favorite.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/adapters/ItemsAdapter.kt">
+	<error line="34" column="19" severity="warning" message="The constructor(activity: BaseAbstractActivity, listItems: MutableList&lt;ListItem&gt;, listener: ItemOperationsListener?, recyclerView: MyRecyclerView, isPickMultipleIntent: Boolean, fastScroller: FastScroller, swipeRefreshLayout: SwipeRefreshLayout, itemClick: (Any) -&gt; Unit) has too many parameters. The current threshold is set to 7." source="detekt.LongParameterList" />
+	<error line="81" column="18" severity="warning" message="The function actionItemPressed appears to be too complex based on Cyclomatic Complexity (complexity: 20). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="34" column="7" severity="warning" message="Class &apos;ItemsAdapter&apos; with &apos;43&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="457" column="66" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="15" column="1" severity="warning" message="com.securefilemanager.app.dialogs.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="16" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="17" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="28" column="1" severity="warning" message="kotlinx.android.synthetic.main.item_list_file_dir.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="31" column="1" severity="warning" message="kotlinx.android.synthetic.main.item_section.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/adapters/FilepickerFavoritesAdapter.kt">
+	<error line="15" column="7" severity="warning" message="Class &apos;FilepickerFavoritesAdapter&apos; with &apos;13&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="52" column="48" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="54" column="45" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="64" column="40" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="66" column="42" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.filepicker_favorite.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/adapters/RecyclerViewAdapter.kt">
+	<error line="201" column="19" severity="warning" message="The function selectItemRange appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="20" column="16" severity="warning" message="Class &apos;RecyclerViewAdapter&apos; with &apos;20&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="120" column="13" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="203" column="13" severity="warning" message="Using the forEach method on ranges has a heavy performance cost. Prefer using simple for loops." source="detekt.ForEachOnRange" />
+	<error line="213" column="17" severity="warning" message="Using the forEach method on ranges has a heavy performance cost. Prefer using simple for loops." source="detekt.ForEachOnRange" />
+	<error line="228" column="17" severity="warning" message="Using the forEach method on ranges has a heavy performance cost. Prefer using simple for loops." source="detekt.ForEachOnRange" />
+	<error line="114" column="19" severity="warning" message="Function toggleItemSelection has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="261" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/adapters/ItemAbstractAdapter.kt">
+	<error line="22" column="16" severity="warning" message="Class &apos;ItemAbstractAdapter&apos; with &apos;19&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="51" column="48" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="53" column="45" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="61" column="40" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="63" column="42" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="15" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="43" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="144" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="149" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/RadioGroupDialog.kt">
+	<error line="16" column="23" severity="warning" message="The constructor(activity: Activity, items: ArrayList&lt;RadioItem&gt;, checkedItemId: Int, titleId: Int, showOKButton: Boolean, cancelCallback: (() -&gt; Unit)?, callback: (newValue: Any) -&gt; Unit) has too many parameters. The current threshold is set to 7." source="detekt.LongParameterList" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_radio_group.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/FilePickerDialog.kt">
+	<error line="33" column="23" severity="warning" message="The constructor(activity: BaseAbstractActivity, currPath: String, pickFile: Boolean, showFAB: Boolean, isMovingOperation: Boolean, hideAction: HideAction, finishOnBackPress: Boolean, callbackNegative: (() -&gt; Unit)?, callback: (pickedPath: String) -&gt; Unit) has too many parameters. The current threshold is set to 7." source="detekt.LongParameterList" />
+	<error line="33" column="7" severity="warning" message="Class &apos;FilePickerDialog&apos; with &apos;14&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="175" column="13" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="221" column="13" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="16" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="17" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="20" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_filepicker.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/MainActivity.kt">
+	<error line="35" column="7" severity="warning" message="Class &apos;MainActivity&apos; with &apos;26&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="20" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="26" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_main.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="27" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_items.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="145" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/BaseAbstractActivity.kt">
+	<error line="174" column="24" severity="warning" message="The function copyMoveFilesTo(fileDirItems: ArrayList&lt;FileDirItem&gt;, source: String, destination: String, isCopyOperation: Boolean, copyPhotoVideoOnly: Boolean, encryptionAction: EncryptionAction, hideAction: HideAction, callback: (destinationPath: String, copiedAll: Boolean) -&gt; Unit) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="330" column="30" severity="warning" message="The function startCopyMove(files: ArrayList&lt;FileDirItem&gt;, destinationPath: String, isCopyOperation: Boolean, copyPhotoVideoOnly: Boolean, encryptionAction: EncryptionAction, hideAction: HideAction) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="385" column="31" severity="warning" message="The function checkConflicts(files: ArrayList&lt;FileDirItem&gt;, destinationPath: String, index: Int, conflictResolutions: LinkedHashMap&lt;String, Int&gt;, encryptionAction: EncryptionAction, callback: (resolutions: LinkedHashMap&lt;String, Int&gt;) -&gt; Unit) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="385" column="17" severity="warning" message="The function checkConflicts is too long (60). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="174" column="9" severity="warning" message="The function copyMoveFilesTo is too long (112). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="174" column="9" severity="warning" message="The function copyMoveFilesTo appears to be too complex based on Cyclomatic Complexity (complexity: 21). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="28" column="16" severity="warning" message="Class &apos;BaseAbstractActivity&apos; with &apos;20&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="131" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="294" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="131" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="307" column="17" severity="warning" message="String.format(&quot;%s(%d).%s&quot;, file.nameWithoutExtension, fileIndex, file.extension) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="316" column="13" severity="warning" message="String.format(
+                &quot;%s.%s.%s&quot;,
+                file.nameWithoutExtension,
+                file.extension,
+                encryptionExtension
+            ) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="18" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="19" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="256" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="501" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="130" column="43" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="130" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/views/FastScroller.kt">
+	<error line="189" column="18" severity="warning" message="The function onTouchEvent appears to be too complex based on Cyclomatic Complexity (complexity: 17). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="189" column="18" severity="warning" message="Function onTouchEvent is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="20" column="7" severity="warning" message="Class &apos;FastScroller&apos; with &apos;16&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="189" column="18" severity="warning" message="Function onTouchEvent has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/views/MyRecyclerView.kt">
+	<error line="112" column="18" severity="warning" message="The function dispatchTouchEvent is too long (84). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="112" column="18" severity="warning" message="The function dispatchTouchEvent appears to be too complex based on Cyclomatic Complexity (complexity: 21). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="112" column="18" severity="warning" message="Function dispatchTouchEvent is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="264" column="18" severity="warning" message="Function onScrollChanged is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="15" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="293" column="21" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="294" column="21" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="112" column="18" severity="warning" message="Function dispatchTouchEvent has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="235" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="15" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="293" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="294" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="298" column="64" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="235" column="13" severity="warning" message="Use check() or error() instead of throwing an IllegalStateException." source="detekt.UseCheckOrError" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/ToturialBuilder.kt">
+	<error line="17" column="7" severity="warning" message="Class &apos;TapTargetTutorial&apos; with &apos;12&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="25" column="45" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="40" column="69" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="17" column="7" severity="warning" message="The file name &apos;ToturialBuilder&apos; does not match the name of the single top-level declaration &apos;TapTargetTutorial&apos;." source="detekt.MatchingDeclarationName" />
+	<error line="14" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_items.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="33" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="86" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="92" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="98" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="99" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="106" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="119" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="121" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="122" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="140" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="143" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="161" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="163" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="164" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/Config.kt">
+	<error line="12" column="12" severity="warning" message="Class &apos;Config&apos; with &apos;13&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="7" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/Constants.kt">
+	<error line="1" column="1" severity="warning" message="File &apos;/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/Constants.kt&apos; with &apos;16&apos; functions detected. Defined threshold inside files is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="96" column="11" severity="warning" message="Top level constant names should match the pattern: [A-Z][_A-Z0-9]*" source="detekt.TopLevelPropertyNaming" />
+	<error line="97" column="11" severity="warning" message="Top level constant names should match the pattern: [A-Z][_A-Z0-9]*" source="detekt.TopLevelPropertyNaming" />
+	<error line="8" column="1" severity="warning" message="androidx.appcompat.app.AppCompatDelegate.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="246" column="62" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="202" column="5" severity="warning" message="MD5 can be a `const val`." source="detekt.MayBeConst" />
+	<error line="203" column="5" severity="warning" message="SHA1 can be a `const val`." source="detekt.MayBeConst" />
+	<error line="204" column="5" severity="warning" message="SHA256 can be a `const val`." source="detekt.MayBeConst" />
+	<error line="205" column="5" severity="warning" message="SHA512 can be a `const val`." source="detekt.MayBeConst" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/services/ZipManagerService.kt">
+	<error line="26" column="7" severity="warning" message="Class &apos;ZipManagerService&apos; with &apos;17&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="115" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="129" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="132" column="17" severity="warning" message="Instead of catching for a general exception type and checking for a specific exception type, use multiple catch blocks." source="detekt.InstanceOfCheckForException" />
+	<error line="12" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="81" column="9" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="193" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/PropertiesDialog.kt">
+	<error line="142" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="13" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="18" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_properties.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="19" column="1" severity="warning" message="kotlinx.android.synthetic.main.property_item.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="80" column="90" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/DeleteAppDataDialog.kt">
+	<error line="49" column="38" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="49" column="38" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="8" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="10" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_delete_app_data.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="43" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="45" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="47" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/CreateNewFolderDialog.kt">
+	<error line="66" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="7" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="8" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_create_new_folder.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/IntroActivity.kt">
+	<error line="104" column="21" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="17" column="1" severity="warning" message="com.securefilemanager.app.fragments.intro.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/DecompressActivity.kt">
+	<error line="63" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_decompress.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/SaveAsActivity.kt">
+	<error line="80" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="8" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/crypto/PrefCrypto.kt">
+	<error line="50" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="53" column="25" severity="warning" message="Use check() or error() instead of throwing an IllegalStateException." source="detekt.UseCheckOrError" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/crypto/FileCrypto.kt">
+	<error line="47" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="50" column="25" severity="warning" message="Use check() or error() instead of throwing an IllegalStateException." source="detekt.UseCheckOrError" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/crypto/Key.kt">
+	<error line="25" column="26" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="14" column="13" severity="warning" message="Function getKey has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="10" column="1" severity="warning" message="The class Key only contains utility functions. Consider defining it as an object." source="detekt.UtilityClassWithPublicConstructor" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/fragments/intro/IntroPermissionFragment.kt">
+	<error line="17" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_intro_permission.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/fragments/intro/IntroHidingFragment.kt">
+	<error line="10" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_intro_hiding.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/fragments/intro/IntroEncryptingFragment.kt">
+	<error line="11" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_intro_encrypting.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/fragments/intro/IntroOtherFragment.kt">
+	<error line="12" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_intro_other.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/fragments/AboutFragment.kt">
+	<error line="11" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_about.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Point.kt">
+	<error line="10" column="25" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Int.kt">
+	<error line="8" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="9" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="10" column="26" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="10" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="11" column="26" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="13" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="23" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="23" column="56" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/Long.kt">
+	<error line="16" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/extensions/ByteArray.kt">
+	<error line="8" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="8" column="52" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/adapters/DecompressItemsAdapter.kt">
+	<error line="12" column="1" severity="warning" message="kotlinx.android.synthetic.main.item_list_file_dir.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/adapters/FilePickerItemsAdapter.kt">
+	<error line="11" column="1" severity="warning" message="kotlinx.android.synthetic.main.filepicker_list_item.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/FileConflictDialog.kt">
+	<error line="7" column="1" severity="warning" message="com.securefilemanager.app.R.id.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="16" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_file_conflict.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/PasswordAuthenticationDialog.kt">
+	<error line="10" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="12" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_password_authentication.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_password_authentication.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/CreateNewItemDialog.kt">
+	<error line="7" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="8" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_create_new.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/StoragePickerDialog.kt">
+	<error line="10" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_radio_group.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/CompressAsDialog.kt">
+	<error line="9" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="10" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_compress_as.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="29" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="84" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/PasswordSetupDialog.kt">
+	<error line="10" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="12" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_password_authentication.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_password_setup.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/PasswordPromptDialog.kt">
+	<error line="9" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_password_authentication.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/RenameItemDialog.kt">
+	<error line="7" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="8" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_rename_item.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/RenameItemsDialog.kt">
+	<error line="7" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="8" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_rename_items.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="9" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_rename_items.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/ConfirmationDialog.kt">
+	<error line="8" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_message.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/WritePermissionDialog.kt">
+	<error line="10" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_write_permission.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/dialogs/ChangeSortingDialog.kt">
+	<error line="9" column="1" severity="warning" message="com.securefilemanager.app.helpers.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="10" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_change_sorting.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/FavoritesActivity.kt">
+	<error line="14" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_favorites.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/AboutActivity.kt">
+	<error line="11" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_about.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/activities/AuthenticationActivity.kt">
+	<error line="12" column="1" severity="warning" message="com.securefilemanager.app.extensions.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_authenticate.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/views/Breadcrumbs.kt">
+	<error line="14" column="1" severity="warning" message="kotlinx.android.synthetic.main.breadcrumb_item.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Secure-File-Manager/app/src/main/kotlin/com/securefilemanager/app/helpers/crypto/Password.kt">
+	<error line="31" column="58" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+</checkstyle>

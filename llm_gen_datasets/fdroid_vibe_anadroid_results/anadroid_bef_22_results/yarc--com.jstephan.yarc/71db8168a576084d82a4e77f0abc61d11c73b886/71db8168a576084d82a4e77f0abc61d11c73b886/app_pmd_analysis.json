@@ -1,0 +1,96 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2025-10-13T13:34:26.957+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/yarc/app/src/main/java/com/jstephan/yarc/BaseActivity.java",
+      "violations": [
+        {
+          "beginline": 78,
+          "begincolumn": 13,
+          "endline": 86,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/yarc/app/src/main/java/com/jstephan/yarc/CurrencyRateConverter.java",
+      "violations": [
+        {
+          "beginline": 82,
+          "begincolumn": 62,
+          "endline": 82,
+          "endcolumn": 65,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 82,
+          "begincolumn": 98,
+          "endline": 82,
+          "endcolumn": 101,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/yarc/app/src/main/java/com/jstephan/yarc/CurrencySelectorAdapter.java",
+      "violations": [
+        {
+          "beginline": 91,
+          "begincolumn": 50,
+          "endline": 91,
+          "endcolumn": 82,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 141,
+          "begincolumn": 44,
+          "endline": 141,
+          "endcolumn": 47,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/yarc/app/src/main/java/com/jstephan/yarc/MainAdapter.java",
+      "violations": [
+        {
+          "beginline": 80,
+          "begincolumn": 80,
+          "endline": 80,
+          "endcolumn": 83,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

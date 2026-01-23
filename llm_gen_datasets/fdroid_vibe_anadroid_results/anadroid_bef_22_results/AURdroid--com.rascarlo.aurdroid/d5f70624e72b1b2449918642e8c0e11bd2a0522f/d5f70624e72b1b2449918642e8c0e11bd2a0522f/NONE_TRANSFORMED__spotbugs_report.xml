@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762901488896" analysisTimestamp="1762901493495" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/AURdroid/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/AURdroid/NONE_TRANSFORMED_/app/build/tmp/kapt3/stubs/debug</SrcDir>
+  </Project>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="db7296842392080b076fe8e0b8838251" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of ApiStatusLayoutBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl.&lt;static initializer for ApiStatusLayoutBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" start="15" end="90" sourcefile="ApiStatusLayoutBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/ApiStatusLayoutBindingImpl.java">
+        <Message>At ApiStatusLayoutBindingImpl.java:[lines 15-90]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" start="15" end="21" startBytecode="0" endBytecode="98" sourcefile="ApiStatusLayoutBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/ApiStatusLayoutBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl.&lt;static initializer for ApiStatusLayoutBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" sourcefile="ApiStatusLayoutBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/ApiStatusLayoutBindingImpl.java">
+        <Message>In ApiStatusLayoutBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" primary="true" start="17" end="17" startBytecode="20" endBytecode="20" sourcefile="ApiStatusLayoutBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/ApiStatusLayoutBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at ApiStatusLayoutBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="ApiStatusLayoutBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/ApiStatusLayoutBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at ApiStatusLayoutBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="e727e33821464730351a1ae2e4ead179" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of FragmentInfoResultBindingImpl.sIncludes in com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl.&lt;static initializer for FragmentInfoResultBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" start="15" end="423" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java">
+        <Message>At FragmentInfoResultBindingImpl.java:[lines 15-423]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" start="15" end="46" startBytecode="0" endBytecode="445" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl.&lt;static initializer for FragmentInfoResultBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" name="sIncludes" signature="Landroidx/databinding/ViewDataBinding$IncludedLayouts;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java">
+        <Message>In FragmentInfoResultBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl.sIncludes</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" primary="true" start="16" end="16" startBytecode="40" endBytecode="40" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FragmentInfoResultBindingImpl.java:[line 16]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" start="16" end="16" startBytecode="15" endBytecode="15" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FragmentInfoResultBindingImpl.java:[line 16]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="829b62b36a08aaa316e0b37b8c4d1016" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of FragmentInfoResultBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl.&lt;static initializer for FragmentInfoResultBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" start="15" end="423" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java">
+        <Message>At FragmentInfoResultBindingImpl.java:[lines 15-423]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" start="15" end="46" startBytecode="0" endBytecode="445" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl.&lt;static initializer for FragmentInfoResultBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java">
+        <Message>In FragmentInfoResultBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" primary="true" start="35" end="35" startBytecode="258" endBytecode="258" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FragmentInfoResultBindingImpl.java:[line 35]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" start="35" end="35" startBytecode="254" endBytecode="254" sourcefile="FragmentInfoResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FragmentInfoResultBindingImpl.java:[line 35]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="b043b7c607dc23897b7fd2ca8226b7a2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of FragmentSearchBindingImpl.sIncludes in com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl.&lt;static initializer for FragmentSearchBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" start="15" end="154" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java">
+        <Message>At FragmentSearchBindingImpl.java:[lines 15-154]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" start="15" end="24" startBytecode="0" endBytecode="130" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl.&lt;static initializer for FragmentSearchBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" name="sIncludes" signature="Landroidx/databinding/ViewDataBinding$IncludedLayouts;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java">
+        <Message>In FragmentSearchBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl.sIncludes</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" primary="true" start="16" end="16" startBytecode="68" endBytecode="68" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FragmentSearchBindingImpl.java:[line 16]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" start="16" end="16" startBytecode="15" endBytecode="15" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FragmentSearchBindingImpl.java:[line 16]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="416d450c71b6b6e7c02aa827ff0051c7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of FragmentSearchBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl.&lt;static initializer for FragmentSearchBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" start="15" end="154" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java">
+        <Message>At FragmentSearchBindingImpl.java:[lines 15-154]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" start="15" end="24" startBytecode="0" endBytecode="130" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl.&lt;static initializer for FragmentSearchBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java">
+        <Message>In FragmentSearchBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" primary="true" start="23" end="23" startBytecode="87" endBytecode="87" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FragmentSearchBindingImpl.java:[line 23]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" start="23" end="23" startBytecode="84" endBytecode="84" sourcefile="FragmentSearchBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FragmentSearchBindingImpl.java:[line 23]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="513b59551ce6d5153a58e31507cf6610" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of FragmentSearchResultBindingImpl.sIncludes in com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl.&lt;static initializer for FragmentSearchResultBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" start="15" end="124" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java">
+        <Message>At FragmentSearchResultBindingImpl.java:[lines 15-124]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" start="15" end="23" startBytecode="0" endBytecode="114" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl.&lt;static initializer for FragmentSearchResultBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" name="sIncludes" signature="Landroidx/databinding/ViewDataBinding$IncludedLayouts;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java">
+        <Message>In FragmentSearchResultBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl.sIncludes</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" primary="true" start="16" end="16" startBytecode="39" endBytecode="39" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FragmentSearchResultBindingImpl.java:[line 16]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" start="16" end="16" startBytecode="14" endBytecode="14" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FragmentSearchResultBindingImpl.java:[line 16]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="5a655dd9e2d13c1b170b925eac823440" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of FragmentSearchResultBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl.&lt;static initializer for FragmentSearchResultBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" start="15" end="124" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java">
+        <Message>At FragmentSearchResultBindingImpl.java:[lines 15-124]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" start="15" end="23" startBytecode="0" endBytecode="114" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl.&lt;static initializer for FragmentSearchResultBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java">
+        <Message>In FragmentSearchResultBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" primary="true" start="21" end="21" startBytecode="58" endBytecode="58" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FragmentSearchResultBindingImpl.java:[line 21]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" start="21" end="21" startBytecode="55" endBytecode="55" sourcefile="FragmentSearchResultBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FragmentSearchResultBindingImpl.java:[line 21]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="c699bf7d15b84c3b8c53140eeca9d8cd" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of InfoResultHeaderBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl.&lt;static initializer for InfoResultHeaderBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" start="15" end="124" sourcefile="InfoResultHeaderBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java">
+        <Message>At InfoResultHeaderBindingImpl.java:[lines 15-124]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" start="15" end="18" startBytecode="0" endBytecode="59" sourcefile="InfoResultHeaderBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl.&lt;static initializer for InfoResultHeaderBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" sourcefile="InfoResultHeaderBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java">
+        <Message>In InfoResultHeaderBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" primary="true" start="17" end="17" startBytecode="20" endBytecode="20" sourcefile="InfoResultHeaderBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at InfoResultHeaderBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="InfoResultHeaderBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at InfoResultHeaderBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="eb3700122cdb1e299629038945d053d0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of InfoResultStatusBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl.&lt;static initializer for InfoResultStatusBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" start="15" end="142" sourcefile="InfoResultStatusBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java">
+        <Message>At InfoResultStatusBindingImpl.java:[lines 15-142]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" start="15" end="18" startBytecode="0" endBytecode="59" sourcefile="InfoResultStatusBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl.&lt;static initializer for InfoResultStatusBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" sourcefile="InfoResultStatusBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java">
+        <Message>In InfoResultStatusBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" primary="true" start="17" end="17" startBytecode="20" endBytecode="20" sourcefile="InfoResultStatusBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at InfoResultStatusBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="InfoResultStatusBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at InfoResultStatusBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="92d1c6b1449791379618ab00cc9cdaab" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of SearchFieldBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl.&lt;static initializer for SearchFieldBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" start="15" end="100" sourcefile="SearchFieldBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchFieldBindingImpl.java">
+        <Message>At SearchFieldBindingImpl.java:[lines 15-100]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" start="15" end="26" startBytecode="0" endBytecode="167" sourcefile="SearchFieldBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchFieldBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl.&lt;static initializer for SearchFieldBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" sourcefile="SearchFieldBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchFieldBindingImpl.java">
+        <Message>In SearchFieldBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" primary="true" start="17" end="17" startBytecode="20" endBytecode="20" sourcefile="SearchFieldBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchFieldBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at SearchFieldBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="SearchFieldBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchFieldBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at SearchFieldBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="f89ba491832bae5bf9a75321e42a13ba" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of SearchKeywordBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl.&lt;static initializer for SearchKeywordBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" start="15" end="90" sourcefile="SearchKeywordBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchKeywordBindingImpl.java">
+        <Message>At SearchKeywordBindingImpl.java:[lines 15-90]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" start="15" end="21" startBytecode="0" endBytecode="98" sourcefile="SearchKeywordBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchKeywordBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl.&lt;static initializer for SearchKeywordBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" sourcefile="SearchKeywordBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchKeywordBindingImpl.java">
+        <Message>In SearchKeywordBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" primary="true" start="17" end="17" startBytecode="20" endBytecode="20" sourcefile="SearchKeywordBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchKeywordBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at SearchKeywordBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="SearchKeywordBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchKeywordBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at SearchKeywordBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="a7a96fac15d2435c0e3115546c29e1a2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of SearchResultItemBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl.&lt;static initializer for SearchResultItemBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" start="15" end="166" sourcefile="SearchResultItemBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java">
+        <Message>At SearchResultItemBindingImpl.java:[lines 15-166]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" start="15" end="18" startBytecode="0" endBytecode="60" sourcefile="SearchResultItemBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl.&lt;static initializer for SearchResultItemBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" sourcefile="SearchResultItemBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java">
+        <Message>In SearchResultItemBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" primary="true" start="17" end="17" startBytecode="21" endBytecode="21" sourcefile="SearchResultItemBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at SearchResultItemBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="SearchResultItemBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at SearchResultItemBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="1" rank="6" abbrev="NP" category="CORRECTNESS" instanceHash="3bcbca255d8b21172d22de338b715714" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference</ShortMessage>
+    <LongMessage>Possible null pointer dereference of SearchSortBindingImpl.sViewsWithIds in com.rascarlo.aurdroid.databinding.SearchSortBindingImpl.&lt;static initializer for SearchSortBindingImpl&gt;()</LongMessage>
+    <Class classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" start="15" end="96" sourcefile="SearchSortBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchSortBindingImpl.java">
+        <Message>At SearchSortBindingImpl.java:[lines 15-96]</Message>
+      </SourceLine>
+      <Message>In class com.rascarlo.aurdroid.databinding.SearchSortBindingImpl</Message>
+    </Class>
+    <Method classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" name="&lt;clinit&gt;" signature="()V" isStatic="true" primary="true">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" start="15" end="24" startBytecode="0" endBytecode="139" sourcefile="SearchSortBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchSortBindingImpl.java"/>
+      <Message>In method com.rascarlo.aurdroid.databinding.SearchSortBindingImpl.&lt;static initializer for SearchSortBindingImpl&gt;()</Message>
+    </Method>
+    <Field classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" name="sViewsWithIds" signature="Landroid/util/SparseIntArray;" isStatic="true" primary="true" role="FIELD_CONTAINS_VALUE" classAnnotationNames="androidx.annotation.Nullable">
+      <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" sourcefile="SearchSortBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchSortBindingImpl.java">
+        <Message>In SearchSortBindingImpl.java</Message>
+      </SourceLine>
+      <Message>Value contained in com.rascarlo.aurdroid.databinding.SearchSortBindingImpl.sViewsWithIds</Message>
+    </Field>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" primary="true" start="17" end="17" startBytecode="20" endBytecode="20" sourcefile="SearchSortBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchSortBindingImpl.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at SearchSortBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+    <SourceLine classname="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="SearchSortBindingImpl.java" sourcepath="com/rascarlo/aurdroid/databinding/SearchSortBindingImpl.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at SearchSortBindingImpl.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugPattern type="NP_NULL_ON_SOME_PATH" abbrev="NP" category="CORRECTNESS">
+    <ShortDescription>Possible null pointer dereference</ShortDescription>
+    <Details><![CDATA[
+
+<p> There is a branch of statement that, <em>if executed,</em>  guarantees that
+a null value will be dereferenced, which
+would generate a <code>NullPointerException</code> when the code is executed.
+Of course, the problem might be that the branch or statement is infeasible and that
+the null pointer exception cannot ever be executed; deciding that is beyond the ability of SpotBugs.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="54">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.core.widget.NestedScrollView</MissingClass>
+    <MissingClass>androidx.databinding.Bindable</MissingClass>
+    <MissingClass>androidx.databinding.BindingBuildInfo</MissingClass>
+    <MissingClass>androidx.databinding.DataBinderMapper</MissingClass>
+    <MissingClass>androidx.databinding.DataBindingUtil</MissingClass>
+    <MissingClass>androidx.databinding.MergedDataBinderMapper</MissingClass>
+    <MissingClass>androidx.databinding.ViewDataBinding</MissingClass>
+    <MissingClass>androidx.databinding.ViewDataBinding$IncludedLayouts</MissingClass>
+    <MissingClass>androidx.databinding.adapters.TextViewBindingAdapter</MissingClass>
+    <MissingClass>androidx.databinding.library.baseAdapters.DataBinderMapperImpl</MissingClass>
+    <MissingClass>androidx.lifecycle.LifecycleOwner</MissingClass>
+    <MissingClass>androidx.lifecycle.LiveData</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>com.google.android.material.card.MaterialCardView</MissingClass>
+    <MissingClass>com.google.android.material.chip.Chip</MissingClass>
+    <MissingClass>com.google.android.material.chip.ChipGroup</MissingClass>
+    <MissingClass>com.google.android.material.textfield.TextInputEditText</MissingClass>
+    <MissingClass>com.google.android.material.textfield.TextInputLayout</MissingClass>
+    <MissingClass>com.google.android.material.textview.MaterialTextView</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.R</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.R$id</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.R$layout</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.R$string</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.ApiStatusLayoutBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.DependencyItemBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.FragmentInfoResultBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.FragmentSearchBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.FragmentSearchResultBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultBodyBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultCheckDependsBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultConflictsBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultDependsBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultGroupsBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultHeaderBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultKeywordsBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultMakeDependsBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultOptDependsBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultProvidesBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultReplacesBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.InfoResultStatusBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.SearchFieldBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.SearchKeywordBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.SearchResultItemBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.databinding.SearchSortBinding</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.infoResult.InfoResultViewModel</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.network.AurDroidApiStatus</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.network.InfoResult</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.network.SearchResult</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.searchResult.SearchResultViewModel</MissingClass>
+    <MissingClass>com.rascarlo.aurdroid.utils.BindingUtilsKt</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 02:51:28 +0400" total_classes="51" referenced_classes="79" total_bugs="13" total_size="2514" num_packages="4" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="3.56" clock_seconds="0.94" peak_mbytes="252.25" alloc_mbytes="768.00" gc_seconds="0.02" priority_1="13">
+    <FileStats path="androidx/databinding/DataBinderMapperImpl.java" bugCount="0" size="5"/>
+    <FileStats path="androidx/databinding/DataBindingComponent.java" bugCount="0" size="1"/>
+    <FileStats path="androidx/databinding/library/baseAdapters/BR.java" bugCount="0" size="8"/>
+    <FileStats path="com/rascarlo/aurdroid/BR.java" bugCount="0" size="8"/>
+    <FileStats path="com/rascarlo/aurdroid/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/rascarlo/aurdroid/DataBinderMapperImpl.java" bugCount="0" size="182"/>
+    <FileStats path="com/rascarlo/aurdroid/DataBindingTriggerClass.java" bugCount="0" size="3"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/ApiStatusLayoutBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/ApiStatusLayoutBindingImpl.java" bugCount="1" size="49" bugHash="46247f0fb9e7db413dcad6b645f9684a"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/DependencyItemBinding.java" bugCount="0" size="20"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/DependencyItemBindingImpl.java" bugCount="0" size="63"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/FragmentInfoResultBinding.java" bugCount="0" size="70"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java" bugCount="2" size="274" bugHash="1ab2de1d78d1bd225615ca1153250dc2"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/FragmentSearchBinding.java" bugCount="0" size="26"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/FragmentSearchBindingImpl.java" bugCount="2" size="93" bugHash="79bc83a94c867f27d8298a63873d51f7"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/FragmentSearchResultBinding.java" bugCount="0" size="26"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/FragmentSearchResultBindingImpl.java" bugCount="2" size="71" bugHash="b743867e5efb4202ea12f42d8279b96e"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultBodyBinding.java" bugCount="0" size="42"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultBodyBindingImpl.java" bugCount="0" size="104"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultCheckDependsBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultCheckDependsBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultConflictsBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultConflictsBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultDependsBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultDependsBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultGroupsBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultGroupsBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultHeaderBinding.java" bugCount="0" size="26"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java" bugCount="1" size="69" bugHash="ec7fa044ec6d945fca22c8733652707b"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultKeywordsBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultKeywordsBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultMakeDependsBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultMakeDependsBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultOptDependsBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultOptDependsBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultProvidesBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultProvidesBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultReplacesBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultReplacesBindingImpl.java" bugCount="0" size="71"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultStatusBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java" bugCount="1" size="81" bugHash="ecdfd1a3448efaf000b4d9caa1ae3f70"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchFieldBinding.java" bugCount="0" size="34"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchFieldBindingImpl.java" bugCount="1" size="54" bugHash="3b9e69916be95c1ba9cf404297892aeb"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchKeywordBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchKeywordBindingImpl.java" bugCount="1" size="49" bugHash="fbdbe1c839bf0f34c3764a55718ce5e2"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchResultItemBinding.java" bugCount="0" size="40"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java" bugCount="1" size="97" bugHash="a2b8b2c5b16ec10957f29975e1f3deec"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchSortBinding.java" bugCount="0" size="30"/>
+    <FileStats path="com/rascarlo/aurdroid/databinding/SearchSortBindingImpl.java" bugCount="1" size="52" bugHash="27203d81c53313b829afe9a28d5ee9de"/>
+    <PackageStats package="androidx.databinding" total_bugs="0" total_types="2" total_size="6">
+      <ClassStats class="androidx.databinding.DataBinderMapperImpl" sourceFile="DataBinderMapperImpl.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="androidx.databinding.DataBindingComponent" sourceFile="DataBindingComponent.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="androidx.databinding.library.baseAdapters" total_bugs="0" total_types="1" total_size="8">
+      <ClassStats class="androidx.databinding.library.baseAdapters.BR" sourceFile="BR.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.rascarlo.aurdroid" total_bugs="0" total_types="6" total_size="203">
+      <ClassStats class="com.rascarlo.aurdroid.BR" sourceFile="BR.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.DataBinderMapperImpl" sourceFile="DataBinderMapperImpl.java" interface="false" size="142" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.DataBinderMapperImpl$InnerBrLookup" sourceFile="DataBinderMapperImpl.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.DataBinderMapperImpl$InnerLayoutIdLookup" sourceFile="DataBinderMapperImpl.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.DataBindingTriggerClass" sourceFile="DataBindingTriggerClass.java" interface="false" size="3" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.rascarlo.aurdroid.databinding" total_bugs="13" total_types="42" total_size="2297" priority_1="13">
+      <ClassStats class="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBinding" sourceFile="ApiStatusLayoutBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.ApiStatusLayoutBindingImpl" sourceFile="ApiStatusLayoutBindingImpl.java" interface="false" size="49" bugs="1" priority_1="1"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.DependencyItemBinding" sourceFile="DependencyItemBinding.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.DependencyItemBindingImpl" sourceFile="DependencyItemBindingImpl.java" interface="false" size="63" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.FragmentInfoResultBinding" sourceFile="FragmentInfoResultBinding.java" interface="false" size="70" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.FragmentInfoResultBindingImpl" sourceFile="FragmentInfoResultBindingImpl.java" interface="false" size="274" bugs="2" priority_1="2"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.FragmentSearchBinding" sourceFile="FragmentSearchBinding.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.FragmentSearchBindingImpl" sourceFile="FragmentSearchBindingImpl.java" interface="false" size="93" bugs="2" priority_1="2"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.FragmentSearchResultBinding" sourceFile="FragmentSearchResultBinding.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.FragmentSearchResultBindingImpl" sourceFile="FragmentSearchResultBindingImpl.java" interface="false" size="71" bugs="2" priority_1="2"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultBodyBinding" sourceFile="InfoResultBodyBinding.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultBodyBindingImpl" sourceFile="InfoResultBodyBindingImpl.java" interface="false" size="104" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultCheckDependsBinding" sourceFile="InfoResultCheckDependsBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultCheckDependsBindingImpl" sourceFile="InfoResultCheckDependsBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultConflictsBinding" sourceFile="InfoResultConflictsBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultConflictsBindingImpl" sourceFile="InfoResultConflictsBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultDependsBinding" sourceFile="InfoResultDependsBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultDependsBindingImpl" sourceFile="InfoResultDependsBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultGroupsBinding" sourceFile="InfoResultGroupsBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultGroupsBindingImpl" sourceFile="InfoResultGroupsBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultHeaderBinding" sourceFile="InfoResultHeaderBinding.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultHeaderBindingImpl" sourceFile="InfoResultHeaderBindingImpl.java" interface="false" size="69" bugs="1" priority_1="1"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultKeywordsBinding" sourceFile="InfoResultKeywordsBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultKeywordsBindingImpl" sourceFile="InfoResultKeywordsBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultMakeDependsBinding" sourceFile="InfoResultMakeDependsBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultMakeDependsBindingImpl" sourceFile="InfoResultMakeDependsBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultOptDependsBinding" sourceFile="InfoResultOptDependsBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultOptDependsBindingImpl" sourceFile="InfoResultOptDependsBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultProvidesBinding" sourceFile="InfoResultProvidesBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultProvidesBindingImpl" sourceFile="InfoResultProvidesBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultReplacesBinding" sourceFile="InfoResultReplacesBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultReplacesBindingImpl" sourceFile="InfoResultReplacesBindingImpl.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultStatusBinding" sourceFile="InfoResultStatusBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.InfoResultStatusBindingImpl" sourceFile="InfoResultStatusBindingImpl.java" interface="false" size="81" bugs="1" priority_1="1"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchFieldBinding" sourceFile="SearchFieldBinding.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchFieldBindingImpl" sourceFile="SearchFieldBindingImpl.java" interface="false" size="54" bugs="1" priority_1="1"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchKeywordBinding" sourceFile="SearchKeywordBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchKeywordBindingImpl" sourceFile="SearchKeywordBindingImpl.java" interface="false" size="49" bugs="1" priority_1="1"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchResultItemBinding" sourceFile="SearchResultItemBinding.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchResultItemBindingImpl" sourceFile="SearchResultItemBindingImpl.java" interface="false" size="97" bugs="1" priority_1="1"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchSortBinding" sourceFile="SearchSortBinding.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="com.rascarlo.aurdroid.databinding.SearchSortBindingImpl" sourceFile="SearchSortBindingImpl.java" interface="false" size="52" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="65" invocations="386" avgMicrosecondsPerInvocation="169" maxMicrosecondsPerInvocation="20892" standardDeviationMicrosecondsPerInvocation="1115"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="49" invocations="428" avgMicrosecondsPerInvocation="116" maxMicrosecondsPerInvocation="5159" standardDeviationMicrosecondsPerInvocation="336"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="31" invocations="403" avgMicrosecondsPerInvocation="77" maxMicrosecondsPerInvocation="2731" standardDeviationMicrosecondsPerInvocation="152"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="30" invocations="386" avgMicrosecondsPerInvocation="79" maxMicrosecondsPerInvocation="2170" standardDeviationMicrosecondsPerInvocation="145"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="25" invocations="386" avgMicrosecondsPerInvocation="66" maxMicrosecondsPerInvocation="3412" standardDeviationMicrosecondsPerInvocation="193"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="24" invocations="387" avgMicrosecondsPerInvocation="63" maxMicrosecondsPerInvocation="2667" standardDeviationMicrosecondsPerInvocation="149"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="23" invocations="79" avgMicrosecondsPerInvocation="295" maxMicrosecondsPerInvocation="3656" standardDeviationMicrosecondsPerInvocation="478"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="23" invocations="386" avgMicrosecondsPerInvocation="60" maxMicrosecondsPerInvocation="1086" standardDeviationMicrosecondsPerInvocation="100"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="20" invocations="403" avgMicrosecondsPerInvocation="51" maxMicrosecondsPerInvocation="6597" standardDeviationMicrosecondsPerInvocation="335"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SharedVariableAtomicityDetector" totalMilliseconds="17" invocations="51" avgMicrosecondsPerInvocation="352" maxMicrosecondsPerInvocation="5446" standardDeviationMicrosecondsPerInvocation="783"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="14" invocations="79" avgMicrosecondsPerInvocation="189" maxMicrosecondsPerInvocation="2046" standardDeviationMicrosecondsPerInvocation="318"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="14" invocations="295" avgMicrosecondsPerInvocation="48" maxMicrosecondsPerInvocation="710" standardDeviationMicrosecondsPerInvocation="65"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="13" invocations="114" avgMicrosecondsPerInvocation="117" maxMicrosecondsPerInvocation="3940" standardDeviationMicrosecondsPerInvocation="385"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="12" invocations="51" avgMicrosecondsPerInvocation="248" maxMicrosecondsPerInvocation="7048" standardDeviationMicrosecondsPerInvocation="966"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="12" invocations="79" avgMicrosecondsPerInvocation="153" maxMicrosecondsPerInvocation="1409" standardDeviationMicrosecondsPerInvocation="217"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="11" invocations="51" avgMicrosecondsPerInvocation="223" maxMicrosecondsPerInvocation="686" standardDeviationMicrosecondsPerInvocation="157"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="437" avgMicrosecondsPerInvocation="25" maxMicrosecondsPerInvocation="255" standardDeviationMicrosecondsPerInvocation="25"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

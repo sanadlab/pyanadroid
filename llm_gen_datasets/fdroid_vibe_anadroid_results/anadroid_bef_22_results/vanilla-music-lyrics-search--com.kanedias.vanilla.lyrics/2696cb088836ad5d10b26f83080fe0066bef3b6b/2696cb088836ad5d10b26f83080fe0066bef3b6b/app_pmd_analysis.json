@@ -1,0 +1,151 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:24.838+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-music-lyrics-search/app/src/main/java/com/kanedias/vanilla/lyrics/GeniusApiEngine.java",
+      "violations": [
+        {
+          "beginline": 103,
+          "begincolumn": 36,
+          "endline": 103,
+          "endcolumn": 40,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-music-lyrics-search/app/src/main/java/com/kanedias/vanilla/lyrics/LyricWikiEngine.java",
+      "violations": [
+        {
+          "beginline": 146,
+          "begincolumn": 32,
+          "endline": 146,
+          "endcolumn": 36,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-music-lyrics-search/app/src/main/java/com/kanedias/vanilla/lyrics/LyricsShowActivity.java",
+      "violations": [
+        {
+          "beginline": 139,
+          "begincolumn": 13,
+          "endline": 146,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 153,
+          "begincolumn": 9,
+          "endline": 159,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 298,
+          "begincolumn": 16,
+          "endline": 298,
+          "endcolumn": 35,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 299,
+          "begincolumn": 39,
+          "endline": 299,
+          "endcolumn": 62,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 329,
+          "begincolumn": 70,
+          "endline": 329,
+          "endcolumn": 85,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 431,
+          "begincolumn": 40,
+          "endline": 431,
+          "endcolumn": 56,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 481,
+          "begincolumn": 40,
+          "endline": 481,
+          "endcolumn": 56,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 526,
+          "begincolumn": 25,
+          "endline": 537,
+          "endcolumn": 26,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-music-lyrics-search/app/src/main/java/com/kanedias/vanilla/lyrics/PluginQueryBroadcastReceiver.java",
+      "violations": [
+        {
+          "beginline": 51,
+          "begincolumn": 9,
+          "endline": 57,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

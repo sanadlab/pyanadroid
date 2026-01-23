@@ -1,0 +1,12 @@
+#0
+app/src/main/java/com/sanad/gpt4o/gptphotogallery/MainActivity.java:39: warning: Ipc On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `boolean MainActivity.checkPermission()`. 
+  37.           layoutSpinner = findViewById(R.id.layout_spinner);
+  38.   
+  39. >         if (checkPermission()) {
+  40.               loadPhotos();
+  41.           } else {
+
+Found 1 issue
+          Issue Type(ISSUED_TYPE_ID): #
+  Ipc On Ui Thread(IPC_ON_UI_THREAD): 1

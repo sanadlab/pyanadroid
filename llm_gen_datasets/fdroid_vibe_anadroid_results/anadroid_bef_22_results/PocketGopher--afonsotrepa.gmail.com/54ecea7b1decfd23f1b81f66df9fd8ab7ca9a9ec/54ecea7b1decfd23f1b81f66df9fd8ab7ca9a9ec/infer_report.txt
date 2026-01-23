@@ -1,0 +1,156 @@
+#0
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/History.java:97: error: Strict Mode Violation
+  `void History$1.onClick(DialogInterface,int)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  95.                       {
+  96.                           File file = new File(HISTORY_FILE);
+  97. >                         file.delete();
+  98.   
+  99.                           ((Activity) context).recreate();
+
+#1
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Activity/MenuActivity.java:91: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.PrintWriter(), indirectly via call to `Connection(...)` on line 88 is not closed after the last access at line 91. 
+  89.   
+  90.                       //get the desired directory/menu
+  91. >                     lines = conn.getMenu(selector);
+  92.   
+  93.                   }
+
+#2
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Activity/TextFileActivity.java:86: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.PrintWriter(), indirectly via call to `Connection(...)` on line 83 is not closed after the last access at line 86. 
+  84.   
+  85.                       //get the desired text file
+  86. >                     lines = conn.getText(selector);
+  87.   
+  88.   
+
+#3
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Activity/TextFileActivity.java:141: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 83 is not closed after the last access at line 141. 
+  139.                       }
+  140.                   });
+  141. >             }
+  142.           }).start();
+  143.   
+
+#4
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/AudioPage.java:118: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 115 is not closed after the last access at line 118. 
+  116.   
+  117.                       //get the desired video
+  118. >                     conn.getBinary(selector, file);
+  119.   
+  120.   
+
+#5
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/AudioPage.java:159: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 115 is not closed after the last access at line 159. 
+  157.                   ((Activity) context).setResult(Activity.RESULT_OK, intent);
+  158.                   context.startActivity(intent);
+  159. >             }
+  160.           }).start();
+  161.       }
+
+#6
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Connection.java:168: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 163 is not closed after the last access at line 168. 
+  166.               byte[] buf = new byte[4096]; //pretty small rn
+  167.   
+  168. >             while ((read = is.read(buf)) != - 1)
+  169.               {
+  170.                   os.write(buf, 0, read);
+
+#7
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Connection.java:174: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 163 is not closed after the last access at line 174. 
+  172.   
+  173.           }
+  174. >         catch (IOException e)
+  175.           {
+  176.               throw new RuntimeException(e);
+
+#8
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Connection.java:183: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 163 is not closed after the last access at line 183. 
+  181.               os.close(); //close the stream
+  182.           }
+  183. >     }
+  184.   }
+
+#9
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/HtmlPage.java:122: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 121 is not closed after the last access at line 122. 
+  120.                           {
+  121.                               Connection conn = new Connection(page.server, page.port);
+  122. >                             conn.getBinary(page.selector, file);
+  123.   
+  124.                           }
+
+#10
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/HtmlPage.java:147: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 121 is not closed after the last access at line 147. 
+  145.                           intent.setData(Uri.fromFile(file));
+  146.                           context.startActivity(intent);
+  147. >                     }
+  148.                   }).start();
+  149.               }
+
+#11
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/ImagePage.java:120: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 117 is not closed after the last access at line 120. 
+  118.   
+  119.                       //get the desired video
+  120. >                     conn.getBinary(selector, file);
+  121.   
+  122.   
+
+#12
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/ImagePage.java:161: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 117 is not closed after the last access at line 161. 
+  159.                   ((Activity) context).setResult(Activity.RESULT_OK, intent);
+  160.                   context.startActivity(intent);
+  161. >             }
+  162.           }).start();
+  163.       }
+
+#13
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Page.java:157: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 156 is not closed after the last access at line 157. 
+  155.                                       {
+  156.                                           Connection conn = new Connection(server, port);
+  157. >                                         conn.getBinary(selector, f);
+  158.                                       }
+  159.                                       catch (final IOException e)
+
+#14
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/Page.java:201: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 156 is not closed after the last access at line 201. 
+  199.                                       });
+  200.                                   }
+  201. >                             }
+  202.                           }).start();
+  203.                       }
+
+#15
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/VideoPage.java:119: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 116 is not closed after the last access at line 119. 
+  117.   
+  118.                       //get the desired video
+  119. >                     conn.getBinary(selector, file);
+  120.   
+  121.   
+
+#16
+app/src/main/java/com/gmail/afonsotrepa/pocketgopher/gopherclient/VideoPage.java:160: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedReader(), indirectly via call to `Connection(...)` on line 116 is not closed after the last access at line 160. 
+  158.                   ((Activity) context).setResult(Activity.RESULT_OK, intent);
+  159.                   context.startActivity(intent);
+  160. >             }
+  161.           }).start();
+  162.       }
+
+Found 17 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+            Resource Leak(PULSE_RESOURCE_LEAK): 16
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 1

@@ -1,0 +1,104 @@
+#0
+app/src/main/java/ca/momi/lift/AssignedExcers.java:163: error: Null Dereference
+  `int[] AssignedExcers.getReps(String)` could be null (from the call to `AssignedExcers.getReps(...)` on line 163) and is dereferenced. 
+  161.   
+  162.          for(int i=0; i< sExcersizes.length; i++){
+  163. >            emptyNextRoutWeights.add(new NextExcersize(sExcersizes[i], Routine5x5.weights(0,getReps(sExcersizes[i]).length)));
+  164.          }
+  165.   
+
+#1
+app/src/main/java/ca/momi/lift/Excersize.java:121: error: Null Dereference
+  `reps` could be null (from the call to `AssignedExcers.getReps(...)` on line 120) and is dereferenced. 
+  119.           AssignedExcers assignedExcers = new AssignedExcers();
+  120.           int[] reps = assignedExcers.getReps(excersizeName);
+  121. >         for (int i = 0; i < reps.length; i++){
+  122.               setsToDo.add(new Set(reps[i], weight[i]));
+  123.           }
+
+#2
+app/src/main/java/ca/momi/lift/ExternalStore.java:174: error: Null Dereference
+  `firstLine` could be null (null value originating from line 152) and is dereferenced. 
+  172.   
+  173.           // TODO: This might be bug when user defines workouts. Tell user they can only define workouts with certain syntax
+  174. >         LastWorkout lastwork = new LastWorkout(firstLine.substring(2), content.toString());
+  175.           if (!lastwork.program.equals(MainActivity.program)) {
+  176.               return null;
+
+#3
+app/src/main/java/ca/momi/lift/MainActivity.java:54: warning: Regex Op On Ui Thread
+  `void MainActivity.onResume()` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  52.       protected void onResume() {
+  53.           super.onResume();
+  54. >         setNextWorkout();
+  55.       }
+  56.   
+
+#4
+app/src/main/java/ca/momi/lift/MainActivity.java:54: error: Strict Mode Violation
+  `void MainActivity.onResume()` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  52.       protected void onResume() {
+  53.           super.onResume();
+  54. >         setNextWorkout();
+  55.       }
+  56.   
+
+#5
+app/src/main/java/ca/momi/lift/MainActivity.java:134: warning: Regex Op On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  132.           RadioGroup routinesRadGroup = findViewById(R.id.routines);
+  133.           radioUtils.setRadioGroup(routinesRadGroup, (new AssignedExcers()).routineDescriber, this);
+  134. >         setNextWorkout();
+  135.   
+  136.       }
+
+#6
+app/src/main/java/ca/momi/lift/MainActivity.java:134: error: Strict Mode Violation
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  132.           RadioGroup routinesRadGroup = findViewById(R.id.routines);
+  133.           radioUtils.setRadioGroup(routinesRadGroup, (new AssignedExcers()).routineDescriber, this);
+  134. >         setNextWorkout();
+  135.   
+  136.       }
+
+#7
+app/src/main/java/ca/momi/lift/Routine5x5.java:119: error: Null Dereference
+  `curEx` could be null (from the call to `Routine5x5.findExcersize(...)` on line 116) and is dereferenced. 
+  117.   
+  118.           NextExcersize newEx;
+  119. >         if (curEx.didEverything()){
+  120.               newEx = new NextExcersize(curEx.excersizeName,  weights(curEx.curset.get(0).weight + getWeightInc(excerName), curEx.numOfSets));
+  121.           } else {
+
+#8
+app/src/main/java/ca/momi/lift/Workout.java:360: warning: Regex Op On Ui Thread
+  `void Workout.onCreate(Bundle)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  358.           lexcersizes = new Excersize[slExcersizes.length];
+  359.   
+  360. >         LastWorkout todaysWorkout = ExternalStore.getLastidxProp(0);
+  361.   
+  362.           boolean lastWorkoutOnPause;
+
+#9
+app/src/main/java/ca/momi/lift/Workout.java:360: error: Strict Mode Violation
+  `void Workout.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  358.           lexcersizes = new Excersize[slExcersizes.length];
+  359.   
+  360. >         LastWorkout todaysWorkout = ExternalStore.getLastidxProp(0);
+  361.   
+  362.           boolean lastWorkoutOnPause;
+
+#10
+app/src/main/java/ca/momi/lift/Workout.java:393: error: Strict Mode Violation
+  `void Workout$5.onClick(View)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  391.                @Override
+  392.                public void onClick(View v) {
+  393. >                 writeData(routineName, dateString, programName, pausing, v);
+  394.                }
+  395.           });
+
+Found 11 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 4
+         Null Dereference(NULLPTR_DEREFERENCE): 4
+  Regex Op On Ui Thread(REGEX_OP_ON_UI_THREAD): 3

@@ -1,0 +1,1568 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:40:19.220+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 141,
+          "begincolumn": 9,
+          "endline": 149,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/SToolsApp.java",
+      "violations": [
+        {
+          "beginline": 29,
+          "begincolumn": 43,
+          "endline": 29,
+          "endcolumn": 57,
+          "description": "Use ArrayList instead of Vector",
+          "rule": "UseArrayListInsteadOfVector",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usearraylistinsteadofvector"
+        },
+        {
+          "beginline": 110,
+          "begincolumn": 13,
+          "endline": 110,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 120,
+          "begincolumn": 34,
+          "endline": 120,
+          "endcolumn": 49,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/colorpicker/RalColor.java",
+      "violations": [
+        {
+          "beginline": 8,
+          "begincolumn": 14,
+          "endline": 8,
+          "endcolumn": 19,
+          "description": "Avoid using redundant field initializer for \u0027index\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 10,
+          "begincolumn": 14,
+          "endline": 10,
+          "endcolumn": 19,
+          "description": "Avoid using redundant field initializer for \u0027color\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/cpu/CpuStateMonitor.java",
+      "violations": [
+        {
+          "beginline": 42,
+          "begincolumn": 20,
+          "endline": 42,
+          "endcolumn": 24,
+          "description": "Avoid using redundant field initializer for \u0027freq\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 43,
+          "begincolumn": 21,
+          "endline": 43,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027duration\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 123,
+          "begincolumn": 34,
+          "endline": 123,
+          "endcolumn": 49,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/fragments/ColorPickerFragment.java",
+      "violations": [
+        {
+          "beginline": 60,
+          "begincolumn": 22,
+          "endline": 60,
+          "endcolumn": 30,
+          "description": "Avoid using redundant field initializer for \u0027ralColor\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 282,
+          "begincolumn": 9,
+          "endline": 288,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 296,
+          "begincolumn": 13,
+          "endline": 317,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/fragments/CompassFragment.java",
+      "violations": [
+        {
+          "beginline": 291,
+          "begincolumn": 16,
+          "endline": 291,
+          "endcolumn": 34,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 291,
+          "begincolumn": 43,
+          "endline": 291,
+          "endcolumn": 62,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 291,
+          "begincolumn": 71,
+          "endline": 291,
+          "endcolumn": 91,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/fragments/CpuFragment.java",
+      "violations": [
+        {
+          "beginline": 33,
+          "begincolumn": 23,
+          "endline": 33,
+          "endcolumn": 27,
+          "description": "Avoid using redundant field initializer for \u0027_app\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 36,
+          "begincolumn": 24,
+          "endline": 36,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027_uiStatesView\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 37,
+          "begincolumn": 22,
+          "endline": 37,
+          "endcolumn": 41,
+          "description": "Avoid using redundant field initializer for \u0027_uiAdditionalStates\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 38,
+          "begincolumn": 29,
+          "endline": 38,
+          "endcolumn": 46,
+          "description": "Avoid using redundant field initializer for \u0027_uiTotalStateTime\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 39,
+          "begincolumn": 29,
+          "endline": 39,
+          "endcolumn": 54,
+          "description": "Avoid using redundant field initializer for \u0027_uiHeaderAdditionalStates\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 40,
+          "begincolumn": 29,
+          "endline": 40,
+          "endcolumn": 52,
+          "description": "Avoid using redundant field initializer for \u0027_uiHeaderTotalStateTime\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 41,
+          "begincolumn": 29,
+          "endline": 41,
+          "endcolumn": 45,
+          "description": "Avoid using redundant field initializer for \u0027_uiStatesWarning\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 42,
+          "begincolumn": 29,
+          "endline": 42,
+          "endcolumn": 44,
+          "description": "Avoid using redundant field initializer for \u0027_uiKernelString\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 166,
+          "begincolumn": 21,
+          "endline": 166,
+          "endcolumn": 24,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 167,
+          "begincolumn": 17,
+          "endline": 167,
+          "endcolumn": 20,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 200,
+          "begincolumn": 13,
+          "endline": 200,
+          "endcolumn": 17,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 201,
+          "begincolumn": 9,
+          "endline": 201,
+          "endcolumn": 13,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 203,
+          "begincolumn": 13,
+          "endline": 203,
+          "endcolumn": 17,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 204,
+          "begincolumn": 9,
+          "endline": 204,
+          "endcolumn": 13,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/fragments/SensorsFragment.java",
+      "violations": [
+        {
+          "beginline": 80,
+          "begincolumn": 95,
+          "endline": 80,
+          "endcolumn": 97,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 81,
+          "begincolumn": 89,
+          "endline": 81,
+          "endcolumn": 91,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 83,
+          "begincolumn": 92,
+          "endline": 83,
+          "endcolumn": 94,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/location/LocationActivity.java",
+      "violations": [
+        {
+          "beginline": 83,
+          "begincolumn": 18,
+          "endline": 83,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027mOrLast\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 89,
+          "begincolumn": 30,
+          "endline": 89,
+          "endcolumn": 44,
+          "description": "Avoid using redundant field initializer for \u0027isGpsViewReady\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 106,
+          "begincolumn": 30,
+          "endline": 106,
+          "endcolumn": 46,
+          "description": "Avoid using redundant field initializer for \u0027isRadioViewReady\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 236,
+          "begincolumn": 41,
+          "endline": 236,
+          "endcolumn": 75,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 237,
+          "begincolumn": 40,
+          "endline": 237,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 238,
+          "begincolumn": 49,
+          "endline": 238,
+          "endcolumn": 117,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 241,
+          "begincolumn": 47,
+          "endline": 241,
+          "endcolumn": 149,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 243,
+          "begincolumn": 41,
+          "endline": 243,
+          "endcolumn": 75,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 245,
+          "begincolumn": 43,
+          "endline": 245,
+          "endcolumn": 77,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 246,
+          "begincolumn": 48,
+          "endline": 246,
+          "endcolumn": 117,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 250,
+          "begincolumn": 42,
+          "endline": 250,
+          "endcolumn": 76,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 251,
+          "begincolumn": 47,
+          "endline": 251,
+          "endcolumn": 115,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 255,
+          "begincolumn": 45,
+          "endline": 255,
+          "endcolumn": 79,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 256,
+          "begincolumn": 50,
+          "endline": 256,
+          "endcolumn": 118,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 260,
+          "begincolumn": 46,
+          "endline": 260,
+          "endcolumn": 148,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 262,
+          "begincolumn": 41,
+          "endline": 262,
+          "endcolumn": 75,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 263,
+          "begincolumn": 44,
+          "endline": 263,
+          "endcolumn": 78,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 264,
+          "begincolumn": 49,
+          "endline": 264,
+          "endcolumn": 118,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 268,
+          "begincolumn": 47,
+          "endline": 268,
+          "endcolumn": 149,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 374,
+          "begincolumn": 29,
+          "endline": 374,
+          "endcolumn": 53,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 374,
+          "begincolumn": 62,
+          "endline": 374,
+          "endcolumn": 88,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 430,
+          "begincolumn": 9,
+          "endline": 438,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 498,
+          "begincolumn": 9,
+          "endline": 504,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 508,
+          "begincolumn": 13,
+          "endline": 512,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 594,
+          "begincolumn": 32,
+          "endline": 594,
+          "endcolumn": 67,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 595,
+          "begincolumn": 35,
+          "endline": 595,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 596,
+          "begincolumn": 40,
+          "endline": 596,
+          "endcolumn": 108,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 600,
+          "begincolumn": 35,
+          "endline": 600,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 601,
+          "begincolumn": 40,
+          "endline": 601,
+          "endcolumn": 108,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 605,
+          "begincolumn": 35,
+          "endline": 605,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 606,
+          "begincolumn": 40,
+          "endline": 606,
+          "endcolumn": 108,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 609,
+          "begincolumn": 35,
+          "endline": 609,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 610,
+          "begincolumn": 40,
+          "endline": 610,
+          "endcolumn": 108,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 615,
+          "begincolumn": 35,
+          "endline": 615,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 616,
+          "begincolumn": 40,
+          "endline": 616,
+          "endcolumn": 108,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 620,
+          "begincolumn": 38,
+          "endline": 620,
+          "endcolumn": 140,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 637,
+          "begincolumn": 13,
+          "endline": 646,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 658,
+          "begincolumn": 13,
+          "endline": 664,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 671,
+          "begincolumn": 13,
+          "endline": 677,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/location/widgets/GpsSnrView.java",
+      "violations": [
+        {
+          "beginline": 49,
+          "begincolumn": 18,
+          "endline": 49,
+          "endcolumn": 24,
+          "description": "Avoid using redundant field initializer for \u0027draw64\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 50,
+          "begincolumn": 18,
+          "endline": 50,
+          "endcolumn": 24,
+          "description": "Avoid using redundant field initializer for \u0027draw88\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/location/widgets/GpsStatusView.java",
+      "violations": [
+        {
+          "beginline": 35,
+          "begincolumn": 16,
+          "endline": 35,
+          "endcolumn": 20,
+          "description": "Avoid using redundant field initializer for \u0027mYaw\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 36,
+          "begincolumn": 16,
+          "endline": 36,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027mRotation\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 37,
+          "begincolumn": 14,
+          "endline": 37,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027mW\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 38,
+          "begincolumn": 14,
+          "endline": 38,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027mH\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/com/naman14/stools/sensors/SensorGraphActivity.java",
+      "violations": [
+        {
+          "beginline": 76,
+          "begincolumn": 14,
+          "endline": 76,
+          "endcolumn": 19,
+          "description": "Avoid using redundant field initializer for \u0027xTick\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 79,
+          "begincolumn": 14,
+          "endline": 79,
+          "endcolumn": 22,
+          "description": "Avoid using redundant field initializer for \u0027lastMinX\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 137,
+          "begincolumn": 1,
+          "endline": 148,
+          "endcolumn": 4,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 157,
+          "begincolumn": 3,
+          "endline": 166,
+          "endcolumn": 4,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 362,
+          "begincolumn": 25,
+          "endline": 362,
+          "endcolumn": 47,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/AbstractChart.java",
+      "violations": [
+        {
+          "beginline": 117,
+          "begincolumn": 28,
+          "endline": 117,
+          "endcolumn": 52,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 214,
+          "begincolumn": 34,
+          "endline": 214,
+          "endcolumn": 36,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 216,
+          "begincolumn": 22,
+          "endline": 216,
+          "endcolumn": 24,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/CombinedXYChart.java",
+      "violations": [
+        {
+          "beginline": 62,
+          "begincolumn": 46,
+          "endline": 62,
+          "endcolumn": 75,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 64,
+          "begincolumn": 48,
+          "endline": 64,
+          "endcolumn": 78,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/DialChart.java",
+      "violations": [
+        {
+          "beginline": 189,
+          "begincolumn": 27,
+          "endline": 189,
+          "endcolumn": 29,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 191,
+          "begincolumn": 29,
+          "endline": 191,
+          "endcolumn": 31,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/DoughnutChart.java",
+      "violations": [
+        {
+          "beginline": 100,
+          "begincolumn": 25,
+          "endline": 100,
+          "endcolumn": 44,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 106,
+          "begincolumn": 20,
+          "endline": 107,
+          "endcolumn": 20,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 126,
+          "begincolumn": 14,
+          "endline": 126,
+          "endcolumn": 99,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/LineChart.java",
+      "violations": [
+        {
+          "beginline": 91,
+          "begincolumn": 34,
+          "endline": 91,
+          "endcolumn": 56,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 122,
+          "begincolumn": 38,
+          "endline": 122,
+          "endcolumn": 60,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/PieChart.java",
+      "violations": [
+        {
+          "beginline": 112,
+          "begincolumn": 31,
+          "endline": 114,
+          "endcolumn": 29,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/TimeChart.java",
+      "violations": [
+        {
+          "beginline": 109,
+          "begincolumn": 42,
+          "endline": 109,
+          "endcolumn": 57,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/chart/XYChart.java",
+      "violations": [
+        {
+          "beginline": 186,
+          "begincolumn": 27,
+          "endline": 186,
+          "endcolumn": 40,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 253,
+          "begincolumn": 28,
+          "endline": 253,
+          "endcolumn": 50,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 254,
+          "begincolumn": 29,
+          "endline": 254,
+          "endcolumn": 52,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 256,
+          "begincolumn": 49,
+          "endline": 256,
+          "endcolumn": 80,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 305,
+          "begincolumn": 24,
+          "endline": 305,
+          "endcolumn": 34,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/model/CategorySeries.java",
+      "violations": [
+        {
+          "beginline": 57,
+          "begincolumn": 30,
+          "endline": 57,
+          "endcolumn": 32,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/model/MultipleCategorySeries.java",
+      "violations": [
+        {
+          "beginline": 51,
+          "begincolumn": 30,
+          "endline": 51,
+          "endcolumn": 32,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/renderer/DefaultRenderer.java",
+      "violations": [
+        {
+          "beginline": 71,
+          "begincolumn": 19,
+          "endline": 71,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027mFitLegend\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 73,
+          "begincolumn": 19,
+          "endline": 73,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027mShowGridX\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 75,
+          "begincolumn": 19,
+          "endline": 75,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027mShowGridY\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 77,
+          "begincolumn": 19,
+          "endline": 77,
+          "endcolumn": 39,
+          "description": "Avoid using redundant field initializer for \u0027mShowCustomTextGridX\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 79,
+          "begincolumn": 19,
+          "endline": 79,
+          "endcolumn": 39,
+          "description": "Avoid using redundant field initializer for \u0027mShowCustomTextGridY\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 85,
+          "begincolumn": 15,
+          "endline": 85,
+          "endcolumn": 28,
+          "description": "Avoid using redundant field initializer for \u0027mLegendHeight\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 95,
+          "begincolumn": 19,
+          "endline": 95,
+          "endcolumn": 38,
+          "description": "Avoid using redundant field initializer for \u0027mZoomButtonsVisible\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 99,
+          "begincolumn": 19,
+          "endline": 99,
+          "endcolumn": 39,
+          "description": "Avoid using redundant field initializer for \u0027mExternalZoomEnabled\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 103,
+          "begincolumn": 19,
+          "endline": 103,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027mClickEnabled\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 115,
+          "begincolumn": 17,
+          "endline": 115,
+          "endcolumn": 28,
+          "description": "Avoid using redundant field initializer for \u0027mStartAngle\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/renderer/SimpleSeriesRenderer.java",
+      "violations": [
+        {
+          "beginline": 32,
+          "begincolumn": 19,
+          "endline": 32,
+          "endcolumn": 35,
+          "description": "Avoid using redundant field initializer for \u0027mGradientEnabled\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/renderer/XYMultipleSeriesRenderer.java",
+      "violations": [
+        {
+          "beginline": 65,
+          "begincolumn": 18,
+          "endline": 65,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027mBarSpacing\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 89,
+          "begincolumn": 17,
+          "endline": 89,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027mXLabelsPadding\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 91,
+          "begincolumn": 17,
+          "endline": 91,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027mYLabelsPadding\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 110,
+          "begincolumn": 18,
+          "endline": 110,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027mZoomInLimitX\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 112,
+          "begincolumn": 18,
+          "endline": 112,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027mZoomInLimitY\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 120,
+          "begincolumn": 17,
+          "endline": 120,
+          "endcolumn": 23,
+          "description": "Avoid using redundant field initializer for \u0027mAngle\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/renderer/XYSeriesRenderer.java",
+      "violations": [
+        {
+          "beginline": 33,
+          "begincolumn": 19,
+          "endline": 33,
+          "endcolumn": 30,
+          "description": "Avoid using redundant field initializer for \u0027mFillPoints\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/tools/FitZoom.java",
+      "violations": [
+        {
+          "beginline": 56,
+          "begincolumn": 21,
+          "endline": 57,
+          "endcolumn": 64,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 68,
+          "begincolumn": 32,
+          "endline": 69,
+          "endcolumn": 57,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/tools/Pan.java",
+      "violations": [
+        {
+          "beginline": 32,
+          "begincolumn": 19,
+          "endline": 32,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027limitsReachedX\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 34,
+          "begincolumn": 19,
+          "endline": 34,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027limitsReachedY\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/tools/Zoom.java",
+      "violations": [
+        {
+          "beginline": 37,
+          "begincolumn": 19,
+          "endline": 37,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027limitsReachedX\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 39,
+          "begincolumn": 19,
+          "endline": 39,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027limitsReachedY\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/S-Tools/app/src/main/java/org.achartengine/util/IndexXYMap.java",
+      "violations": [
+        {
+          "beginline": 29,
+          "begincolumn": 18,
+          "endline": 29,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027maxXDifference\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

@@ -1,0 +1,21 @@
+#0
+app/src/main/java/com/example/booklistingapk/MainActivity.java:48: warning: Ipc On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  46.                   (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+  47.   
+  48. >         checkConnection(cm);
+  49.           LoaderManager loaderManager = getLoaderManager();
+  50.   
+
+#1
+app/src/main/java/com/example/booklistingapk/MainActivity.java:65: warning: Ipc On Ui Thread
+  `boolean MainActivity$1.onQueryTextSubmit(String)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  63.                   // Base URI for the Books API.
+  64.                   // Check connection status
+  65. >                 checkConnection(cm);
+  66.   
+  67.                   if (isConnected) {
+
+Found 2 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Ipc On Ui Thread(IPC_ON_UI_THREAD): 2

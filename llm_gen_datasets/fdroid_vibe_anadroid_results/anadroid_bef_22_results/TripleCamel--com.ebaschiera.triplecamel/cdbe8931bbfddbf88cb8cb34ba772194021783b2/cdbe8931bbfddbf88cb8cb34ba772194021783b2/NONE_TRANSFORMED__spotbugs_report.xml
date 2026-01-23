@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762893981770" analysisTimestamp="1762893983745" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/TripleCamel/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-33/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/TripleCamel/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="9f674ff37f4ec00ab79dbb39380383ed" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to data in com.ebaschiera.triplecamel.ShareActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.ebaschiera.triplecamel.ShareActivity" primary="true">
+      <SourceLine classname="com.ebaschiera.triplecamel.ShareActivity" start="24" end="83" sourcefile="ShareActivity.java" sourcepath="com/ebaschiera/triplecamel/ShareActivity.java" relSourcepath="com/ebaschiera/triplecamel/ShareActivity.java">
+        <Message>At ShareActivity.java:[lines 24-83]</Message>
+      </SourceLine>
+      <Message>In class com.ebaschiera.triplecamel.ShareActivity</Message>
+    </Class>
+    <Method classname="com.ebaschiera.triplecamel.ShareActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.ebaschiera.triplecamel.ShareActivity" start="28" end="83" startBytecode="0" endBytecode="135" sourcefile="ShareActivity.java" sourcepath="com/ebaschiera/triplecamel/ShareActivity.java" relSourcepath="com/ebaschiera/triplecamel/ShareActivity.java"/>
+      <Message>In method com.ebaschiera.triplecamel.ShareActivity.onCreate(Bundle)</Message>
+    </Method>
+    <LocalVariable name="data" register="3" pc="15" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named data</Message>
+    </LocalVariable>
+    <SourceLine classname="com.ebaschiera.triplecamel.ShareActivity" primary="true" start="32" end="32" startBytecode="14" endBytecode="14" sourcefile="ShareActivity.java" sourcepath="com/ebaschiera/triplecamel/ShareActivity.java" relSourcepath="com/ebaschiera/triplecamel/ShareActivity.java">
+      <Message>At ShareActivity.java:[line 32]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="data"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="12">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>androidx.lifecycle.ViewModel</MissingClass>
+    <MissingClass>com.ebaschiera.triplecamel.R</MissingClass>
+    <MissingClass>com.ebaschiera.triplecamel.R$id</MissingClass>
+    <MissingClass>com.ebaschiera.triplecamel.R$layout</MissingClass>
+    <MissingClass>com.ebaschiera.triplecamel.R$string</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 00:46:21 +0400" total_classes="6" referenced_classes="126" total_bugs="1" total_size="87" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.58" clock_seconds="0.43" peak_mbytes="206.38" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="1">
+    <FileStats path="com/ebaschiera/triplecamel/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/ebaschiera/triplecamel/MainActivity.java" bugCount="0" size="11"/>
+    <FileStats path="com/ebaschiera/triplecamel/ShareActivity.java" bugCount="1" size="45" bugHash="a5f60af22951307ae3abf93e6397f75a"/>
+    <FileStats path="com/ebaschiera/triplecamel/TripleCamelApp.java" bugCount="0" size="3"/>
+    <FileStats path="com/ebaschiera/triplecamel/ui/main/MainFragment.java" bugCount="0" size="15"/>
+    <FileStats path="com/ebaschiera/triplecamel/ui/main/MainViewModel.java" bugCount="0" size="3"/>
+    <PackageStats package="com.ebaschiera.triplecamel" total_bugs="1" total_types="4" total_size="69" priority_2="1">
+      <ClassStats class="com.ebaschiera.triplecamel.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.ebaschiera.triplecamel.MainActivity" sourceFile="MainActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.ebaschiera.triplecamel.ShareActivity" sourceFile="ShareActivity.java" interface="false" size="45" bugs="1" priority_2="1"/>
+      <ClassStats class="com.ebaschiera.triplecamel.TripleCamelApp" sourceFile="TripleCamelApp.java" interface="false" size="3" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.ebaschiera.triplecamel.ui.main" total_bugs="0" total_types="2" total_size="18">
+      <ClassStats class="com.ebaschiera.triplecamel.ui.main.MainFragment" sourceFile="MainFragment.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.ebaschiera.triplecamel.ui.main.MainViewModel" sourceFile="MainViewModel.java" interface="false" size="3" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="55" invocations="492" avgMicrosecondsPerInvocation="112" maxMicrosecondsPerInvocation="4455" standardDeviationMicrosecondsPerInvocation="329"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="25" invocations="126" avgMicrosecondsPerInvocation="199" maxMicrosecondsPerInvocation="3536" standardDeviationMicrosecondsPerInvocation="448"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="16" invocations="162" avgMicrosecondsPerInvocation="104" maxMicrosecondsPerInvocation="4276" standardDeviationMicrosecondsPerInvocation="372"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="12" invocations="126" avgMicrosecondsPerInvocation="97" maxMicrosecondsPerInvocation="1556" standardDeviationMicrosecondsPerInvocation="212"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="11" invocations="126" avgMicrosecondsPerInvocation="90" maxMicrosecondsPerInvocation="1346" standardDeviationMicrosecondsPerInvocation="211"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="508" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="264" standardDeviationMicrosecondsPerInvocation="20"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

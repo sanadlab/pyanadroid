@@ -1,0 +1,12 @@
+#0
+app/src/main/java/com/deva/knot/MainActivity.java:74: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.OutputStreamWriter() on line 59 is not closed after the last access at line 74. 
+  72.               Toast.makeText(this, "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
+  73.           }
+  74. >     }
+  75.   
+  76.       public String Open(String fileName) {
+
+Found 1 issue
+          Issue Type(ISSUED_TYPE_ID): #
+  Resource Leak(PULSE_RESOURCE_LEAK): 1

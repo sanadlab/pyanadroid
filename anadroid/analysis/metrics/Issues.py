@@ -14,12 +14,13 @@ class IssueCategory(Enum):
 def issue_from_string(issue_str, sep=','):
     issue_str = issue_str.strip().replace("\"","")
     issue_parts = issue_str.split(sep)
-    if len(issue_parts) < 9:
+    if len(issue_parts) < 5:
         return None
     try:
+        #print(issue_parts[0].split('.')[-1])
         issue_type = KnownStaticPerformanceIssues(issue_parts[0].split('.')[-1])
     except:
-        print(f"Error parsing issue: {issue_str}")
+        #print(f"Error parsing issue: {issue_str}")
         #traceback.print_exc()
         #print(issue_parts[0])
         issue_type = issue_parts[0].strip()
@@ -143,11 +144,11 @@ class Issue(object):
                 sum([1 for attr in ['file', 'i_class', 'method', 'line'] if getattr(other_issue, attr, None) is not None])
 
 class KnownStaticPerformanceIssues(Enum):
-    RESOURCE_LEAK = None
-    EXPENSIVE_EXECUTION_TIME = None
-    REGEX_ON_UI_THREAD = None
-    IPC_ON_UI_THREAD = None
-    INVARIANT_CALL = None
+    RESOURCE_LEAK = "ResourceLeak"
+    EXPENSIVE_EXECUTION_TIME = "ExpensiveExecutionTime"
+    REGEX_ON_UI_THREAD = "RegexOnUIThread"
+    IPC_ON_UI_THREAD = "IPCOnUIThread"
+    INVARIANT_CALL = "InvariantCall"
     UNNECESSARY_MATH = "UnnecessaryMath"
     INEFFICIENT_TO_ARRAY = "InefficientToArray"
     USE_INDEX_OF_CHAR_LAST = "UseIndexOfCharLast"

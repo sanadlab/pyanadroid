@@ -1,0 +1,810 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:54:40.040+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Mining-Helper-for-EVE-Online/app/src/main/java/org/devfleet/android/minerhelper/priceActivities/BasePrices.java",
+      "violations": [
+        {
+          "beginline": 54,
+          "begincolumn": 13,
+          "endline": 54,
+          "endcolumn": 27,
+          "description": "Avoid using redundant field initializer for \u0027setStatusError\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 219,
+          "begincolumn": 21,
+          "endline": 219,
+          "endcolumn": 40,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Mining-Helper-for-EVE-Online/app/src/main/java/org/devfleet/android/minerhelper/priceActivities/GasPrices.java",
+      "violations": [
+        {
+          "beginline": 139,
+          "begincolumn": 18,
+          "endline": 139,
+          "endcolumn": 37,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 152,
+          "begincolumn": 41,
+          "endline": 152,
+          "endcolumn": 58,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 330,
+          "begincolumn": 17,
+          "endline": 340,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 332,
+          "begincolumn": 21,
+          "endline": 339,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 333,
+          "begincolumn": 103,
+          "endline": 333,
+          "endcolumn": 126,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 333,
+          "begincolumn": 252,
+          "endline": 333,
+          "endcolumn": 279,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 342,
+          "begincolumn": 17,
+          "endline": 344,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 349,
+          "begincolumn": 17,
+          "endline": 359,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 351,
+          "begincolumn": 21,
+          "endline": 358,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 352,
+          "begincolumn": 103,
+          "endline": 352,
+          "endcolumn": 126,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 352,
+          "begincolumn": 218,
+          "endline": 352,
+          "endcolumn": 245,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 361,
+          "begincolumn": 17,
+          "endline": 363,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 412,
+          "begincolumn": 13,
+          "endline": 418,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 560,
+          "begincolumn": 17,
+          "endline": 586,
+          "endcolumn": 18,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 582,
+          "begincolumn": 187,
+          "endline": 582,
+          "endcolumn": 218,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 584,
+          "begincolumn": 187,
+          "endline": 584,
+          "endcolumn": 218,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 585,
+          "begincolumn": 316,
+          "endline": 585,
+          "endcolumn": 347,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Mining-Helper-for-EVE-Online/app/src/main/java/org/devfleet/android/minerhelper/priceActivities/IcePrices.java",
+      "violations": [
+        {
+          "beginline": 118,
+          "begincolumn": 18,
+          "endline": 118,
+          "endcolumn": 37,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 131,
+          "begincolumn": 41,
+          "endline": 131,
+          "endcolumn": 58,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 227,
+          "begincolumn": 9,
+          "endline": 237,
+          "endcolumn": 10,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 229,
+          "begincolumn": 13,
+          "endline": 236,
+          "endcolumn": 14,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 230,
+          "begincolumn": 95,
+          "endline": 230,
+          "endcolumn": 118,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 230,
+          "begincolumn": 210,
+          "endline": 230,
+          "endcolumn": 237,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 239,
+          "begincolumn": 9,
+          "endline": 241,
+          "endcolumn": 10,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 285,
+          "begincolumn": 13,
+          "endline": 291,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 369,
+          "begincolumn": 17,
+          "endline": 384,
+          "endcolumn": 18,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 381,
+          "begincolumn": 187,
+          "endline": 381,
+          "endcolumn": 218,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 382,
+          "begincolumn": 187,
+          "endline": 382,
+          "endcolumn": 218,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 383,
+          "begincolumn": 246,
+          "endline": 383,
+          "endcolumn": 277,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Mining-Helper-for-EVE-Online/app/src/main/java/org/devfleet/android/minerhelper/priceActivities/MineralPrices.java",
+      "violations": [
+        {
+          "beginline": 139,
+          "begincolumn": 18,
+          "endline": 139,
+          "endcolumn": 37,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 152,
+          "begincolumn": 42,
+          "endline": 152,
+          "endcolumn": 59,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 227,
+          "begincolumn": 17,
+          "endline": 237,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 229,
+          "begincolumn": 21,
+          "endline": 236,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 239,
+          "begincolumn": 17,
+          "endline": 241,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 246,
+          "begincolumn": 17,
+          "endline": 256,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 248,
+          "begincolumn": 21,
+          "endline": 255,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 249,
+          "begincolumn": 104,
+          "endline": 249,
+          "endcolumn": 127,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 249,
+          "begincolumn": 220,
+          "endline": 249,
+          "endcolumn": 247,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 258,
+          "begincolumn": 17,
+          "endline": 260,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 308,
+          "begincolumn": 13,
+          "endline": 314,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 377,
+          "begincolumn": 17,
+          "endline": 412,
+          "endcolumn": 18,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 409,
+          "begincolumn": 196,
+          "endline": 409,
+          "endcolumn": 227,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 410,
+          "begincolumn": 196,
+          "endline": 410,
+          "endcolumn": 227,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Mining-Helper-for-EVE-Online/app/src/main/java/org/devfleet/android/minerhelper/priceActivities/MoonPrices.java",
+      "violations": [
+        {
+          "beginline": 473,
+          "begincolumn": 18,
+          "endline": 473,
+          "endcolumn": 37,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 486,
+          "begincolumn": 42,
+          "endline": 486,
+          "endcolumn": 59,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 953,
+          "begincolumn": 17,
+          "endline": 963,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 955,
+          "begincolumn": 21,
+          "endline": 962,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 965,
+          "begincolumn": 17,
+          "endline": 967,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 972,
+          "begincolumn": 17,
+          "endline": 982,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 974,
+          "begincolumn": 21,
+          "endline": 981,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 975,
+          "begincolumn": 104,
+          "endline": 975,
+          "endcolumn": 127,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 975,
+          "begincolumn": 220,
+          "endline": 975,
+          "endcolumn": 247,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 984,
+          "begincolumn": 17,
+          "endline": 986,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 1034,
+          "begincolumn": 13,
+          "endline": 1040,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 1143,
+          "begincolumn": 17,
+          "endline": 1178,
+          "endcolumn": 18,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 1175,
+          "begincolumn": 196,
+          "endline": 1175,
+          "endcolumn": 227,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 1176,
+          "begincolumn": 196,
+          "endline": 1176,
+          "endcolumn": 227,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 1177,
+          "begincolumn": 315,
+          "endline": 1177,
+          "endcolumn": 346,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Mining-Helper-for-EVE-Online/app/src/main/java/org/devfleet/android/minerhelper/priceActivities/OrePrices.java",
+      "violations": [
+        {
+          "beginline": 139,
+          "begincolumn": 18,
+          "endline": 139,
+          "endcolumn": 37,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 152,
+          "begincolumn": 40,
+          "endline": 152,
+          "endcolumn": 57,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 227,
+          "begincolumn": 17,
+          "endline": 237,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 229,
+          "begincolumn": 21,
+          "endline": 236,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 239,
+          "begincolumn": 17,
+          "endline": 241,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 246,
+          "begincolumn": 17,
+          "endline": 256,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 248,
+          "begincolumn": 21,
+          "endline": 255,
+          "endcolumn": 22,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 258,
+          "begincolumn": 17,
+          "endline": 260,
+          "endcolumn": 18,
+          "description": "Arrays.copyOf or System.arraycopy are more efficient",
+          "rule": "AvoidArrayLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidarrayloops"
+        },
+        {
+          "beginline": 308,
+          "begincolumn": 13,
+          "endline": 314,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 404,
+          "begincolumn": 17,
+          "endline": 420,
+          "endcolumn": 18,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

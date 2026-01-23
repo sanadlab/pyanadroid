@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 4.0.1">
+
+    <issue
+        id="LintError"
+        severity="Error"
+        message="Unexpected failure during lint analysis (this is a bug in lint or one of the libraries it depends on)&#xA;&#xA;Message: class greenlab.org.ebugslocator.detectors.HashMapUsageDetector cannot be cast to class com.android.tools.lint.detector.api.SourceCodeScanner (greenlab.org.ebugslocator.detectors.HashMapUsageDetector is in unnamed module of loader com.intellij.util.lang.UrlClassLoader @722e484b; com.android.tools.lint.detector.api.SourceCodeScanner is in unnamed module of loader com.android.tools.lint.gradle.api.DelegatingClassLoader @4cbae9cb)&#xA;Stack: `ClassCastException:UElementVisitor.&lt;init>(UElementVisitor.kt:143)←LintDriver.visitUast(LintDriver.kt:1721)←LintDriver.runFileDetectors(LintDriver.kt:1114)←LintDriver.checkProject(LintDriver.kt:904)←LintDriver.analyze(LintDriver.kt:426)←LintCliClient.run(LintCliClient.kt:252)←LintGradleClient.run(LintGradleClient.java:299)←LintGradleExecution.runLint(LintGradleExecution.java:307)`&#xA;&#xA;You can set environment variable `LINT_PRINT_STACKTRACE=true` to dump a full stacktrace to stdout."
+        category="Lint"
+        priority="10"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include failure to find bytecode for source files (which means certain detectors could not be run), parsing errors in lint configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`com.greense.detector.mylibrary.CustomLintRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;Bitmap Format Usage&quot;,&#xA;                    &quot;Data Transmission Without Compression&quot;,&#xA;                    &quot;Early Resource Binding&quot;,&#xA;                    &quot;Heavy Async Task&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Heavy Start Service&quot;,&#xA;                    &quot;Immortality Bug&quot;,&#xA;                    &quot;Invalidate Without Rect&quot;,&#xA;                    &quot;Leaking Thread&quot;,&#xA;                    &quot;Lifecycle Containment&quot;,&#xA;                    &quot;No Low Memory Resolver&quot;,&#xA;                    &quot;Public Directory&quot;,&#xA;                    &quot;Resource Leak&quot;,&#xA;                    &quot;Unused Hardware Acceleration&quot;,&#xA;                    &quot;Vacuous Background Service&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.android/lint/customLintFatima.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`greenlab.org.ebugslocator.registry.CustomIssueRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;CameraLeak&quot;,&#xA;                    &quot;ExcessiveMethodCalls&quot;,&#xA;                    &quot;HashMapUsage&quot;,&#xA;                    &quot;InternalGetter&quot;,&#xA;                    &quot;MediaLeak&quot;,&#xA;                    &quot;MemberIgnoringMethod&quot;,&#xA;                    &quot;MemoizationChance&quot;,&#xA;                    &quot;SensorLeak&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`androidx.annotation.experimental.lint.ExperimentalIssueRegistry`) which did not specify the Lint API version it was compiled with.&#xA;&#xA;**This means that the lint checks are likely not compatible.**&#xA;&#xA;If you are the author of this lint check, make your lint `IssueRegistry` class contain&#xA;  override val api: Int = com.android.tools.lint.detector.api.CURRENT_API&#xA;or from Java,&#xA;  @Override public int getApi() { return com.android.tools.lint.detector.api.ApiKt.CURRENT_API; }&#xA;&#xA;If you are just using lint checks from a third party library you have no control over, you can disable these lint checks (if they misbehave) like this:&#xA;&#xA;    android {&#xA;        lintOptions {&#xA;            disable &quot;UnsafeExperimentalUsageError&quot;,&#xA;                    &quot;UnsafeExperimentalUsageWarning&quot;&#xA;        }&#xA;    }&#xA;"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.gradle/caches/transforms-2/files-2.1/1e0614212b25f4ae67724a3587ed8129/jetified-annotation-experimental-1.0.0/jars/lint.jar"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `resizeableActivity` is only used in API level 24 and higher (current min is 15)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="        android:resizeableActivity=&quot;true&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="21"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `supportsPictureInPicture` is only used in API level 24 and higher (current min is 15)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="        android:supportsPictureInPicture=&quot;true&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="22"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;app_name&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;app_name&quot; translatable=&quot;false&quot;>NS-USBloader&lt;/string>"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="2"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;app_name&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;app_name&quot; translatable=&quot;false&quot;>NS-USBloader&lt;/string>"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="2"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;tf_usb&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;tf_usb&quot; translatable=&quot;false&quot;>Tinfoil USB&lt;/string>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="19"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;tf_usb&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;tf_usb&quot; translatable=&quot;false&quot;>Tinfoil USB&lt;/string>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="19"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;gl&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;gl&quot; translatable=&quot;false&quot;>GoldLeaf v0.5&lt;/string>"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="20"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;gl&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;gl&quot; translatable=&quot;false&quot;>GoldLeaf v0.5&lt;/string>"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="20"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;tf_net&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;tf_net&quot; translatable=&quot;false&quot;>Tinfoil NET&lt;/string>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="21"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;tf_net&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;tf_net&quot; translatable=&quot;false&quot;>Tinfoil NET&lt;/string>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="21"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;about_line_1&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ko&quot; (Korean) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;about_line_1&quot; translatable=&quot;false&quot;>NS-USBloader 모바일&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ko-rKR/strings.xml"
+            line="23"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;status_unkown&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;status_unkown&quot; translatable=&quot;false&quot;>(?)&lt;/string>"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="37"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;status_unkown&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;status_unkown&quot; translatable=&quot;false&quot;>(?)&lt;/string>"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="37"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;settings_nsIp&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;settings_nsIp&quot; translatable=&quot;false&quot;>NS IP&lt;/string>"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="40"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;settings_nsIp&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;settings_nsIp&quot; translatable=&quot;false&quot;>NS IP&lt;/string>"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="40"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;about_line_1&quot; has been marked as translatable=&quot;false&quot; elsewhere (usually in the `values` folder), but is translated to &quot;zh&quot; (Chinese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;about_line_1&quot;>NS-USBloader mobile&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-zh-rCN/strings.xml"
+            line="45"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;about_line_1&quot; has been marked as translatable=&quot;false&quot; elsewhere (usually in the `values` folder), but is translated to &quot;zh&quot; (Chinese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;about_line_1&quot;>NS-USBloader mobile&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-zh-rTW/strings.xml"
+            line="45"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;translators&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;translators&quot; translatable=&quot;false&quot;> ● 中文(繁體) - &lt;a href=&quot;https://github.com/qazrfv1234&quot;>qazrfv1234&lt;/a>\n ● 中文(简体) - FFT9 &lt;a href=&quot;http://www.xxgame.net&quot;>(XXGAME GROUP)&lt;/a>\n ● Italiano - &lt;a href=&quot;https://github.com/IvanMazzoli&quot;>IvanMazzoli&lt;/a>\n ● 한국어 - &lt;a href=&quot;https://github.com/DDinghoya&quot;>DDinghoya&lt;/a>&lt;/string>"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="48"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;translators&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;translators&quot; translatable=&quot;false&quot;> ● 中文(繁體) - &lt;a href=&quot;https://github.com/qazrfv1234&quot;>qazrfv1234&lt;/a>\n ● 中文(简体) - FFT9 &lt;a href=&quot;http://www.xxgame.net&quot;>(XXGAME GROUP)&lt;/a>\n ● Italiano - &lt;a href=&quot;https://github.com/IvanMazzoli&quot;>IvanMazzoli&lt;/a>\n ● 한국어 - &lt;a href=&quot;https://github.com/DDinghoya&quot;>DDinghoya&lt;/a>&lt;/string>"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="48"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;about_line_1&quot; has been marked as translatable=&quot;false&quot; elsewhere (usually in the `values` folder), but is translated to &quot;ru&quot; (Russian) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;about_line_1&quot;>NS-USBloader мобильный&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ru/strings.xml"
+            line="50"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;contributors&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;contributors&quot; translatable=&quot;false&quot;>&lt;a href=&quot;https://github.com/htynkn&quot;>Huang YunKun&lt;/a>&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja-ryu/strings.xml"
+            line="57"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Untranslatable"
+        severity="Warning"
+        message="The resource string &quot;contributors&quot; is marked as translatable=&quot;false&quot;, but is translated to &quot;ja&quot; (Japanese) here"
+        category="Correctness:Messages"
+        priority="6"
+        summary="Translated Untranslatable"
+        explanation="Strings can be marked with `translatable=false` to indicate that they are not intended to be translated, but are present in the resource file for other purposes (for example for non-display strings that should vary by some other configuration qualifier such as screen size or API level).&#xA;&#xA;There are cases where translators accidentally translate these strings anyway, and lint will flag these occurrences with this lint check."
+        errorLine1="    &lt;string name=&quot;contributors&quot; translatable=&quot;false&quot;>&lt;a href=&quot;https://github.com/htynkn&quot;>Huang YunKun&lt;/a>&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="57"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="ExportedReceiver"
+        severity="Warning"
+        message="Exported receiver does not require permission"
+        category="Security"
+        priority="5"
+        summary="Receiver does not require permission"
+        explanation="Exported receivers (receivers which either set `exported=true` or contain an intent-filter and do not specify `exported=false`) should define a permission that an entity must have in order to launch the receiver or bind to it. Without this, any application can use this receiver."
+        errorLine1="        &lt;receiver"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="67"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/training/backup/autosyncapi.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup&#xA;&#xA;By default, this flag is set to `true` which means application data can be backed up and restored by the OS. Setting `allowBackup=&quot;false&quot;` opts the application out of being backed up and so users can&apos;t restore data related to it when they go through the device setup wizard.&#xA;&#xA;Allowing backups may have security consequences for an application. Currently `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.&#xA;&#xA;To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.&#xA;&#xA;If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/training/backup/autosyncapi.html"
+        urls="https://developer.android.com/training/backup/autosyncapi.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="     ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="14"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="Unused Hardware Acceleration"
+        severity="Warning"
+        message="Add hardwareAccelerated=true"
+        category="Performance"
+        priority="6"
+        summary="Unused Hardware Acceleration"
+        explanation="Add hardwareAccelerated=true"
+        errorLine1="    &lt;application"
+        errorLine2="    ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="14"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (891 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="      android:pathData=&quot;m21.3787,13.9831c0,0.7102 -0.1169,1.3601 -0.3504,1.9483 -0.2335,0.5887 -0.557,1.0968 -0.9693,1.5248 -0.4136,0.4282 -0.9097,0.7613 -1.4884,0.9997 -0.5789,0.2382 -1.2088,0.3575 -1.8896,0.3575 -0.3308,0 -0.6617,-0.0292 -0.9923,-0.0876l-0.6566,2.6411l-2.1595,0l2.4223,-10.0973c0.3889,-0.1167 0.8341,-0.2211 1.3352,-0.3138 0.5009,-0.0923 1.0434,-0.1385 1.6271,-0.1385 0.5446,0 1.0142,0.0828 1.4081,0.248 0.3941,0.1654 0.7174,0.3916 0.9712,0.6785 0.2529,0.2871 0.44,0.6228 0.5618,1.007 0.1213,0.3844 0.1823,0.7952 0.1823,1.233m-5.2969,2.9913c0.1652,0.0391 0.3695,0.0584 0.6127,0.0584 0.3794,0 0.7247,-0.0704 1.036,-0.2117 0.3113,-0.1408 0.5764,-0.338 0.7954,-0.5911 0.2188,-0.2529 0.3889,-0.5566 0.5108,-0.912 0.1215,-0.355 0.1824,-0.7464 0.1824,-1.1746 0,-0.4181 -0.0927,-0.7735 -0.2772,-1.0653 -0.185,-0.2918 -0.5059,-0.4378 -0.9631,-0.4378 -0.3115,0 -0.6032,0.0292 -0.8755,0.0876l-1.0215,4.2463&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_donate_libera.xml"
+            line="13"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (900 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="      android:pathData=&quot;m55.9268,14.9551 l-1.7432,-0.3145q0.2939,-1.0527 1.0117,-1.5586 0.7178,-0.5059 2.1328,-0.5059 1.2852,0 1.9141,0.3076 0.6289,0.3008 0.8818,0.7725 0.2598,0.4648 0.2598,1.7158l-0.0205,2.2422q0,0.957 0.0889,1.415 0.0957,0.4512 0.3486,0.9707h-1.9004q-0.0752,-0.1914 -0.1846,-0.5674 -0.0479,-0.1709 -0.0684,-0.2256 -0.4922,0.4785 -1.0527,0.7178 -0.5605,0.2393 -1.1963,0.2393 -1.1211,0 -1.7705,-0.6084 -0.6426,-0.6084 -0.6426,-1.5381 0,-0.6152 0.2939,-1.0938 0.2939,-0.4854 0.8203,-0.7383 0.5332,-0.2598 1.5313,-0.4512 1.3467,-0.2529 1.8662,-0.4717v-0.1914q0,-0.5537 -0.2734,-0.7861 -0.2734,-0.2393 -1.0322,-0.2393 -0.5127,0 -0.7998,0.2051 -0.2871,0.1982 -0.4648,0.7041zM58.4971,16.5137q-0.3691,0.123 -1.1689,0.2939 -0.7998,0.1709 -1.0459,0.335 -0.376,0.2666 -0.376,0.6768 0,0.4033 0.3008,0.6973 0.3008,0.2939 0.7656,0.2939 0.5195,0 0.9912,-0.3418 0.3486,-0.2598 0.458,-0.6357 0.0752,-0.2461 0.0752,-0.9365z&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_donate_libera.xml"
+            line="25"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1347 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="      android:pathData=&quot;M46.211,6.749h-6.839a0.95,0.95 0,0 0,-0.939 0.802l-2.766,17.537a0.57,0.57 0,0 0,0.564 0.658h3.265a0.95,0.95 0,0 0,0.939 -0.803l0.746,-4.73a0.95,0.95 0,0 1,0.938 -0.803h2.165c4.505,0 7.105,-2.18 7.784,-6.5 0.306,-1.89 0.013,-3.375 -0.872,-4.415 -0.972,-1.142 -2.696,-1.746 -4.985,-1.746zM47,13.154c-0.374,2.454 -2.249,2.454 -4.062,2.454h-1.032l0.724,-4.583a0.57,0.57 0,0 1,0.563 -0.481h0.473c1.235,0 2.4,0 3.002,0.704 0.359,0.42 0.469,1.044 0.332,1.906zM66.654,13.075h-3.275a0.57,0.57 0,0 0,-0.563 0.481l-0.145,0.916 -0.229,-0.332c-0.709,-1.029 -2.29,-1.373 -3.868,-1.373 -3.619,0 -6.71,2.741 -7.312,6.586 -0.313,1.918 0.132,3.752 1.22,5.031 0.998,1.176 2.426,1.666 4.125,1.666 2.916,0 4.533,-1.875 4.533,-1.875l-0.146,0.91a0.57,0.57 0,0 0,0.562 0.66h2.95a0.95,0.95 0,0 0,0.939 -0.803l1.77,-11.209a0.568,0.568 0,0 0,-0.561 -0.658zM62.089,19.449c-0.316,1.871 -1.801,3.127 -3.695,3.127 -0.951,0 -1.711,-0.305 -2.199,-0.883 -0.484,-0.574 -0.668,-1.391 -0.514,-2.301 0.295,-1.855 1.805,-3.152 3.67,-3.152 0.93,0 1.686,0.309 2.184,0.892 0.499,0.589 0.697,1.411 0.554,2.317zM84.096,13.075h-3.291a0.954,0.954 0,0 0,-0.787 0.417l-4.539,6.686 -1.924,-6.425a0.953,0.953 0,0 0,-0.912 -0.678h-3.234a0.57,0.57 0,0 0,-0.541 0.754l3.625,10.638 -3.408,4.811a0.57,0.57 0,0 0,0.465 0.9h3.287a0.949,0.949 0,0 0,0.781 -0.408l10.946,-15.8a0.57,0.57 0,0 0,-0.468 -0.895z&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_donate_paypal.xml"
+            line="7"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1258 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="      android:pathData=&quot;M94.992,6.749h-6.84a0.95,0.95 0,0 0,-0.938 0.802l-2.766,17.537a0.569,0.569 0,0 0,0.562 0.658h3.51a0.665,0.665 0,0 0,0.656 -0.562l0.785,-4.971a0.95,0.95 0,0 1,0.938 -0.803h2.164c4.506,0 7.105,-2.18 7.785,-6.5 0.307,-1.89 0.012,-3.375 -0.873,-4.415 -0.971,-1.142 -2.694,-1.746 -4.983,-1.746zM95.781,13.154c-0.373,2.454 -2.248,2.454 -4.062,2.454h-1.031l0.725,-4.583a0.568,0.568 0,0 1,0.562 -0.481h0.473c1.234,0 2.4,0 3.002,0.704 0.359,0.42 0.468,1.044 0.331,1.906zM115.434,13.075h-3.273a0.567,0.567 0,0 0,-0.562 0.481l-0.145,0.916 -0.23,-0.332c-0.709,-1.029 -2.289,-1.373 -3.867,-1.373 -3.619,0 -6.709,2.741 -7.311,6.586 -0.312,1.918 0.131,3.752 1.219,5.031 1,1.176 2.426,1.666 4.125,1.666 2.916,0 4.533,-1.875 4.533,-1.875l-0.146,0.91a0.57,0.57 0,0 0,0.564 0.66h2.949a0.95,0.95 0,0 0,0.938 -0.803l1.771,-11.209a0.571,0.571 0,0 0,-0.565 -0.658zM110.869,19.449c-0.314,1.871 -1.801,3.127 -3.695,3.127 -0.949,0 -1.711,-0.305 -2.199,-0.883 -0.484,-0.574 -0.666,-1.391 -0.514,-2.301 0.297,-1.855 1.805,-3.152 3.67,-3.152 0.93,0 1.686,0.309 2.184,0.892 0.501,0.589 0.699,1.411 0.554,2.317zM119.295,7.23l-2.807,17.858a0.569,0.569 0,0 0,0.562 0.658h2.822c0.469,0 0.867,-0.34 0.939,-0.803l2.768,-17.536a0.57,0.57 0,0 0,-0.562 -0.659h-3.16a0.571,0.571 0,0 0,-0.562 0.482z&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_donate_paypal.xml"
+            line="10"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1649 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="      android:pathData=&quot;m92.752,11.99 l-2.741,6.882 3.062,7.815l-2.362,-0l-2.275,-6.065 -2.216,6.065l-2.245,-0l3.062,-7.611 -2.77,-7.086l2.362,-0l1.895,5.336 2.012,-5.336zM76.773,17.997l3.762,-0c0,-2.508 -0.408,-4.345 -1.721,-4.345 -1.399,-0 -1.895,1.72 -2.041,4.345zM79.281,26.891c-3.033,-0 -4.899,-2.42 -4.899,-6.939 0,-4.724 1.312,-8.165 4.432,-8.165 2.449,-0 4.053,1.837 4.053,6.823l0,1.254l-6.123,-0c0,3.324 0.933,5.074 2.741,5.074 1.283,-0 2.216,-0.584 2.799,-0.991l0.525,1.749c-0.933,0.729 -2.07,1.195 -3.528,1.195zM69.833,14.352c-0.467,-0.467 -0.962,-0.7 -1.72,-0.7 -1.837,-0 -2.712,2.77 -2.712,5.773 0,3.441 0.642,5.541 2.304,5.541 1.137,-0 1.749,-0.554 2.129,-1.138zM62.981,19.893c0,-5.453 2.041,-8.106 4.986,-8.106 0.7,-0 1.428,0.233 1.866,0.554l0,-6.502l2.274,-0L72.108,26.687l-1.691,-0l-0.175,-1.166l-0.146,-0c-0.642,0.816 -1.458,1.37 -2.653,1.37 -2.887,-0 -4.461,-2.449 -4.461,-6.998zM54.758,26.687l-2.274,-0l0,-14.725l2.274,-0l0,1.283l0.146,-0c0.408,-0.554 1.516,-1.458 2.887,-1.458 1.925,-0 2.945,1.079 2.945,3.324L60.736,26.687l-2.303,-0l0,-11.372c0,-1.108 -0.496,-1.488 -1.371,-1.488 -0.962,-0 -1.779,0.729 -2.304,1.458zM47.41,19.018l-0.262,-0c-2.828,-0 -3.441,1.254 -3.441,3.149 0,1.691 0.554,2.799 1.72,2.799 0.788,-0 1.575,-0.525 1.983,-1.167zM49.918,26.687l-1.925,-0c-0.087,-0.321 -0.175,-0.787 -0.204,-1.166l-0.146,-0c-0.642,0.816 -1.458,1.37 -2.741,1.37 -2.099,-0 -3.528,-1.575 -3.528,-4.461 0,-3.149 1.604,-5.132 5.715,-5.132l0.321,-0l0,-0.875c0,-1.925 -0.642,-2.741 -1.925,-2.741 -1.166,-0 -2.158,0.612 -2.916,1.283L42.132,12.953c0.671,-0.554 2.012,-1.166 3.499,-1.166 2.595,-0 4.024,1.108 4.024,4.665L49.655,23.363c0,1.399 0.146,2.624 0.262,3.324&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_donate_yandex.xml"
+            line="19"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (20887 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m129.345,11.87l-0.654,0q-0.811,0 -1.203,0.218 -0.379,0.218 -0.379,0.819l0,4.656l-1.177,0l0,-6.608l1.112,0l0,1.079q0,-0.478 0.562,-0.847 0.575,-0.369 1.164,-0.369l0.575,0zM124.138,14.533l-4.25,0l0,0.997q0,0.696 0.471,0.997 0.471,0.287 1.399,0.287 0.902,0 2.132,-0.328l0,0.942q-1.177,0.273 -2.288,0.273 -2.903,0 -2.903,-2.021l0,-2.608q0,-1.215 0.667,-1.734 0.667,-0.519 2.132,-0.519 1.373,0 2.001,0.505 0.641,0.492 0.641,1.748zM122.961,13.727L122.961,12.689q0,-0.601 -0.353,-0.819 -0.353,-0.232 -1.177,-0.232 -0.785,0 -1.164,0.218 -0.379,0.218 -0.379,0.833l0,1.038zM117.007,17.564l-1.151,0l0,-0.778q0,0.355 -0.575,0.642 -0.562,0.273 -1.543,0.273 -1.373,0 -1.935,-0.451 -0.562,-0.451 -0.562,-1.652L111.24,12.689q0,-0.997 0.588,-1.434 0.588,-0.437 1.975,-0.437 0.745,0 1.373,0.205 0.641,0.205 0.654,0.642l0.026,0q-0.026,-1.12 -0.026,-1.679L115.83,8.006l1.177,0zM115.83,15.83l0,-3.263q0,-0.887 -1.739,-0.887 -1.046,0 -1.373,0.164 -0.314,0.164 -0.314,0.724l0,3.263q0,0.56 0.353,0.792 0.366,0.232 1.229,0.232 0.968,0 1.399,-0.232 0.445,-0.232 0.445,-0.792zM109.447,17.564l-1.138,0L108.31,16.936q-0.144,0.765 -1.909,0.765 -1.308,0 -1.818,-0.41 -0.497,-0.423 -0.497,-1.693 0,-1.106 0.471,-1.516 0.471,-0.423 1.818,-0.423l1.896,0l0,-1.051q0,-0.546 -0.327,-0.737 -0.314,-0.191 -1.203,-0.191 -0.968,0 -2.171,0.164l0,-0.901q1.295,-0.123 2.341,-0.123 1.595,0 2.066,0.41 0.471,0.396 0.471,1.666zM108.271,16.226l0,-1.802l-1.818,0q-0.811,0 -1.02,0.218 -0.196,0.218 -0.196,0.997 0,0.696 0.209,0.983 0.222,0.273 0.915,0.273l0.235,0q0.34,0 0.562,-0.014 0.235,-0.014 0.523,-0.068 0.288,-0.068 0.432,-0.205 0.157,-0.15 0.157,-0.382zM102.617,13.181l0,2.294q0,0.614 -0.144,1.038 -0.144,0.423 -0.366,0.655 -0.222,0.232 -0.641,0.355 -0.405,0.123 -0.785,0.15 -0.366,0.027 -0.981,0.027 -0.785,0 -1.229,-0.055 -0.432,-0.055 -0.876,-0.259 -0.432,-0.218 -0.628,-0.683 -0.183,-0.464 -0.183,-1.229l0,-2.294q0,-0.655 0.144,-1.106 0.157,-0.451 0.366,-0.696 0.222,-0.246 0.641,-0.369 0.418,-0.137 0.772,-0.164 0.366,-0.027 0.994,-0.027 0.628,0 0.981,0.027 0.366,0.027 0.785,0.164 0.418,0.123 0.628,0.369 0.222,0.246 0.366,0.696 0.157,0.451 0.157,1.106zM101.414,15.652L101.414,12.976q0,-0.915 -0.353,-1.133 -0.353,-0.218 -1.36,-0.218 -1.007,0 -1.36,0.218 -0.353,0.218 -0.353,1.133l0,2.676q0,0.437 0.092,0.696 0.092,0.259 0.34,0.382 0.248,0.109 0.51,0.137 0.262,0.027 0.772,0.027 0.51,0 0.772,-0.027 0.262,-0.027 0.51,-0.137 0.248,-0.123 0.34,-0.382 0.092,-0.259 0.092,-0.696zM94.979,17.564L93.802,17.564L93.802,8.006l1.177,0zM91.993,14.314l0,1.488q0,0.969 -0.706,1.365 -0.706,0.396 -2.302,0.396L85.86,17.564L85.86,8.703l3.034,0q1.098,0 1.713,0.232 0.628,0.232 0.811,0.573 0.196,0.341 0.196,0.874l0,1.188q0,0.546 -0.301,0.833 -0.288,0.287 -0.863,0.423l0,0.055q0.68,0.123 1.112,0.492 0.432,0.369 0.432,0.942zM90.424,11.529l0,-1.038q0,-0.505 -0.353,-0.71 -0.353,-0.205 -1.177,-0.205l-1.765,0l0,3.004l1.805,0q0.811,0 1.151,-0.246 0.34,-0.259 0.34,-0.806zM90.725,15.748l0,-1.338q0,-0.355 -0.144,-0.56 -0.131,-0.218 -0.432,-0.3 -0.288,-0.096 -0.523,-0.109 -0.222,-0.027 -0.641,-0.027l-1.857,0l0,3.236l1.857,0q0.955,0 1.347,-0.205 0.392,-0.205 0.392,-0.696zM84.051,14.56l0,0.642q0,1.42 -0.772,1.966 -0.772,0.532 -2.406,0.532 -1.046,0 -2.589,-0.218l0,-1.106q1.543,0.341 2.668,0.341 0.902,0 1.373,-0.205 0.484,-0.218 0.484,-0.86l0,-1.147q0,-0.56 -0.314,-0.792 -0.301,-0.246 -1.098,-0.246l-0.994,0q-1.282,0 -1.792,-0.532 -0.497,-0.546 -0.497,-1.597l0,-0.71q0,-1.051 0.706,-1.556 0.719,-0.505 2.628,-0.505 0.915,0 2.184,0.15l0,0.997q-1.452,-0.232 -2.275,-0.232 -1.216,0 -1.622,0.259 -0.392,0.246 -0.392,0.847l0,1.01q0,0.464 0.314,0.683 0.314,0.205 1.112,0.205l1.02,0q1.321,0 1.792,0.505 0.471,0.492 0.471,1.57zM76.221,8.703l0,6.595q0,2.403 -3.321,2.403 -0.667,0 -1.19,-0.096 -0.523,-0.082 -1.033,-0.314 -0.51,-0.246 -0.798,-0.751 -0.288,-0.505 -0.288,-1.242L69.591,8.703l1.216,0l0,6.581q0,0.874 0.562,1.201 0.562,0.328 1.556,0.328 0.994,0 1.53,-0.328 0.549,-0.328 0.549,-1.201L75.005,8.703ZM67.977,14.15l-3.635,0l0,-0.983l3.635,0zM63.108,14.56l0,0.642q0,1.42 -0.772,1.966 -0.772,0.532 -2.406,0.532 -1.046,0 -2.589,-0.218l0,-1.106q1.543,0.341 2.668,0.341 0.902,0 1.373,-0.205 0.484,-0.218 0.484,-0.86l0,-1.147q0,-0.56 -0.314,-0.792 -0.301,-0.246 -1.098,-0.246L59.459,13.468q-1.282,0 -1.792,-0.532 -0.497,-0.546 -0.497,-1.597l0,-0.71q0,-1.051 0.706,-1.556 0.719,-0.505 2.628,-0.505 0.915,0 2.184,0.15l0,0.997q-1.452,-0.232 -2.275,-0.232 -1.216,0 -1.622,0.259 -0.392,0.246 -0.392,0.847l0,1.01q0,0.464 0.314,0.683 0.314,0.205 1.112,0.205l1.02,0q1.321,0 1.792,0.505 0.471,0.492 0.471,1.57zM55.292,17.564L53.762,17.564L49.146,10.123L49.146,17.564L48.035,17.564L48.035,8.703l1.53,0l4.616,7.318L54.181,8.703l1.112,0zM35.092,7.051 L33.126,10.456l1.403,0L34.528,27.858L30.948,24.47C30.717,24.182 30.555,23.804 30.546,23.416c0,-1.57 -0,-2.503 -0.001,-2.846 0.663,-0.233 1.141,-0.858 1.141,-1.6 0,-0.94 -0.763,-1.703 -1.703,-1.703 -0.941,0 -1.703,0.763 -1.703,1.703 0,0.743 0.478,1.368 1.14,1.6l-0,2.812c0,0.762 0.418,1.561 0.908,2.069 -0.015,-0.014 -0.03,-0.028 0,0.001 0.012,0.011 3.798,3.595 3.798,3.595 0.231,0.288 0.392,0.665 0.401,1.053l0,1.969c-1.301,0.261 -2.28,1.409 -2.28,2.787 0,1.571 1.273,2.844 2.843,2.844 1.571,0 2.844,-1.273 2.844,-2.844 0,-1.378 -0.981,-2.526 -2.282,-2.787l0,-1.934c0,-0.005 0,-0.01 0,-0.015l0,-4.278c0.01,-0.387 0.171,-0.764 0.402,-1.051 0,0 3.785,-3.584 3.798,-3.595 0.03,-0.029 0.015,-0.014 0,-0 0.49,-0.508 0.908,-1.307 0.908,-2.07l-0,-2.71l1.142,0l0,-3.406l-3.405,0l0,3.406l1.14,0c0,0 -0.001,0.714 -0.001,2.744 -0.009,0.388 -0.171,0.766 -0.402,1.054l-3.581,3.389L35.653,10.456l1.405,0zM11.507,6.3A4.5,4.5 96.254,0 1,16.006 10.801,4.5 4.5,96.254 0,1 11.506,15.3 4.5,4.5 96.254,0 1,7.006 10.8,4.5 4.5,96.254 0,1 11.506,6.3M62.56,22.888l0,0.854l0.464,0l0,-0.854zM78.671,22.888l0,5.957c0,0.266 0.077,0.479 0.232,0.64 0.161,0.155 0.371,0.232 0.631,0.232 0.111,0 0.244,-0.016 0.399,-0.047 0.155,-0.025 0.284,-0.059 0.39,-0.102l-0.093,-0.371c-0.08,0.031 -0.17,0.056 -0.269,0.074 -0.093,0.012 -0.173,0.019 -0.241,0.019 -0.179,0 -0.322,-0.052 -0.427,-0.158 -0.099,-0.105 -0.148,-0.247 -0.148,-0.427L79.144,22.888ZM103.786,22.888L103.786,29.661l0.464,0l0,-1.531l1.142,-1.049 1.883,2.579l0.511,0l-2.078,-2.858 2.013,-1.958l-0.538,0l-2.932,2.774l0,-4.732zM59.67,24.753c-0.241,0 -0.47,0.031 -0.687,0.093 -0.21,0.056 -0.399,0.142 -0.566,0.259 -0.161,0.118 -0.288,0.266 -0.38,0.445 -0.093,0.179 -0.139,0.39 -0.139,0.631 0,0.192 0.031,0.35 0.093,0.473 0.068,0.124 0.167,0.229 0.297,0.315 0.13,0.087 0.294,0.161 0.491,0.223 0.204,0.062 0.443,0.124 0.715,0.186 0.254,0.062 0.476,0.121 0.668,0.176 0.192,0.056 0.353,0.121 0.483,0.195 0.13,0.068 0.226,0.155 0.288,0.26 0.068,0.099 0.102,0.223 0.102,0.371 0,0.315 -0.13,0.563 -0.39,0.743 -0.254,0.173 -0.591,0.259 -1.011,0.259 -0.334,0 -0.64,-0.056 -0.919,-0.167 -0.278,-0.111 -0.547,-0.284 -0.807,-0.519l-0.232,0.315c0.254,0.247 0.55,0.433 0.89,0.557 0.34,0.124 0.696,0.186 1.067,0.186 0.563,0 1.011,-0.127 1.345,-0.38 0.34,-0.26 0.511,-0.606 0.511,-1.039 0,-0.21 -0.044,-0.384 -0.13,-0.52 -0.08,-0.136 -0.201,-0.253 -0.362,-0.352 -0.155,-0.099 -0.349,-0.183 -0.584,-0.251 -0.235,-0.068 -0.504,-0.139 -0.807,-0.213 -0.223,-0.056 -0.414,-0.105 -0.575,-0.148 -0.161,-0.049 -0.294,-0.105 -0.399,-0.167 -0.099,-0.062 -0.173,-0.136 -0.223,-0.223 -0.043,-0.087 -0.065,-0.201 -0.065,-0.344 0,-0.173 0.034,-0.321 0.102,-0.445 0.068,-0.13 0.16,-0.235 0.278,-0.316 0.118,-0.08 0.254,-0.139 0.408,-0.176 0.161,-0.037 0.331,-0.056 0.511,-0.056 0.291,0 0.563,0.047 0.816,0.14 0.26,0.093 0.47,0.232 0.631,0.418l0.259,-0.251c-0.161,-0.198 -0.386,-0.359 -0.677,-0.483 -0.291,-0.13 -0.625,-0.195 -1.002,-0.195zM66.763,24.753c-0.39,0 -0.745,0.109 -1.067,0.325 -0.322,0.216 -0.581,0.519 -0.779,0.909L64.917,24.837L64.481,24.837L64.481,29.661l0.464,0l0,-2.987c0.062,-0.223 0.148,-0.424 0.259,-0.603 0.118,-0.186 0.25,-0.343 0.399,-0.473 0.148,-0.136 0.309,-0.238 0.483,-0.306 0.179,-0.074 0.368,-0.112 0.566,-0.112 0.39,0 0.677,0.145 0.863,0.436 0.186,0.285 0.279,0.736 0.279,1.354L67.793,29.661l0.464,0l0,-2.978c0.062,-0.223 0.145,-0.424 0.251,-0.603 0.111,-0.186 0.241,-0.343 0.39,-0.473 0.148,-0.136 0.313,-0.241 0.492,-0.315 0.179,-0.074 0.368,-0.112 0.566,-0.112 0.39,0 0.677,0.145 0.863,0.436 0.192,0.291 0.287,0.742 0.287,1.354L71.105,29.661l0.464,0l0,-2.774c0,-0.674 -0.114,-1.197 -0.343,-1.568 -0.223,-0.377 -0.597,-0.566 -1.123,-0.566 -0.804,0 -1.435,0.436 -1.892,1.308 -0.049,-0.39 -0.201,-0.705 -0.455,-0.947 -0.254,-0.241 -0.584,-0.362 -0.993,-0.362zM75.216,24.753c-0.371,0 -0.721,0.099 -1.049,0.297 -0.322,0.192 -0.581,0.442 -0.779,0.751l0,-0.965l-0.427,0l0,6.801l0.464,0l0,-3.015c0.198,0.315 0.458,0.585 0.779,0.807 0.328,0.216 0.699,0.325 1.114,0.325 0.328,0 0.628,-0.065 0.9,-0.195 0.272,-0.136 0.504,-0.318 0.696,-0.547 0.198,-0.229 0.349,-0.495 0.454,-0.798 0.105,-0.303 0.158,-0.621 0.158,-0.955 0,-0.315 -0.059,-0.625 -0.177,-0.928 -0.111,-0.303 -0.269,-0.569 -0.473,-0.798 -0.204,-0.235 -0.449,-0.424 -0.733,-0.566 -0.285,-0.142 -0.594,-0.213 -0.928,-0.213zM97.146,24.753c-0.334,0 -0.647,0.068 -0.937,0.204 -0.285,0.13 -0.532,0.31 -0.742,0.538 -0.21,0.229 -0.378,0.495 -0.501,0.798 -0.118,0.303 -0.176,0.625 -0.176,0.965 0,0.334 0.059,0.652 0.176,0.955 0.118,0.303 0.282,0.569 0.492,0.798 0.21,0.229 0.458,0.411 0.742,0.547 0.291,0.13 0.607,0.195 0.947,0.195 0.334,0 0.643,-0.065 0.928,-0.195 0.291,-0.136 0.541,-0.318 0.751,-0.547 0.21,-0.229 0.374,-0.495 0.492,-0.798 0.124,-0.303 0.186,-0.621 0.186,-0.955 0,-0.34 -0.062,-0.662 -0.186,-0.965 -0.118,-0.303 -0.285,-0.569 -0.501,-0.798 -0.21,-0.229 -0.458,-0.409 -0.742,-0.538 -0.285,-0.136 -0.594,-0.204 -0.928,-0.204zM110.192,24.753c-0.241,0 -0.47,0.031 -0.687,0.093 -0.21,0.056 -0.399,0.142 -0.566,0.259 -0.161,0.118 -0.288,0.266 -0.38,0.445 -0.093,0.179 -0.14,0.39 -0.14,0.631 0,0.192 0.031,0.35 0.093,0.473 0.068,0.124 0.167,0.229 0.297,0.315 0.13,0.087 0.294,0.161 0.492,0.223 0.204,0.062 0.442,0.124 0.714,0.186 0.254,0.062 0.476,0.121 0.668,0.176 0.192,0.056 0.353,0.121 0.483,0.195 0.13,0.068 0.225,0.155 0.287,0.26 0.068,0.099 0.102,0.223 0.102,0.371 0,0.315 -0.13,0.563 -0.39,0.743 -0.254,0.173 -0.591,0.259 -1.011,0.259 -0.334,0 -0.64,-0.056 -0.919,-0.167 -0.278,-0.111 -0.547,-0.284 -0.807,-0.519l-0.232,0.315c0.254,0.247 0.551,0.433 0.891,0.557 0.34,0.124 0.696,0.186 1.067,0.186 0.563,0 1.011,-0.127 1.345,-0.38 0.34,-0.26 0.511,-0.606 0.511,-1.039 0,-0.21 -0.044,-0.384 -0.13,-0.52 -0.08,-0.136 -0.201,-0.253 -0.362,-0.352 -0.155,-0.099 -0.349,-0.183 -0.584,-0.251 -0.235,-0.068 -0.504,-0.139 -0.807,-0.213 -0.223,-0.056 -0.414,-0.105 -0.575,-0.148 -0.161,-0.049 -0.294,-0.105 -0.399,-0.167 -0.099,-0.062 -0.173,-0.136 -0.223,-0.223 -0.043,-0.087 -0.065,-0.201 -0.065,-0.344 0,-0.173 0.034,-0.321 0.102,-0.445 0.068,-0.13 0.16,-0.235 0.278,-0.316 0.118,-0.08 0.254,-0.139 0.408,-0.176 0.161,-0.037 0.331,-0.056 0.511,-0.056 0.291,0 0.563,0.047 0.816,0.14 0.26,0.093 0.47,0.232 0.631,0.418l0.259,-0.251c-0.161,-0.198 -0.386,-0.359 -0.677,-0.483 -0.291,-0.13 -0.625,-0.195 -1.002,-0.195zM102.776,24.818c-0.05,0 -0.105,0.003 -0.167,0.009 -0.315,0.031 -0.613,0.155 -0.891,0.371 -0.272,0.21 -0.491,0.486 -0.658,0.826l0,-1.188l-0.445,0l0,4.825l0.464,0l0,-3.015c0.13,-0.427 0.355,-0.761 0.677,-1.002 0.328,-0.247 0.709,-0.377 1.142,-0.39L102.897,24.818ZM62.56,24.837l0,4.825l0.464,0l0,-4.825zM80.369,24.837 L82.521,29.661c-0.148,0.353 -0.266,0.631 -0.353,0.835 -0.087,0.204 -0.158,0.359 -0.213,0.464 -0.056,0.105 -0.099,0.173 -0.13,0.204 -0.031,0.037 -0.065,0.065 -0.102,0.083 -0.049,0.025 -0.102,0.04 -0.158,0.047 -0.049,0.006 -0.105,0.009 -0.167,0.009 -0.062,0 -0.108,-0.003 -0.139,-0.009l0,0.427c0.031,0.006 0.058,0.009 0.083,0.009l0.084,0c0.26,0 0.464,-0.05 0.612,-0.149 0.155,-0.093 0.266,-0.226 0.334,-0.399l2.644,-6.346L84.563,24.837L82.772,29.206 80.851,24.837ZM87.274,24.837 L89.361,29.661l0.39,0l1.086,-2.551 1.086,2.551l0.39,0l2.087,-4.825l-0.464,0l-1.837,4.314 -1.011,-2.375 0.816,-1.93l-0.408,0l-0.659,1.596 -0.668,-1.596l-0.399,0l0.816,1.93 -1.011,2.375 -1.846,-4.314zM75.123,25.171c0.266,0 0.517,0.059 0.752,0.176 0.235,0.111 0.439,0.263 0.612,0.455 0.179,0.192 0.319,0.415 0.418,0.668 0.099,0.247 0.148,0.51 0.148,0.789 0,0.26 -0.043,0.516 -0.13,0.77 -0.087,0.247 -0.211,0.47 -0.372,0.668 -0.161,0.192 -0.356,0.346 -0.584,0.464 -0.229,0.118 -0.482,0.177 -0.761,0.177 -0.192,0 -0.377,-0.031 -0.557,-0.093 -0.179,-0.068 -0.347,-0.161 -0.501,-0.279 -0.155,-0.118 -0.294,-0.254 -0.418,-0.408 -0.124,-0.155 -0.226,-0.321 -0.306,-0.501l0,-1.586c0.019,-0.173 0.087,-0.337 0.204,-0.492 0.118,-0.155 0.26,-0.291 0.427,-0.408 0.167,-0.124 0.343,-0.219 0.529,-0.287 0.192,-0.074 0.371,-0.112 0.538,-0.112zM97.146,25.171c0.26,0 0.501,0.056 0.723,0.167 0.229,0.111 0.43,0.263 0.603,0.455 0.173,0.186 0.309,0.405 0.408,0.659 0.099,0.247 0.148,0.513 0.148,0.798 0,0.291 -0.049,0.563 -0.148,0.816 -0.099,0.247 -0.235,0.467 -0.408,0.659 -0.173,0.192 -0.374,0.343 -0.603,0.454 -0.229,0.105 -0.473,0.158 -0.733,0.158 -0.26,0 -0.504,-0.053 -0.733,-0.158 -0.229,-0.111 -0.43,-0.259 -0.603,-0.445 -0.167,-0.186 -0.3,-0.402 -0.399,-0.65 -0.099,-0.254 -0.148,-0.523 -0.148,-0.807 0,-0.285 0.049,-0.554 0.148,-0.807 0.105,-0.26 0.241,-0.486 0.408,-0.677 0.173,-0.192 0.374,-0.343 0.603,-0.455 0.229,-0.111 0.474,-0.167 0.733,-0.167zM91.433,31.233l0,6.773l0.464,0L91.897,35.019c0.062,-0.21 0.155,-0.405 0.279,-0.584 0.124,-0.186 0.266,-0.347 0.426,-0.483 0.167,-0.136 0.344,-0.241 0.529,-0.315 0.192,-0.074 0.387,-0.112 0.584,-0.112 0.798,0 1.197,0.597 1.197,1.791l0,2.691l0.464,0l0,-2.774c0,-0.328 -0.031,-0.622 -0.093,-0.882 -0.056,-0.266 -0.148,-0.492 -0.278,-0.677 -0.124,-0.186 -0.282,-0.327 -0.473,-0.426 -0.192,-0.099 -0.421,-0.149 -0.687,-0.149 -0.402,0 -0.779,0.112 -1.132,0.334 -0.346,0.223 -0.619,0.522 -0.816,0.9L91.897,31.233ZM62.359,33.098c-0.334,0 -0.647,0.065 -0.937,0.195 -0.285,0.13 -0.532,0.31 -0.742,0.538 -0.21,0.223 -0.377,0.486 -0.501,0.789 -0.118,0.297 -0.176,0.615 -0.176,0.955 0,0.346 0.059,0.671 0.176,0.974 0.124,0.303 0.29,0.572 0.501,0.807 0.216,0.229 0.47,0.411 0.761,0.547 0.291,0.13 0.607,0.195 0.947,0.195 0.223,0 0.439,-0.031 0.649,-0.093 0.21,-0.056 0.402,-0.136 0.576,-0.241 0.179,-0.105 0.334,-0.229 0.464,-0.371 0.136,-0.148 0.238,-0.309 0.306,-0.483l-0.408,-0.111c-0.062,0.136 -0.149,0.263 -0.26,0.38 -0.105,0.111 -0.229,0.207 -0.371,0.288 -0.136,0.08 -0.285,0.145 -0.445,0.195 -0.161,0.043 -0.324,0.065 -0.491,0.065 -0.254,0 -0.492,-0.049 -0.715,-0.148 -0.223,-0.099 -0.421,-0.235 -0.594,-0.408 -0.167,-0.173 -0.306,-0.377 -0.418,-0.612 -0.111,-0.241 -0.176,-0.501 -0.195,-0.779l4.231,0c0.006,-0.012 0.009,-0.04 0.009,-0.084L64.725,35.576c0,-0.334 -0.059,-0.649 -0.176,-0.946 -0.118,-0.303 -0.282,-0.566 -0.492,-0.789 -0.21,-0.229 -0.461,-0.409 -0.751,-0.538 -0.291,-0.136 -0.606,-0.204 -0.946,-0.204zM72.381,33.098c-0.334,0 -0.647,0.065 -0.937,0.195 -0.285,0.13 -0.532,0.31 -0.742,0.538 -0.21,0.223 -0.377,0.486 -0.501,0.789 -0.118,0.297 -0.177,0.615 -0.177,0.955 0,0.346 0.059,0.671 0.177,0.974 0.124,0.303 0.29,0.572 0.501,0.807 0.216,0.229 0.47,0.411 0.761,0.547 0.291,0.13 0.607,0.195 0.947,0.195 0.223,0 0.439,-0.031 0.649,-0.093 0.21,-0.056 0.402,-0.136 0.576,-0.241 0.179,-0.105 0.334,-0.229 0.464,-0.371 0.136,-0.148 0.238,-0.309 0.306,-0.483l-0.408,-0.111c-0.062,0.136 -0.149,0.263 -0.26,0.38 -0.105,0.111 -0.229,0.207 -0.371,0.288 -0.136,0.08 -0.285,0.145 -0.445,0.195 -0.161,0.043 -0.325,0.065 -0.492,0.065 -0.254,0 -0.491,-0.049 -0.714,-0.148 -0.223,-0.099 -0.421,-0.235 -0.594,-0.408 -0.167,-0.173 -0.306,-0.377 -0.418,-0.612 -0.111,-0.241 -0.176,-0.501 -0.195,-0.779l4.231,0c0.006,-0.012 0.009,-0.04 0.009,-0.084L74.746,35.576c0,-0.334 -0.059,-0.649 -0.176,-0.946C74.453,34.326 74.288,34.063 74.078,33.841 73.868,33.612 73.617,33.432 73.327,33.302 73.036,33.166 72.721,33.098 72.381,33.098ZM98.801,33.098c-0.334,0 -0.646,0.065 -0.937,0.195 -0.285,0.13 -0.532,0.31 -0.743,0.538 -0.21,0.223 -0.377,0.486 -0.501,0.789 -0.118,0.297 -0.176,0.615 -0.176,0.955 0,0.346 0.059,0.671 0.176,0.974 0.124,0.303 0.29,0.572 0.501,0.807 0.216,0.229 0.47,0.411 0.761,0.547 0.291,0.13 0.607,0.195 0.947,0.195 0.223,0 0.439,-0.031 0.65,-0.093 0.21,-0.056 0.402,-0.136 0.575,-0.241 0.179,-0.105 0.334,-0.229 0.464,-0.371 0.136,-0.148 0.238,-0.309 0.306,-0.483l-0.408,-0.111c-0.062,0.136 -0.149,0.263 -0.26,0.38 -0.105,0.111 -0.229,0.207 -0.371,0.288 -0.136,0.08 -0.285,0.145 -0.445,0.195 -0.161,0.043 -0.324,0.065 -0.491,0.065 -0.254,0 -0.492,-0.049 -0.715,-0.148 -0.223,-0.099 -0.421,-0.235 -0.594,-0.408 -0.167,-0.173 -0.306,-0.377 -0.418,-0.612 -0.111,-0.241 -0.176,-0.501 -0.195,-0.779l4.231,0c0.006,-0.012 0.01,-0.04 0.01,-0.084L101.167,35.576c0,-0.334 -0.059,-0.649 -0.176,-0.946 -0.118,-0.303 -0.281,-0.566 -0.491,-0.789 -0.21,-0.229 -0.461,-0.409 -0.752,-0.538 -0.291,-0.136 -0.606,-0.204 -0.946,-0.204zM107.155,33.098c-0.334,0 -0.647,0.065 -0.937,0.195 -0.285,0.13 -0.532,0.31 -0.742,0.538 -0.21,0.223 -0.378,0.486 -0.501,0.789 -0.118,0.297 -0.176,0.615 -0.176,0.955 0,0.346 0.059,0.671 0.176,0.974 0.124,0.303 0.291,0.572 0.501,0.807 0.216,0.229 0.47,0.411 0.761,0.547 0.291,0.13 0.607,0.195 0.947,0.195 0.223,0 0.439,-0.031 0.649,-0.093 0.21,-0.056 0.402,-0.136 0.575,-0.241 0.179,-0.105 0.334,-0.229 0.464,-0.371 0.136,-0.148 0.238,-0.309 0.306,-0.483l-0.408,-0.111c-0.062,0.136 -0.149,0.263 -0.26,0.38 -0.105,0.111 -0.229,0.207 -0.371,0.288 -0.136,0.08 -0.285,0.145 -0.445,0.195 -0.161,0.043 -0.325,0.065 -0.492,0.065 -0.254,0 -0.491,-0.049 -0.714,-0.148 -0.223,-0.099 -0.421,-0.235 -0.594,-0.408 -0.167,-0.173 -0.306,-0.377 -0.418,-0.612 -0.111,-0.241 -0.176,-0.501 -0.195,-0.779l4.231,0c0.006,-0.012 0.01,-0.04 0.01,-0.084L109.521,35.576c0,-0.334 -0.059,-0.649 -0.176,-0.946 -0.118,-0.303 -0.282,-0.566 -0.492,-0.789 -0.21,-0.229 -0.461,-0.409 -0.751,-0.538 -0.291,-0.136 -0.606,-0.204 -0.946,-0.204zM77.938,33.163c-0.049,0 -0.105,0.003 -0.167,0.009 -0.315,0.031 -0.613,0.155 -0.891,0.371 -0.272,0.21 -0.492,0.486 -0.659,0.826l0,-1.188l-0.445,0l0,4.825l0.464,0l0,-3.015c0.13,-0.427 0.356,-0.761 0.677,-1.002 0.328,-0.247 0.708,-0.377 1.141,-0.39l0,-0.436zM104.358,33.163c-0.05,0 -0.105,0.003 -0.167,0.009 -0.315,0.031 -0.613,0.155 -0.891,0.371 -0.272,0.21 -0.491,0.486 -0.658,0.826l0,-1.188l-0.445,0l0,4.825l0.464,0l0,-3.015c0.13,-0.427 0.355,-0.761 0.677,-1.002 0.328,-0.247 0.709,-0.377 1.142,-0.39l0,-0.436zM65.099,33.182 L67.113,38.006l0.483,0l2.013,-4.825l-0.455,0l-1.791,4.36 -1.781,-4.36zM78.381,33.182 L80.534,38.006c-0.148,0.353 -0.266,0.631 -0.352,0.835 -0.087,0.204 -0.158,0.359 -0.213,0.464 -0.056,0.105 -0.099,0.173 -0.13,0.204 -0.031,0.037 -0.065,0.065 -0.102,0.083 -0.049,0.025 -0.102,0.04 -0.158,0.047 -0.049,0.006 -0.105,0.009 -0.167,0.009 -0.062,0 -0.108,-0.003 -0.139,-0.009l0,0.427c0.031,0.006 0.058,0.009 0.083,0.009l0.084,0c0.26,0 0.464,-0.049 0.612,-0.148 0.155,-0.093 0.266,-0.226 0.334,-0.399l2.644,-6.346l-0.455,0l-1.791,4.37 -1.92,-4.37zM83.401,33.182 L85.489,38.006l0.39,0l1.086,-2.551 1.085,2.551l0.39,0l2.087,-4.825l-0.464,0l-1.837,4.314 -1.011,-2.376 0.816,-1.93l-0.408,0l-0.659,1.596 -0.668,-1.596l-0.399,0l0.816,1.93 -1.011,2.376 -1.846,-4.314zM62.369,33.479c0.254,0 0.491,0.05 0.714,0.149 0.223,0.093 0.417,0.226 0.584,0.399 0.173,0.167 0.312,0.368 0.418,0.603 0.111,0.235 0.176,0.495 0.195,0.779l-3.804,0c0.019,-0.278 0.077,-0.535 0.176,-0.77 0.105,-0.241 0.241,-0.445 0.408,-0.612 0.173,-0.173 0.371,-0.306 0.594,-0.399 0.223,-0.099 0.461,-0.149 0.715,-0.149zM72.39,33.479c0.254,0 0.491,0.05 0.714,0.149 0.223,0.093 0.417,0.226 0.584,0.399 0.173,0.167 0.312,0.368 0.418,0.603 0.111,0.235 0.176,0.495 0.195,0.779l-3.804,0c0.019,-0.278 0.077,-0.535 0.176,-0.77 0.105,-0.241 0.241,-0.445 0.408,-0.612 0.173,-0.173 0.371,-0.306 0.594,-0.399 0.223,-0.099 0.461,-0.149 0.715,-0.149zM98.81,33.479c0.254,0 0.491,0.05 0.714,0.149 0.223,0.093 0.417,0.226 0.584,0.399 0.173,0.167 0.312,0.368 0.418,0.603 0.111,0.235 0.176,0.495 0.195,0.779l-3.804,0c0.019,-0.278 0.077,-0.535 0.176,-0.77 0.105,-0.241 0.241,-0.445 0.408,-0.612 0.173,-0.173 0.371,-0.306 0.594,-0.399 0.223,-0.099 0.461,-0.149 0.715,-0.149zM107.164,33.479c0.254,0 0.492,0.05 0.714,0.149 0.223,0.093 0.417,0.226 0.584,0.399 0.173,0.167 0.312,0.368 0.418,0.603 0.111,0.235 0.176,0.495 0.195,0.779l-3.804,0c0.019,-0.278 0.077,-0.535 0.176,-0.77 0.105,-0.241 0.241,-0.445 0.408,-0.612 0.173,-0.173 0.371,-0.306 0.594,-0.399 0.223,-0.099 0.461,-0.149 0.715,-0.149zM11.547,28.411a2.159,2.159 57,0 0,-2.2 2.118,2.159 2.159,57 0,0 2.118,2.2 2.159,2.159 57,0 0,2.201 -2.117,2.159 2.159,57 0,0 -2.117,-2.201l-0.043,2.159zM15.387,24.473a2.159,2.159 57,0 0,-2.2 2.118,2.159 2.159,57 0,0 2.117,2.2 2.159,2.159 57,0 0,2.201 -2.117,2.159 2.159,57 0,0 -2.117,-2.201l-0.042,2.159zM7.706,24.473a2.159,2.159 115.045,0 0,-2.2 2.118,2.159 2.159,115.045 0,0 2.118,2.2 2.159,2.159 115.045,0 0,2.201 -2.117,2.159 2.159,115.045 0,0 -2.117,-2.201l-0.042,2.159zM11.547,20.535a2.159,2.159 57,0 0,-2.2 2.118,2.159 2.159,57 0,0 2.118,2.2 2.159,2.159 57,0 0,2.201 -2.117,2.159 2.159,57 0,0 -2.117,-2.201l-0.043,2.159z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_fullsize_logo_android.xml"
+            line="8"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1057 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m69.351,156.539c-2.657,-0.179 -5.144,-1.126 -7.344,-2.795 -0.589,-0.447 -1.912,-1.76 -2.362,-2.345 -0.576,-0.748 -1.063,-1.529 -1.473,-2.362 -0.97,-1.971 -1.393,-3.792 -1.391,-5.987 0.003,-2.991 0.924,-5.717 2.76,-8.162 0.539,-0.718 1.83,-2.006 2.56,-2.553 2.043,-1.531 4.25,-2.403 6.804,-2.687 0.571,-0.063 2.145,-0.063 2.715,0 2.798,0.311 5.348,1.406 7.412,3.183 2.65,2.281 4.263,5.361 4.655,8.884 0.063,0.571 0.063,2.145 0,2.715 -0.284,2.555 -1.151,4.752 -2.686,6.804 -0.516,0.69 -1.821,2.007 -2.497,2.52 -2.201,1.67 -4.688,2.603 -7.423,2.787 -0.777,0.052 -0.918,0.052 -1.73,-0.003zM72.134,155.658c3.969,-0.603 7.35,-2.96 9.295,-6.481 0.698,-1.264 1.19,-2.728 1.423,-4.24 0.086,-0.556 0.104,-0.873 0.105,-1.841 0.002,-1.253 -0.052,-1.792 -0.278,-2.806 -1.068,-4.78 -4.852,-8.564 -9.632,-9.632 -1.002,-0.224 -1.556,-0.279 -2.783,-0.279 -1.232,0 -1.772,0.055 -2.806,0.284 -3.118,0.691 -5.977,2.652 -7.763,5.324 -2.867,4.29 -2.875,9.847 -0.02,14.15 0.883,1.332 2.192,2.637 3.55,3.541 1.716,1.143 3.727,1.857 5.823,2.066 0.709,0.071 2.354,0.025 3.087,-0.087z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="38"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (995 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m231.965,40.285a12.266,12.266 0,0 0,-12.266 12.266,12.266 12.266,0 0,0 3.585,8.666l-0.756,1.309c-0.095,0.165 -0.039,0.374 0.126,0.469l4.625,2.67c0.165,0.095 0.374,0.04 0.469,-0.125l0.713,-1.235a12.266,12.266 0,0 0,3.505 0.512,12.266 12.266,0 0,0 12.266,-12.266 12.266,12.266 0,0 0,-12.266 -12.266zM231.997,41.383a11.142,11.142 0,0 1,0.001 0,11.142 11.142,0 0,1 0.032,0 11.142,11.142 0,0 1,11.142 11.142,11.142 11.142,0 0,1 -11.142,11.141 11.142,11.142 0,0 1,-11.142 -11.141,11.142 11.142,0 0,1 11.11,-11.142zM232.092,41.802a10.674,10.674 0,0 0,-10.674 10.674,10.674 10.674,0 0,0 10.674,10.674 10.674,10.674 0,0 0,10.674 -10.674,10.674 10.674,0 0,0 -10.674,-10.674zM231.955,42.588a9.926,9.926 0,0 1,0.056 0,9.926 9.926,0 0,1 9.925,9.925 9.926,9.926 0,0 1,-9.925 9.926,9.926 9.926,0 0,1 -9.926,-9.926 9.926,9.926 0,0 1,9.87 -9.925zM232.019,42.952a9.552,9.552 0,0 0,-9.52 9.551,9.552 9.552,0 0,0 9.552,9.551 9.552,9.552 0,0 0,9.551 -9.551,9.552 9.552,0 0,0 -9.551,-9.551 9.552,9.552 0,0 0,-0.032 0z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="97"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1663 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m231.799,41.421c-2.855,0.047 -5.579,1.206 -7.632,3.261 -2.576,2.579 -3.728,6.272 -3.069,9.84 0.904,4.891 4.907,8.563 9.893,9.074 0.449,0.046 1.859,0.025 2.34,-0.035 3.282,-0.408 6.111,-2.155 7.959,-4.913 0.431,-0.643 0.986,-1.75 1.224,-2.44 0.738,-2.145 0.823,-4.321 0.255,-6.518 -0.804,-3.107 -3.024,-5.786 -5.953,-7.182 -1.456,-0.694 -2.811,-1.024 -4.445,-1.082 -0.191,-0.007 -0.382,-0.009 -0.573,-0.006zM232.191,41.785c4.003,0.036 7.713,2.305 9.514,6.009 1.805,3.714 1.321,8.091 -1.257,11.368 -0.331,0.421 -1.246,1.336 -1.668,1.669 -1.579,1.244 -3.47,2.03 -5.435,2.26v0.001c-0.715,0.084 -1.856,0.083 -2.553,-0.002 -1.866,-0.226 -3.594,-0.926 -5.178,-2.1 -0.567,-0.42 -1.612,-1.463 -2.044,-2.042 -2.266,-3.031 -2.796,-6.963 -1.408,-10.45 1.323,-3.323 4.281,-5.792 7.786,-6.499 0.751,-0.151 1.502,-0.221 2.244,-0.214zM231.783,42.637c-0.53,0.008 -1.046,0.044 -1.375,0.104 -1.731,0.316 -3.278,1.005 -4.56,2.031 -0.411,0.329 -1.167,1.078 -1.505,1.491 -0.85,1.039 -1.547,2.398 -1.886,3.675 -1.564,5.897 2.45,11.739 8.535,12.422h0.001c0.193,0.022 0.634,0.041 0.981,0.044 4.933,0.036 9.158,-3.637 9.844,-8.557 0.097,-0.686 0.097,-1.963 0.003,-2.643 -0.291,-2.088 -1.183,-3.953 -2.626,-5.486 -1.557,-1.656 -3.678,-2.732 -5.956,-3.022 -0.383,-0.049 -0.926,-0.068 -1.456,-0.059zM232.068,42.951c0.498,-0 0.993,0.025 1.334,0.074 3.167,0.462 5.863,2.427 7.251,5.285 0.339,0.699 0.523,1.202 0.693,1.896 0.358,1.464 0.351,3.219 -0.02,4.663 -1.015,3.952 -4.366,6.798 -8.439,7.168 -3.645,0.331 -7.218,-1.505 -9.083,-4.667 -2.023,-3.431 -1.697,-7.799 0.814,-10.908 0.363,-0.45 1.198,-1.255 1.66,-1.602 1.304,-0.978 2.823,-1.606 4.437,-1.834 0.353,-0.05 0.854,-0.075 1.352,-0.075z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="100"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1071 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m182.215,48.641c-1.728,-2.026 -2.788,-4.467 -3.13,-7.207 -0.092,-0.734 -0.076,-2.597 0.028,-3.328 0.133,-0.935 0.351,-1.829 0.661,-2.704 0.733,-2.071 1.74,-3.646 3.312,-5.178 2.142,-2.087 4.736,-3.332 7.768,-3.727 0.89,-0.116 2.714,-0.091 3.615,0.049 2.523,0.392 4.688,1.363 6.676,2.992 0.444,0.364 1.544,1.49 1.897,1.943 1.733,2.22 2.73,4.809 2.901,7.527 0.219,3.489 -0.858,6.796 -3.105,9.537 -0.364,0.444 -1.49,1.544 -1.943,1.897 -2.027,1.582 -4.204,2.496 -6.745,2.832 -0.854,0.113 -2.708,0.099 -3.547,-0.026 -2.732,-0.408 -5.137,-1.535 -7.18,-3.364 -0.58,-0.519 -0.679,-0.621 -1.207,-1.24zM184.789,50.017c3.204,2.419 7.253,3.191 11.131,2.123 1.393,-0.384 2.783,-1.055 4.027,-1.944 0.458,-0.327 0.697,-0.535 1.39,-1.211 0.898,-0.874 1.246,-1.289 1.814,-2.16 2.674,-4.103 2.738,-9.454 0.163,-13.62 -0.54,-0.873 -0.887,-1.308 -1.744,-2.186 -0.86,-0.881 -1.277,-1.23 -2.164,-1.81 -2.672,-1.748 -6.073,-2.424 -9.232,-1.835 -5.073,0.946 -9.054,4.822 -10.139,9.871 -0.336,1.562 -0.356,3.411 -0.054,5.014 0.381,2.027 1.275,3.964 2.589,5.61 0.445,0.557 1.626,1.701 2.218,2.148z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="105"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (952 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m196.807,45.179 l-10.662,-2.994c-0.226,-0.063 -0.462,0.069 -0.525,0.295l-0.23,0.82c-0.063,0.226 0.069,0.462 0.295,0.525l10.662,2.994c0.226,0.063 0.462,-0.069 0.525,-0.295l0.23,-0.82c0.063,-0.226 -0.069,-0.462 -0.295,-0.525zM200.751,37.437c-0.679,-0.191 -1.385,0.206 -1.576,0.885 -0.051,0.182 -0.058,0.363 -0.03,0.539l-2.168,0.591c-0.461,0.125 -0.934,-0.152 -1.049,-0.615l-1.062,-4.242c0.338,-0.149 0.612,-0.436 0.72,-0.821 0.191,-0.679 -0.206,-1.385 -0.885,-1.576 -0.679,-0.191 -1.385,0.206 -1.576,0.885 -0.108,0.384 -0.023,0.773 0.187,1.076l-3.115,3.068c-0.34,0.336 -0.89,0.325 -1.216,-0.021l-1.541,-1.633c0.112,-0.134 0.204,-0.294 0.255,-0.476 0.191,-0.679 -0.206,-1.385 -0.885,-1.576 -0.679,-0.191 -1.388,0.205 -1.578,0.884 -0.191,0.679 0.206,1.385 0.885,1.576 0.067,0.019 0.136,0.027 0.203,0.035l0.465,5.462 9.842,2.764 3.241,-4.421c0.061,0.028 0.125,0.057 0.192,0.076 0.679,0.191 1.385,-0.206 1.576,-0.885 0.191,-0.679 -0.206,-1.385 -0.885,-1.576z&quot; android:strokeWidth=&quot;0.0266224&quot;/>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="108"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (2082 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m7.493,154.145c-0.439,0.048 -1.181,3.656 -1.976,4.396 -0.807,0.751 0.337,-0.383 -0.299,1.824 -0.476,1.655 -0.639,4.798 -0.603,9.619h4.627c-0.389,-1.039 -0.728,-2.363 -0.543,-3.099 0,0 0.003,0.758 0.381,1.161 0.379,0.402 0.946,1.41 0.866,1.144 -0.097,-0.325 -0.032,-0.42 -0.153,-0.788 -0.192,-0.601 -0.843,-1.891 -0.286,-5.065 0.128,2.352 0.29,2.355 0.336,2.35 0.203,-0.326 0.419,-3.112 0.771,-3.478 0.024,-0.024 0.15,2.356 0.22,2.043 0.085,-0.384 0.314,-1.105 0.448,-1.625 1.363,0.302 4.02,2.945 4.497,3.353 0.024,-0.946 -1.113,-2.575 -2.267,-3.962h0.002c4.343,3.686 4.913,5.773 5.629,7.867 -0.133,0.032 -0.262,0.066 -0.394,0.098h21.823c-0.243,-0.05 -0.487,-0.101 -0.725,-0.148 0.003,-0.008 0.005,-0.011 0.008,-0.021 0.871,-2.234 1.018,-4.242 5.737,-8.133h0c-1.125,1.314 -2.229,2.852 -2.209,3.747 0.465,-0.387 3.053,-2.885 4.382,-3.171 0.13,0.493 0.361,1.166 0.443,1.529 0.064,0.296 0.189,-1.95 0.211,-1.928 0.343,0.347 0.552,2.983 0.75,3.291 0.048,0.005 0.204,0.002 0.327,-2.226 0.543,3.005 -0.091,4.231 -0.278,4.8 -0.115,0.348 -0.064,0.438 -0.157,0.746 -0.08,0.252 0.489,-0.705 0.858,-1.086 0.369,-0.381 0.365,-1.098 0.365,-1.098 0.232,0.897 -0.382,2.723 -0.86,3.696h4.848c0.06,-5.029 -0.095,-8.206 -0.587,-9.868 -0.619,-2.089 0.488,-1.013 -0.298,-1.724 -0.827,-0.747 -1.584,-4.588 -1.998,-4.128 -0.549,0.118 -2.622,0.734 -3.312,1.339 0.272,-0.359 0.833,-1.211 0.833,-1.211 0,0 -0.85,0.337 -1.185,0.547 -1.885,1.182 -2.437,1.788 -2.773,2.081 -0.594,0.518 -0.787,0.826 -1.157,1.239 -0.802,0.898 0.116,-1.146 -0.128,-0.792 -0.865,1.255 -1.038,2.582 -1.932,3.946 -1.8,2.748 -2.065,3.681 -2.927,5.293 -0.446,0.834 -0.877,1.613 -1.303,2.362v0.569l-16.32,-0.024 0.016,-0.004v-0.928c-0.234,-0.448 -0.466,-0.889 -0.711,-1.361 -0.884,-1.703 -1.162,-2.685 -3.009,-5.587 -0.917,-1.44 -1.094,-2.844 -1.981,-4.17 -0.25,-0.374 0.682,1.798 -0.141,0.849 -0.379,-0.437 -0.571,-0.771 -1.181,-1.318 -0.345,-0.309 -0.918,-0.953 -2.852,-2.201 -0.344,-0.222 -1.206,-0.576 -1.206,-0.576 0,0 0.591,0.935 0.862,1.297 -0.699,-0.642 -2.833,-1.305 -3.399,-1.43h-0.005c-0.027,-0.03 -0.054,-0.043 -0.083,-0.04z&quot; android:strokeWidth=&quot;2.12228&quot;/>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="110"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (845 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m159.161,55.86c-0.175,-0.039 -0.347,0.071 -0.386,0.245l-3.005,13.577c-0.039,0.175 0.071,0.347 0.246,0.386l1.804,0.399c0.175,0.039 0.347,-0.071 0.386,-0.246l3.005,-13.577c0.039,-0.175 -0.071,-0.347 -0.246,-0.385zM133.042,72.514c-0.175,-0.039 -0.347,0.071 -0.385,0.246l-0.399,1.804c-0.039,0.175 0.071,0.347 0.245,0.386l13.577,3.005c0.175,0.039 0.347,-0.071 0.386,-0.246l0.399,-1.804c0.039,-0.175 -0.071,-0.347 -0.246,-0.386zM164.042,79.375c-0.175,-0.039 -0.346,0.071 -0.385,0.246l-0.399,1.804c-0.039,0.175 0.071,0.347 0.245,0.386l13.577,3.005c0.175,0.039 0.347,-0.071 0.386,-0.246l0.399,-1.804c0.039,-0.175 -0.071,-0.347 -0.246,-0.385zM152.302,86.861c-0.175,-0.039 -0.347,0.071 -0.386,0.245l-3.005,13.577c-0.039,0.175 0.071,0.347 0.246,0.386l1.804,0.399c0.175,0.039 0.347,-0.071 0.385,-0.246l3.005,-13.577c0.039,-0.175 -0.071,-0.346 -0.246,-0.385z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="135"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1070 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m103.817,106.817c-2.662,0.056 -5.223,-0.667 -7.562,-2.136 -0.626,-0.393 -2.059,-1.584 -2.56,-2.127 -0.64,-0.694 -1.194,-1.429 -1.676,-2.223 -1.14,-1.877 -1.722,-3.654 -1.914,-5.841 -0.261,-2.98 0.416,-5.776 2.028,-8.373 0.473,-0.762 1.646,-2.159 2.325,-2.769 1.9,-1.706 4.022,-2.769 6.54,-3.277 0.563,-0.114 2.131,-0.252 2.705,-0.24 2.815,0.063 5.452,0.928 7.664,2.516 2.841,2.038 4.72,4.964 5.421,8.439 0.114,0.563 0.252,2.131 0.24,2.705 -0.057,2.57 -0.727,4.835 -2.074,7.015 -0.453,0.733 -1.637,2.16 -2.265,2.73 -2.045,1.858 -4.439,3.007 -7.148,3.432 -0.769,0.121 -0.91,0.133 -1.724,0.15zM106.511,105.694c3.9,-0.951 7.06,-3.598 8.686,-7.276 0.584,-1.321 0.944,-2.822 1.043,-4.349 0.036,-0.561 0.026,-0.878 -0.058,-1.843 -0.109,-1.248 -0.21,-1.781 -0.525,-2.771 -1.485,-4.667 -5.589,-8.102 -10.445,-8.744 -1.018,-0.134 -1.574,-0.141 -2.797,-0.033 -1.227,0.109 -1.76,0.211 -2.77,0.53 -3.044,0.963 -5.72,3.169 -7.262,5.988 -2.477,4.527 -1.994,10.062 1.23,14.097 0.997,1.248 2.416,2.433 3.849,3.214 1.811,0.987 3.877,1.52 5.982,1.544 0.713,0.008 2.347,-0.183 3.067,-0.359z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="154"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1007 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m68.961,86.675 l-2.848,2.711l1.345,0.396L62.542,106.476l-2.477,-4.262c-0.14,-0.342 -0.189,-0.75 -0.088,-1.125 0.444,-1.506 0.707,-2.401 0.803,-2.73 0.702,-0.036 1.337,-0.5 1.547,-1.213 0.266,-0.902 -0.251,-1.849 -1.152,-2.114 -0.902,-0.266 -1.849,0.25 -2.115,1.152 -0.21,0.713 0.072,1.447 0.642,1.857l-0.795,2.698c-0.215,0.731 -0.04,1.616 0.287,2.242 -0.01,-0.017 -0.021,-0.036 0,0.001 0.009,0.014 2.628,4.522 2.628,4.522 0.14,0.341 0.188,0.749 0.087,1.123l-0.556,1.888c-1.321,-0.117 -2.586,0.708 -2.975,2.029 -0.444,1.507 0.418,3.088 1.924,3.531 1.507,0.444 3.088,-0.418 3.532,-1.925 0.389,-1.322 -0.227,-2.701 -1.402,-3.319l0.546,-1.855c0.001,-0.005 0.003,-0.009 0.004,-0.014l1.209,-4.104c0.119,-0.369 0.38,-0.684 0.683,-0.895 0,0 4.644,-2.368 4.659,-2.375 0.037,-0.019 0.018,-0.01 0,-0 0.614,-0.349 1.24,-0.998 1.456,-1.729l0.765,-2.6l1.095,0.322l0.962,-3.267l-3.267,-0.962l-0.962,3.267l1.094,0.322c0,0 -0.203,0.684 -0.776,2.631 -0.118,0.37 -0.38,0.686 -0.683,0.898l-4.392,2.24L68.538,90.099l1.348,0.397z&quot; android:strokeWidth=&quot;0.0680452&quot;/>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="173"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (866 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m48.409,51.364c-0.951,2.75 0.508,5.749 3.258,6.7l15.274,5.28c0.351,0.121 0.602,0.143 0.801,0.112 0.211,-0.033 0.376,-0.091 0.538,-0.146 0.325,-0.111 0.638,-0.231 0.951,-0.296 0.626,-0.128 1.146,-0.169 1.941,0.727l-0.03,-0.035c0.803,1.004 2.241,1.554 5.2,2.661 2.959,1.107 7.426,2.621 14.049,4.905l0.576,-1.673C84.341,67.314 79.872,65.795 76.964,64.707 74.057,63.619 72.696,62.813 72.526,62.6l-0.014,-0.02 -0.015,-0.016c-1.164,-1.311 -2.623,-1.491 -3.62,-1.286 -0.416,0.085 -0.643,0.424 -1.006,0.298l0.001,-0.002 -15.559,-5.378c-1.719,-0.594 -2.631,-2.469 -2.037,-4.187 0.594,-1.719 2.469,-2.63 4.188,-2.036l13.069,4.518c0.687,0.238 1.052,0.987 0.815,1.675 -0.238,0.687 -0.988,1.052 -1.675,0.814l-11.825,-4.087 -0.645,1.867 11.825,4.087c1.719,0.594 3.594,-0.317 4.188,-2.036 0.594,-1.719 -0.318,-3.593 -2.037,-4.187l-13.069,-4.518c-2.75,-0.95 -5.749,0.508 -6.7,3.258z&quot; android:strokeWidth=&quot;1.31699&quot;/>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="180"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1025 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m45.589,161.687c-4.719,3.891 -4.866,5.899 -5.737,8.133l-0.078,0.165 0.777,0.001h8.871c0.478,-0.974 1.091,-2.796 0.859,-3.692 0,0 0.004,0.718 -0.365,1.099 -0.369,0.381 -0.938,1.338 -0.858,1.086 0.093,-0.308 0.042,-0.398 0.157,-0.746 0.187,-0.569 0.821,-1.795 0.278,-4.8 -0.124,2.228 -0.28,2.231 -0.328,2.226 -0.197,-0.308 -0.407,-2.945 -0.75,-3.291 -0.023,-0.023 -0.147,2.224 -0.211,1.928 -0.083,-0.363 -0.313,-1.037 -0.443,-1.529 -1.328,0.286 -3.916,2.784 -4.381,3.171 -0.02,-0.895 1.084,-2.434 2.209,-3.748zM13.509,162.023c1.155,1.387 2.292,3.016 2.268,3.962 -0.477,-0.408 -3.135,-3.052 -4.497,-3.353 -0.133,0.52 -0.363,1.241 -0.448,1.625 -0.07,0.313 -0.196,-2.067 -0.22,-2.043 -0.352,0.366 -0.568,3.152 -0.77,3.478 -0.047,0.005 -0.209,0.002 -0.336,-2.35 -0.556,3.174 0.095,4.465 0.287,5.065 0.121,0.368 0.056,0.462 0.153,0.788 0.08,0.266 -0.488,-0.742 -0.867,-1.144 -0.378,-0.402 -0.38,-1.161 -0.38,-1.161 -0.185,0.736 0.153,2.057 0.542,3.095h9.521c0.146,0 0.282,0.003 0.417,0.003 -0.716,-2.094 -1.323,-4.277 -5.666,-7.964z&quot; android:strokeWidth=&quot;1.771&quot;/>"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_game_pattern.xml"
+            line="182"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1041 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m35.0919,7.0506 l-1.9662,3.4048h1.4026V27.8581l-3.58,-3.3885c-0.2311,-0.2884 -0.3933,-0.6657 -0.4023,-1.0538 0,-1.5701 -0.0004,-2.5026 -0.001,-2.8458 0.6628,-0.2326 1.1413,-0.8576 1.1413,-1.6005 0,-0.9398 -0.7627,-1.7026 -1.7028,-1.7026 -0.9406,0 -1.703,0.7627 -1.703,1.7026 0,0.7429 0.4782,1.3678 1.1404,1.6005l-0.0005,2.8124c0,0.7622 0.4182,1.561 0.9085,2.0693 -0.0146,-0.0139 -0.0301,-0.0283 0.0003,0.0008 0.0121,0.0108 3.7979,3.5951 3.7979,3.5951 0.2308,0.2878 0.3919,0.6649 0.4012,1.0527v1.9687c-1.3006,0.261 -2.2804,1.4094 -2.2804,2.7871 0,1.5707 1.2732,2.8439 2.8434,2.8439 1.5707,0 2.8439,-1.2732 2.8439,-2.8439 0,-1.3779 -0.9807,-2.5264 -2.2823,-2.7873v-1.9342c0,-0.005 0.0003,-0.0099 0,-0.015v-4.2781c0.0098,-0.3871 0.1712,-0.7637 0.4023,-1.0512 0,0 3.7855,-3.5835 3.7977,-3.5946 0.0304,-0.0287 0.0145,-0.0144 0.0003,-0.0003 0.4902,-0.5084 0.9081,-1.3074 0.9081,-2.0698l-0.0004,-2.7104h1.1416v-3.4056h-3.4053v3.4057h1.1401c0,0 -0.0012,0.7139 -0.0012,2.7436 -0.0089,0.3882 -0.1709,0.7659 -0.402,1.0542l-3.5808,3.3892V10.4554h1.4049z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+            line="19"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1041 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="        android:pathData=&quot;m35.0919,7.0506 l-1.9662,3.4048h1.4026V27.8581l-3.58,-3.3885c-0.2311,-0.2884 -0.3933,-0.6657 -0.4023,-1.0538 0,-1.5701 -0.0004,-2.5026 -0.001,-2.8458 0.6628,-0.2326 1.1413,-0.8576 1.1413,-1.6005 0,-0.9398 -0.7627,-1.7026 -1.7028,-1.7026 -0.9406,0 -1.703,0.7627 -1.703,1.7026 0,0.7429 0.4782,1.3678 1.1404,1.6005l-0.0005,2.8124c0,0.7622 0.4182,1.561 0.9085,2.0693 -0.0146,-0.0139 -0.0301,-0.0283 0.0003,0.0008 0.0121,0.0108 3.7979,3.5951 3.7979,3.5951 0.2308,0.2878 0.3919,0.6649 0.4012,1.0527v1.9687c-1.3006,0.261 -2.2804,1.4094 -2.2804,2.7871 0,1.5707 1.2732,2.8439 2.8434,2.8439 1.5707,0 2.8439,-1.2732 2.8439,-2.8439 0,-1.3779 -0.9807,-2.5264 -2.2823,-2.7873v-1.9342c0,-0.005 0.0003,-0.0099 0,-0.015v-4.2781c0.0098,-0.3871 0.1712,-0.7637 0.4023,-1.0512 0,0 3.7855,-3.5835 3.7977,-3.5946 0.0304,-0.0287 0.0145,-0.0144 0.0003,-0.0003 0.4902,-0.5084 0.9081,-1.3074 0.9081,-2.0698l-0.0004,-2.7104h1.1416v-3.4056h-3.4053v3.4057h1.1401c0,0 -0.0012,0.7139 -0.0012,2.7436 -0.0089,0.3882 -0.1709,0.7659 -0.402,1.0542l-3.5808,3.3892V10.4554h1.4049z&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_launcher_foreground.xml"
+            line="19"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1041 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="      android:pathData=&quot;m35.0919,7.0506 l-1.9662,3.4048h1.4026V27.8581l-3.58,-3.3885c-0.2311,-0.2884 -0.3933,-0.6657 -0.4023,-1.0538 0,-1.5701 -0.0004,-2.5026 -0.001,-2.8458 0.6628,-0.2326 1.1413,-0.8576 1.1413,-1.6005 0,-0.9398 -0.7627,-1.7026 -1.7028,-1.7026 -0.9406,0 -1.703,0.7627 -1.703,1.7026 0,0.7429 0.4782,1.3678 1.1404,1.6005l-0.0005,2.8124c0,0.7622 0.4182,1.561 0.9085,2.0693 -0.0146,-0.0139 -0.0301,-0.0283 0.0003,0.0008 0.0121,0.0108 3.7979,3.5951 3.7979,3.5951 0.2308,0.2878 0.3919,0.6649 0.4012,1.0527v1.9687c-1.3006,0.261 -2.2804,1.4094 -2.2804,2.7871 0,1.5707 1.2732,2.8439 2.8434,2.8439 1.5707,0 2.8439,-1.2732 2.8439,-2.8439 0,-1.3779 -0.9807,-2.5264 -2.2823,-2.7873v-1.9342c0,-0.005 0.0003,-0.0099 0,-0.015v-4.2781c0.0098,-0.3871 0.1712,-0.7637 0.4023,-1.0512 0,0 3.7855,-3.5835 3.7977,-3.5946 0.0304,-0.0287 0.0145,-0.0144 0.0003,-0.0003 0.4902,-0.5084 0.9081,-1.3074 0.9081,-2.0698l-0.0004,-2.7104h1.1416v-3.4056h-3.4053v3.4057h1.1401c0,0 -0.0012,0.7139 -0.0012,2.7436 -0.0089,0.3882 -0.1709,0.7659 -0.402,1.0542l-3.5808,3.3892V10.4554h1.4049z&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_logo_android.xml"
+            line="27"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (2214 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="      android:pathData=&quot;m9.0062,-0.0005c-5.0208,0 -9,4.9479 -9,8 -0.0058,11.1771 -0.0102,18.2996 0,29.0003 0,3.1375 3.9791,8 9,8L21.9552,44.9998L21.9552,-0.0005ZM23.9794,-0.0005L23.9794,44.9998L44.9998,44.9998L44.9998,-0.0005ZM11.5063,6.2999l0.0005,0A4.5,4.5 45,0 1,16.0063 10.8004,4.5 4.5,45 0,1 11.5058,15.2998 4.5,4.5 135,0 1,7.0058 10.7993,4.5 4.5,135 0,1 11.5063,6.2999ZM35.0919,7.0507 L37.0582,10.4552l-1.4051,0l0,13.147l3.5812,-3.3889c0.2312,-0.2882 0.3926,-0.666 0.4015,-1.0542 0,-2.0297 0.0016,-2.7435 0.0016,-2.7435l-1.14,0L38.4974,13.0095l3.405,0l0,3.406l-1.1415,0l0.0005,2.7099c0,0.7611 -0.4162,1.5591 -0.9054,2.0676 -0.0019,0.0017 -0.0003,0.0004 -0.0026,0.0026l-0.0005,0c-0.0123,0.0111 -3.7977,3.5946 -3.7977,3.5946 -0.2311,0.2875 -0.3922,0.6645 -0.402,1.0516l0,4.2778c0.0003,0.0051 0,0.01 0,0.015l0,1.9342c1.3016,0.261 2.282,1.4095 2.282,2.7874 0,1.5707 -1.2731,2.8438 -2.8438,2.8438 -1.5702,0 -2.8438,-1.2731 -2.8438,-2.8438 0,-1.3776 0.9799,-2.5265 2.2805,-2.7874l0,-1.9684c-0.0093,-0.3879 -0.1702,-0.7649 -0.401,-1.0526 -0,0 -3.7856,-3.5844 -3.7977,-3.5951 -0.0304,-0.0291 -0.0151,-0.0149 -0.0005,-0.001 -0.4903,-0.5084 -0.9085,-1.3069 -0.9085,-2.0691l0.0005,-2.8127c-0.6623,-0.2326 -1.1405,-0.8575 -1.1405,-1.6004 0,-0.9399 0.7627,-1.7022 1.7033,-1.7022 0.9402,0 1.7027,0.7624 1.7027,1.7022 0,0.7429 -0.4787,1.3678 -1.1415,1.6004 0.0005,0.3432 0.0011,1.2757 0.0011,2.8458 0.009,0.3881 0.1714,0.7658 0.4026,1.0542L34.5281,27.8582L34.5281,10.4552l-1.4025,0zM11.5471,20.5347 L11.5058,22.6937 11.5486,20.5347a2.1594,2.1594 0,0 1,2.1167 2.2014,2.1594 2.1594,0 0,1 -2.2009,2.1167 2.1594,2.1594 0,0 1,-2.1177 -2.2004,2.1594 2.1594,0 0,1 2.2004,-2.1177zM7.7065,24.4729 L7.6652,26.632 7.7075,24.4729a2.1594,2.1594 135,0 1,2.1172 2.2004,2.1594 2.1594,0 0,1 -2.2004,2.1172A2.1594,2.1594 0,0 1,5.5066 26.5906,2.1594 2.1594,45 0,1 7.7065,24.4729ZM15.3877,24.4729 L15.3469,26.632 15.3887,24.4729a2.1594,2.1594 45,0 1,2.1167 2.2004,2.1594 2.1594,135 0,1 -2.2004,2.1172A2.1594,2.1594 0,0 1,13.1878 26.5906,2.1594 2.1594,45 0,1 15.3877,24.4729ZM11.5471,28.4102 L11.5058,30.5692 11.5486,28.4102a2.1594,2.1594 0,0 1,2.1167 2.2009,2.1594 2.1594,135 0,1 -2.2009,2.1167 2.1594,2.1594 0,0 1,-2.1177 -2.1999,2.1594 2.1594,45 0,1 2.2004,-2.1177z&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_notification.xml"
+            line="7"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;application logo&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:contentDescription=&quot;application logo&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_about.xml"
+            line="32"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Donate Liberapay&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:contentDescription=&quot;Donate Liberapay&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_about.xml"
+            line="111"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Donate Paypal&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:contentDescription=&quot;Donate Paypal&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_about.xml"
+            line="120"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Donate Yandex Money&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:contentDescription=&quot;Donate Yandex Money&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_about.xml"
+            line="129"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;xxx.xxx.xxx.xxx&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:hint=&quot;xxx.xxx.xxx.xxx&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_settings.xml"
+            line="78"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;xxx.xxx.xxx.xxx&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:hint=&quot;xxx.xxx.xxx.xxx&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_settings.xml"
+            line="108"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;1024-65535&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:hint=&quot;1024-65535&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_settings.xml"
+            line="133"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;Name Long&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="            android:text=&quot;Name Long&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/nsp_item.xml"
+            line="20"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;TEST&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="                android:text=&quot;TEST&quot; />"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/nsp_item.xml"
+            line="34"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="Hardcoded string &quot;(test)&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="                android:text=&quot;(test)&quot; />"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/nsp_item.xml"
+            line="40"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="RtlSymmetry"
+        severity="Warning"
+        message="When you define `paddingLeft` you should probably also define `paddingRight` for right-to-left symmetry"
+        category="Internationalization:Bidirectional Text"
+        priority="6"
+        summary="Padding and margin symmetry"
+        explanation="If you specify padding or margin on the left side of a layout, you should probably also specify padding on the right side (and vice versa) for right-to-left layout symmetry."
+        errorLine1="            android:paddingLeft=&quot;5dp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_about.xml"
+            line="80"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:paddingStart=&quot;5dp&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:paddingLeft=&quot;5dp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/ns-usbloader-mobile/NONE_TRANSFORMED_/app/src/main/res/layout/content_about.xml"
+            line="80"
+            column="13"/>
+    </issue>
+
+</issues>

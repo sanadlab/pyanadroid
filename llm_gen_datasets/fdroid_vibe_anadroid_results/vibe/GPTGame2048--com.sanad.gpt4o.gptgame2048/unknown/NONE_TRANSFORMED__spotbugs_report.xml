@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762928644820" analysisTimestamp="1762928648147" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="a12f0a4546c911e086114b8a4c49d5eb" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.sanad.gpt4o.gptgame2048.MainActivity.spawnRandomTile()</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptgame2048.MainActivity" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptgame2048.MainActivity" start="13" end="209" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java">
+        <Message>At MainActivity.java:[lines 13-209]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptgame2048.MainActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptgame2048.MainActivity" name="spawnRandomTile" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptgame2048.MainActivity" start="80" end="88" startBytecode="0" endBytecode="208" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gptgame2048.MainActivity.spawnRandomTile()</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextDouble" signature="()D" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="370" end="370" startBytecode="0" endBytecode="51" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextDouble()</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gptgame2048.MainActivity" primary="true" start="86" end="86" startBytecode="39" endBytecode="39" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java">
+      <Message>At MainActivity.java:[line 86]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="dac8be30a9d8a6564ff3182abcc7df5f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.sanad.gpt4o.gptgame2048.MainActivity.spawnRandomTile()</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptgame2048.MainActivity" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptgame2048.MainActivity" start="13" end="209" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java">
+        <Message>At MainActivity.java:[lines 13-209]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptgame2048.MainActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptgame2048.MainActivity" name="spawnRandomTile" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptgame2048.MainActivity" start="80" end="88" startBytecode="0" endBytecode="208" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gptgame2048.MainActivity.spawnRandomTile()</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="243" end="243" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gptgame2048.MainActivity" primary="true" start="83" end="83" startBytecode="10" endBytecode="10" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java">
+      <Message>At MainActivity.java:[line 83]</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gpt4o.gptgame2048.MainActivity" start="84" end="84" startBytecode="16" endBytecode="16" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptgame2048/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 84]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="6">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptgame2048.R</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptgame2048.R$drawable</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptgame2048.R$id</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptgame2048.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:24:04 +0400" total_classes="4" referenced_classes="87" total_bugs="2" total_size="191" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="5.34" clock_seconds="2.48" peak_mbytes="198.84" alloc_mbytes="768.00" gc_seconds="0.00" priority_1="2">
+    <FileStats path="com/sanad/gpt4o/gptgame2048/MainActivity.java" bugCount="2" size="148" bugHash="2ba244a08f20cf925adf9be1a4f69df1"/>
+    <FileStats path="com/sanad/gpt4o/gptgame2048/OnSwipeTouchListener.java" bugCount="0" size="43"/>
+    <PackageStats package="com.sanad.gpt4o.gptgame2048" total_bugs="2" total_types="4" total_size="191" priority_1="2">
+      <ClassStats class="com.sanad.gpt4o.gptgame2048.MainActivity" sourceFile="MainActivity.java" interface="false" size="128" bugs="2" priority_1="2"/>
+      <ClassStats class="com.sanad.gpt4o.gptgame2048.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptgame2048.OnSwipeTouchListener" sourceFile="OnSwipeTouchListener.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptgame2048.OnSwipeTouchListener$GestureListener" sourceFile="OnSwipeTouchListener.java" interface="false" size="27" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="398" invocations="409" avgMicrosecondsPerInvocation="974" maxMicrosecondsPerInvocation="30920" standardDeviationMicrosecondsPerInvocation="2831"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="145" invocations="87" avgMicrosecondsPerInvocation="1675" maxMicrosecondsPerInvocation="20227" standardDeviationMicrosecondsPerInvocation="3491"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="101" invocations="32" avgMicrosecondsPerInvocation="3159" maxMicrosecondsPerInvocation="26553" standardDeviationMicrosecondsPerInvocation="5671"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="97" invocations="115" avgMicrosecondsPerInvocation="849" maxMicrosecondsPerInvocation="11219" standardDeviationMicrosecondsPerInvocation="2093"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="79" invocations="24" avgMicrosecondsPerInvocation="3313" maxMicrosecondsPerInvocation="13745" standardDeviationMicrosecondsPerInvocation="3424"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="71" invocations="24" avgMicrosecondsPerInvocation="2997" maxMicrosecondsPerInvocation="9795" standardDeviationMicrosecondsPerInvocation="3001"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="67" invocations="24" avgMicrosecondsPerInvocation="2831" maxMicrosecondsPerInvocation="10687" standardDeviationMicrosecondsPerInvocation="3145"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="66" invocations="87" avgMicrosecondsPerInvocation="760" maxMicrosecondsPerInvocation="9134" standardDeviationMicrosecondsPerInvocation="1485"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="63" invocations="24" avgMicrosecondsPerInvocation="2645" maxMicrosecondsPerInvocation="9587" standardDeviationMicrosecondsPerInvocation="2549"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="57" invocations="87" avgMicrosecondsPerInvocation="655" maxMicrosecondsPerInvocation="10801" standardDeviationMicrosecondsPerInvocation="1682"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="53" invocations="353" avgMicrosecondsPerInvocation="152" maxMicrosecondsPerInvocation="5821" standardDeviationMicrosecondsPerInvocation="486"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="49" invocations="87" avgMicrosecondsPerInvocation="567" maxMicrosecondsPerInvocation="15388" standardDeviationMicrosecondsPerInvocation="1790"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="48" invocations="24" avgMicrosecondsPerInvocation="2029" maxMicrosecondsPerInvocation="8280" standardDeviationMicrosecondsPerInvocation="2083"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="48" invocations="423" avgMicrosecondsPerInvocation="114" maxMicrosecondsPerInvocation="3563" standardDeviationMicrosecondsPerInvocation="297"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="43" invocations="4" avgMicrosecondsPerInvocation="10921" maxMicrosecondsPerInvocation="18521" standardDeviationMicrosecondsPerInvocation="4490"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="42" invocations="87" avgMicrosecondsPerInvocation="487" maxMicrosecondsPerInvocation="18091" standardDeviationMicrosecondsPerInvocation="2373"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="42" invocations="24" avgMicrosecondsPerInvocation="1767" maxMicrosecondsPerInvocation="10402" standardDeviationMicrosecondsPerInvocation="2618"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="40" invocations="87" avgMicrosecondsPerInvocation="467" maxMicrosecondsPerInvocation="6616" standardDeviationMicrosecondsPerInvocation="1133"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="35" invocations="24" avgMicrosecondsPerInvocation="1497" maxMicrosecondsPerInvocation="15125" standardDeviationMicrosecondsPerInvocation="2970"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="29" invocations="87" avgMicrosecondsPerInvocation="341" maxMicrosecondsPerInvocation="8185" standardDeviationMicrosecondsPerInvocation="1180"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.0.2">
+
+    <issue
+        id="LintWarning"
+        severity="Warning"
+        message="Loaded lint jar file from /Users/rar9993/.android/lint (/Users/rar9993/.android/lint/customLintFatima.jar.name); this will stop working soon. If you need to push lint rules into a build, use the `ANDROID_LINT_JARS` environment variable or the `--lint-rule-jars` flag or a `lint.xml` file setting `&lt;lint lintJars=&quot;path&quot;...>`"
+        category="Lint"
+        priority="5"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include unsupported tags in configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/.android/lint/customLintFatima.jar"/>
+    </issue>
+
+    <issue
+        id="LintWarning"
+        severity="Warning"
+        message="Loaded lint jar file from /Users/rar9993/.android/lint (/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar.name); this will stop working soon. If you need to push lint rules into a build, use the `ANDROID_LINT_JARS` environment variable or the `--lint-rule-jars` flag or a `lint.xml` file setting `&lt;lint lintJars=&quot;path&quot;...>`"
+        category="Lint"
+        priority="5"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include unsupported tags in configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed.">
+        <location
+            file="/Users/rar9993/.android/lint/greenlab.org.ebugslocator-1.0.jar"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 29. Merge all the resources in this folder into `mipmap-anydpi`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/res/mipmap-anydpi-v26"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;onCreate() tid=$thisThreadId&quot;)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="40"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="                Log.d(TAG, &quot;Running handler from tid=$thisThreadId&quot;)"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="58"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="                        Log.d(TAG, &quot;Sending code &apos;$code&apos;&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="65"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;onStartCommand(${cmd ?: &quot;&lt;null>&quot;})&quot;)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="159"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="            Log.d(TAG, &quot;Update notification: $title&quot;)"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="223"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.d(TAG, &quot;Copyied code $_last_code&quot;)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="239"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="            Log.d(TAG, &quot;Posting status $retCode for sending code &apos;$code&apos; (tid=$tid)&quot;)"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BluetoothHandler.kt"
+            line="84"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="                Log.d(TAG, &quot;Code &apos;${code} has been written&quot;)"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BluetoothHandler.kt"
+            line="131"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="            Log.d(TAG, &quot;Stopping thread (ret=$writeSucceeded)&quot;)"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BluetoothHandler.kt"
+            line="151"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="                Log.d(TAG, &quot;tryConnect: Failed to connect: $e&quot;)"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BluetoothHandler.kt"
+            line="200"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.d(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="            Log.d(TAG, &quot;Start probing $address&quot;)"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BluetoothHandler.kt"
+            line="206"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.v(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.v(TAG, &quot;MsgFilterParams: sender=${_filter.pattern_sender}, message=${_filter.pattern_message}&quot;)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/MsgReceiver.kt"
+            line="29"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LogConditional"
+        severity="Warning"
+        message="The log call Log.v(...) should be conditional: surround with `if (Log.isLoggable(...))` or `if (BuildConfig.DEBUG) { ... }`"
+        category="Performance"
+        priority="5"
+        summary="Unconditional Logging Calls"
+        explanation="The `BuildConfig` class provides a constant, `DEBUG`, which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a `if (false)` check, surrounding your logging calls with a check for `BuildConfig.DEBUG` is a good idea.&#xA;&#xA;If you **really** intend for the logging to be present in release mode, you can suppress this warning with a `@SuppressLint` annotation for the intentional logging calls."
+        errorLine1="        Log.v(TAG, String.format(&quot;Got message to check: sender=%s, msg=%s&quot;, msg.originatingAddress, msg.messageBody))"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/MsgReceiver.kt"
+            line="76"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_bluepass_background` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:shape=&quot;rectangle&quot;>"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_bluepass_background.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_bluepass_foreground` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_bluepass_foreground.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_bluepass_key` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_bluepass_key.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.style.Theme_BluePass4_AppBarOverlay` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;style name=&quot;Theme.BluePass4.AppBarOverlay&quot; parent=&quot;ThemeOverlay.AppCompat.Dark.ActionBar&quot; />"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/res/values/themes.xml"
+            line="22"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.style.Theme_BluePass4_PopupOverlay` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;style name=&quot;Theme.BluePass4.PopupOverlay&quot; parent=&quot;ThemeOverlay.AppCompat.Light&quot; />"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/res/values/themes.xml"
+            line="24"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `getThisThreadId` of class `BlueService` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                Log.d(TAG, &quot;Running handler from tid=$thisThreadId&quot;)"
+        errorLine2="                                                      ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="58"
+            column="55"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `updateNotify` of class `BlueService` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        updateNotify(R.string.notify_title_with_code_ok, code ?: &quot;&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="66"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `updateNotify` of class `BlueService` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            updateNotify("
+        errorLine2="                            ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="71"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `sendCode` of class `BlueService` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            sendCode(address, code, retries - 1)"
+        errorLine2="                            ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="77"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `updateNotify` of class `BlueService` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            updateNotify(R.string.notify_title_with_code_failed, code ?: &quot;&quot;)"
+        errorLine2="                            ~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BlueService.kt"
+            line="79"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `connectBtSocket` of class `Companion` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="            socket = connectBtSocket(btDevice)"
+        errorLine2="                     ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/bluepass/NONE_TRANSFORMED_/app/src/main/java/org/booncode/bluepass4/service/BluetoothHandler.kt"
+            line="105"
+            column="22"/>
+    </issue>
+
+</issues>

@@ -1,0 +1,1722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762901163798" analysisTimestamp="1762901166678" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/UUID0xFD6FTracer/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/UUID0xFD6FTracer/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE" priority="2" rank="11" abbrev="RCN" category="CORRECTNESS" instanceHash="617b8817054711b7be55bf29fc84c272" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Nullcheck of value previously dereferenced</ShortMessage>
+    <LongMessage>Nullcheck of context at line 40 of value previously dereferenced in com.emacberry.uuid0xfd6fscan.NotificationHelper.createBaseNotificationChannel(Context)</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.NotificationHelper" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.NotificationHelper" start="11" end="48" sourcefile="NotificationHelper.java" sourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java" relSourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java">
+        <Message>At NotificationHelper.java:[lines 11-48]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.NotificationHelper</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.NotificationHelper" name="createBaseNotificationChannel" signature="(Landroid/content/Context;)Ljava/lang/String;" isStatic="true" primary="true" classAnnotationNames="android.annotation.TargetApi">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.NotificationHelper" start="29" end="48" startBytecode="0" endBytecode="325" sourcefile="NotificationHelper.java" sourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java" relSourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.NotificationHelper.createBaseNotificationChannel(Context)</Message>
+    </Method>
+    <LocalVariable name="context" register="0" pc="90" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.NotificationHelper" primary="true" start="31" end="31" startBytecode="12" endBytecode="12" sourcefile="NotificationHelper.java" sourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java" relSourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java">
+      <Message>At NotificationHelper.java:[line 31]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.NotificationHelper" start="40" end="40" startBytecode="91" endBytecode="91" sourcefile="NotificationHelper.java" sourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java" relSourcepath="com/emacberry/uuid0xfd6fscan/NotificationHelper.java" role="SOURCE_REDUNDANT_NULL_CHECK">
+      <Message>Redundant null check at NotificationHelper.java:[line 40]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="3f64d0a88ad666712033d69391b1f35a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Public static method may expose internal representation by returning a mutable object or array</ShortMessage>
+    <LongMessage>Public static com.emacberry.uuid0xfd6fscan.Preferences.getInstance(Context) may expose internal representation by returning Preferences.pref</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.Preferences" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" start="10" end="93" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java">
+        <Message>At Preferences.java:[lines 10-93]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.Preferences</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.Preferences" name="getInstance" signature="(Landroid/content/Context;)Lcom/emacberry/uuid0xfd6fscan/Preferences;" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" start="12" end="19" startBytecode="0" endBytecode="116" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.Preferences.getInstance(Context)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.Preferences" name="pref" signature="Lcom/emacberry/uuid0xfd6fscan/Preferences;" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java">
+        <Message>In Preferences.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.Preferences.pref</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" primary="true" start="16" end="16" startBytecode="29" endBytecode="29" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java">
+      <Message>At Preferences.java:[line 16]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" start="19" end="19" startBytecode="44" endBytecode="44" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at Preferences.java:[line 19]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" priority="2" rank="7" abbrev="SING" category="CORRECTNESS" instanceHash="cfcc0ad0118725844d364c6e5ed4801a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="543">
+    <ShortMessage>Instance-getter method of class using singleton design pattern is not synchronized.</ShortMessage>
+    <LongMessage>Instance-getter method of class using singleton design pattern (com.emacberry.uuid0xfd6fscan.Preferences) is not synchronized.</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.Preferences" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" start="10" end="93" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java">
+        <Message>At Preferences.java:[lines 10-93]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.Preferences</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.Preferences" name="getInstance" signature="(Landroid/content/Context;)Lcom/emacberry/uuid0xfd6fscan/Preferences;" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" start="12" end="19" startBytecode="0" endBytecode="116" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.Preferences.getInstance(Context)</Message>
+    </Method>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.Preferences" start="12" end="19" startBytecode="0" endBytecode="116" sourcefile="Preferences.java" sourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" relSourcepath="com/emacberry/uuid0xfd6fscan/Preferences.java" synthetic="true">
+      <Message>At Preferences.java:[lines 12-19]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="3d8c278a38b206ef4c0776d9af0aa33c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to $L2 in com.emacberry.uuid0xfd6fscan.ScannerActivity.handleIntent(Intent)</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="30" end="623" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>At ScannerActivity.java:[lines 30-623]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerActivity</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" name="handleIntent" signature="(Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="421" end="478" startBytecode="0" endBytecode="22" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerActivity.handleIntent(Intent)</Message>
+    </Method>
+    <LocalVariable name="?" register="2" pc="46" role="LOCAL_VARIABLE_UNKNOWN">
+      <Message>Local variable stored in JVM register 2</Message>
+    </LocalVariable>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true" start="424" end="424" startBytecode="46" endBytecode="46" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+      <Message>At ScannerActivity.java:[line 424]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="?"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="6926d684318d8016c5fb7eb26004db3b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.emacberry.uuid0xfd6fscan.ScannerActivity.onRequestPermissionsResult(int, String[], int[]) where default case is missing</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="30" end="623" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>At ScannerActivity.java:[lines 30-623]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerActivity</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" name="onRequestPermissionsResult" signature="(I[Ljava/lang/String;[I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="87" end="106" startBytecode="0" endBytecode="176" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerActivity.onRequestPermissionsResult(int, String[], int[])</Message>
+    </Method>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true" start="87" end="97" startBytecode="1" endBytecode="68" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+      <Message>At ScannerActivity.java:[lines 87-97]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="af3ca6542121e0fe5f8b05d436cfea01" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_EXIT; should this field be static?</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="30" end="623" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>At ScannerActivity.java:[lines 30-623]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerActivity</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" name="MENU_EXIT" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>In ScannerActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_EXIT</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true" start="111" end="111" startBytecode="65" endBytecode="65" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+      <Message>At ScannerActivity.java:[line 111]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="2c4e3c6a90fba587a7fc55a03260894a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_FINISH; should this field be static?</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="30" end="623" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>At ScannerActivity.java:[lines 30-623]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerActivity</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" name="MENU_FINISH" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>In ScannerActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_FINISH</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true" start="110" end="110" startBytecode="58" endBytecode="58" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+      <Message>At ScannerActivity.java:[line 110]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="2b0e4eb4a6baf2a9974ca54c34537429" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_SETTING; should this field be static?</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="30" end="623" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>At ScannerActivity.java:[lines 30-623]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerActivity</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" name="MENU_SETTING" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>In ScannerActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_SETTING</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true" start="109" end="109" startBytecode="51" endBytecode="51" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+      <Message>At ScannerActivity.java:[line 109]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="53aec649727093b0cf88b092cb851a2a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_START_STOP; should this field be static?</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" start="30" end="623" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>At ScannerActivity.java:[lines 30-623]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerActivity</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" name="MENU_START_STOP" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+        <Message>In ScannerActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerActivity.MENU_START_STOP</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerActivity" primary="true" start="108" end="108" startBytecode="45" endBytecode="45" sourcefile="ScannerActivity.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerActivity.java">
+      <Message>At ScannerActivity.java:[line 108]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="f34bcde5b26d8a02c2327303f449fd38" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mTotalSize&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="access$1408" signature="(Lcom/emacberry/uuid0xfd6fscan/ScannerService;)I" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="44" startBytecode="0" endBytecode="53" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.access$1408(ScannerService)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mTotalSize" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mTotalSize</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true" start="1358" end="1409" startBytecode="0" endBytecode="734" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[lines 1358-1409]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="f6c892d47c202c92de66a51a76757956" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mScannIsRunning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="access$602" signature="(Lcom/emacberry/uuid0xfd6fscan/ScannerService;Z)Z" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="44" startBytecode="0" endBytecode="58" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.access$602(ScannerService, boolean)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScannIsRunning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScannIsRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$2" primary="true" start="1585" end="1668" startBytecode="0" endBytecode="980" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[lines 1585-1668]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="727b37acedadacf0e0ebe5ae150c4143" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mScannResultsOnStart&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="access$702" signature="(Lcom/emacberry/uuid0xfd6fscan/ScannerService;Z)Z" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="44" startBytecode="0" endBytecode="58" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.access$702(ScannerService, boolean)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScannResultsOnStart" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScannResultsOnStart</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true" start="1295" end="1353" startBytecode="0" endBytecode="740" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[lines 1295-1353]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="f4d71dc6f58ce2d4ffe4ed5135d89a05" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mHasScanPermission&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="checkScanPermissions" signature="()Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="730" end="744" startBytecode="0" endBytecode="141" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.checkScanPermissions()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mHasScanPermission" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mHasScanPermission</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="734" end="734" startBytecode="45" endBytecode="45" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 734]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="743" end="743" startBytecode="57" endBytecode="57" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at ScannerService.java:[line 743]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="1f0789add08f32a27d460f884d4c97f4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mShowBtIsOffWarning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="ensureAdapterAndScannerInit" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="401" end="409" startBytecode="0" endBytecode="169" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.ensureAdapterAndScannerInit()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mShowBtIsOffWarning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mShowBtIsOffWarning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="406" end="406" startBytecode="51" endBytecode="51" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 406]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="5da90e032f06885034a1e6347e8b9646" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mPrefForceGps&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="initPrefs" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="88" end="104" startBytecode="0" endBytecode="302" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.initPrefs()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mPrefForceGps" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mPrefForceGps</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="103" end="103" startBytecode="197" endBytecode="197" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 103]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="b5b93b3748828e689ea808cb1ea8db52" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mPrefGroupBySignalStrength&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="initPrefs" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="88" end="104" startBytecode="0" endBytecode="302" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.initPrefs()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mPrefGroupBySignalStrength" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mPrefGroupBySignalStrength</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="98" end="98" startBytecode="112" endBytecode="112" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 98]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="624ecdbb10976e52c3745efc93f46b9b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mPrefUseThreshold&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="initPrefs" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="88" end="104" startBytecode="0" endBytecode="302" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.initPrefs()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mPrefUseThreshold" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mPrefUseThreshold</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="101" end="101" startBytecode="163" endBytecode="163" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 101]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="36d56c6135d6c9d8957d122e095b37c4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;isRunning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="onDestroy" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="319" end="338" startBytecode="0" endBytecode="232" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.onDestroy()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="isRunning" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="334" end="334" startBytecode="75" endBytecode="75" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 334]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="2925639648026f1ce4529fdbe6fde846" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mPrefForceGps&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="onSharedPreferenceChanged" signature="(Landroid/content/SharedPreferences;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="116" end="131" startBytecode="0" endBytecode="347" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.onSharedPreferenceChanged(SharedPreferences, String)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mPrefForceGps" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mPrefForceGps</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="129" end="129" startBytecode="211" endBytecode="211" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 129]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="cd210972e52bbd91c526ffb001f00182" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mPrefGroupBySignalStrength&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="onSharedPreferenceChanged" signature="(Landroid/content/SharedPreferences;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="116" end="131" startBytecode="0" endBytecode="347" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.onSharedPreferenceChanged(SharedPreferences, String)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mPrefGroupBySignalStrength" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mPrefGroupBySignalStrength</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="119" end="119" startBytecode="56" endBytecode="56" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 119]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="9329610db65454453022d411669473df" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mPrefUseThreshold&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="onSharedPreferenceChanged" signature="(Landroid/content/SharedPreferences;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="116" end="131" startBytecode="0" endBytecode="347" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.onSharedPreferenceChanged(SharedPreferences, String)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mPrefUseThreshold" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mPrefUseThreshold</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="121" end="121" startBytecode="87" endBytecode="87" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 121]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="2559338f4165e51d4818b10133477bf2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mShowBtIsOffWarning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="startDeviceBluetoothStatusObserver" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="1577" end="1684" startBytecode="0" endBytecode="195" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.startDeviceBluetoothStatusObserver()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mShowBtIsOffWarning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mShowBtIsOffWarning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="1676" end="1676" startBytecode="59" endBytecode="59" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1676]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="6585b5c3899d91d8a3939b8f176a8472" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mScannIsRunning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="startScan" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="459" end="555" startBytecode="0" endBytecode="1128" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.startScan(boolean)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScannIsRunning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScannIsRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="540" end="540" startBytecode="696" endBytecode="696" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 540]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="ab40b1f5ae053d4e5d6afcec056acd55" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mScannStopedViaGui&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="startScan" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="459" end="555" startBytecode="0" endBytecode="1128" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.startScan(boolean)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScannStopedViaGui" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScannStopedViaGui</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="461" end="461" startBytecode="13" endBytecode="13" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 461]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="996e56d6ea9f0178a2a2a07f8899c3f9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mScannIsRunning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="stopScan" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="412" end="453" startBytecode="0" endBytecode="499" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.stopScan(boolean)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScannIsRunning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScannIsRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="443" end="443" startBytecode="149" endBytecode="149" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 443]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="63a86fb7c912714b66ff8c5c0dd7e663" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mScannResultsOnStart&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="stopScan" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="412" end="453" startBytecode="0" endBytecode="499" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.stopScan(boolean)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScannResultsOnStart" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScannResultsOnStart</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="416" end="416" startBytecode="18" endBytecode="18" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 416]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="407609d2519473ab31e39acb2d32e8f1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mScannStopedViaGui&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="stopScan" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="412" end="453" startBytecode="0" endBytecode="499" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.stopScan(boolean)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScannStopedViaGui" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScannStopedViaGui</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="414" end="414" startBytecode="13" endBytecode="13" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 414]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IS2_INCONSISTENT_SYNC" priority="2" rank="17" abbrev="IS" category="MT_CORRECTNESS" instanceHash="8cd27abdf1e94964f9eb2e9226bff0d2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Inconsistent synchronization</ShortMessage>
+    <LongMessage>Inconsistent synchronization of com.emacberry.uuid0xfd6fscan.ScannerService.mScanChecker; locked 50% of time</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mScanChecker" signature="Lcom/emacberry/uuid0xfd6fscan/ScannerService$ScanChecker;" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mScanChecker</Message>
+    </Field>
+    <Int value="50" role="INT_SYNC_PERCENT">
+      <Message>Synchronized 50% of the time</Message>
+    </Int>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" primary="true" start="802" end="802" startBytecode="114" endBytecode="114" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at ScannerService.java:[line 802]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="320" end="320" startBytecode="9" endBytecode="9" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at ScannerService.java:[line 320]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="322" end="322" startBytecode="16" endBytecode="16" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at ScannerService.java:[line 322]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="758" end="758" startBytecode="1" endBytecode="1" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at ScannerService.java:[line 758]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="759" end="759" startBytecode="8" endBytecode="8" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at ScannerService.java:[line 759]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="761" end="761" startBytecode="28" endBytecode="28" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at ScannerService.java:[line 761]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="762" end="762" startBytecode="32" endBytecode="32" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at ScannerService.java:[line 762]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="3af8c608b74feb6d665e178d7b8b44" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.emacberry.uuid0xfd6fscan.ScannerService.isRunning should be package protected</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="isRunning" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="59" end="59" startBytecode="1" endBytecode="1" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE" priority="1" rank="14" abbrev="NP" category="STYLE" instanceHash="9f85f3057d3407a8e0d8a748836b3665" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Parameter must be non-null but is marked as nullable</ShortMessage>
+    <LongMessage>intent must be non-null but is marked as nullable</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="handleIntentInt" signature="(Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="351" end="371" startBytecode="0" endBytecode="253" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.handleIntentInt(Intent)</Message>
+    </Method>
+    <LocalVariable name="intent" register="1" pc="0" role="LOCAL_VARIABLE_PARAMETER_NAMED">
+      <Message>Parameter intent</Message>
+    </LocalVariable>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="351" end="371" startBytecode="0" endBytecode="253" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" synthetic="true">
+      <Message>At ScannerService.java:[lines 351-371]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="5cec169569850dd3000d78c246df2dc" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="isRunning" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="59" end="59" startBytecode="1" endBytecode="1" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="1387ea452b7e99c8c875ba17601c644d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.emacberry.uuid0xfd6fscan.ScannerService.mShowBtIsOffWarning is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="mShowBtIsOffWarning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.mShowBtIsOffWarning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="200" end="200" startBytecode="47" endBytecode="47" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 200]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="c9eab210ece58dd052be2ba6c42879b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning from instance method com.emacberry.uuid0xfd6fscan.ScannerService.onDestroy()</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="onDestroy" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="319" end="338" startBytecode="0" endBytecode="232" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.onDestroy()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="isRunning" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="334" end="334" startBytecode="75" endBytecode="75" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 334]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="872f3f0817977e6d83a22509b17222c2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning from instance method com.emacberry.uuid0xfd6fscan.ScannerService.onStartCommand(Intent, int, int)</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="44" end="1716" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 44-1716]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="onStartCommand" signature="(Landroid/content/Intent;II)I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" start="243" end="297" startBytecode="0" endBytecode="496" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService.onStartCommand(Intent, int, int)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService" name="isRunning" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService.isRunning</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="288" end="288" startBytecode="190" endBytecode="190" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 288]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="e502a2ff3aa8436828e3bf1def8dfc9e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.emacberry.uuid0xfd6fscan.ScannerService$2.onReceive(Context, Intent) where default case is missing</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$2" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$2" start="1578" end="1668" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1578-1668]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$2</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$2" name="onReceive" signature="(Landroid/content/Context;Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$2" start="1585" end="1668" startBytecode="0" endBytecode="980" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$2.onReceive(Context, Intent)</Message>
+    </Method>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$2" primary="true" start="1588" end="1605" startBytecode="26" endBytecode="336" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[lines 1588-1605]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="fb6c561a8991e99ebd80b1d6f4e69e0a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder.getServerInstance() may expose internal representation by returning ScannerService$LocalBinder.this$0</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" start="172" end="174" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 172-174]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" name="getServerInstance" signature="()Lcom/emacberry/uuid0xfd6fscan/ScannerService;" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" start="174" end="174" startBytecode="0" endBytecode="46" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder.getServerInstance()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" name="this$0" signature="Lcom/emacberry/uuid0xfd6fscan/ScannerService;" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder.this$0</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" primary="true" start="174" end="174" startBytecode="4" endBytecode="4" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 174]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="8a0cb6d9736e12f9eb31573ec319fb00" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder(ScannerService) may expose internal representation by storing an externally mutable object into ScannerService$LocalBinder.this$0</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" start="172" end="174" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 172-174]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" name="&lt;init&gt;" signature="(Lcom/emacberry/uuid0xfd6fscan/ScannerService;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" start="172" end="172" startBytecode="0" endBytecode="61" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method new com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder(ScannerService)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" name="this$0" signature="Lcom/emacberry/uuid0xfd6fscan/ScannerService;" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder.this$0</Message>
+    </Field>
+    <LocalVariable name="this$0" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named this$0</Message>
+    </LocalVariable>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" primary="true" start="172" end="172" startBytecode="2" endBytecode="2" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 172]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="6b1a7c766882d43d2b54bd026b8ec2e6" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;iScanModeInt&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1268" end="1540" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1268-1540]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" name="setScanUUID" signature="(Landroid/os/ParcelUuid;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1280" end="1292" startBytecode="0" endBytecode="148" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback.setScanUUID(ParcelUuid)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" name="iScanModeInt" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback.iScanModeInt</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true" start="1284" end="1284" startBytecode="29" endBytecode="29" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1284]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1286" end="1286" startBytecode="37" endBytecode="37" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at ScannerService.java:[line 1286]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1290" end="1290" startBytecode="50" endBytecode="50" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at ScannerService.java:[line 1290]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="6ae8d747666794d7cf50c7176802d4c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mIsFD6F&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1268" end="1540" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1268-1540]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" name="setScanUUID" signature="(Landroid/os/ParcelUuid;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1280" end="1292" startBytecode="0" endBytecode="148" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback.setScanUUID(ParcelUuid)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" name="mIsFD6F" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback.mIsFD6F</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true" start="1282" end="1282" startBytecode="17" endBytecode="17" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1282]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1289" end="1289" startBytecode="45" endBytecode="45" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at ScannerService.java:[line 1289]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="7ee288df30d9e1d56b8521788c2482c1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mDoReport&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1268" end="1540" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1268-1540]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" name="shouldRefreshGui" signature="(Ljava/lang/String;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" start="1443" end="1482" startBytecode="0" endBytecode="467" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback.shouldRefreshGui(String, int)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" name="mDoReport" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback.mDoReport</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true" start="1481" end="1481" startBytecode="268" endBytecode="268" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1481]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="1fb76115772f807a01517a4e0a2188af" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should com.emacberry.uuid0xfd6fscan.ScannerService$MySimpleTimer be a _static_ inner class?</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$MySimpleTimer" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MySimpleTimer" start="1071" end="1120" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1071-1120]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$MySimpleTimer</Message>
+    </Class>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MySimpleTimer" start="1071" end="1120" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" synthetic="true">
+      <Message>At ScannerService.java:[lines 1071-1120]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EQ_COMPARETO_USE_OBJECT_EQUALS" priority="2" rank="16" abbrev="Eq" category="BAD_PRACTICE" instanceHash="296fef7c5fcd25da92f61bbc31ad7c5d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class defines compareTo(...) and uses Object.equals()</ShortMessage>
+    <LongMessage>com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange defines compareTo(Object) and uses Object.equals()</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" start="1186" end="1215" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1186-1215]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" name="compareTo" signature="(Ljava/lang/Object;)I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" start="1199" end="1209" startBytecode="0" endBytecode="149" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange.compareTo(Object)</Message>
+    </Method>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" start="1199" end="1209" startBytecode="0" endBytecode="149" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" synthetic="true">
+      <Message>At ScannerService.java:[lines 1199-1209]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="7132b5f8083bda99817ac6b9ecf4935e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange be a _static_ inner class?</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" start="1186" end="1215" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1186-1215]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange</Message>
+    </Class>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" start="1186" end="1215" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" synthetic="true">
+      <Message>At ScannerService.java:[lines 1186-1215]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="ee00cd823317d86378e4a90e9d854cf9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;iCanceled&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" start="766" end="825" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 766-825]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" name="cancel" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" start="806" end="808" startBytecode="0" endBytecode="59" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker.cancel()</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" name="iCanceled" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker.iCanceled</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" primary="true" start="806" end="806" startBytecode="2" endBytecode="2" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 806]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IS2_INCONSISTENT_SYNC" priority="2" rank="17" abbrev="IS" category="MT_CORRECTNESS" instanceHash="284b7d1b339fc01580a551d54d153703" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Inconsistent synchronization</ShortMessage>
+    <LongMessage>Inconsistent synchronization of com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker.iStartTime; locked 50% of time</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" start="766" end="825" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 766-825]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" name="iStartTime" signature="J" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker.iStartTime</Message>
+    </Field>
+    <Int value="50" role="INT_SYNC_PERCENT">
+      <Message>Synchronized 50% of the time</Message>
+    </Int>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" primary="true" start="787" end="787" startBytecode="12" endBytecode="12" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at ScannerService.java:[line 787]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" start="788" end="788" startBytecode="23" endBytecode="23" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at ScannerService.java:[line 788]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" start="776" end="776" startBytecode="8" endBytecode="8" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at ScannerService.java:[line 776]</Message>
+    </SourceLine>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" start="778" end="778" startBytecode="51" endBytecode="51" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at ScannerService.java:[line 778]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_NONATOMIC_64BIT_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="2756cf1e11161c315b53f068c4664c49" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="667">
+    <ShortMessage>This write of this 64-bit primitive variable may not be atomic</ShortMessage>
+    <LongMessage>This write of the 64-bit primitive variable &quot;iStartTime&quot; may not be atomic</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter" start="840" end="869" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 840-869]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter" name="access$902" signature="(Lcom/emacberry/uuid0xfd6fscan/ScannerService$ScanRestarter;J)J" isStatic="true" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter" start="840" end="840" startBytecode="0" endBytecode="58" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter.access$902(ScannerService$ScanRestarter, long)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter" name="iStartTime" signature="J" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>In ScannerService.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter.iStartTime</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService" primary="true" start="831" end="838" startBytecode="0" endBytecode="117" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[lines 831-838]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="6a5f64df566b38e9bc2453abcea63160" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection be a _static_ inner class?</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" start="1219" end="1265" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1219-1265]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection</Message>
+    </Class>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" start="1219" end="1265" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" synthetic="true">
+      <Message>At ScannerService.java:[lines 1219-1265]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE" instanceHash="dc1053bc9e2b3dd5fa90ae22bf6cf0d3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Inefficient use of keySet iterator instead of entrySet iterator</ShortMessage>
+    <LongMessage>com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection.getGroupSizeInfo() makes inefficient use of keySet iterator instead of entrySet iterator</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" start="1219" end="1265" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+        <Message>At ScannerService.java:[lines 1219-1265]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" name="getGroupSizeInfo" signature="()[Lcom/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo;" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" start="1229" end="1234" startBytecode="0" endBytecode="187" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection.getGroupSizeInfo()</Message>
+    </Method>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" primary="true" start="1232" end="1232" startBytecode="57" endBytecode="57" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1232]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="77a862426f94e939734675780084f018" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo.type</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo" start="7" end="10" sourcefile="SignalStrengthGroupInfo.java" sourcepath="com/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo.java" relSourcepath="com/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo.java">
+        <Message>At SignalStrengthGroupInfo.java:[lines 7-10]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo" name="type" signature="Lcom/emacberry/uuid0xfd6fscan/RssiRangeType;" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo" sourcefile="SignalStrengthGroupInfo.java" sourcepath="com/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo.java" relSourcepath="com/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo.java">
+        <Message>In SignalStrengthGroupInfo.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo.type</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo" primary="true" start="8" end="8" startBytecode="6" endBytecode="6" sourcefile="SignalStrengthGroupInfo.java" sourcepath="com/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo.java" relSourcepath="com/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo.java">
+      <Message>At SignalStrengthGroupInfo.java:[line 8]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="d3b66b45455f2602595c3b05095cf936" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mLastTs is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" start="9" end="67" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>At UUIDFD6FBeacon.java:[lines 9-67]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" name="mLastTs" signature="J" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>In UUIDFD6FBeacon.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mLastTs</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" primary="true" start="22" end="22" startBytecode="33" endBytecode="33" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+      <Message>At UUIDFD6FBeacon.java:[line 22]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="b014ef5e06774bd3fffddcdd5460fd37" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mLatestSignalStrength is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" start="9" end="67" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>At UUIDFD6FBeacon.java:[lines 9-67]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" name="mLatestSignalStrength" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>In UUIDFD6FBeacon.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mLatestSignalStrength</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" primary="true" start="1238" end="1238" startBytecode="1" endBytecode="1" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1238]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="db62868bc43fca80732a78e9b5c43096" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mTxPower</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" start="9" end="67" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>At UUIDFD6FBeacon.java:[lines 9-67]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" name="mTxPower" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>In UUIDFD6FBeacon.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mTxPower</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true" start="1388" end="1388" startBytecode="186" endBytecode="186" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1388]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="1cb06fbf5a64f1c5e42bebbabcfa9d54" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mTxPowerLevel</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" start="9" end="67" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>At UUIDFD6FBeacon.java:[lines 9-67]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon</Message>
+    </Class>
+    <Field classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" name="mTxPowerLevel" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" sourcefile="UUIDFD6FBeacon.java" sourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" relSourcepath="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java">
+        <Message>In UUIDFD6FBeacon.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon.mTxPowerLevel</Message>
+    </Field>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" primary="true" start="1392" end="1392" startBytecode="214" endBytecode="214" sourcefile="ScannerService.java" sourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ScannerService.java">
+      <Message>At ScannerService.java:[line 1392]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="a02b7ce73fd45fa84578b25b443eeba6" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.emacberry.uuid0xfd6fscan.settings.Settings01.onRequestPermissionsResult(int, String[], int[]) where default case is missing</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.settings.Settings01" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.settings.Settings01" start="22" end="123" sourcefile="Settings01.java" sourcepath="com/emacberry/uuid0xfd6fscan/settings/Settings01.java" relSourcepath="com/emacberry/uuid0xfd6fscan/settings/Settings01.java">
+        <Message>At Settings01.java:[lines 22-123]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.settings.Settings01</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.settings.Settings01" name="onRequestPermissionsResult" signature="(I[Ljava/lang/String;[I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.settings.Settings01" start="102" end="123" startBytecode="0" endBytecode="242" sourcefile="Settings01.java" sourcepath="com/emacberry/uuid0xfd6fscan/settings/Settings01.java" relSourcepath="com/emacberry/uuid0xfd6fscan/settings/Settings01.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.settings.Settings01.onRequestPermissionsResult(int, String[], int[])</Message>
+    </Method>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.settings.Settings01" primary="true" start="102" end="114" startBytecode="1" endBytecode="101" sourcefile="Settings01.java" sourcepath="com/emacberry/uuid0xfd6fscan/settings/Settings01.java" relSourcepath="com/emacberry/uuid0xfd6fscan/settings/Settings01.java">
+      <Message>At Settings01.java:[lines 102-114]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="671540a451ca257704b2be140cd70907" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to index in com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment.onCreate(Bundle)</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment" start="19" end="134" sourcefile="PlaceholderFragment.java" sourcepath="com/emacberry/uuid0xfd6fscan/ui/main/PlaceholderFragment.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ui/main/PlaceholderFragment.java">
+        <Message>At PlaceholderFragment.java:[lines 19-134]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment" start="49" end="54" startBytecode="0" endBytecode="13" sourcefile="PlaceholderFragment.java" sourcepath="com/emacberry/uuid0xfd6fscan/ui/main/PlaceholderFragment.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ui/main/PlaceholderFragment.java"/>
+      <Message>In method com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment.onCreate(Bundle)</Message>
+    </Method>
+    <LocalVariable name="index" register="2" pc="24" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named index</Message>
+    </LocalVariable>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment" primary="true" start="52" end="52" startBytecode="23" endBytecode="23" sourcefile="PlaceholderFragment.java" sourcepath="com/emacberry/uuid0xfd6fscan/ui/main/PlaceholderFragment.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ui/main/PlaceholderFragment.java">
+      <Message>At PlaceholderFragment.java:[line 52]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="index"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="f5ff218174416c5e15ca99f50bf28eb1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter(Context, FragmentManager) may expose internal representation by storing an externally mutable object into SectionsPagerAdapter.mContext</LongMessage>
+    <Class classname="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" start="20" end="44" sourcefile="SectionsPagerAdapter.java" sourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java">
+        <Message>At SectionsPagerAdapter.java:[lines 20-44]</Message>
+      </SourceLine>
+      <Message>In class com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter</Message>
+    </Class>
+    <Method classname="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" start="24" end="26" startBytecode="0" endBytecode="80" sourcefile="SectionsPagerAdapter.java" sourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java"/>
+      <Message>In method new com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter(Context, FragmentManager)</Message>
+    </Method>
+    <Field classname="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" name="mContext" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" sourcefile="SectionsPagerAdapter.java" sourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java">
+        <Message>In SectionsPagerAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter.mContext</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="7" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" primary="true" start="25" end="25" startBytecode="7" endBytecode="7" sourcefile="SectionsPagerAdapter.java" sourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java" relSourcepath="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java">
+      <Message>At SectionsPagerAdapter.java:[line 25]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" abbrev="UrF" category="STYLE" cweid="563">
+    <ShortDescription>Unread public/protected field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp;
+The field is public or protected, so perhaps
+    it is intended to be used with classes not seen as part of the analysis. If not,
+consider removing it from the class.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="WMI_WRONG_MAP_ITERATOR" abbrev="WMI" category="PERFORMANCE">
+    <ShortDescription>Inefficient use of keySet iterator instead of entrySet iterator</ShortDescription>
+    <Details><![CDATA[
+
+<p> This method accesses the value of a Map entry, using a key that was retrieved from
+a keySet iterator. It is more efficient to use an iterator on the entrySet of the map, to avoid the
+Map.get(key) lookup.</p>
+
+        ]]></Details>
+  </BugPattern>
+  <BugPattern type="SIC_INNER_SHOULD_BE_STATIC" abbrev="SIC" category="PERFORMANCE">
+    <ShortDescription>Should be a static inner class</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_EXPOSE_REP" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Public static method may expose internal representation by returning a mutable object or array</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A public static method returns a reference to a mutable object or
+   an array that is part of the static state of the class.
+   Any code that calls this method can freely modify
+   the underlying array.
+   One fix is to return a copy of the array.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE" abbrev="RCN" category="CORRECTNESS">
+    <ShortDescription>Nullcheck of value previously dereferenced</ShortDescription>
+    <Details><![CDATA[
+
+<p> A value is checked here to see whether it is null, but this value cannot
+be null because it was previously dereferenced and if it were null a null pointer
+exception would have occurred at the earlier dereference.
+Essentially, this code and the previous dereference
+disagree whether this value is allowed to be null. Either the check is redundant
+or the previous dereference is erroneous.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" abbrev="SING" category="CORRECTNESS" cweid="543">
+    <ShortDescription>Instance-getter method of class using singleton design pattern is not synchronized.</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+        Instance-getter method of class using singleton design pattern is not synchronized. When this method is invoked by two or more threads simultaneously,
+        multiple instantiation of a singleton class becomes possible.<br><br>
+
+        For more information, see: <a href="https://wiki.sei.cmu.edu/confluence/display/java/MSC07-J.+Prevent+multiple+instantiations+of+singleton+objects">SEI CERT MSC07-J</a>, and
+        <a href="https://cwe.mitre.org/data/definitions/543.html">CWE-543: Use of Singleton Pattern Without Synchronization in a Multithreaded Context</a>.
+        </p>
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EQ_COMPARETO_USE_OBJECT_EQUALS" abbrev="Eq" category="BAD_PRACTICE">
+    <ShortDescription>Class defines compareTo(...) and uses Object.equals()</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class defines a <code>compareTo(...)</code> method but inherits its
+  <code>equals()</code> method from <code>java.lang.Object</code>.
+    Generally, the value of compareTo should return zero if and only if
+    equals returns true. If this is violated, weird and unpredictable
+    failures will occur in classes such as PriorityQueue.
+    In Java 5 the PriorityQueue.remove method uses the compareTo method,
+    while in Java 6 it uses the equals method.</p>
+
+<p>From the JavaDoc for the compareTo method in the Comparable interface:
+<blockquote>
+It is strongly recommended, but not strictly required that <code>(x.compareTo(y)==0) == (x.equals(y))</code>.
+Generally speaking, any class that implements the Comparable interface and violates this condition
+should clearly indicate this fact. The recommended language
+is "Note: this class has a natural ordering that is inconsistent with equals."
+</blockquote></p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE" abbrev="NP" category="STYLE">
+    <ShortDescription>Parameter must be non-null but is marked as nullable</ShortDescription>
+    <Details><![CDATA[
+
+<p> This parameter is always used in a way that requires it to be non-null,
+but the parameter is explicitly annotated as being Nullable. Either the use
+of the parameter or the annotation is wrong.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS" cweid="413">
+    <ShortDescription>This write of this shared primitive variable may not be visible to other threads</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA00-J.+Ensure+visibility+when+accessing+shared+primitive+variables">SEI CERT rule VNA00-J</a>
+          describes that reading a shared primitive variable in one thread may not yield the value of the most recent write to the variable from another thread.
+          Consequently, the thread may observe a stale value of the shared variable.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+          This guarantees that 64-bit primitive long and double variables are accessed atomically.
+        </p>
+        <p>
+        See also <a href="https://cwe.mitre.org/data/definitions/413.html">CWE-413: Improper Resource Locking</a>,
+        <a href="https://cwe.mitre.org/data/definitions/567.html">CWE-567: Unsynchronized Access to Shared Data in a Multithreaded Context</a>, and
+        <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a>.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_NONATOMIC_64BIT_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS" cweid="667">
+    <ShortDescription>This write of this 64-bit primitive variable may not be atomic</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          The long and the double are 64-bit primitive types, and depending on the Java Virtual Machine implementation assigning a value to them can be treated as two separate 32-bit writes, and as such it's not atomic.
+          See <a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.7">JSL 17.7. Non-Atomic Treatment of double and long</a>.
+          See SEI CERT rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA05-J.+Ensure+atomicity+when+reading+and+writing+64-bit+values">VNA05-J. Ensure atomicity when reading and writing 64-bit values</a> and
+          <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a> for more info.
+
+          This bug can be ignored in platforms which guarantee that 64-bit long and double type read and write operations are atomic.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="IS2_INCONSISTENT_SYNC" abbrev="IS" category="MT_CORRECTNESS">
+    <ShortDescription>Inconsistent synchronization</ShortDescription>
+    <Details><![CDATA[
+
+  <p> The fields of this class appear to be accessed inconsistently with respect
+  to synchronization.&nbsp; This bug report indicates that the bug pattern detector
+  judged that
+  </p>
+  <ul>
+  <li> The class contains a mix of locked and unlocked accesses,</li>
+  <li> The class is <b>not</b> annotated as javax.annotation.concurrent.NotThreadSafe,</li>
+  <li> At least one locked access was performed by one of the class's own methods, and</li>
+  <li> The number of unsynchronized field accesses (reads and writes) was no more than
+       one third of all accesses, with writes being weighed twice as high as reads</li>
+  </ul>
+
+  <p> A typical bug matching this bug pattern is forgetting to synchronize
+  one of the methods in a class that is intended to be thread-safe.</p>
+
+  <p> You can select the nodes labeled "Unsynchronized access" to show the
+  code locations where the detector believed that a field was accessed
+  without synchronization.</p>
+
+  <p> Note that there are various sources of inaccuracy in this detector;
+  for example, the detector cannot statically detect all situations in which
+  a lock is held.&nbsp; Also, even when the detector is accurate in
+  distinguishing locked vs. unlocked accesses, the code in question may still
+  be correct.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/366.html">CWE-366: Race Condition within a Thread</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="SING">
+    <Description>Singleton problems</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="IS" cweid="366">
+    <Description>Inconsistent synchronization</Description>
+  </BugCode>
+  <BugCode abbrev="SIC">
+    <Description>Inner class could be made static</Description>
+  </BugCode>
+  <BugCode abbrev="Eq">
+    <Description>Problems with implementation of equals()</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="WMI">
+    <Description>Inefficient Map Iterator</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="AT">
+    <Description>Possible atomicity violation</Description>
+  </BugCode>
+  <BugCode abbrev="RCN" cweid="476">
+    <Description>Redundant comparison to null</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="42">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.annotation.RequiresApi</MissingClass>
+    <MissingClass>androidx.annotation.StringRes</MissingClass>
+    <MissingClass>androidx.appcompat.app.ActionBar</MissingClass>
+    <MissingClass>androidx.appcompat.app.ActionBar$Tab</MissingClass>
+    <MissingClass>androidx.appcompat.app.ActionBar$TabListener</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat$Builder</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat$Style</MissingClass>
+    <MissingClass>androidx.core.app.NotificationManagerCompat</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentFactory</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentPagerAdapter</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>androidx.preference.EditTextPreference</MissingClass>
+    <MissingClass>androidx.preference.EditTextPreference$OnBindEditTextListener</MissingClass>
+    <MissingClass>androidx.preference.Preference</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceChangeListener</MissingClass>
+    <MissingClass>androidx.preference.Preference$SummaryProvider</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat$OnPreferenceStartFragmentCallback</MissingClass>
+    <MissingClass>androidx.preference.PreferenceManager</MissingClass>
+    <MissingClass>androidx.preference.PreferenceScreen</MissingClass>
+    <MissingClass>androidx.preference.SwitchPreferenceCompat</MissingClass>
+    <MissingClass>androidx.viewpager.widget.PagerAdapter</MissingClass>
+    <MissingClass>androidx.viewpager.widget.ViewPager</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R$color</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R$drawable</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R$id</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R$layout</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R$mipmap</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R$string</MissingClass>
+    <MissingClass>com.emacberry.uuid0xfd6fscan.R$xml</MissingClass>
+    <MissingClass>com.google.android.material.floatingactionbutton.FloatingActionButton</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 02:46:03 +0400" total_classes="31" referenced_classes="182" total_bugs="56" total_size="1920" num_packages="3" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="4.80" clock_seconds="1.02" peak_mbytes="305.93" alloc_mbytes="768.00" gc_seconds="0.02" priority_2="55" priority_1="1">
+    <FileStats path="com/emacberry/uuid0xfd6fscan/BootUpReceiver.java" bugCount="0" size="16"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/LockCheckerApi26.java" bugCount="0" size="38"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/NotificationHelper.java" bugCount="1" size="28" bugHash="0081f17823eea0338bb270a3f8b3c645"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/Preferences.java" bugCount="2" size="58" bugHash="b261a8306ed892a71baa1d91a232cf6b"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/RssiRangeType.java" bugCount="0" size="22"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/ScannerActivity.java" bugCount="6" size="352" bugHash="fa2480c14fdb6eea25c6a8cd8b02c6a9"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/ScannerService.java" bugCount="42" size="1082" bugHash="acc3fad8b055ce3c671788532033b93c"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/SettingsActivity.java" bugCount="0" size="28"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/SignalStrengthGroupInfo.java" bugCount="1" size="8" bugHash="924b0f28e39bf07a16e17210e6e777e1"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/UUIDFD6FBeacon.java" bugCount="1" size="53" bugHash="b79e8e92848d069df7d8ae60c83d6c61"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/settings/Settings01.java" bugCount="1" size="68" bugHash="d7be07d29e0bad43a3567cbc667a6cae"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/settings/Settings02Expert.java" bugCount="0" size="52"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/ui/main/PlaceholderFragment.java" bugCount="1" size="90" bugHash="73a2cc4a97bf8a18d3420b77a81260b2"/>
+    <FileStats path="com/emacberry/uuid0xfd6fscan/ui/main/SectionsPagerAdapter.java" bugCount="1" size="15" bugHash="2afed85ebafe53b1fe55597989b5d355"/>
+    <PackageStats package="com.emacberry.uuid0xfd6fscan" total_bugs="53" total_types="27" total_size="1695" priority_2="52" priority_1="1">
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.BootUpReceiver" sourceFile="BootUpReceiver.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.LockCheckerApi26" sourceFile="LockCheckerApi26.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.LockCheckerApi26$1" sourceFile="LockCheckerApi26.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.NotificationHelper" sourceFile="NotificationHelper.java" interface="false" size="28" bugs="1" priority_2="1"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.Preferences" sourceFile="Preferences.java" interface="false" size="58" bugs="2" priority_2="2"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.RssiRangeType" sourceFile="RssiRangeType.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerActivity" sourceFile="ScannerActivity.java" interface="false" size="282" bugs="6" priority_2="6"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerActivity$1" sourceFile="ScannerActivity.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerActivity$2" sourceFile="ScannerActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerActivity$AsyncMenuHandler" sourceFile="ScannerActivity.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerActivity$MyOnTabListenerAndroidX" sourceFile="ScannerActivity.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService" sourceFile="ScannerService.java" interface="false" size="595" bugs="22" priority_2="21" priority_1="1"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$1" sourceFile="ScannerService.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$2" sourceFile="ScannerService.java" interface="false" size="60" bugs="2" priority_2="2"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$3" sourceFile="ScannerService.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$LocalBinder" sourceFile="ScannerService.java" interface="false" size="6" bugs="2" priority_2="2"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$MyScanCallback" sourceFile="ScannerService.java" interface="false" size="182" bugs="7" priority_2="7"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$MySimpleTimer" sourceFile="ScannerService.java" interface="false" size="44" bugs="1" priority_2="1"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$NotificationUpdateTask" sourceFile="ScannerService.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$RssiRange" sourceFile="ScannerService.java" interface="false" size="24" bugs="2" priority_2="2"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$ScanChecker" sourceFile="ScannerService.java" interface="false" size="54" bugs="3" priority_2="3"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$ScanRestarter" sourceFile="ScannerService.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ScannerService$SignalStrengthCollection" sourceFile="ScannerService.java" interface="false" size="41" bugs="3" priority_2="3"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.SettingsActivity" sourceFile="SettingsActivity.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.SignalStrengthGroupInfo" sourceFile="SignalStrengthGroupInfo.java" interface="false" size="8" bugs="1" priority_2="1"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.UUIDFD6FBeacon" sourceFile="UUIDFD6FBeacon.java" interface="false" size="53" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.emacberry.uuid0xfd6fscan.settings" total_bugs="1" total_types="2" total_size="120" priority_2="1">
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.settings.Settings01" sourceFile="Settings01.java" interface="false" size="68" bugs="1" priority_2="1"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.settings.Settings02Expert" sourceFile="Settings02Expert.java" interface="false" size="52" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.emacberry.uuid0xfd6fscan.ui.main" total_bugs="2" total_types="2" total_size="105" priority_2="2">
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ui.main.PlaceholderFragment" sourceFile="PlaceholderFragment.java" interface="false" size="90" bugs="1" priority_2="1"/>
+      <ClassStats class="com.emacberry.uuid0xfd6fscan.ui.main.SectionsPagerAdapter" sourceFile="SectionsPagerAdapter.java" interface="false" size="15" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="54" invocations="642" avgMicrosecondsPerInvocation="84" maxMicrosecondsPerInvocation="6321" standardDeviationMicrosecondsPerInvocation="293"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="38" invocations="249" avgMicrosecondsPerInvocation="156" maxMicrosecondsPerInvocation="3901" standardDeviationMicrosecondsPerInvocation="344"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="38" invocations="182" avgMicrosecondsPerInvocation="210" maxMicrosecondsPerInvocation="3392" standardDeviationMicrosecondsPerInvocation="420"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="35" invocations="239" avgMicrosecondsPerInvocation="148" maxMicrosecondsPerInvocation="1629" standardDeviationMicrosecondsPerInvocation="205"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="35" invocations="237" avgMicrosecondsPerInvocation="150" maxMicrosecondsPerInvocation="1565" standardDeviationMicrosecondsPerInvocation="215"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="33" invocations="241" avgMicrosecondsPerInvocation="137" maxMicrosecondsPerInvocation="3681" standardDeviationMicrosecondsPerInvocation="286"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="31" invocations="239" avgMicrosecondsPerInvocation="131" maxMicrosecondsPerInvocation="3013" standardDeviationMicrosecondsPerInvocation="227"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="25" invocations="239" avgMicrosecondsPerInvocation="108" maxMicrosecondsPerInvocation="1103" standardDeviationMicrosecondsPerInvocation="156"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SharedVariableAtomicityDetector" totalMilliseconds="25" invocations="31" avgMicrosecondsPerInvocation="829" maxMicrosecondsPerInvocation="15224" standardDeviationMicrosecondsPerInvocation="2716"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="21" invocations="239" avgMicrosecondsPerInvocation="89" maxMicrosecondsPerInvocation="6909" standardDeviationMicrosecondsPerInvocation="519"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="21" invocations="251" avgMicrosecondsPerInvocation="83" maxMicrosecondsPerInvocation="4165" standardDeviationMicrosecondsPerInvocation="293"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="19" invocations="31" avgMicrosecondsPerInvocation="612" maxMicrosecondsPerInvocation="9457" standardDeviationMicrosecondsPerInvocation="1731"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="18" invocations="202" avgMicrosecondsPerInvocation="92" maxMicrosecondsPerInvocation="621" standardDeviationMicrosecondsPerInvocation="110"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="15" invocations="663" avgMicrosecondsPerInvocation="23" maxMicrosecondsPerInvocation="265" standardDeviationMicrosecondsPerInvocation="21"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="15" invocations="182" avgMicrosecondsPerInvocation="83" maxMicrosecondsPerInvocation="1461" standardDeviationMicrosecondsPerInvocation="174"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="14" invocations="182" avgMicrosecondsPerInvocation="80" maxMicrosecondsPerInvocation="866" standardDeviationMicrosecondsPerInvocation="149"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="13" invocations="182" avgMicrosecondsPerInvocation="73" maxMicrosecondsPerInvocation="1492" standardDeviationMicrosecondsPerInvocation="183"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="13" invocations="31" avgMicrosecondsPerInvocation="430" maxMicrosecondsPerInvocation="3795" standardDeviationMicrosecondsPerInvocation="691"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="13" invocations="31" avgMicrosecondsPerInvocation="423" maxMicrosecondsPerInvocation="3287" standardDeviationMicrosecondsPerInvocation="657"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="13" invocations="182" avgMicrosecondsPerInvocation="71" maxMicrosecondsPerInvocation="3272" standardDeviationMicrosecondsPerInvocation="261"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

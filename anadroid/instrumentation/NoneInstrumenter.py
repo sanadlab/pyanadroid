@@ -46,12 +46,15 @@ class NoneInstrumenter(AbstractInstrumenter):
                 if os.path.exists(target_file_path):
                     continue
                 elif os.path.isdir(full_file_path):
+                    if "TRANSFORMED" in file_p:
+                        continue
                     os.mkdir(target_file_path)
-                elif 'outputs' in full_file_path and 'build' in full_file_path and file_p.endswith('.apk'):
+                elif ('outputs' in full_file_path and 'build' in full_file_path
+                      and os.path.isfile(full_file_path) and file_p.endswith('.apk')):
                     continue
                     #android_project.apk_files.append(target_file_path)
                 elif not os.path.exists(target_file_path):
-                    if 'lint' in file_p and 'xml' in file_p:
+                    if 'lint' in file_p and not 'lint-baseline' in file_p and 'xml' in file_p:
                         continue
                     copy(full_file_path, target_file_path)
 

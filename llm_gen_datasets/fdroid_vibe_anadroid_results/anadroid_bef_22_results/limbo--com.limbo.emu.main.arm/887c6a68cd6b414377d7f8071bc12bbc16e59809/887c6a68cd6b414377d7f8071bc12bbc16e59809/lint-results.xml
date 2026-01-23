@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 4.1.1">
+
+    <issue
+        id="LintError"
+        severity="Error"
+        message="Unexpected failure during lint analysis (this is a bug in lint or one of the libraries it depends on)&#xA;&#xA;Message: class greenlab.org.ebugslocator.detectors.CameraLeakDetector cannot be cast to class com.android.tools.lint.detector.api.SourceCodeScanner (greenlab.org.ebugslocator.detectors.CameraLeakDetector is in unnamed module of loader com.intellij.util.lang.UrlClassLoader @9fee965; com.android.tools.lint.detector.api.SourceCodeScanner is in unnamed module of loader com.android.tools.lint.gradle.api.DelegatingClassLoader @15f3d3b)&#xA;Stack: `ClassCastException:UElementVisitor.&lt;init>(UElementVisitor.kt:143)←LintDriver.visitUast(LintDriver.kt:1738)←LintDriver.runFileDetectors(LintDriver.kt:1132)←LintDriver.checkProject(LintDriver.kt:926)←LintDriver.analyze(LintDriver.kt:446)←LintCliClient.run(LintCliClient.kt:256)←LintCliClient.run(LintCliClient.kt:237)←LintGradleClient.run(LintGradleClient.kt:255)`&#xA;&#xA;You can set environment variable `LINT_PRINT_STACKTRACE=true` to dump a full stacktrace to stdout."
+        category="Lint"
+        priority="10"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include failure to find bytecode for source files (which means certain detectors could not be run), parsing errors in lint configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed."
+        includedVariants="release"
+        excludedVariants="debug">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-sparc"/>
+    </issue>
+
+    <issue
+        id="LintError"
+        severity="Error"
+        message="Unexpected failure during lint analysis (this is a bug in lint or one of the libraries it depends on)&#xA;&#xA;Message: class greenlab.org.ebugslocator.detectors.MediaLeakDetector cannot be cast to class com.android.tools.lint.detector.api.SourceCodeScanner (greenlab.org.ebugslocator.detectors.MediaLeakDetector is in unnamed module of loader com.intellij.util.lang.UrlClassLoader @9fee965; com.android.tools.lint.detector.api.SourceCodeScanner is in unnamed module of loader com.android.tools.lint.gradle.api.DelegatingClassLoader @15f3d3b)&#xA;Stack: `ClassCastException:UElementVisitor.&lt;init>(UElementVisitor.kt:143)←LintDriver.visitUast(LintDriver.kt:1738)←LintDriver.runFileDetectors(LintDriver.kt:1132)←LintDriver.checkProject(LintDriver.kt:926)←LintDriver.analyze(LintDriver.kt:446)←LintCliClient.run(LintCliClient.kt:256)←LintCliClient.run(LintCliClient.kt:237)←LintGradleClient.run(LintGradleClient.kt:255)`&#xA;&#xA;You can set environment variable `LINT_PRINT_STACKTRACE=true` to dump a full stacktrace to stdout."
+        category="Lint"
+        priority="10"
+        summary="Lint Failure"
+        explanation="This issue type represents a problem running lint itself. Examples include failure to find bytecode for source files (which means certain detectors could not be run), parsing errors in lint configuration files, etc.&#xA;&#xA;These errors are not errors in your own code, but they are shown to make it clear that some checks were not completed."
+        includedVariants="debug"
+        excludedVariants="release">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-sparc"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/training/backup/autosyncapi.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at https://developer.android.com/reference/android/R.attr.html#allowBackup&#xA;&#xA;By default, this flag is set to `true` which means application data can be backed up and restored by the OS. Setting `allowBackup=&quot;false&quot;` opts the application out of being backed up and so users can&apos;t restore data related to it when they go through the device setup wizard.&#xA;&#xA;Allowing backups may have security consequences for an application. Currently `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.&#xA;&#xA;To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.&#xA;&#xA;If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/training/backup/autosyncapi.html"
+        urls="https://developer.android.com/training/backup/autosyncapi.html,https://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="     ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-sparc/src/main/AndroidManifest.xml"
+            line="8"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v11`) is unnecessary; `minSdkVersion` is 21. Merge all the resources in this folder into `values`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-sparc/src/main/res/values-v11"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v14`) is unnecessary; `minSdkVersion` is 21. Merge all the resources in this folder into `values`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-sparc/src/main/res/values-v14"/>
+    </issue>
+
+    <issue
+        id="Unused Hardware Acceleration"
+        severity="Warning"
+        message="Add hardwareAccelerated=true"
+        category="Performance"
+        priority="6"
+        summary="Unused Hardware Acceleration"
+        explanation="Add hardwareAccelerated=true"
+        errorLine1="    &lt;application"
+        errorLine2="    ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-sparc/src/main/AndroidManifest.xml"
+            line="8"
+            column="5"/>
+    </issue>
+
+</issues>

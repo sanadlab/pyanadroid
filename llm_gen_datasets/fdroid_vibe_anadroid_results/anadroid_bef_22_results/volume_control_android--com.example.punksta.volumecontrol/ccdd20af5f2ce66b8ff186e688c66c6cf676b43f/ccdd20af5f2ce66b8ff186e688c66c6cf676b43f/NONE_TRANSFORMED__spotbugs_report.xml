@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762900818732" analysisTimestamp="1762900821914" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/volume_control_android/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/volume_control_android/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="fc4707188c1b50e353028e5b8832205d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.example.punksta.volumecontrol.SoundApplication.getProfileStorage() may expose internal representation by returning SoundApplication.profileStorage</LongMessage>
+    <Class classname="com.example.punksta.volumecontrol.SoundApplication" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" start="15" end="60" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+        <Message>At SoundApplication.java:[lines 15-60]</Message>
+      </SourceLine>
+      <Message>In class com.example.punksta.volumecontrol.SoundApplication</Message>
+    </Class>
+    <Method classname="com.example.punksta.volumecontrol.SoundApplication" name="getProfileStorage" signature="()Lcom/example/punksta/volumecontrol/model/SoundProfileStorage;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" start="40" end="43" startBytecode="0" endBytecode="78" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java"/>
+      <Message>In method com.example.punksta.volumecontrol.SoundApplication.getProfileStorage()</Message>
+    </Method>
+    <Field classname="com.example.punksta.volumecontrol.SoundApplication" name="profileStorage" signature="Lcom/example/punksta/volumecontrol/model/SoundProfileStorage;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+        <Message>In SoundApplication.java</Message>
+      </SourceLine>
+      <Message>Field com.example.punksta.volumecontrol.SoundApplication.profileStorage</Message>
+    </Field>
+    <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" primary="true" start="43" end="43" startBytecode="19" endBytecode="19" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+      <Message>At SoundApplication.java:[line 43]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="bfe59ad6386d0c9d62a62b02042b62a3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.example.punksta.volumecontrol.SoundApplication.getSettingsStorage() may expose internal representation by returning SoundApplication.settingsStorage</LongMessage>
+    <Class classname="com.example.punksta.volumecontrol.SoundApplication" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" start="15" end="60" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+        <Message>At SoundApplication.java:[lines 15-60]</Message>
+      </SourceLine>
+      <Message>In class com.example.punksta.volumecontrol.SoundApplication</Message>
+    </Class>
+    <Method classname="com.example.punksta.volumecontrol.SoundApplication" name="getSettingsStorage" signature="()Lcom/example/punksta/volumecontrol/model/SettingsStorage;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" start="47" end="50" startBytecode="0" endBytecode="85" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java"/>
+      <Message>In method com.example.punksta.volumecontrol.SoundApplication.getSettingsStorage()</Message>
+    </Method>
+    <Field classname="com.example.punksta.volumecontrol.SoundApplication" name="settingsStorage" signature="Lcom/example/punksta/volumecontrol/model/SettingsStorage;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+        <Message>In SoundApplication.java</Message>
+      </SourceLine>
+      <Message>Field com.example.punksta.volumecontrol.SoundApplication.settingsStorage</Message>
+    </Field>
+    <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" primary="true" start="50" end="50" startBytecode="26" endBytecode="26" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+      <Message>At SoundApplication.java:[line 50]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="4b2e3f30121953f57456b7e9cc88586e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.example.punksta.volumecontrol.SoundApplication.getVolumeControl() may expose internal representation by returning SoundApplication.volumeControl</LongMessage>
+    <Class classname="com.example.punksta.volumecontrol.SoundApplication" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" start="15" end="60" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+        <Message>At SoundApplication.java:[lines 15-60]</Message>
+      </SourceLine>
+      <Message>In class com.example.punksta.volumecontrol.SoundApplication</Message>
+    </Class>
+    <Method classname="com.example.punksta.volumecontrol.SoundApplication" name="getVolumeControl" signature="()Lcom/punksta/apps/libs/VolumeControl;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" start="33" end="36" startBytecode="0" endBytecode="89" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java"/>
+      <Message>In method com.example.punksta.volumecontrol.SoundApplication.getVolumeControl()</Message>
+    </Method>
+    <Field classname="com.example.punksta.volumecontrol.SoundApplication" name="volumeControl" signature="Lcom/punksta/apps/libs/VolumeControl;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+        <Message>In SoundApplication.java</Message>
+      </SourceLine>
+      <Message>Field com.example.punksta.volumecontrol.SoundApplication.volumeControl</Message>
+    </Field>
+    <SourceLine classname="com.example.punksta.volumecontrol.SoundApplication" primary="true" start="36" end="36" startBytecode="30" endBytecode="30" sourcefile="SoundApplication.java" sourcepath="com/example/punksta/volumecontrol/SoundApplication.java" relSourcepath="com/example/punksta/volumecontrol/SoundApplication.java">
+      <Message>At SoundApplication.java:[line 36]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IL_INFINITE_RECURSIVE_LOOP" priority="1" rank="9" abbrev="IL" category="CORRECTNESS" instanceHash="c203891d19b68f363cbc71a43802cb48" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="674">
+    <ShortMessage>An apparent infinite recursive loop</ShortMessage>
+    <LongMessage>There is an apparent infinite recursive loop in com.example.punksta.volumecontrol.model.SoundProfileStorage.getInstance(Context)</LongMessage>
+    <Class classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" start="23" end="165" sourcefile="SoundProfileStorage.java" sourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" relSourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java">
+        <Message>At SoundProfileStorage.java:[lines 23-165]</Message>
+      </SourceLine>
+      <Message>In class com.example.punksta.volumecontrol.model.SoundProfileStorage</Message>
+    </Class>
+    <Method classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" name="getInstance" signature="(Landroid/content/Context;)Lcom/example/punksta/volumecontrol/data/SoundProfile;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" start="41" end="41" startBytecode="0" endBytecode="49" sourcefile="SoundProfileStorage.java" sourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" relSourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java"/>
+      <Message>In method com.example.punksta.volumecontrol.model.SoundProfileStorage.getInstance(Context)</Message>
+    </Method>
+    <SourceLine classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" primary="true" start="41" end="41" startBytecode="4" endBytecode="4" sourcefile="SoundProfileStorage.java" sourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" relSourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java">
+      <Message>At SoundProfileStorage.java:[line 41]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="cf16ac46074e34d6b35d6888485746e2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Public static method may expose internal representation by returning a mutable object or array</ShortMessage>
+    <LongMessage>Public static com.example.punksta.volumecontrol.model.SoundProfileStorage.getInstance(Application) may expose internal representation by returning SoundProfileStorage.instance</LongMessage>
+    <Class classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" start="23" end="165" sourcefile="SoundProfileStorage.java" sourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" relSourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java">
+        <Message>At SoundProfileStorage.java:[lines 23-165]</Message>
+      </SourceLine>
+      <Message>In class com.example.punksta.volumecontrol.model.SoundProfileStorage</Message>
+    </Class>
+    <Method classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" name="getInstance" signature="(Landroid/app/Application;)Lcom/example/punksta/volumecontrol/model/SoundProfileStorage;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" start="45" end="48" startBytecode="0" endBytecode="82" sourcefile="SoundProfileStorage.java" sourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" relSourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java"/>
+      <Message>In method com.example.punksta.volumecontrol.model.SoundProfileStorage.getInstance(Application)</Message>
+    </Method>
+    <Field classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" name="instance" signature="Lcom/example/punksta/volumecontrol/model/SoundProfileStorage;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" sourcefile="SoundProfileStorage.java" sourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" relSourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java">
+        <Message>In SoundProfileStorage.java</Message>
+      </SourceLine>
+      <Message>Field com.example.punksta.volumecontrol.model.SoundProfileStorage.instance</Message>
+    </Field>
+    <SourceLine classname="com.example.punksta.volumecontrol.model.SoundProfileStorage" primary="true" start="48" end="48" startBytecode="23" endBytecode="23" sourcefile="SoundProfileStorage.java" sourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" relSourcepath="com/example/punksta/volumecontrol/model/SoundProfileStorage.java">
+      <Message>At SoundProfileStorage.java:[line 48]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="6cf62440a343f0930ca333ed43e229cf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.punksta.apps.libs.VolumeControl.getContext() may expose internal representation by returning VolumeControl.context</LongMessage>
+    <Class classname="com.punksta.apps.libs.VolumeControl" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" start="21" end="125" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+        <Message>At VolumeControl.java:[lines 21-125]</Message>
+      </SourceLine>
+      <Message>In class com.punksta.apps.libs.VolumeControl</Message>
+    </Class>
+    <Method classname="com.punksta.apps.libs.VolumeControl" name="getContext" signature="()Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" start="51" end="51" startBytecode="0" endBytecode="46" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java"/>
+      <Message>In method com.punksta.apps.libs.VolumeControl.getContext()</Message>
+    </Method>
+    <Field classname="com.punksta.apps.libs.VolumeControl" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+        <Message>In VolumeControl.java</Message>
+      </SourceLine>
+      <Message>Field com.punksta.apps.libs.VolumeControl.context</Message>
+    </Field>
+    <SourceLine classname="com.punksta.apps.libs.VolumeControl" primary="true" start="51" end="51" startBytecode="4" endBytecode="4" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+      <Message>At VolumeControl.java:[line 51]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="e0c17054f663c1b8586c65e1dbdd7369" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.punksta.apps.libs.VolumeControl(Context, Handler) may expose internal representation by storing an externally mutable object into VolumeControl.context</LongMessage>
+    <Class classname="com.punksta.apps.libs.VolumeControl" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" start="21" end="125" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+        <Message>At VolumeControl.java:[lines 21-125]</Message>
+      </SourceLine>
+      <Message>In class com.punksta.apps.libs.VolumeControl</Message>
+    </Class>
+    <Method classname="com.punksta.apps.libs.VolumeControl" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/os/Handler;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" start="36" end="48" startBytecode="0" endBytecode="247" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java"/>
+      <Message>In method new com.punksta.apps.libs.VolumeControl(Context, Handler)</Message>
+    </Method>
+    <Field classname="com.punksta.apps.libs.VolumeControl" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+        <Message>In VolumeControl.java</Message>
+      </SourceLine>
+      <Message>Field com.punksta.apps.libs.VolumeControl.context</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="39" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.punksta.apps.libs.VolumeControl" primary="true" start="37" end="37" startBytecode="39" endBytecode="39" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+      <Message>At VolumeControl.java:[line 37]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="1faa1419b84b860e9971bcc5c67f7dba" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.punksta.apps.libs.VolumeControl(Context, Handler) may expose internal representation by storing an externally mutable object into VolumeControl.handler</LongMessage>
+    <Class classname="com.punksta.apps.libs.VolumeControl" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" start="21" end="125" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+        <Message>At VolumeControl.java:[lines 21-125]</Message>
+      </SourceLine>
+      <Message>In class com.punksta.apps.libs.VolumeControl</Message>
+    </Class>
+    <Method classname="com.punksta.apps.libs.VolumeControl" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/os/Handler;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" start="36" end="48" startBytecode="0" endBytecode="247" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java"/>
+      <Message>In method new com.punksta.apps.libs.VolumeControl(Context, Handler)</Message>
+    </Method>
+    <Field classname="com.punksta.apps.libs.VolumeControl" name="handler" signature="Landroid/os/Handler;" isStatic="false" primary="true">
+      <SourceLine classname="com.punksta.apps.libs.VolumeControl" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+        <Message>In VolumeControl.java</Message>
+      </SourceLine>
+      <Message>Field com.punksta.apps.libs.VolumeControl.handler</Message>
+    </Field>
+    <LocalVariable name="handler" register="2" pc="57" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named handler</Message>
+    </LocalVariable>
+    <SourceLine classname="com.punksta.apps.libs.VolumeControl" primary="true" start="39" end="39" startBytecode="57" endBytecode="57" sourcefile="VolumeControl.java" sourcepath="com/punksta/apps/libs/VolumeControl.java" relSourcepath="com/punksta/apps/libs/VolumeControl.java">
+      <Message>At VolumeControl.java:[line 39]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="IL_INFINITE_RECURSIVE_LOOP" abbrev="IL" category="CORRECTNESS" cweid="674">
+    <ShortDescription>An apparent infinite recursive loop</ShortDescription>
+    <Details><![CDATA[
+
+<p>This method unconditionally invokes itself. This would seem to indicate
+an infinite recursive loop that will result in a stack overflow.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/674.html">CWE-674: Uncontrolled Recursion</a>
+and <a href="https://cwe.mitre.org/data/definitions/835.html">CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop')</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_EXPOSE_REP" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Public static method may expose internal representation by returning a mutable object or array</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A public static method returns a reference to a mutable object or
+   an array that is part of the static state of the class.
+   Any code that calls this method can freely modify
+   the underlying array.
+   One fix is to return a copy of the array.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="IL">
+    <Description>Infinite Loop</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="20">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.core.app.ActivityCompat</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat</MissingClass>
+    <MissingClass>androidx.core.app.NotificationCompat$Builder</MissingClass>
+    <MissingClass>androidx.core.app.NotificationManagerCompat</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.BaseActivity</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.R</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.R$drawable</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.R$id</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.R$layout</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.R$mipmap</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.R$string</MissingClass>
+    <MissingClass>com.example.punksta.volumecontrol.R$style</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>java.util.Arrays$ArrayList</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 02:40:18 +0400" total_classes="36" referenced_classes="231" total_bugs="8" total_size="1368" num_packages="6" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="4.65" clock_seconds="0.98" peak_mbytes="307.23" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="7" priority_1="1">
+    <FileStats path="com/example/punksta/volumecontrol/AudioType.java" bugCount="0" size="47"/>
+    <FileStats path="com/example/punksta/volumecontrol/BaseActivity.java" bugCount="0" size="51"/>
+    <FileStats path="com/example/punksta/volumecontrol/BootReceiver.java" bugCount="0" size="16"/>
+    <FileStats path="com/example/punksta/volumecontrol/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/example/punksta/volumecontrol/EditProfileActivity.java" bugCount="0" size="89"/>
+    <FileStats path="com/example/punksta/volumecontrol/MainActivity.java" bugCount="0" size="294"/>
+    <FileStats path="com/example/punksta/volumecontrol/SoundApplication.java" bugCount="3" size="29" bugHash="bb95e1d79ae863dd1ad21a702e711204"/>
+    <FileStats path="com/example/punksta/volumecontrol/SoundService.java" bugCount="0" size="232"/>
+    <FileStats path="com/example/punksta/volumecontrol/data/Settings.java" bugCount="0" size="24"/>
+    <FileStats path="com/example/punksta/volumecontrol/data/SoundProfile.java" bugCount="0" size="21"/>
+    <FileStats path="com/example/punksta/volumecontrol/model/SettingsStorage.java" bugCount="0" size="38"/>
+    <FileStats path="com/example/punksta/volumecontrol/model/SoundProfileStorage.java" bugCount="2" size="110" bugHash="21bd94769d43f16025eb9e46cce16994"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/DNDModeChecker.java" bugCount="0" size="19"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/DynamicShortcutManager.java" bugCount="0" size="37"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/IntentHelper.java" bugCount="0" size="9"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/KeyboardUtils.java" bugCount="0" size="8"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/NotificationWidgetUpdateTracker.java" bugCount="0" size="21"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/ProfileApplier.java" bugCount="0" size="9"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/TestLabUtils.java" bugCount="0" size="5"/>
+    <FileStats path="com/example/punksta/volumecontrol/util/WritePermissionChecker.java" bugCount="0" size="15"/>
+    <FileStats path="com/example/punksta/volumecontrol/view/RingerModeSwitch.java" bugCount="0" size="48"/>
+    <FileStats path="com/example/punksta/volumecontrol/view/VolumeProfileView.java" bugCount="0" size="40"/>
+    <FileStats path="com/example/punksta/volumecontrol/view/VolumeSliderView.java" bugCount="0" size="75"/>
+    <FileStats path="com/punksta/apps/libs/VolumeControl.java" bugCount="3" size="121" bugHash="bf44f712fb15897b60f6b114cb5eea98"/>
+    <PackageStats package="com.example.punksta.volumecontrol" total_bugs="3" total_types="11" total_size="768" priority_2="3">
+      <ClassStats class="com.example.punksta.volumecontrol.AudioType" sourceFile="AudioType.java" interface="false" size="47" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.BaseActivity" sourceFile="BaseActivity.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.BootReceiver" sourceFile="BootReceiver.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.EditProfileActivity" sourceFile="EditProfileActivity.java" interface="false" size="78" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.EditProfileActivity$1" sourceFile="EditProfileActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.MainActivity" sourceFile="MainActivity.java" interface="false" size="278" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.MainActivity$TypeListener" sourceFile="MainActivity.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.SoundApplication" sourceFile="SoundApplication.java" interface="false" size="29" bugs="3" priority_2="3"/>
+      <ClassStats class="com.example.punksta.volumecontrol.SoundService" sourceFile="SoundService.java" interface="false" size="232" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.punksta.volumecontrol.data" total_bugs="0" total_types="2" total_size="45">
+      <ClassStats class="com.example.punksta.volumecontrol.data.Settings" sourceFile="Settings.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.data.SoundProfile" sourceFile="SoundProfile.java" interface="false" size="21" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.punksta.volumecontrol.model" total_bugs="2" total_types="3" total_size="148" priority_2="1" priority_1="1">
+      <ClassStats class="com.example.punksta.volumecontrol.model.SettingsStorage" sourceFile="SettingsStorage.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.model.SoundProfileStorage" sourceFile="SoundProfileStorage.java" interface="false" size="108" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="com.example.punksta.volumecontrol.model.SoundProfileStorage$Listener" sourceFile="SoundProfileStorage.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.punksta.volumecontrol.util" total_bugs="0" total_types="8" total_size="123">
+      <ClassStats class="com.example.punksta.volumecontrol.util.DNDModeChecker" sourceFile="DNDModeChecker.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.util.DynamicShortcutManager" sourceFile="DynamicShortcutManager.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.util.IntentHelper" sourceFile="IntentHelper.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.util.KeyboardUtils" sourceFile="KeyboardUtils.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.util.NotificationWidgetUpdateTracker" sourceFile="NotificationWidgetUpdateTracker.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.util.ProfileApplier" sourceFile="ProfileApplier.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.util.TestLabUtils" sourceFile="TestLabUtils.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.util.WritePermissionChecker" sourceFile="WritePermissionChecker.java" interface="false" size="15" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.punksta.volumecontrol.view" total_bugs="0" total_types="7" total_size="163">
+      <ClassStats class="com.example.punksta.volumecontrol.view.RingerModeSwitch" sourceFile="RingerModeSwitch.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.view.RingerModeSwitch$1" sourceFile="RingerModeSwitch.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.view.RingerModeSwitch$OnRingModeSliderChangeListener" sourceFile="RingerModeSwitch.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.view.VolumeProfileView" sourceFile="VolumeProfileView.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.view.VolumeSliderView" sourceFile="VolumeSliderView.java" interface="false" size="61" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.view.VolumeSliderView$1" sourceFile="VolumeSliderView.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.example.punksta.volumecontrol.view.VolumeSliderView$VolumeSliderChangeListener" sourceFile="VolumeSliderView.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.punksta.apps.libs" total_bugs="3" total_types="5" total_size="121" priority_2="3">
+      <ClassStats class="com.punksta.apps.libs.VolumeControl" sourceFile="VolumeControl.java" interface="false" size="82" bugs="3" priority_2="3"/>
+      <ClassStats class="com.punksta.apps.libs.VolumeControl$1" sourceFile="VolumeControl.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="com.punksta.apps.libs.VolumeControl$AudioObserver" sourceFile="VolumeControl.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="com.punksta.apps.libs.VolumeControl$RingerModeChangeListener" sourceFile="VolumeControl.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.punksta.apps.libs.VolumeControl$VolumeListener" sourceFile="VolumeControl.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="61" invocations="646" avgMicrosecondsPerInvocation="95" maxMicrosecondsPerInvocation="7460" standardDeviationMicrosecondsPerInvocation="339"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="39" invocations="231" avgMicrosecondsPerInvocation="173" maxMicrosecondsPerInvocation="4136" standardDeviationMicrosecondsPerInvocation="399"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="37" invocations="222" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="6827" standardDeviationMicrosecondsPerInvocation="488"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="34" invocations="235" avgMicrosecondsPerInvocation="147" maxMicrosecondsPerInvocation="2598" standardDeviationMicrosecondsPerInvocation="278"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="34" invocations="222" avgMicrosecondsPerInvocation="154" maxMicrosecondsPerInvocation="1730" standardDeviationMicrosecondsPerInvocation="231"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="33" invocations="228" avgMicrosecondsPerInvocation="147" maxMicrosecondsPerInvocation="3645" standardDeviationMicrosecondsPerInvocation="292"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="27" invocations="222" avgMicrosecondsPerInvocation="125" maxMicrosecondsPerInvocation="1531" standardDeviationMicrosecondsPerInvocation="211"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="27" invocations="227" avgMicrosecondsPerInvocation="119" maxMicrosecondsPerInvocation="2734" standardDeviationMicrosecondsPerInvocation="202"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="21" invocations="202" avgMicrosecondsPerInvocation="104" maxMicrosecondsPerInvocation="919" standardDeviationMicrosecondsPerInvocation="157"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="20" invocations="36" avgMicrosecondsPerInvocation="572" maxMicrosecondsPerInvocation="14257" standardDeviationMicrosecondsPerInvocation="2326"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="20" invocations="285" avgMicrosecondsPerInvocation="70" maxMicrosecondsPerInvocation="4355" standardDeviationMicrosecondsPerInvocation="273"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="17" invocations="231" avgMicrosecondsPerInvocation="77" maxMicrosecondsPerInvocation="2905" standardDeviationMicrosecondsPerInvocation="218"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="17" invocations="227" avgMicrosecondsPerInvocation="75" maxMicrosecondsPerInvocation="6939" standardDeviationMicrosecondsPerInvocation="462"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="16" invocations="231" avgMicrosecondsPerInvocation="73" maxMicrosecondsPerInvocation="2025" standardDeviationMicrosecondsPerInvocation="179"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="16" invocations="666" avgMicrosecondsPerInvocation="25" maxMicrosecondsPerInvocation="357" standardDeviationMicrosecondsPerInvocation="24"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="14" invocations="231" avgMicrosecondsPerInvocation="61" maxMicrosecondsPerInvocation="3119" standardDeviationMicrosecondsPerInvocation="227"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="14" invocations="231" avgMicrosecondsPerInvocation="61" maxMicrosecondsPerInvocation="1917" standardDeviationMicrosecondsPerInvocation="174"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="13" invocations="36" avgMicrosecondsPerInvocation="372" maxMicrosecondsPerInvocation="1846" standardDeviationMicrosecondsPerInvocation="477"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

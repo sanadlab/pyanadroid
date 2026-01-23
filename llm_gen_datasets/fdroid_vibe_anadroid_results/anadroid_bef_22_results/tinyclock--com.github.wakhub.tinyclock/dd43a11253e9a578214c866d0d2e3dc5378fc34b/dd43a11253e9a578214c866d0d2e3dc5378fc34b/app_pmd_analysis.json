@@ -1,0 +1,37 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:50:24.511+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/tinyclock/app/src/main/java/com/github/wakhub/tinyclock/SettingsActivity.java",
+      "violations": [
+        {
+          "beginline": 91,
+          "begincolumn": 31,
+          "endline": 91,
+          "endcolumn": 52,
+          "description": "Avoid using redundant field initializer for \u0027clockAppComponentName\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 126,
+          "begincolumn": 40,
+          "endline": 126,
+          "endcolumn": 81,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

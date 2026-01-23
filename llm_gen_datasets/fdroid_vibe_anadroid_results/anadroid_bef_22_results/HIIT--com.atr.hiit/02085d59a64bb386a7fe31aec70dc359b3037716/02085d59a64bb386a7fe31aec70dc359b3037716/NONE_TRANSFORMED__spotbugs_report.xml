@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762882476312" analysisTimestamp="1762882478454" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/HIIT/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/HIIT/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="bd2ba8b646b4a363f4d3a7227c2fe0b3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to streamID in com.atr.hiit.HIITActivity.playAlarm()</LongMessage>
+    <Class classname="com.atr.hiit.HIITActivity" primary="true">
+      <SourceLine classname="com.atr.hiit.HIITActivity" start="35" end="161" sourcefile="HIITActivity.java" sourcepath="com/atr/hiit/HIITActivity.java" relSourcepath="com/atr/hiit/HIITActivity.java">
+        <Message>At HIITActivity.java:[lines 35-161]</Message>
+      </SourceLine>
+      <Message>In class com.atr.hiit.HIITActivity</Message>
+    </Class>
+    <Method classname="com.atr.hiit.HIITActivity" name="playAlarm" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.atr.hiit.HIITActivity" start="98" end="99" startBytecode="0" endBytecode="11" sourcefile="HIITActivity.java" sourcepath="com/atr/hiit/HIITActivity.java" relSourcepath="com/atr/hiit/HIITActivity.java"/>
+      <Message>In method com.atr.hiit.HIITActivity.playAlarm()</Message>
+    </Method>
+    <LocalVariable name="streamID" register="1" pc="17" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named streamID</Message>
+    </LocalVariable>
+    <SourceLine classname="com.atr.hiit.HIITActivity" primary="true" start="98" end="98" startBytecode="16" endBytecode="16" sourcefile="HIITActivity.java" sourcepath="com/atr/hiit/HIITActivity.java" relSourcepath="com/atr/hiit/HIITActivity.java">
+      <Message>At HIITActivity.java:[line 98]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="streamID"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="d43d37af34597a18a911b04a76ee971f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.atr.hiit.HIITActivity.audioManager</LongMessage>
+    <Class classname="com.atr.hiit.HIITActivity" primary="true">
+      <SourceLine classname="com.atr.hiit.HIITActivity" start="35" end="161" sourcefile="HIITActivity.java" sourcepath="com/atr/hiit/HIITActivity.java" relSourcepath="com/atr/hiit/HIITActivity.java">
+        <Message>At HIITActivity.java:[lines 35-161]</Message>
+      </SourceLine>
+      <Message>In class com.atr.hiit.HIITActivity</Message>
+    </Class>
+    <Field classname="com.atr.hiit.HIITActivity" name="audioManager" signature="Landroid/media/AudioManager;" isStatic="false" primary="true">
+      <SourceLine classname="com.atr.hiit.HIITActivity" sourcefile="HIITActivity.java" sourcepath="com/atr/hiit/HIITActivity.java" relSourcepath="com/atr/hiit/HIITActivity.java">
+        <Message>In HIITActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.atr.hiit.HIITActivity.audioManager</Message>
+    </Field>
+    <SourceLine classname="com.atr.hiit.HIITActivity" primary="true" start="59" end="59" startBytecode="60" endBytecode="60" sourcefile="HIITActivity.java" sourcepath="com/atr/hiit/HIITActivity.java" relSourcepath="com/atr/hiit/HIITActivity.java">
+      <Message>At HIITActivity.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="15">
+    <MissingClass>androidx.appcompat.app.AlertDialog</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.DialogFragment</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>com.atr.hiit.R</MissingClass>
+    <MissingClass>com.atr.hiit.R$anim</MissingClass>
+    <MissingClass>com.atr.hiit.R$id</MissingClass>
+    <MissingClass>com.atr.hiit.R$layout</MissingClass>
+    <MissingClass>com.atr.hiit.R$raw</MissingClass>
+    <MissingClass>com.atr.hiit.R$string</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 21:34:36 +0400" total_classes="12" referenced_classes="120" total_bugs="2" total_size="469" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.06" clock_seconds="0.55" peak_mbytes="234.65" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="2">
+    <FileStats path="com/atr/hiit/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/atr/hiit/HIITActivity.java" bugCount="2" size="98" bugHash="c2bff2bbc9042556cdd7f061ad73eeb0"/>
+    <FileStats path="com/atr/hiit/Help.java" bugCount="0" size="23"/>
+    <FileStats path="com/atr/hiit/Settings.java" bugCount="0" size="106"/>
+    <FileStats path="com/atr/hiit/Timer.java" bugCount="0" size="232"/>
+    <PackageStats package="com.atr.hiit" total_bugs="2" total_types="12" total_size="469" priority_2="2">
+      <ClassStats class="com.atr.hiit.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.atr.hiit.HIITActivity" sourceFile="HIITActivity.java" interface="false" size="98" bugs="2" priority_2="2"/>
+      <ClassStats class="com.atr.hiit.Help" sourceFile="Help.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Help$1" sourceFile="Help.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Settings" sourceFile="Settings.java" interface="false" size="92" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Settings$1" sourceFile="Settings.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Settings$2" sourceFile="Settings.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Timer" sourceFile="Timer.java" interface="false" size="171" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Timer$1" sourceFile="Timer.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Timer$2" sourceFile="Timer.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Timer$3" sourceFile="Timer.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.atr.hiit.Timer$4" sourceFile="Timer.java" interface="false" size="25" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="48" invocations="470" avgMicrosecondsPerInvocation="103" maxMicrosecondsPerInvocation="5800" standardDeviationMicrosecondsPerInvocation="364"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="23" invocations="120" avgMicrosecondsPerInvocation="194" maxMicrosecondsPerInvocation="3940" standardDeviationMicrosecondsPerInvocation="437"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="15" invocations="79" avgMicrosecondsPerInvocation="190" maxMicrosecondsPerInvocation="1675" standardDeviationMicrosecondsPerInvocation="291"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="163" avgMicrosecondsPerInvocation="89" maxMicrosecondsPerInvocation="3831" standardDeviationMicrosecondsPerInvocation="318"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="14" invocations="12" avgMicrosecondsPerInvocation="1179" maxMicrosecondsPerInvocation="12410" standardDeviationMicrosecondsPerInvocation="3396"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="13" invocations="79" avgMicrosecondsPerInvocation="168" maxMicrosecondsPerInvocation="1572" standardDeviationMicrosecondsPerInvocation="249"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="12" invocations="79" avgMicrosecondsPerInvocation="162" maxMicrosecondsPerInvocation="2660" standardDeviationMicrosecondsPerInvocation="312"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="12" invocations="79" avgMicrosecondsPerInvocation="160" maxMicrosecondsPerInvocation="3514" standardDeviationMicrosecondsPerInvocation="404"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="12" invocations="79" avgMicrosecondsPerInvocation="159" maxMicrosecondsPerInvocation="6975" standardDeviationMicrosecondsPerInvocation="792"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="11" invocations="84" avgMicrosecondsPerInvocation="141" maxMicrosecondsPerInvocation="2398" standardDeviationMicrosecondsPerInvocation="280"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="489" avgMicrosecondsPerInvocation="24" maxMicrosecondsPerInvocation="273" standardDeviationMicrosecondsPerInvocation="28"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

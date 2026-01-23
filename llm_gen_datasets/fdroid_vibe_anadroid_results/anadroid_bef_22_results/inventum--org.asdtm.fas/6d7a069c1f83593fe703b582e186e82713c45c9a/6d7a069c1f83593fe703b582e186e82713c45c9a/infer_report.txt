@@ -1,0 +1,284 @@
+#0
+app/src/main/java/org/asdtm/fas/activity/BaseActivity.java:52: warning: Ipc On Ui Thread
+  `void BaseActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  50.           }
+  51.   
+  52. >         if (!AppUtils.isNetworkAvailableAndConnected(this)) {
+  53.               Snackbar.make(findViewById(android.R.id.content), getString(R.string.network_error), Snackbar.LENGTH_LONG).show();
+  54.           }
+
+#1
+app/src/main/java/org/asdtm/fas/activity/DiscoverActivity.java:17: warning: Ipc On Ui Thread
+  `void DiscoverActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  15.       @Override
+  16.       protected void onCreate(@Nullable Bundle savedInstanceState) {
+  17. >         super.onCreate(savedInstanceState);
+  18.           setContentView(R.layout.activity_discover);
+  19.   
+
+#2
+app/src/main/java/org/asdtm/fas/activity/HomeActivity.java:28: warning: Ipc On Ui Thread
+  `void HomeActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  26.       @Override
+  27.       protected void onCreate(Bundle savedInstanceState) {
+  28. >         super.onCreate(savedInstanceState);
+  29.           setContentView(R.layout.activity_home);
+  30.           ButterKnife.bind(this);
+
+#3
+app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java:118: warning: Ipc On Ui Thread
+  `void MovieDetailsActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  116.                   loadFromDb();
+  117.               } else {
+  118. >                 loadFromInternet();
+  119.               }
+  120.           }
+
+#4
+app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java:331: warning: Ipc On Ui Thread
+  `boolean MovieDetailsActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  329.                   return true;
+  330.               case R.id.menu_update:
+  331. >                 loadFromInternet();
+  332.                   return true;
+  333.           }
+
+#5
+app/src/main/java/org/asdtm/fas/activity/MoviesActivity.java:25: warning: Ipc On Ui Thread
+  `void MoviesActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  23.       @Override
+  24.       protected void onCreate(Bundle savedInstanceState) {
+  25. >         super.onCreate(savedInstanceState);
+  26.           setContentView(R.layout.activity_movies);
+  27.   
+
+#6
+app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java:98: warning: Ipc On Ui Thread
+  `void PersonDetailsActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+   96.                   loadFromDb();
+   97.               } else {
+   98. >                 loadFromInternet();
+   99.               }
+  100.           }
+
+#7
+app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java:227: warning: Ipc On Ui Thread
+  `boolean PersonDetailsActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  225.                   return true;
+  226.               case R.id.menu_update:
+  227. >                 loadFromInternet();
+  228.                   return true;
+  229.           }
+
+#8
+app/src/main/java/org/asdtm/fas/activity/SettingsActivity.java:79: error: Strict Mode Violation
+  `void SettingsActivity$GeneralPreferenceFragment.onSharedPreferenceChanged(SharedPreferences,String)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  77.           @Override
+  78.           public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+  79. >             updateSummary(key, true);
+  80.           }
+  81.   
+
+#9
+app/src/main/java/org/asdtm/fas/activity/SettingsActivity.java:108: error: Strict Mode Violation
+  `boolean SettingsActivity$GeneralPreferenceFragment.onPreferenceTreeClick(PreferenceScreen,Preference)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. Additional report(s) on the same line were suppressed. 
+  106.                   File cacheDir = getActivity().getCacheDir();
+  107.                   File picassoCacheDir = new File(cacheDir, "picasso-cache");
+  108. >                 int messageId = AppUtils.deleteDir(picassoCacheDir) ? R.string.clear_cache_message_ok : R.string.clear_cache_message_fail;
+  109.                   DialogFragment dialogFragment = new SettingsAlertDialog().newInstance(messageId);
+  110.                   dialogFragment.show(getActivity().getFragmentManager(), "clearCache");
+
+#10
+app/src/main/java/org/asdtm/fas/activity/SettingsActivity.java:111: error: Strict Mode Violation
+  `boolean SettingsActivity$GeneralPreferenceFragment.onPreferenceTreeClick(PreferenceScreen,Preference)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  109.                   DialogFragment dialogFragment = new SettingsAlertDialog().newInstance(messageId);
+  110.                   dialogFragment.show(getActivity().getFragmentManager(), "clearCache");
+  111. >                 updateSummary(Constants.PREF_IMAGES_CACHE, false);
+  112.               }
+  113.               return super.onPreferenceTreeClick(preferenceScreen, preference);
+
+#11
+app/src/main/java/org/asdtm/fas/activity/SettingsActivity.java:132: error: Strict Mode Violation
+  `void SettingsActivity$GeneralPreferenceFragment.onResume()` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  130.   
+  131.               for (String key : SUMMARIES_TO_UPDATE)
+  132. >                 updateSummary(key, false);
+  133.           }
+  134.   
+
+#12
+app/src/main/java/org/asdtm/fas/activity/TvActivity.java:25: warning: Ipc On Ui Thread
+  `void TvActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  23.       @Override
+  24.       protected void onCreate(Bundle savedInstanceState) {
+  25. >         super.onCreate(savedInstanceState);
+  26.           setContentView(R.layout.activity_tv);
+  27.   
+
+#13
+app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java:113: warning: Ipc On Ui Thread
+  `void TvDetailsActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  111.                   loadFromDb();
+  112.               } else {
+  113. >                 loadFromInternet();
+  114.               }
+  115.           }
+
+#14
+app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java:343: warning: Ipc On Ui Thread
+  `boolean TvDetailsActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  341.                   return true;
+  342.               case R.id.menu_update:
+  343. >                 loadFromInternet();
+  344.                   return true;
+  345.           }
+
+#15
+app/src/main/java/org/asdtm/fas/fragment/DiscoverFragment.java:193: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverFragment` does not nullify View field `discoverButton` (type `android.widget.TextView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  191.   
+  192.       @Override
+  193. >     public void onDestroyView() {
+  194.           super.onDestroyView();
+  195.           unbinder.unbind();
+
+#16
+app/src/main/java/org/asdtm/fas/fragment/DiscoverFragment.java:193: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverFragment` does not nullify View field `genresView` (type `android.widget.TextView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  191.   
+  192.       @Override
+  193. >     public void onDestroyView() {
+  194.           super.onDestroyView();
+  195.           unbinder.unbind();
+
+#17
+app/src/main/java/org/asdtm/fas/fragment/DiscoverFragment.java:193: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverFragment` does not nullify View field `moviesRadioButton` (type `android.widget.RadioButton`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  191.   
+  192.       @Override
+  193. >     public void onDestroyView() {
+  194.           super.onDestroyView();
+  195.           unbinder.unbind();
+
+#18
+app/src/main/java/org/asdtm/fas/fragment/DiscoverFragment.java:193: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverFragment` does not nullify View field `ratingSeekBar` (type `android.support.v7.widget.AppCompatSeekBar`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  191.   
+  192.       @Override
+  193. >     public void onDestroyView() {
+  194.           super.onDestroyView();
+  195.           unbinder.unbind();
+
+#19
+app/src/main/java/org/asdtm/fas/fragment/DiscoverFragment.java:193: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverFragment` does not nullify View field `ratingView` (type `android.widget.TextView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  191.   
+  192.       @Override
+  193. >     public void onDestroyView() {
+  194.           super.onDestroyView();
+  195.           unbinder.unbind();
+
+#20
+app/src/main/java/org/asdtm/fas/fragment/DiscoverFragment.java:193: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverFragment` does not nullify View field `sortSpinner` (type `android.widget.Spinner`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  191.   
+  192.       @Override
+  193. >     public void onDestroyView() {
+  194.           super.onDestroyView();
+  195.           unbinder.unbind();
+
+#21
+app/src/main/java/org/asdtm/fas/fragment/DiscoverFragment.java:193: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverFragment` does not nullify View field `tvRadioButton` (type `android.widget.RadioButton`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  191.   
+  192.       @Override
+  193. >     public void onDestroyView() {
+  194.           super.onDestroyView();
+  195.           unbinder.unbind();
+
+#22
+app/src/main/java/org/asdtm/fas/fragment/DiscoverResultFragment.java:200: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverResultFragment` does not nullify View field `mCustomErrorView` (type `org.asdtm.fas.view.CustomErrorView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  198.   
+  199.       @Override
+  200. >     public void onDestroyView() {
+  201.           super.onDestroyView();
+  202.           unbinder.unbind();
+
+#23
+app/src/main/java/org/asdtm/fas/fragment/DiscoverResultFragment.java:200: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverResultFragment` does not nullify View field `progressBar` (type `fr.castorflex.android.circularprogressbar.CircularProgressBar`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  198.   
+  199.       @Override
+  200. >     public void onDestroyView() {
+  201.           super.onDestroyView();
+  202.           unbinder.unbind();
+
+#24
+app/src/main/java/org/asdtm/fas/fragment/DiscoverResultFragment.java:200: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.DiscoverResultFragment` does not nullify View field `recyclerView` (type `android.support.v7.widget.RecyclerView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  198.   
+  199.       @Override
+  200. >     public void onDestroyView() {
+  201.           super.onDestroyView();
+  202.           unbinder.unbind();
+
+#25
+app/src/main/java/org/asdtm/fas/fragment/MoviesFragment.java:215: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.MoviesFragment` does not nullify View field `mCustomErrorView` (type `org.asdtm.fas.view.CustomErrorView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  213.   
+  214.       @Override
+  215. >     public void onDestroyView() {
+  216.           super.onDestroyView();
+  217.           unbinder.unbind();
+
+#26
+app/src/main/java/org/asdtm/fas/fragment/MoviesFragment.java:215: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.MoviesFragment` does not nullify View field `progressBar` (type `fr.castorflex.android.circularprogressbar.CircularProgressBar`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  213.   
+  214.       @Override
+  215. >     public void onDestroyView() {
+  216.           super.onDestroyView();
+  217.           unbinder.unbind();
+
+#27
+app/src/main/java/org/asdtm/fas/fragment/MoviesFragment.java:215: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.MoviesFragment` does not nullify View field `recyclerView` (type `android.support.v7.widget.RecyclerView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  213.   
+  214.       @Override
+  215. >     public void onDestroyView() {
+  216.           super.onDestroyView();
+  217.           unbinder.unbind();
+
+#28
+app/src/main/java/org/asdtm/fas/fragment/TvFragment.java:218: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.TvFragment` does not nullify View field `mCustomErrorView` (type `org.asdtm.fas.view.CustomErrorView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  216.   
+  217.       @Override
+  218. >     public void onDestroyView() {
+  219.           super.onDestroyView();
+  220.           unbinder.unbind();
+
+#29
+app/src/main/java/org/asdtm/fas/fragment/TvFragment.java:218: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.TvFragment` does not nullify View field `progressBar` (type `fr.castorflex.android.circularprogressbar.CircularProgressBar`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  216.   
+  217.       @Override
+  218. >     public void onDestroyView() {
+  219.           super.onDestroyView();
+  220.           unbinder.unbind();
+
+#30
+app/src/main/java/org/asdtm/fas/fragment/TvFragment.java:218: warning: Fragment Retains View
+  Fragment `org.asdtm.fas.fragment.TvFragment` does not nullify View field `recyclerView` (type `android.support.v7.widget.RecyclerView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  216.   
+  217.       @Override
+  218. >     public void onDestroyView() {
+  219.           super.onDestroyView();
+  220.           unbinder.unbind();
+
+Found 31 issues
+                             Issue Type(ISSUED_TYPE_ID): #
+  Fragment Retains View(CHECKERS_FRAGMENT_RETAINS_VIEW): 16
+                     Ipc On Ui Thread(IPC_ON_UI_THREAD): 11
+           Strict Mode Violation(STRICT_MODE_VIOLATION): 4

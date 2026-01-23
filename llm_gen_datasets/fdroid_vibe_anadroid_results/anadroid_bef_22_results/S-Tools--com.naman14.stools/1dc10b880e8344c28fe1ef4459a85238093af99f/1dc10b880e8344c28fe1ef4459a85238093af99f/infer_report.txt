@@ -1,0 +1,456 @@
+#0
+app/src/main/java/com/naman14/stools/sensors/SensorGraphActivity.java:179: error: UI Thread Starvation
+  `void SensorGraphActivity.onPause()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  177.   	protected void onPause() {
+  178.   		super.onPause();
+  179. > 		stopSampling();
+  180.   	}
+  181.   
+
+#1
+app/src/main/java/com/naman14/stools/sensors/SensorGraphActivity.java:188: error: UI Thread Starvation
+  `boolean SensorGraphActivity.onTouch(View,MotionEvent)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  186.   		if (v == chartView && ticker != null && channel != null) {
+  187.   
+  188. > 			stopSampling();
+  189.   		}
+  190.   		return v.onTouchEvent(event);
+
+#2
+app/src/main/java/org.achartengine/chart/XYChart.java:124: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` reads without synchronization from `this.mScreenR`, which races with the write in method `XYChart.setScreenR(...)`.
+ Reporting because this access may occur on a background thread. 
+  122.       }
+  123.       int bottom = y + height - margins[2] - legendSize;
+  124. >     if (mScreenR == null) {
+  125.         mScreenR = new Rect();
+  126.       }
+
+#3
+app/src/main/java/org.achartengine/chart/XYChart.java:125: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.draw(...)` writes to field `this.mScreenR` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  123.       int bottom = y + height - margins[2] - legendSize;
+  124.       if (mScreenR == null) {
+  125. >       mScreenR = new Rect();
+  126.       }
+  127.       mScreenR.set(left, top, right, bottom);
+
+#4
+app/src/main/java/org.achartengine/chart/XYChart.java:149: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.draw(...)` writes to field `this.mScale` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  147.       int angle = or.getAngle();
+  148.       boolean rotate = angle == 90;
+  149. >     mScale = (float) (height) / width;
+  150.       mTranslate = Math.abs(width - height) / 2;
+  151.       if (mScale < 1) {
+
+#5
+app/src/main/java/org.achartengine/chart/XYChart.java:150: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.draw(...)` writes to field `this.mTranslate` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  148.       boolean rotate = angle == 90;
+  149.       mScale = (float) (height) / width;
+  150. >     mTranslate = Math.abs(width - height) / 2;
+  151.       if (mScale < 1) {
+  152.         mTranslate *= -1;
+
+#6
+app/src/main/java/org.achartengine/chart/XYChart.java:151: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` reads without synchronization from `this.mScale`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because this access may occur on a background thread. 
+  149.       mScale = (float) (height) / width;
+  150.       mTranslate = Math.abs(width - height) / 2;
+  151. >     if (mScale < 1) {
+  152.         mTranslate *= -1;
+  153.       }
+
+#7
+app/src/main/java/org.achartengine/chart/XYChart.java:152: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` reads without synchronization from `this.mTranslate`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because this access may occur on a background thread. 
+  150.       mTranslate = Math.abs(width - height) / 2;
+  151.       if (mScale < 1) {
+  152. >       mTranslate *= -1;
+  153.       }
+  154.       mCenter = new Point((x + width) / 2, (y + height) / 2);
+
+#8
+app/src/main/java/org.achartengine/chart/XYChart.java:154: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.draw(...)` writes to field `this.mCenter` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  152.         mTranslate *= -1;
+  153.       }
+  154. >     mCenter = new Point((x + width) / 2, (y + height) / 2);
+  155.       if (rotate) {
+  156.         transform(canvas, angle, false);
+
+#9
+app/src/main/java/org.achartengine/chart/XYChart.java:185: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` reads without synchronization from container `this.mCalcRange` via call to `Map.get(...)`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because this access may occur on a background thread. 
+  183.         isMinYSet[i] = mRenderer.isMinYSet(i);
+  184.         isMaxYSet[i] = mRenderer.isMaxYSet(i);
+  185. >       if (mCalcRange.get(i) == null) {
+  186.           mCalcRange.put(i, new double[4]);
+  187.         }
+
+#10
+app/src/main/java/org.achartengine/chart/XYChart.java:186: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.draw(...)` mutates container `this.mCalcRange` via call to `Map.put(...)` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  184.         isMaxYSet[i] = mRenderer.isMaxYSet(i);
+  185.         if (mCalcRange.get(i) == null) {
+  186. >         mCalcRange.put(i, new double[4]);
+  187.         }
+  188.       }
+
+#11
+app/src/main/java/org.achartengine/chart/XYChart.java:238: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.draw(...)` writes to field `this.clickableAreas` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  236.       // 2) We don't need random seeking, only sequential reading/writing, so
+  237.       // linked list makes sense
+  238. >     clickableAreas = new HashMap<Integer, List<ClickableArea>>();
+  239.       for (int i = 0; i < sLength; i++) {
+  240.         XYSeries series = mDataset.getSeriesAt(i);
+
+#12
+app/src/main/java/org.achartengine/chart/XYChart.java:240: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` reads without synchronization from `this.mDataset`, which races with the write in method `XYChart.setDatasetRenderer(...)`.
+ Reporting because this access may occur on a background thread. 
+  238.       clickableAreas = new HashMap<Integer, List<ClickableArea>>();
+  239.       for (int i = 0; i < sLength; i++) {
+  240. >       XYSeries series = mDataset.getSeriesAt(i);
+  241.         int scale = series.getScaleNumber();
+  242.         if (series.getItemCount() == 0) {
+
+#13
+app/src/main/java/org.achartengine/chart/XYChart.java:247: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` reads without synchronization from `this.mRenderer`, which races with the write in method `XYChart.setDatasetRenderer(...)`.
+ Reporting because this access may occur on a background thread. 
+  245.   
+  246.         hasValues = true;
+  247. >       XYSeriesRenderer seriesRenderer = (XYSeriesRenderer) mRenderer.getSeriesRendererAt(i);
+  248.   
+  249.         // int originalValuesLength = series.getItemCount();
+
+#14
+app/src/main/java/org.achartengine/chart/XYChart.java:258: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` reads without synchronization from `this.clickableAreas`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because this access may occur on a background thread. 
+  256.         LinkedList<ClickableArea> clickableArea = new LinkedList<ClickableArea>();
+  257.   
+  258. >       clickableAreas.put(i, clickableArea);
+  259.   
+  260.         synchronized (series) {
+
+#15
+app/src/main/java/org.achartengine/chart/XYChart.java:451: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.draw(...)` indirectly reads without synchronization from `this.mCenter`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because this access may occur on a background thread. 
+  449.             width, height, legendSize, paint, false);
+  450.       } else if (or == Orientation.VERTICAL) {
+  451. >       transform(canvas, angle, true);
+  452.         drawLegend(canvas, mRenderer, titles, left, right, y + (int) mRenderer.getXLabelsPadding(),
+  453.             width, height, legendSize, paint, false);
+
+#16
+app/src/main/java/org.achartengine/chart/XYChart.java:492: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.getScreenR()` reads without synchronization from `this.mScreenR`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  490.   
+  491.     protected Rect getScreenR() {
+  492. >     return mScreenR;
+  493.     }
+  494.   
+
+#17
+app/src/main/java/org.achartengine/chart/XYChart.java:496: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.setScreenR(...)` writes to field `this.mScreenR` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  494.   
+  495.     protected void setScreenR(Rect screenR) {
+  496. >     mScreenR = screenR;
+  497.     }
+  498.   
+
+#18
+app/src/main/java/org.achartengine/chart/XYChart.java:839: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.getCalcRange(...)` reads without synchronization from container `this.mCalcRange` via call to `Map.get(...)`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  837.   
+  838.     public double[] getCalcRange(int scale) {
+  839. >     return mCalcRange.get(scale);
+  840.     }
+  841.   
+
+#19
+app/src/main/java/org.achartengine/chart/XYChart.java:843: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYChart.setCalcRange(...)` mutates container `this.mCalcRange` via call to `Map.put(...)` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  841.   
+  842.     public void setCalcRange(double[] range, int scale) {
+  843. >     mCalcRange.put(scale, range);
+  844.     }
+  845.   
+
+#20
+app/src/main/java/org.achartengine/chart/XYChart.java:847: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.toRealPoint(...)` indirectly reads without synchronization from `this.mScreenR`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  845.   
+  846.     public double[] toRealPoint(float screenX, float screenY) {
+  847. >     return toRealPoint(screenX, screenY, 0);
+  848.     }
+  849.   
+
+#21
+app/src/main/java/org.achartengine/chart/XYChart.java:851: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.toScreenPoint(...)` indirectly reads without synchronization from `this.mScreenR`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  849.   
+  850.     public double[] toScreenPoint(double[] realPoint) {
+  851. >     return toScreenPoint(realPoint, 0);
+  852.     }
+  853.   
+
+#22
+app/src/main/java/org.achartengine/chart/XYChart.java:876: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.toRealPoint(...)` indirectly reads without synchronization from container `this.mCalcRange` via call to `Map.get(...)`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  874.       if (!mRenderer.isMinXSet(scale) || !mRenderer.isMaxXSet(scale) || !mRenderer.isMinXSet(scale)
+  875.           || !mRenderer.isMaxYSet(scale)) {
+  876. >       double[] calcRange = getCalcRange(scale);
+  877.         realMinX = calcRange[0];
+  878.         realMaxX = calcRange[1];
+
+#23
+app/src/main/java/org.achartengine/chart/XYChart.java:882: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.toRealPoint(...)` reads without synchronization from `this.mScreenR`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  880.         realMaxY = calcRange[3];
+  881.       }
+  882. >     if (mScreenR != null) {
+  883.         return new double[] {
+  884.             (screenX - mScreenR.left) * (realMaxX - realMinX) / mScreenR.width() + realMinX,
+
+#24
+app/src/main/java/org.achartengine/chart/XYChart.java:899: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.toScreenPoint(...)` indirectly reads without synchronization from container `this.mCalcRange` via call to `Map.get(...)`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  897.       if (!mRenderer.isMinXSet(scale) || !mRenderer.isMaxXSet(scale) || !mRenderer.isMinXSet(scale)
+  898.           || !mRenderer.isMaxYSet(scale)) {
+  899. >       double[] calcRange = getCalcRange(scale);
+  900.         realMinX = calcRange[0];
+  901.         realMaxX = calcRange[1];
+
+#25
+app/src/main/java/org.achartengine/chart/XYChart.java:905: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.toScreenPoint(...)` reads without synchronization from `this.mScreenR`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  903.         realMaxY = calcRange[3];
+  904.       }
+  905. >     if (mScreenR != null) {
+  906.         return new double[] {
+  907.             (realPoint[0] - realMinX) * mScreenR.width() / (realMaxX - realMinX) + mScreenR.left,
+
+#26
+app/src/main/java/org.achartengine/chart/XYChart.java:915: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYChart.getSeriesAndPointForScreenCoordinate(...)` reads without synchronization from `this.clickableAreas`, which races with the write in method `XYChart.draw(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  913.   
+  914.     public SeriesSelection getSeriesAndPointForScreenCoordinate(final Point screenPoint) {
+  915. >     if (clickableAreas != null)
+  916.         for (int seriesIndex = clickableAreas.size() - 1; seriesIndex >= 0; seriesIndex--) {
+  917.           // series 0 is drawn first. Then series 1 is drawn on top, and series 2
+
+#27
+app/src/main/java/org.achartengine/model/CategorySeries.java:138: warning: Thread Safety Violation
+  Read/Write race. Non-private method `CategorySeries.toXYSeries()` reads without synchronization from container `this.mValues` via call to `List.iterator()`, which races with the write in method `CategorySeries.remove(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  136.       XYSeries xySeries = new XYSeries(mTitle);
+  137.       int k = 0;
+  138. >     for (double value : mValues) {
+  139.         xySeries.add(++k, value);
+  140.       }
+
+#28
+app/src/main/java/org.achartengine/model/RangeCategorySeries.java:92: warning: Thread Safety Violation
+  Read/Write race. Non-private method `RangeCategorySeries.getMaximumValue(...)` reads without synchronization from container `this.mMaxValues` via call to `List.get(...)`, which races with the write in method `RangeCategorySeries.add(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  90.      */
+  91.     public double getMaximumValue(int index) {
+  92. >     return mMaxValues.get(index);
+  93.     }
+  94.   
+
+#29
+app/src/main/java/org.achartengine/model/RangeCategorySeries.java:107: warning: Thread Safety Violation
+  Read/Write race. Non-private method `RangeCategorySeries.toXYSeries()` indirectly reads without synchronization from container `this.mMaxValues` via call to `List.get(...)`, which races with the write in method `RangeCategorySeries.add(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  105.         // the new fast XYSeries implementation doesn't allow 2 values at the same X,
+  106.         // so I had to do a hack until I find a better solution
+  107. >       xySeries.add(k + 1.000001, getMaximumValue(k));
+  108.       }
+  109.       return xySeries;
+
+#30
+app/src/main/java/org.achartengine/model/XYSeries.java:203: error: Null Dereference
+  `Object IndexXYMap.getYByIndex(int)` could be null (from the call to `IndexXYMap.getYByIndex(...)` on line 203) and is dereferenced. 
+  201.      */
+  202.     public synchronized double getY(int index) {
+  203. >     return mXY.getYByIndex(index);
+  204.     }
+  205.   
+
+#31
+app/src/main/java/org.achartengine/model/XYSeries.java:215: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYSeries.addAnnotation(...)` mutates container `this.mStringXY` via call to `IndexXYMap.put(...)` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  213.     public void addAnnotation(String annotation, double x, double y) {
+  214.       mAnnotations.add(annotation);
+  215. >     mStringXY.put(x, y);
+  216.     }
+  217.   
+
+#32
+app/src/main/java/org.achartengine/model/XYSeries.java:225: warning: Thread Safety Violation
+  Unprotected write. Non-private method `XYSeries.removeAnnotation(...)` indirectly mutates container `this.mStringXY` via call to `TreeMap.remove(...)` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  223.     public void removeAnnotation(int index) {
+  224.       mAnnotations.remove(index);
+  225. >     mStringXY.removeByIndex(index);
+  226.     }
+  227.   
+
+#33
+app/src/main/java/org.achartengine/model/XYSeries.java:245: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYSeries.getAnnotationY(...)` indirectly reads without synchronization from container `this.mStringXY` via call to `TreeMap.get(...)`, which races with the write in method `XYSeries.clear()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  243.      */
+  244.     public double getAnnotationY(int index) {
+  245. >     return mStringXY.getYByIndex(index);
+  246.     }
+  247.   
+
+#34
+app/src/main/java/org.achartengine/model/XYSeries.java:245: error: Null Dereference
+  `Object IndexXYMap.getYByIndex(int)` could be null (from the call to `IndexXYMap.getYByIndex(...)` on line 245) and is dereferenced. 
+  243.      */
+  244.     public double getAnnotationY(int index) {
+  245. >     return mStringXY.getYByIndex(index);
+  246.     }
+  247.   
+
+#35
+app/src/main/java/org.achartengine/model/XYSeries.java:327: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYSeries.getMinX()` reads without synchronization from `this.mMinX`, which races with the write in method `XYSeries.add(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  325.      */
+  326.     public double getMinX() {
+  327. >     return mMinX;
+  328.     }
+  329.   
+
+#36
+app/src/main/java/org.achartengine/model/XYSeries.java:336: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYSeries.getMinY()` reads without synchronization from `this.mMinY`, which races with the write in method `XYSeries.add(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  334.      */
+  335.     public double getMinY() {
+  336. >     return mMinY;
+  337.     }
+  338.   
+
+#37
+app/src/main/java/org.achartengine/model/XYSeries.java:345: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYSeries.getMaxX()` reads without synchronization from `this.mMaxX`, which races with the write in method `XYSeries.add(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  343.      */
+  344.     public double getMaxX() {
+  345. >     return mMaxX;
+  346.     }
+  347.   
+
+#38
+app/src/main/java/org.achartengine/model/XYSeries.java:354: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYSeries.getMaxY()` reads without synchronization from `this.mMaxY`, which races with the write in method `XYSeries.add(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  352.      */
+  353.     public double getMaxY() {
+  354. >     return mMaxY;
+  355.     }
+  356.   }
+
+#39
+app/src/main/java/org.achartengine/model/XYValueSeries.java:127: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYValueSeries.getMinValue()` reads without synchronization from `this.mMinValue`, which races with the write in method `XYValueSeries.clear()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  125.      */
+  126.     public double getMinValue() {
+  127. >     return mMinValue;
+  128.     }
+  129.   
+
+#40
+app/src/main/java/org.achartengine/model/XYValueSeries.java:136: warning: Thread Safety Violation
+  Read/Write race. Non-private method `XYValueSeries.getMaxValue()` reads without synchronization from `this.mMaxValue`, which races with the write in method `XYValueSeries.clear()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  134.      */
+  135.     public double getMaxValue() {
+  136. >     return mMaxValue;
+  137.     }
+  138.   
+
+#41
+app/src/main/java/org.achartengine/renderer/XYMultipleSeriesRenderer.java:635: error: Null Dereference
+  null (null value originating from line 635) is dereferenced. 
+  633.      */
+  634.     public synchronized void addYTextLabel(double y, String text, int scale) {
+  635. >     mYTextLabels.get(scale).put(y, text);
+  636.     }
+  637.   
+
+#42
+app/src/main/java/org.achartengine/renderer/XYMultipleSeriesRenderer.java:645: error: Null Dereference
+  null (null value originating from line 645) is dereferenced. 
+  643.      */
+  644.     public synchronized void removeYTextLabel(double y, int scale) {
+  645. >     mYTextLabels.get(scale).remove(y);
+  646.     }
+  647.   
+
+#43
+app/src/main/java/org.achartengine/renderer/XYMultipleSeriesRenderer.java:666: error: Null Dereference
+  null (null value originating from line 666) is dereferenced. 
+  664.      */
+  665.     public synchronized String getYTextLabel(Double y, int scale) {
+  666. >     return mYTextLabels.get(scale).get(y);
+  667.     }
+  668.   
+
+#44
+app/src/main/java/org.achartengine/renderer/XYMultipleSeriesRenderer.java:685: error: Null Dereference
+  null (null value originating from line 685) is dereferenced. 
+  683.      */
+  684.     public synchronized Double[] getYTextLabelLocations(int scale) {
+  685. >     return mYTextLabels.get(scale).keySet().toArray(new Double[0]);
+  686.     }
+  687.   
+
+#45
+app/src/main/java/org.achartengine/renderer/XYMultipleSeriesRenderer.java:701: error: Null Dereference
+  null (null value originating from line 701) is dereferenced. 
+  699.      */
+  700.     public synchronized void clearYTextLabels(int scale) {
+  701. >     mYTextLabels.get(scale).clear();
+  702.     }
+  703.   
+
+Found 46 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 37
+             Null Dereference(NULLPTR_DEREFERENCE): 7
+                  UI Thread Starvation(STARVATION): 2

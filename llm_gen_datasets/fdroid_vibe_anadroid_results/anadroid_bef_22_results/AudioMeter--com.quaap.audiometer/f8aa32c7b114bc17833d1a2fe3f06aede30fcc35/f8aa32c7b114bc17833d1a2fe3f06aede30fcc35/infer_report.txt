@@ -1,0 +1,39 @@
+#0
+app/src/main/java/com/quaap/audiometer/MainActivity.java:125: error: UI Thread Starvation
+  `void MainActivity$4.onClick(View)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  123.                       }
+  124.                   } else {
+  125. >                     stopit();
+  126.                   }
+  127.               }
+
+#1
+app/src/main/java/com/quaap/audiometer/MainActivity.java:260: error: UI Thread Starvation
+  `void MainActivity.onPause()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  258.               final ToggleButton onoff = (ToggleButton) findViewById(R.id.toggleButton);
+  259.               onoff.setChecked(false);
+  260. >             stopit();
+  261.           }
+  262.   
+
+#2
+app/src/main/java/com/quaap/audiometer/MainActivity.java:315: error: UI Thread Starvation
+  `void MainActivity.onStop()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  313.       @Override
+  314.       protected void onStop() {
+  315. >         stopit();
+  316.           super.onStop();
+  317.       }
+
+#3
+app/src/main/java/com/quaap/audiometer/MainActivity.java:321: error: UI Thread Starvation
+  `void MainActivity.onDestroy()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  319.       @Override
+  320.       protected void onDestroy() {
+  321. >         stopit();
+  322.   
+  323.           super.onDestroy();
+
+Found 4 issues
+        Issue Type(ISSUED_TYPE_ID): #
+  UI Thread Starvation(STARVATION): 4

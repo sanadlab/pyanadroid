@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.3">
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `#faf8ef` with a theme that also paints a background (inferred theme is `@style/Theme.GPTGame2048`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="    android:background=&quot;#faf8ef&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="9"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveRight` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveRight()) spawnRandomTile();"
+        errorLine2="                    ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="31"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `spawnRandomTile` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveRight()) spawnRandomTile();"
+        errorLine2="                                 ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="31"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `checkGameOver` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                checkGameOver();"
+        errorLine2="                ~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="32"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveLeft` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveLeft()) spawnRandomTile();"
+        errorLine2="                    ~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="37"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `spawnRandomTile` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveLeft()) spawnRandomTile();"
+        errorLine2="                                ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="37"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `checkGameOver` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                checkGameOver();"
+        errorLine2="                ~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="38"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveUp` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveUp()) spawnRandomTile();"
+        errorLine2="                    ~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="43"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `spawnRandomTile` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveUp()) spawnRandomTile();"
+        errorLine2="                              ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="43"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `checkGameOver` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                checkGameOver();"
+        errorLine2="                ~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="44"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `moveDown` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveDown()) spawnRandomTile();"
+        errorLine2="                    ~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="49"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `spawnRandomTile` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                if (moveDown()) spawnRandomTile();"
+        errorLine2="                                ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="49"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `checkGameOver` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                checkGameOver();"
+        errorLine2="                ~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/MainActivity.java"
+            line="50"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` member of class `GestureListener` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="        gestureDetector = new GestureDetector(context, new GestureListener());"
+        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTGame2048/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptgame2048/OnSwipeTouchListener.java"
+            line="12"
+            column="56"/>
+    </issue>
+
+</issues>

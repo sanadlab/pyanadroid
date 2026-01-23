@@ -1,0 +1,12 @@
+#0
+app/src/main/java/com/ebaschiera/triplecamel/ShareActivity.java:39: warning: Regex Op On Ui Thread
+  `void ShareActivity.onCreate(Bundle)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  37.           if (amazon_share_text.matches(".*(?:https://(?:www\\.|smile\\.)?(?:amazon|amzn)\\.(?:com|ae|asia|ca|cn|de|es|eu|fr|in|it|nl|sa|sg|co\\.jp|co\\.uk|com\\.au|com\\.br|com\\.mx|com\\.tr)|(?:https://a\\.co))/.*")) {
+  38.               //Log.d("triple", "It matches!");
+  39. >             Pattern p = Pattern.compile("(https://(?:www\\.|smile\\.)?(?:amazon|amzn)\\.(?:com|ae|asia|ca|cn|de|es|eu|fr|in|it|nl|sa|sg|co\\.jp|co\\.uk|com\\.au|com\\.br|com\\.mx|com\\.tr)/.*)|(https://a\\.co/.*)");
+  40.               Matcher m = p.matcher(amazon_share_text);
+  41.               String amazon_share_url = null;
+
+Found 1 issue
+                    Issue Type(ISSUED_TYPE_ID): #
+  Regex Op On Ui Thread(REGEX_OP_ON_UI_THREAD): 1

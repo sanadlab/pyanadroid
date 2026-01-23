@@ -1,0 +1,111 @@
+#0
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/GoldLeaf.java:215: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 214 is not closed after the last access at line 215. 
+  213.           try{
+  214.               BufferedInputStream bufferedInStream = new BufferedInputStream(context.getContentResolver().openInputStream(nspElements.get(0).getUri()));      // TODO: refactor?
+  215. >             if (bufferedInStream.skip(realNcaOffset) != realNcaOffset) {
+  216.                   issueDescription = "GL Failed to skip NCA offset";
+  217.                   return false;
+
+#1
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/GoldLeaf.java:224: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 214 is not closed after the last access at line 224. 
+  222.                       readPice = (int)(realNcaSize - readFrom);    // TODO: Troubles could raise here
+  223.                   readBuf = new byte[readPice];
+  224. >                 if (bufferedInStream.read(readBuf) != readPice) {
+  225.                       issueDescription = "GL Failed to read data from file.";
+  226.                       return false;
+
+#2
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/GoldLeaf.java:229: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 214 is not closed after the last access at line 229. 
+  227.                   }
+  228.   
+  229. >                 if (writeUsb(readBuf)) {
+  230.                       issueDescription = "GL Failed to write data into NS.";
+  231.                       return false;
+
+#3
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/GoldLeaf.java:246: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 214 is not closed after the last access at line 246. 
+  244.               return false;
+  245.           }
+  246. >         return true;
+  247.       }
+  248.   
+
+#4
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilNET.java:281: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 276 is not closed after the last access at line 281. 
+  279.               byte[] byteBuf;
+  280.   
+  281. >             if (bis.skip(start) != start){
+  282.                   nspElem.setStatus(context.getResources().getString(R.string.status_failed_to_upload));
+  283.                   throw new Exception("NET: Unable to skip requested range");
+
+#5
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilNET.java:294: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 276 is not closed after the last access at line 294. 
+  292.                   byteBuf = new byte[readPice];
+  293.   
+  294. >                 if (bis.read(byteBuf) != readPice){
+  295.                       throw new Exception("NET: Reading from file stream suddenly ended");
+  296.                   }
+
+#6
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilNET.java:307: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 276 is not closed after the last access at line 307. 
+  305.               resetProgressBar();
+  306.           }
+  307. >         catch (IOException ioe){
+  308.               nspElem.setStatus(context.getResources().getString(R.string.status_failed_to_upload));      // TODO: REDUNDANT?
+  309.               throw new Exception("NET: File transmission failed. Returned: "+ioe.getMessage());
+
+#7
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilNET.java:311: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 276 is not closed after the last access at line 311. 
+  309.               throw new Exception("NET: File transmission failed. Returned: "+ioe.getMessage());
+  310.           }
+  311. >     }
+  312.       /**
+  313.        * Close when done
+
+#8
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilUSB.java:175: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 163 is not closed after the last access at line 175. 
+  173.               byte[] readBuf;//= new byte[1048576];        // eq. Allocate 1mb
+  174.   
+  175. >             if (bufferedInStream.skip(receivedRangeOffset) != receivedRangeOffset){
+  176.                   issueDescription = "TF Requested skip is out of file size. Nothing to transmit.";
+  177.                   return false;
+
+#9
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilUSB.java:191: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 163 is not closed after the last access at line 191. 
+  189.                   readBuf = new byte[readPice];                         // TODO: not perfect moment, consider refactoring.
+  190.   
+  191. >                 if (bufferedInStream.read(readBuf) != readPice) {
+  192.                       issueDescription = "TF Reading of stream suddenly ended";
+  193.                       return false;
+
+#10
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilUSB.java:196: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 163 is not closed after the last access at line 196. 
+  194.                   }
+  195.                   //write to USB
+  196. >                 if (writeUsb(readBuf)) {
+  197.                       issueDescription = "TF Failure during NSP transmission.";
+  198.                       return false;
+
+#11
+app/src/main/java/com/blogspot/developersu/ns_usbloader/service/TinfoilUSB.java:213: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 163 is not closed after the last access at line 213. 
+  211.               return false;
+  212.           }
+  213. >         return true;
+  214.       }
+  215.       /**
+
+Found 12 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Resource Leak(PULSE_RESOURCE_LEAK): 12

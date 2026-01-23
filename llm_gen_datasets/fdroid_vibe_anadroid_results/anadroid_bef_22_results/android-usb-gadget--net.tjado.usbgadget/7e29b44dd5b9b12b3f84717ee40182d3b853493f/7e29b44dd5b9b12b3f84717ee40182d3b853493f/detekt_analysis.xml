@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/ExecuteAsRootUtil.kt">
+	<error line="74" column="9" severity="warning" message="Function execute is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="60" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="114" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="85" column="35" severity="warning" message="String.format(&quot;Execute command: %s&quot;, cmd) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="120" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/ExecuteAsRootUtil.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="62" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetManagerFragment.kt">
+	<error line="80" column="68" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="96" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetManagerFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="76" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/MainActivity.kt">
+	<error line="39" column="13" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="41" column="13" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="64" column="18" severity="warning" message="Function onOptionsItemSelected has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="110" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/MainActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="37" column="56" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="51" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetObject.kt">
+	<error line="21" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="21" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="48" column="27" severity="warning" message="String.format(&quot;&lt;font color=%s&gt;%s&lt;/font&gt;&lt;br /&gt;&quot;, color, function) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="98" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetObject.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetShellApi.kt">
+	<error line="50" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="98" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="117" column="30" severity="warning" message="String.format(&quot;getprop sys.usb.controller &gt; %s/UDC\n&quot;, gadgetPath) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="126" column="23" severity="warning" message="String.format(&quot;echo \&quot;\&quot; &gt; %s/UDC\n&quot;, gadgetPath) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="144" column="23" severity="warning" message="String.format(
+            &quot;ln -s %s/functions/%3\$s %s/%3\$s\n&quot;,
+            gadgetPath,
+            gadgetConfigPath,
+            function
+        ) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="167" column="23" severity="warning" message="String.format(&quot;rm %1\$s/%2\$s\n&quot;, gadgetConfigPath, function) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="176" column="28" severity="warning" message="String.format(&quot;Gadget Path is valid&quot;, gadgetPath) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="179" column="24" severity="warning" message="String.format(&quot;Gadget Path is not valid (%s)&quot;, gadgetPath) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="183" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetShellApi.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="34" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="64" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/BootConfiguration.kt">
+	<error line="9" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="44" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/BootConfiguration.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/Log.kt">
+	<error line="15" column="9" severity="warning" message="A member is named after the class. This might result in confusion. Either rename the member or change it to a constructor." source="detekt.MemberNameEqualsClassName" />
+	<error line="63" column="24" severity="warning" message="String.format(&quot;%s - %s&quot;, tag, msg) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="76" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/Log.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/DeviceInfoFragment.kt">
+	<error line="72" column="17" severity="warning" message="String.format(&quot;&lt;font color=%s&gt;%s&lt;/font&gt;&quot;, color, value) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="79" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/DeviceInfoFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/RootTask.kt">
+	<error line="32" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/RootTask.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetFragment.kt">
+	<error line="101" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="9" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/OverviewFragment.kt">
+	<error line="68" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/OverviewFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="44" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetManagerProfilesAdapter.kt">
+	<error line="43" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetManagerProfilesAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetAssetProfiles.kt">
+	<error line="64" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetAssetProfiles.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetViewModel.kt">
+	<error line="64" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetViewModel.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/CoroutineTask.kt">
+	<error line="39" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/CoroutineTask.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="3" column="1" severity="warning" message="kotlinx.coroutines.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/LogFragment.kt">
+	<error line="30" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/LogFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/DeviceInfoMapComparator.kt">
+	<error line="15" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/DeviceInfoMapComparator.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetAdapter.kt">
+	<error line="76" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="42" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="60" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="18" column="17" severity="warning" message="Private property `inflater` is unused." source="detekt.UnusedPrivateProperty" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetManagerPreferences.kt">
+	<error line="80" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/GadgetManagerPreferences.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/ViewPager2FragmentStateAdapter.kt">
+	<error line="21" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/app/src/main/java/net/tjado/usbgadget/ViewPager2FragmentStateAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="13" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+</checkstyle>

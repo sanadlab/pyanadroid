@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/viewmodel/ClockPageViewModel.kt">
+	<error line="321" column="30" severity="warning" message="The constructor(taskTextFieldValue: TextFieldValue, autofillTaskNames: Set&lt;String&gt;, isClockRunning: Boolean, dropdownExpanded: Boolean, currSeconds: Int, batteryWarningDialogVisible: Boolean, countDownTimerEnabled: Boolean, hoursTextFieldValue: TextFieldValue, minutesTextFieldValue: TextFieldValue, secondsTextFieldValue: TextFieldValue, checkBatteryOptimizationSettings: () -&gt; Boolean, startBatteryManagementActivity: () -&gt; Unit, saveCountDownTimerEnabledValue: (Boolean) -&gt; Unit, onTimerAnimationFinish: () -&gt; Unit, saveEventDataOnStart: () -&gt; Unit, saveEventDataOnStop: (Boolean) -&gt; Unit) has too many parameters. The current threshold is set to 7." source="detekt.LongParameterList" />
+	<error line="38" column="7" severity="warning" message="Class &apos;ClockPageViewModel&apos; with &apos;12&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="321" column="7" severity="warning" message="Class &apos;ClockPageViewModelState&apos; with &apos;19&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="499" column="17" severity="warning" message="Function formatDigitsAfterLeavingFocus has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="32" column="1" severity="warning" message="com.nickspatties.timeclock.util.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="33" column="1" severity="warning" message="kotlinx.coroutines.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="434" column="43" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/TimeClockListItem.kt">
+	<error line="28" column="22" severity="warning" message="The function TimeClockListItem(modifier: Modifier, isClosed: Boolean, accentColor: Color?, onClick: () -&gt; Unit, closedContent: @Composable () -&gt; Unit, openContent: @Composable () -&gt; Unit, openContentHeight: Dp) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="28" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="7" column="1" severity="warning" message="androidx.compose.foundation.layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="8" column="1" severity="warning" message="androidx.compose.material.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/TaskTextField.kt">
+	<error line="17" column="18" severity="warning" message="The function TaskTextField(modifier: Modifier, value: TextFieldValue, enabled: Boolean, onTaskNameChange: (TextFieldValue) -&gt; Unit, onImeAction: () -&gt; Unit, countdownTimerEnabled: Boolean, onIconClick: () -&gt; Unit, imeAction: ImeAction) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="17" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="65" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="75" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="85" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="5" column="1" severity="warning" message="androidx.compose.material.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/TimerTextField.kt">
+	<error line="23" column="19" severity="warning" message="The function TimerTextField(modifier: Modifier, textValue: TextFieldValue, enabled: Boolean, keyboardController: SoftwareKeyboardController?, imeAction: ImeAction, focusManager: FocusManager, onValueChange: (TextFieldValue) -&gt; Unit, onImeAction: () -&gt; Unit) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="23" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/PieChart.kt">
+	<error line="29" column="5" severity="warning" message="The function PieChart is too long (65). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="29" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="111" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="133" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/PieChart.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="3" column="1" severity="warning" message="androidx.compose.animation.core.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="5" column="1" severity="warning" message="androidx.compose.foundation.layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="42" column="26" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="43" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="58" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="67" column="14" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="86" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="90" column="77" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="114" column="56" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="117" column="52" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="120" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/EditTimerTextField.kt">
+	<error line="24" column="23" severity="warning" message="The function EditTimerTextField(hoursTextFieldValue: TextFieldValue, minutesTextFieldValue: TextFieldValue, secondsTextFieldValue: TextFieldValue, divider: String, clickable: Boolean, onHoursValueChanged: (TextFieldValue) -&gt; Unit, onMinutesValueChanged: (TextFieldValue) -&gt; Unit, onSecondsValueChanged: (TextFieldValue) -&gt; Unit, onHoursFocusChanged: (FocusState) -&gt; Unit, onMinutesFocusChanged: (FocusState) -&gt; Unit, onSecondsFocusChanged: (FocusState) -&gt; Unit) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="24" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="93" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="95" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/EditTimerTextField.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/TimeRangeSelector.kt">
+	<error line="31" column="22" severity="warning" message="The function TimeRangeSelector(modifier: Modifier, centerText: String, startButtonFunction: () -&gt; Unit, startButtonVisible: Boolean, endButtonFunction: () -&gt; Unit, endButtonVisible: Boolean) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="31" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="90" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="98" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="107" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/pages/ListPage.kt">
+	<error line="50" column="18" severity="warning" message="The function TimeClockList(modifier: Modifier, groupedEvents: Map&lt;String, List&lt;ListRow&gt;&gt;, editingId: Long, onCancelButtonClick: (Long) -&gt; Unit, onDeleteButtonClick: (Long) -&gt; Unit, onListItemClick: (Long) -&gt; Unit) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="25" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="50" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="99" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="111" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="4" column="1" severity="warning" message="androidx.compose.foundation.layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="19" column="1" severity="warning" message="com.nickspatties.timeclock.ui.components.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/pages/ClockPage.kt">
+	<error line="25" column="5" severity="warning" message="The function ClockPage is too long (101). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="25" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="141" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="149" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="155" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/pages/ClockPage.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="3" column="1" severity="warning" message="androidx.compose.foundation.layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="20" column="1" severity="warning" message="com.nickspatties.timeclock.ui.components.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="49" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/pages/AnalysisPage.kt">
+	<error line="26" column="5" severity="warning" message="The function AnalysisPage is too long (103). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="26" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="137" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="3" column="1" severity="warning" message="androidx.compose.foundation.layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="18" column="1" severity="warning" message="com.nickspatties.timeclock.ui.components.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="55" column="70" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="65" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/ColorUtils.kt">
+	<error line="9" column="5" severity="warning" message="The function generateColorFromString appears to be too complex based on Cyclomatic Complexity (complexity: 17). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="45" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/ColorUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="4" column="1" severity="warning" message="com.nickspatties.timeclock.ui.theme.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="15" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="22" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="30" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/ListPageDateHeader.kt">
+	<error line="17" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="39" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/StartTimerButton.kt">
+	<error line="17" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="41" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="52" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="63" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/BatteryWarningDialog.kt">
+	<error line="14" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/ListPageListItem.kt">
+	<error line="23" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="55" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="111" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="126" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="147" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="171" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="194" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="3" column="1" severity="warning" message="androidx.compose.foundation.layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="131" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/NothingHereText.kt">
+	<error line="16" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="34" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/NothingHereText.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="3" column="1" severity="warning" message="androidx.compose.foundation.layout.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/TimerText.kt">
+	<error line="14" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="33" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/AnalysisPageListItem.kt">
+	<error line="19" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="59" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="80" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="99" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/components/AnalysisPageListItem.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="81" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="63" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="84" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Theme.kt">
+	<error line="31" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="44" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Theme.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/MainActivity.kt">
+	<error line="87" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="134" column="5" severity="warning" message="Function names should match the pattern: [a-z][a-zA-Z0-9]*" source="detekt.FunctionNaming" />
+	<error line="11" column="1" severity="warning" message="androidx.compose.material.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/TimerString.kt">
+	<error line="10" column="12" severity="warning" message="String.format(&quot;%02d:%02d:%02d&quot;, hours, minutes, seconds) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="47" column="12" severity="warning" message="String.format(&quot;%02d:%02d:%02d&quot;, hours, minutes, seconds) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="91" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/TimerString.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="20" column="36" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="23" column="56" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="38" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="55" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="74" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/viewmodel/AnalysisPageViewModel.kt">
+	<error line="168" column="49" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/viewmodel/ListRow.kt">
+	<error line="19" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/viewmodel/ListRow.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/viewmodel/ListPageViewModel.kt">
+	<error line="51" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/viewmodel/ListPageViewModel.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Shape.kt">
+	<error line="11" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Shape.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Color.kt">
+	<error line="38" column="33" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Color.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="5" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="6" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="7" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="8" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="9" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="10" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="11" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="12" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="13" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="14" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="15" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="17" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="18" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="19" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="20" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="21" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="22" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="23" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="24" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="25" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="26" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="27" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="29" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="30" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="31" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="32" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="33" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="34" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="35" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="36" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="37" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="38" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Type.kt">
+	<error line="28" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/ui/theme/Type.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/ClockPageUtil.kt">
+	<error line="25" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/ClockPageUtil.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/TimeClockAnalysis.kt">
+	<error line="19" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/TimeClockAnalysis.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/MockTimeClockEvents.kt">
+	<error line="41" column="64" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/MockTimeClockEvents.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="33" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/NotificationUtils.kt">
+	<error line="77" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/NotificationUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/TimeConversionUtils.kt">
+	<error line="34" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/TimeConversionUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="15" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="15" column="25" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="15" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/Chronometer.kt">
+	<error line="66" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/Chronometer.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="12" column="5" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="16" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/util/EventTransforms.kt">
+	<error line="60" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/receiver/AlarmReceiver.kt">
+	<error line="27" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/receiver/AlarmReceiver.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/data/UserPreferencesRepository.kt">
+	<error line="56" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/data/UserPreferencesRepository.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/data/TimeClockEvent.kt">
+	<error line="24" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/data/TimeClockEvent.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/data/TimeClockEventDao.kt">
+	<error line="29" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/timeclock/app/src/main/java/com/nickspatties/timeclock/data/TimeClockEventDao.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="4" column="1" severity="warning" message="androidx.room.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+</checkstyle>

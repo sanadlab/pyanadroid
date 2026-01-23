@@ -1,0 +1,657 @@
+#0
+app/src/main/java/com/elsdoerfer/android/autostarts/MyExpandableListAdapter.java:459: error: Null Dereference
+  null (null value originating from line 459) is dereferenced. 
+  457.   		@Override
+  458.   		public int getChildrenCount(int groupPosition) {
+  459. > 			return mChildren.get(mGroups.get(groupPosition)).size();
+  460.   		}
+  461.   
+
+#1
+app/src/main/java/com/elsdoerfer/android/autostarts/MyExpandableListAdapter.java:469: error: Null Dereference
+  null (null value originating from line 469) is dereferenced. 
+  467.   		@Override
+  468.   		public Object getChild(int groupPosition, int childPosition) {
+  469. > 			return mChildren.get(mGroups.get(groupPosition)).get(childPosition);
+  470.   		}
+  471.   	}
+
+#2
+app/src/main/java/com/elsdoerfer/android/autostarts/MyExpandableListAdapter.java:530: error: Null Dereference
+  null (null value originating from line 530) is dereferenced. 
+  528.   
+  529.   		public int getChildrenCount(int groupPosition) {
+  530. > 			return mChildren.get(mGroups.get(groupPosition)).size();
+  531.   		}
+  532.   
+
+#3
+app/src/main/java/com/elsdoerfer/android/autostarts/MyExpandableListAdapter.java:538: error: Null Dereference
+  null (null value originating from line 538) is dereferenced. 
+  536.   
+  537.   		public Object getChild(int groupPosition, int childPosition) {
+  538. > 			return mChildren.get(mGroups.get(groupPosition)).get(childPosition);
+  539.   		}
+  540.   
+
+#4
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:78: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ToggleService.onStart(...)` indirectly reads with synchronization from container `this.mStates` via call to `HashMap.size()`, which races with the unsynchronized write in method `ToggleService.processNextItem()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  76.   	@Override
+  77.   	public void onStart(Intent intent, int startId) {
+  78. > 		handleStart(intent, startId);
+  79.   	}
+  80.   
+
+#5
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:99: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ToggleService.handleStart(...)` mutates container `this.mStates` via call to `HashMap.put(...)` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+   97.   		ComponentInfo component = intent.getParcelableExtra("component");
+   98.   		boolean newState = intent.getBooleanExtra("state", false);
+   99. > 		if (mStates.put(component,  newState) == null);
+  100.   		mQueue.offer(component);
+  101.   
+
+#6
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:102: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ToggleService.handleStart(...)` reads without synchronization from container `this.mStates` via call to `HashMap.size()`, which races with the write in method `ToggleService.processNextItem()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  100.   		mQueue.offer(component);
+  101.   
+  102. > 		Log.d(Utils.TAG, "Added "+component+" to service queue, now size: "+mStates.size());
+  103.   		onQueueModified(component, false);
+  104.   
+
+#7
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:121: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ToggleService.processNextItem()` reads with synchronization from `this.mQueue`, which races with the unsynchronized write in method `ToggleService.onCreate()`.
+ Reporting because this access may occur on a background thread. 
+  119.   
+  120.   		// Use queue to determine next item to process
+  121. > 		final ComponentInfo component = mQueue.poll();
+  122.   		if (component == null) {
+  123.   			onActivityChange(null);
+
+#8
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:136: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ToggleService.processNextItem()` reads with synchronization from `this.mStates`, which races with the unsynchronized write in method `ToggleService.onCreate()`.
+ Reporting because this access may occur on a background thread. 
+  134.   
+  135.   		// See whether we should enable or disable
+  136. > 		final boolean desiredState = mStates.remove(component);
+  137.   
+  138.   		Log.d(Utils.TAG, "Processing "+component+", remaining items in queue: "+mStates.size());
+
+#9
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:138: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ToggleService.processNextItem()` reads with synchronization from container `this.mStates` via call to `HashMap.size()`, which races with the unsynchronized write in method `ToggleService.onStart(...)`.
+ Reporting because this access may occur on a background thread. 
+  136.   		final boolean desiredState = mStates.remove(component);
+  137.   
+  138. > 		Log.d(Utils.TAG, "Processing "+component+", remaining items in queue: "+mStates.size());
+  139.   		onActivityChange(component);
+  140.   
+
+#10
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:190: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ToggleService.has(...)` reads without synchronization from container `this.mStates` via call to `HashMap.containsKey(...)`, which races with the write in method `ToggleService.processNextItem()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  188.   	 */
+  189.   	public boolean has(ComponentInfo component) {
+  190. > 		return (component.equals(mItemBeingProcessed) || mStates.containsKey(component));
+  191.   	}
+  192.   
+
+#11
+app/src/main/java/com/elsdoerfer/android/autostarts/ToggleService.java:203: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ToggleService.getQueuedState(...)` reads without synchronization from container `this.mStates` via call to `HashMap.get(...)`, which races with the write in method `ToggleService.processNextItem()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  201.   			return mItemBeingProcessedDesiredState;
+  202.   
+  203. > 		Boolean desiredState = mStates.get(component);
+  204.   		if (desiredState == null)
+  205.   			return defaultValue;
+
+#12
+app/src/main/java/com/elsdoerfer/android/autostarts/Utils.java:32: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.InputStreamReader() on line 26 is not closed after the last access at line 32. 
+  30.   			if (read>0)
+  31.   				out.append(buffer, 0, read);
+  32. > 		} while (read>=0);
+  33.   		return out.toString();
+  34.   	}
+
+#13
+app/src/main/java/com/elsdoerfer/android/autostarts/Utils.java:33: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.InputStreamReader() on line 26 is not closed after the last access at line 33. 
+  31.   				out.append(buffer, 0, read);
+  32.   		} while (read>=0);
+  33. > 		return out.toString();
+  34.   	}
+  35.   
+
+#14
+app/src/main/java/com/stericson/RootTools/execution/Command.java:146: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Command.finishCommand()` writes to field `this.executing` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  144.       protected void finishCommand()
+  145.       {
+  146. >         executing = false;
+  147.           finished = true;
+  148.           this.notifyAll();
+
+#15
+app/src/main/java/com/stericson/RootTools/execution/Command.java:147: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Command.finishCommand()` writes to field `this.finished` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  145.       {
+  146.           executing = false;
+  147. >         finished = true;
+  148.           this.notifyAll();
+  149.       }
+
+#16
+app/src/main/java/com/stericson/RootTools/execution/Command.java:153: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Command.commandFinished()` reads without synchronization from `this.terminated`, which races with the write in method `Command.terminate(...)`.
+ Reporting because this access may occur on a background thread. 
+  151.       protected void commandFinished()
+  152.       {
+  153. >         if (!terminated)
+  154.           {
+  155.               synchronized (this)
+
+#17
+app/src/main/java/com/stericson/RootTools/execution/Command.java:235: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Command.isExecuting()` reads without synchronization from `this.executing`, which races with the write in method `Command.terminated(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  233.       public boolean isExecuting()
+  234.       {
+  235. >         return executing;
+  236.       }
+  237.   
+
+#18
+app/src/main/java/com/stericson/RootTools/execution/Command.java:245: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Command.isFinished()` reads without synchronization from `this.finished`, which races with the write in method `Command.terminated(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  243.       public boolean isFinished()
+  244.       {
+  245. >         return finished;
+  246.       }
+  247.   
+
+#19
+app/src/main/java/com/stericson/RootTools/execution/Command.java:250: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Command.getExitCode()` reads without synchronization from `this.exitCode`, which races with the write in method `Command.setExitCode(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  248.       public int getExitCode()
+  249.       {
+  250. >         return this.exitCode;
+  251.       }
+  252.   
+
+#20
+app/src/main/java/com/stericson/RootTools/execution/Command.java:266: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Command.startExecution()` writes to field `this.executing` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  264.           executionMonitor.setPriority(Thread.MIN_PRIORITY);
+  265.           executionMonitor.start();
+  266. >         executing = true;
+  267.       }
+  268.   
+
+#21
+app/src/main/java/com/stericson/RootTools/execution/Command.java:344: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Command$ExecutionMonitor.run()` reads without synchronization from `this.this$0.finished`, which races with the write in method `Command$ExecutionMonitor.run()`.
+ Reporting because this access may occur on a background thread. 
+  342.                   }
+  343.   
+  344. >                 if (!finished)
+  345.                   {
+  346.                       RootTools.log("Timeout Exception has occurred.");
+
+#22
+app/src/main/java/com/stericson/RootTools/execution/Command.java:347: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Command$ExecutionMonitor.run()` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  345.                   {
+  346.                       RootTools.log("Timeout Exception has occurred.");
+  347. >                     terminate("Timeout Exception");
+  348.                   }
+  349.               }
+
+#23
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:219: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.add(...)` reads without synchronization from `this.close`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  217.       public Command add(Command command) throws IOException
+  218.       {
+  219. >         if (this.close)
+  220.           {
+  221.               throw new IllegalStateException(
+
+#24
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:239: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.useCWD(...)` indirectly reads without synchronization from `this.close`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  237.       public void useCWD(Context context) throws IOException, TimeoutException, RootDeniedException
+  238.       {
+  239. >         add(
+  240.                   new CommandCapture(
+  241.                           -1,
+
+#25
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:320: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.close()` reads without synchronization from `execution.Shell.rootShell`, which races with the write in method `Shell.switchRootShellContext(...)`.
+ Reporting because this access may occur on a background thread. 
+  318.           RootTools.log("Shell Closed!");
+  319.   
+  320. >         if (this == Shell.rootShell)
+  321.           {
+  322.               Shell.rootShell = null;
+
+#26
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:322: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.close()` writes to field `execution.Shell.rootShell` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  320.           if (this == Shell.rootShell)
+  321.           {
+  322. >             Shell.rootShell = null;
+  323.           }
+  324.           else if (this == Shell.shell)
+
+#27
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:324: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.close()` reads without synchronization from `execution.Shell.shell`, which races with the write in method `Shell.runCommand(...)`.
+ Reporting because this access may occur on a background thread. 
+  322.               Shell.rootShell = null;
+  323.           }
+  324. >         else if (this == Shell.shell)
+  325.           {
+  326.               Shell.shell = null;
+
+#28
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:326: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.close()` writes to field `execution.Shell.shell` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  324.           else if (this == Shell.shell)
+  325.           {
+  326. >             Shell.shell = null;
+  327.           }
+  328.           else if (this == Shell.customShell)
+
+#29
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:328: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.close()` reads without synchronization from `execution.Shell.customShell`, which races with the write in method `Shell.switchRootShellContext(...)`.
+ Reporting because this access may occur on a background thread. 
+  326.               Shell.shell = null;
+  327.           }
+  328. >         else if (this == Shell.customShell)
+  329.           {
+  330.               Shell.customShell = null;
+
+#30
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:330: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.close()` writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  328.           else if (this == Shell.customShell)
+  329.           {
+  330. >             Shell.customShell = null;
+  331.           }
+  332.       }
+
+#31
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:338: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.closeCustomShell()` reads without synchronization from `execution.Shell.customShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  336.           RootTools.log("Request to close custom shell!");
+  337.   
+  338. >         if (Shell.customShell == null)
+  339.           {
+  340.               return;
+
+#32
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:343: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.closeCustomShell()` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  341.           }
+  342.   
+  343. >         Shell.customShell.close();
+  344.       }
+  345.   
+
+#33
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:350: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.closeRootShell()` reads without synchronization from `execution.Shell.rootShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  348.           RootTools.log("Request to close root shell!");
+  349.   
+  350. >         if (Shell.rootShell == null)
+  351.           {
+  352.               return;
+
+#34
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:354: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.closeRootShell()` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  352.               return;
+  353.           }
+  354. >         Shell.rootShell.close();
+  355.       }
+  356.   
+
+#35
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:361: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.closeShell()` reads without synchronization from `execution.Shell.shell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  359.           RootTools.log("Request to close normal shell!");
+  360.   
+  361. >         if (Shell.shell == null)
+  362.           {
+  363.               return;
+
+#36
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:365: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.closeShell()` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  363.               return;
+  364.           }
+  365. >         Shell.shell.close();
+  366.       }
+  367.   
+
+#37
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:372: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.closeAll()` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  370.           RootTools.log("Request to close all shells!");
+  371.   
+  372. >         Shell.closeShell();
+  373.           Shell.closeRootShell();
+  374.           Shell.closeCustomShell();
+
+#38
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:389: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.getOpenShell()` reads without synchronization from `execution.Shell.customShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  387.       public static Shell getOpenShell()
+  388.       {
+  389. >         if (Shell.customShell != null)
+  390.           {
+  391.               return Shell.customShell;
+
+#39
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:393: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.getOpenShell()` reads without synchronization from `execution.Shell.rootShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  391.               return Shell.customShell;
+  392.           }
+  393. >         else if (Shell.rootShell != null)
+  394.           {
+  395.               return Shell.rootShell;
+
+#40
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:399: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.getOpenShell()` reads without synchronization from `execution.Shell.shell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  397.           else
+  398.           {
+  399. >             return Shell.shell;
+  400.           }
+  401.       }
+
+#41
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:405: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.isShellOpen()` reads without synchronization from `execution.Shell.shell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  403.       public static boolean isShellOpen()
+  404.       {
+  405. >         return Shell.shell == null;
+  406.       }
+  407.   
+
+#42
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:410: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.isCustomShellOpen()` reads without synchronization from `execution.Shell.customShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  408.       public static boolean isCustomShellOpen()
+  409.       {
+  410. >         return Shell.customShell == null;
+  411.       }
+  412.   
+
+#43
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:415: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.isRootShellOpen()` reads without synchronization from `execution.Shell.rootShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  413.       public static boolean isRootShellOpen()
+  414.       {
+  415. >         return Shell.rootShell == null;
+  416.       }
+  417.   
+
+#44
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:420: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.isAnyShellOpen()` reads without synchronization from `execution.Shell.customShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  418.       public static boolean isAnyShellOpen()
+  419.       {
+  420. >         return Shell.shell != null || Shell.rootShell != null || Shell.customShell != null;
+  421.       }
+  422.   
+
+#45
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:448: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell$1.run()` reads with synchronization from `this.this$0.write`, which races with the unsynchronized write in method `Shell$1.run()`.
+ Reporting because this access may occur on a background thread. 
+  446.                            * case but one that could happen.
+  447.                            */
+  448. >                         while (!close && write >= commands.size())
+  449.                           {
+  450.                               isExecuting = false;
+
+#46
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:461: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell$1.run()` reads without synchronization from `this.this$0.read`, which races with the write in method `Shell$1.run()`.
+ Reporting because this access may occur on a background thread. 
+  459.                            * wait for the read to catch up.
+  460.                            */
+  461. >                         while (read != write)
+  462.                           {
+  463.                               RootTools.log("Waiting for read and write to catch up before cleanup.");
+
+#47
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:468: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell$1.run()` indirectly writes to field `this.this$0.isCleaning` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  466.                            * Clean up the commands, stay neat.
+  467.                            */
+  468. >                         cleanCommands();
+  469.                       }
+  470.   
+
+#48
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:479: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell$1.run()` writes to field `this.this$0.isExecuting` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  477.                       if (write < commands.size())
+  478.                       {
+  479. >                         isExecuting = true;
+  480.                           Command cmd = commands.get(write);
+  481.                           cmd.startExecution();
+
+#49
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:480: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell$1.run()` reads without synchronization from container `this.this$0.commands` via call to `List.get(...)`, which races with the write in method `Shell$1.run()`.
+ Reporting because this access may occur on a background thread. 
+  478.                       {
+  479.                           isExecuting = true;
+  480. >                         Command cmd = commands.get(write);
+  481.                           cmd.startExecution();
+  482.                           RootTools.log("Executing: " + cmd.getCommand() + " with context: " + shellContext);
+
+#50
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:682: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.runRootCommand(...)` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  680.       public static void runRootCommand(Command command) throws IOException, TimeoutException, RootDeniedException
+  681.       {
+  682. >         Shell.startRootShell().add(command);
+  683.       }
+  684.   
+
+#51
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:687: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.runCommand(...)` indirectly writes to field `execution.Shell.shell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  685.       public static void runCommand(Command command) throws IOException, TimeoutException
+  686.       {
+  687. >         Shell.startShell().add(command);
+  688.       }
+  689.   
+
+#52
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:692: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startRootShell()` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  690.       public static Shell startRootShell() throws IOException, TimeoutException, RootDeniedException
+  691.       {
+  692. >         return Shell.startRootShell(0, 3);
+  693.       }
+  694.   
+
+#53
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:697: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startRootShell(...)` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  695.       public static Shell startRootShell(int timeout) throws IOException, TimeoutException, RootDeniedException
+  696.       {
+  697. >         return Shell.startRootShell(timeout, 3);
+  698.       }
+  699.   
+
+#54
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:702: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startRootShell(...)` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  700.       public static Shell startRootShell(int timeout, int retry) throws IOException, TimeoutException, RootDeniedException
+  701.       {
+  702. >         return Shell.startRootShell(timeout, Shell.defaultContext, retry);
+  703.       }
+  704.   
+
+#55
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:710: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.startRootShell(...)` reads without synchronization from `execution.Shell.rootShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  708.           int retries = 0;
+  709.   
+  710. >         if (Shell.rootShell == null)
+  711.           {
+  712.   
+
+#56
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:750: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startRootShell(...)` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  748.               {
+  749.                   RootTools.log("Context is different than open shell, switching context... " + Shell.rootShell.shellContext + " VS " + shellContext);
+  750. >                 Shell.rootShell.switchRootShellContext(shellContext);
+  751.               }
+  752.               catch (IOException e)
+
+#57
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:787: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startCustomShell(...)` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  785.       public static Shell startCustomShell(String shellPath) throws IOException, TimeoutException, RootDeniedException
+  786.       {
+  787. >         return Shell.startCustomShell(shellPath, 0);
+  788.       }
+  789.   
+
+#58
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:793: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.startCustomShell(...)` reads without synchronization from `execution.Shell.customShell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  791.       {
+  792.   
+  793. >         if (Shell.customShell == null)
+  794.           {
+  795.               RootTools.log("Starting Custom Shell!");
+
+#59
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:796: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startCustomShell(...)` writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  794.           {
+  795.               RootTools.log("Starting Custom Shell!");
+  796. >             Shell.customShell = new Shell(shellPath, ShellType.CUSTOM, ShellContext.NORMAL, timeout);
+  797.           }
+  798.           else
+
+#60
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:808: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startShell()` indirectly writes to field `execution.Shell.shell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  806.       public static Shell startShell() throws IOException, TimeoutException
+  807.       {
+  808. >         return Shell.startShell(0);
+  809.       }
+  810.   
+
+#61
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:816: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Shell.startShell(...)` reads without synchronization from `execution.Shell.shell`, which races with the write in method `Shell.close()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  814.           try
+  815.           {
+  816. >             if (Shell.shell == null)
+  817.               {
+  818.                   RootTools.log("Starting Shell!");
+
+#62
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:819: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.startShell(...)` writes to field `execution.Shell.shell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  817.               {
+  818.                   RootTools.log("Starting Shell!");
+  819. >                 Shell.shell = new Shell("/system/bin/sh", ShellType.NORMAL, ShellContext.NORMAL, timeout);
+  820.               }
+  821.               else
+
+#63
+app/src/main/java/com/stericson/RootTools/execution/Shell.java:840: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Shell.switchRootShellContext(...)` indirectly writes to field `execution.Shell.customShell` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  838.               try
+  839.               {
+  840. >                 Shell.closeRootShell();
+  841.               }
+  842.               catch (Exception e)
+
+#64
+app/src/main/java/com/stericson/RootTools/internal/Installer.java:252: error: Resource Leak
+  Resource dynamically allocated by constructor java.security.DigestInputStream() on line 250 is not closed after the last access at line 252. 
+  250.               DigestInputStream dis = new DigestInputStream(is, md);
+  251.               byte[] buffer = new byte[4096];
+  252. >             while (-1 != dis.read(buffer))
+  253.               {
+  254.                   ;
+
+#65
+app/src/main/java/com/stericson/RootTools/internal/Installer.java:284: error: Resource Leak
+  Resource dynamically allocated by constructor java.security.DigestInputStream() on line 250 is not closed after the last access at line 284. 
+  282.               }
+  283.           }
+  284. >         return signature;
+  285.       }
+  286.   
+
+Found 66 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 58
+                Resource Leak(PULSE_RESOURCE_LEAK): 4
+             Null Dereference(NULLPTR_DEREFERENCE): 4

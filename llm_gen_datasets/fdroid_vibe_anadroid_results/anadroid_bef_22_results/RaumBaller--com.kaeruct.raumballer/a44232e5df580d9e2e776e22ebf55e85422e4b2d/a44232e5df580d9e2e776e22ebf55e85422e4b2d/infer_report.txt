@@ -1,0 +1,109 @@
+#0
+app/src/main/java/jgame/Highscore.java:112: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.InputStreamReader() on line 110 is not closed after the last access at line 112. 
+  110.           InputStreamReader inr = new InputStreamReader(in);
+  111.           String line;
+  112. >         while ((line = jgame.impl.EngineLogic.readline(inr)) != null) {
+  113.               Vector fields = new Vector(5, 10);
+  114.               // XXX we use "`" to represent empty string because
+
+#1
+app/src/main/java/jgame/Highscore.java:167: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.PrintStream() on line 150 is not closed after the last access at line 167. 
+  165.               outp.println();
+  166.           }
+  167. >         outp.flush();
+  168.       }
+  169.   
+
+#2
+app/src/main/java/jgame/Highscore.java:168: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.PrintStream() on line 150 is not closed after the last access at line 168. 
+  166.           }
+  167.           outp.flush();
+  168. >     }
+  169.   
+  170.   
+
+#3
+app/src/main/java/jgame/impl/EngineLogic.java:492: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.InputStreamReader() on line 489 is not closed after the last access at line 492. 
+  490.               String line;
+  491.               String[] fields = new String[14];
+  492. >             while ((line = readline(in)) != null) {
+  493.                   eng.setProgressBar((double) lnr / (double) nr_lines);
+  494.                   int i = 0;
+
+#4
+app/src/main/java/jgame/impl/EngineLogic.java:2287: error: Null Dereference
+  null (null value originating from line 2287) is dereferenced in the call to `JGPoint(...)`. 
+  2285.               this.wrapx = wrapx;
+  2286.               this.wrapy = wrapy;
+  2287. >             tiles = new JGPoint((JGPoint) image_orig_size.get(imgname));
+  2288.               tiles.x /= tilex;
+  2289.               tiles.y /= tiley;
+
+#5
+app/src/main/java/jgame/platform/JGEngine.java:544: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.InputStreamReader() on line 541 is not closed after the last access at line 544. 
+  542.               String line;
+  543.               String[] fields = new String[14];
+  544. >             while ((line = EngineLogic.readline(in)) != null) {
+  545.                   setProgressBar((double) lnr / (double) nr_lines);
+  546.                   int i = 0;
+
+#6
+app/src/main/java/jgame/platform/JGEngine.java:2916: warning: Thread Safety Violation
+  Unprotected write. Non-private method `JGEngine$JGEngineThread.run()` indirectly writes to field `this.this$0.canvas.this$0.is_initialised` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  2914.                       throw new JGameError("Exception during initGame(): " + e);
+  2915.                   }
+  2916. >                 canvas.setInitialised();
+  2917.                   canvas.clearCanvas();
+  2918.                   target_time = System.currentTimeMillis() + (long) (1000.0 / el.fps);
+
+#7
+app/src/main/java/jgame/platform/JGEngine.java:2936: warning: Thread Safety Violation
+  Unprotected write. Non-private method `JGEngine$JGEngineThread.run()` writes to field `this.frames_skipped` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  2934.                           }
+  2935.                           canvas.drawAll();
+  2936. >                         frames_skipped = 0;
+  2937.                           if (cur_time + 3 < target_time) {
+  2938.                               //we even have some time left -> sleep it away
+
+#8
+app/src/main/java/jgame/platform/JGEngine.java:2937: warning: Thread Safety Violation
+  Read/Write race. Non-private method `JGEngine$JGEngineThread.run()` reads without synchronization from `this.target_time`, which races with the write in method `JGEngine$JGEngineThread.run()`.
+ Reporting because this access may occur on a background thread. 
+  2935.                           canvas.drawAll();
+  2936.                           frames_skipped = 0;
+  2937. >                         if (cur_time + 3 < target_time) {
+  2938.                               //we even have some time left -> sleep it away
+  2939.                               Thread.sleep(target_time - cur_time);
+
+#9
+app/src/main/java/jgame/platform/JGEngine.java:2945: warning: Thread Safety Violation
+  Unprotected write. Non-private method `JGEngine$JGEngineThread.run()` writes to field `this.target_time` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  2943.                               Thread.yield();
+  2944.                           }
+  2945. >                         target_time += (1000.0 / el.fps);
+  2946.                           //} else if (cur_time >
+  2947.                           //target_time + (long)(1000.0*el.maxframeskip/el.fps)) {
+
+#10
+app/src/main/java/jgame/platform/JGEngine.java:2966: warning: Thread Safety Violation
+  Read/Write race. Non-private method `JGEngine$JGEngineThread.run()` reads without synchronization from `this.frames_skipped`, which races with the write in method `JGEngine$JGEngineThread.run()`.
+ Reporting because this access may occur on a background thread. 
+  2964.                           }
+  2965.                           // if we skip too many frames in succession, draw a frame
+  2966. >                         if ((++frames_skipped) > el.maxframeskip) {
+  2967.                               //canvas.repaint();
+  2968.                               canvas.drawAll();
+
+Found 11 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 5
+                Resource Leak(PULSE_RESOURCE_LEAK): 5
+             Null Dereference(NULLPTR_DEREFERENCE): 1
