@@ -9,7 +9,6 @@ import re
 from anadroid.application.AndroidProject import BUILD_TYPE
 from anadroid.application.Application import App
 from anadroid.build.AbstractBuilder import AbstractBuilder
-from anadroid.build.NaiveGradleBuilder import BUILD_SUCCESS_VALUE
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.Utils import mega_find, execute_shell_command, sign_apk, log_to_file, loge, logw, logs, logi
 

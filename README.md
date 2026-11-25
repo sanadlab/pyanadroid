@@ -1,5 +1,4 @@
 # PyAnaDroid
-[![Build Status](https://travis-ci.com/RRua/pyAnaDroid.svg?branch=main)](https://travis-ci.com/RRua/pyAnaDroid)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![PyPI version](https://badge.fury.io/py/anadroid.svg)](https://badge.fury.io/py/anadroid)
 [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/anadroid)

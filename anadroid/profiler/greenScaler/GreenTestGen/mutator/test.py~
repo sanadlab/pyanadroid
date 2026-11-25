@@ -1,2 +1,0 @@
-import commands
-print commands.getstatusoutput('adb shell dumpsys window windows | grep -E \'mFocusedApp\'| cut -d / -f 1 | cut -d \" \" -f 7')
