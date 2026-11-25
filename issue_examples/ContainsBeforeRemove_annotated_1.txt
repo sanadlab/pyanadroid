@@ -1,0 +1,11 @@
+// Bad: The contains() check is an unnecessary lookup.
+if (activeUsers.contains(userId)) {
+    activeUsers.remove(userId);
+}
+
+----
+
+// Bad: The contains() check is an unnecessary lookup.
+if (activeUsers.contains(userId)) {
+    activeUsers.remove(userId);
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762929230715" analysisTimestamp="1762929234090" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/GalleryApp/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/GalleryApp/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="a8d6309e8c7b4e4b184a9ba4fe9babd3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter(Context, PhotoAdapter$OnItemClickListener) may expose internal representation by storing an externally mutable object into PhotoAdapter.context</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" start="20" end="61" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java">
+        <Message>At PhotoAdapter.java:[lines 20-61]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;Lcom/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter$OnItemClickListener;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" start="31" end="35" startBytecode="0" endBytecode="103" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java"/>
+      <Message>In method new com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter(Context, PhotoAdapter$OnItemClickListener)</Message>
+    </Method>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java">
+        <Message>In PhotoAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter.context</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" primary="true" start="32" end="32" startBytecode="6" endBytecode="6" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java">
+      <Message>At PhotoAdapter.java:[line 32]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="79dcb937515fcee9783350098c89320d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter.context</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" start="20" end="61" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java">
+        <Message>At PhotoAdapter.java:[lines 20-61]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter</Message>
+    </Class>
+    <Field classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java">
+        <Message>In PhotoAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter.context</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" primary="true" start="32" end="32" startBytecode="6" endBytecode="6" sourcefile="PhotoAdapter.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java">
+      <Message>At PhotoAdapter.java:[line 32]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="27">
+    <MissingClass>androidx.activity.result.ActivityResultCallback</MissingClass>
+    <MissingClass>androidx.activity.result.ActivityResultLauncher</MissingClass>
+    <MissingClass>androidx.activity.result.contract.ActivityResultContract</MissingClass>
+    <MissingClass>androidx.activity.result.contract.ActivityResultContracts</MissingClass>
+    <MissingClass>androidx.activity.result.contract.ActivityResultContracts$RequestPermission</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.GridLayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.LinearLayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$Adapter</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$LayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$ViewHolder</MissingClass>
+    <MissingClass>com.bumptech.glide.Glide</MissingClass>
+    <MissingClass>com.bumptech.glide.RequestBuilder</MissingClass>
+    <MissingClass>com.bumptech.glide.RequestManager</MissingClass>
+    <MissingClass>com.bumptech.glide.load.engine.DiskCacheStrategy</MissingClass>
+    <MissingClass>com.bumptech.glide.request.BaseRequestOptions</MissingClass>
+    <MissingClass>com.bumptech.glide.request.RequestOptions</MissingClass>
+    <MissingClass>com.bumptech.glide.request.target.ViewTarget</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.galleryapp.R</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.galleryapp.R$drawable</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.galleryapp.R$id</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.galleryapp.R$layout</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.galleryapp.R$menu</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:33:50 +0400" total_classes="4" referenced_classes="53" total_bugs="2" total_size="196" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="6.34" clock_seconds="3.22" peak_mbytes="213.06" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="2">
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/MainActivity.java" bugCount="0" size="143"/>
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/galleryapp/PhotoAdapter.java" bugCount="2" size="53" bugHash="376784cbccf71de1d61ee2cfdfe07bdf"/>
+    <PackageStats package="com.sanad.gemini_2_dot_5_pro_preview.galleryapp" total_bugs="2" total_types="4" total_size="196" priority_2="2">
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.MainActivity" sourceFile="MainActivity.java" interface="false" size="143" bugs="0"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter" sourceFile="PhotoAdapter.java" interface="false" size="29" bugs="2" priority_2="2"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter$OnItemClickListener" sourceFile="PhotoAdapter.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.galleryapp.PhotoAdapter$PhotoViewHolder" sourceFile="PhotoAdapter.java" interface="false" size="22" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="510" invocations="461" avgMicrosecondsPerInvocation="1106" maxMicrosecondsPerInvocation="29493" standardDeviationMicrosecondsPerInvocation="3441"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="210" invocations="53" avgMicrosecondsPerInvocation="3969" maxMicrosecondsPerInvocation="37584" standardDeviationMicrosecondsPerInvocation="6484"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="119" invocations="92" avgMicrosecondsPerInvocation="1295" maxMicrosecondsPerInvocation="12740" standardDeviationMicrosecondsPerInvocation="2417"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="117" invocations="53" avgMicrosecondsPerInvocation="2218" maxMicrosecondsPerInvocation="48629" standardDeviationMicrosecondsPerInvocation="6777"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="112" invocations="28" avgMicrosecondsPerInvocation="4027" maxMicrosecondsPerInvocation="17518" standardDeviationMicrosecondsPerInvocation="4506"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="109" invocations="28" avgMicrosecondsPerInvocation="3911" maxMicrosecondsPerInvocation="17569" standardDeviationMicrosecondsPerInvocation="4850"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="101" invocations="53" avgMicrosecondsPerInvocation="1918" maxMicrosecondsPerInvocation="15168" standardDeviationMicrosecondsPerInvocation="3442"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="96" invocations="26" avgMicrosecondsPerInvocation="3719" maxMicrosecondsPerInvocation="29478" standardDeviationMicrosecondsPerInvocation="5912"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="93" invocations="53" avgMicrosecondsPerInvocation="1758" maxMicrosecondsPerInvocation="17596" standardDeviationMicrosecondsPerInvocation="3067"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="85" invocations="53" avgMicrosecondsPerInvocation="1613" maxMicrosecondsPerInvocation="31041" standardDeviationMicrosecondsPerInvocation="6569"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="84" invocations="53" avgMicrosecondsPerInvocation="1591" maxMicrosecondsPerInvocation="21150" standardDeviationMicrosecondsPerInvocation="3527"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="67" invocations="473" avgMicrosecondsPerInvocation="142" maxMicrosecondsPerInvocation="9085" standardDeviationMicrosecondsPerInvocation="502"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="62" invocations="4" avgMicrosecondsPerInvocation="15657" maxMicrosecondsPerInvocation="49192" standardDeviationMicrosecondsPerInvocation="19685"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="59" invocations="380" avgMicrosecondsPerInvocation="155" maxMicrosecondsPerInvocation="6218" standardDeviationMicrosecondsPerInvocation="459"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="56" invocations="29" avgMicrosecondsPerInvocation="1931" maxMicrosecondsPerInvocation="12392" standardDeviationMicrosecondsPerInvocation="3329"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="51" invocations="53" avgMicrosecondsPerInvocation="963" maxMicrosecondsPerInvocation="19034" standardDeviationMicrosecondsPerInvocation="2717"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="49" invocations="28" avgMicrosecondsPerInvocation="1759" maxMicrosecondsPerInvocation="12959" standardDeviationMicrosecondsPerInvocation="3138"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="41" invocations="28" avgMicrosecondsPerInvocation="1474" maxMicrosecondsPerInvocation="11405" standardDeviationMicrosecondsPerInvocation="2330"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="40" invocations="29" avgMicrosecondsPerInvocation="1386" maxMicrosecondsPerInvocation="5868" standardDeviationMicrosecondsPerInvocation="1378"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

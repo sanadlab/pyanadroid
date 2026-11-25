@@ -1,0 +1,9 @@
+// Bad: Two operations where one would suffice.
+if (callbacks.contains(callback)) {
+    callbacks.remove(callback)
+}
+
+----
+
+// Good: Direct, clear, and efficient.
+callbacks.remove(callback)

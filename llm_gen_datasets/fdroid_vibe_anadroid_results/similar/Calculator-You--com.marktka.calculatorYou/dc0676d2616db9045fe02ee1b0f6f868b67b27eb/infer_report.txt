@@ -1,0 +1,43 @@
+#0
+app/src/main/java/org/javia/arity/Symbols.java:283: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Symbols.getTopFrame()` reads without synchronization from `this.delta`, which races with the write in method `Symbols.popFrame()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  281.        */
+  282.       public Symbol[] getTopFrame() {
+  283. >         return delta == null ? new Symbol[0] : delta.toArray(new Symbol[0]);
+  284.       }
+  285.   
+
+#1
+app/src/main/java/org/javia/arity/Symbols.java:313: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Symbols.addArguments(...)` indirectly writes to field `this.delta` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  311.       void addArguments(String args[]) {
+  312.           for (int i = 0; i < args.length; ++i) {
+  313. >             add(Symbol.makeArg(args[i], i));
+  314.           }
+  315.       }
+
+#2
+app/src/main/java/org/javia/arity/Symbols.java:323: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Symbols.add(...)` reads without synchronization from `this.delta`, which races with the write in method `Symbols.popFrame()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  321.               return;
+  322.           }
+  323. >         if (delta == null) {
+  324.               delta = new HashSet<Symbol>();
+  325.           }
+
+#3
+app/src/main/java/org/javia/arity/Symbols.java:324: warning: Thread Safety Violation
+  Unprotected write. Non-private method `Symbols.add(...)` writes to field `this.delta` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  322.           }
+  323.           if (delta == null) {
+  324. >             delta = new HashSet<Symbol>();
+  325.           }
+  326.           if (!delta.contains(s)) {
+
+Found 4 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 4

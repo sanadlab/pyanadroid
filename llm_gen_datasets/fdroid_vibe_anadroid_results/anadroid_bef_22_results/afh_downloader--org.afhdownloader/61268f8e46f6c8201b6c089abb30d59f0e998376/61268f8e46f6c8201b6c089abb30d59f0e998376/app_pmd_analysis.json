@@ -1,0 +1,178 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:52:02.952+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/afh_downloader/app/src/main/java/org/afhdownloader/DirectoryPicker.java",
+      "violations": [
+        {
+          "beginline": 53,
+          "begincolumn": 21,
+          "endline": 53,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027showHidden\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 153,
+          "begincolumn": 13,
+          "endline": 153,
+          "endcolumn": 28,
+          "description": "Use asList instead of tight loops",
+          "rule": "UseArraysAsList",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usearraysaslist"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/afh_downloader/app/src/main/java/org/afhdownloader/Download.java",
+      "violations": [
+        {
+          "beginline": 213,
+          "begincolumn": 29,
+          "endline": 213,
+          "endcolumn": 50,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 246,
+          "begincolumn": 57,
+          "endline": 246,
+          "endcolumn": 71,
+          "description": "Avoid calling toString() on String objects; this is unnecessary.",
+          "rule": "StringToString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#stringtostring"
+        },
+        {
+          "beginline": 268,
+          "begincolumn": 29,
+          "endline": 268,
+          "endcolumn": 49,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/afh_downloader/app/src/main/java/org/afhdownloader/MD5.java",
+      "violations": [
+        {
+          "beginline": 56,
+          "begincolumn": 22,
+          "endline": 56,
+          "endcolumn": 37,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/afh_downloader/app/src/main/java/org/afhdownloader/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 47,
+          "begincolumn": 32,
+          "endline": 47,
+          "endcolumn": 40,
+          "description": "Avoid using redundant field initializer for \u0027instance\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 321,
+          "begincolumn": 25,
+          "endline": 321,
+          "endcolumn": 46,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 391,
+          "begincolumn": 83,
+          "endline": 402,
+          "endcolumn": 38,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 393,
+          "begincolumn": 59,
+          "endline": 393,
+          "endcolumn": 147,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 396,
+          "begincolumn": 60,
+          "endline": 396,
+          "endcolumn": 113,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 416,
+          "begincolumn": 41,
+          "endline": 416,
+          "endcolumn": 55,
+          "description": "Avoid calling toString() on String objects; this is unnecessary.",
+          "rule": "StringToString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#stringtostring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/afh_downloader/app/src/main/java/org/afhdownloader/SwipeDismissListViewTouchListener.java",
+      "violations": [
+        {
+          "beginline": 92,
+          "begincolumn": 17,
+          "endline": 92,
+          "endcolumn": 42,
+          "description": "Avoid using redundant field initializer for \u0027mDismissAnimationRefCount\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

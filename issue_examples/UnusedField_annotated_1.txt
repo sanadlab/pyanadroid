@@ -1,0 +1,18 @@
+public class DataProcessor {
+    // Bad: This field was likely used for debugging but is no longer needed.
+    // It consumes a small amount of memory for every instance of DataProcessor.
+    private boolean isDebugMode = false;
+
+    public void process() {
+        // ...
+    }
+}
+
+-----
+
+public class DataProcessor {
+    // Good: The unused field has been removed.
+    public void process() {
+        // ...
+    }
+}

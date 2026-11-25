@@ -1,0 +1,16 @@
+// Assume products.size is 50.
+// Bad: The map will resize once its size reaches 38 (50 * 0.75).
+val productMap = HashMap<String, Product>(products.size)
+for (product in products) {
+    productMap[product.id] = product
+}
+
+
+----
+
+// Good: Calculate the capacity needed to prevent resizing.
+val capacity = (products.size / 0.75f).toInt() + 1
+val productMap = HashMap<String, Product>(capacity)
+for (product in products) {
+    productMap[product.id] = product
+}

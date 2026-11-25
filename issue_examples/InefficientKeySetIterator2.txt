@@ -1,0 +1,14 @@
+for (productId in productPrices.keys) {
+    val currentPrice = productPrices[productId]
+    if (currentPrice != null && currentPrice < 20.00) {
+        productPrices[productId] = currentPrice * 0.9
+    }
+}
+
+---- 
+
+for (entry in productPrices.entries) {
+    if (entry.value < 20.00) {
+        entry.setValue(entry.value * 0.9)
+    }
+}

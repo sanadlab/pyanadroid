@@ -1,0 +1,40 @@
+#0
+app/src/main/java/app/fedilab/mobilizon/MainActivity.java:134: error: Null Dereference
+  `instanceNodeInfo` could be null (from the call to `RetrofitMobilizonAPI.getNodeInfo()` on line 133) and is dereferenced. 
+  132.               try {
+  133.                   WellKnownNodeinfo.NodeInfo instanceNodeInfo = new RetrofitMobilizonAPI(instance).getNodeInfo();
+  134. >                 if (instanceNodeInfo.getSoftware() != null && instanceNodeInfo.getSoftware().getName().trim().toLowerCase().compareTo("mobilizon") == 0) {
+  135.                       runOnUiThread(() -> {
+  136.                           final SharedPreferences sharedpreferences = getSharedPreferences(Helper.APP_PREFS, Context.MODE_PRIVATE);
+
+#1
+app/src/main/java/app/fedilab/mobilizon/MainActivity.java:341: error: Null Dereference
+  `instanceNodeInfo` could be null (from the call to `RetrofitMobilizonAPI.getNodeInfo()` on line 340) and is dereferenced. 
+  339.                           String newInstance = input.getText().toString().trim();
+  340.                           WellKnownNodeinfo.NodeInfo instanceNodeInfo = new RetrofitMobilizonAPI(newInstance).getNodeInfo();
+  341. >                         if (instanceNodeInfo.getSoftware() != null && instanceNodeInfo.getSoftware().getName().trim().toLowerCase().compareTo("mobilizon") == 0) {
+  342.                               SharedPreferences.Editor editor = sharedpreferences.edit();
+  343.                               editor.putString(Helper.PREF_INSTANCE, newInstance);
+
+#2
+app/src/main/java/app/fedilab/mobilizon/webview/MobilizonWebViewClient.java:113: warning: Ipc On Ui Thread
+  `void MobilizonWebViewClient.onReceivedError(WebView,WebResourceRequest,WebResourceError)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  111.   
+  112.   
+  113. >         if (!isConnected()) {
+  114.               final Snackbar snackBar = Snackbar.make(rootView, activity.getString(R.string.no_internet), Snackbar.LENGTH_INDEFINITE);
+  115.               snackBar.setAction(activity.getString(R.string.enable_data), v -> {
+
+#3
+app/src/main/java/app/fedilab/mobilizon/webview/MobilizonWebViewClient.java:132: warning: Ipc On Ui Thread
+  `void MobilizonWebViewClient.onReceivedHttpError(WebView,WebResourceRequest,WebResourceResponse)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  130.                                       WebResourceRequest request, WebResourceResponse errorResponse) {
+  131.   
+  132. >         if (!isConnected()) {
+  133.               final Snackbar snackBar = Snackbar.make(rootView, activity.getString(R.string.no_internet), Snackbar.LENGTH_INDEFINITE);
+  134.               snackBar.setAction(activity.getString(R.string.enable_data), v -> {
+
+Found 4 issues
+             Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULLPTR_DEREFERENCE): 2
+     Ipc On Ui Thread(IPC_ON_UI_THREAD): 2

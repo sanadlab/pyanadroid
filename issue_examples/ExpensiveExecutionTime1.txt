@@ -1,0 +1,25 @@
+public List<Integer> findCommonElements(List<Integer> list1, List<Integer> list2) {
+    List<Integer> common = new ArrayList<>();
+    for (Integer item1 : list1) {
+        for (Integer item2 : list2) {
+            if (item1.equals(item2)) {
+                common.add(item1);
+            }
+        }
+    }
+    return common;
+}
+
+-----
+
+
+public List<Integer> findCommonElements(List<Integer> list1, List<Integer> list2) {
+    Set<Integer> set1 = new HashSet<>(list1);
+    List<Integer> common = new ArrayList<>();
+    for (Integer item2 : list2) {
+        if (set1.contains(item2)) {
+            common.add(item2);
+        }
+    }
+    return common;
+}

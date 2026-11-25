@@ -16,7 +16,7 @@ from anadroid.utils.Utils import mega_find, execute_shell_command, sign_apk, log
 
 class BuilDroidBuilder(AbstractBuilder):
     def __init__(self, proj, device, resources_dir, instrumenter):
-        super(BuilDroidBuilder, self).__init__(proj, device, resources_dir, instrumenter)
+        super(BuilDroidBuilder, self).__init__(proj, device, resources_dir, instrumenter, name='buildroid')
         self.build_flags = {}
         self.retry_on_fail = self.get_config("retry_failed", True)
 
@@ -33,9 +33,15 @@ class BuilDroidBuilder(AbstractBuilder):
         """
         if not self.was_last_build_successful() or rebuild:
             builDroid.process_repository(self.proj.proj_dir, local_path=True, project_name=self.proj.proj_name,
-                                         override_project=True)
+                                         override_project=True, keep_container=True, stop_container=False)
             if not self.was_last_build_successful():
+                self.regist_error_build()
                 return False
+            else:
+                self.regist_successful_build()
+                logi("Project built successfully.")
+        else:
+            logw("Project was already built successfully. Skipping build.")
         return True
 
     def install_apks(self, build_type=BUILD_TYPE.DEBUG, install_apk_test=False):
@@ -100,13 +106,13 @@ class BuilDroidBuilder(AbstractBuilder):
         if self.was_last_build_successful(task="sign") or build_type == BUILD_TYPE.DEBUG:
             return True
         for apk_path in self.proj.get_apks(build_type):
-            ret, o, e = sign_apk(apk_path)
+            res = sign_apk(apk_path)
+            ret, e = res.return_code, res.errors
             if ret == 0 and len(e) < 3:
                 logs("APK Successfully signed")
                 return True
             else:
                 loge(f"Error signing apk {apk_path} {e}")
-                print(e)
                 return False
 
     def build_apk(self, build_type=BUILD_TYPE.DEBUG):
@@ -116,7 +122,7 @@ class BuilDroidBuilder(AbstractBuilder):
        pass
 
     def build(self, rebuild=False):
-       pass
+       return self.build_proj_and_apk(rebuild=rebuild)
 
     def was_last_build_successful(self, task="build"):
         """checks if last build attempt was successful.
@@ -145,4 +151,4 @@ class BuilDroidBuilder(AbstractBuilder):
         Returns:
             bool: True if yes, False otherwise.
         """
-        return os.path.exists(os.path.join("builDroid_tests", self.proj.proj_name))
+        return os.path.exists(os.path.join("builDroid_tests", self.proj.proj_name)) or os.path.exists(self.get_previous_build_report_file())

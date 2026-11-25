@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767889908764" analysisTimestamp="1767889910787" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/reseau-discord-app/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-32/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/reseau-discord-app/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="60d1a4b6d975eef5e5d9271675fc4cbf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.artivain.reseaudiscord.ReseauDiscordAPI(Context) may expose internal representation by storing an externally mutable object into ReseauDiscordAPI.context</LongMessage>
+    <Class classname="com.artivain.reseaudiscord.ReseauDiscordAPI" primary="true">
+      <SourceLine classname="com.artivain.reseaudiscord.ReseauDiscordAPI" start="18" end="37" sourcefile="ReseauDiscordAPI.java" sourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java" relSourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java">
+        <Message>At ReseauDiscordAPI.java:[lines 18-37]</Message>
+      </SourceLine>
+      <Message>In class com.artivain.reseaudiscord.ReseauDiscordAPI</Message>
+    </Class>
+    <Method classname="com.artivain.reseaudiscord.ReseauDiscordAPI" name="&lt;init&gt;" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.artivain.reseaudiscord.ReseauDiscordAPI" start="18" end="21" startBytecode="0" endBytecode="108" sourcefile="ReseauDiscordAPI.java" sourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java" relSourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java"/>
+      <Message>In method new com.artivain.reseaudiscord.ReseauDiscordAPI(Context)</Message>
+    </Method>
+    <Field classname="com.artivain.reseaudiscord.ReseauDiscordAPI" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.artivain.reseaudiscord.ReseauDiscordAPI" sourcefile="ReseauDiscordAPI.java" sourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java" relSourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java">
+        <Message>In ReseauDiscordAPI.java</Message>
+      </SourceLine>
+      <Message>Field com.artivain.reseaudiscord.ReseauDiscordAPI.context</Message>
+    </Field>
+    <LocalVariable name="theContext" register="1" pc="22" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named theContext</Message>
+    </LocalVariable>
+    <SourceLine classname="com.artivain.reseaudiscord.ReseauDiscordAPI" primary="true" start="19" end="19" startBytecode="22" endBytecode="22" sourcefile="ReseauDiscordAPI.java" sourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java" relSourcepath="com/artivain/reseaudiscord/ReseauDiscordAPI.java">
+      <Message>At ReseauDiscordAPI.java:[line 19]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="dfbd33e3842d3cf83a20078d017691d7" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.LinearLayout in com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding.bind(View)</LongMessage>
+    <Class classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" primary="true">
+      <SourceLine classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" start="18" end="66" sourcefile="RecyclerViewItemBinding.java" sourcepath="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java">
+        <Message>At RecyclerViewItemBinding.java:[lines 18-66]</Message>
+      </SourceLine>
+      <Message>In class com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding</Message>
+    </Class>
+    <Method classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" name="bind" signature="(Landroid/view/View;)Lcom/artivain/reseaudiscord/databinding/RecyclerViewItemBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" start="57" end="66" startBytecode="0" endBytecode="28" sourcefile="RecyclerViewItemBinding.java" sourcepath="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java"/>
+      <Message>In method com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1849" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1849]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/LinearLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.LinearLayout" start="20" end="92" sourcefile="LinearLayout.java" sourcepath="android/widget/LinearLayout.java">
+        <Message>At LinearLayout.java:[lines 20-92]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.LinearLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="23" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" primary="true" start="63" end="63" startBytecode="24" endBytecode="24" sourcefile="RecyclerViewItemBinding.java" sourcepath="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java">
+      <Message>At RecyclerViewItemBinding.java:[line 63]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="f715fb226a1fa781f6b52e96f222e638" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding.getRoot() may expose internal representation by returning RecyclerViewItemBinding.rootView</LongMessage>
+    <Class classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" primary="true">
+      <SourceLine classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" start="18" end="66" sourcefile="RecyclerViewItemBinding.java" sourcepath="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java">
+        <Message>At RecyclerViewItemBinding.java:[lines 18-66]</Message>
+      </SourceLine>
+      <Message>In class com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding</Message>
+    </Class>
+    <Method classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" name="getRoot" signature="()Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" start="33" end="33" startBytecode="0" endBytecode="46" sourcefile="RecyclerViewItemBinding.java" sourcepath="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java"/>
+      <Message>In method com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" name="rootView" signature="Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" sourcefile="RecyclerViewItemBinding.java" sourcepath="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java">
+        <Message>In RecyclerViewItemBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" primary="true" start="33" end="33" startBytecode="4" endBytecode="4" sourcefile="RecyclerViewItemBinding.java" sourcepath="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java">
+      <Message>At RecyclerViewItemBinding.java:[line 33]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="26">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.coordinatorlayout.widget.CoordinatorLayout</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentContainerView</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBindings</MissingClass>
+    <MissingClass>com.android.volley.Request</MissingClass>
+    <MissingClass>com.android.volley.Request$Method</MissingClass>
+    <MissingClass>com.android.volley.RequestQueue</MissingClass>
+    <MissingClass>com.android.volley.Response</MissingClass>
+    <MissingClass>com.android.volley.Response$ErrorListener</MissingClass>
+    <MissingClass>com.android.volley.Response$Listener</MissingClass>
+    <MissingClass>com.android.volley.VolleyError</MissingClass>
+    <MissingClass>com.android.volley.toolbox.JsonObjectRequest</MissingClass>
+    <MissingClass>com.android.volley.toolbox.Volley</MissingClass>
+    <MissingClass>com.artivain.reseaudiscord.R</MissingClass>
+    <MissingClass>com.artivain.reseaudiscord.R$id</MissingClass>
+    <MissingClass>com.artivain.reseaudiscord.R$layout</MissingClass>
+    <MissingClass>com.artivain.reseaudiscord.R$menu</MissingClass>
+    <MissingClass>com.artivain.reseaudiscord.R$string</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 20:31:48 +0400" total_classes="8" referenced_classes="54" total_bugs="3" total_size="237" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.20" clock_seconds="0.47" peak_mbytes="212.64" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="3">
+    <FileStats path="com/artivain/reseaudiscord/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/artivain/reseaudiscord/FirstFragment.java" bugCount="0" size="59"/>
+    <FileStats path="com/artivain/reseaudiscord/MainActivity.java" bugCount="0" size="21"/>
+    <FileStats path="com/artivain/reseaudiscord/ReseauDiscordAPI.java" bugCount="1" size="21" bugHash="4d988f9c9506e1e1644964fd4e0fe1e8"/>
+    <FileStats path="com/artivain/reseaudiscord/databinding/ActivityMainBinding.java" bugCount="0" size="27"/>
+    <FileStats path="com/artivain/reseaudiscord/databinding/ContentMainBinding.java" bugCount="0" size="27"/>
+    <FileStats path="com/artivain/reseaudiscord/databinding/FragmentFirstBinding.java" bugCount="0" size="45"/>
+    <FileStats path="com/artivain/reseaudiscord/databinding/RecyclerViewItemBinding.java" bugCount="2" size="27" bugHash="0ba18987494902c6595c0531846cad91"/>
+    <PackageStats package="com.artivain.reseaudiscord" total_bugs="1" total_types="4" total_size="111" priority_2="1">
+      <ClassStats class="com.artivain.reseaudiscord.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.artivain.reseaudiscord.FirstFragment" sourceFile="FirstFragment.java" interface="false" size="59" bugs="0"/>
+      <ClassStats class="com.artivain.reseaudiscord.MainActivity" sourceFile="MainActivity.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.artivain.reseaudiscord.ReseauDiscordAPI" sourceFile="ReseauDiscordAPI.java" interface="false" size="21" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.artivain.reseaudiscord.databinding" total_bugs="2" total_types="4" total_size="126" priority_2="2">
+      <ClassStats class="com.artivain.reseaudiscord.databinding.ActivityMainBinding" sourceFile="ActivityMainBinding.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="com.artivain.reseaudiscord.databinding.ContentMainBinding" sourceFile="ContentMainBinding.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="com.artivain.reseaudiscord.databinding.FragmentFirstBinding" sourceFile="FragmentFirstBinding.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="com.artivain.reseaudiscord.databinding.RecyclerViewItemBinding" sourceFile="RecyclerViewItemBinding.java" interface="false" size="27" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="50" invocations="441" avgMicrosecondsPerInvocation="113" maxMicrosecondsPerInvocation="5124" standardDeviationMicrosecondsPerInvocation="374"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="26" invocations="54" avgMicrosecondsPerInvocation="483" maxMicrosecondsPerInvocation="5496" standardDeviationMicrosecondsPerInvocation="977"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="102" avgMicrosecondsPerInvocation="141" maxMicrosecondsPerInvocation="3868" standardDeviationMicrosecondsPerInvocation="436"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="12" invocations="42" avgMicrosecondsPerInvocation="286" maxMicrosecondsPerInvocation="3511" standardDeviationMicrosecondsPerInvocation="638"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762891527468" analysisTimestamp="1762891529528" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/AdminControl/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-28/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/AdminControl/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="10a90e3da9a9ab3c4b556fe04358baf5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.davidshewitt.admincontrol.AdminControls.getDeviceOwnerComponent() may expose internal representation by returning AdminControls.deviceOwnerComponent</LongMessage>
+    <Class classname="com.davidshewitt.admincontrol.AdminControls" primary="true">
+      <SourceLine classname="com.davidshewitt.admincontrol.AdminControls" start="12" end="53" sourcefile="AdminControls.java" sourcepath="com/davidshewitt/admincontrol/AdminControls.java" relSourcepath="com/davidshewitt/admincontrol/AdminControls.java">
+        <Message>At AdminControls.java:[lines 12-53]</Message>
+      </SourceLine>
+      <Message>In class com.davidshewitt.admincontrol.AdminControls</Message>
+    </Class>
+    <Method classname="com.davidshewitt.admincontrol.AdminControls" name="getDeviceOwnerComponent" signature="()Landroid/content/ComponentName;" isStatic="false" primary="true">
+      <SourceLine classname="com.davidshewitt.admincontrol.AdminControls" start="19" end="19" startBytecode="0" endBytecode="46" sourcefile="AdminControls.java" sourcepath="com/davidshewitt/admincontrol/AdminControls.java" relSourcepath="com/davidshewitt/admincontrol/AdminControls.java"/>
+      <Message>In method com.davidshewitt.admincontrol.AdminControls.getDeviceOwnerComponent()</Message>
+    </Method>
+    <Field classname="com.davidshewitt.admincontrol.AdminControls" name="deviceOwnerComponent" signature="Landroid/content/ComponentName;" isStatic="false" primary="true">
+      <SourceLine classname="com.davidshewitt.admincontrol.AdminControls" sourcefile="AdminControls.java" sourcepath="com/davidshewitt/admincontrol/AdminControls.java" relSourcepath="com/davidshewitt/admincontrol/AdminControls.java">
+        <Message>In AdminControls.java</Message>
+      </SourceLine>
+      <Message>Field com.davidshewitt.admincontrol.AdminControls.deviceOwnerComponent</Message>
+    </Field>
+    <SourceLine classname="com.davidshewitt.admincontrol.AdminControls" primary="true" start="19" end="19" startBytecode="4" endBytecode="4" sourcefile="AdminControls.java" sourcepath="com/davidshewitt/admincontrol/AdminControls.java" relSourcepath="com/davidshewitt/admincontrol/AdminControls.java">
+      <Message>At AdminControls.java:[line 19]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="14">
+    <MissingClass>androidx.annotation.LayoutRes</MissingClass>
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.RequiresApi</MissingClass>
+    <MissingClass>androidx.appcompat.app.ActionBar</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatCallback</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatDelegate</MissingClass>
+    <MissingClass>com.davidshewitt.admincontrol.R</MissingClass>
+    <MissingClass>com.davidshewitt.admincontrol.R$layout</MissingClass>
+    <MissingClass>com.davidshewitt.admincontrol.R$string</MissingClass>
+    <MissingClass>com.davidshewitt.admincontrol.R$xml</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 00:05:27 +0400" total_classes="10" referenced_classes="148" total_bugs="1" total_size="234" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.60" clock_seconds="0.45" peak_mbytes="229.51" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="1">
+    <FileStats path="com/davidshewitt/admincontrol/AdminControls.java" bugCount="1" size="32" bugHash="aa29f410b4910560d37f5fab933f481c"/>
+    <FileStats path="com/davidshewitt/admincontrol/AppCompatPreferenceActivity.java" bugCount="0" size="56"/>
+    <FileStats path="com/davidshewitt/admincontrol/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/davidshewitt/admincontrol/ControlDeviceAdminReceiver.java" bugCount="0" size="3"/>
+    <FileStats path="com/davidshewitt/admincontrol/ControlYourDeviceActivity.java" bugCount="0" size="78"/>
+    <FileStats path="com/davidshewitt/admincontrol/FingerprintToggleTileService.java" bugCount="0" size="39"/>
+    <FileStats path="com/davidshewitt/admincontrol/KeyguardFeatures.java" bugCount="0" size="10"/>
+    <FileStats path="com/davidshewitt/admincontrol/LockNowTileService.java" bugCount="0" size="6"/>
+    <PackageStats package="com.davidshewitt.admincontrol" total_bugs="1" total_types="10" total_size="234" priority_2="1">
+      <ClassStats class="com.davidshewitt.admincontrol.AdminControls" sourceFile="AdminControls.java" interface="false" size="32" bugs="1" priority_2="1"/>
+      <ClassStats class="com.davidshewitt.admincontrol.AppCompatPreferenceActivity" sourceFile="AppCompatPreferenceActivity.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.ControlDeviceAdminReceiver" sourceFile="ControlDeviceAdminReceiver.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.ControlYourDeviceActivity" sourceFile="ControlYourDeviceActivity.java" interface="false" size="60" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.ControlYourDeviceActivity$1" sourceFile="ControlYourDeviceActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.ControlYourDeviceActivity$DevControlPreferenceFragment" sourceFile="ControlYourDeviceActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.FingerprintToggleTileService" sourceFile="FingerprintToggleTileService.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.KeyguardFeatures" sourceFile="KeyguardFeatures.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.davidshewitt.admincontrol.LockNowTileService" sourceFile="LockNowTileService.java" interface="false" size="6" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="51" invocations="493" avgMicrosecondsPerInvocation="103" maxMicrosecondsPerInvocation="4253" standardDeviationMicrosecondsPerInvocation="315"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="26" invocations="148" avgMicrosecondsPerInvocation="179" maxMicrosecondsPerInvocation="3081" standardDeviationMicrosecondsPerInvocation="386"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="15" invocations="180" avgMicrosecondsPerInvocation="87" maxMicrosecondsPerInvocation="3874" standardDeviationMicrosecondsPerInvocation="314"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="11" invocations="148" avgMicrosecondsPerInvocation="76" maxMicrosecondsPerInvocation="1049" standardDeviationMicrosecondsPerInvocation="156"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="507" avgMicrosecondsPerInvocation="21" maxMicrosecondsPerInvocation="236" standardDeviationMicrosecondsPerInvocation="20"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

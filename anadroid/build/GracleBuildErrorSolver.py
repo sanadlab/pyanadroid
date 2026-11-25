@@ -6,7 +6,6 @@ from enum import Enum
 
 from termcolor import colored
 from textops import grep, cat, echo, sed
-from distutils.dir_util import copy_tree
 from anadroid.build.SdkManagerWrapper import SDKManager
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
 from anadroid.utils.Utils import mega_find, get_resources_dir, loge
@@ -15,6 +14,7 @@ RES_DIR = get_resources_dir()
 GRADLE_RES_DIR = os.path.join(RES_DIR, "build", "gradle")
 GRADLE_WRAPPER_DIR = os.path.join(GRADLE_RES_DIR, "wrapper", "gradle")
 
+KEYSTORE_ERROR_COUNT = 0
 
 class KNOWN_ERROR(Enum):
     """Enumerates the list of known gradle build errors that possibly can be fixed the framework."""
@@ -34,7 +34,23 @@ class KNOWN_ERROR(Enum):
     MAYBE_MISSING_GOOGLE_REPO = "Could not resolve all dependencies for configuration"
     USER_HAS_TO_ACCEPT_INSTALL = "INSTALL_FAILED_USER_RESTRICTED"
     NDK_BAD_CONFIG = "did not contain a valid NDK and couldn't be used"
+    WRONG_KEYSTORE = "Keystore file (.+) not found for signing"
+    ERROR_SIGNING_CONFIG = "signing configuration"
     #UNSUPPORTED_DEPENDENCY_VERSION = "The Android Gradle plugin supports only Butterknife Gradle plugin version 9.0.0-rc2 and higher."
+
+
+def get_sdk_version_regex(kind):
+    """regex for a numeric min/target sdk version. Supports `minSdkVersion 21`, `minSdkVersion(21)`,
+    `minSdk 21` and `minSdk = 21`.
+    Args:
+        kind: 'min' or 'target'.
+    """
+    return r'\b(%sSdk(?:Version)?)(\s*=\s*|\s*\(\s*|[ \t]+)(\d+)' % kind
+
+
+def replace_sdk_version(content, kind, new_version):
+    """replaces the numeric min/target sdk version in the content of a gradle file."""
+    return re.sub(get_sdk_version_regex(kind), lambda m: f"{m.group(1)}{m.group(2)}{new_version}", content)
 
 
 def is_known_error(output):
@@ -44,7 +60,7 @@ def is_known_error(output):
         object (obJ:`KNOW_ERROR`): the inferred error. If the error is not known, returns None.
     """
     for error in KNOWN_ERROR:
-        is_this_error = error.value in output
+        is_this_error = error.value in output or re.search(error.value, output) is not None
         if is_this_error:
             return error
     return None
@@ -73,7 +89,10 @@ def solve_known_error(proj, error, error_msg, **kwargs):
 
     elif error == KNOWN_ERROR.NO_WRAPPER:
         # no wrapper config
-        copy_tree(GRADLE_WRAPPER_DIR, os.path.join(proj.proj_dir, "gradle"))
+        try:
+            shutil.copytree(GRADLE_WRAPPER_DIR, os.path.join(proj.proj_dir, "gradle"), dirs_exist_ok=True)
+        except:
+            pass
 
     elif error == KNOWN_ERROR.NO_GRADLEW_EXEC:
         shutil.copy(os.path.join(GRADLE_RES_DIR, "gradlew"), proj.proj_dir)
@@ -81,10 +100,11 @@ def solve_known_error(proj, error, error_msg, **kwargs):
 
     elif error == KNOWN_ERROR.NO_TARGET_PLATFORM:
         # extract version -> use sdkmanager to download -> retry
-        output = kwargs.get("out") if "out" in kwargs else ""
-        current_compileSdkVersion = re.search("android-([0-9]+)",output).groups()[0]
-        sdkman = SDKManager()
-        sdkman.download_platform(current_compileSdkVersion)
+        missing_platform = re.search("android-([0-9]+)", error_msg)
+        if missing_platform is None:
+            loge("Unable to find the version of the missing platform in the build output")
+            return None
+        SDKManager().download_platform(missing_platform.groups()[0])
 
     elif error == KNOWN_ERROR.NO_BUILD_TOOLS:
         # the build tools version being used was not downloaded
@@ -109,18 +129,25 @@ def solve_known_error(proj, error, error_msg, **kwargs):
         if not has_glu_glu:
             add_google_repo_build_script(main_grdl)
     elif error == KNOWN_ERROR.MIN_SDK_ERROR:
-        pass
-        x='''output = kwargs.get("out") if "out" in kwargs else ""
-        if output == "":
-            return
-        tha_manif_file = re.match(r"(.+?AndroidManifest\.xml)", output)
-        print(tha_manif_file.groups())
-        print(tha_manif_file)'''
+        # a library needs a higher min sdk version. Use the version of the library
+        required_version = re.search(KNOWN_ERROR.MIN_SDK_ERROR.value, error_msg).groups()[1].strip()
+        if not required_version.isdigit():
+            loge(f"Unable to read the required min sdk version from '{required_version}'")
+            return None
+        for bld_file in proj.get_build_files():
+            file_ctent = str(cat(bld_file))
+            new_file = replace_sdk_version(file_ctent, 'min', required_version)
+            if new_file != file_ctent:
+                with open(bld_file, 'w') as u:
+                    u.write(new_file)
     elif error == KNOWN_ERROR.WRAPPER_ERROR:
         # can be solved the same way of WRAPPER_MISMATCH_ERROR
         recom_v = re.search("Minimum supported Gradle version is (.*). Current version", error_msg)
         recom_v = f'{recom_v.groups()[0].strip()}-all' if recom_v else get_adequate_gradle_version(get_gradle_plugin_version(proj.root_build_file))
         grad_prop_files = mega_find(proj.proj_dir, "gradle-wrapper.properties", type_file='f')
+        if len(grad_prop_files) == 0:
+            loge(f"No gradle-wrapper.properties file in {proj.proj_dir}. Unable to change the Gradle version")
+            return None
         update_gradle_wrapper_version(grad_prop_files[0], recom_v )
         #solve_known_error(proj, error=KNOWN_ERRORS.WRAPPER_MISMATCH_ERROR, **kwargs)
 
@@ -134,10 +161,53 @@ def solve_known_error(proj, error, error_msg, **kwargs):
         current_build_version = get_gradle_plugin_version(proj.root_build_file)
         replace_gradle_plugin_version( proj.root_build_file, current_build_version, min)
         solve_known_error(proj, KNOWN_ERROR.WRAPPER_MISMATCH_ERROR, error_msg, **kwargs)
-    #elif error == KNOWN_ERRORS.UNSUPPORTED_DEPENDENCY_VERSION:
-    #    pass
+    elif error == KNOWN_ERROR.WRONG_KEYSTORE or error == KNOWN_ERROR.ERROR_SIGNING_CONFIG:
+        # replace signingConfig references in gradle files
+        for bld_file in proj.get_build_files():
+            new_file = str(cat(bld_file)).replace("signingConfig signingConfigs.release", "signingConfig null").replace("signingConfig signingConfigs.debug", "signingConfig null")
+            # remove signingConfigs block from gradle files
+            #new_file = re.sub(r'signingConfigs \{[^}]+}+}', ' ', new_file, flags=re.DOTALL)
+            with open(bld_file, 'w') as u:
+                u.write(new_file)
+
+        #copy default keystore file and change keystore references in gradle files
+        '''global KEYSTORE_ERROR_COUNT
+
+        if KEYSTORE_ERROR_COUNT == 0:
+            keystore_file = (re.search("Keystore file (.+) not found for signing", error_msg).groups()[0]
+                             .replace("'", "").replace("\'","").strip())
+            default_keystore = os.path.join(RES_DIR, "keys", "pynadroid-releases.keystore")
+            shutil.copy(default_keystore, proj.proj_dir)
+            for bld_file in proj.get_build_files():
+                new_file = str(cat(bld_file)).replace(keystore_file, f"{default_keystore}")
+                with open(bld_file, 'w') as u:
+                    u.write(new_file)
+
+            KEYSTORE_ERROR_COUNT += 1
+        else:'''
+        # remove storeFile reference
+        for bld_file in proj.get_build_files():
+            new_file = re.sub(r'storeFile\s+file\(.*\)', '', str(cat(bld_file)))
+            with open(bld_file, 'w') as u:
+                u.write(new_file)
+
     else:
         loge(f"Unable to solve {error}")
+    return None
+
+
+# (minimum plugin (AGP) version, Gradle version to use), in ascending order.
+# Based on https://developer.android.com/build/releases/gradle-plugin#updating-gradle
+GRADLE_VERSION_PER_PLUGIN_VERSION = [
+    ("1.0.0", "2.3"), ("1.2.0", "2.9"), ("1.5.0", "2.13"), ("2.1.3", "3.5"), ("2.3.0", "3.3"),
+    ("3.0.0", "4.1"), ("3.1.0", "4.4"), ("3.2.0", "4.6"), ("3.3.0", "4.10.1"), ("3.4.0", "5.1.1"),
+    ("3.5.0", "5.4.1"), ("3.6.0", "5.6.4"), ("4.0.0", "6.1.1"), ("4.1.0", "6.5"), ("4.2.0", "6.7.1"),
+    ("7.0.0", "7.0"), ("7.1.0", "7.2"), ("7.2.0", "7.3.3"), ("7.3.0", "7.4"), ("7.4.0", "7.5"),
+    ("8.0.0", "8.0"), ("8.2.0", "8.2"), ("8.3.0", "8.4"), ("8.4.0", "8.6"), ("8.5.0", "8.7"),
+    ("8.7.0", "8.9"), ("8.8.0", "8.10.2"), ("8.9.0", "8.11.1"), ("8.11.0", "8.13"),
+    # 9.1 to 9.4: minimum of 9.0. If Gradle asks for a newer version, the WRAPPER_ERROR rule uses that version
+    ("9.0.0", "9.1.0"), ("9.5.0", "9.6.0"),
+]
 
 
 def get_adequate_gradle_version(plugin_version):
@@ -151,37 +221,11 @@ def get_adequate_gradle_version(plugin_version):
         version: adequate gradle version.
     """
     version = DefaultSemanticVersion(plugin_version)
-    if DefaultSemanticVersion("1.0.0") <= version <= DefaultSemanticVersion("1.1.3"):
-        return "2.3-all"
-    elif DefaultSemanticVersion("1.2.0") <= version <= DefaultSemanticVersion("1.3.1"):
-        return "2.9-all"
-    elif DefaultSemanticVersion("1.5.0") == version:
-        return "2.13-all"
-    elif DefaultSemanticVersion("2.0.0") <= version <= DefaultSemanticVersion("2.1.2"):
-        return "2.13-all"
-    elif DefaultSemanticVersion("2.1.3") <= version <= DefaultSemanticVersion("2.2.3"):
-        return "3.5-all"
-    elif DefaultSemanticVersion("2.3.0") <= version < DefaultSemanticVersion("3.0"):
-        return "3.3-all"
-    elif DefaultSemanticVersion("3.0.0") <= version < DefaultSemanticVersion("3.1.0"):
-        return "4.1-all"
-    elif DefaultSemanticVersion("3.1.0") <= version < DefaultSemanticVersion("3.2.0"):
-        return "4.4-all"
-    elif DefaultSemanticVersion("3.2.0") <= version <= DefaultSemanticVersion("3.2.1"):
-        return "4.6-all"
-    elif DefaultSemanticVersion("3.3.0") <= version <= DefaultSemanticVersion("3.3.3"):
-        return "4.10.1-all"
-    elif DefaultSemanticVersion("3.4.0") <= version <= DefaultSemanticVersion("3.4.3"):
-        return "5.1.1-all"
-    elif DefaultSemanticVersion("3.5.0") <= version <= DefaultSemanticVersion("3.5.4"):
-        return "5.4.1-all"
-    elif DefaultSemanticVersion("3.6.0") <= version <= DefaultSemanticVersion("3.6.4"):
-        return "5.6.4-all"
-    elif DefaultSemanticVersion("4.0.0") <= version < DefaultSemanticVersion("4.1.0"):
-        return "6.1.1-all"
-    elif DefaultSemanticVersion("4.2.0") <= version:
-        return "6.7.1-all"
-
+    adequate_version = None
+    for min_plugin_version, gradle_version in GRADLE_VERSION_PER_PLUGIN_VERSION:
+        if version >= DefaultSemanticVersion(min_plugin_version):
+            adequate_version = gradle_version
+    return f"{adequate_version}-all" if adequate_version is not None else None
 
 
 def upgrade_version_from_version_list( version_list , upgradable_candidate, opt="max"):
@@ -281,10 +325,13 @@ def update_gradle_wrapper_version(gradle_wrap_prop_filepath, new_v):
         gradle_wrap_prop_filepath: properties file path.
         new_v: new version.
     """
+    if new_v is None:
+        loge(f"No adequate Gradle version found. {gradle_wrap_prop_filepath} was not changed")
+        return
     fl_ctnt = file_content = str(cat(gradle_wrap_prop_filepath))
     current_v = str(echo(fl_ctnt)
                     | grep("distributionUrl=.*")).split("/")[-1].replace("gradle-", "").replace(".zip", "")
-    file_content = re.sub(current_v,  new_v, file_content)
+    file_content = file_content.replace(f"gradle-{current_v}.zip", f"gradle-{new_v}.zip")
     with open(gradle_wrap_prop_filepath, 'w') as u:
         u.write(file_content)
 

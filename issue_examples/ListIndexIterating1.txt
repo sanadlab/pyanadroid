@@ -1,0 +1,14 @@
+
+List<String> names = new LinkedList<>();
+// ... add many names ...
+for (int i = 0; i < names.size(); i++) {
+    System.out.println(names.get(i));
+}
+
+-----
+
+List<String> names = new LinkedList<>();
+// ... add many names ...
+for (String name : names) {
+    System.out.println(name);
+}

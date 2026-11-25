@@ -1,0 +1,11 @@
+// Bad: The function signature forces boxing on the return value and for each element.
+fun readSensorData(): Array<Double> {
+    return arrayOf(23.5, 23.6, 23.55)
+}
+
+-----
+
+// Good: Use the specialized primitive array for better performance.
+fun readSensorData(): DoubleArray {
+    return doubleArrayOf(23.5, 23.6, 23.55)
+}

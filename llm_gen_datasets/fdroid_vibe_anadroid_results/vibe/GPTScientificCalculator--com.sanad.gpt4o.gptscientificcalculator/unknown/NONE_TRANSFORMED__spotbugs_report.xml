@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762928909252" analysisTimestamp="1762928912122" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="a656330646a771a70582e40a3e76143b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.sanad.gpt4o.gptscientificcalculator.MainActivity.calculate() where default case is missing</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity" start="9" end="112" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java">
+        <Message>At MainActivity.java:[lines 9-112]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptscientificcalculator.MainActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity" name="calculate" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity" start="85" end="112" startBytecode="0" endBytecode="406" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gptscientificcalculator.MainActivity.calculate()</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity" primary="true" start="89" end="103" startBytecode="71" endBytecode="198" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java">
+      <Message>At MainActivity.java:[lines 89-103]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="3633d22ab7483a2a6b9d17ae709e58c3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.Button in com.sanad.gpt4o.gptscientificcalculator.MainActivity$1.onClick(View)</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity$1" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity$1" start="24" end="60" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java">
+        <Message>At MainActivity.java:[lines 24-60]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptscientificcalculator.MainActivity$1</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity$1" name="onClick" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity$1" start="27" end="60" startBytecode="0" endBytecode="149" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"/>
+      <Message>In method com.sanad.gpt4o.gptscientificcalculator.MainActivity$1.onClick(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1909" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1909]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/Button;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.Button" start="24" end="34" sourcefile="Button.java" sourcepath="android/widget/Button.java">
+        <Message>At Button.java:[lines 24-34]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.Button</Message>
+    </Type>
+    <LocalVariable name="v" register="1" pc="0" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from v</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gpt4o.gptscientificcalculator.MainActivity$1" primary="true" start="27" end="27" startBytecode="1" endBytecode="1" sourcefile="MainActivity.java" sourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java" relSourcepath="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java">
+      <Message>At MainActivity.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="5">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptscientificcalculator.R</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptscientificcalculator.R$id</MissingClass>
+    <MissingClass>com.sanad.gpt4o.gptscientificcalculator.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:28:29 +0400" total_classes="2" referenced_classes="78" total_bugs="2" total_size="77" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="4.72" clock_seconds="2.32" peak_mbytes="177.58" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="2">
+    <FileStats path="com/sanad/gpt4o/gptscientificcalculator/MainActivity.java" bugCount="2" size="77" bugHash="f8e31e816bbed9cad2c5ed9a6120562d"/>
+    <PackageStats package="com.sanad.gpt4o.gptscientificcalculator" total_bugs="2" total_types="2" total_size="77" priority_2="2">
+      <ClassStats class="com.sanad.gpt4o.gptscientificcalculator.MainActivity" sourceFile="MainActivity.java" interface="false" size="54" bugs="1" priority_2="1"/>
+      <ClassStats class="com.sanad.gpt4o.gptscientificcalculator.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="23" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="446" invocations="366" avgMicrosecondsPerInvocation="1218" maxMicrosecondsPerInvocation="42751" standardDeviationMicrosecondsPerInvocation="3789"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="97" invocations="78" avgMicrosecondsPerInvocation="1254" maxMicrosecondsPerInvocation="19411" standardDeviationMicrosecondsPerInvocation="2990"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="79" invocations="106" avgMicrosecondsPerInvocation="754" maxMicrosecondsPerInvocation="15756" standardDeviationMicrosecondsPerInvocation="2104"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="73" invocations="5" avgMicrosecondsPerInvocation="14713" maxMicrosecondsPerInvocation="40312" standardDeviationMicrosecondsPerInvocation="14723"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="66" invocations="5" avgMicrosecondsPerInvocation="13200" maxMicrosecondsPerInvocation="22576" standardDeviationMicrosecondsPerInvocation="9753"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="58" invocations="78" avgMicrosecondsPerInvocation="752" maxMicrosecondsPerInvocation="29436" standardDeviationMicrosecondsPerInvocation="4192"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="57" invocations="2" avgMicrosecondsPerInvocation="28958" maxMicrosecondsPerInvocation="33983" standardDeviationMicrosecondsPerInvocation="5025"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="57" invocations="311" avgMicrosecondsPerInvocation="185" maxMicrosecondsPerInvocation="5651" standardDeviationMicrosecondsPerInvocation="582"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="52" invocations="78" avgMicrosecondsPerInvocation="673" maxMicrosecondsPerInvocation="23226" standardDeviationMicrosecondsPerInvocation="2733"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="49" invocations="5" avgMicrosecondsPerInvocation="9922" maxMicrosecondsPerInvocation="21088" standardDeviationMicrosecondsPerInvocation="7448"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="42" invocations="78" avgMicrosecondsPerInvocation="548" maxMicrosecondsPerInvocation="7617" standardDeviationMicrosecondsPerInvocation="1386"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="41" invocations="78" avgMicrosecondsPerInvocation="534" maxMicrosecondsPerInvocation="10947" standardDeviationMicrosecondsPerInvocation="1549"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="38" invocations="380" avgMicrosecondsPerInvocation="102" maxMicrosecondsPerInvocation="2819" standardDeviationMicrosecondsPerInvocation="228"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="35" invocations="78" avgMicrosecondsPerInvocation="457" maxMicrosecondsPerInvocation="7450" standardDeviationMicrosecondsPerInvocation="1149"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="35" invocations="5" avgMicrosecondsPerInvocation="7130" maxMicrosecondsPerInvocation="14721" standardDeviationMicrosecondsPerInvocation="4267"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="34" invocations="5" avgMicrosecondsPerInvocation="6906" maxMicrosecondsPerInvocation="9237" standardDeviationMicrosecondsPerInvocation="1594"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="34" invocations="5" avgMicrosecondsPerInvocation="6869" maxMicrosecondsPerInvocation="13229" standardDeviationMicrosecondsPerInvocation="3950"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="29" invocations="5" avgMicrosecondsPerInvocation="5884" maxMicrosecondsPerInvocation="24057" standardDeviationMicrosecondsPerInvocation="9167"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadForLoop" totalMilliseconds="29" invocations="2" avgMicrosecondsPerInvocation="14699" maxMicrosecondsPerInvocation="18882" standardDeviationMicrosecondsPerInvocation="4183"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="25" invocations="2" avgMicrosecondsPerInvocation="12764" maxMicrosecondsPerInvocation="23955" standardDeviationMicrosecondsPerInvocation="11191"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="25" invocations="5" avgMicrosecondsPerInvocation="5077" maxMicrosecondsPerInvocation="16534" standardDeviationMicrosecondsPerInvocation="5764"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="21" invocations="78" avgMicrosecondsPerInvocation="276" maxMicrosecondsPerInvocation="5379" standardDeviationMicrosecondsPerInvocation="914"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

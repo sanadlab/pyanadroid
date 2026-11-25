@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767892694379" analysisTimestamp="1767892696235" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/AudioMeter/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-25/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/AudioMeter/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" instanceHash="25c0ee0cb141e2cdef4f54ff07368904" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="192">
+    <ShortMessage>Integral division result cast to double or float</ShortMessage>
+    <LongMessage>Integral division result cast to double or float in com.quaap.audiometer.MainActivity.setScale()</LongMessage>
+    <Class classname="com.quaap.audiometer.MainActivity" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MainActivity" start="53" end="324" sourcefile="MainActivity.java" sourcepath="com/quaap/audiometer/MainActivity.java" relSourcepath="com/quaap/audiometer/MainActivity.java">
+        <Message>At MainActivity.java:[lines 53-324]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MainActivity</Message>
+    </Class>
+    <Method classname="com.quaap.audiometer.MainActivity" name="setScale" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MainActivity" start="238" end="248" startBytecode="0" endBytecode="203" sourcefile="MainActivity.java" sourcepath="com/quaap/audiometer/MainActivity.java" relSourcepath="com/quaap/audiometer/MainActivity.java"/>
+      <Message>In method com.quaap.audiometer.MainActivity.setScale()</Message>
+    </Method>
+    <SourceLine classname="com.quaap.audiometer.MainActivity" primary="true" start="240" end="240" startBytecode="35" endBytecode="35" sourcefile="MainActivity.java" sourcepath="com/quaap/audiometer/MainActivity.java" relSourcepath="com/quaap/audiometer/MainActivity.java">
+      <Message>At MainActivity.java:[line 240]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="f30ff1b43a51b6b38a323f303a6e8bf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.quaap.audiometer.MainActivity.onRequestPermissionsResult(int, String[], int[]) where default case is missing</LongMessage>
+    <Class classname="com.quaap.audiometer.MainActivity" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MainActivity" start="53" end="324" sourcefile="MainActivity.java" sourcepath="com/quaap/audiometer/MainActivity.java" relSourcepath="com/quaap/audiometer/MainActivity.java">
+        <Message>At MainActivity.java:[lines 53-324]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MainActivity</Message>
+    </Class>
+    <Method classname="com.quaap.audiometer.MainActivity" name="onRequestPermissionsResult" signature="(I[Ljava/lang/String;[I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MainActivity" start="200" end="212" startBytecode="0" endBytecode="153" sourcefile="MainActivity.java" sourcepath="com/quaap/audiometer/MainActivity.java" relSourcepath="com/quaap/audiometer/MainActivity.java"/>
+      <Message>In method com.quaap.audiometer.MainActivity.onRequestPermissionsResult(int, String[], int[])</Message>
+    </Method>
+    <SourceLine classname="com.quaap.audiometer.MainActivity" primary="true" start="200" end="208" startBytecode="1" endBytecode="53" sourcefile="MainActivity.java" sourcepath="com/quaap/audiometer/MainActivity.java" relSourcepath="com/quaap/audiometer/MainActivity.java">
+      <Message>At MainActivity.java:[lines 200-208]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="e4d0e8a0186acbb40cf4098aac96b459" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.quaap.audiometer.MeterView.setupMeter(double[]) may expose internal representation by storing an externally mutable object into MeterView.mMeterTicks</LongMessage>
+    <Class classname="com.quaap.audiometer.MeterView" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MeterView" start="40" end="176" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+        <Message>At MeterView.java:[lines 40-176]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MeterView</Message>
+    </Class>
+    <Method classname="com.quaap.audiometer.MeterView" name="setupMeter" signature="([D)V" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MeterView" start="80" end="140" startBytecode="0" endBytecode="817" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java"/>
+      <Message>In method com.quaap.audiometer.MeterView.setupMeter(double[])</Message>
+    </Method>
+    <Field classname="com.quaap.audiometer.MeterView" name="mMeterTicks" signature="[D" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MeterView" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+        <Message>In MeterView.java</Message>
+      </SourceLine>
+      <Message>Field com.quaap.audiometer.MeterView.mMeterTicks</Message>
+    </Field>
+    <LocalVariable name="meterTicks" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named meterTicks</Message>
+    </LocalVariable>
+    <SourceLine classname="com.quaap.audiometer.MeterView" primary="true" start="80" end="80" startBytecode="2" endBytecode="2" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+      <Message>At MeterView.java:[line 80]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="a550b4089b4117d5d809f2bfd0b80b9d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.quaap.audiometer.MeterView.mAlphaActive; should this field be static?</LongMessage>
+    <Class classname="com.quaap.audiometer.MeterView" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MeterView" start="40" end="176" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+        <Message>At MeterView.java:[lines 40-176]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MeterView</Message>
+    </Class>
+    <Field classname="com.quaap.audiometer.MeterView" name="mAlphaActive" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MeterView" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+        <Message>In MeterView.java</Message>
+      </SourceLine>
+      <Message>Field com.quaap.audiometer.MeterView.mAlphaActive</Message>
+    </Field>
+    <SourceLine classname="com.quaap.audiometer.MeterView" primary="true" start="74" end="74" startBytecode="18" endBytecode="18" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+      <Message>At MeterView.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="6caee115be17aa2fc453c6cfd6317f4e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.quaap.audiometer.MeterView.mAlphaInactive; should this field be static?</LongMessage>
+    <Class classname="com.quaap.audiometer.MeterView" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MeterView" start="40" end="176" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+        <Message>At MeterView.java:[lines 40-176]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MeterView</Message>
+    </Class>
+    <Field classname="com.quaap.audiometer.MeterView" name="mAlphaInactive" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MeterView" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+        <Message>In MeterView.java</Message>
+      </SourceLine>
+      <Message>Field com.quaap.audiometer.MeterView.mAlphaInactive</Message>
+    </Field>
+    <SourceLine classname="com.quaap.audiometer.MeterView" primary="true" start="73" end="73" startBytecode="13" endBytecode="13" sourcefile="MeterView.java" sourcepath="com/quaap/audiometer/MeterView.java" relSourcepath="com/quaap/audiometer/MeterView.java">
+      <Message>At MeterView.java:[line 73]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_NONATOMIC_64BIT_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="ee20bce382f5d7089154cbdf4f477c20" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="667">
+    <ShortMessage>This write of this 64-bit primitive variable may not be atomic</ShortMessage>
+    <LongMessage>This write of the 64-bit primitive variable &quot;scale&quot; may not be atomic</LongMessage>
+    <Class classname="com.quaap.audiometer.MicLevelReader" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" start="35" end="102" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+        <Message>At MicLevelReader.java:[lines 35-102]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MicLevelReader</Message>
+    </Class>
+    <Method classname="com.quaap.audiometer.MicLevelReader" name="setScale" signature="(D)V" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" start="101" end="102" startBytecode="0" endBytecode="61" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java"/>
+      <Message>In method com.quaap.audiometer.MicLevelReader.setScale(double)</Message>
+    </Method>
+    <Field classname="com.quaap.audiometer.MicLevelReader" name="scale" signature="D" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+        <Message>In MicLevelReader.java</Message>
+      </SourceLine>
+      <Message>Field com.quaap.audiometer.MicLevelReader.scale</Message>
+    </Field>
+    <SourceLine classname="com.quaap.audiometer.MicLevelReader" primary="true" start="101" end="101" startBytecode="2" endBytecode="2" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+      <Message>At MicLevelReader.java:[line 101]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="91485e68baf6b52d1b45d091f4b12f3b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mIsRunning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.quaap.audiometer.MicLevelReader" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" start="35" end="102" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+        <Message>At MicLevelReader.java:[lines 35-102]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MicLevelReader</Message>
+    </Class>
+    <Method classname="com.quaap.audiometer.MicLevelReader" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" start="67" end="94" startBytecode="0" endBytecode="339" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java"/>
+      <Message>In method com.quaap.audiometer.MicLevelReader.run()</Message>
+    </Method>
+    <Field classname="com.quaap.audiometer.MicLevelReader" name="mIsRunning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+        <Message>In MicLevelReader.java</Message>
+      </SourceLine>
+      <Message>Field com.quaap.audiometer.MicLevelReader.mIsRunning</Message>
+    </Field>
+    <SourceLine classname="com.quaap.audiometer.MicLevelReader" primary="true" start="75" end="75" startBytecode="32" endBytecode="32" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+      <Message>At MicLevelReader.java:[line 75]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="b189dae3d2846b447e7301d760494a39" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;mIsRunning&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.quaap.audiometer.MicLevelReader" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" start="35" end="102" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+        <Message>At MicLevelReader.java:[lines 35-102]</Message>
+      </SourceLine>
+      <Message>In class com.quaap.audiometer.MicLevelReader</Message>
+    </Class>
+    <Method classname="com.quaap.audiometer.MicLevelReader" name="stop" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" start="52" end="53" startBytecode="0" endBytecode="51" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java"/>
+      <Message>In method com.quaap.audiometer.MicLevelReader.stop()</Message>
+    </Method>
+    <Field classname="com.quaap.audiometer.MicLevelReader" name="mIsRunning" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.quaap.audiometer.MicLevelReader" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+        <Message>In MicLevelReader.java</Message>
+      </SourceLine>
+      <Message>Field com.quaap.audiometer.MicLevelReader.mIsRunning</Message>
+    </Field>
+    <SourceLine classname="com.quaap.audiometer.MicLevelReader" primary="true" start="52" end="52" startBytecode="2" endBytecode="2" sourcefile="MicLevelReader.java" sourcepath="com/quaap/audiometer/MicLevelReader.java" relSourcepath="com/quaap/audiometer/MicLevelReader.java">
+      <Message>At MicLevelReader.java:[line 52]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="ICAST_IDIV_CAST_TO_DOUBLE" abbrev="ICAST" category="STYLE">
+    <ShortDescription>Integral division result cast to double or float</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This code casts the result of an integral division (e.g., int or long division)
+operation to double or float.
+Doing division on integers truncates the result
+to the integer value closest to zero. The fact that the result
+was cast to double suggests that this precision should have been retained.
+What was probably meant was to cast one or both of the operands to
+double <em>before</em> performing the division.  Here is an example:
+</p>
+<pre><code>int x = 2;
+int y = 5;
+// Wrong: yields result 0.0
+double value1 = x / y;
+
+// Right: yields result 0.4
+double value2 = x / (double) y;
+</code></pre>
+<p>See <a href="https://cwe.mitre.org/data/definitions/192.html">CWE-192: Integer Coercion Error</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS" cweid="413">
+    <ShortDescription>This write of this shared primitive variable may not be visible to other threads</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA00-J.+Ensure+visibility+when+accessing+shared+primitive+variables">SEI CERT rule VNA00-J</a>
+          describes that reading a shared primitive variable in one thread may not yield the value of the most recent write to the variable from another thread.
+          Consequently, the thread may observe a stale value of the shared variable.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+          This guarantees that 64-bit primitive long and double variables are accessed atomically.
+        </p>
+        <p>
+        See also <a href="https://cwe.mitre.org/data/definitions/413.html">CWE-413: Improper Resource Locking</a>,
+        <a href="https://cwe.mitre.org/data/definitions/567.html">CWE-567: Unsynchronized Access to Shared Data in a Multithreaded Context</a>, and
+        <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a>.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_NONATOMIC_64BIT_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS" cweid="667">
+    <ShortDescription>This write of this 64-bit primitive variable may not be atomic</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          The long and the double are 64-bit primitive types, and depending on the Java Virtual Machine implementation assigning a value to them can be treated as two separate 32-bit writes, and as such it's not atomic.
+          See <a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.7">JSL 17.7. Non-Atomic Treatment of double and long</a>.
+          See SEI CERT rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA05-J.+Ensure+atomicity+when+reading+and+writing+64-bit+values">VNA05-J. Ensure atomicity when reading and writing 64-bit values</a> and
+          <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a> for more info.
+
+          This bug can be ignored in platforms which guarantee that 64-bit long and double type read and write operations are atomic.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="AT">
+    <Description>Possible atomicity violation</Description>
+  </BugCode>
+  <BugCode abbrev="ICAST" cweid="192">
+    <Description>Casting from integer values</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="10">
+    <MissingClass>android.support.annotation.NonNull</MissingClass>
+    <MissingClass>android.support.v4.app.ActivityCompat</MissingClass>
+    <MissingClass>android.support.v4.content.ContextCompat</MissingClass>
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.quaap.audiometer.R</MissingClass>
+    <MissingClass>com.quaap.audiometer.R$id</MissingClass>
+    <MissingClass>com.quaap.audiometer.R$layout</MissingClass>
+    <MissingClass>com.quaap.audiometer.R$menu</MissingClass>
+    <MissingClass>com.quaap.audiometer.R$string</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 21:18:14 +0400" total_classes="15" referenced_classes="153" total_bugs="8" total_size="426" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.73" clock_seconds="0.59" peak_mbytes="220.61" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="8">
+    <FileStats path="com/quaap/audiometer/AboutActivity.java" bugCount="0" size="18"/>
+    <FileStats path="com/quaap/audiometer/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/quaap/audiometer/HelpActivity.java" bugCount="0" size="7"/>
+    <FileStats path="com/quaap/audiometer/LevelMethod.java" bugCount="0" size="56"/>
+    <FileStats path="com/quaap/audiometer/MainActivity.java" bugCount="2" size="190" bugHash="b329474ada1073344d39dd808b03dcf7"/>
+    <FileStats path="com/quaap/audiometer/MeterView.java" bugCount="3" size="92" bugHash="fa48e3bf1af457fffbe4447efd715be5"/>
+    <FileStats path="com/quaap/audiometer/MicLevelReader.java" bugCount="3" size="52" bugHash="03647380d0441c7684349123e47b1284"/>
+    <PackageStats package="com.quaap.audiometer" total_bugs="8" total_types="15" total_size="426" priority_2="8">
+      <ClassStats class="com.quaap.audiometer.AboutActivity" sourceFile="AboutActivity.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.HelpActivity" sourceFile="HelpActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.LevelMethod" sourceFile="LevelMethod.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.LevelMethod$1" sourceFile="LevelMethod.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.MainActivity" sourceFile="MainActivity.java" interface="false" size="134" bugs="2" priority_2="2"/>
+      <ClassStats class="com.quaap.audiometer.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.MainActivity$3" sourceFile="MainActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.MainActivity$4" sourceFile="MainActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.MainActivity$5" sourceFile="MainActivity.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.MainActivity$6" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.quaap.audiometer.MeterView" sourceFile="MeterView.java" interface="false" size="92" bugs="3" priority_2="3"/>
+      <ClassStats class="com.quaap.audiometer.MicLevelReader" sourceFile="MicLevelReader.java" interface="false" size="50" bugs="3" priority_2="3"/>
+      <ClassStats class="com.quaap.audiometer.MicLevelReader$MicLevelReaderValueListener" sourceFile="MicLevelReader.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="44" invocations="511" avgMicrosecondsPerInvocation="86" maxMicrosecondsPerInvocation="7730" standardDeviationMicrosecondsPerInvocation="409"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="30" invocations="153" avgMicrosecondsPerInvocation="196" maxMicrosecondsPerInvocation="3470" standardDeviationMicrosecondsPerInvocation="404"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="17" invocations="197" avgMicrosecondsPerInvocation="89" maxMicrosecondsPerInvocation="4186" standardDeviationMicrosecondsPerInvocation="321"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="15" invocations="68" avgMicrosecondsPerInvocation="222" maxMicrosecondsPerInvocation="3309" standardDeviationMicrosecondsPerInvocation="538"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="15" invocations="68" avgMicrosecondsPerInvocation="221" maxMicrosecondsPerInvocation="4485" standardDeviationMicrosecondsPerInvocation="590"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="14" invocations="67" avgMicrosecondsPerInvocation="212" maxMicrosecondsPerInvocation="2407" standardDeviationMicrosecondsPerInvocation="401"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="12" invocations="68" avgMicrosecondsPerInvocation="181" maxMicrosecondsPerInvocation="3072" standardDeviationMicrosecondsPerInvocation="396"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="12" invocations="67" avgMicrosecondsPerInvocation="184" maxMicrosecondsPerInvocation="1660" standardDeviationMicrosecondsPerInvocation="281"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="527" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="265" standardDeviationMicrosecondsPerInvocation="22"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="11" invocations="153" avgMicrosecondsPerInvocation="77" maxMicrosecondsPerInvocation="1135" standardDeviationMicrosecondsPerInvocation="143"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="11" invocations="15" avgMicrosecondsPerInvocation="783" maxMicrosecondsPerInvocation="8147" standardDeviationMicrosecondsPerInvocation="2079"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="11" invocations="153" avgMicrosecondsPerInvocation="71" maxMicrosecondsPerInvocation="2574" standardDeviationMicrosecondsPerInvocation="250"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

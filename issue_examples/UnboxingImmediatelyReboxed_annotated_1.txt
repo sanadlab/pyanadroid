@@ -1,0 +1,10 @@
+Integer counter = 0;
+// Bad: counter is unboxed to int, incremented, then re-boxed into a new Integer.
+// This creates a new object in every iteration of a loop.
+counter++;
+
+-----
+
+// Good: Use a primitive type for operations that modify the value frequently.
+int counter = 0;
+counter++;

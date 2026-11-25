@@ -1,0 +1,11 @@
+val itemsArray = arrayOf("A", "B", "C")
+val itemSet = mutableSetOf<String>()
+for (item in itemsArray) {
+    itemSet.add(item)
+}
+
+-----
+
+val itemsArray = arrayOf("A", "B", "C")
+val itemSet = mutableSetOf<String>()
+itemSet.addAll(itemsArray)

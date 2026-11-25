@@ -1,0 +1,107 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2025-10-12T22:56:49.390+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/SmsScheduler/app/src/main/java/com/github/yeriomin/smsscheduler/Activity/AddSmsActivity.java",
+      "violations": [
+        {
+          "beginline": 63,
+          "begincolumn": 9,
+          "endline": 67,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 173,
+          "begincolumn": 43,
+          "endline": 173,
+          "endcolumn": 92,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 201,
+          "begincolumn": 44,
+          "endline": 201,
+          "endcolumn": 115,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 210,
+          "begincolumn": 9,
+          "endline": 226,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/SmsScheduler/app/src/main/java/com/github/yeriomin/smsscheduler/CalendarResolver.java",
+      "violations": [
+        {
+          "beginline": 95,
+          "begincolumn": 16,
+          "endline": 95,
+          "endcolumn": 56,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/SmsScheduler/app/src/main/java/com/github/yeriomin/smsscheduler/DbHelper.java",
+      "violations": [
+        {
+          "beginline": 176,
+          "begincolumn": 22,
+          "endline": 176,
+          "endcolumn": 36,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/SmsScheduler/app/src/main/java/com/github/yeriomin/smsscheduler/view/ContactsTask.java",
+      "violations": [
+        {
+          "beginline": 63,
+          "begincolumn": 57,
+          "endline": 63,
+          "endcolumn": 72,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

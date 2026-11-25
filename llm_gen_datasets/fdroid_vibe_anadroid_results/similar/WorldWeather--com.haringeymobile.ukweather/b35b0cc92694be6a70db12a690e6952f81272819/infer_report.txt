@@ -1,0 +1,22 @@
+#0
+app/src/main/java/com/haringeymobile/ukweather/CitySearchResultsDialog.java:133: warning: Fragment Retains View
+  Fragment `com.haringeymobile.ukweather.CitySearchResultsDialog` does not nullify View field `recyclerView` (type `androidx.recyclerview.widget.RecyclerView`) in `onDestroyView`. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in `onCreateView`, then nullify them in `onDestroyView`.
+  131.   
+  132.       @Override
+  133. >     public void onDestroyView() {
+  134.           recyclerView.setAdapter(null);
+  135.           super.onDestroyView();
+
+#1
+app/src/main/java/com/mobeta/android/dslv/DragSortListView.java:2986: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileWriter() on line 2974 is not closed after the last access at line 2986. 
+  2984.                   // do nothing
+  2985.               }
+  2986. >         }
+  2987.   
+  2988.           public void stopTracking() {
+
+Found 2 issues
+                             Issue Type(ISSUED_TYPE_ID): #
+                     Resource Leak(PULSE_RESOURCE_LEAK): 1
+  Fragment Retains View(CHECKERS_FRAGMENT_RETAINS_VIEW): 1

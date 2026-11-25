@@ -1,0 +1,12 @@
+public String[] getHttpHeaders() {
+    return new String[]{"Content-Type: application/json", "Accept: application/json"};
+}
+
+----
+
+private static final String[] HTTP_HEADERS =
+    {"Content-Type: application/json", "Accept: application/json"};
+
+public String[] getHttpHeaders() {
+    return HTTP_HEADERS;
+}

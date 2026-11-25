@@ -4,8 +4,10 @@ import re
 
 from textops import grepci, cat, lcount
 
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
+from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
 # java -jar build/libs/DAAP-1.0.jar /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp ALL | grep 'Issue,'
@@ -76,8 +78,8 @@ class DAAPAnalysis(StaticAnalyzer):
                 logs(f"Skipping module {project.proj_name}.{module} . Already processed by DAAP")
                 return
             #cmd = f"{self.exec_cmd} {module_path} {search_pattern_code} |  grep 'Issue,'  > {output_filepath}"
-            cmd = f"source ~/.zshrc ; j17; {self.exec_cmd} {module_path} {search_pattern_code} "
-            print(cmd)
+            cmd = f"{get_change_java_version_cmd(17)} {self.exec_cmd} {module_path} {search_pattern_code} "
+            logd(f"Running command: {cmd}")
             res = execute_shell_command(cmd, timeout=150)
             self.parse_write_output(res, output_filepath)
             self.validate_success(res, output_filepath)
@@ -85,12 +87,12 @@ class DAAPAnalysis(StaticAnalyzer):
     def validate_success(self, res, expected_output_file=None):
         if not os.path.exists(expected_output_file) and (res is None or res.return_code != 0):
             loge(f"Error executing DAAP analysis. Check the logs for more information")
-            print(res)
+            logd(f"Command result: {res}")
             return False
-        line_count =  expected_output_file | cat() | lcount()
-        if line_count > 0:
+        line_count = expected_output_file | cat() | lcount()
+        if line_count > 0 and res:
             logs(f"DAAP analysis executed successfully")
-        else:
+        elif line_count == 0:
             loge(f"Error executing DAAP analysis. Empty file")
             return False
         return True
@@ -112,8 +114,7 @@ class DAAPAnalysis(StaticAnalyzer):
                 if files:  # Only store issues that have associated file paths
                     for file in files:
                         if issue_type in self.identifiable_issues:
-                            if 'src' in file and (
-                                    'test' in file or 'androidTest' in file or "nstrumentedTest" in file) and ignore_tests:
+                            if ignore_tests and is_test_file(file):
                                 continue
                             issues.append(Issue(self.identifiable_issues[issue_type],
                                                 file=os.path.join(module_name, file), detection_tool_name="DAAP"))

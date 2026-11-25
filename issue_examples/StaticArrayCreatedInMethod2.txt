@@ -1,0 +1,11 @@
+fun getSupportedExtensions(): List<String> {
+    return listOf("jpg", "jpeg", "png", "gif")
+}
+
+----
+
+private val SUPPORTED_EXTENSIONS = listOf("jpg", "jpeg", "png", "gif")
+
+fun getSupportedExtensions(): List<String> {
+    return SUPPORTED_EXTENSIONS
+}

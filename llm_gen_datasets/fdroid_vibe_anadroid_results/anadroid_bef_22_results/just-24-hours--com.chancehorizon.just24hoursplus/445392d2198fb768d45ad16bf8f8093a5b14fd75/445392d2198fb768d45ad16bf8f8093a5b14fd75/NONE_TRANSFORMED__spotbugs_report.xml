@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767888932527" analysisTimestamp="1767888935113" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/just-24-hours/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-31/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/just-24-hours/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="f037f1ed078067c21a798e907bd11d72" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unused field</ShortMessage>
+    <LongMessage>Unused field: com.chancehorizon.just24hoursplus.Admin.mp</LongMessage>
+    <Class classname="com.chancehorizon.just24hoursplus.Admin" primary="true">
+      <SourceLine classname="com.chancehorizon.just24hoursplus.Admin" start="13" end="47" sourcefile="Admin.java" sourcepath="com/chancehorizon/just24hoursplus/Admin.java" relSourcepath="com/chancehorizon/just24hoursplus/Admin.java">
+        <Message>At Admin.java:[lines 13-47]</Message>
+      </SourceLine>
+      <Message>In class com.chancehorizon.just24hoursplus.Admin</Message>
+    </Class>
+    <Field classname="com.chancehorizon.just24hoursplus.Admin" name="mp" signature="Landroid/media/MediaPlayer;" isStatic="false" primary="true">
+      <SourceLine classname="com.chancehorizon.just24hoursplus.Admin" sourcefile="Admin.java" sourcepath="com/chancehorizon/just24hoursplus/Admin.java" relSourcepath="com/chancehorizon/just24hoursplus/Admin.java">
+        <Message>In Admin.java</Message>
+      </SourceLine>
+      <Message>Field com.chancehorizon.just24hoursplus.Admin.mp</Message>
+    </Field>
+    <SourceLine classname="com.chancehorizon.just24hoursplus.Admin" sourcefile="Admin.java" sourcepath="com/chancehorizon/just24hoursplus/Admin.java" relSourcepath="com/chancehorizon/just24hoursplus/Admin.java" synthetic="true">
+      <Message>In Admin.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="b3c577892a6c827faeb54b30efecf2d3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names should start with an upper case letter</ShortMessage>
+    <LongMessage>The class name com.chancehorizon.just24hoursplus.just24Widget doesn&apos;t start with an upper case letter</LongMessage>
+    <Class classname="com.chancehorizon.just24hoursplus.just24Widget" primary="true">
+      <SourceLine classname="com.chancehorizon.just24hoursplus.just24Widget" start="20" end="126" sourcefile="just24Widget.java" sourcepath="com/chancehorizon/just24hoursplus/just24Widget.java" relSourcepath="com/chancehorizon/just24hoursplus/just24Widget.java">
+        <Message>At just24Widget.java:[lines 20-126]</Message>
+      </SourceLine>
+      <Message>In class com.chancehorizon.just24hoursplus.just24Widget</Message>
+    </Class>
+    <SourceLine classname="com.chancehorizon.just24hoursplus.just24Widget" start="20" end="126" sourcefile="just24Widget.java" sourcepath="com/chancehorizon/just24hoursplus/just24Widget.java" relSourcepath="com/chancehorizon/just24hoursplus/just24Widget.java" synthetic="true">
+      <Message>At just24Widget.java:[lines 20-126]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugPattern type="NM_CLASS_NAMING_CONVENTION" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Class names should start with an upper case letter</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UUF_UNUSED_FIELD" abbrev="UuF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unused field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never used.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="UuF">
+    <Description>Unused field</Description>
+  </BugCode>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="4">
+    <MissingClass>com.chancehorizon.just24hoursplus.R</MissingClass>
+    <MissingClass>com.chancehorizon.just24hoursplus.R$id</MissingClass>
+    <MissingClass>com.chancehorizon.just24hoursplus.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 20:15:32 +0400" total_classes="10" referenced_classes="108" total_bugs="2" total_size="251" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.20" clock_seconds="0.48" peak_mbytes="228.05" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="2">
+    <FileStats path="com/chancehorizon/just24hoursplus/Admin.java" bugCount="1" size="23" bugHash="f98e4aae672d88b3818a730408c429f0"/>
+    <FileStats path="com/chancehorizon/just24hoursplus/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/chancehorizon/just24hoursplus/Just24DateWidget.java" bugCount="0" size="55"/>
+    <FileStats path="com/chancehorizon/just24hoursplus/just24Widget.java" bugCount="1" size="42" bugHash="d683de5913dd427d6ac3d51bbb03b2e9"/>
+    <FileStats path="com/chancehorizon/just24hoursplus/util/SystemUiHider.java" bugCount="0" size="43"/>
+    <FileStats path="com/chancehorizon/just24hoursplus/util/SystemUiHiderBase.java" bugCount="0" size="24"/>
+    <FileStats path="com/chancehorizon/just24hoursplus/util/SystemUiHiderHoneycomb.java" bugCount="0" size="54"/>
+    <PackageStats package="com.chancehorizon.just24hoursplus" total_bugs="2" total_types="4" total_size="130" priority_2="2">
+      <ClassStats class="com.chancehorizon.just24hoursplus.Admin" sourceFile="Admin.java" interface="false" size="23" bugs="1" priority_2="1"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.Just24DateWidget" sourceFile="Just24DateWidget.java" interface="false" size="55" bugs="0"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.just24Widget" sourceFile="just24Widget.java" interface="false" size="42" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.chancehorizon.just24hoursplus.util" total_bugs="0" total_types="6" total_size="121">
+      <ClassStats class="com.chancehorizon.just24hoursplus.util.SystemUiHider" sourceFile="SystemUiHider.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.util.SystemUiHider$1" sourceFile="SystemUiHider.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.util.SystemUiHider$OnVisibilityChangeListener" sourceFile="SystemUiHider.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.util.SystemUiHiderBase" sourceFile="SystemUiHiderBase.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.util.SystemUiHiderHoneycomb" sourceFile="SystemUiHiderHoneycomb.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="com.chancehorizon.just24hoursplus.util.SystemUiHiderHoneycomb$1" sourceFile="SystemUiHiderHoneycomb.java" interface="false" size="18" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="56" invocations="469" avgMicrosecondsPerInvocation="119" maxMicrosecondsPerInvocation="6444" standardDeviationMicrosecondsPerInvocation="409"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="23" invocations="108" avgMicrosecondsPerInvocation="220" maxMicrosecondsPerInvocation="4327" standardDeviationMicrosecondsPerInvocation="538"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="138" avgMicrosecondsPerInvocation="106" maxMicrosecondsPerInvocation="3943" standardDeviationMicrosecondsPerInvocation="365"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="484" avgMicrosecondsPerInvocation="23" maxMicrosecondsPerInvocation="237" standardDeviationMicrosecondsPerInvocation="22"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

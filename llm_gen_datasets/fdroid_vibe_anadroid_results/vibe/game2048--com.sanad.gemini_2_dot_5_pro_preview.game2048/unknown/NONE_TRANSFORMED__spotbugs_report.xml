@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762929153163" analysisTimestamp="1762929156318" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/game2048/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="8ce73fce189f8005ea79c5c78fba4961" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView.addNewTile()</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView" start="25" end="483" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java">
+        <Message>At GameView.java:[lines 25-483]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView" name="addNewTile" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView" start="142" end="156" startBytecode="0" endBytecode="358" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView.addNewTile()</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="243" end="243" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView" primary="true" start="153" end="153" startBytecode="88" endBytecode="88" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java">
+      <Message>At GameView.java:[line 153]</Message>
+    </SourceLine>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView" start="154" end="154" startBytecode="114" endBytecode="114" sourcefile="GameView.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at GameView.java:[line 154]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="11">
+    <MissingClass>androidx.appcompat.app.AlertDialog</MissingClass>
+    <MissingClass>androidx.appcompat.app.AlertDialog$Builder</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.core.view.GestureDetectorCompat</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.game2048.R</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.game2048.R$color</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.game2048.R$id</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.game2048.R$layout</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:32:33 +0400" total_classes="4" referenced_classes="108" total_bugs="1" total_size="352" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="7.61" clock_seconds="3.59" peak_mbytes="259.17" alloc_mbytes="768.00" gc_seconds="0.02" priority_1="1">
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/game2048/GameView.java" bugCount="1" size="294" bugHash="c03c041790a80fe56f63eb03a272e94f"/>
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/game2048/MainActivity.java" bugCount="0" size="58"/>
+    <PackageStats package="com.sanad.gemini_2_dot_5_pro_preview.game2048" total_bugs="1" total_types="4" total_size="352" priority_1="1">
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView" sourceFile="GameView.java" interface="false" size="249" bugs="1" priority_1="1"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView$GameListener" sourceFile="GameView.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.game2048.GameView$GestureListener" sourceFile="GameView.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.game2048.MainActivity" sourceFile="MainActivity.java" interface="false" size="58" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="447" invocations="464" avgMicrosecondsPerInvocation="963" maxMicrosecondsPerInvocation="52175" standardDeviationMicrosecondsPerInvocation="3318"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="145" invocations="43" avgMicrosecondsPerInvocation="3391" maxMicrosecondsPerInvocation="16913" standardDeviationMicrosecondsPerInvocation="4250"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="140" invocations="108" avgMicrosecondsPerInvocation="1301" maxMicrosecondsPerInvocation="12869" standardDeviationMicrosecondsPerInvocation="2357"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="126" invocations="44" avgMicrosecondsPerInvocation="2883" maxMicrosecondsPerInvocation="26322" standardDeviationMicrosecondsPerInvocation="4691"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="120" invocations="43" avgMicrosecondsPerInvocation="2808" maxMicrosecondsPerInvocation="26546" standardDeviationMicrosecondsPerInvocation="4637"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="120" invocations="43" avgMicrosecondsPerInvocation="2796" maxMicrosecondsPerInvocation="21383" standardDeviationMicrosecondsPerInvocation="4771"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="94" invocations="141" avgMicrosecondsPerInvocation="673" maxMicrosecondsPerInvocation="9879" standardDeviationMicrosecondsPerInvocation="1504"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="93" invocations="53" avgMicrosecondsPerInvocation="1758" maxMicrosecondsPerInvocation="13160" standardDeviationMicrosecondsPerInvocation="3152"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="90" invocations="4" avgMicrosecondsPerInvocation="22718" maxMicrosecondsPerInvocation="38169" standardDeviationMicrosecondsPerInvocation="15005"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="83" invocations="46" avgMicrosecondsPerInvocation="1823" maxMicrosecondsPerInvocation="14197" standardDeviationMicrosecondsPerInvocation="2610"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="83" invocations="43" avgMicrosecondsPerInvocation="1935" maxMicrosecondsPerInvocation="22908" standardDeviationMicrosecondsPerInvocation="3936"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="81" invocations="4" avgMicrosecondsPerInvocation="20322" maxMicrosecondsPerInvocation="71761" standardDeviationMicrosecondsPerInvocation="29773"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ResourceInMultipleThreadsDetector" totalMilliseconds="78" invocations="4" avgMicrosecondsPerInvocation="19655" maxMicrosecondsPerInvocation="62719" standardDeviationMicrosecondsPerInvocation="25192"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="69" invocations="399" avgMicrosecondsPerInvocation="174" maxMicrosecondsPerInvocation="6634" standardDeviationMicrosecondsPerInvocation="562"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="67" invocations="108" avgMicrosecondsPerInvocation="629" maxMicrosecondsPerInvocation="5132" standardDeviationMicrosecondsPerInvocation="1087"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="64" invocations="108" avgMicrosecondsPerInvocation="593" maxMicrosecondsPerInvocation="21737" standardDeviationMicrosecondsPerInvocation="2959"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="59" invocations="108" avgMicrosecondsPerInvocation="554" maxMicrosecondsPerInvocation="5884" standardDeviationMicrosecondsPerInvocation="1222"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="58" invocations="480" avgMicrosecondsPerInvocation="122" maxMicrosecondsPerInvocation="4136" standardDeviationMicrosecondsPerInvocation="318"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="58" invocations="108" avgMicrosecondsPerInvocation="538" maxMicrosecondsPerInvocation="9628" standardDeviationMicrosecondsPerInvocation="1440"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="49" invocations="46" avgMicrosecondsPerInvocation="1071" maxMicrosecondsPerInvocation="14415" standardDeviationMicrosecondsPerInvocation="2281"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="46" invocations="35" avgMicrosecondsPerInvocation="1325" maxMicrosecondsPerInvocation="10694" standardDeviationMicrosecondsPerInvocation="2361"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="46" invocations="108" avgMicrosecondsPerInvocation="426" maxMicrosecondsPerInvocation="7824" standardDeviationMicrosecondsPerInvocation="1058"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="37" invocations="4" avgMicrosecondsPerInvocation="9409" maxMicrosecondsPerInvocation="22450" standardDeviationMicrosecondsPerInvocation="9384"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="34" invocations="925" avgMicrosecondsPerInvocation="36" maxMicrosecondsPerInvocation="9302" standardDeviationMicrosecondsPerInvocation="362"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUnrelatedTypesInGenericContainer" totalMilliseconds="27" invocations="4" avgMicrosecondsPerInvocation="6796" maxMicrosecondsPerInvocation="26373" standardDeviationMicrosecondsPerInvocation="11304"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="26" invocations="4" avgMicrosecondsPerInvocation="6689" maxMicrosecondsPerInvocation="14587" standardDeviationMicrosecondsPerInvocation="4690"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SynchronizationOnSharedBuiltinConstant" totalMilliseconds="26" invocations="4" avgMicrosecondsPerInvocation="6512" maxMicrosecondsPerInvocation="15645" standardDeviationMicrosecondsPerInvocation="6632"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

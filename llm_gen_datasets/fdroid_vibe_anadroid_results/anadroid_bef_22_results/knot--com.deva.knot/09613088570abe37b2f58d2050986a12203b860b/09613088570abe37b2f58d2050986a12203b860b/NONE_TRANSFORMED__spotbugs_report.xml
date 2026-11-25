@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767886608739" analysisTimestamp="1767886610805" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/knot/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/knot/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="6f1280816daec6a7e7880665e11fa207" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.deva.knot.MainActivity.Open(String): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="com.deva.knot.MainActivity" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="28" end="114" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+        <Message>At MainActivity.java:[lines 28-114]</Message>
+      </SourceLine>
+      <Message>In class com.deva.knot.MainActivity</Message>
+    </Class>
+    <Method classname="com.deva.knot.MainActivity" name="Open" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="77" end="95" startBytecode="0" endBytecode="422" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java"/>
+      <Message>In method com.deva.knot.MainActivity.Open(String)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="33" end="33" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="com.deva.knot.MainActivity" primary="true" start="82" end="82" startBytecode="26" endBytecode="26" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+      <Message>At MainActivity.java:[line 82]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="7afe5da7666cab816c7ae3ac7ea4116a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.deva.knot.MainActivity.Save(String): new java.io.OutputStreamWriter(OutputStream)</LongMessage>
+    <Class classname="com.deva.knot.MainActivity" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="28" end="114" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+        <Message>At MainActivity.java:[lines 28-114]</Message>
+      </SourceLine>
+      <Message>In class com.deva.knot.MainActivity</Message>
+    </Class>
+    <Method classname="com.deva.knot.MainActivity" name="Save" signature="(Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="58" end="74" startBytecode="0" endBytecode="298" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java"/>
+      <Message>In method com.deva.knot.MainActivity.Save(String)</Message>
+    </Method>
+    <Method classname="java.io.OutputStreamWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.OutputStreamWriter" start="35" end="35" startBytecode="0" endBytecode="65" sourcefile="OutputStreamWriter.java" sourcepath="java/io/OutputStreamWriter.java"/>
+      <Message>Called method new java.io.OutputStreamWriter(OutputStream)</Message>
+    </Method>
+    <SourceLine classname="com.deva.knot.MainActivity" primary="true" start="59" end="59" startBytecode="10" endBytecode="10" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+      <Message>At MainActivity.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="3c1d02566bcd046ef6f90ff033eac5d" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method names should start with a lower case letter</ShortMessage>
+    <LongMessage>The method name com.deva.knot.MainActivity.FileExists(String) doesn&apos;t start with a lower case letter</LongMessage>
+    <Class classname="com.deva.knot.MainActivity" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="28" end="114" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+        <Message>At MainActivity.java:[lines 28-114]</Message>
+      </SourceLine>
+      <Message>In class com.deva.knot.MainActivity</Message>
+    </Class>
+    <Method classname="com.deva.knot.MainActivity" name="FileExists" signature="(Ljava/lang/String;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="99" end="100" startBytecode="0" endBytecode="79" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java"/>
+      <Message>In method com.deva.knot.MainActivity.FileExists(String)</Message>
+    </Method>
+    <SourceLine classname="com.deva.knot.MainActivity" start="99" end="100" startBytecode="0" endBytecode="79" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java" synthetic="true">
+      <Message>At MainActivity.java:[lines 99-100]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="fedc6107261502ea77d67baae1c51bff" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method names should start with a lower case letter</ShortMessage>
+    <LongMessage>The method name com.deva.knot.MainActivity.Open(String) doesn&apos;t start with a lower case letter</LongMessage>
+    <Class classname="com.deva.knot.MainActivity" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="28" end="114" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+        <Message>At MainActivity.java:[lines 28-114]</Message>
+      </SourceLine>
+      <Message>In class com.deva.knot.MainActivity</Message>
+    </Class>
+    <Method classname="com.deva.knot.MainActivity" name="Open" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="77" end="95" startBytecode="0" endBytecode="422" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java"/>
+      <Message>In method com.deva.knot.MainActivity.Open(String)</Message>
+    </Method>
+    <SourceLine classname="com.deva.knot.MainActivity" start="77" end="95" startBytecode="0" endBytecode="422" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java" synthetic="true">
+      <Message>At MainActivity.java:[lines 77-95]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="d3ad31b600db55fff411517c7d3155f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method names should start with a lower case letter</ShortMessage>
+    <LongMessage>The method name com.deva.knot.MainActivity.Save(String) doesn&apos;t start with a lower case letter</LongMessage>
+    <Class classname="com.deva.knot.MainActivity" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="28" end="114" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+        <Message>At MainActivity.java:[lines 28-114]</Message>
+      </SourceLine>
+      <Message>In class com.deva.knot.MainActivity</Message>
+    </Class>
+    <Method classname="com.deva.knot.MainActivity" name="Save" signature="(Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="58" end="74" startBytecode="0" endBytecode="298" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java"/>
+      <Message>In method com.deva.knot.MainActivity.Save(String)</Message>
+    </Method>
+    <SourceLine classname="com.deva.knot.MainActivity" start="58" end="74" startBytecode="0" endBytecode="298" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java" synthetic="true">
+      <Message>At MainActivity.java:[lines 58-74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="9c5ae0ed66990a76513b82c65460639c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>com.deva.knot.MainActivity.Open(String) may fail to close stream</LongMessage>
+    <Class classname="com.deva.knot.MainActivity" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="28" end="114" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+        <Message>At MainActivity.java:[lines 28-114]</Message>
+      </SourceLine>
+      <Message>In class com.deva.knot.MainActivity</Message>
+    </Class>
+    <Method classname="com.deva.knot.MainActivity" name="Open" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.deva.knot.MainActivity" start="77" end="95" startBytecode="0" endBytecode="61" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java"/>
+      <Message>In method com.deva.knot.MainActivity.Open(String)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Reader;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Reader" start="33" end="53" sourcefile="Reader.java" sourcepath="java/io/Reader.java">
+        <Message>At Reader.java:[lines 33-53]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Reader </Message>
+    </Type>
+    <SourceLine classname="com.deva.knot.MainActivity" primary="true" start="83" end="83" startBytecode="31" endBytecode="31" sourcefile="MainActivity.java" sourcepath="com/deva/knot/MainActivity.java" relSourcepath="com/deva/knot/MainActivity.java">
+      <Message>At MainActivity.java:[line 83]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="NM_METHOD_NAMING_CONVENTION" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Method names should start with a lower case letter</ShortDescription>
+    <Details><![CDATA[
+
+  <p>
+Methods should be verbs, in mixed case with the first letter lowercase, with the first letter of each internal word capitalized.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N" cweid="173">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/173.html">CWE-173: Improper Handling of Alternate Encoding</a>.
+</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE" cweid="459">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/459.html">CWE-459: Incomplete Cleanup</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="12">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.navigation.NavController</MissingClass>
+    <MissingClass>androidx.navigation.fragment.NavHostFragment</MissingClass>
+    <MissingClass>com.deva.knot.R</MissingClass>
+    <MissingClass>com.deva.knot.R$id</MissingClass>
+    <MissingClass>com.deva.knot.R$layout</MissingClass>
+    <MissingClass>com.deva.knot.R$menu</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 19:36:48 +0400" total_classes="4" referenced_classes="48" total_bugs="6" total_size="93" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.85" clock_seconds="0.40" peak_mbytes="186.36" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="4" priority_1="2">
+    <FileStats path="com/deva/knot/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/deva/knot/FirstFragment.java" bugCount="0" size="11"/>
+    <FileStats path="com/deva/knot/MainActivity.java" bugCount="6" size="61" bugHash="409e9d57dc3012a43d0f65d88ca81b88"/>
+    <FileStats path="com/deva/knot/SecondFragment.java" bugCount="0" size="11"/>
+    <PackageStats package="com.deva.knot" total_bugs="6" total_types="4" total_size="93" priority_2="4" priority_1="2">
+      <ClassStats class="com.deva.knot.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.deva.knot.FirstFragment" sourceFile="FirstFragment.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.deva.knot.MainActivity" sourceFile="MainActivity.java" interface="false" size="61" bugs="6" priority_2="4" priority_1="2"/>
+      <ClassStats class="com.deva.knot.SecondFragment" sourceFile="SecondFragment.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="48" invocations="393" avgMicrosecondsPerInvocation="123" maxMicrosecondsPerInvocation="5858" standardDeviationMicrosecondsPerInvocation="435"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="19" invocations="48" avgMicrosecondsPerInvocation="404" maxMicrosecondsPerInvocation="5584" standardDeviationMicrosecondsPerInvocation="895"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="12" invocations="76" avgMicrosecondsPerInvocation="163" maxMicrosecondsPerInvocation="4021" standardDeviationMicrosecondsPerInvocation="490"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

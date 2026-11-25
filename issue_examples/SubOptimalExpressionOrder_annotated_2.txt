@@ -1,0 +1,12 @@
+// Bad: The regex is evaluated first, even if the string is empty.
+fun isValid(input: String): Boolean {
+    return input.matches(COMPLEX_REGEX) && input.isNotEmpty()
+}
+
+----
+
+// Good: The cheap isNotEmpty() check is performed first. If the string is empty,
+// the expensive regex matching is skipped entirely.
+fun isValid(input: String): Boolean {
+    return input.isNotEmpty() && input.matches(COMPLEX_REGEX)
+}

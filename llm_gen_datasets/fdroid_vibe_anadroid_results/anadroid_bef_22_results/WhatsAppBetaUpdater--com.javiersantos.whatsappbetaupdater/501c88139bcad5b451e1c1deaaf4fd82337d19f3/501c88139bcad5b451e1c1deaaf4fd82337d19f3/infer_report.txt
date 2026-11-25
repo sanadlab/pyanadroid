@@ -1,0 +1,39 @@
+#0
+app/src/main/java/com/javiersantos/whatsappbetaupdater/utils/UtilsAsync.java:62: error: Strict Mode Violation
+  `void UtilsAsync$DownloadFile.onPostExecute(Object)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  60.       }
+  61.   
+  62. >     public static class DownloadFile extends AsyncTask<Void, Integer, Integer> {
+  63.           private Context context;
+  64.           private MaterialDialog dialog;
+
+#1
+app/src/main/java/com/javiersantos/whatsappbetaupdater/utils/UtilsAsync.java:104: error: Strict Mode Violation
+  `void UtilsAsync$DownloadFile.onPreExecute()` runs on UI thread and may violate Strict Mode; calls `boolean File.mkdir()`. 
+  102.               // Create download directory if doesn't exist
+  103.               File file = new File(path);
+  104. >             if (!file.exists()) { file.mkdir(); }
+  105.   
+  106.           }
+
+#2
+app/src/main/java/com/javiersantos/whatsappbetaupdater/utils/UtilsAsync.java:182: error: Strict Mode Violation
+  `void UtilsAsync$DownloadFile.onPostExecute(Integer)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  180.               } else {
+  181.                   // File download: FAILED
+  182. >                 onCancelled();
+  183.                   UtilsDialog.showSnackbar(context, context.getResources().getString(R.string.snackbar_failed));
+  184.               }
+
+#3
+app/src/main/java/com/javiersantos/whatsappbetaupdater/utils/UtilsAsync.java:191: error: Strict Mode Violation
+  `void UtilsAsync$DownloadFile.onCancelled()` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  189.               // Delete uncompleted file
+  190.               File file = new File(path, filename);
+  191. >             if (file.exists()) { file.delete(); }
+  192.           }
+  193.   
+
+Found 4 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 4

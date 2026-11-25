@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762887494993" analysisTimestamp="1762887497095" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/t4-launcher/NONE_TRANSFORMED_/build/intermediates/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-35/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/t4-launcher/NONE_TRANSFORMED_/src/main/kotlin</SrcDir>
+  </Project>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="e96ad4165bb826e98ca5e10da9f6a531" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names should start with an upper case letter</ShortMessage>
+    <LongMessage>The class name com.github.rsteube.t4.R$drawable doesn&apos;t start with an upper case letter</LongMessage>
+    <Class classname="com.github.rsteube.t4.R$drawable" primary="true">
+      <SourceLine classname="com.github.rsteube.t4.R$drawable" start="11" end="11" sourcefile="R.java" sourcepath="com/github/rsteube/t4/R.java">
+        <Message>At R.java:[line 11]</Message>
+      </SourceLine>
+      <Message>In class com.github.rsteube.t4.R$drawable</Message>
+    </Class>
+    <SourceLine classname="com.github.rsteube.t4.R$drawable" start="11" end="11" sourcefile="R.java" sourcepath="com/github/rsteube/t4/R.java" synthetic="true">
+      <Message>At R.java:[line 11]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="e24fd01528a371156bd5280bcd586b78" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names should start with an upper case letter</ShortMessage>
+    <LongMessage>The class name com.github.rsteube.t4.R$mipmap doesn&apos;t start with an upper case letter</LongMessage>
+    <Class classname="com.github.rsteube.t4.R$mipmap" primary="true">
+      <SourceLine classname="com.github.rsteube.t4.R$mipmap" start="14" end="14" sourcefile="R.java" sourcepath="com/github/rsteube/t4/R.java">
+        <Message>At R.java:[line 14]</Message>
+      </SourceLine>
+      <Message>In class com.github.rsteube.t4.R$mipmap</Message>
+    </Class>
+    <SourceLine classname="com.github.rsteube.t4.R$mipmap" start="14" end="14" sourcefile="R.java" sourcepath="com/github/rsteube/t4/R.java" synthetic="true">
+      <Message>At R.java:[line 14]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugPattern type="NM_CLASS_NAMING_CONVENTION" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Class names should start with an upper case letter</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 22:58:14 +0400" total_classes="4" referenced_classes="13" total_bugs="2" total_size="22" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="0.53" clock_seconds="0.21" peak_mbytes="139.47" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="2">
+    <FileStats path="com/github/rsteube/t4/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/github/rsteube/t4/R.java" bugCount="2" size="11" bugHash="c3c9b35f399641ebdd00be2ced9e0706"/>
+    <PackageStats package="com.github.rsteube.t4" total_bugs="2" total_types="4" total_size="22" priority_2="2">
+      <ClassStats class="com.github.rsteube.t4.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.github.rsteube.t4.R" sourceFile="R.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.github.rsteube.t4.R$drawable" sourceFile="R.java" interface="false" size="4" bugs="1" priority_2="1"/>
+      <ClassStats class="com.github.rsteube.t4.R$mipmap" sourceFile="R.java" interface="false" size="4" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="26" invocations="193" avgMicrosecondsPerInvocation="135" maxMicrosecondsPerInvocation="4275" standardDeviationMicrosecondsPerInvocation="347"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,1120 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:44:54.405+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/activity/AboutActivity.java",
+      "violations": [
+        {
+          "beginline": 64,
+          "begincolumn": 9,
+          "endline": 68,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/activity/AddGoogleNewsActivity.java",
+      "violations": [
+        {
+          "beginline": 82,
+          "begincolumn": 21,
+          "endline": 82,
+          "endcolumn": 24,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/activity/EditFeedActivity.java",
+      "violations": [
+        {
+          "beginline": 372,
+          "begincolumn": 50,
+          "endline": 372,
+          "endcolumn": 70,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 374,
+          "begincolumn": 57,
+          "endline": 374,
+          "endcolumn": 83,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 375,
+          "begincolumn": 58,
+          "endline": 375,
+          "endcolumn": 85,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 376,
+          "begincolumn": 61,
+          "endline": 376,
+          "endcolumn": 90,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 377,
+          "begincolumn": 64,
+          "endline": 377,
+          "endcolumn": 96,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 599,
+          "begincolumn": 59,
+          "endline": 599,
+          "endcolumn": 74,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/activity/GeneralPrefsActivity.java",
+      "violations": [
+        {
+          "beginline": 71,
+          "begincolumn": 9,
+          "endline": 75,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/activity/HomeActivity.java",
+      "violations": [
+        {
+          "beginline": 91,
+          "begincolumn": 21,
+          "endline": 91,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027mFirstOpen\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 108,
+          "begincolumn": 21,
+          "endline": 108,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027mCanQuit\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 453,
+          "begincolumn": 97,
+          "endline": 453,
+          "endcolumn": 130,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/adapter/CursorLoaderExpandableListAdapter.java",
+      "violations": [
+        {
+          "beginline": 154,
+          "begincolumn": 39,
+          "endline": 154,
+          "endcolumn": 88,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/adapter/DrawerAdapter.java",
+      "violations": [
+        {
+          "beginline": 161,
+          "begincolumn": 33,
+          "endline": 161,
+          "endcolumn": 46,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 163,
+          "begincolumn": 33,
+          "endline": 163,
+          "endcolumn": 46,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/adapter/FiltersCursorAdapter.java",
+      "violations": [
+        {
+          "beginline": 41,
+          "begincolumn": 21,
+          "endline": 41,
+          "endcolumn": 27,
+          "description": "Avoid using redundant field initializer for \u0027isZero\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/fragment/EditFeedsListFragment.java",
+      "violations": [
+        {
+          "beginline": 306,
+          "begincolumn": 21,
+          "endline": 306,
+          "endcolumn": 42,
+          "description": "Avoid using redundant field initializer for \u0027fromHasGroupIndicator\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/fragment/EntriesListFragment.java",
+      "violations": [
+        {
+          "beginline": 83,
+          "begincolumn": 21,
+          "endline": 83,
+          "endcolumn": 34,
+          "description": "Avoid using redundant field initializer for \u0027mShowFeedInfo\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 126,
+          "begincolumn": 21,
+          "endline": 126,
+          "endcolumn": 44,
+          "description": "Avoid using redundant field initializer for \u0027mAutoRefreshDisplayDate\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 327,
+          "begincolumn": 33,
+          "endline": 327,
+          "endcolumn": 44,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/fragment/GeneralPrefsFragment.java",
+      "violations": [
+        {
+          "beginline": 247,
+          "begincolumn": 9,
+          "endline": 253,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/parser/OPML.java",
+      "violations": [
+        {
+          "beginline": 128,
+          "begincolumn": 33,
+          "endline": 128,
+          "endcolumn": 57,
+          "description": "StringBuilder has been initialized with size 133, but has at least 137 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 129,
+          "begincolumn": 9,
+          "endline": 129,
+          "endcolumn": 52,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 133,
+          "begincolumn": 13,
+          "endline": 133,
+          "endcolumn": 43,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 141,
+          "begincolumn": 21,
+          "endline": 141,
+          "endcolumn": 42,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 141,
+          "begincolumn": 36,
+          "endline": 141,
+          "endcolumn": 40,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 142,
+          "begincolumn": 21,
+          "endline": 142,
+          "endcolumn": 51,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 143,
+          "begincolumn": 21,
+          "endline": 143,
+          "endcolumn": 119,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 146,
+          "begincolumn": 21,
+          "endline": 146,
+          "endcolumn": 63,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 154,
+          "begincolumn": 29,
+          "endline": 154,
+          "endcolumn": 50,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 154,
+          "begincolumn": 44,
+          "endline": 154,
+          "endcolumn": 48,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 157,
+          "begincolumn": 29,
+          "endline": 157,
+          "endcolumn": 61,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 158,
+          "begincolumn": 29,
+          "endline": 158,
+          "endcolumn": 101,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 159,
+          "begincolumn": 29,
+          "endline": 159,
+          "endcolumn": 72,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 160,
+          "begincolumn": 29,
+          "endline": 160,
+          "endcolumn": 101,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 161,
+          "begincolumn": 29,
+          "endline": 161,
+          "endcolumn": 67,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 162,
+          "begincolumn": 29,
+          "endline": 162,
+          "endcolumn": 101,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 165,
+          "begincolumn": 25,
+          "endline": 165,
+          "endcolumn": 46,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 165,
+          "begincolumn": 40,
+          "endline": 165,
+          "endcolumn": 44,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 178,
+          "begincolumn": 17,
+          "endline": 178,
+          "endcolumn": 59,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 187,
+          "begincolumn": 25,
+          "endline": 187,
+          "endcolumn": 57,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 188,
+          "begincolumn": 25,
+          "endline": 188,
+          "endcolumn": 97,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 189,
+          "begincolumn": 25,
+          "endline": 189,
+          "endcolumn": 68,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 190,
+          "begincolumn": 25,
+          "endline": 190,
+          "endcolumn": 97,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 191,
+          "begincolumn": 25,
+          "endline": 191,
+          "endcolumn": 63,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 192,
+          "begincolumn": 25,
+          "endline": 192,
+          "endcolumn": 97,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 221,
+          "begincolumn": 25,
+          "endline": 221,
+          "endcolumn": 40,
+          "description": "Avoid using redundant field initializer for \u0027mBodyTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 222,
+          "begincolumn": 25,
+          "endline": 222,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027mFeedEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 223,
+          "begincolumn": 25,
+          "endline": 223,
+          "endcolumn": 46,
+          "description": "Avoid using redundant field initializer for \u0027mProbablyValidElement\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 224,
+          "begincolumn": 24,
+          "endline": 224,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027mGroupId\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 225,
+          "begincolumn": 24,
+          "endline": 225,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027mFeedId\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/parser/RssAtomParser.java",
+      "violations": [
+        {
+          "beginline": 154,
+          "begincolumn": 21,
+          "endline": 154,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027mEntryTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 155,
+          "begincolumn": 21,
+          "endline": 155,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027mTitleTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 156,
+          "begincolumn": 21,
+          "endline": 156,
+          "endcolumn": 39,
+          "description": "Avoid using redundant field initializer for \u0027mUpdatedTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 157,
+          "begincolumn": 21,
+          "endline": 157,
+          "endcolumn": 36,
+          "description": "Avoid using redundant field initializer for \u0027mLinkTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 158,
+          "begincolumn": 21,
+          "endline": 158,
+          "endcolumn": 43,
+          "description": "Avoid using redundant field initializer for \u0027mDescriptionTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 159,
+          "begincolumn": 21,
+          "endline": 159,
+          "endcolumn": 39,
+          "description": "Avoid using redundant field initializer for \u0027mPubDateTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 160,
+          "begincolumn": 21,
+          "endline": 160,
+          "endcolumn": 41,
+          "description": "Avoid using redundant field initializer for \u0027mPublishedTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 161,
+          "begincolumn": 21,
+          "endline": 161,
+          "endcolumn": 36,
+          "description": "Avoid using redundant field initializer for \u0027mDateTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 162,
+          "begincolumn": 21,
+          "endline": 162,
+          "endcolumn": 45,
+          "description": "Avoid using redundant field initializer for \u0027mLastBuildDateTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 163,
+          "begincolumn": 21,
+          "endline": 163,
+          "endcolumn": 36,
+          "description": "Avoid using redundant field initializer for \u0027mGuidTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 164,
+          "begincolumn": 21,
+          "endline": 164,
+          "endcolumn": 34,
+          "description": "Avoid using redundant field initializer for \u0027mIdTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 165,
+          "begincolumn": 21,
+          "endline": 165,
+          "endcolumn": 38,
+          "description": "Avoid using redundant field initializer for \u0027mAuthorTagEntered\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 176,
+          "begincolumn": 17,
+          "endline": 176,
+          "endcolumn": 26,
+          "description": "Avoid using redundant field initializer for \u0027mNewCount\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 178,
+          "begincolumn": 21,
+          "endline": 178,
+          "endcolumn": 26,
+          "description": "Avoid using redundant field initializer for \u0027mDone\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 179,
+          "begincolumn": 21,
+          "endline": 179,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027mFetchImages\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 180,
+          "begincolumn": 21,
+          "endline": 180,
+          "endcolumn": 38,
+          "description": "Avoid using redundant field initializer for \u0027mRetrieveFullText\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 181,
+          "begincolumn": 21,
+          "endline": 181,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027mCancelled\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 570,
+          "begincolumn": 51,
+          "endline": 570,
+          "endcolumn": 65,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 590,
+          "begincolumn": 51,
+          "endline": 590,
+          "endcolumn": 65,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 683,
+          "begincolumn": 26,
+          "endline": 683,
+          "endcolumn": 36,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/provider/DatabaseHelper.java",
+      "violations": [
+        {
+          "beginline": 92,
+          "begincolumn": 13,
+          "endline": 92,
+          "endcolumn": 45,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/provider/FeedDataContentProvider.java",
+      "violations": [
+        {
+          "beginline": 164,
+          "begincolumn": 17,
+          "endline": 164,
+          "endcolumn": 37,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 418,
+          "begincolumn": 31,
+          "endline": 418,
+          "endcolumn": 50,
+          "description": "StringBuilder has been initialized with size 16, but has at least 27 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 569,
+          "begincolumn": 31,
+          "endline": 569,
+          "endcolumn": 50,
+          "description": "StringBuilder has been initialized with size 16, but has at least 27 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/utils/FileUtils.java",
+      "violations": [
+        {
+          "beginline": 32,
+          "begincolumn": 40,
+          "endline": 32,
+          "endcolumn": 55,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 33,
+          "begincolumn": 42,
+          "endline": 33,
+          "endcolumn": 58,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/utils/HtmlUtils.java",
+      "violations": [
+        {
+          "beginline": 125,
+          "begincolumn": 21,
+          "endline": 125,
+          "endcolumn": 38,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/utils/NetworkUtils.java",
+      "violations": [
+        {
+          "beginline": 104,
+          "begincolumn": 51,
+          "endline": 104,
+          "endcolumn": 67,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 303,
+          "begincolumn": 23,
+          "endline": 303,
+          "endcolumn": 69,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/utils/StringUtils.java",
+      "violations": [
+        {
+          "beginline": 51,
+          "begincolumn": 13,
+          "endline": 51,
+          "endcolumn": 41,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/utils/ThrottledContentObserver.java",
+      "violations": [
+        {
+          "beginline": 31,
+          "begincolumn": 22,
+          "endline": 31,
+          "endcolumn": 35,
+          "description": "Avoid using redundant field initializer for \u0027mOnChangeTask\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/widget/WidgetConfigFragment.java",
+      "violations": [
+        {
+          "beginline": 94,
+          "begincolumn": 38,
+          "endline": 94,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/widget/WidgetProvider.java",
+      "violations": [
+        {
+          "beginline": 41,
+          "begincolumn": 32,
+          "endline": 41,
+          "endcolumn": 72,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 47,
+          "begincolumn": 34,
+          "endline": 47,
+          "endcolumn": 92,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 48,
+          "begincolumn": 98,
+          "endline": 48,
+          "endcolumn": 137,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 49,
+          "begincolumn": 103,
+          "endline": 49,
+          "endcolumn": 133,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/main/java/org/decsync/sparss/widget/WidgetService.java",
+      "violations": [
+        {
+          "beginline": 53,
+          "begincolumn": 21,
+          "endline": 53,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027mContext\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/spaRSS-DecSync/mobile/src/test/java/org/decsync/sparss/utils/ArticleTextExtractorTest.java",
+      "violations": [
+        {
+          "beginline": 409,
+          "begincolumn": 39,
+          "endline": 409,
+          "endcolumn": 54,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 446,
+          "begincolumn": 60,
+          "endline": 446,
+          "endcolumn": 70,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

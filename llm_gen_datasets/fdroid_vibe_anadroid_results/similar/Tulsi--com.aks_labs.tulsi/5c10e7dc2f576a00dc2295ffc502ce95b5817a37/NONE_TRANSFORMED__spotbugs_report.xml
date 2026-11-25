@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762932297949" analysisTimestamp="1762932302303" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/Tulsi/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-35/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/Tulsi/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="cbbcb3a762dd60988eaada65df91d72b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.FrameLayout in com.aks_labs.tulsi.databinding.MainActivityBinding.bind(View)</LongMessage>
+    <Class classname="com.aks_labs.tulsi.databinding.MainActivityBinding" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" start="15" end="57" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java">
+        <Message>At MainActivityBinding.java:[lines 15-57]</Message>
+      </SourceLine>
+      <Message>In class com.aks_labs.tulsi.databinding.MainActivityBinding</Message>
+    </Class>
+    <Method classname="com.aks_labs.tulsi.databinding.MainActivityBinding" name="bind" signature="(Landroid/view/View;)Lcom/aks_labs/tulsi/databinding/MainActivityBinding;" isStatic="true" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" start="51" end="57" startBytecode="0" endBytecode="16" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java"/>
+      <Message>In method com.aks_labs.tulsi.databinding.MainActivityBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1958" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1958]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/FrameLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.FrameLayout" start="20" end="55" sourcefile="FrameLayout.java" sourcepath="android/widget/FrameLayout.java">
+        <Message>At FrameLayout.java:[lines 20-55]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.FrameLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="14" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" primary="true" start="55" end="55" startBytecode="15" endBytecode="15" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java">
+      <Message>At MainActivityBinding.java:[line 55]</Message>
+    </SourceLine>
+    <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" start="57" end="57" startBytecode="24" endBytecode="24" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivityBinding.java:[line 57]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="7d792406a80e318e355ec2bae4a8e11c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.aks_labs.tulsi.databinding.MainActivityBinding.getRoot() may expose internal representation by returning MainActivityBinding.rootView</LongMessage>
+    <Class classname="com.aks_labs.tulsi.databinding.MainActivityBinding" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" start="15" end="57" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java">
+        <Message>At MainActivityBinding.java:[lines 15-57]</Message>
+      </SourceLine>
+      <Message>In class com.aks_labs.tulsi.databinding.MainActivityBinding</Message>
+    </Class>
+    <Method classname="com.aks_labs.tulsi.databinding.MainActivityBinding" name="getRoot" signature="()Landroid/widget/FrameLayout;" isStatic="false" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" start="31" end="31" startBytecode="0" endBytecode="46" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java"/>
+      <Message>In method com.aks_labs.tulsi.databinding.MainActivityBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.aks_labs.tulsi.databinding.MainActivityBinding" name="rootView" signature="Landroid/widget/FrameLayout;" isStatic="false" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java">
+        <Message>In MainActivityBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.aks_labs.tulsi.databinding.MainActivityBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.aks_labs.tulsi.databinding.MainActivityBinding" primary="true" start="31" end="31" startBytecode="4" endBytecode="4" sourcefile="MainActivityBinding.java" sourcepath="com/aks_labs/tulsi/databinding/MainActivityBinding.java">
+      <Message>At MainActivityBinding.java:[line 31]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="d454eb3a7b7c1f5b94a06a994e2ae7f0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.FrameLayout in com.aks_labs.tulsi.databinding.RecyclerItemBinding.bind(View)</LongMessage>
+    <Class classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" start="15" end="57" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java">
+        <Message>At RecyclerItemBinding.java:[lines 15-57]</Message>
+      </SourceLine>
+      <Message>In class com.aks_labs.tulsi.databinding.RecyclerItemBinding</Message>
+    </Class>
+    <Method classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" name="bind" signature="(Landroid/view/View;)Lcom/aks_labs/tulsi/databinding/RecyclerItemBinding;" isStatic="true" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" start="51" end="57" startBytecode="0" endBytecode="16" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java"/>
+      <Message>In method com.aks_labs.tulsi.databinding.RecyclerItemBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1958" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1958]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/FrameLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.FrameLayout" start="20" end="55" sourcefile="FrameLayout.java" sourcepath="android/widget/FrameLayout.java">
+        <Message>At FrameLayout.java:[lines 20-55]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.FrameLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="14" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" primary="true" start="55" end="55" startBytecode="15" endBytecode="15" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java">
+      <Message>At RecyclerItemBinding.java:[line 55]</Message>
+    </SourceLine>
+    <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" start="57" end="57" startBytecode="24" endBytecode="24" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at RecyclerItemBinding.java:[line 57]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="4252592de8fc73fbc33d2fa34d6b7afa" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.aks_labs.tulsi.databinding.RecyclerItemBinding.getRoot() may expose internal representation by returning RecyclerItemBinding.rootView</LongMessage>
+    <Class classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" start="15" end="57" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java">
+        <Message>At RecyclerItemBinding.java:[lines 15-57]</Message>
+      </SourceLine>
+      <Message>In class com.aks_labs.tulsi.databinding.RecyclerItemBinding</Message>
+    </Class>
+    <Method classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" name="getRoot" signature="()Landroid/widget/FrameLayout;" isStatic="false" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" start="31" end="31" startBytecode="0" endBytecode="46" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java"/>
+      <Message>In method com.aks_labs.tulsi.databinding.RecyclerItemBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" name="rootView" signature="Landroid/widget/FrameLayout;" isStatic="false" primary="true">
+      <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java">
+        <Message>In RecyclerItemBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.aks_labs.tulsi.databinding.RecyclerItemBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.aks_labs.tulsi.databinding.RecyclerItemBinding" primary="true" start="31" end="31" startBytecode="4" endBytecode="4" sourcefile="RecyclerItemBinding.java" sourcepath="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java">
+      <Message>At RecyclerItemBinding.java:[line 31]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="5">
+    <MissingClass>androidx.fragment.app.FragmentContainerView</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>com.aks_labs.tulsi.R</MissingClass>
+    <MissingClass>com.aks_labs.tulsi.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 11:24:57 +0400" total_classes="4" referenced_classes="18" total_bugs="4" total_size="82" num_packages="2" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="3.33" clock_seconds="1.68" peak_mbytes="210.48" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="4">
+    <FileStats path="com/aks_labs/tulsi/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/aks_labs/tulsi/databinding/FragmentContainerViewBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/aks_labs/tulsi/databinding/MainActivityBinding.java" bugCount="2" size="24" bugHash="6c49f773a431d15eccbc9b3f9e217f8a"/>
+    <FileStats path="com/aks_labs/tulsi/databinding/RecyclerItemBinding.java" bugCount="2" size="24" bugHash="a7c880417f4ccbbb1c2dfa4adaaeceb7"/>
+    <PackageStats package="com.aks_labs.tulsi" total_bugs="0" total_types="1" total_size="10">
+      <ClassStats class="com.aks_labs.tulsi.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.aks_labs.tulsi.databinding" total_bugs="4" total_types="3" total_size="72" priority_2="4">
+      <ClassStats class="com.aks_labs.tulsi.databinding.FragmentContainerViewBinding" sourceFile="FragmentContainerViewBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.aks_labs.tulsi.databinding.MainActivityBinding" sourceFile="MainActivityBinding.java" interface="false" size="24" bugs="2" priority_2="2"/>
+      <ClassStats class="com.aks_labs.tulsi.databinding.RecyclerItemBinding" sourceFile="RecyclerItemBinding.java" interface="false" size="24" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="347" invocations="315" avgMicrosecondsPerInvocation="1101" maxMicrosecondsPerInvocation="33292" standardDeviationMicrosecondsPerInvocation="3113"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="82" invocations="18" avgMicrosecondsPerInvocation="4570" maxMicrosecondsPerInvocation="39746" standardDeviationMicrosecondsPerInvocation="9054"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="64" invocations="40" avgMicrosecondsPerInvocation="1610" maxMicrosecondsPerInvocation="27650" standardDeviationMicrosecondsPerInvocation="4459"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="64" invocations="18" avgMicrosecondsPerInvocation="3556" maxMicrosecondsPerInvocation="52229" standardDeviationMicrosecondsPerInvocation="11875"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="61" invocations="18" avgMicrosecondsPerInvocation="3420" maxMicrosecondsPerInvocation="40312" standardDeviationMicrosecondsPerInvocation="9228"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="57" invocations="18" avgMicrosecondsPerInvocation="3221" maxMicrosecondsPerInvocation="49657" standardDeviationMicrosecondsPerInvocation="11275"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="49" invocations="259" avgMicrosecondsPerInvocation="190" maxMicrosecondsPerInvocation="5697" standardDeviationMicrosecondsPerInvocation="632"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="40" invocations="320" avgMicrosecondsPerInvocation="127" maxMicrosecondsPerInvocation="3099" standardDeviationMicrosecondsPerInvocation="246"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="31" invocations="18" avgMicrosecondsPerInvocation="1770" maxMicrosecondsPerInvocation="20635" standardDeviationMicrosecondsPerInvocation="4633"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="27" invocations="18" avgMicrosecondsPerInvocation="1535" maxMicrosecondsPerInvocation="17971" standardDeviationMicrosecondsPerInvocation="4392"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="25" invocations="4" avgMicrosecondsPerInvocation="6433" maxMicrosecondsPerInvocation="20578" standardDeviationMicrosecondsPerInvocation="8249"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="22" invocations="17" avgMicrosecondsPerInvocation="1298" maxMicrosecondsPerInvocation="3659" standardDeviationMicrosecondsPerInvocation="1175"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="21" invocations="20" avgMicrosecondsPerInvocation="1097" maxMicrosecondsPerInvocation="8911" standardDeviationMicrosecondsPerInvocation="1869"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="20" invocations="20" avgMicrosecondsPerInvocation="1042" maxMicrosecondsPerInvocation="15493" standardDeviationMicrosecondsPerInvocation="3329"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="18" invocations="17" avgMicrosecondsPerInvocation="1089" maxMicrosecondsPerInvocation="2720" standardDeviationMicrosecondsPerInvocation="735"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="18" invocations="18" avgMicrosecondsPerInvocation="1025" maxMicrosecondsPerInvocation="13845" standardDeviationMicrosecondsPerInvocation="3127"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="17" invocations="20" avgMicrosecondsPerInvocation="855" maxMicrosecondsPerInvocation="4381" standardDeviationMicrosecondsPerInvocation="1023"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

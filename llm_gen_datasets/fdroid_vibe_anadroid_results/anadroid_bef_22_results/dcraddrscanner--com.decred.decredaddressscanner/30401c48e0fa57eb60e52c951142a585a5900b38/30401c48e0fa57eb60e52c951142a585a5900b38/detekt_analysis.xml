@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/MyBroadcastReceiver.kt">
+	<error line="41" column="18" severity="warning" message="The function onReceive is too long (72). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="153" column="33" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="156" column="44" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="3" column="1" severity="warning" message="android.app.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="44" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="44" column="51" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="123" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="123" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="160" column="83" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="160" column="90" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Nets.kt">
+	<error line="6" column="15" severity="warning" message="The constructor(Name: String, DefaultPort: String, NetworkAddressPrefix: String, PubKeyAddrID: String, PubKeyHashAddrID: String, PKHEdwardsAddrID: String, PKHSchnorrAddrID: String, ScriptHashAddrID: String, TicketMaturity: Int, TicketExpiry: Int, TargetTimePerBlock: Int) has too many parameters. The current threshold is set to 7." source="detekt.LongParameterList" />
+	<error line="80" column="9" severity="warning" message="This condition is too complex (5). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="7" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="8" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="9" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="10" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="11" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="12" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="13" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="14" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="15" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="16" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="17" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="69" column="5" severity="warning" message="Too many throw statements in the function netFromAddr. The maximum number of allowed throw statements is 2." source="detekt.ThrowsCount" />
+	<error line="87" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Nets.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="70" column="5" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="71" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Address.kt">
+	<error line="338" column="5" severity="warning" message="The function abbreviatedAmountFromString appears to be too complex based on Cyclomatic Complexity (complexity: 15). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="66" column="12" severity="warning" message="Class &apos;Address&apos; with &apos;17&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="217" column="13" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="219" column="55" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="227" column="13" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="240" column="13" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="253" column="13" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="265" column="57" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="268" column="35" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="272" column="33" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="33" column="11" severity="warning" message="Top level constant names should match the pattern: [A-Z][_A-Z0-9]*" source="detekt.TopLevelPropertyNaming" />
+	<error line="36" column="5" severity="warning" message="Constructor parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.ConstructorParameterNaming" />
+	<error line="264" column="9" severity="warning" message="Too many throw statements in the function initTicketFromWebJSON. The maximum number of allowed throw statements is 2." source="detekt.ThrowsCount" />
+	<error line="393" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Address.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="171" column="45" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="171" column="52" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="171" column="57" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="177" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="187" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="197" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="268" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="268" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="295" column="51" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="295" column="58" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="295" column="63" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="313" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="342" column="14" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="343" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="344" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="349" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="355" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="355" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="357" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="359" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="359" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="361" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="363" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="363" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="365" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="367" column="12" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="367" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="369" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="371" column="12" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="371" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="373" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="375" column="12" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="375" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="377" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="379" column="12" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="379" column="16" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="381" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="383" column="12" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="383" column="16" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="385" column="18" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/GetInfoFromWeb.kt">
+	<error line="47" column="13" severity="warning" message="The function getTicketInfo is too long (66). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="31" column="9" severity="warning" message="The function execute appears to be too complex based on Cyclomatic Complexity (complexity: 33). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="31" column="9" severity="warning" message="Function execute is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="129" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="145" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="59" column="21" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="81" column="25" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="88" column="25" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="103" column="29" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="109" column="29" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="129" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="47" column="13" severity="warning" message="Function getTicketInfo has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="47" column="13" severity="warning" message="Too many throw statements in the function getTicketInfo. The maximum number of allowed throw statements is 2." source="detekt.ThrowsCount" />
+	<error line="156" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/GetInfoFromWeb.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="97" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="45" column="9" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="36" column="44" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/viewfragments/ViewAddressFragment.kt">
+	<error line="25" column="7" severity="warning" message="Class &apos;ViewAddressFragment&apos; with &apos;15&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="89" column="33" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="170" column="58" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="171" column="90" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="200" column="13" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="209" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="205" column="24" severity="warning" message="Function parameter names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.FunctionParameterNaming" />
+	<error line="14" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="23" column="1" severity="warning" message="com.decred.decredaddressscanner.types.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="208" column="82" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="208" column="87" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="224" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/activities/MainActivity.kt">
+	<error line="204" column="41" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="205" column="52" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="183" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="183" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="8" column="1" severity="warning" message="android.graphics.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="12" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="26" column="1" severity="warning" message="com.decred.decredaddressscanner.types.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="31" column="1" severity="warning" message="kotlinx.coroutines.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="35" column="26" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="148" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/MenuItems.kt">
+	<error line="59" column="13" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="78" column="17" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Settings.kt">
+	<error line="17" column="11" severity="warning" message="Top level constant names should match the pattern: [A-Z][_A-Z0-9]*" source="detekt.TopLevelPropertyNaming" />
+	<error line="18" column="11" severity="warning" message="Top level constant names should match the pattern: [A-Z][_A-Z0-9]*" source="detekt.TopLevelPropertyNaming" />
+	<error line="89" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Settings.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="7" column="1" severity="warning" message="kotlinx.coroutines.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/activities/ResusableFragmentActivity.kt">
+	<error line="9" column="16" severity="warning" message="The file name &apos;ResusableFragmentActivity&apos; does not match the name of the single top-level declaration &apos;ReusableFragmentActivity&apos;." source="detekt.MatchingDeclarationName" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/MyConstraintLayout.kt">
+	<error line="121" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/MyConstraintLayout.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="11" column="1" severity="warning" message="kotlinx.coroutines.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/AsyncObserver.kt">
+	<error line="14" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/AsyncObserver.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/AddressBook.kt">
+	<error line="81" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/AddressBook.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Daos.kt">
+	<error line="33" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/types/Daos.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="3" column="1" severity="warning" message="androidx.room.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/activities/QRActivity.kt">
+	<error line="30" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/activities/QRActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/activities/ViewAddressActivity.kt">
+	<error line="14" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/activities/ViewAddressActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/viewfragments/QRFragment.kt">
+	<error line="104" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/dcraddrscanner/app/src/main/java/com/decred/decredaddressscanner/viewfragments/QRFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="56" column="80" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="75" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+</checkstyle>

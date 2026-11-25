@@ -1,0 +1,16 @@
+val file = File("data.txt")
+// Bad: FileInputStream is wrapped in a BufferedInputStream, and IOUtils.copy
+// also uses an internal buffer. This is redundant and inefficient.
+val out = ByteArrayOutputStream()
+BufferedInputStream(FileInputStream(file)).use { input ->
+    IOUtils.copy(input, out)
+}
+
+-----
+
+val file = File("data.txt")
+// Good: IOUtils is designed to work efficiently with unbuffered streams.
+val out = ByteArrayOutputStream()
+FileInputStream(file).use { input ->
+    IOUtils.copy(input, out)
+}

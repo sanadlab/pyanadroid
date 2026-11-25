@@ -1,0 +1,12 @@
+#0
+app/src/main/java/com/example/poleidoscope/RecursiveTiling.java:1615: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 1575 is not closed after the last access at line 1615. 
+  1613.                                           }
+  1614.                                           bos = null;
+  1615. >                                     }
+  1616.                                   };
+  1617.                                   MainActivity.cameraHandler.post( writeGifThread );
+
+Found 1 issue
+          Issue Type(ISSUED_TYPE_ID): #
+  Resource Leak(PULSE_RESOURCE_LEAK): 1

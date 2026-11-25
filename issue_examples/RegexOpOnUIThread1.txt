@@ -1,0 +1,25 @@
+// In an Android Activity
+fun onValidateInputClicked(view: View) {
+    val userInput = editText.text.toString()
+    val regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
+    val isValid = userInput.matches(regex.toRegex())
+
+    if (!isValid) {
+        showError("Input is not valid.")
+    }
+}
+
+---- 
+
+fun onValidateInputClicked(view: View) {
+    val userInput = editText.text.toString()
+    val regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
+    lifecycleScope.launch {
+        val isValid = withContext(Dispatchers.Default) {
+            userInput.matches(regex.toRegex())
+        }
+        if (!isValid) {
+            showError("Input is not valid.")
+        }
+    }
+}

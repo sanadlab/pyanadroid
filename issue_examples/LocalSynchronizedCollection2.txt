@@ -1,0 +1,20 @@
+fun generateReport(data: List<DataItem>): Map<String, Int> {
+   
+    val reportMap = Collections.synchronizedMap(mutableMapOf<String, Int>())
+    for (item in data) {
+        reportMap[item.category] = reportMap.getOrDefault(item.category, 0) + 1
+    }
+    return reportMap
+}
+
+
+-----
+
+fun generateReport(data: List<DataItem>): Map<String, Int> {
+
+    val reportMap = mutableMapOf<String, Int>()
+    for (item in data) {
+        reportMap[item.category] = reportMap.getOrDefault(item.category, 0) + 1
+    }
+    return reportMap
+}

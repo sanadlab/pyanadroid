@@ -1,0 +1,25 @@
+public class DataManager {
+    // Bad: This executor is created but there's no method to clean it up.
+    // When the DataManager is garbage collected, the thread pool may still be active.
+    private final ExecutorService executor = Executors.newCachedThreadPool();
+
+    public void asyncSave(Data data) {
+        executor.submit(() -> save(data));
+    }
+}
+
+----
+
+// Good: Implement a lifecycle method (like close() or destroy()) to shut down the executor.
+public class DataManager implements AutoCloseable {
+    private final ExecutorService executor = Executors.newCachedThreadPool();
+
+    public void asyncSave(Data data) {
+        executor.submit(() -> save(data));
+    }
+
+    @Override
+    public void close() {
+        executor.shutdownNow(); // Or shutdown()
+    }
+}

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1764067034672" analysisTimestamp="1764067359721" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/metrictime/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-24/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/metrictime/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="c671bd280101bee1398b989364eb4a57" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.mathi_amorim.emmanuel.metrictime.Config.showNotification should be package protected</LongMessage>
+    <Class classname="com.mathi_amorim.emmanuel.metrictime.Config" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.Config" start="29" end="30" sourcefile="Config.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java">
+        <Message>At Config.java:[lines 29-30]</Message>
+      </SourceLine>
+      <Message>In class com.mathi_amorim.emmanuel.metrictime.Config</Message>
+    </Class>
+    <Field classname="com.mathi_amorim.emmanuel.metrictime.Config" name="showNotification" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.Config" sourcefile="Config.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java">
+        <Message>In Config.java</Message>
+      </SourceLine>
+      <Message>Field com.mathi_amorim.emmanuel.metrictime.Config.showNotification</Message>
+    </Field>
+    <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.Config" primary="true" start="30" end="30" startBytecode="1" endBytecode="1" sourcefile="Config.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java">
+      <Message>At Config.java:[line 30]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="161bada8f8fca72f2b8d39968aa56f92" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.mathi_amorim.emmanuel.metrictime.MetricTime.milliseconds</LongMessage>
+    <Class classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" start="27" end="27" sourcefile="MetricTime.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java">
+        <Message>At MetricTime.java:[line 27]</Message>
+      </SourceLine>
+      <Message>In class com.mathi_amorim.emmanuel.metrictime.MetricTime</Message>
+    </Class>
+    <Field classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" name="milliseconds" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" sourcefile="MetricTime.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java">
+        <Message>In MetricTime.java</Message>
+      </SourceLine>
+      <Message>Field com.mathi_amorim.emmanuel.metrictime.MetricTime.milliseconds</Message>
+    </Field>
+    <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.MetricTimeConverter" primary="true" start="39" end="39" startBytecode="115" endBytecode="115" sourcefile="MetricTimeConverter.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTimeConverter.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTimeConverter.java">
+      <Message>At MetricTimeConverter.java:[line 39]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="b95a9a742f0b4beae00739311a142b8e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.mathi_amorim.emmanuel.metrictime.MetricTime.seconds</LongMessage>
+    <Class classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" start="27" end="27" sourcefile="MetricTime.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java">
+        <Message>At MetricTime.java:[line 27]</Message>
+      </SourceLine>
+      <Message>In class com.mathi_amorim.emmanuel.metrictime.MetricTime</Message>
+    </Class>
+    <Field classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" name="seconds" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.MetricTime" sourcefile="MetricTime.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTime.java">
+        <Message>In MetricTime.java</Message>
+      </SourceLine>
+      <Message>Field com.mathi_amorim.emmanuel.metrictime.MetricTime.seconds</Message>
+    </Field>
+    <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.MetricTimeConverter" primary="true" start="38" end="38" startBytecode="101" endBytecode="101" sourcefile="MetricTimeConverter.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTimeConverter.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/MetricTimeConverter.java">
+      <Message>At MetricTimeConverter.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" instanceHash="33250aa73c6f6bc19d827d11809e05f8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.mathi_amorim.emmanuel.metrictime.Config.showNotification from instance method com.mathi_amorim.emmanuel.metrictime.SettingsActivity.onSharedPreferenceChanged(SharedPreferences, String)</LongMessage>
+    <Class classname="com.mathi_amorim.emmanuel.metrictime.SettingsActivity" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.SettingsActivity" start="33" end="63" sourcefile="SettingsActivity.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/SettingsActivity.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/SettingsActivity.java">
+        <Message>At SettingsActivity.java:[lines 33-63]</Message>
+      </SourceLine>
+      <Message>In class com.mathi_amorim.emmanuel.metrictime.SettingsActivity</Message>
+    </Class>
+    <Method classname="com.mathi_amorim.emmanuel.metrictime.SettingsActivity" name="onSharedPreferenceChanged" signature="(Landroid/content/SharedPreferences;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.SettingsActivity" start="59" end="63" startBytecode="0" endBytecode="119" sourcefile="SettingsActivity.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/SettingsActivity.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/SettingsActivity.java"/>
+      <Message>In method com.mathi_amorim.emmanuel.metrictime.SettingsActivity.onSharedPreferenceChanged(SharedPreferences, String)</Message>
+    </Method>
+    <Field classname="com.mathi_amorim.emmanuel.metrictime.Config" name="showNotification" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.Config" sourcefile="Config.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java">
+        <Message>In Config.java</Message>
+      </SourceLine>
+      <Message>Field com.mathi_amorim.emmanuel.metrictime.Config.showNotification</Message>
+    </Field>
+    <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.SettingsActivity" primary="true" start="60" end="60" startBytecode="18" endBytecode="18" sourcefile="SettingsActivity.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/SettingsActivity.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/SettingsActivity.java">
+      <Message>At SettingsActivity.java:[line 60]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="STCAL_INVOKE_ON_STATIC_CALENDAR_INSTANCE" priority="2" rank="14" abbrev="STCAL" category="MT_CORRECTNESS" instanceHash="9783809467d1e99c7ea4b0a19112e868" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Call to static Calendar</ShortMessage>
+    <LongMessage>Call to method of static java.util.Calendar in com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.updateWidget()</LongMessage>
+    <Class classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" start="48" end="182" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+        <Message>At UpdateTimeService.java:[lines 48-182]</Message>
+      </SourceLine>
+      <Message>In class com.mathi_amorim.emmanuel.metrictime.UpdateTimeService</Message>
+    </Class>
+    <Method classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" name="updateWidget" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" start="142" end="157" startBytecode="0" endBytecode="276" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java"/>
+      <Message>In method com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.updateWidget()</Message>
+    </Method>
+    <Method classname="java.util.Calendar" name="setTimeInMillis" signature="(J)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Calendar" start="56" end="56" startBytecode="0" endBytecode="61" sourcefile="Calendar.java" sourcepath="java/util/Calendar.java"/>
+      <Message>Called method java.util.Calendar.setTimeInMillis(long)</Message>
+    </Method>
+    <Field classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" name="mCalendar" signature="Ljava/util/Calendar;" isStatic="true" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+        <Message>In UpdateTimeService.java</Message>
+      </SourceLine>
+      <Message>Field com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.mCalendar</Message>
+    </Field>
+    <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" primary="true" start="142" end="142" startBytecode="6" endBytecode="6" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+      <Message>At UpdateTimeService.java:[line 142]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="f22876e569f39df5bfb29adf7a385374" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.mathi_amorim.emmanuel.metrictime.Config.showNotification from instance method com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.onCreate()</LongMessage>
+    <Class classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" start="48" end="182" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+        <Message>At UpdateTimeService.java:[lines 48-182]</Message>
+      </SourceLine>
+      <Message>In class com.mathi_amorim.emmanuel.metrictime.UpdateTimeService</Message>
+    </Class>
+    <Method classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" name="onCreate" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" start="64" end="75" startBytecode="0" endBytecode="147" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java"/>
+      <Message>In method com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.onCreate()</Message>
+    </Method>
+    <Field classname="com.mathi_amorim.emmanuel.metrictime.Config" name="showNotification" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.Config" sourcefile="Config.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/Config.java">
+        <Message>In Config.java</Message>
+      </SourceLine>
+      <Message>Field com.mathi_amorim.emmanuel.metrictime.Config.showNotification</Message>
+    </Field>
+    <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" primary="true" start="74" end="74" startBytecode="55" endBytecode="55" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+      <Message>At UpdateTimeService.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="e1065b37dee1aabdb981ccf9c9574d42" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.mCalendar from instance method com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.onCreate()</LongMessage>
+    <Class classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" start="48" end="182" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+        <Message>At UpdateTimeService.java:[lines 48-182]</Message>
+      </SourceLine>
+      <Message>In class com.mathi_amorim.emmanuel.metrictime.UpdateTimeService</Message>
+    </Class>
+    <Method classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" name="onCreate" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" start="64" end="75" startBytecode="0" endBytecode="147" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java"/>
+      <Message>In method com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.onCreate()</Message>
+    </Method>
+    <Field classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" name="mCalendar" signature="Ljava/util/Calendar;" isStatic="true" primary="true">
+      <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+        <Message>In UpdateTimeService.java</Message>
+      </SourceLine>
+      <Message>Field com.mathi_amorim.emmanuel.metrictime.UpdateTimeService.mCalendar</Message>
+    </Field>
+    <SourceLine classname="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" primary="true" start="66" end="66" startBytecode="7" endBytecode="7" sourcefile="UpdateTimeService.java" sourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" relSourcepath="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java">
+      <Message>At UpdateTimeService.java:[line 66]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="STCAL_INVOKE_ON_STATIC_CALENDAR_INSTANCE" abbrev="STCAL" category="MT_CORRECTNESS">
+    <ShortDescription>Call to static Calendar</ShortDescription>
+    <Details><![CDATA[
+
+<p>Even though the JavaDoc does not contain a hint about it, Calendars are inherently unsafe for multithreaded use.
+The detector has found a call to an instance of Calendar that has been obtained via a static
+field. This looks suspicious.</p>
+<p>For more information on this see <a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6231579">JDK Bug #6231579</a>
+and <a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6178997">JDK Bug #6178997</a>.</p>
+
+]]></Details>
+  </BugPattern>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="STCAL" cweid="366">
+    <Description>Static use of type Calendar or DateFormat</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="9">
+    <MissingClass>android.support.v4.app.NotificationCompat</MissingClass>
+    <MissingClass>android.support.v4.app.NotificationCompat$Builder</MissingClass>
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.mathi_amorim.emmanuel.metrictime.R</MissingClass>
+    <MissingClass>com.mathi_amorim.emmanuel.metrictime.R$id</MissingClass>
+    <MissingClass>com.mathi_amorim.emmanuel.metrictime.R$layout</MissingClass>
+    <MissingClass>com.mathi_amorim.emmanuel.metrictime.R$mipmap</MissingClass>
+    <MissingClass>com.mathi_amorim.emmanuel.metrictime.R$xml</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 25 Nov 2025 14:37:14 +0400" total_classes="12" referenced_classes="142" total_bugs="7" total_size="209" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.22" clock_seconds="0.44" peak_mbytes="238.40" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="6" priority_1="1">
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/Config.java" bugCount="1" size="6" bugHash="fb3821720e16a4f6e3fc3f2bae39d927"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/MainActivity.java" bugCount="0" size="11"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/MetricTime.java" bugCount="0" size="7"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/MetricTimeConverter.java" bugCount="2" size="16" bugHash="6ef28ccf894e3b31a3ee32d2978a0589"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/MetricTimeNotificationProvider.java" bugCount="0" size="8"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/MetricTimeWidgetProvider.java" bugCount="0" size="14"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/SettingsActivity.java" bugCount="1" size="23" bugHash="7aab3b51bcc273fa6ec7740af861cabd"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/SettingsFragment.java" bugCount="0" size="7"/>
+    <FileStats path="com/mathi_amorim/emmanuel/metrictime/UpdateTimeService.java" bugCount="3" size="106" bugHash="dfc55e67642f9c66f4eb091728c42227"/>
+    <PackageStats package="com.mathi_amorim.emmanuel.metrictime" total_bugs="7" total_types="12" total_size="209" priority_2="6" priority_1="1">
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.Config" sourceFile="Config.java" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.MainActivity" sourceFile="MainActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.MetricTime" sourceFile="MetricTime.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.MetricTimeConverter" sourceFile="MetricTimeConverter.java" interface="false" size="16" bugs="2" priority_2="2"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.MetricTimeNotificationProvider" sourceFile="MetricTimeNotificationProvider.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.MetricTimeWidgetProvider" sourceFile="MetricTimeWidgetProvider.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.SettingsActivity" sourceFile="SettingsActivity.java" interface="false" size="23" bugs="1" priority_1="1"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.SettingsFragment" sourceFile="SettingsFragment.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService" sourceFile="UpdateTimeService.java" interface="false" size="85" bugs="3" priority_2="3"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService$1" sourceFile="UpdateTimeService.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.mathi_amorim.emmanuel.metrictime.UpdateTimeService$2" sourceFile="UpdateTimeService.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="47" invocations="461" avgMicrosecondsPerInvocation="102" maxMicrosecondsPerInvocation="4986" standardDeviationMicrosecondsPerInvocation="303"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="25" invocations="142" avgMicrosecondsPerInvocation="179" maxMicrosecondsPerInvocation="3220" standardDeviationMicrosecondsPerInvocation="371"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="174" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="3489" standardDeviationMicrosecondsPerInvocation="284"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="12" invocations="142" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="1446" standardDeviationMicrosecondsPerInvocation="173"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

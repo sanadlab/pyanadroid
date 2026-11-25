@@ -1,0 +1,1037 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:41:43.386+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/Common.java",
+      "violations": [
+        {
+          "beginline": 92,
+          "begincolumn": 19,
+          "endline": 92,
+          "endcolumn": 36,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 114,
+          "begincolumn": 36,
+          "endline": 114,
+          "endcolumn": 38,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/Shell.java",
+      "violations": [
+        {
+          "beginline": 67,
+          "begincolumn": 25,
+          "endline": 67,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027mOutput\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 257,
+          "begincolumn": 14,
+          "endline": 306,
+          "endcolumn": 6,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 257,
+          "begincolumn": 43,
+          "endline": 306,
+          "endcolumn": 5,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 262,
+          "begincolumn": 16,
+          "endline": 262,
+          "endcolumn": 39,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 286,
+          "begincolumn": 17,
+          "endline": 286,
+          "endcolumn": 47,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 403,
+          "begincolumn": 24,
+          "endline": 403,
+          "endcolumn": 67,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 403,
+          "begincolumn": 82,
+          "endline": 403,
+          "endcolumn": 122,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/containers/Data.java",
+      "violations": [
+        {
+          "beginline": 134,
+          "begincolumn": 13,
+          "endline": 134,
+          "endcolumn": 52,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 177,
+          "begincolumn": 13,
+          "endline": 177,
+          "endcolumn": 52,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 262,
+          "begincolumn": 13,
+          "endline": 262,
+          "endcolumn": 52,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 316,
+          "begincolumn": 9,
+          "endline": 316,
+          "endcolumn": 34,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 321,
+          "begincolumn": 13,
+          "endline": 321,
+          "endcolumn": 52,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 394,
+          "begincolumn": 24,
+          "endline": 394,
+          "endcolumn": 53,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/utils/Device.java",
+      "violations": [
+        {
+          "beginline": 121,
+          "begincolumn": 34,
+          "endline": 121,
+          "endcolumn": 54,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 121,
+          "begincolumn": 80,
+          "endline": 121,
+          "endcolumn": 148,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 121,
+          "begincolumn": 101,
+          "endline": 121,
+          "endcolumn": 147,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 121,
+          "begincolumn": 126,
+          "endline": 121,
+          "endcolumn": 146,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 125,
+          "begincolumn": 40,
+          "endline": 125,
+          "endcolumn": 60,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 129,
+          "begincolumn": 38,
+          "endline": 129,
+          "endcolumn": 127,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 129,
+          "begincolumn": 87,
+          "endline": 129,
+          "endcolumn": 107,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 129,
+          "begincolumn": 155,
+          "endline": 129,
+          "endcolumn": 223,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 129,
+          "begincolumn": 176,
+          "endline": 129,
+          "endcolumn": 222,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 129,
+          "begincolumn": 201,
+          "endline": 129,
+          "endcolumn": 221,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 135,
+          "begincolumn": 39,
+          "endline": 135,
+          "endcolumn": 59,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 143,
+          "begincolumn": 26,
+          "endline": 143,
+          "endcolumn": 43,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 153,
+          "begincolumn": 11,
+          "endline": 153,
+          "endcolumn": 67,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 365,
+          "begincolumn": 13,
+          "endline": 365,
+          "endcolumn": 55,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 395,
+          "begincolumn": 37,
+          "endline": 395,
+          "endcolumn": 57,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 399,
+          "begincolumn": 35,
+          "endline": 399,
+          "endcolumn": 124,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 399,
+          "begincolumn": 84,
+          "endline": 399,
+          "endcolumn": 104,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 399,
+          "begincolumn": 152,
+          "endline": 399,
+          "endcolumn": 220,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 399,
+          "begincolumn": 173,
+          "endline": 399,
+          "endcolumn": 219,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 399,
+          "begincolumn": 198,
+          "endline": 399,
+          "endcolumn": 218,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 405,
+          "begincolumn": 36,
+          "endline": 405,
+          "endcolumn": 56,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/utils/File.java",
+      "violations": [
+        {
+          "beginline": 288,
+          "begincolumn": 29,
+          "endline": 288,
+          "endcolumn": 54,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 299,
+          "begincolumn": 25,
+          "endline": 299,
+          "endcolumn": 39,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 307,
+          "begincolumn": 68,
+          "endline": 307,
+          "endcolumn": 93,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 307,
+          "begincolumn": 122,
+          "endline": 307,
+          "endcolumn": 147,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 321,
+          "begincolumn": 45,
+          "endline": 321,
+          "endcolumn": 72,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 330,
+          "begincolumn": 14,
+          "endline": 330,
+          "endcolumn": 57,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 360,
+          "begincolumn": 21,
+          "endline": 365,
+          "endcolumn": 10,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 377,
+          "begincolumn": 31,
+          "endline": 377,
+          "endcolumn": 54,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 385,
+          "begincolumn": 16,
+          "endline": 385,
+          "endcolumn": 57,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 408,
+          "begincolumn": 53,
+          "endline": 408,
+          "endcolumn": 71,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 441,
+          "begincolumn": 53,
+          "endline": 441,
+          "endcolumn": 71,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 451,
+          "begincolumn": 27,
+          "endline": 451,
+          "endcolumn": 74,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 482,
+          "begincolumn": 53,
+          "endline": 482,
+          "endcolumn": 71,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 494,
+          "begincolumn": 27,
+          "endline": 494,
+          "endcolumn": 74,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 575,
+          "begincolumn": 53,
+          "endline": 575,
+          "endcolumn": 71,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 632,
+          "begincolumn": 53,
+          "endline": 632,
+          "endcolumn": 71,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 795,
+          "begincolumn": 8,
+          "endline": 795,
+          "endcolumn": 12,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 1020,
+          "begincolumn": 31,
+          "endline": 1020,
+          "endcolumn": 46,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 1021,
+          "begincolumn": 33,
+          "endline": 1021,
+          "endcolumn": 49,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 1125,
+          "begincolumn": 28,
+          "endline": 1125,
+          "endcolumn": 47,
+          "description": "StringBuilder has been initialized with size 16, but has at least 35 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 1134,
+          "begincolumn": 21,
+          "endline": 1134,
+          "endcolumn": 30,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 1134,
+          "begincolumn": 21,
+          "endline": 1134,
+          "endcolumn": 23,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 1137,
+          "begincolumn": 21,
+          "endline": 1137,
+          "endcolumn": 31,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 1149,
+          "begincolumn": 20,
+          "endline": 1149,
+          "endcolumn": 49,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 1153,
+          "begincolumn": 20,
+          "endline": 1153,
+          "endcolumn": 50,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/utils/Filesystem.java",
+      "violations": [
+        {
+          "beginline": 205,
+          "begincolumn": 13,
+          "endline": 205,
+          "endcolumn": 20,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 208,
+          "begincolumn": 29,
+          "endline": 208,
+          "endcolumn": 44,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 225,
+          "begincolumn": 19,
+          "endline": 225,
+          "endcolumn": 63,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 517,
+          "begincolumn": 37,
+          "endline": 517,
+          "endcolumn": 60,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 554,
+          "begincolumn": 15,
+          "endline": 554,
+          "endcolumn": 36,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 554,
+          "begincolumn": 71,
+          "endline": 554,
+          "endcolumn": 92,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 589,
+          "begincolumn": 15,
+          "endline": 589,
+          "endcolumn": 36,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 589,
+          "begincolumn": 71,
+          "endline": 589,
+          "endcolumn": 92,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 622,
+          "begincolumn": 33,
+          "endline": 622,
+          "endcolumn": 46,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 677,
+          "begincolumn": 23,
+          "endline": 677,
+          "endcolumn": 37,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/utils/Memory.java",
+      "violations": [
+        {
+          "beginline": 285,
+          "begincolumn": 23,
+          "endline": 285,
+          "endcolumn": 37,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 295,
+          "begincolumn": 34,
+          "endline": 295,
+          "endcolumn": 85,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/utils/io/FileReader.java",
+      "violations": [
+        {
+          "beginline": 65,
+          "begincolumn": 40,
+          "endline": 65,
+          "endcolumn": 55,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/com/spazedog/lib/rootfw4/utils/io/FileWriter.java",
+      "violations": [
+        {
+          "beginline": 57,
+          "begincolumn": 39,
+          "endline": 57,
+          "endcolumn": 55,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/shared/turboeditor/explorer/SelectFileActivity.java",
+      "violations": [
+        {
+          "beginline": 376,
+          "begincolumn": 59,
+          "endline": 376,
+          "endcolumn": 104,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/shared/turboeditor/home/Editor.java",
+      "violations": [
+        {
+          "beginline": 271,
+          "begincolumn": 13,
+          "endline": 282,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 302,
+          "begincolumn": 13,
+          "endline": 307,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 524,
+          "begincolumn": 21,
+          "endline": 524,
+          "endcolumn": 61,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 645,
+          "begincolumn": 21,
+          "endline": 645,
+          "endcolumn": 55,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 737,
+          "begincolumn": 21,
+          "endline": 737,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027mmPosition\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/shared/turboeditor/home/texteditor/FileUtils.java",
+      "violations": [
+        {
+          "beginline": 59,
+          "begincolumn": 40,
+          "endline": 59,
+          "endcolumn": 55,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/shared/turboeditor/home/texteditor/PageSystem.java",
+      "violations": [
+        {
+          "beginline": 33,
+          "begincolumn": 17,
+          "endline": 33,
+          "endcolumn": 28,
+          "description": "Avoid using redundant field initializer for \u0027currentPage\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 54,
+          "begincolumn": 37,
+          "endline": 54,
+          "endcolumn": 59,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 160,
+          "begincolumn": 32,
+          "endline": 160,
+          "endcolumn": 36,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/turbo-editor/shared/src/main/java/shared/turboeditor/util/AccessStorageApi.java",
+      "violations": [
+        {
+          "beginline": 58,
+          "begincolumn": 19,
+          "endline": 58,
+          "endcolumn": 34,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 72,
+          "begincolumn": 19,
+          "endline": 72,
+          "endcolumn": 34,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

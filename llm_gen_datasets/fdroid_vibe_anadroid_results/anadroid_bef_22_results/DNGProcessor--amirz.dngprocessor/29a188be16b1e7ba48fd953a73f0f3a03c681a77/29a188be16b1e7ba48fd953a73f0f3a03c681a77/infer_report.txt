@@ -1,0 +1,121 @@
+#0
+app/src/main/java/amirz/dngprocessor/MainActivity.java:30: warning: Ipc On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int ContextWrapper.checkSelfPermission(String)`. 
+  28.           if (savedInstanceState == null) {
+  29.               NotifHandler.createChannel(this);
+  30. >             tryLoad();
+  31.           }
+  32.       }
+
+#1
+app/src/main/java/amirz/dngprocessor/MainActivity.java:59: warning: Ipc On Ui Thread
+  `void MainActivity.onRequestPermissionsResult(int,String[],int[])` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int ContextWrapper.checkSelfPermission(String)`. 
+  57.               case REQUEST_PERMISSIONS:
+  58.                   if (grantResults[0] == PERMISSION_GRANTED) {
+  59. >                     tryLoad();
+  60.                   }
+  61.                   break;
+
+#2
+app/src/main/java/amirz/dngprocessor/pipeline/convert/EdgeMirror.java:21: error: Null Dereference
+  `toIntermediate` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 20) and is dereferenced. 
+  19.   
+  20.           ToIntermediate toIntermediate = previousStages.getStage(ToIntermediate.class);
+  21. >         mIntermediate = toIntermediate.getIntermediate();
+  22.           int w = mIntermediate.getWidth();
+  23.           int h = mIntermediate.getHeight();
+
+#3
+app/src/main/java/amirz/dngprocessor/pipeline/convert/ToIntermediate.java:31: error: Null Dereference
+  `preProcess` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 29) and is dereferenced. 
+  29.           PreProcess preProcess = previousStages.getStage(PreProcess.class);
+  30.   
+  31. >         converter.seti("rawWidth", preProcess.getInWidth());
+  32.           converter.seti("rawHeight", preProcess.getInHeight());
+  33.   
+
+#4
+app/src/main/java/amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java:27: error: Null Dereference
+  `Object StagePipeline$StageMap.getStage(Class)` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 27) and is dereferenced. 
+  25.           GLPrograms converter = getConverter();
+  26.   
+  27. >         Texture normalExposure = previousStages.getStage(EdgeMirror.class).getIntermediate();
+  28.   
+  29.           mUnderexposed = TexturePool.get(normalExposure.getWidth(), normalExposure.getHeight(), 1,
+
+#5
+app/src/main/java/amirz/dngprocessor/pipeline/exposefuse/Laplace.java:47: error: Null Dereference
+  `de` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 46) and is dereferenced. 
+  45.       protected void execute(StagePipeline.StageMap previousStages) {
+  46.           DoubleExpose de = previousStages.getStage(DoubleExpose.class);
+  47. >         mUnderPyramid = createPyramid(de.getUnderexposed());
+  48.           mOverPyramid = createPyramid(de.getOverexposed());
+  49.       }
+
+#6
+app/src/main/java/amirz/dngprocessor/pipeline/exposefuse/Merge.java:25: error: Null Dereference
+  `laplace` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 24) and is dereferenced. 
+  23.   
+  24.           Laplace laplace = previousStages.getStage(Laplace.class);
+  25. >         Laplace.Pyramid underExpo = laplace.getUnderPyramid();
+  26.           Laplace.Pyramid overExpo = laplace.getOverPyramid();
+  27.   
+
+#7
+app/src/main/java/amirz/dngprocessor/pipeline/intermediate/Analysis.java:54: error: Null Dereference
+  `Object StagePipeline$StageMap.getStage(Class)` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 54) and is dereferenced. 
+  52.           GLPrograms converter = getConverter();
+  53.   
+  54. >         Texture intermediate = previousStages.getStage(Merge.class).getMerged();
+  55.           if (intermediate == null) {
+  56.               intermediate = previousStages.getStage(EdgeMirror.class).getIntermediate();
+
+#8
+app/src/main/java/amirz/dngprocessor/pipeline/intermediate/MergeDetail.java:41: error: Null Dereference
+  `Object StagePipeline$StageMap.getStage(Class)` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 41) and is dereferenced. 
+  39.           //Texture bilateralTex = bilateral.getBilateral();
+  40.   
+  41. >         mIntermediate = previousStages.getStage(Merge.class).getMerged();
+  42.           if (mIntermediate == null) {
+  43.               mIntermediate = previousStages.getStage(EdgeMirror.class).getIntermediate();
+
+#9
+app/src/main/java/amirz/dngprocessor/pipeline/noisereduce/Decompose.java:23: error: Null Dereference
+  `Object StagePipeline$StageMap.getStage(Class)` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 23) and is dereferenced. 
+  21.           GLPrograms converter = getConverter();
+  22.   
+  23. >         mHighRes = previousStages.getStage(EdgeMirror.class).getIntermediate();
+  24.           int w = mHighRes.getWidth();
+  25.           int h = mHighRes.getHeight();
+
+#10
+app/src/main/java/amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java:19: error: Null Dereference
+  `Object StagePipeline$StageMap.getStage(Class)` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 19) and is dereferenced. 
+  17.       protected void execute(StagePipeline.StageMap previousStages) {
+  18.           GLPrograms converter = getConverter();
+  19. >         Texture[] layers = previousStages.getStage(Decompose.class).getLayers();
+  20.   
+  21.           mNoiseTex = new Texture[layers.length];
+
+#11
+app/src/main/java/amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java:34: error: Null Dereference
+  `Object StagePipeline$StageMap.getStage(Class)` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 34) and is dereferenced. 
+  32.           GLPrograms converter = getConverter();
+  33.   
+  34. >         Texture[] layers = previousStages.getStage(Decompose.class).getLayers();
+  35.           mDenoised = layers[0];
+  36.   
+
+#12
+app/src/main/java/amirz/dngprocessor/pipeline/post/ToneMap.java:52: error: Null Dereference
+  `Object StagePipeline$StageMap.getStage(Class)` could be null (from the call to `StagePipeline$StageMap.getStage(...)` on line 52) and is dereferenced. 
+  50.   
+  51.           // Load intermediate buffers as textures
+  52. >         Texture highRes = previousStages.getStage(MergeDetail.class).getIntermediate();
+  53.           converter.setTexture("highRes", highRes);
+  54.           converter.seti("intermediateWidth", highRes.getWidth());
+
+Found 13 issues
+             Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULLPTR_DEREFERENCE): 11
+     Ipc On Ui Thread(IPC_ON_UI_THREAD): 2

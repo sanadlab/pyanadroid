@@ -1,0 +1,20 @@
+public class StringUtils {
+    public String format(String text) {
+        return text.trim().toUpperCase();
+    }
+
+    // Bad: This method was replaced by the 'format' method but was never removed.
+    private String oldFormatter(String text) {
+        return text.trim();
+    }
+}
+
+
+-----
+
+public class StringUtils {
+    public String format(String text) {
+        return text.trim().toUpperCase();
+    }
+    // Good: The uncalled private method is deleted.
+}

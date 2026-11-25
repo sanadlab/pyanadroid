@@ -1,0 +1,9 @@
+double price = 99.99;
+// Bad: A new Double object is created just to call .intValue() on it.
+int dollars = new Double(price).intValue();
+
+-----
+
+double price = 99.99;
+// Good: Use a direct primitive cast.
+int dollars = (int) price;

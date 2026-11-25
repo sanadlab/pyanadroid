@@ -1,0 +1,14 @@
+val nullableScore: Int? = null
+val defaultScore: Float = 0.0f
+
+// Bad: If nullableScore is not null, it will be unboxed to int,
+// promoted to float, and then re-boxed to a Float object to match the common type.
+val finalScore: Number = nullableScore ?: defaultScore
+
+-----
+
+val nullableScore: Int? = null
+val defaultScore: Float = 0.0f
+
+// Good: Be explicit about the desired type to avoid unexpected coercion.
+val finalScore: Number = nullableScore?.toFloat() ?: defaultScore

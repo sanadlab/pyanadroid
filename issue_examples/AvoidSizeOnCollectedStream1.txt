@@ -1,0 +1,11 @@
+long activeUserCount = users.stream()
+                           .filter(User::isActive)
+                           .collect(Collectors.toList())
+                           .size();
+
+
+-----
+
+long activeUserCount = users.stream()
+                           .filter(User::isActive)
+                           .count();

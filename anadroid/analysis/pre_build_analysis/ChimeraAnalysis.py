@@ -14,8 +14,8 @@ from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge
 DEFAULT_PATH_JAR = os.path.join(get_resources_dir(), 'jars' ,"greenlab.org.ebugslocator-1.0.jar")
 
 class ChimeraAnalysis(LintAnalysis):
-    def __init__(self, analyzers_cfg_file=None, jar_path=DEFAULT_PATH_JAR):
-        super().__init__(analyzers_cfg_file)
+    def __init__(self, analyzers_cfg_file=None, jar_path=DEFAULT_PATH_JAR, **kwargs):
+        super().__init__(analyzers_cfg_file, **kwargs)
         self.jar_path = jar_path
         self.exec_cmd = ''
         self.name = 'chimera'
@@ -38,10 +38,10 @@ class ChimeraAnalysis(LintAnalysis):
             os.makedirs(target_location)
         copy(self.jar_path, target_location)
 
-    def get_issues(self, results_file, ignore_tests=True):
+    def get_issues(self, results_file, ignore_tests=True, ignore_lint_issues=False):
         name = self.name
         self.name = 'Lint'
-        issue_l = super().get_issues(results_file, ignore_tests)
+        issue_l = super().get_issues(results_file, ignore_tests) if not ignore_lint_issues else []
         self.name = name
         for iss in issue_l:
             if iss.issue_type in set(self.plugin_issues.values()):

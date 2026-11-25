@@ -1,0 +1,13 @@
+val file = File("data.txt")
+val out = ByteArrayOutputStream()
+BufferedInputStream(FileInputStream(file)).use { input ->
+    IOUtils.copy(input, out)
+}
+
+-----
+
+val file = File("data.txt")
+val out = ByteArrayOutputStream()
+FileInputStream(file).use { input ->
+    IOUtils.copy(input, out)
+}

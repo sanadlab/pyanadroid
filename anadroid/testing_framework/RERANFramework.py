@@ -83,7 +83,7 @@ class RERANFramework(AbstractTestingFramework):
         logi(f"searching for tests in {test_dir}")
         test_files = mega_find(test_dir, pattern=f"*{prefix}*", type_file='f')
         self.workload = WorkLoad()
-        print("loading %d tests" % len(test_files))
+        logi(f"Loading {len(test_files)} tests")
         bin_name = self.__get_config("REPLAY_EXECUTABLE_NAME")
         max_tests_per_app = self.get_config("tests_per_app", 100000000)
         i = 0
@@ -180,5 +180,5 @@ class RERANFramework(AbstractTestingFramework):
         tdir = output_dir if output_dir is not None else RECORDED_TESTS_DIR
         r = RERANWrapper(tdir, TRANSLATOR_JAR_PATH, REPLAY_EXECUTABLE_PATH)
         out_file = r.record(app_id, test_id)
-        print(f"recorded test: {out_file}")
+        logs(f"Recorded test saved in {out_file}")
         return out_file

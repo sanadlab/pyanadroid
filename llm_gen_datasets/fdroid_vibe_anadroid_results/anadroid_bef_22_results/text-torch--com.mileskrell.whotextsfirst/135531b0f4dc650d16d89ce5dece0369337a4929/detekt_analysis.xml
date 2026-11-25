@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/app/src/main/java/com/mileskrell/whotextsfirst/repo/Repository.kt">
+	<error line="3" column="17" severity="warning" message="An empty default constructor can be removed." source="detekt.EmptyDefaultConstructor" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/app/src/main/java/com/mileskrell/whotextsfirst/ui/InfoDialogFragment.kt">
+	<error line="26" column="20" severity="warning" message="A call to the default constructor of an exception was detected. Instead one of the constructor overloads should be called. This allows to provide more meaningful exceptions." source="detekt.ThrowingExceptionsWithoutMessageOrCause" />
+	<error line="26" column="14" severity="warning" message="Use check() or error() instead of throwing an IllegalStateException." source="detekt.UseCheckOrError" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/app/src/main/java/com/mileskrell/whotextsfirst/ui/ConversationsAdapter.kt">
+	<error line="10" column="1" severity="warning" message="kotlinx.android.synthetic.main.conversation_view_holder.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="41" column="68" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="44" column="71" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/app/src/main/java/com/mileskrell/whotextsfirst/ui/IntroFragment.kt">
+	<error line="16" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_intro.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/app/src/main/java/com/mileskrell/whotextsfirst/ui/MainFragment.kt">
+	<error line="4" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="12" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_main.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/app/src/main/java/com/mileskrell/whotextsfirst/model/ConversationsViewModel.kt">
+	<error line="20" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="21" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="23" column="76" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="23" column="80" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="24" column="79" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="19" column="37" severity="warning" message="Function parameter `period` is unused." source="detekt.UnusedParameter" />
+</file>
+</checkstyle>

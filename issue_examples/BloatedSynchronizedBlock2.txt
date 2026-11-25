@@ -1,0 +1,32 @@
+private final Map<String, Integer> cache = new HashMap<>();
+public int getOrCalculate(String key) {
+    synchronized (cache) {
+        if (!cache.containsKey(key)) {
+            int result = performLongCalculation(key);
+            cache.put(key, result);
+            return result;
+        }
+        return cache.get(key);
+    }
+}
+
+-----
+
+private final Map<String, Integer> cache = new HashMap<>();
+public int getOrCalculate(String key) {
+    Integer cachedValue;
+    synchronized (cache) {
+        cachedValue = cache.get(key);
+    }
+   
+    if (cachedValue != null) {
+        return cachedValue;
+    }
+    
+    int result = performLongCalculation(key);
+    
+
+    synchronized (cache) {
+        return cache.putIfAbsent(key, result);
+    }
+}

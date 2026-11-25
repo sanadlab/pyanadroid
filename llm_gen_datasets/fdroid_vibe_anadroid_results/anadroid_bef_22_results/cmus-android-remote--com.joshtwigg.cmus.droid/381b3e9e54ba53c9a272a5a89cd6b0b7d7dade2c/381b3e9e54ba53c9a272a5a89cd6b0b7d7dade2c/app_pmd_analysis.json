@@ -1,0 +1,297 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:44.104+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/ActivityHostManager.java",
+      "violations": [
+        {
+          "beginline": 155,
+          "begincolumn": 45,
+          "endline": 155,
+          "endcolumn": 71,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/ActivityRemote.java",
+      "violations": [
+        {
+          "beginline": 27,
+          "begincolumn": 18,
+          "endline": 27,
+          "endcolumn": 23,
+          "description": "Avoid using redundant field initializer for \u0027_host\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/ArtRetriever.java",
+      "violations": [
+        {
+          "beginline": 86,
+          "begincolumn": 44,
+          "endline": 86,
+          "endcolumn": 60,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 113,
+          "begincolumn": 51,
+          "endline": 113,
+          "endcolumn": 66,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/CmusStatus.java",
+      "violations": [
+        {
+          "beginline": 139,
+          "begincolumn": 9,
+          "endline": 139,
+          "endcolumn": 75,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 139,
+          "begincolumn": 27,
+          "endline": 139,
+          "endcolumn": 31,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 139,
+          "begincolumn": 69,
+          "endline": 139,
+          "endcolumn": 73,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 140,
+          "begincolumn": 9,
+          "endline": 140,
+          "endcolumn": 62,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 140,
+          "begincolumn": 56,
+          "endline": 140,
+          "endcolumn": 60,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 141,
+          "begincolumn": 57,
+          "endline": 141,
+          "endcolumn": 61,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/CommandThread.java",
+      "violations": [
+        {
+          "beginline": 30,
+          "begincolumn": 47,
+          "endline": 30,
+          "endcolumn": 51,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 38,
+          "begincolumn": 34,
+          "endline": 38,
+          "endcolumn": 59,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 49,
+          "begincolumn": 35,
+          "endline": 49,
+          "endcolumn": 61,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/ShowPopupMessage.java",
+      "violations": [
+        {
+          "beginline": 9,
+          "begincolumn": 21,
+          "endline": 9,
+          "endcolumn": 28,
+          "description": "Avoid using redundant field initializer for \u0027_repeat\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 10,
+          "begincolumn": 21,
+          "endline": 10,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027_repeatAll\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 11,
+          "begincolumn": 21,
+          "endline": 11,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027_shuffle\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/Storage.java",
+      "violations": [
+        {
+          "beginline": 52,
+          "begincolumn": 32,
+          "endline": 52,
+          "endcolumn": 45,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 64,
+          "begincolumn": 13,
+          "endline": 64,
+          "endcolumn": 38,
+          "description": "Use asList instead of tight loops",
+          "rule": "UseArraysAsList",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usearraysaslist"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/TrackInfo.java",
+      "violations": [
+        {
+          "beginline": 8,
+          "begincolumn": 20,
+          "endline": 8,
+          "endcolumn": 27,
+          "description": "Avoid using redundant field initializer for \u0027isMuted\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 9,
+          "begincolumn": 20,
+          "endline": 9,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027isPlaying\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/cmus-android-remote/app/src/main/java/com/joshtwigg/cmus/droid/Util.java",
+      "violations": [
+        {
+          "beginline": 20,
+          "begincolumn": 31,
+          "endline": 20,
+          "endcolumn": 50,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 24,
+          "begincolumn": 28,
+          "endline": 24,
+          "endcolumn": 47,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

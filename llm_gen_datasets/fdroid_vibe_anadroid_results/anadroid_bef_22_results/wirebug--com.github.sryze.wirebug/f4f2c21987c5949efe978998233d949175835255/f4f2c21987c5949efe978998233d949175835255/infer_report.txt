@@ -1,0 +1,48 @@
+#0
+app/src/main/java/com/github/sryze/wirebug/DebugStatusService.java:150: warning: Ipc On Ui Thread
+  `int DebugStatusService.onStartCommand(Intent,int,int)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `WifiInfo WifiManager.getConnectionInfo()`. 
+  148.           if (intent != null && intent.getAction() != null) {
+  149.               if (intent.getAction().equals(ACTION_UPDATE_STATUS)) {
+  150. >                 updateStatus();
+  151.                   Intent updateStatusIntent =
+  152.                       new Intent(DebugStatusService.this, DebugStatusService.class);
+
+#1
+app/src/main/java/com/github/sryze/wirebug/MainActivity.java:92: warning: Ipc On Ui Thread
+  `void MainActivity$1.onCheckedChanged(CompoundButton,boolean)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `WifiInfo WifiManager.getConnectionInfo()`. 
+  90.                   boolean isActuallyEnabled = DebugManager.isTcpDebuggingEnabled();
+  91.                   if (isChecked == isActuallyEnabled) {
+  92. >                     updateInstructions(isChecked);
+  93.                       updateStatus();
+  94.                   } else {
+
+#2
+app/src/main/java/com/github/sryze/wirebug/MainActivity.java:137: warning: Ipc On Ui Thread
+  `void MainActivity.onResume()` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `WifiInfo WifiManager.getConnectionInfo()`. 
+  135.   
+  136.           boolean isEnabled = DebugManager.isTcpDebuggingEnabled();
+  137. >         updateInstructions(isEnabled);
+  138.           updateStatus();
+  139.   
+
+#3
+app/src/main/java/com/github/sryze/wirebug/MainActivity.java:159: warning: Ipc On Ui Thread
+  `void MainActivity$2.onReceive(Context,Intent)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `WifiInfo WifiManager.getConnectionInfo()`. 
+  157.                           break;
+  158.                   }
+  159. >                 updateConnectionInfo();
+  160.               }
+  161.           };
+
+#4
+app/src/main/java/com/github/sryze/wirebug/MainActivity.java:171: warning: Ipc On Ui Thread
+  `void MainActivity$3.onReceive(Context,Intent)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `WifiInfo WifiManager.getConnectionInfo()`. 
+  169.                   boolean isEnabled =
+  170.                       intent.getBooleanExtra(DebugStatusService.EXTRA_IS_ENABLED, false);
+  171. >                 updateInstructions(isEnabled);
+  172.                   toggleDebuggingButton.setOnCheckedChangeListener(null);
+  173.                   toggleDebuggingButton.setChecked(isEnabled);
+
+Found 5 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Ipc On Ui Thread(IPC_ON_UI_THREAD): 5

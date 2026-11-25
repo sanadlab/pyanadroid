@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762898913508" analysisTimestamp="1762898916125" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/NoFbEventScraper/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/NoFbEventScraper/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="1" rank="15" abbrev="DLS" category="STYLE" instanceHash="faeef6c2831240b822811401d034f1db" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to holder in com.akdev.nofbeventscraper.EventAdapter.onCreateViewHolder(ViewGroup, int)</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.EventAdapter" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.EventAdapter" start="31" end="239" sourcefile="EventAdapter.java" sourcepath="com/akdev/nofbeventscraper/EventAdapter.java" relSourcepath="com/akdev/nofbeventscraper/EventAdapter.java">
+        <Message>At EventAdapter.java:[lines 31-239]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.EventAdapter</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.EventAdapter" name="onCreateViewHolder" signature="(Landroid/view/ViewGroup;I)Lcom/akdev/nofbeventscraper/EventAdapter$ViewHolder;" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.EventAdapter" start="43" end="53" startBytecode="0" endBytecode="21" sourcefile="EventAdapter.java" sourcepath="com/akdev/nofbeventscraper/EventAdapter.java" relSourcepath="com/akdev/nofbeventscraper/EventAdapter.java"/>
+      <Message>In method com.akdev.nofbeventscraper.EventAdapter.onCreateViewHolder(ViewGroup, int)</Message>
+    </Method>
+    <LocalVariable name="holder" register="6" pc="33" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named holder</Message>
+    </LocalVariable>
+    <SourceLine classname="com.akdev.nofbeventscraper.EventAdapter" primary="true" start="51" end="51" startBytecode="31" endBytecode="31" sourcefile="EventAdapter.java" sourcepath="com/akdev/nofbeventscraper/EventAdapter.java" relSourcepath="com/akdev/nofbeventscraper/EventAdapter.java">
+      <Message>At EventAdapter.java:[line 51]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="holder"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="f3d8b409cabdb041604ebe3781ce3802" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.akdev.nofbeventscraper.EventAdapter(List) may expose internal representation by storing an externally mutable object into EventAdapter.events</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.EventAdapter" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.EventAdapter" start="31" end="239" sourcefile="EventAdapter.java" sourcepath="com/akdev/nofbeventscraper/EventAdapter.java" relSourcepath="com/akdev/nofbeventscraper/EventAdapter.java">
+        <Message>At EventAdapter.java:[lines 31-239]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.EventAdapter</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.EventAdapter" name="&lt;init&gt;" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.EventAdapter" start="37" end="39" startBytecode="0" endBytecode="87" sourcefile="EventAdapter.java" sourcepath="com/akdev/nofbeventscraper/EventAdapter.java" relSourcepath="com/akdev/nofbeventscraper/EventAdapter.java"/>
+      <Message>In method new com.akdev.nofbeventscraper.EventAdapter(List)</Message>
+    </Method>
+    <Field classname="com.akdev.nofbeventscraper.EventAdapter" name="events" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.EventAdapter" sourcefile="EventAdapter.java" sourcepath="com/akdev/nofbeventscraper/EventAdapter.java" relSourcepath="com/akdev/nofbeventscraper/EventAdapter.java">
+        <Message>In EventAdapter.java</Message>
+      </SourceLine>
+      <Message>Field com.akdev.nofbeventscraper.EventAdapter.events</Message>
+    </Field>
+    <LocalVariable name="events" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named events</Message>
+    </LocalVariable>
+    <SourceLine classname="com.akdev.nofbeventscraper.EventAdapter" primary="true" start="38" end="38" startBytecode="6" endBytecode="6" sourcefile="EventAdapter.java" sourcepath="com/akdev/nofbeventscraper/EventAdapter.java" relSourcepath="com/akdev/nofbeventscraper/EventAdapter.java">
+      <Message>At EventAdapter.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DCN_NULLPOINTER_EXCEPTION" priority="2" rank="17" abbrev="DCN" category="STYLE" instanceHash="e937ddf05d2d8f39db85c7f19533f779" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="395">
+    <ShortMessage>NullPointerException caught</ShortMessage>
+    <LongMessage>Do not catch NullPointerException like in com.akdev.nofbeventscraper.FbEventScraper.doInBackground(Void[])</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbEventScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbEventScraper" start="20" end="223" sourcefile="FbEventScraper.java" sourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbEventScraper.java">
+        <Message>At FbEventScraper.java:[lines 20-223]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbEventScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbEventScraper" name="doInBackground" signature="([Ljava/lang/Void;)Ljava/lang/Void;" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbEventScraper" start="148" end="205" startBytecode="0" endBytecode="846" sourcefile="FbEventScraper.java" sourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbEventScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbEventScraper.doInBackground(Void[])</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbEventScraper" primary="true" start="181" end="181" startBytecode="198" endBytecode="198" sourcefile="FbEventScraper.java" sourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbEventScraper.java">
+      <Message>At FbEventScraper.java:[line 181]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="7c7dfa98268ce50278300b27667e77b1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.akdev.nofbeventscraper.FbEventScraper.doInBackground(Void[]) due to return value of called method</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbEventScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbEventScraper" start="20" end="223" sourcefile="FbEventScraper.java" sourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbEventScraper.java">
+        <Message>At FbEventScraper.java:[lines 20-223]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbEventScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbEventScraper" name="doInBackground" signature="([Ljava/lang/Void;)Ljava/lang/Void;" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbEventScraper" start="148" end="205" startBytecode="0" endBytecode="846" sourcefile="FbEventScraper.java" sourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbEventScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbEventScraper.doInBackground(Void[])</Message>
+    </Method>
+    <Method classname="java.lang.ref.WeakReference" name="get" signature="()Ljava/lang/Object;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.ref.WeakReference" sourcefile="WeakReference.java" sourcepath="java/lang/ref/WeakReference.java"/>
+      <Message>Called method ref.WeakReference.get()</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbEventScraper" primary="true" start="184" end="184" startBytecode="220" endBytecode="220" sourcefile="FbEventScraper.java" sourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FbEventScraper.java:[line 184]</Message>
+    </SourceLine>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbEventScraper" start="184" end="184" startBytecode="212" endBytecode="212" sourcefile="FbEventScraper.java" sourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbEventScraper.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FbEventScraper.java:[line 184]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DCN_NULLPOINTER_EXCEPTION" priority="2" rank="17" abbrev="DCN" category="STYLE" instanceHash="ab9e77701caf7dbfa99a77c43773636d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="395">
+    <ShortMessage>NullPointerException caught</ShortMessage>
+    <LongMessage>Do not catch NullPointerException like in com.akdev.nofbeventscraper.FbPageScraper.doInBackground(Void[])</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbPageScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbPageScraper" start="20" end="135" sourcefile="FbPageScraper.java" sourcepath="com/akdev/nofbeventscraper/FbPageScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbPageScraper.java">
+        <Message>At FbPageScraper.java:[lines 20-135]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbPageScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbPageScraper" name="doInBackground" signature="([Ljava/lang/Void;)Ljava/lang/Void;" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbPageScraper" start="55" end="117" startBytecode="0" endBytecode="743" sourcefile="FbPageScraper.java" sourcepath="com/akdev/nofbeventscraper/FbPageScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbPageScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbPageScraper.doInBackground(Void[])</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbPageScraper" primary="true" start="90" end="90" startBytecode="193" endBytecode="193" sourcefile="FbPageScraper.java" sourcepath="com/akdev/nofbeventscraper/FbPageScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbPageScraper.java">
+      <Message>At FbPageScraper.java:[line 90]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="REC_CATCH_EXCEPTION" priority="2" rank="17" abbrev="REC" category="STYLE" instanceHash="5d63b65bf996ea6fb235fc30a31224c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="396">
+    <ShortMessage>Exception is caught when Exception is not thrown</ShortMessage>
+    <LongMessage>Exception is caught when Exception is not thrown in com.akdev.nofbeventscraper.FbRedirectionResolver.doInBackground(Void[])</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbRedirectionResolver" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbRedirectionResolver" start="8" end="39" sourcefile="FbRedirectionResolver.java" sourcepath="com/akdev/nofbeventscraper/FbRedirectionResolver.java" relSourcepath="com/akdev/nofbeventscraper/FbRedirectionResolver.java">
+        <Message>At FbRedirectionResolver.java:[lines 8-39]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbRedirectionResolver</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbRedirectionResolver" name="doInBackground" signature="([Ljava/lang/Void;)Ljava/lang/Void;" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbRedirectionResolver" start="21" end="31" startBytecode="0" endBytecode="149" sourcefile="FbRedirectionResolver.java" sourcepath="com/akdev/nofbeventscraper/FbRedirectionResolver.java" relSourcepath="com/akdev/nofbeventscraper/FbRedirectionResolver.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbRedirectionResolver.doInBackground(Void[])</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbRedirectionResolver" primary="true" start="29" end="29" startBytecode="40" endBytecode="40" sourcefile="FbRedirectionResolver.java" sourcepath="com/akdev/nofbeventscraper/FbRedirectionResolver.java" relSourcepath="com/akdev/nofbeventscraper/FbRedirectionResolver.java">
+      <Message>At FbRedirectionResolver.java:[line 29]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="26ec4434a0a3a654e1e954d66a71640f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.akdev.nofbeventscraper.FbScraper.run() due to return value of called method</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="24" end="282" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java">
+        <Message>At FbScraper.java:[lines 24-282]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbScraper" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="240" end="282" startBytecode="0" endBytecode="480" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbScraper.run()</Message>
+    </Method>
+    <Method classname="java.lang.ref.WeakReference" name="get" signature="()Ljava/lang/Object;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.ref.WeakReference" sourcefile="WeakReference.java" sourcepath="java/lang/ref/WeakReference.java"/>
+      <Message>Called method ref.WeakReference.get()</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" primary="true" start="280" end="280" startBytecode="162" endBytecode="162" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FbScraper.java:[line 280]</Message>
+    </SourceLine>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="280" end="280" startBytecode="154" endBytecode="154" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FbScraper.java:[line 280]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="a020212fa1c75d97e4fac7d7460809ea" instanceOccurrenceNum="0" instanceOccurrenceMax="2" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.akdev.nofbeventscraper.FbScraper.scrapeEventResultCallback(FbEvent, int) due to return value of called method</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="24" end="282" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java">
+        <Message>At FbScraper.java:[lines 24-282]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbScraper" name="scrapeEventResultCallback" signature="(Lcom/akdev/nofbeventscraper/FbEvent;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="170" end="177" startBytecode="0" endBytecode="214" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbScraper.scrapeEventResultCallback(FbEvent, int)</Message>
+    </Method>
+    <Method classname="java.lang.ref.WeakReference" name="get" signature="()Ljava/lang/Object;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.ref.WeakReference" sourcefile="WeakReference.java" sourcepath="java/lang/ref/WeakReference.java"/>
+      <Message>Called method ref.WeakReference.get()</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" primary="true" start="172" end="172" startBytecode="43" endBytecode="43" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FbScraper.java:[line 172]</Message>
+    </SourceLine>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="172" end="172" startBytecode="36" endBytecode="36" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FbScraper.java:[line 172]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="a020212fa1c75d97e4fac7d7460809ea" instanceOccurrenceNum="1" instanceOccurrenceMax="2" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.akdev.nofbeventscraper.FbScraper.scrapeEventResultCallback(FbEvent, int) due to return value of called method</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="24" end="282" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java">
+        <Message>At FbScraper.java:[lines 24-282]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbScraper" name="scrapeEventResultCallback" signature="(Lcom/akdev/nofbeventscraper/FbEvent;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="170" end="177" startBytecode="0" endBytecode="214" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbScraper.scrapeEventResultCallback(FbEvent, int)</Message>
+    </Method>
+    <Method classname="java.lang.ref.WeakReference" name="get" signature="()Ljava/lang/Object;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.ref.WeakReference" sourcefile="WeakReference.java" sourcepath="java/lang/ref/WeakReference.java"/>
+      <Message>Called method ref.WeakReference.get()</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" primary="true" start="173" end="173" startBytecode="72" endBytecode="72" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FbScraper.java:[line 173]</Message>
+    </SourceLine>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="173" end="173" startBytecode="50" endBytecode="50" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FbScraper.java:[line 173]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="a020212fa1c75d97e4fac7d7460809ea" instanceOccurrenceNum="2" instanceOccurrenceMax="2" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.akdev.nofbeventscraper.FbScraper.scrapeEventResultCallback(FbEvent, int) due to return value of called method</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="24" end="282" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java">
+        <Message>At FbScraper.java:[lines 24-282]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbScraper" name="scrapeEventResultCallback" signature="(Lcom/akdev/nofbeventscraper/FbEvent;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="170" end="177" startBytecode="0" endBytecode="214" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbScraper.scrapeEventResultCallback(FbEvent, int)</Message>
+    </Method>
+    <Method classname="java.lang.ref.WeakReference" name="get" signature="()Ljava/lang/Object;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.ref.WeakReference" sourcefile="WeakReference.java" sourcepath="java/lang/ref/WeakReference.java"/>
+      <Message>Called method ref.WeakReference.get()</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" primary="true" start="175" end="175" startBytecode="113" endBytecode="113" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FbScraper.java:[line 175]</Message>
+    </SourceLine>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="175" end="175" startBytecode="92" endBytecode="92" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FbScraper.java:[line 175]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" priority="2" rank="13" abbrev="NP" category="STYLE" instanceHash="829ee4fab44ffed7bbef85d2921191c4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Possible null pointer dereference due to return value of called method</ShortMessage>
+    <LongMessage>Possible null pointer dereference in com.akdev.nofbeventscraper.FbScraper.scrapePageResultCallback(List, int) due to return value of called method</LongMessage>
+    <Class classname="com.akdev.nofbeventscraper.FbScraper" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="24" end="282" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java">
+        <Message>At FbScraper.java:[lines 24-282]</Message>
+      </SourceLine>
+      <Message>In class com.akdev.nofbeventscraper.FbScraper</Message>
+    </Class>
+    <Method classname="com.akdev.nofbeventscraper.FbScraper" name="scrapePageResultCallback" signature="(Ljava/util/List;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="201" end="215" startBytecode="0" endBytecode="344" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java"/>
+      <Message>In method com.akdev.nofbeventscraper.FbScraper.scrapePageResultCallback(List, int)</Message>
+    </Method>
+    <Method classname="java.lang.ref.WeakReference" name="get" signature="()Ljava/lang/Object;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.ref.WeakReference" sourcefile="WeakReference.java" sourcepath="java/lang/ref/WeakReference.java"/>
+      <Message>Called method ref.WeakReference.get()</Message>
+    </Method>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" primary="true" start="213" end="213" startBytecode="140" endBytecode="140" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at FbScraper.java:[line 213]</Message>
+    </SourceLine>
+    <SourceLine classname="com.akdev.nofbeventscraper.FbScraper" start="213" end="213" startBytecode="119" endBytecode="119" sourcefile="FbScraper.java" sourcepath="com/akdev/nofbeventscraper/FbScraper.java" relSourcepath="com/akdev/nofbeventscraper/FbScraper.java" role="SOURCE_LINE_KNOWN_NULL">
+      <Message>Known null at FbScraper.java:[line 213]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" abbrev="NP" category="STYLE">
+    <ShortDescription>Possible null pointer dereference due to return value of called method</ShortDescription>
+    <Details><![CDATA[
+      
+<p> The return value from a method is dereferenced without a null check,
+and the return value of that method is one that should generally be checked
+for null.  This may lead to a <code>NullPointerException</code> when the code is executed.
+</p>
+      
+   ]]></Details>
+  </BugPattern>
+  <BugPattern type="DCN_NULLPOINTER_EXCEPTION" abbrev="DCN" category="STYLE" cweid="395">
+    <ShortDescription>NullPointerException caught</ShortDescription>
+    <Details><![CDATA[
+   
+<p>
+According to SEI Cert rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/ERR08-J.+Do+not+catch+NullPointerException+or+any+of+its+ancestors">ERR08-J</a> NullPointerException should not be caught. Handling NullPointerException is considered an inferior alternative to null-checking.
+<p>
+This non-compliant code catches a NullPointerException to see if an incoming parameter is null:
+</p>
+<pre><code>
+boolean hasSpace(String m) {
+  try {
+    String ms[] = m.split(" ");
+    return names.length != 1;
+  } catch (NullPointerException e) {
+    return false;
+  }
+}
+</code></pre>
+<p>
+A compliant solution would use a null-check as in the following example:
+</p>
+<pre><code>
+boolean hasSpace(String m) {
+    if (m == null) return false;
+    String ms[] = m.split(" ");
+    return names.length != 1;
+}
+</code></pre>
+<p>
+See <a href="https://cwe.mitre.org/data/definitions/395.html">CWE-395: Use of NullPointerException Catch to Detect NULL Pointer Dereference</a>.
+</p>
+    
+     ]]></Details>
+  </BugPattern>
+  <BugPattern type="REC_CATCH_EXCEPTION" abbrev="REC" category="STYLE" cweid="396">
+    <ShortDescription>Exception is caught when Exception is not thrown</ShortDescription>
+    <Details><![CDATA[
+  
+  <p>
+  This method uses a try-catch block that catches Exception objects, but Exception is not
+  thrown within the try block, and RuntimeException is not explicitly caught.  It is a common bug pattern to
+  say try { ... } catch (Exception e) { something } as a shorthand for catching a number of types of exception
+  each of whose catch blocks is identical, but this construct also accidentally catches RuntimeException as well,
+  masking potential bugs.
+  </p>
+  <p>A better approach is to either explicitly catch the specific exceptions that are thrown,
+  or to explicitly catch RuntimeException exception, rethrow it, and then catch all non-Runtime Exceptions, as shown below:</p>
+<pre><code>try {
+    ...
+} catch (RuntimeException e) {
+    throw e;
+} catch (Exception e) {
+    ... deal with all non-runtime exceptions ...
+}
+</code></pre>
+<p>See <a href="https://cwe.mitre.org/data/definitions/396.html">CWE-396: Declaration of Catch for Generic Exception</a>.
+</p>
+  
+     ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="REC">
+    <Description>RuntimeException capture</Description>
+  </BugCode>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="DCN">
+    <Description>Don&apos;t Catch NullPointer Exception</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="50">
+    <MissingClass>androidx.appcompat.app.ActionBar</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.appcompat.view.menu.MenuBuilder</MissingClass>
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>androidx.preference.Preference</MissingClass>
+    <MissingClass>androidx.preference.Preference$OnPreferenceClickListener</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat</MissingClass>
+    <MissingClass>androidx.preference.PreferenceManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.LinearLayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$Adapter</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$ItemAnimator</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$LayoutManager</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView$ViewHolder</MissingClass>
+    <MissingClass>androidx.webkit.WebSettingsCompat</MissingClass>
+    <MissingClass>androidx.webkit.WebViewFeature</MissingClass>
+    <MissingClass>com.akdev.nofbeventscraper.R</MissingClass>
+    <MissingClass>com.akdev.nofbeventscraper.R$id</MissingClass>
+    <MissingClass>com.akdev.nofbeventscraper.R$layout</MissingClass>
+    <MissingClass>com.akdev.nofbeventscraper.R$menu</MissingClass>
+    <MissingClass>com.akdev.nofbeventscraper.R$mipmap</MissingClass>
+    <MissingClass>com.akdev.nofbeventscraper.R$string</MissingClass>
+    <MissingClass>com.akdev.nofbeventscraper.R$xml</MissingClass>
+    <MissingClass>com.google.android.material.appbar.AppBarLayout</MissingClass>
+    <MissingClass>com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener</MissingClass>
+    <MissingClass>com.google.android.material.appbar.CollapsingToolbarLayout</MissingClass>
+    <MissingClass>com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton</MissingClass>
+    <MissingClass>com.google.android.material.snackbar.Snackbar</MissingClass>
+    <MissingClass>com.google.android.material.textfield.TextInputLayout</MissingClass>
+    <MissingClass>com.google.gson.Gson</MissingClass>
+    <MissingClass>com.google.gson.reflect.TypeToken</MissingClass>
+    <MissingClass>com.squareup.picasso.Callback</MissingClass>
+    <MissingClass>com.squareup.picasso.Picasso</MissingClass>
+    <MissingClass>com.squareup.picasso.RequestCreator</MissingClass>
+    <MissingClass>com.squareup.picasso.Transformation</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>jp.wasabeef.picasso.transformations.CropCircleTransformation</MissingClass>
+    <MissingClass>jp.wasabeef.recyclerview.animators.FadeInAnimator</MissingClass>
+    <MissingClass>org.jsoup.Connection</MissingClass>
+    <MissingClass>org.jsoup.Connection$Method</MissingClass>
+    <MissingClass>org.jsoup.Connection$Response</MissingClass>
+    <MissingClass>org.jsoup.HttpStatusException</MissingClass>
+    <MissingClass>org.jsoup.Jsoup</MissingClass>
+    <MissingClass>org.jsoup.nodes.Document</MissingClass>
+    <MissingClass>org.jsoup.nodes.Element</MissingClass>
+    <MissingClass>org.jsoup.select.Elements</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 02:08:33 +0400" total_classes="32" referenced_classes="178" total_bugs="11" total_size="863" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.98" clock_seconds="0.79" peak_mbytes="276.11" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="10" priority_1="1">
+    <FileStats path="com/akdev/nofbeventscraper/AboutActivity.java" bugCount="0" size="16"/>
+    <FileStats path="com/akdev/nofbeventscraper/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/akdev/nofbeventscraper/DocumentReceiver.java" bugCount="0" size="25"/>
+    <FileStats path="com/akdev/nofbeventscraper/EventAdapter.java" bugCount="2" size="181" bugHash="fcd5d5015530ec5949b40622985c200f"/>
+    <FileStats path="com/akdev/nofbeventscraper/FbEvent.java" bugCount="0" size="40"/>
+    <FileStats path="com/akdev/nofbeventscraper/FbEventScraper.java" bugCount="2" size="92" bugHash="9e46ec97851059a8a770c8d35c09973b"/>
+    <FileStats path="com/akdev/nofbeventscraper/FbPageScraper.java" bugCount="1" size="62" bugHash="ddc3218d61efdc6cae1bafd789c05f4b"/>
+    <FileStats path="com/akdev/nofbeventscraper/FbRedirectionResolver.java" bugCount="1" size="24" bugHash="4b40373800afed817f67a793ba1e3d97"/>
+    <FileStats path="com/akdev/nofbeventscraper/FbScraper.java" bugCount="5" size="136" bugHash="4be708f71b8062b980ba1299027abca9"/>
+    <FileStats path="com/akdev/nofbeventscraper/HelpActivity.java" bugCount="0" size="16"/>
+    <FileStats path="com/akdev/nofbeventscraper/IntentReceiver.java" bugCount="0" size="15"/>
+    <FileStats path="com/akdev/nofbeventscraper/MainActivity.java" bugCount="0" size="197"/>
+    <FileStats path="com/akdev/nofbeventscraper/SettingsActivity.java" bugCount="0" size="49"/>
+    <PackageStats package="com.akdev.nofbeventscraper" total_bugs="11" total_types="32" total_size="863" priority_2="10" priority_1="1">
+      <ClassStats class="com.akdev.nofbeventscraper.AboutActivity" sourceFile="AboutActivity.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.DocumentReceiver" sourceFile="DocumentReceiver.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter" sourceFile="EventAdapter.java" interface="false" size="56" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$1" sourceFile="EventAdapter.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$2" sourceFile="EventAdapter.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$3" sourceFile="EventAdapter.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$4" sourceFile="EventAdapter.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$4$1" sourceFile="EventAdapter.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$4$2" sourceFile="EventAdapter.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$5" sourceFile="EventAdapter.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.EventAdapter$ViewHolder" sourceFile="EventAdapter.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.FbEvent" sourceFile="FbEvent.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.FbEventScraper" sourceFile="FbEventScraper.java" interface="false" size="92" bugs="2" priority_2="2"/>
+      <ClassStats class="com.akdev.nofbeventscraper.FbPageScraper" sourceFile="FbPageScraper.java" interface="false" size="62" bugs="1" priority_2="1"/>
+      <ClassStats class="com.akdev.nofbeventscraper.FbRedirectionResolver" sourceFile="FbRedirectionResolver.java" interface="false" size="24" bugs="1" priority_2="1"/>
+      <ClassStats class="com.akdev.nofbeventscraper.FbScraper" sourceFile="FbScraper.java" interface="false" size="125" bugs="5" priority_2="5"/>
+      <ClassStats class="com.akdev.nofbeventscraper.FbScraper$url_type_enum" sourceFile="FbScraper.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.HelpActivity" sourceFile="HelpActivity.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.IntentReceiver" sourceFile="IntentReceiver.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity" sourceFile="MainActivity.java" interface="false" size="125" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity$3" sourceFile="MainActivity.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity$4" sourceFile="MainActivity.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity$5" sourceFile="MainActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity$6" sourceFile="MainActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.MainActivity$7" sourceFile="MainActivity.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.SettingsActivity" sourceFile="SettingsActivity.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.SettingsActivity$SettingsFragment" sourceFile="SettingsActivity.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.SettingsActivity$SettingsFragment$1" sourceFile="SettingsActivity.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.akdev.nofbeventscraper.SettingsActivity$SettingsFragment$1$1" sourceFile="SettingsActivity.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="56" invocations="626" avgMicrosecondsPerInvocation="89" maxMicrosecondsPerInvocation="6826" standardDeviationMicrosecondsPerInvocation="326"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="33" invocations="178" avgMicrosecondsPerInvocation="187" maxMicrosecondsPerInvocation="3702" standardDeviationMicrosecondsPerInvocation="418"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="27" invocations="97" avgMicrosecondsPerInvocation="282" maxMicrosecondsPerInvocation="6696" standardDeviationMicrosecondsPerInvocation="724"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="25" invocations="108" avgMicrosecondsPerInvocation="238" maxMicrosecondsPerInvocation="3319" standardDeviationMicrosecondsPerInvocation="515"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="22" invocations="109" avgMicrosecondsPerInvocation="208" maxMicrosecondsPerInvocation="3935" standardDeviationMicrosecondsPerInvocation="493"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="22" invocations="105" avgMicrosecondsPerInvocation="212" maxMicrosecondsPerInvocation="2711" standardDeviationMicrosecondsPerInvocation="434"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="19" invocations="105" avgMicrosecondsPerInvocation="186" maxMicrosecondsPerInvocation="2710" standardDeviationMicrosecondsPerInvocation="324"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="19" invocations="255" avgMicrosecondsPerInvocation="75" maxMicrosecondsPerInvocation="4306" standardDeviationMicrosecondsPerInvocation="290"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="18" invocations="178" avgMicrosecondsPerInvocation="101" maxMicrosecondsPerInvocation="3679" standardDeviationMicrosecondsPerInvocation="365"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="15" invocations="105" avgMicrosecondsPerInvocation="143" maxMicrosecondsPerInvocation="2063" standardDeviationMicrosecondsPerInvocation="260"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="15" invocations="105" avgMicrosecondsPerInvocation="142" maxMicrosecondsPerInvocation="2329" standardDeviationMicrosecondsPerInvocation="340"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="14" invocations="178" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="1016" standardDeviationMicrosecondsPerInvocation="158"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="14" invocations="178" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="1419" standardDeviationMicrosecondsPerInvocation="188"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="14" invocations="32" avgMicrosecondsPerInvocation="439" maxMicrosecondsPerInvocation="8379" standardDeviationMicrosecondsPerInvocation="1450"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="13" invocations="646" avgMicrosecondsPerInvocation="21" maxMicrosecondsPerInvocation="257" standardDeviationMicrosecondsPerInvocation="19"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="13" invocations="178" avgMicrosecondsPerInvocation="74" maxMicrosecondsPerInvocation="3085" standardDeviationMicrosecondsPerInvocation="260"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="12" invocations="105" avgMicrosecondsPerInvocation="121" maxMicrosecondsPerInvocation="6218" standardDeviationMicrosecondsPerInvocation="611"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

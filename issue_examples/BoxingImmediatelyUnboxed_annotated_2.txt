@@ -1,0 +1,15 @@
+// The function is declared to return a primitive 'Int'
+fun getStatusCode(): Int {
+    val status = 200
+    // Bad: Manually boxing 'status' to an 'Integer' which is then
+    // immediately unboxed to satisfy the 'Int' return type.
+    return Integer(status)
+}
+
+----
+
+fun getStatusCode(): Int {
+    val status = 200
+    // Good: Return the primitive directly.
+    return status
+}

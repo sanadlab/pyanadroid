@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61", "incremental>=24.7.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anadroid"
+description = "PyAnaDroid: A replicable, fully-customizable execution pipeline for analyzing and benchmarking Android Applications"
+readme = "README.md"
+authors = [{name = "Rui Rua", email = "rui.rrua@gmail.com"}]
+license = {text = "MIT"}
+requires-python = ">=3.9"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["version", "dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/greensoftwarelab/PyAnaDroid"
+"Bug Tracker" = "https://github.com/greensoftwarelab/PyAnaDroid/issues"
+
+[project.scripts]
+pyanadroid = "anadroid.main:main"
+
+[tool.incremental]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+exclude = ["anadroid.test*", "anadroid.resources.bin.pmd*"]
+
+[tool.pytest.ini_options]
+testpaths = ["anadroid/test/unit"]

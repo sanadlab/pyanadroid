@@ -1,0 +1,15 @@
+import org.w3c.dom.NodeList;
+// ...
+for (int i = 0; i < nodeList.getLength(); i++) {
+    processNode(nodeList.item(i));
+}
+
+----
+
+import org.w3c.dom.NodeList;
+// ...
+
+int length = nodeList.getLength();
+for (int i = 0; i < length; i++) {
+    processNode(nodeList.item(i));
+}

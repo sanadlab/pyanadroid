@@ -1,0 +1,41 @@
+<problems is_local_tool="true">
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/app/weatheroverview/adapter/HourlyWeatherAdapter.java</file>
+  <line>66</line>
+  <module>Weather_Overview.app</module>
+  <package>app.weatheroverview.adapter</package>
+  <entry_point TYPE="method" FQNAME="app.weatheroverview.adapter.HourlyWeatherAdapter java.lang.String getTime(int i)" />
+  <problem_class id="ConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions &amp; exceptions</problem_class>
+  <description>Argument &lt;code&gt;items.get(i).get(&quot;time&quot;)&lt;/code&gt; might be null</description>
+  <highlighted_element>items.get(i).get(&quot;time&quot;)</highlighted_element>
+  <language>JAVA</language>
+  <offset>29</offset>
+  <length>24</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/app/weatheroverview/adapter/HourlyWeatherAdapter.java</file>
+  <line>56</line>
+  <module>Weather_Overview.app</module>
+  <package>app.weatheroverview.adapter</package>
+  <entry_point TYPE="method" FQNAME="app.weatheroverview.adapter.HourlyWeatherAdapter android.view.View getView(int i, android.view.View convertView, android.view.ViewGroup viewGroup)" />
+  <problem_class id="ConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions &amp; exceptions</problem_class>
+  <description>Unboxing of &lt;code&gt;WeatherCodeUtils.iconIds.get(items.get(i).get(&quot;weatherCode&quot;))&lt;/code&gt; may produce &lt;code&gt;NullPointerException&lt;/code&gt;</description>
+  <highlighted_element>WeatherCodeUtils.iconIds.get(items.get(i).get(&quot;weatherCode&quot;))</highlighted_element>
+  <language>JAVA</language>
+  <offset>19</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/app/weatheroverview/Forecast.java</file>
+  <line>185</line>
+  <module>Weather_Overview.app</module>
+  <package>app.weatheroverview</package>
+  <entry_point TYPE="method" FQNAME="app.weatheroverview.Forecast java.lang.String getWindSpeedText(android.content.res.Resources res, java.util.Map&lt;java.lang.String,java.lang.String&gt; map)" />
+  <problem_class id="ConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions &amp; exceptions</problem_class>
+  <description>Unboxing of &lt;code&gt;templateIds.get(key)&lt;/code&gt; may produce &lt;code&gt;NullPointerException&lt;/code&gt;</description>
+  <highlighted_element>templateIds.get(key)</highlighted_element>
+  <language>JAVA</language>
+  <offset>34</offset>
+  <length>20</length>
+</problem>
+</problems>

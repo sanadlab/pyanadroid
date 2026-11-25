@@ -1,0 +1,7 @@
+val configValue: Optional<String> = getConfig("timeout")
+val timeout = configValue.orElse(calculateExpensiveDefault())
+
+-----
+
+val configValue: Optional<String> = getConfig("timeout")
+val timeout = configValue.orElseGet { calculateExpensiveDefault() }

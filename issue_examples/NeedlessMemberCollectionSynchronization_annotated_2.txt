@@ -1,0 +1,16 @@
+class TypeRegistry(typeMappings: Map<String, Class<*>>) {
+    // Bad: Synchronization is pointless because the map is populated once
+    // and then only ever read from.
+    private val registry: Map<String, Class<*>> = Collections.synchronizedMap(typeMappings)
+
+    fun getType(name: String): Class<*>? = registry[name]
+}
+
+----
+
+class TypeRegistry(typeMappings: Map<String, Class<*>>) {
+    // Good: The map is effectively immutable after construction, so no synchronization is needed.
+    private val registry: Map<String, Class<*>> = HashMap(typeMappings)
+
+    fun getType(name: String): Class<*>? = registry[name]
+}

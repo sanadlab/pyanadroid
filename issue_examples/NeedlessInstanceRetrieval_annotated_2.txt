@@ -1,0 +1,9 @@
+val utils = StringUtils()
+// Bad: Instantiating StringUtils is unnecessary.
+val isValid = utils.isNullOrEmpty(input)
+
+---
+
+// Good: Call the static method directly on the class.
+val isValid = StringUtils.isNullOrEmpty(input)
+// In Kotlin, this would typically be a companion object method or a top-level function.

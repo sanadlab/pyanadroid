@@ -1,0 +1,17 @@
+public List<String> getRolesForUser(String userId) {
+    if (isGuest(userId)) {
+        // Bad: Creates a new array of size 1, then wraps it in a list.
+        return Arrays.asList("GUEST");
+    }
+    // ...
+}
+
+----
+
+public List<String> getRolesForUser(String userId) {
+    if (isGuest(userId)) {
+        // Good: Creates a specialized, highly optimized, immutable list for a single element.
+        return Collections.singletonList("GUEST");
+    }
+    // ...
+}

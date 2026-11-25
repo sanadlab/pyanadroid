@@ -1,0 +1,96 @@
+#0
+app/src/main/java/com/evenement/eveControl/KeepSessionTask.java:236: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedWriter() on line 232 is not closed after the last access at line 236. 
+  234.   
+  235.               writer.write(getQuery());
+  236. >             writer.flush();
+  237.   
+  238.               connection.connect();
+
+#1
+app/src/main/java/com/evenement/eveControl/KeepSessionTask.java:248: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedWriter() on line 232 is not closed after the last access at line 248. 
+  246.               return false;
+  247.           }
+  248. >         return false;
+  249.       }
+  250.   
+
+#2
+app/src/main/java/com/evenement/eveControl/LoginTask.java:276: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedWriter() on line 272 is not closed after the last access at line 276. 
+  274.   
+  275.               writer.write(getQuery());
+  276. >             writer.flush();
+  277.   
+  278.               connection.connect();
+
+#3
+app/src/main/java/com/evenement/eveControl/LoginTask.java:288: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedWriter() on line 272 is not closed after the last access at line 288. 
+  286.               return false;
+  287.           }
+  288. >         return false;
+  289.       }
+  290.   
+
+#4
+app/src/main/java/com/evenement/eveControl/MainActivity.java:50: warning: Ipc On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  48.           loginTask = new LoginTask(webView, MainActivity.this, server, username, password, drawer);
+  49.   
+  50. >         checkNetwork();
+  51.       }
+  52.   
+
+#5
+app/src/main/java/com/evenement/eveControl/MainActivity.java:227: warning: Ipc On Ui Thread
+  `void MainActivity$2.onClick(DialogInterface,int)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  225.                       drawer.openDrawer(START);
+  226.                   } else {
+  227. >                     checkNetwork();
+  228.                   }
+  229.               }
+
+#6
+app/src/main/java/com/evenement/eveControl/WebCookieManager.java:49: warning: Inefficient Keyset Iterator
+  Accessing a value using a key that was retrieved from a `keySet` iterator. It is more efficient to use an iterator on the `entrySet` of the map, avoiding the extra `HashMap.get(key)` lookup.
+  47.   
+  48.               // process each of the headers
+  49. >             for (String headerValue : responseHeaders.get(headerKey))
+  50.               {
+  51.                   Log.d("aa", "putCookie" + headerValue);
+
+#7
+app/src/main/java/com/evenement/eveControl/WebCookieManager.java:49: error: Null Dereference
+  `boolean String.equalsIgnoreCase(String)` could be null (null value originating from line 49) and is dereferenced. 
+  47.   
+  48.               // process each of the headers
+  49. >             for (String headerValue : responseHeaders.get(headerKey))
+  50.               {
+  51.                   Log.d("aa", "putCookie" + headerValue);
+
+#8
+app/src/main/java/com/evenement/eveControl/WebCookieManager.java:49: error: Null Dereference
+  `headerKey` could be null (null value originating from line 49) and is dereferenced. 
+  47.   
+  48.               // process each of the headers
+  49. >             for (String headerValue : responseHeaders.get(headerKey))
+  50.               {
+  51.                   Log.d("aa", "putCookie" + headerValue);
+
+#9
+app/src/main/java/com/evenement/eveControl/WebCookieManager.java:49: error: Null Dereference
+  null (null value originating from line 49) is dereferenced. 
+  47.   
+  48.               // process each of the headers
+  49. >             for (String headerValue : responseHeaders.get(headerKey))
+  50.               {
+  51.                   Log.d("aa", "putCookie" + headerValue);
+
+Found 10 issues
+                                Issue Type(ISSUED_TYPE_ID): #
+                        Resource Leak(PULSE_RESOURCE_LEAK): 4
+                     Null Dereference(NULLPTR_DEREFERENCE): 3
+                        Ipc On Ui Thread(IPC_ON_UI_THREAD): 2
+  Inefficient Keyset Iterator(INEFFICIENT_KEYSET_ITERATOR): 1

@@ -1,0 +1,7 @@
+
+User user = findUser("id123").orElse(createDefaultUser());
+
+----
+
+
+User user = findUser("id123").orElseGet(() -> createDefaultUser());

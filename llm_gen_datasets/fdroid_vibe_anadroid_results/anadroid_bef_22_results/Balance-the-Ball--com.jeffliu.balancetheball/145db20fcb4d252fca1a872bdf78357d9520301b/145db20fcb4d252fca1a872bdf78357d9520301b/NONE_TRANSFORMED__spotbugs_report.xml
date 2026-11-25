@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762882070875" analysisTimestamp="1762882072898" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/Balance-the-Ball/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/Balance-the-Ball/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="121a73f3e7ec8d17920dacaa1363d89b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.jeffliu.balancetheball.GameActivity$Ball.r; should this field be static?</LongMessage>
+    <Class classname="com.jeffliu.balancetheball.GameActivity$Ball" primary="true">
+      <SourceLine classname="com.jeffliu.balancetheball.GameActivity$Ball" start="24" end="30" sourcefile="GameActivity.java" sourcepath="com/jeffliu/balancetheball/GameActivity.java" relSourcepath="com/jeffliu/balancetheball/GameActivity.java">
+        <Message>At GameActivity.java:[lines 24-30]</Message>
+      </SourceLine>
+      <Message>In class com.jeffliu.balancetheball.GameActivity$Ball</Message>
+    </Class>
+    <Field classname="com.jeffliu.balancetheball.GameActivity$Ball" name="r" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="com.jeffliu.balancetheball.GameActivity$Ball" sourcefile="GameActivity.java" sourcepath="com/jeffliu/balancetheball/GameActivity.java" relSourcepath="com/jeffliu/balancetheball/GameActivity.java">
+        <Message>In GameActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.jeffliu.balancetheball.GameActivity$Ball.r</Message>
+    </Field>
+    <SourceLine classname="com.jeffliu.balancetheball.GameActivity$Ball" primary="true" start="30" end="30" startBytecode="29" endBytecode="29" sourcefile="GameActivity.java" sourcepath="com/jeffliu/balancetheball/GameActivity.java" relSourcepath="com/jeffliu/balancetheball/GameActivity.java">
+      <Message>At GameActivity.java:[line 30]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="32cfa303bd014893c9d03f774e4b41d3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.jeffliu.balancetheball.GameView at new com.jeffliu.balancetheball.GameView(Context, AttributeSet) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.jeffliu.balancetheball.GameView" primary="true">
+      <SourceLine classname="com.jeffliu.balancetheball.GameView" start="25" end="77" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java">
+        <Message>At GameView.java:[lines 25-77]</Message>
+      </SourceLine>
+      <Message>In class com.jeffliu.balancetheball.GameView</Message>
+    </Class>
+    <Method classname="com.jeffliu.balancetheball.GameView" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/util/AttributeSet;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.jeffliu.balancetheball.GameView" start="25" end="45" startBytecode="0" endBytecode="277" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java"/>
+      <Message>In method new com.jeffliu.balancetheball.GameView(Context, AttributeSet)</Message>
+    </Method>
+    <SourceLine classname="com.jeffliu.balancetheball.GameView" primary="true" start="31" end="31" startBytecode="40" endBytecode="40" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java">
+      <Message>At GameView.java:[line 31]</Message>
+    </SourceLine>
+    <SourceLine classname="com.jeffliu.balancetheball.GameView" start="31" end="31" startBytecode="40" endBytecode="40" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java">
+      <Message>At GameView.java:[line 31]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="21b1d6e168ccb5da66f48f7849aa07a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.jeffliu.balancetheball.GameView.setData(Bundle) may expose internal representation by storing an externally mutable object into GameView.mBundle</LongMessage>
+    <Class classname="com.jeffliu.balancetheball.GameView" primary="true">
+      <SourceLine classname="com.jeffliu.balancetheball.GameView" start="25" end="77" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java">
+        <Message>At GameView.java:[lines 25-77]</Message>
+      </SourceLine>
+      <Message>In class com.jeffliu.balancetheball.GameView</Message>
+    </Class>
+    <Method classname="com.jeffliu.balancetheball.GameView" name="setData" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.jeffliu.balancetheball.GameView" start="49" end="51" startBytecode="0" endBytecode="69" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java"/>
+      <Message>In method com.jeffliu.balancetheball.GameView.setData(Bundle)</Message>
+    </Method>
+    <Field classname="com.jeffliu.balancetheball.GameView" name="mBundle" signature="Landroid/os/Bundle;" isStatic="false" primary="true">
+      <SourceLine classname="com.jeffliu.balancetheball.GameView" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.jeffliu.balancetheball.GameView.mBundle</Message>
+    </Field>
+    <LocalVariable name="data" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named data</Message>
+    </LocalVariable>
+    <SourceLine classname="com.jeffliu.balancetheball.GameView" primary="true" start="49" end="49" startBytecode="2" endBytecode="2" sourcefile="GameView.java" sourcepath="com/jeffliu/balancetheball/GameView.java" relSourcepath="com/jeffliu/balancetheball/GameView.java">
+      <Message>At GameView.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="6">
+    <MissingClass>com.jeffliu.balancetheball.R</MissingClass>
+    <MissingClass>com.jeffliu.balancetheball.R$color</MissingClass>
+    <MissingClass>com.jeffliu.balancetheball.R$id</MissingClass>
+    <MissingClass>com.jeffliu.balancetheball.R$layout</MissingClass>
+    <MissingClass>com.jeffliu.balancetheball.R$raw</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 21:27:50 +0400" total_classes="5" referenced_classes="123" total_bugs="3" total_size="171" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.79" clock_seconds="0.47" peak_mbytes="226.82" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="3">
+    <FileStats path="com/jeffliu/balancetheball/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/jeffliu/balancetheball/GameActivity.java" bugCount="1" size="116" bugHash="1fa39ac8aa568418013ac5457d4c4e1d"/>
+    <FileStats path="com/jeffliu/balancetheball/GameView.java" bugCount="2" size="45" bugHash="acb516f4115338b0e15dd23f7bff8560"/>
+    <PackageStats package="com.jeffliu.balancetheball" total_bugs="3" total_types="5" total_size="171" priority_2="3">
+      <ClassStats class="com.jeffliu.balancetheball.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.jeffliu.balancetheball.GameActivity" sourceFile="GameActivity.java" interface="false" size="89" bugs="0"/>
+      <ClassStats class="com.jeffliu.balancetheball.GameActivity$1" sourceFile="GameActivity.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.jeffliu.balancetheball.GameActivity$Ball" sourceFile="GameActivity.java" interface="false" size="14" bugs="1" priority_2="1"/>
+      <ClassStats class="com.jeffliu.balancetheball.GameView" sourceFile="GameView.java" interface="false" size="45" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="55" invocations="495" avgMicrosecondsPerInvocation="111" maxMicrosecondsPerInvocation="5894" standardDeviationMicrosecondsPerInvocation="370"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="27" invocations="123" avgMicrosecondsPerInvocation="223" maxMicrosecondsPerInvocation="3594" standardDeviationMicrosecondsPerInvocation="485"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="17" invocations="156" avgMicrosecondsPerInvocation="113" maxMicrosecondsPerInvocation="4041" standardDeviationMicrosecondsPerInvocation="370"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="12" invocations="123" avgMicrosecondsPerInvocation="102" maxMicrosecondsPerInvocation="1741" standardDeviationMicrosecondsPerInvocation="247"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="12" invocations="123" avgMicrosecondsPerInvocation="99" maxMicrosecondsPerInvocation="3756" standardDeviationMicrosecondsPerInvocation="365"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="11" invocations="123" avgMicrosecondsPerInvocation="93" maxMicrosecondsPerInvocation="1076" standardDeviationMicrosecondsPerInvocation="192"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="11" invocations="5" avgMicrosecondsPerInvocation="2223" maxMicrosecondsPerInvocation="8124" standardDeviationMicrosecondsPerInvocation="3071"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="511" avgMicrosecondsPerInvocation="21" maxMicrosecondsPerInvocation="244" standardDeviationMicrosecondsPerInvocation="19"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

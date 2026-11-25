@@ -1,0 +1,30 @@
+#0
+app/src/main/java/com/nishantboro/splititeasy/BalancesTabFragment.java:161: error: UI Thread Starvation
+  `void BalancesTabFragment.onResume()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `Object AsyncTask.get()`. 
+  159.           }
+  160.           MemberViewModel memberViewModel = ViewModelProviders.of(this,new MemberViewModelFactory(getActivity().getApplication(),gName)).get(MemberViewModel.class);
+  161. >         members =  memberViewModel.getAllMembersNonLiveData(gName);
+  162.   
+  163.           // get latest currency picked by the user
+
+#1
+app/src/main/java/com/nishantboro/splititeasy/CreateNewGroupActivity.java:76: error: UI Thread Starvation
+  `boolean CreateNewGroupActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `Object AsyncTask.get()`. 
+  74.           // save the group to database if user clicks on save group item in the toolbar
+  75.           if(item.getItemId() == R.id.createNewGroupToolbarSaveGroupItem) {
+  76. >             saveGroup();
+  77.           }
+  78.   
+
+#2
+app/src/main/java/com/nishantboro/splititeasy/ExpensesTabFragment.java:65: error: UI Thread Starvation
+  `void ExpensesTabFragment$1.onChanged(Object)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `Object AsyncTask.get()`. 
+  63.           // if data in database(BillEntity) changes, call the onChanged() below
+  64.           billViewModel = ViewModelProviders.of(this,new BillViewModelFactory(getActivity().getApplication(),gName)).get(BillViewModel.class);
+  65. >         billViewModel.getAllBills().observe(this, new Observer<List<BillEntity>>() {
+  66.               @Override
+  67.               public void onChanged(List<BillEntity> billEntities) {
+
+Found 3 issues
+        Issue Type(ISSUED_TYPE_ID): #
+  UI Thread Starvation(STARVATION): 3

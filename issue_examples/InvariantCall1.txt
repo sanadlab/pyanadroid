@@ -1,0 +1,14 @@
+for (String input : userInputs) {
+    if (input.equals("ADMIN".toLowerCase())) {
+        adminCount++;
+    }
+}
+
+---- 
+
+String target = "ADMIN".toLowerCase();
+for (String input : userInputs) {
+    if (input.equals(target)) {
+        adminCount++;
+    }
+}

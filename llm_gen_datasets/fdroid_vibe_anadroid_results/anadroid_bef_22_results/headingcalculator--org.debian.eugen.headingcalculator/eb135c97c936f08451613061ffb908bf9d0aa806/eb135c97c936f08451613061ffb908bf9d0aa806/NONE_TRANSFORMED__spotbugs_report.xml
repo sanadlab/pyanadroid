@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762890791563" analysisTimestamp="1762890794587" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/headingcalculator/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/headingcalculator/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="45c984d6b5c7f2e06ce7aed97f9f843f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.TableLayout in org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding.bind(View)</LongMessage>
+    <Class classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" primary="true">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" start="17" end="118" sourcefile="CalculatorDisplayBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java">
+        <Message>At CalculatorDisplayBinding.java:[lines 17-118]</Message>
+      </SourceLine>
+      <Message>In class org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding</Message>
+    </Class>
+    <Method classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" name="bind" signature="(Landroid/view/View;)Lorg/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding;" isStatic="true" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" start="78" end="118" startBytecode="0" endBytecode="83" sourcefile="CalculatorDisplayBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java"/>
+      <Message>In method org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/TableLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.TableLayout" start="20" end="71" sourcefile="TableLayout.java" sourcepath="android/widget/TableLayout.java">
+        <Message>At TableLayout.java:[lines 20-71]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.TableLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="126" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" primary="true" start="114" end="114" startBytecode="127" endBytecode="127" sourcefile="CalculatorDisplayBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java">
+      <Message>At CalculatorDisplayBinding.java:[line 114]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="d89616bdcdf1822e1a5557fd9e51bb38" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding.getRoot() may expose internal representation by returning CalculatorDisplayBinding.rootView</LongMessage>
+    <Class classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" primary="true">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" start="17" end="118" sourcefile="CalculatorDisplayBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java">
+        <Message>At CalculatorDisplayBinding.java:[lines 17-118]</Message>
+      </SourceLine>
+      <Message>In class org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding</Message>
+    </Class>
+    <Method classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" name="getRoot" signature="()Landroid/widget/TableLayout;" isStatic="false" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" start="54" end="54" startBytecode="0" endBytecode="46" sourcefile="CalculatorDisplayBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java"/>
+      <Message>In method org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding.getRoot()</Message>
+    </Method>
+    <Field classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" name="rootView" signature="Landroid/widget/TableLayout;" isStatic="false" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" sourcefile="CalculatorDisplayBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java">
+        <Message>In CalculatorDisplayBinding.java</Message>
+      </SourceLine>
+      <Message>Field org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" primary="true" start="54" end="54" startBytecode="4" endBytecode="4" sourcefile="CalculatorDisplayBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java">
+      <Message>At CalculatorDisplayBinding.java:[line 54]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="d5fbfd0ead9e271d3109f21553e06eb6" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.LinearLayout in org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding.bind(View)</LongMessage>
+    <Class classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" primary="true">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" start="18" end="224" sourcefile="CalculatorKeypadBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java">
+        <Message>At CalculatorKeypadBinding.java:[lines 18-224]</Message>
+      </SourceLine>
+      <Message>In class org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding</Message>
+    </Class>
+    <Method classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" name="bind" signature="(Landroid/view/View;)Lorg/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding;" isStatic="true" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" start="123" end="224" startBytecode="0" endBytecode="193" sourcefile="CalculatorKeypadBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java"/>
+      <Message>In method org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/LinearLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.LinearLayout" start="20" end="92" sourcefile="LinearLayout.java" sourcepath="android/widget/LinearLayout.java">
+        <Message>At LinearLayout.java:[lines 20-92]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.LinearLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="336" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" primary="true" start="219" end="219" startBytecode="337" endBytecode="337" sourcefile="CalculatorKeypadBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java">
+      <Message>At CalculatorKeypadBinding.java:[line 219]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="ef8da134466adeba5aae891c1748af76" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding.getRoot() may expose internal representation by returning CalculatorKeypadBinding.rootView</LongMessage>
+    <Class classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" primary="true">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" start="18" end="224" sourcefile="CalculatorKeypadBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java">
+        <Message>At CalculatorKeypadBinding.java:[lines 18-224]</Message>
+      </SourceLine>
+      <Message>In class org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding</Message>
+    </Class>
+    <Method classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" name="getRoot" signature="()Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" start="99" end="99" startBytecode="0" endBytecode="46" sourcefile="CalculatorKeypadBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java"/>
+      <Message>In method org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding.getRoot()</Message>
+    </Method>
+    <Field classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" name="rootView" signature="Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" sourcefile="CalculatorKeypadBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java">
+        <Message>In CalculatorKeypadBinding.java</Message>
+      </SourceLine>
+      <Message>Field org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" primary="true" start="99" end="99" startBytecode="4" endBytecode="4" sourcefile="CalculatorKeypadBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java">
+      <Message>At CalculatorKeypadBinding.java:[line 99]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="2d49cf6d4bb352be1cec0c59f90a61de" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.LinearLayout in org.debian.eugen.headingcalculator.databinding.MainBinding.bind(View)</LongMessage>
+    <Class classname="org.debian.eugen.headingcalculator.databinding.MainBinding" primary="true">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.MainBinding" start="18" end="77" sourcefile="MainBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/MainBinding.java">
+        <Message>At MainBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class org.debian.eugen.headingcalculator.databinding.MainBinding</Message>
+    </Class>
+    <Method classname="org.debian.eugen.headingcalculator.databinding.MainBinding" name="bind" signature="(Landroid/view/View;)Lorg/debian/eugen/headingcalculator/databinding/MainBinding;" isStatic="true" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.MainBinding" start="62" end="77" startBytecode="0" endBytecode="39" sourcefile="MainBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/MainBinding.java"/>
+      <Message>In method org.debian.eugen.headingcalculator.databinding.MainBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1790" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1790]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/LinearLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.LinearLayout" start="20" end="92" sourcefile="LinearLayout.java" sourcepath="android/widget/LinearLayout.java">
+        <Message>At LinearLayout.java:[lines 20-92]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.LinearLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="42" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="org.debian.eugen.headingcalculator.databinding.MainBinding" primary="true" start="74" end="74" startBytecode="43" endBytecode="43" sourcefile="MainBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/MainBinding.java">
+      <Message>At MainBinding.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="b373cc523f2957b20df4fce4708fbd09" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>org.debian.eugen.headingcalculator.databinding.MainBinding.getRoot() may expose internal representation by returning MainBinding.rootView</LongMessage>
+    <Class classname="org.debian.eugen.headingcalculator.databinding.MainBinding" primary="true">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.MainBinding" start="18" end="77" sourcefile="MainBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/MainBinding.java">
+        <Message>At MainBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class org.debian.eugen.headingcalculator.databinding.MainBinding</Message>
+    </Class>
+    <Method classname="org.debian.eugen.headingcalculator.databinding.MainBinding" name="getRoot" signature="()Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.MainBinding" start="38" end="38" startBytecode="0" endBytecode="46" sourcefile="MainBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/MainBinding.java"/>
+      <Message>In method org.debian.eugen.headingcalculator.databinding.MainBinding.getRoot()</Message>
+    </Method>
+    <Field classname="org.debian.eugen.headingcalculator.databinding.MainBinding" name="rootView" signature="Landroid/widget/LinearLayout;" isStatic="false" primary="true" classAnnotationNames="android.support.annotation.NonNull">
+      <SourceLine classname="org.debian.eugen.headingcalculator.databinding.MainBinding" sourcefile="MainBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/MainBinding.java">
+        <Message>In MainBinding.java</Message>
+      </SourceLine>
+      <Message>Field org.debian.eugen.headingcalculator.databinding.MainBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="org.debian.eugen.headingcalculator.databinding.MainBinding" primary="true" start="38" end="38" startBytecode="4" endBytecode="4" sourcefile="MainBinding.java" sourcepath="org/debian/eugen/headingcalculator/databinding/MainBinding.java">
+      <Message>At MainBinding.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="10">
+    <MissingClass>android.support.annotation.NonNull</MissingClass>
+    <MissingClass>android.support.annotation.Nullable</MissingClass>
+    <MissingClass>android.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>org.debian.eugen.headingcalculator.CalculatorDisplay</MissingClass>
+    <MissingClass>org.debian.eugen.headingcalculator.CalculatorKeypad</MissingClass>
+    <MissingClass>org.debian.eugen.headingcalculator.ExplainableButton</MissingClass>
+    <MissingClass>org.debian.eugen.headingcalculator.R</MissingClass>
+    <MissingClass>org.debian.eugen.headingcalculator.R$id</MissingClass>
+    <MissingClass>org.debian.eugen.headingcalculator.R$layout</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 23:53:11 +0400" total_classes="4" referenced_classes="22" total_bugs="6" total_size="217" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.10" clock_seconds="0.40" peak_mbytes="208.77" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="6">
+    <FileStats path="org/debian/eugen/headingcalculator/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="org/debian/eugen/headingcalculator/databinding/CalculatorDisplayBinding.java" bugCount="2" size="57" bugHash="27d0c777039b23a3a011e934be566564"/>
+    <FileStats path="org/debian/eugen/headingcalculator/databinding/CalculatorKeypadBinding.java" bugCount="2" size="117" bugHash="8836fa14914e547dc3378b32ca9da049"/>
+    <FileStats path="org/debian/eugen/headingcalculator/databinding/MainBinding.java" bugCount="2" size="33" bugHash="98f73c57b9dc3b8cb392e196af8cf614"/>
+    <PackageStats package="org.debian.eugen.headingcalculator" total_bugs="0" total_types="1" total_size="10">
+      <ClassStats class="org.debian.eugen.headingcalculator.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.debian.eugen.headingcalculator.databinding" total_bugs="6" total_types="3" total_size="207" priority_2="6">
+      <ClassStats class="org.debian.eugen.headingcalculator.databinding.CalculatorDisplayBinding" sourceFile="CalculatorDisplayBinding.java" interface="false" size="57" bugs="2" priority_2="2"/>
+      <ClassStats class="org.debian.eugen.headingcalculator.databinding.CalculatorKeypadBinding" sourceFile="CalculatorKeypadBinding.java" interface="false" size="117" bugs="2" priority_2="2"/>
+      <ClassStats class="org.debian.eugen.headingcalculator.databinding.MainBinding" sourceFile="MainBinding.java" interface="false" size="33" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="41" invocations="333" avgMicrosecondsPerInvocation="123" maxMicrosecondsPerInvocation="5346" standardDeviationMicrosecondsPerInvocation="412"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="21" invocations="17" avgMicrosecondsPerInvocation="1251" maxMicrosecondsPerInvocation="13645" standardDeviationMicrosecondsPerInvocation="3187"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="20" invocations="22" avgMicrosecondsPerInvocation="944" maxMicrosecondsPerInvocation="11883" standardDeviationMicrosecondsPerInvocation="2460"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="11" invocations="22" avgMicrosecondsPerInvocation="520" maxMicrosecondsPerInvocation="9204" standardDeviationMicrosecondsPerInvocation="1900"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="11" invocations="47" avgMicrosecondsPerInvocation="240" maxMicrosecondsPerInvocation="3945" standardDeviationMicrosecondsPerInvocation="731"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,59 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2025-10-13T10:03:53.013+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Resume-Builder/app/src/main/java/com/ibrahimyousre/resumebuilder/fragments/PreviewFragment.java",
+      "violations": [
+        {
+          "beginline": 52,
+          "begincolumn": 37,
+          "endline": 52,
+          "endcolumn": 56,
+          "description": "StringBuilder has been initialized with size 16, but has at least 1129 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 111,
+          "begincolumn": 32,
+          "endline": 116,
+          "endcolumn": 90,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 128,
+          "begincolumn": 32,
+          "endline": 133,
+          "endcolumn": 90,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 144,
+          "begincolumn": 32,
+          "endline": 149,
+          "endcolumn": 90,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

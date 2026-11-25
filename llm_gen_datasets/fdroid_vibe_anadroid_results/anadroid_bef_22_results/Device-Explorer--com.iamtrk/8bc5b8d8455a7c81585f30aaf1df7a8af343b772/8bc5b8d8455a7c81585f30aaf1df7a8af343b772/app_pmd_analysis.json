@@ -1,0 +1,151 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:35.963+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Device-Explorer/app/src/main/java/com/iamtrk/ItemDetailActivity.java",
+      "violations": [
+        {
+          "beginline": 58,
+          "begincolumn": 9,
+          "endline": 69,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Device-Explorer/app/src/main/java/com/iamtrk/ItemListActivity.java",
+      "violations": [
+        {
+          "beginline": 167,
+          "begincolumn": 39,
+          "endline": 180,
+          "endcolumn": 26,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 170,
+          "begincolumn": 77,
+          "endline": 170,
+          "endcolumn": 109,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Device-Explorer/app/src/main/java/com/iamtrk/androidExplorer/Content.java",
+      "violations": [
+        {
+          "beginline": 778,
+          "begincolumn": 42,
+          "endline": 778,
+          "endcolumn": 65,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 790,
+          "begincolumn": 42,
+          "endline": 790,
+          "endcolumn": 65,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 860,
+          "begincolumn": 46,
+          "endline": 860,
+          "endcolumn": 56,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 865,
+          "begincolumn": 28,
+          "endline": 865,
+          "endcolumn": 47,
+          "description": "StringBuilder has been initialized with size 16, but has at least 18 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 871,
+          "begincolumn": 17,
+          "endline": 871,
+          "endcolumn": 35,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 875,
+          "begincolumn": 23,
+          "endline": 875,
+          "endcolumn": 47,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Device-Explorer/app/src/main/java/com/iamtrk/androidExplorer/ProcessorManager.java",
+      "violations": [
+        {
+          "beginline": 21,
+          "begincolumn": 18,
+          "endline": 21,
+          "endcolumn": 34,
+          "description": "Avoid using redundant field initializer for \u0027lngPreviousTotal\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 25,
+          "begincolumn": 18,
+          "endline": 25,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027lngPreviousIdle\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

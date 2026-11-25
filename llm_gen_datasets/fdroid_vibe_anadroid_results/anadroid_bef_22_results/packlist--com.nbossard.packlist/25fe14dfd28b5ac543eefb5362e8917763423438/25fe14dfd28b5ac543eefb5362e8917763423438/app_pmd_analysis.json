@@ -1,0 +1,549 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:45:38.773+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/androidTest/java/com/nbossard/packlist/process/ImportExportTest.java",
+      "violations": [
+        {
+          "beginline": 80,
+          "begincolumn": 9,
+          "endline": 80,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 82,
+          "begincolumn": 9,
+          "endline": 82,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 84,
+          "begincolumn": 9,
+          "endline": 84,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 86,
+          "begincolumn": 9,
+          "endline": 86,
+          "endcolumn": 16,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/androidTest/java/com/nbossard/packlist/uiAutomator.java",
+      "violations": [
+        {
+          "beginline": 359,
+          "begincolumn": 56,
+          "endline": 359,
+          "endcolumn": 72,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 363,
+          "begincolumn": 59,
+          "endline": 363,
+          "endcolumn": 75,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/PacklistSharedPrefs.java",
+      "violations": [
+        {
+          "beginline": 75,
+          "begincolumn": 34,
+          "endline": 75,
+          "endcolumn": 75,
+          "description": "StringBuilder has been initialized with size 36, but has at least 40 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 75,
+          "begincolumn": 52,
+          "endline": 75,
+          "endcolumn": 74,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 76,
+          "begincolumn": 9,
+          "endline": 76,
+          "endcolumn": 71,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/gui/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 289,
+          "begincolumn": 44,
+          "endline": 289,
+          "endcolumn": 65,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/gui/MainActivityForTest.java",
+      "violations": [
+        {
+          "beginline": 161,
+          "begincolumn": 44,
+          "endline": 161,
+          "endcolumn": 65,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/gui/PresentableItem.java",
+      "violations": [
+        {
+          "beginline": 104,
+          "begincolumn": 36,
+          "endline": 104,
+          "endcolumn": 64,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/gui/TripListFragment.java",
+      "violations": [
+        {
+          "beginline": 215,
+          "begincolumn": 9,
+          "endline": 221,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/model/Item.java",
+      "violations": [
+        {
+          "beginline": 134,
+          "begincolumn": 34,
+          "endline": 134,
+          "endcolumn": 60,
+          "description": "StringBuilder has been initialized with size 21, but has at least 28 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 134,
+          "begincolumn": 52,
+          "endline": 134,
+          "endcolumn": 59,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 135,
+          "begincolumn": 9,
+          "endline": 135,
+          "endcolumn": 57,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 135,
+          "begincolumn": 51,
+          "endline": 135,
+          "endcolumn": 55,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 136,
+          "begincolumn": 9,
+          "endline": 136,
+          "endcolumn": 67,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 136,
+          "begincolumn": 61,
+          "endline": 136,
+          "endcolumn": 65,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/model/TripItem.java",
+      "violations": [
+        {
+          "beginline": 219,
+          "begincolumn": 34,
+          "endline": 219,
+          "endcolumn": 64,
+          "description": "StringBuilder has been initialized with size 25, but has at least 84 characters appended.",
+          "rule": "InsufficientStringBufferDeclaration",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#insufficientstringbufferdeclaration"
+        },
+        {
+          "beginline": 219,
+          "begincolumn": 52,
+          "endline": 219,
+          "endcolumn": 63,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 221,
+          "begincolumn": 65,
+          "endline": 221,
+          "endcolumn": 69,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 222,
+          "begincolumn": 57,
+          "endline": 222,
+          "endcolumn": 61,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 223,
+          "begincolumn": 9,
+          "endline": 223,
+          "endcolumn": 63,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 223,
+          "begincolumn": 57,
+          "endline": 223,
+          "endcolumn": 61,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 224,
+          "begincolumn": 9,
+          "endline": 224,
+          "endcolumn": 67,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 224,
+          "begincolumn": 61,
+          "endline": 224,
+          "endcolumn": 65,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        },
+        {
+          "beginline": 225,
+          "begincolumn": 9,
+          "endline": 225,
+          "endcolumn": 75,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 225,
+          "begincolumn": 69,
+          "endline": 225,
+          "endcolumn": 73,
+          "description": "StringBuffer (or StringBuilder).append is called 2 consecutive times with literals. Use a single append with a single combined String.",
+          "rule": "ConsecutiveLiteralAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveliteralappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/process/importexport/ImportExport.java",
+      "violations": [
+        {
+          "beginline": 172,
+          "begincolumn": 9,
+          "endline": 172,
+          "endcolumn": 64,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 174,
+          "begincolumn": 20,
+          "endline": 174,
+          "endcolumn": 24,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 283,
+          "begincolumn": 13,
+          "endline": 283,
+          "endcolumn": 39,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 286,
+          "begincolumn": 24,
+          "endline": 286,
+          "endcolumn": 28,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 289,
+          "begincolumn": 13,
+          "endline": 289,
+          "endcolumn": 39,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 294,
+          "begincolumn": 24,
+          "endline": 294,
+          "endcolumn": 32,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 298,
+          "begincolumn": 24,
+          "endline": 298,
+          "endcolumn": 28,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 301,
+          "begincolumn": 13,
+          "endline": 301,
+          "endcolumn": 39,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 304,
+          "begincolumn": 24,
+          "endline": 304,
+          "endcolumn": 28,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 310,
+          "begincolumn": 24,
+          "endline": 310,
+          "endcolumn": 28,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 330,
+          "begincolumn": 13,
+          "endline": 330,
+          "endcolumn": 32,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 331,
+          "begincolumn": 13,
+          "endline": 331,
+          "endcolumn": 47,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 337,
+          "begincolumn": 27,
+          "endline": 337,
+          "endcolumn": 30,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 341,
+          "begincolumn": 23,
+          "endline": 341,
+          "endcolumn": 27,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/packlist/app/src/main/java/com/nbossard/packlist/process/saving/PrefsSaving.java",
+      "violations": [
+        {
+          "beginline": 308,
+          "begincolumn": 41,
+          "endline": 308,
+          "endcolumn": 94,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

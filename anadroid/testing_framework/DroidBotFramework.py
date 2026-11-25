@@ -6,6 +6,7 @@ from anadroid.Types import TESTING_FRAMEWORK
 from anadroid.testing_framework.AbstractTestingFramework import AbstractTestingFramework
 from anadroid.testing_framework.work.AppCrawlerWorkUnit import AppCrawlerWorkUnit
 from anadroid.testing_framework.work.DroidBotWorkUnit import DroidBotWorkUnit
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import mega_find, execute_shell_command, get_resources_dir, loge, logw, logs, logi
 from anadroid.testing_framework.work.WorkLoad import WorkLoad
 from anadroid.testing_framework.work.WorkUnit import WorkUnit
@@ -44,7 +45,7 @@ class DroidBotFramework(AbstractTestingFramework):
         exec_prefix = get_general_config("general")['commands_prefix'] if \
             'commands_prefix' in get_general_config("general") else " "
         self.executable_prefix = f'{exec_prefix} python3 {os.path.join(resdir,"start.py")}'
-        print(self.executable_prefix)
+        logd(f"DroidBot command prefix: {self.executable_prefix}")
         self.workload = None
         self.res_dir = resdir
         if default_workload:

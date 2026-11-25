@@ -1,0 +1,30 @@
+#0
+app/src/main/java/com/jstephan/yarc/EuropeanCentralBank.java:109: error: Null Dereference
+  `currency` could be null (from the call to `Currency.isoCodeToCurrency(...)` on line 108) and is dereferenced. 
+  107.                                       if (currencyIsoCode != null && rate != null) {
+  108.                                           currency = Currency.isoCodeToCurrency(currencyIsoCode);
+  109. >                                         currency.setRate(rate);
+  110.                                           currencies.add(currency);
+  111.                                       }
+
+#1
+app/src/main/java/com/jstephan/yarc/ExchangeRateApi.java:101: error: Null Dereference
+  `currency` could be null (from the call to `Currency.isoCodeToCurrency(...)` on line 100) and is dereferenced. 
+   99.                           //todo handle error
+  100.                           currency = Currency.isoCodeToCurrency(jsonReader.nextString());
+  101. >                         currency.setRate("1.0");
+  102.                           currencies.add(currency);
+  103.                           break;
+
+#2
+app/src/main/java/com/jstephan/yarc/FixerIo.java:100: error: Null Dereference
+  `currency` could be null (from the call to `Currency.isoCodeToCurrency(...)` on line 99) and is dereferenced. 
+   98.                           //todo handle error
+   99.                           currency = Currency.isoCodeToCurrency(jsonReader.nextString());
+  100. >                         currency.setRate("1.0");
+  101.                           currencies.add(currency);
+  102.                           break;
+
+Found 3 issues
+             Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULLPTR_DEREFERENCE): 3

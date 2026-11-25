@@ -1,0 +1,19 @@
+fun createHtmlList(items: List<String>): String {
+    var html = "<ul>\n"
+    for (item in items) {
+        html += "  <li>$item</li>\n"
+    }
+    html += "</ul>"
+    return html
+}
+
+-----
+
+fun createHtmlList(items: List<String>): String {
+    val builder = StringBuilder("<ul>\n")
+    for (item in items) {
+        builder.append("  <li>$item</li>\n")
+    }
+    builder.append("</ul>")
+    return builder.toString()
+}

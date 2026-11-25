@@ -1,0 +1,21 @@
+// Bad: The 'activeUsers' list will start small and grow, potentially
+// re-allocating its internal array several times.
+val activeUsers = mutableListOf<User>()
+for (user in allUsers) {
+    if (user.isActive) {
+        activeUsers.add(user)
+    }
+}
+
+----
+
+// Good: If we can estimate the size, pre-sizing improves performance.
+// (Though in this specific case, a simple filter is more idiomatic).
+// Let's assume we know roughly 10% will be active.
+val estimatedSize = (allUsers.size * 0.1).toInt()
+val activeUsers = ArrayList<User>(estimatedSize)
+for (user in allUsers) {
+    if (user.isActive) {
+        activeUsers.add(user)
+    }
+}

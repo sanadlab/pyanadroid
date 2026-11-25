@@ -1,0 +1,22 @@
+private final List<String> sharedList = new ArrayList<>();
+public void addFormattedData(String rawData) {
+    synchronized (sharedList) {
+        String trimmedData = rawData.trim();
+        String upperCaseData = trimmedData.toUpperCase();
+        
+        sharedList.add(upperCaseData);
+    }
+}
+
+----
+
+private final List<String> sharedList = new ArrayList<>();
+public void addFormattedData(String rawData) {
+   
+    String trimmedData = rawData.trim();
+    String upperCaseData = trimmedData.toUpperCase();
+
+    synchronized (sharedList) {
+        sharedList.add(upperCaseData);
+    }
+}

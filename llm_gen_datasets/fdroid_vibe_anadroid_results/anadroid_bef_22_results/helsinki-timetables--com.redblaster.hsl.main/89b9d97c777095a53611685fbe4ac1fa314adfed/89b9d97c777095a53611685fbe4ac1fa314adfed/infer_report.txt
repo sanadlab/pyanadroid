@@ -1,0 +1,149 @@
+#0
+src/main/java/com/redblaster/hsl/common/DatabaseDownloader.java:128: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 100 is not closed after the last access at line 128. 
+  126.               }
+  127.   
+  128. >         } catch (Exception e) {
+  129.           	Log.e("ERROR","Error while downloading the archive. Message: " + e);
+  130.           	return false;
+
+#1
+src/main/java/com/redblaster/hsl/common/DatabaseDownloader.java:128: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 101 is not closed after the last access at line 128. 
+  126.               }
+  127.   
+  128. >         } catch (Exception e) {
+  129.           	Log.e("ERROR","Error while downloading the archive. Message: " + e);
+  130.           	return false;
+
+#2
+src/main/java/com/redblaster/hsl/common/DatabaseDownloader.java:132: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 101 is not closed after the last access at line 132. 
+  130.           	return false;
+  131.           }
+  132. >         return true;
+  133.   	}
+  134.   
+
+#3
+src/main/java/com/redblaster/hsl/common/DatabaseDownloader.java:153: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 148 is not closed after the last access at line 153. 
+  151.   		    int nread = 0; 
+  152.   		 
+  153. > 		    while ((nread = fis.read(dataBytes)) != -1) {
+  154.   		      md.update(dataBytes, 0, nread);
+  155.   		    };
+
+#4
+src/main/java/com/redblaster/hsl/common/DatabaseDownloader.java:178: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 148 is not closed after the last access at line 178. 
+  176.   		}
+  177.   	    
+  178. > 		return sb.toString().equalsIgnoreCase(STR_MD5);
+  179.   	}
+  180.   	
+
+#5
+src/main/java/com/redblaster/hsl/common/GZipUtils.java:68: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedOutputStream() on line 59 is not closed after the last access at line 68. 
+  66.   	      }
+  67.   	      
+  68. > 	      destination.flush(); // Insure that all data is written to the output.
+  69.   	      out.close ();
+  70.   	    }
+
+#6
+src/main/java/com/redblaster/hsl/common/GZipUtils.java:71: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedOutputStream() on line 59 is not closed after the last access at line 71. 
+  69.   	      out.close ();
+  70.   	    }
+  71. > 	    catch (IOException e) {
+  72.   	    	Log.e("GZIP", "Error in gzip: " + e.getMessage());
+  73.   	    	return STATUS_GUNZIP_FAIL;
+
+#7
+src/main/java/com/redblaster/hsl/common/GZipUtils.java:71: error: Resource Leak
+  Resource dynamically allocated by constructor java.util.zip.GZIPInputStream() on line 43 is not closed after the last access at line 71. 
+  69.   	      out.close ();
+  70.   	    }
+  71. > 	    catch (IOException e) {
+  72.   	    	Log.e("GZIP", "Error in gzip: " + e.getMessage());
+  73.   	    	return STATUS_GUNZIP_FAIL;
+
+#8
+src/main/java/com/redblaster/hsl/common/GZipUtils.java:92: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedInputStream() on line 42 is not closed after the last access at line 92. 
+  90.   	    }
+  91.   	    else {
+  92. > 	    	return STATUS_OK;
+  93.   	    }
+  94.   
+
+#9
+src/main/java/com/redblaster/hsl/common/GZipUtils.java:92: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedOutputStream() on line 59 is not closed after the last access at line 92. 
+  90.   	    }
+  91.   	    else {
+  92. > 	    	return STATUS_OK;
+  93.   	    }
+  94.   
+
+#10
+src/main/java/com/redblaster/hsl/common/LoadableSectorsBuilder.java:266: error: Null Dereference
+  null (null value originating from line 266) is dereferenced. 
+  264.   	private ImageView getImage(int nImage) {
+  265.   		ImageView image = new ImageView(this.context);
+  266. > 		image.setImageResource(this.setImages.get(nImage));
+  267.   		image.setImageTintList(ContextCompat.getColorStateList(this.context, R.color.dark_white));
+  268.   
+
+#11
+src/main/java/com/redblaster/hsl/main/AbstractTimesView.java:306: error: Null Dereference
+  null (null value originating from line 306) is dereferenced. 
+  304.   
+  305.           // 2. Minutes cells:
+  306. >         for (Cell cell : mapOfCells.get(hour)) {
+  307.   
+  308.               if (isLaterThanCurrentTime(strNow, cell.time)) {
+
+#12
+src/main/java/com/redblaster/hsl/main/MainPage.java:41: error: Strict Mode Violation
+  `void MainPage.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `boolean File.mkdir()`. 
+  39.           super.onCreate(savedInstanceState);
+  40.           
+  41. >         if (this.isDatabaseEmpty()) {
+  42.           	this.openWizard();
+  43.           }
+
+#13
+src/main/java/com/redblaster/hsl/main/MainPage.java:250: error: Strict Mode Violation
+  `void MainPage$8.onClick(DialogInterface,int)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  248.   								
+  249.   								// delete corrupted file from the SD-card
+  250. > 								deleteCorruptedFile();
+  251.   								dialog.cancel();
+  252.   								
+
+#14
+src/main/java/com/redblaster/hsl/main/bookmarks/BookmarksAddNewSetCustoms.java:345: error: Null Dereference
+  null (null value originating from line 345) is dereferenced. 
+  343.   		public long getItemId(int position) {
+  344.   			HashMap<String, Integer> map = list.get(position);
+  345. > 			return map.get(STR_KEY_VALUES);
+  346.   		}
+  347.   	}
+
+#15
+src/main/java/com/redblaster/hsl/widget/HslWidgetProvider.java:90: error: Strict Mode Violation
+  `void HslWidgetProvider.onReceive(Context,Intent)` runs on UI thread and may violate Strict Mode; calls `boolean File.canRead()`. 
+  88.           		order--;
+  89.           		manager.updateAppWidget(thisWidget, activateLoaderIndicator(context));
+  90. >         		bookmark = this.getBookmark(context, false);
+  91.           	}
+  92.           }
+
+Found 16 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+            Resource Leak(PULSE_RESOURCE_LEAK): 10
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 3
+         Null Dereference(NULLPTR_DEREFERENCE): 3

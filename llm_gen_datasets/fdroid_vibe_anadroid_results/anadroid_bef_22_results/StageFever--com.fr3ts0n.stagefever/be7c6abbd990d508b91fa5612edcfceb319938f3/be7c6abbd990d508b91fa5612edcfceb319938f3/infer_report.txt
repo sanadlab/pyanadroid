@@ -1,0 +1,22 @@
+#0
+app/src/main/java/com/fr3ts0n/stagefever/FileHelper.java:138: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 119 is not closed after the last access at line 138. 
+  136.   			e.printStackTrace();
+  137.   		}
+  138. > 	}
+  139.   
+  140.   	/**
+
+#1
+app/src/main/java/com/fr3ts0n/stagefever/MainActivity.java:185: error: Strict Mode Violation
+  `boolean MainActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may violate Strict Mode; calls `boolean File.mkdir()`. 
+  183.   		{
+  184.   			case R.id.import_csv:
+  185. > 				selectFileToLoad();
+  186.   				break;
+  187.   
+
+Found 2 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 1
+            Resource Leak(PULSE_RESOURCE_LEAK): 1

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762890104173" analysisTimestamp="1762890106584" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-33/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/android-usb-gadget/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="af15c7de4dec974bc1ed0e7cdcc0d91e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.RelativeLayout in net.tjado.usbgadget.databinding.RowDeviceInfoBinding.bind(View)</LongMessage>
+    <Class classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" primary="true">
+      <SourceLine classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" start="18" end="77" sourcefile="RowDeviceInfoBinding.java" sourcepath="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java">
+        <Message>At RowDeviceInfoBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class net.tjado.usbgadget.databinding.RowDeviceInfoBinding</Message>
+    </Class>
+    <Method classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" name="bind" signature="(Landroid/view/View;)Lnet/tjado/usbgadget/databinding/RowDeviceInfoBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" start="62" end="77" startBytecode="0" endBytecode="39" sourcefile="RowDeviceInfoBinding.java" sourcepath="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java"/>
+      <Message>In method net.tjado.usbgadget.databinding.RowDeviceInfoBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1865" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1865]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/RelativeLayout;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.RelativeLayout" start="20" end="62" sourcefile="RelativeLayout.java" sourcepath="android/widget/RelativeLayout.java">
+        <Message>At RelativeLayout.java:[lines 20-62]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.RelativeLayout</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="42" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" primary="true" start="74" end="74" startBytecode="43" endBytecode="43" sourcefile="RowDeviceInfoBinding.java" sourcepath="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java">
+      <Message>At RowDeviceInfoBinding.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="ff31045c2b921b2f02b67a1a903b0fa4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>net.tjado.usbgadget.databinding.RowDeviceInfoBinding.getRoot() may expose internal representation by returning RowDeviceInfoBinding.rootView</LongMessage>
+    <Class classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" primary="true">
+      <SourceLine classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" start="18" end="77" sourcefile="RowDeviceInfoBinding.java" sourcepath="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java">
+        <Message>At RowDeviceInfoBinding.java:[lines 18-77]</Message>
+      </SourceLine>
+      <Message>In class net.tjado.usbgadget.databinding.RowDeviceInfoBinding</Message>
+    </Class>
+    <Method classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" name="getRoot" signature="()Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" start="38" end="38" startBytecode="0" endBytecode="46" sourcefile="RowDeviceInfoBinding.java" sourcepath="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java"/>
+      <Message>In method net.tjado.usbgadget.databinding.RowDeviceInfoBinding.getRoot()</Message>
+    </Method>
+    <Field classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" name="rootView" signature="Landroid/widget/RelativeLayout;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" sourcefile="RowDeviceInfoBinding.java" sourcepath="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java">
+        <Message>In RowDeviceInfoBinding.java</Message>
+      </SourceLine>
+      <Message>Field net.tjado.usbgadget.databinding.RowDeviceInfoBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" primary="true" start="38" end="38" startBytecode="4" endBytecode="4" sourcefile="RowDeviceInfoBinding.java" sourcepath="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java">
+      <Message>At RowDeviceInfoBinding.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="13">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.cardview.widget.CardView</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBindings</MissingClass>
+    <MissingClass>androidx.viewpager2.widget.ViewPager2</MissingClass>
+    <MissingClass>com.google.android.material.tabs.TabLayout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>net.tjado.usbgadget.R</MissingClass>
+    <MissingClass>net.tjado.usbgadget.R$id</MissingClass>
+    <MissingClass>net.tjado.usbgadget.R$layout</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 23:41:44 +0400" total_classes="11" referenced_classes="33" total_bugs="2" total_size="550" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.34" clock_seconds="0.48" peak_mbytes="241.61" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="2">
+    <FileStats path="net/tjado/usbgadget/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="net/tjado/usbgadget/databinding/ActivityMainBinding.java" bugCount="0" size="33"/>
+    <FileStats path="net/tjado/usbgadget/databinding/CardviewGadgetBinding.java" bugCount="0" size="102"/>
+    <FileStats path="net/tjado/usbgadget/databinding/CardviewGadgetProfileBinding.java" bugCount="0" size="48"/>
+    <FileStats path="net/tjado/usbgadget/databinding/FragmentDeviceInfoBinding.java" bugCount="0" size="39"/>
+    <FileStats path="net/tjado/usbgadget/databinding/FragmentGadgetBinding.java" bugCount="0" size="123"/>
+    <FileStats path="net/tjado/usbgadget/databinding/FragmentGadgetManagerBinding.java" bugCount="0" size="57"/>
+    <FileStats path="net/tjado/usbgadget/databinding/FragmentLogBinding.java" bugCount="0" size="27"/>
+    <FileStats path="net/tjado/usbgadget/databinding/FragmentOverviewBinding.java" bugCount="0" size="45"/>
+    <FileStats path="net/tjado/usbgadget/databinding/RowDeviceInfoBinding.java" bugCount="2" size="33" bugHash="e2f18dee9ae499f0fff8944679a959b8"/>
+    <FileStats path="net/tjado/usbgadget/databinding/RowFunctionBinding.java" bugCount="0" size="33"/>
+    <PackageStats package="net.tjado.usbgadget" total_bugs="0" total_types="1" total_size="10">
+      <ClassStats class="net.tjado.usbgadget.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.tjado.usbgadget.databinding" total_bugs="2" total_types="10" total_size="540" priority_2="2">
+      <ClassStats class="net.tjado.usbgadget.databinding.ActivityMainBinding" sourceFile="ActivityMainBinding.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.CardviewGadgetBinding" sourceFile="CardviewGadgetBinding.java" interface="false" size="102" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.CardviewGadgetProfileBinding" sourceFile="CardviewGadgetProfileBinding.java" interface="false" size="48" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.FragmentDeviceInfoBinding" sourceFile="FragmentDeviceInfoBinding.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.FragmentGadgetBinding" sourceFile="FragmentGadgetBinding.java" interface="false" size="123" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.FragmentGadgetManagerBinding" sourceFile="FragmentGadgetManagerBinding.java" interface="false" size="57" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.FragmentLogBinding" sourceFile="FragmentLogBinding.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.FragmentOverviewBinding" sourceFile="FragmentOverviewBinding.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.RowDeviceInfoBinding" sourceFile="RowDeviceInfoBinding.java" interface="false" size="33" bugs="2" priority_2="2"/>
+      <ClassStats class="net.tjado.usbgadget.databinding.RowFunctionBinding" sourceFile="RowFunctionBinding.java" interface="false" size="33" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="45" invocations="371" avgMicrosecondsPerInvocation="122" maxMicrosecondsPerInvocation="5247" standardDeviationMicrosecondsPerInvocation="385"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="31" invocations="52" avgMicrosecondsPerInvocation="608" maxMicrosecondsPerInvocation="11430" standardDeviationMicrosecondsPerInvocation="1827"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="24" invocations="33" avgMicrosecondsPerInvocation="754" maxMicrosecondsPerInvocation="14065" standardDeviationMicrosecondsPerInvocation="2401"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="12" invocations="66" avgMicrosecondsPerInvocation="184" maxMicrosecondsPerInvocation="3939" standardDeviationMicrosecondsPerInvocation="620"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

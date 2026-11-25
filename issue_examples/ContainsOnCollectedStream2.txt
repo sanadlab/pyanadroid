@@ -1,0 +1,8 @@
+val hasAdminUser = users.stream()
+    .map { it.id }
+    .collect(Collectors.toList())
+    .contains("admin-001")
+
+-----
+
+val hasAdminUser = users.stream().anyMatch { it.id == "admin-001" }

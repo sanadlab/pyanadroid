@@ -1,0 +1,112 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:52:07.379+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/MicDroid/app/src/main/java/com/intervigil/micdroid/AudioController.java",
+      "violations": [
+        {
+          "beginline": 96,
+          "begincolumn": 40,
+          "endline": 98,
+          "endcolumn": 60,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/MicDroid/app/src/main/java/com/intervigil/micdroid/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 224,
+          "begincolumn": 17,
+          "endline": 232,
+          "endcolumn": 18,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 275,
+          "begincolumn": 30,
+          "endline": 275,
+          "endcolumn": 46,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/MicDroid/app/src/main/java/com/intervigil/micdroid/NameEntryDialogFragment.java",
+      "violations": [
+        {
+          "beginline": 90,
+          "begincolumn": 13,
+          "endline": 104,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/MicDroid/app/src/main/java/com/intervigil/micdroid/TimerDisplay.java",
+      "violations": [
+        {
+          "beginline": 17,
+          "begincolumn": 17,
+          "endline": 17,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027mElapsed\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 61,
+          "begincolumn": 13,
+          "endline": 65,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/MicDroid/app/src/main/java/net/sourceforge/autotalent/Autotalent.java",
+      "violations": [
+        {
+          "beginline": 6,
+          "begincolumn": 31,
+          "endline": 6,
+          "endcolumn": 40,
+          "description": "Avoid using redundant field initializer for \u0027sInstance\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

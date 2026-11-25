@@ -1,0 +1,7 @@
+// Bad: A new instance of MyService is created just to get its Class object.
+Logger logger = LoggerFactory.getLogger(new MyService().getClass());
+
+---
+
+// Good: Use the .class literal, which is a compile-time constant and has no runtime cost.
+Logger logger = LoggerFactory.getLogger(MyService.class);

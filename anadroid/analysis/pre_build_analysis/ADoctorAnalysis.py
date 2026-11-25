@@ -2,9 +2,10 @@ import os
 import csv
 from textops import lcount, cat
 
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
-from anadroid.utils.JavaRetry import change_java_version_cmd
+from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
 # /Applications/IntelliJ\ IDEA\ CE.app/Contents/bin/inspect.sh  /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/ /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/Project_Default.xml /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/out  -d /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/app -v2
@@ -62,17 +63,16 @@ class ADoctorAnalysis(StaticAnalyzer):
             loge(f"Results file not found: {results_output_file}")
             return []
         issues_list = []
+        debug_release_bug_found = False
         with open(results_output_file, "r") as file:
             reader = csv.reader(file)
             headers = next(reader)  # Read the first row as headers
-
             if headers[0] != "File":
                 loge("Invalid file format: Missing expected 'Class' header")
                 return []
             for row in reader:
                 filepath = row[0]
-                if 'src' in filepath and (
-                        'test' in filepath or 'androidTest' in filepath or "InstrumentedTest" in filepath) and ignore_tests:
+                if ignore_tests and is_test_file(filepath):
                     continue
                 if len(row) < 2:
                     continue
@@ -83,6 +83,10 @@ class ADoctorAnalysis(StaticAnalyzer):
                     if i < len(row) and headers[i] in self.identifiable_issues and row[i] != '' and int(row[i]) > 0
                 ]
                 for iss in issues_detected:
+                    if iss == KnownStaticPerformanceIssues.DEBUGGABLE_RELEASE:
+                        if debug_release_bug_found:
+                            continue
+                        debug_release_bug_found = True
                     issues_list.append(Issue(iss, i_class=class_name, file=filepath, detection_tool_name="aDoctor"))
         return issues_list
 
@@ -96,16 +100,17 @@ class ADoctorAnalysis(StaticAnalyzer):
         if os.path.exists(output_filepath) and not retry and self.validate_success(None, output_filepath):
             logs(f"Skipping project {project.proj_name}. Already processed by ADoctor")
             return
-        extra_cmd = change_java_version_cmd(8)
+        extra_cmd = get_change_java_version_cmd(8)
         cmd = f"{extra_cmd} {self.exec_cmd} {project.proj_dir} {output_filepath} {search_pattern_code}"
-        print(cmd)
+        logd(f"Running command: {cmd}")
         res = execute_shell_command(cmd, timeout=200)
         self.validate_success(res, output_filepath)
 
     def validate_success(self, res, expected_output_file):
         if not os.path.exists(expected_output_file) and (res is None or res.return_code != 0):
             loge(f"Error executing Adoctor analysis. Check the logs for more information")
-            print(res)
+            logd(f"Command result: {res}")
             return False
-        logs(f"Adoctor analysis executed successfully")
+        if res:
+            logs(f"Adoctor analysis executed successfully")
         return True

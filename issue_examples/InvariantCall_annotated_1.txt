@@ -1,0 +1,17 @@
+
+for (String input : userInputs) {
+    // Invariant: "ADMIN".toLowerCase() is calculated in every iteration
+    if (input.equals("ADMIN".toLowerCase())) {
+        adminCount++;
+    }
+}
+
+---- 
+
+// Hoisted: The invariant call is moved outside the loop
+String target = "ADMIN".toLowerCase();
+for (String input : userInputs) {
+    if (input.equals(target)) {
+        adminCount++;
+    }
+}

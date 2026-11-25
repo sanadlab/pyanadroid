@@ -1,0 +1,30 @@
+public void processEvent(Event event) {
+    // Bad: Imagine a method that is thousands of lines long with a giant switch
+    // statement handling hundreds of event types, all in one method.
+    switch (event.getType()) {
+        case "USER_LOGIN": // ... 50 lines of code ...
+             break;
+        case "USER_LOGOUT": // ... 50 lines of code ...
+             break;
+        // ... 200 more cases ...
+    }
+}
+
+
+-----
+
+// Good: Break the giant method into smaller, single-responsibility methods.
+// The JIT can now optimize each of these smaller methods individually.
+public void processEvent(Event event) {
+    switch (event.getType()) {
+        case "USER_LOGIN":
+            handleUserLogin(event);
+            break;
+        case "USER_LOGOUT":
+            handleUserLogout(event);
+            break;
+        // ... etc ...
+    }
+}
+private void handleUserLogin(Event event) { /* ... 50 lines of code ... */ }
+private void handleUserLogout(Event event) { /* ... 50 lines of code ... */ }

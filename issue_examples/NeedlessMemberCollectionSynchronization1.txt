@@ -1,0 +1,25 @@
+public class Service {
+    
+    private final Set<String> supportedFeatures = Collections.synchronizedSet(new HashSet<>());
+
+    public Service(List<String> features) {
+        supportedFeatures.addAll(features);
+    }
+    public boolean isSupported(String feature) {
+        return supportedFeatures.contains(feature); 
+    }
+}
+
+----
+
+public class Service {
+  
+    private final Set<String> supportedFeatures;
+
+    public Service(List<String> features) {
+        this.supportedFeatures = Collections.unmodifiableSet(new HashSet<>(features));
+    }
+    public boolean isSupported(String feature) {
+        return supportedFeatures.contains(feature); 
+    }
+}

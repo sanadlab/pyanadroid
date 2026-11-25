@@ -1,0 +1,390 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:40:35.238+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/AndroidUtils.java",
+      "violations": [
+        {
+          "beginline": 33,
+          "begincolumn": 73,
+          "endline": 33,
+          "endcolumn": 88,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 40,
+          "begincolumn": 47,
+          "endline": 40,
+          "endcolumn": 62,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/DodgeMain.java",
+      "violations": [
+        {
+          "beginline": 247,
+          "begincolumn": 9,
+          "endline": 251,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 349,
+          "begincolumn": 76,
+          "endline": 349,
+          "endcolumn": 78,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/DodgePreferences.java",
+      "violations": [
+        {
+          "beginline": 54,
+          "begincolumn": 9,
+          "endline": 86,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/FieldView.java",
+      "violations": [
+        {
+          "beginline": 44,
+          "begincolumn": 10,
+          "endline": 44,
+          "endcolumn": 17,
+          "description": "Avoid using redundant field initializer for \u0027running\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 45,
+          "begincolumn": 10,
+          "endline": 45,
+          "endcolumn": 17,
+          "description": "Avoid using redundant field initializer for \u0027canDraw\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 46,
+          "begincolumn": 10,
+          "endline": 46,
+          "endcolumn": 20,
+          "description": "Avoid using redundant field initializer for \u0027setupField\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 62,
+          "begincolumn": 10,
+          "endline": 62,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027flashingBullets\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 64,
+          "begincolumn": 10,
+          "endline": 64,
+          "endcolumn": 17,
+          "description": "Avoid using redundant field initializer for \u0027showFPS\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 69,
+          "begincolumn": 10,
+          "endline": 69,
+          "endcolumn": 30,
+          "description": "Avoid using redundant field initializer for \u0027displaySleepDisabled\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 71,
+          "begincolumn": 10,
+          "endline": 71,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027enableDisplaySleepScheduled\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 75,
+          "begincolumn": 9,
+          "endline": 75,
+          "endcolumn": 18,
+          "description": "Avoid using redundant field initializer for \u0027debugText\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 458,
+          "begincolumn": 10,
+          "endline": 458,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027hasInitialPitch\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 463,
+          "begincolumn": 10,
+          "endline": 463,
+          "endcolumn": 20,
+          "description": "Avoid using redundant field initializer for \u0027tiltLocked\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 465,
+          "begincolumn": 10,
+          "endline": 465,
+          "endcolumn": 27,
+          "description": "Avoid using redundant field initializer for \u0027hasTiltLockValues\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/FrameRateManager.java",
+      "violations": [
+        {
+          "beginline": 21,
+          "begincolumn": 6,
+          "endline": 21,
+          "endcolumn": 22,
+          "description": "Avoid using redundant field initializer for \u0027currentRateIndex\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 34,
+          "begincolumn": 10,
+          "endline": 34,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027frameRateLocked\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 40,
+          "begincolumn": 6,
+          "endline": 40,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027goodFrames\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 41,
+          "begincolumn": 6,
+          "endline": 41,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027slowFrames\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 43,
+          "begincolumn": 7,
+          "endline": 43,
+          "endcolumn": 18,
+          "description": "Avoid using redundant field initializer for \u0027totalFrames\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/OrientationListener.java",
+      "violations": [
+        {
+          "beginline": 73,
+          "begincolumn": 10,
+          "endline": 73,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027accels\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 82,
+          "begincolumn": 3,
+          "endline": 89,
+          "endcolumn": 4,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/model/Dodger.java",
+      "violations": [
+        {
+          "beginline": 28,
+          "begincolumn": 9,
+          "endline": 28,
+          "endcolumn": 13,
+          "description": "Avoid using redundant field initializer for \u0027xmin\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 28,
+          "begincolumn": 17,
+          "endline": 28,
+          "endcolumn": 21,
+          "description": "Avoid using redundant field initializer for \u0027xmax\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 28,
+          "begincolumn": 25,
+          "endline": 28,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027ymin\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 28,
+          "begincolumn": 33,
+          "endline": 28,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027ymax\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/model/Field.java",
+      "violations": [
+        {
+          "beginline": 32,
+          "begincolumn": 10,
+          "endline": 32,
+          "endcolumn": 17,
+          "description": "Avoid using redundant field initializer for \u0027running\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/model/LevelManager.java",
+      "violations": [
+        {
+          "beginline": 43,
+          "begincolumn": 7,
+          "endline": 43,
+          "endcolumn": 16,
+          "description": "Avoid using redundant field initializer for \u0027totalFreq\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/app/src/main/java/com/dozingcatsoftware/dodge/model/SineWaveBullet.java",
+      "violations": [
+        {
+          "beginline": 13,
+          "begincolumn": 9,
+          "endline": 13,
+          "endcolumn": 12,
+          "description": "Avoid using redundant field initializer for \u0027age\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

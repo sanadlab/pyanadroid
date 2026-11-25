@@ -1,0 +1,13 @@
+fun getSupportedExtensions(): List<String> {
+    // Bad: The array and list are recreated on each invocation.
+    return listOf("jpg", "jpeg", "png", "gif")
+}
+
+----
+
+// Good: Define it as a top-level constant, created only once.
+private val SUPPORTED_EXTENSIONS = listOf("jpg", "jpeg", "png", "gif")
+
+fun getSupportedExtensions(): List<String> {
+    return SUPPORTED_EXTENSIONS
+}

@@ -1,0 +1,22 @@
+#0
+app/src/main/java/com/jvillalba/apod/md/activities/MainActivity.java:56: error: Strict Mode Violation
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. Additional report(s) on the same line were suppressed. 
+  54.           mRecyclerView.setAdapter(mAdapter);
+  55.   
+  56. >         picassoClearCache(getApplicationContext().getCacheDir());
+  57.   
+  58.           getNasaAPODS();
+
+#1
+app/src/main/java/com/jvillalba/apod/md/activities/ViewActivity.java:77: warning: Ipc On Ui Thread
+  `boolean ViewActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `void ViewActivity.checkPermission(String)`. 
+  75.               case R.id.download:
+  76.                       imageName = getImageNameApod();
+  77. >                     checkPermission(imageName);
+  78.                       return true;
+  79.               default:
+
+Found 2 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 1
+            Ipc On Ui Thread(IPC_ON_UI_THREAD): 1

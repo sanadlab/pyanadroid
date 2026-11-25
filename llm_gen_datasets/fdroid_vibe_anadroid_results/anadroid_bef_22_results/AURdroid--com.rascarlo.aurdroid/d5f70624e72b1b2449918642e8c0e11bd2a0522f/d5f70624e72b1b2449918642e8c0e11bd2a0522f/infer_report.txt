@@ -1,0 +1,453 @@
+#0
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/DependencyItemBindingImpl.java:61: warning: Thread Safety Violation
+  Unprotected write. Non-private method `DependencyItemBindingImpl.setVariable(...)` indirectly writes to field `this.mString` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  59.           boolean variableSet = true;
+  60.           if (BR.string == variableId) {
+  61. >             setString((java.lang.String) variable);
+  62.           }
+  63.           else {
+
+#1
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/DependencyItemBindingImpl.java:70: warning: Thread Safety Violation
+  Unprotected write. Non-private method `DependencyItemBindingImpl.setString(...)` writes to field `this.mString` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  68.   
+  69.       public void setString(@Nullable java.lang.String String) {
+  70. >         this.mString = String;
+  71.           synchronized(this) {
+  72.               mDirtyFlags |= 0x1L;
+
+#2
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/DependencyItemBindingImpl.java:92: warning: Thread Safety Violation
+  Read/Write race. Non-private method `DependencyItemBindingImpl.executeBindings()` reads without synchronization from `this.mString`, which races with the write in method `DependencyItemBindingImpl.setVariable(...)`.
+ Reporting because this access may occur on a background thread. 
+  90.               mDirtyFlags = 0;
+  91.           }
+  92. >         java.lang.String string = mString;
+  93.           java.lang.String stringTrim = null;
+  94.   
+
+#3
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java:181: warning: Thread Safety Violation
+  Unprotected write. Non-private method `FragmentInfoResultBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  179.           boolean variableSet = true;
+  180.           if (BR.infoResult == variableId) {
+  181. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  182.           }
+  183.           else if (BR.viewModel == variableId) {
+
+#4
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java:193: warning: Thread Safety Violation
+  Unprotected write. Non-private method `FragmentInfoResultBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  191.   
+  192.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  193. >         this.mInfoResult = InfoResult;
+  194.           synchronized(this) {
+  195.               mDirtyFlags |= 0x1000L;
+
+#5
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/FragmentInfoResultBindingImpl.java:367: warning: Thread Safety Violation
+  Read/Write race. Non-private method `FragmentInfoResultBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `FragmentInfoResultBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+  365.               mDirtyFlags = 0;
+  366.           }
+  367. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  368.           int javaLangObjectNullInfoResultViewVISIBLEViewGONE = 0;
+  369.           boolean javaLangObjectNullInfoResult = false;
+
+#6
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultBodyBindingImpl.java:83: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultBodyBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  81.           boolean variableSet = true;
+  82.           if (BR.infoResult == variableId) {
+  83. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  84.           }
+  85.           else {
+
+#7
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultBodyBindingImpl.java:92: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultBodyBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  90.   
+  91.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  92. >         this.mInfoResult = InfoResult;
+  93.           synchronized(this) {
+  94.               mDirtyFlags |= 0x1L;
+
+#8
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultBodyBindingImpl.java:119: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultBodyBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultBodyBindingImpl.setVariable(...)`.
+ Reporting because this access may occur on a background thread. 
+  117.           java.lang.Long infoResultNumVotes = null;
+  118.           java.lang.String infoResultName = null;
+  119. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  120.           java.lang.String infoResultVersion = null;
+  121.           java.lang.String infoResultMaintainer = null;
+
+#9
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultCheckDependsBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultCheckDependsBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#10
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultCheckDependsBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultCheckDependsBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#11
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultCheckDependsBindingImpl.java:97: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultCheckDependsBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultCheckDependsBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+  95.           }
+  96.           java.util.List<java.lang.String> infoResultCheckDepends = null;
+  97. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  98.           int infoResultCheckDependsSize = 0;
+  99.           java.lang.String infoResultTextViewCheckDependsLabelAndroidStringFormattedCheckDependsInfoResultCheckDependsSize = null;
+
+#12
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultConflictsBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultConflictsBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#13
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultConflictsBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultConflictsBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#14
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultConflictsBindingImpl.java:98: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultConflictsBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultConflictsBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+   96.           java.util.List<java.lang.String> infoResultConflicts = null;
+   97.           int infoResultConflictsSize = 0;
+   98. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+   99.           java.lang.String infoResultTextViewConflictsLabelAndroidStringFormattedConflictsInfoResultConflictsSize = null;
+  100.   
+
+#15
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultDependsBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultDependsBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#16
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultDependsBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultDependsBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#17
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultDependsBindingImpl.java:97: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultDependsBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultDependsBindingImpl.setVariable(...)`.
+ Reporting because this access may occur on a background thread. 
+  95.           }
+  96.           int infoResultDependsSize = 0;
+  97. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  98.           java.util.List<java.lang.String> infoResultDepends = null;
+  99.           java.lang.String infoResultTextViewDependsLabelAndroidStringFormattedDependsInfoResultDependsSize = null;
+
+#18
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultGroupsBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultGroupsBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#19
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultGroupsBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultGroupsBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#20
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultGroupsBindingImpl.java:98: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultGroupsBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultGroupsBindingImpl.setVariable(...)`.
+ Reporting because this access may occur on a background thread. 
+   96.           java.util.List<java.lang.String> infoResultGroups = null;
+   97.           java.lang.String infoResultTextViewGroupsLabelAndroidStringFormattedGroupsInfoResultGroupsSize = null;
+   98. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+   99.           int infoResultGroupsSize = 0;
+  100.   
+
+#21
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java:67: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultHeaderBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  65.           boolean variableSet = true;
+  66.           if (BR.infoResult == variableId) {
+  67. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  68.           }
+  69.           else {
+
+#22
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java:76: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultHeaderBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  74.   
+  75.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  76. >         this.mInfoResult = InfoResult;
+  77.           synchronized(this) {
+  78.               mDirtyFlags |= 0x1L;
+
+#23
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultHeaderBindingImpl.java:99: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultHeaderBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultHeaderBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+   97.           }
+   98.           java.lang.String infoResultName = null;
+   99. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  100.           java.lang.String infoResultDescription = null;
+  101.   
+
+#24
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultKeywordsBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultKeywordsBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#25
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultKeywordsBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultKeywordsBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#26
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultKeywordsBindingImpl.java:97: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultKeywordsBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultKeywordsBindingImpl.setVariable(...)`.
+ Reporting because this access may occur on a background thread. 
+  95.           }
+  96.           int infoResultKeywordsSize = 0;
+  97. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  98.           java.util.List<java.lang.String> infoResultKeywords = null;
+  99.           java.lang.String infoResultTextViewKeywordsLabelAndroidStringFormattedKeywordsInfoResultKeywordsSize = null;
+
+#27
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultMakeDependsBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultMakeDependsBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#28
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultMakeDependsBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultMakeDependsBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#29
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultMakeDependsBindingImpl.java:96: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultMakeDependsBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultMakeDependsBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+  94.               mDirtyFlags = 0;
+  95.           }
+  96. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  97.           java.lang.String infoResultTextViewMakeDependsLabelAndroidStringFormattedMakeDependsInfoResultMakeDependsSize = null;
+  98.           java.util.List<java.lang.String> infoResultMakeDepends = null;
+
+#30
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultOptDependsBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultOptDependsBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#31
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultOptDependsBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultOptDependsBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#32
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultOptDependsBindingImpl.java:97: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultOptDependsBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultOptDependsBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+  95.           }
+  96.           int infoResultOptDependsSize = 0;
+  97. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  98.           java.util.List<java.lang.String> infoResultOptDepends = null;
+  99.           java.lang.String infoResultTextViewOptDependsLabelAndroidStringFormattedOptDependsInfoResultOptDependsSize = null;
+
+#33
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultProvidesBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultProvidesBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#34
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultProvidesBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultProvidesBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#35
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultProvidesBindingImpl.java:97: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultProvidesBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultProvidesBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+  95.           }
+  96.           java.lang.String infoResultTextViewProvidesLabelAndroidStringFormattedProvidesInfoResultProvidesSize = null;
+  97. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+  98.           java.util.List<java.lang.String> infoResultProvides = null;
+  99.           int infoResultProvidesSize = 0;
+
+#36
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultReplacesBindingImpl.java:65: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultReplacesBindingImpl.setVariable(...)` indirectly writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  63.           boolean variableSet = true;
+  64.           if (BR.infoResult == variableId) {
+  65. >             setInfoResult((com.rascarlo.aurdroid.network.InfoResult) variable);
+  66.           }
+  67.           else {
+
+#37
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultReplacesBindingImpl.java:74: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultReplacesBindingImpl.setInfoResult(...)` writes to field `this.mInfoResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  72.   
+  73.       public void setInfoResult(@Nullable com.rascarlo.aurdroid.network.InfoResult InfoResult) {
+  74. >         this.mInfoResult = InfoResult;
+  75.           synchronized(this) {
+  76.               mDirtyFlags |= 0x1L;
+
+#38
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultReplacesBindingImpl.java:98: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultReplacesBindingImpl.executeBindings()` reads without synchronization from `this.mInfoResult`, which races with the write in method `InfoResultReplacesBindingImpl.setInfoResult(...)`.
+ Reporting because this access may occur on a background thread. 
+   96.           java.util.List<java.lang.String> infoResultReplaces = null;
+   97.           int infoResultReplacesSize = 0;
+   98. >         com.rascarlo.aurdroid.network.InfoResult infoResult = mInfoResult;
+   99.           java.lang.String infoResultTextViewReplacesLabelAndroidStringFormattedReplacesInfoResultReplacesSize = null;
+  100.   
+
+#39
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java:69: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultStatusBindingImpl.setVariable(...)` indirectly writes to field `this.mViewModel` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  67.           boolean variableSet = true;
+  68.           if (BR.viewModel == variableId) {
+  69. >             setViewModel((com.rascarlo.aurdroid.infoResult.InfoResultViewModel) variable);
+  70.           }
+  71.           else {
+
+#40
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java:78: warning: Thread Safety Violation
+  Unprotected write. Non-private method `InfoResultStatusBindingImpl.setViewModel(...)` writes to field `this.mViewModel` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  76.   
+  77.       public void setViewModel(@Nullable com.rascarlo.aurdroid.infoResult.InfoResultViewModel ViewModel) {
+  78. >         this.mViewModel = ViewModel;
+  79.           synchronized(this) {
+  80.               mDirtyFlags |= 0x2L;
+
+#41
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/InfoResultStatusBindingImpl.java:113: warning: Thread Safety Violation
+  Read/Write race. Non-private method `InfoResultStatusBindingImpl.executeBindings()` reads without synchronization from `this.mViewModel`, which races with the write in method `InfoResultStatusBindingImpl.setViewModel(...)`.
+ Reporting because this access may occur on a background thread. 
+  111.           androidx.lifecycle.LiveData<com.rascarlo.aurdroid.network.AurDroidApiStatus> viewModelStatus = null;
+  112.           com.rascarlo.aurdroid.network.AurDroidApiStatus viewModelStatusGetValue = null;
+  113. >         com.rascarlo.aurdroid.infoResult.InfoResultViewModel viewModel = mViewModel;
+  114.   
+  115.           if ((dirtyFlags & 0x7L) != 0) {
+
+#42
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java:81: warning: Thread Safety Violation
+  Unprotected write. Non-private method `SearchResultItemBindingImpl.setVariable(...)` indirectly writes to field `this.mSearchResult` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  79.           boolean variableSet = true;
+  80.           if (BR.searchResult == variableId) {
+  81. >             setSearchResult((com.rascarlo.aurdroid.network.SearchResult) variable);
+  82.           }
+  83.           else {
+
+#43
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java:90: warning: Thread Safety Violation
+  Unprotected write. Non-private method `SearchResultItemBindingImpl.setSearchResult(...)` writes to field `this.mSearchResult` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  88.   
+  89.       public void setSearchResult(@Nullable com.rascarlo.aurdroid.network.SearchResult SearchResult) {
+  90. >         this.mSearchResult = SearchResult;
+  91.           synchronized(this) {
+  92.               mDirtyFlags |= 0x1L;
+
+#44
+app/build/generated/source/kapt/debug/com/rascarlo/aurdroid/databinding/SearchResultItemBindingImpl.java:115: warning: Thread Safety Violation
+  Read/Write race. Non-private method `SearchResultItemBindingImpl.executeBindings()` reads without synchronization from `this.mSearchResult`, which races with the write in method `SearchResultItemBindingImpl.setSearchResult(...)`.
+ Reporting because this access may occur on a background thread. 
+  113.           java.lang.Long searchResultFirstSubmitted = null;
+  114.           java.lang.String searchResultMaintainer = null;
+  115. >         com.rascarlo.aurdroid.network.SearchResult searchResult = mSearchResult;
+  116.           java.lang.String searchResultName = null;
+  117.           java.lang.Double searchResultPopularity = null;
+
+Found 45 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 45

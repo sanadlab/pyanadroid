@@ -1,0 +1,11 @@
+Integer count = 10;
+Double percentage = 0.5;
+boolean usePercentage = true;
+Number result = usePercentage ? percentage : count;
+
+----
+
+Integer count = 10;
+Double percentage = 0.5;
+boolean usePercentage = true;
+Number result = usePercentage ? (Number) percentage : (Number) count;

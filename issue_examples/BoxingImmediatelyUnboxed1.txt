@@ -1,0 +1,19 @@
+public void printArea(int width, int height) {
+    System.out.println(width * height);
+}
+
+public void calculate() {
+    int w = 10;
+    printArea(new Integer(w), 20);
+}
+
+----
+
+public void printArea(int width, int height) {
+    System.out.println(width * height);
+}
+
+public void calculate() {
+    int w = 10;
+    printArea(w, 20);
+}

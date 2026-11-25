@@ -1,0 +1,69 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:55:09.432+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/fwknop2/app/src/main/java/biz/incomsystems/fwknop2/ConfigListFragment.java",
+      "violations": [
+        {
+          "beginline": 262,
+          "begincolumn": 13,
+          "endline": 276,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/fwknop2/app/src/main/java/biz/incomsystems/fwknop2/NfcKnockActivity.java",
+      "violations": [
+        {
+          "beginline": 45,
+          "begincolumn": 37,
+          "endline": 45,
+          "endcolumn": 69,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 47,
+          "begincolumn": 43,
+          "endline": 47,
+          "endcolumn": 80,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/fwknop2/app/src/main/java/biz/incomsystems/fwknop2/SendSPA.java",
+      "violations": [
+        {
+          "beginline": 86,
+          "begincolumn": 20,
+          "endline": 86,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027isConnected\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

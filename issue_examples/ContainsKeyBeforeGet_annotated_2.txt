@@ -1,0 +1,13 @@
+// Bad: Two lookups are performed.
+val count = if (userCounts.containsKey(userId)) {
+    userCounts[userId]
+} else {
+    0
+}
+
+----
+
+// Good: The getOrDefault method is designed for this and performs a single lookup.
+val count = userCounts.getOrDefault(userId, 0)
+// The idiomatic Kotlin way is even cleaner:
+// val count = userCounts[userId] ?: 0

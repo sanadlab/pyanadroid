@@ -1,0 +1,15 @@
+
+// Inefficient: Looks up each value after getting the key
+for (String studentName : studentGrades.keySet()) {
+    Integer grade = studentGrades.get(studentName);
+    System.out.println(studentName + " scored: " + grade);
+}
+
+---- 
+
+// Efficient: Iterates over entry pairs, avoiding the second lookup
+for (Map.Entry<String, Integer> entry : studentGrades.entrySet()) {
+    String studentName = entry.getKey();
+    Integer grade = entry.getValue();
+    System.out.println(studentName + " scored: " + grade);
+}

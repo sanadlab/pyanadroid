@@ -1,0 +1,193 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:38:38.691+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/main/java/com/ruesga/rview/gerrit/GerritApiClient.java",
+      "violations": [
+        {
+          "beginline": 72,
+          "begincolumn": 21,
+          "endline": 72,
+          "endcolumn": 45,
+          "description": "Avoid using redundant field initializer for \u0027mWasAuthorizedPreviously\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 74,
+          "begincolumn": 18,
+          "endline": 74,
+          "endcolumn": 41,
+          "description": "Avoid using redundant field initializer for \u0027mLastServerVersionCheck\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/main/java/com/ruesga/rview/gerrit/GerritServiceFactory.java",
+      "violations": [
+        {
+          "beginline": 77,
+          "begincolumn": 29,
+          "endline": 77,
+          "endcolumn": 78,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/main/java/com/ruesga/rview/gerrit/filter/ComplexQuery.java",
+      "violations": [
+        {
+          "beginline": 84,
+          "begincolumn": 13,
+          "endline": 84,
+          "endcolumn": 28,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 84,
+          "begincolumn": 23,
+          "endline": 84,
+          "endcolumn": 26,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/main/java/com/ruesga/rview/gerrit/filter/SimpleQuery.java",
+      "violations": [
+        {
+          "beginline": 26,
+          "begincolumn": 27,
+          "endline": 26,
+          "endcolumn": 30,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/main/java/com/ruesga/rview/gerrit/model/CloudNotificationInfo.java",
+      "violations": [
+        {
+          "beginline": 29,
+          "begincolumn": 42,
+          "endline": 29,
+          "endcolumn": 48,
+          "description": "Avoid using redundant field initializer for \u0027events\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/main/java/com/ruesga/rview/gerrit/model/CloudNotificationInput.java",
+      "violations": [
+        {
+          "beginline": 27,
+          "begincolumn": 42,
+          "endline": 27,
+          "endcolumn": 48,
+          "description": "Avoid using redundant field initializer for \u0027events\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/main/java/com/ruesga/rview/gerrit/model/ServerVersion.java",
+      "violations": [
+        {
+          "beginline": 33,
+          "begincolumn": 39,
+          "endline": 33,
+          "endcolumn": 59,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        },
+        {
+          "beginline": 34,
+          "begincolumn": 38,
+          "endline": 34,
+          "endcolumn": 58,
+          "description": "String.indexOf(char) is faster than String.indexOf(String).",
+          "rule": "UseIndexOfChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#useindexofchar"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/rview/gerrit/src/test/java/com/ruesga/rview/gerrit/filter/ChangeQueryTest.java",
+      "violations": [
+        {
+          "beginline": 55,
+          "begincolumn": 50,
+          "endline": 55,
+          "endcolumn": 52,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 132,
+          "begincolumn": 63,
+          "endline": 132,
+          "endcolumn": 85,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 133,
+          "begincolumn": 17,
+          "endline": 133,
+          "endcolumn": 47,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

@@ -1,0 +1,69 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.9.0",
+  "timestamp": "2025-10-27T14:45:47.003+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/weather-overview/app/src/main/java/app/weatheroverview/Forecast.java",
+      "violations": [
+        {
+          "beginline": 91,
+          "begincolumn": 32,
+          "endline": 91,
+          "endcolumn": 47,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.9.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/weather-overview/app/src/main/java/app/weatheroverview/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 71,
+          "begincolumn": 3,
+          "endline": 77,
+          "endcolumn": 4,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.9.0/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/weather-overview/app/src/main/java/app/weatheroverview/data/ForecastDownloader.java",
+      "violations": [
+        {
+          "beginline": 118,
+          "begincolumn": 55,
+          "endline": 118,
+          "endcolumn": 65,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.9.0/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 140,
+          "begincolumn": 55,
+          "endline": 140,
+          "endcolumn": 65,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.9.0/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

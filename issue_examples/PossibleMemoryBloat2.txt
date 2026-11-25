@@ -1,0 +1,24 @@
+object EventLogger {
+    private val events = mutableListOf<String>()
+
+    fun logEvent(message: String) {
+        events.add("${System.currentTimeMillis()}: $message")
+    }
+}
+
+
+----
+
+import java.util.concurrent.ConcurrentLinkedQueue
+
+object EventLogger {
+    private const val MAX_EVENTS = 500
+    private val events = ConcurrentLinkedQueue<String>()
+
+    fun logEvent(message: String) {
+        if (events.size >= MAX_EVENTS) {
+            events.poll()
+        }
+        events.add("${System.currentTimeMillis()}: $message")
+    }
+}

@@ -1,0 +1,12 @@
+#0
+app/src/main/java/com/garyodernichts/downgrader/MainActivity.java:119: error: Strict Mode Violation
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. Additional report(s) on the same line were suppressed. 
+  117.           if (!apkSet) {
+  118.               btDowngrade.setEnabled(false);
+  119. >             clearCache();
+  120.           }
+  121.       }
+
+Found 1 issue
+                    Issue Type(ISSUED_TYPE_ID): #
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 1

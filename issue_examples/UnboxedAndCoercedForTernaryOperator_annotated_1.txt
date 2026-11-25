@@ -1,0 +1,16 @@
+Integer count = 10;
+Double percentage = 0.5;
+boolean usePercentage = true;
+
+// Bad: 'count' (Integer) is unboxed to int, then widened to double
+// to match the type of 'percentage' (Double)
+Number result = usePercentage ? percentage : count;
+
+----
+
+Integer count = 10;
+Double percentage = 0.5;
+boolean usePercentage = true;
+
+// Good: Explicitly handle the types to avoid implicit, potentially costly conversions.
+Number result = usePercentage ? (Number) percentage : (Number) count;

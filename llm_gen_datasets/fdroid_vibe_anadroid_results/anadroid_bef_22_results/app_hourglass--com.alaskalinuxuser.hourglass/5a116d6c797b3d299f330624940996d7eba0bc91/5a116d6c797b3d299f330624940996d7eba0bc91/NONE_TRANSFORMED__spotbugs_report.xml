@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767893351540" analysisTimestamp="1767893353548" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/app_hourglass/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-24/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/app_hourglass/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="ES_COMPARING_STRINGS_WITH_EQ" priority="2" rank="11" abbrev="ES" category="BAD_PRACTICE" instanceHash="2dd1be89ced6c2a099f3cd68e6d568da" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="595">
+    <ShortMessage>Comparison of String objects using == or !=</ShortMessage>
+    <LongMessage>Comparison of String objects using == or != in com.alaskalinuxuser.hourglass.MainActivity.okGo(View)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="okGo" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="491" end="562" startBytecode="0" endBytecode="87" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.okGo(View)</Message>
+    </Method>
+    <Type descriptor="Ljava/lang/String;" role="TYPE_FOUND">
+      <SourceLine classname="java.lang.String" start="27" end="114" sourcefile="String.java" sourcepath="java/lang/String.java">
+        <Message>At String.java:[lines 27-114]</Message>
+      </SourceLine>
+      <Message>Actual type String</Message>
+    </Type>
+    <String value="" role="STRING_CONSTANT">
+      <Message>String constant &quot;&quot;</Message>
+    </String>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="manualTime" signature="Ljava/lang/String;" isStatic="false" primary="true" role="FIELD_VALUE_OF">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Value loaded from field com.alaskalinuxuser.hourglass.MainActivity.manualTime</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="497" end="497" startBytecode="28" endBytecode="28" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 497]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.RefComparisonWarningProperty.EMPTY_AND_UNKNOWN" value="true"/>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="b573321c041c6f86f7d798da5b4214a0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.alaskalinuxuser.hourglass.MainActivity.context is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.context</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="171" end="171" startBytecode="64" endBytecode="64" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 171]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" instanceHash="5ac86d78f5153dfacb11c045d859d79b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.allCancel from instance method com.alaskalinuxuser.hourglass.MainActivity.wasClicked()</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="wasClicked" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="117" end="140" startBytecode="0" endBytecode="172" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.wasClicked()</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="allCancel" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.allCancel</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="119" end="119" startBytecode="8" endBytecode="8" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 119]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="7affaa69813f047c5b6a37c7eec290cb" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.alreYes from instance method com.alaskalinuxuser.hourglass.MainActivity.alreChoice(View)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="alreChoice" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="444" end="460" startBytecode="0" endBytecode="117" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.alreChoice(View)</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="alreYes" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.alreYes</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="447" end="447" startBytecode="7" endBytecode="7" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 447]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="454" end="454" startBytecode="23" endBytecode="23" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 454]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="319adcb7a7d368246bbbaf08633bf907" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.allCancel from instance method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="285" end="369" startBytecode="0" endBytecode="441" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="allCancel" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.allCancel</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="300" end="300" startBytecode="47" endBytecode="47" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 300]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="5bc64026a549ba34f4eaccd4eace462f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.alreYes from instance method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="285" end="369" startBytecode="0" endBytecode="441" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="alreYes" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.alreYes</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="308" end="308" startBytecode="103" endBytecode="103" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 308]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="d2a62681ec78236318f04270fd37d42a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.recureYes from instance method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="285" end="369" startBytecode="0" endBytecode="441" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="recureYes" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.recureYes</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="305" end="305" startBytecode="77" endBytecode="77" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 305]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="9bca0cce704e0d2193b04a706245611e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.vibrateYes from instance method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="285" end="369" startBytecode="0" endBytecode="441" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="vibrateYes" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.vibrateYes</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="302" end="302" startBytecode="51" endBytecode="51" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 302]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="c4801462459a66bead25b39ebd9344eb" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.recureYes from instance method com.alaskalinuxuser.hourglass.MainActivity.recurChoice(View)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="recurChoice" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="424" end="440" startBytecode="0" endBytecode="117" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.recurChoice(View)</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="recureYes" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.recureYes</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="427" end="427" startBytecode="7" endBytecode="7" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 427]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="434" end="434" startBytecode="23" endBytecode="23" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 434]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="a31f7873f5bfd10f4b3bebc7194e07fb" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.alaskalinuxuser.hourglass.MainActivity.vibrateYes from instance method com.alaskalinuxuser.hourglass.MainActivity.vibChoice(View)</LongMessage>
+    <Class classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="41" end="572" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>At MainActivity.java:[lines 41-572]</Message>
+      </SourceLine>
+      <Message>In class com.alaskalinuxuser.hourglass.MainActivity</Message>
+    </Class>
+    <Method classname="com.alaskalinuxuser.hourglass.MainActivity" name="vibChoice" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="404" end="420" startBytecode="0" endBytecode="117" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java"/>
+      <Message>In method com.alaskalinuxuser.hourglass.MainActivity.vibChoice(View)</Message>
+    </Method>
+    <Field classname="com.alaskalinuxuser.hourglass.MainActivity" name="vibrateYes" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.alaskalinuxuser.hourglass.MainActivity.vibrateYes</Message>
+    </Field>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" primary="true" start="407" end="407" startBytecode="7" endBytecode="7" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java">
+      <Message>At MainActivity.java:[line 407]</Message>
+    </SourceLine>
+    <SourceLine classname="com.alaskalinuxuser.hourglass.MainActivity" start="414" end="414" startBytecode="23" endBytecode="23" sourcefile="MainActivity.java" sourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" relSourcepath="com/alaskalinuxuser/hourglass/MainActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at MainActivity.java:[line 414]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ES_COMPARING_STRINGS_WITH_EQ" abbrev="ES" category="BAD_PRACTICE" cweid="595">
+    <ShortDescription>Comparison of String objects using == or !=</ShortDescription>
+    <Details><![CDATA[
+
+  <p>This code compares <code>java.lang.String</code> objects for reference
+equality using the == or != operators.
+Unless both strings are either constants in a source file, or have been
+interned using the <code>String.intern()</code> method, the same string
+value may be represented by two different String objects. Consider
+using the <code>equals(Object)</code> method instead.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/595.html">CWE-595: Comparison of Object References Instead of Object Contents</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="ES" cweid="597">
+    <Description>Checking String equality using == or !=</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="8">
+    <MissingClass>android.support.v4.app.NotificationCompat</MissingClass>
+    <MissingClass>android.support.v4.app.NotificationCompat$Builder</MissingClass>
+    <MissingClass>android.support.v7.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.alaskalinuxuser.hourglass.R</MissingClass>
+    <MissingClass>com.alaskalinuxuser.hourglass.R$drawable</MissingClass>
+    <MissingClass>com.alaskalinuxuser.hourglass.R$id</MissingClass>
+    <MissingClass>com.alaskalinuxuser.hourglass.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 21:29:11 +0400" total_classes="6" referenced_classes="103" total_bugs="10" total_size="276" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.29" clock_seconds="0.46" peak_mbytes="226.03" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="9" priority_1="1">
+    <FileStats path="com/alaskalinuxuser/hourglass/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="com/alaskalinuxuser/hourglass/CancelActivity.java" bugCount="0" size="11"/>
+    <FileStats path="com/alaskalinuxuser/hourglass/MainActivity.java" bugCount="10" size="233" bugHash="3a9f8fe09918c1314dbf3283fd72c8b0"/>
+    <FileStats path="com/alaskalinuxuser/hourglass/SetScaleActivity.java" bugCount="0" size="21"/>
+    <PackageStats package="com.alaskalinuxuser.hourglass" total_bugs="10" total_types="6" total_size="276" priority_2="9" priority_1="1">
+      <ClassStats class="com.alaskalinuxuser.hourglass.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.alaskalinuxuser.hourglass.CancelActivity" sourceFile="CancelActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.alaskalinuxuser.hourglass.MainActivity" sourceFile="MainActivity.java" interface="false" size="193" bugs="10" priority_2="9" priority_1="1"/>
+      <ClassStats class="com.alaskalinuxuser.hourglass.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="com.alaskalinuxuser.hourglass.MainActivity$2" sourceFile="MainActivity.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.alaskalinuxuser.hourglass.SetScaleActivity" sourceFile="SetScaleActivity.java" interface="false" size="21" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="47" invocations="436" avgMicrosecondsPerInvocation="107" maxMicrosecondsPerInvocation="4881" standardDeviationMicrosecondsPerInvocation="333"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="25" invocations="103" avgMicrosecondsPerInvocation="249" maxMicrosecondsPerInvocation="3548" standardDeviationMicrosecondsPerInvocation="491"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="140" avgMicrosecondsPerInvocation="105" maxMicrosecondsPerInvocation="3535" standardDeviationMicrosecondsPerInvocation="331"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="12" invocations="6" avgMicrosecondsPerInvocation="2011" maxMicrosecondsPerInvocation="7255" standardDeviationMicrosecondsPerInvocation="2581"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="11" invocations="103" avgMicrosecondsPerInvocation="107" maxMicrosecondsPerInvocation="1351" standardDeviationMicrosecondsPerInvocation="197"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,23 @@
+public class DataManager {
+   
+    private final ExecutorService executor = Executors.newCachedThreadPool();
+
+    public void asyncSave(Data data) {
+        executor.submit(() -> save(data));
+    }
+}
+
+----
+
+public class DataManager implements AutoCloseable {
+    private final ExecutorService executor = Executors.newCachedThreadPool();
+
+    public void asyncSave(Data data) {
+        executor.submit(() -> save(data));
+    }
+
+    @Override
+    public void close() {
+        executor.shutdownNow(); // Or shutdown()
+    }
+}

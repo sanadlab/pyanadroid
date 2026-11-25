@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.3">
+
+    <issue
+        id="InefficientWeight"
+        severity="Warning"
+        message="Use a `layout_height` of `0dp` instead of `wrap_content` for better performance"
+        category="Performance"
+        priority="3"
+        summary="Inefficient layout weight"
+        explanation="When only a single widget in a `LinearLayout` defines a weight, it is more efficient to assign a width/height of `0dp` to it since it will absorb all the remaining space anyway. With a declared width/height of `0dp` it does not have to measure its own size first."
+        errorLine1="        android:layout_height=&quot;wrap_content&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/res/layout/activity_main.xml"
+            line="18"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `display` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                String data = display.getText().toString();"
+        errorLine2="                              ~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="29"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `display` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        display.setText(&quot;&quot;);"
+        errorLine2="                        ~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="33"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `val1` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        val1 = Double.NaN;"
+        errorLine2="                        ~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="34"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `CURRENT_OP` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        CURRENT_OP = &apos;\0&apos;;"
+        errorLine2="                        ~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="35"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` method `calculate` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        calculate();"
+        errorLine2="                        ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="38"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `val1` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        if (!Double.isNaN(val1)) {"
+        errorLine2="                                          ~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="45"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `CURRENT_OP` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            CURRENT_OP = buttonText.charAt(0);"
+        errorLine2="                            ~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="46"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `display` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            display.setText(data + buttonText);"
+        errorLine2="                            ~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="47"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `val1` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            val1 = Math.sqrt(Double.parseDouble(data));"
+        errorLine2="                            ~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="52"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `display` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            display.setText(String.valueOf(val1));"
+        errorLine2="                            ~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="53"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `val1` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                            display.setText(String.valueOf(val1));"
+        errorLine2="                                                           ~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="53"
+            column="60"/>
+    </issue>
+
+    <issue
+        id="SyntheticAccessor"
+        severity="Warning"
+        message="Access to `private` field `display` of class `MainActivity` requires synthetic accessor"
+        category="Performance"
+        priority="2"
+        summary="Synthetic Accessor"
+        explanation="A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for **libraries** where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit."
+        errorLine1="                        display.setText(data + buttonText);"
+        errorLine2="                        ~~~~~~~">
+        <location
+            file="/Users/rar9993/AndroidStudioProjects/GPTScientificCalculator/NONE_TRANSFORMED_/app/src/main/java/com/sanad/gpt4o/gptscientificcalculator/MainActivity.java"
+            line="57"
+            column="25"/>
+    </issue>
+
+</issues>

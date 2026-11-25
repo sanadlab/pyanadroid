@@ -1,0 +1,16 @@
+public class DataProcessor {
+    private boolean isDebugMode = false;
+
+    public void process() {
+        // ...
+    }
+}
+
+-----
+
+public class DataProcessor {
+    // field has been removed.
+    public void process() {
+        // Does not uses isDebugMode
+    }
+}

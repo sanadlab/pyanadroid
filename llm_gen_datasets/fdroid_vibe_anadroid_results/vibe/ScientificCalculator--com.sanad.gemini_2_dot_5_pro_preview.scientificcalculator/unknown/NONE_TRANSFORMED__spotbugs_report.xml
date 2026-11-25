@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762928105158" analysisTimestamp="1762928108439" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/ScientificCalculator/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/ScientificCalculator/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="24703032ab75f9560e91a90292cc2c71" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.Button in com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity.onClick(View)</LongMessage>
+    <Class classname="com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity" start="15" end="415" sourcefile="MainActivity.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/scientificcalculator/MainActivity.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/scientificcalculator/MainActivity.java">
+        <Message>At MainActivity.java:[lines 15-415]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity</Message>
+    </Class>
+    <Method classname="com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity" name="onClick" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity" start="47" end="131" startBytecode="0" endBytecode="373" sourcefile="MainActivity.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/scientificcalculator/MainActivity.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/scientificcalculator/MainActivity.java"/>
+      <Message>In method com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity.onClick(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1909" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1909]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/Button;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.Button" start="24" end="34" sourcefile="Button.java" sourcepath="android/widget/Button.java">
+        <Message>At Button.java:[lines 24-34]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.Button</Message>
+    </Type>
+    <LocalVariable name="v" register="1" pc="5" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from v</Message>
+    </LocalVariable>
+    <SourceLine classname="com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity" primary="true" start="48" end="48" startBytecode="6" endBytecode="6" sourcefile="MainActivity.java" sourcepath="com/sanad/gemini_2_dot_5_pro_preview/scientificcalculator/MainActivity.java" relSourcepath="com/sanad/gemini_2_dot_5_pro_preview/scientificcalculator/MainActivity.java">
+      <Message>At MainActivity.java:[line 48]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="5">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.R</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.R$id</MissingClass>
+    <MissingClass>com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:15:05 +0400" total_classes="1" referenced_classes="92" total_bugs="1" total_size="236" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="7.56" clock_seconds="3.64" peak_mbytes="257.46" alloc_mbytes="768.00" gc_seconds="0.02" priority_2="1">
+    <FileStats path="com/sanad/gemini_2_dot_5_pro_preview/scientificcalculator/MainActivity.java" bugCount="1" size="236" bugHash="86ea4e860fbecf793f8b7364da3995b8"/>
+    <PackageStats package="com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator" total_bugs="1" total_types="1" total_size="236" priority_2="1">
+      <ClassStats class="com.sanad.gemini_2_dot_5_pro_preview.scientificcalculator.MainActivity" sourceFile="MainActivity.java" interface="false" size="236" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="359" invocations="413" avgMicrosecondsPerInvocation="870" maxMicrosecondsPerInvocation="27237" standardDeviationMicrosecondsPerInvocation="2532"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="185" invocations="15" avgMicrosecondsPerInvocation="12344" maxMicrosecondsPerInvocation="54148" standardDeviationMicrosecondsPerInvocation="15589"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="180" invocations="92" avgMicrosecondsPerInvocation="1960" maxMicrosecondsPerInvocation="20156" standardDeviationMicrosecondsPerInvocation="3818"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="155" invocations="15" avgMicrosecondsPerInvocation="10393" maxMicrosecondsPerInvocation="36900" standardDeviationMicrosecondsPerInvocation="10896"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="151" invocations="123" avgMicrosecondsPerInvocation="1231" maxMicrosecondsPerInvocation="31751" standardDeviationMicrosecondsPerInvocation="3289"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="116" invocations="20" avgMicrosecondsPerInvocation="5823" maxMicrosecondsPerInvocation="33086" standardDeviationMicrosecondsPerInvocation="9448"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="115" invocations="15" avgMicrosecondsPerInvocation="7690" maxMicrosecondsPerInvocation="30254" standardDeviationMicrosecondsPerInvocation="9059"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="112" invocations="15" avgMicrosecondsPerInvocation="7516" maxMicrosecondsPerInvocation="27815" standardDeviationMicrosecondsPerInvocation="7283"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="98" invocations="92" avgMicrosecondsPerInvocation="1068" maxMicrosecondsPerInvocation="17584" standardDeviationMicrosecondsPerInvocation="2767"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="84" invocations="92" avgMicrosecondsPerInvocation="919" maxMicrosecondsPerInvocation="22284" standardDeviationMicrosecondsPerInvocation="2755"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="81" invocations="92" avgMicrosecondsPerInvocation="885" maxMicrosecondsPerInvocation="10251" standardDeviationMicrosecondsPerInvocation="1669"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="69" invocations="15" avgMicrosecondsPerInvocation="4642" maxMicrosecondsPerInvocation="12598" standardDeviationMicrosecondsPerInvocation="4370"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="64" invocations="1" avgMicrosecondsPerInvocation="64501" maxMicrosecondsPerInvocation="64501" standardDeviationMicrosecondsPerInvocation="0"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="62" invocations="1" avgMicrosecondsPerInvocation="62940" maxMicrosecondsPerInvocation="62940" standardDeviationMicrosecondsPerInvocation="0"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="60" invocations="92" avgMicrosecondsPerInvocation="660" maxMicrosecondsPerInvocation="50628" standardDeviationMicrosecondsPerInvocation="5331"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="58" invocations="358" avgMicrosecondsPerInvocation="163" maxMicrosecondsPerInvocation="7018" standardDeviationMicrosecondsPerInvocation="586"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="57" invocations="14" avgMicrosecondsPerInvocation="4126" maxMicrosecondsPerInvocation="25423" standardDeviationMicrosecondsPerInvocation="6503"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="52" invocations="92" avgMicrosecondsPerInvocation="569" maxMicrosecondsPerInvocation="7850" standardDeviationMicrosecondsPerInvocation="1337"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="48" invocations="92" avgMicrosecondsPerInvocation="523" maxMicrosecondsPerInvocation="9189" standardDeviationMicrosecondsPerInvocation="1563"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="47" invocations="427" avgMicrosecondsPerInvocation="110" maxMicrosecondsPerInvocation="5718" standardDeviationMicrosecondsPerInvocation="372"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="47" invocations="1" avgMicrosecondsPerInvocation="47196" maxMicrosecondsPerInvocation="47196" standardDeviationMicrosecondsPerInvocation="0"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="46" invocations="15" avgMicrosecondsPerInvocation="3125" maxMicrosecondsPerInvocation="15279" standardDeviationMicrosecondsPerInvocation="4712"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="42" invocations="15" avgMicrosecondsPerInvocation="2830" maxMicrosecondsPerInvocation="13940" standardDeviationMicrosecondsPerInvocation="3717"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="39" invocations="15" avgMicrosecondsPerInvocation="2658" maxMicrosecondsPerInvocation="8056" standardDeviationMicrosecondsPerInvocation="2473"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="39" invocations="1" avgMicrosecondsPerInvocation="39697" maxMicrosecondsPerInvocation="39697" standardDeviationMicrosecondsPerInvocation="0"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="31" invocations="1" avgMicrosecondsPerInvocation="31690" maxMicrosecondsPerInvocation="31690" standardDeviationMicrosecondsPerInvocation="0"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="30" invocations="92" avgMicrosecondsPerInvocation="330" maxMicrosecondsPerInvocation="5548" standardDeviationMicrosecondsPerInvocation="741"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

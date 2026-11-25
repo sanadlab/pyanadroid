@@ -1,0 +1,9 @@
+// Bad: The Integer is boxed and toString() is called needlessly.
+val requestId = 12345
+logger.info("Request ID is {}", requestId.toString())
+
+----
+
+val requestId = 12345
+// Good: Pass the object directly. The logging framework handles the conversion efficiently.
+logger.info("Request ID is {}", requestId)

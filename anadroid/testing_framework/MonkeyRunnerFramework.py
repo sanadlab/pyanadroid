@@ -8,6 +8,7 @@ from anadroid.testing_framework.work.MonkeyRunnerWorkUnit import MonkeyRunnerWor
 from anadroid.testing_framework.work.RERANWorkUnit import RERANWorkUnit
 from anadroid.testing_framework.work.WorkLoad import WorkLoad
 from anadroid.testing_framework.work.WorkUnit import WorkUnit
+from anadroid.utils.Utils import logi
 from anadroid.utils.Utils import mega_find, execute_shell_command, get_resources_dir, loge, logw, logs
 
 RES_DIR = get_resources_dir()
@@ -41,10 +42,10 @@ class MonkeyRunnerFramework(AbstractTestingFramework):
 
     def load_tests_of_app(self, monkeyrunner_tests_dir=TESTS_DIR):
         test_dir = TESTS_DIR if monkeyrunner_tests_dir is None else monkeyrunner_tests_dir
-        print(f"looking for tests in {test_dir}")
+        logi(f"Looking for tests in {test_dir}")
         test_files = mega_find(test_dir, pattern="*.py", type_file='f')
         self.workload = WorkLoad()
-        print("loading %d tests" % len(test_files))
+        logi(f"Loading {len(test_files)} tests")
         for test_file in test_files:
             wk = MonkeyRunnerWorkUnit(MONKEY_RUNNER_BIN_NAME)
             wk.config(test_file)

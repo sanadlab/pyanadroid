@@ -1,0 +1,17 @@
+public String formatList(List<String> items) {
+    String result = "";
+    for (String item : items) {
+        result += item + ", ";
+    }
+    return result;
+}
+
+----
+
+public String formatList(List<String> items) {
+    StringBuilder sb = new StringBuilder();
+    for (String item : items) {
+        sb.append(item).append(", ");
+    }
+    return sb.toString();
+}

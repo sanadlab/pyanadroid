@@ -1,0 +1,150 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:02.637+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Notable/notableLibrary/src/main/java/com/icechen1/notable/library/DeskClockExtension.java",
+      "violations": [
+        {
+          "beginline": 34,
+          "begincolumn": 14,
+          "endline": 34,
+          "endcolumn": 33,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 49,
+          "begincolumn": 13,
+          "endline": 49,
+          "endcolumn": 15,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Notable/notableLibrary/src/main/java/com/icechen1/notable/library/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 83,
+          "begincolumn": 21,
+          "endline": 83,
+          "endcolumn": 29,
+          "description": "Avoid using redundant field initializer for \u0027useAlarm\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Notable/notableLibrary/src/main/java/com/icechen1/notable/library/NotificationService.java",
+      "violations": [
+        {
+          "beginline": 191,
+          "begincolumn": 40,
+          "endline": 191,
+          "endcolumn": 80,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Notable/notableLibrary/src/main/java/com/icechen1/notable/library/PreferencesActivity.java",
+      "violations": [
+        {
+          "beginline": 49,
+          "begincolumn": 9,
+          "endline": 58,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Notable/notableLibrary/src/main/java/com/icechen1/notable/library/utils/NotificationBuilder.java",
+      "violations": [
+        {
+          "beginline": 134,
+          "begincolumn": 5,
+          "endline": 134,
+          "endcolumn": 15,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 141,
+          "begincolumn": 5,
+          "endline": 141,
+          "endcolumn": 15,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 246,
+          "begincolumn": 17,
+          "endline": 246,
+          "endcolumn": 57,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Notable/notableLibrary/src/main/java/com/icechen1/notable/library/utils/NotificationDataSource.java",
+      "violations": [
+        {
+          "beginline": 51,
+          "begincolumn": 40,
+          "endline": 51,
+          "endcolumn": 80,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        },
+        {
+          "beginline": 70,
+          "begincolumn": 38,
+          "endline": 70,
+          "endcolumn": 78,
+          "description": "A Calendar is used to get the current time, this is expensive.",
+          "rule": "AvoidCalendarDateCreation",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidcalendardatecreation"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

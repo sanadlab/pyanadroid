@@ -1,0 +1,13 @@
+// Bad: hasAdminAccess() might involve a database or network call.
+// It will be executed even for null users, which is wasteful and could cause an error.
+if (user.hasAdminAccess() && user != null) {
+    // ...
+}
+
+------
+
+// Good: The cheap null check happens first. If 'user' is null,
+// the expensive hasAdminAccess() call is never made due to short-circuiting.
+if (user != null && user.hasAdminAccess()) {
+    // ...
+}

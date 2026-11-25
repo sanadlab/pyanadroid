@@ -1,0 +1,27 @@
+public class RequestHandler {
+    // Bad: Every RequestHandler instance creates a new ThreadLocal. If many handlers are
+    // created and used by a long-lived thread, the thread's internal map will grow
+    // and leak memory, as it holds references tied to the garbage-collected handlers.
+    private final ThreadLocal<String> transactionId = new ThreadLocal<>();
+
+    public void handle() {
+        transactionId.set(generateId());
+        // ...
+        transactionId.remove();
+    }
+}
+
+----
+
+
+public class RequestHandler {
+    // Good: The static ThreadLocal is shared by all instances. Each thread still gets
+    // its own value, but there is only one ThreadLocal object, preventing the leak.
+    private static final ThreadLocal<String> TRANSACTION_ID = new ThreadLocal<>();
+
+    public void handle() {
+        TRANSACTION_ID.set(generateId());
+        // ...
+        TRANSACTION_ID.remove();
+    }
+}

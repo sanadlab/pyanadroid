@@ -1,0 +1,12 @@
+// Bad: Creates an intermediate list of admin names, then finds the first one.
+val firstAdmin = users.filter { it.isAdmin }
+                      .map { it.name }
+                      .first()
+
+-----
+
+// Good: The sequence will stop processing the moment the first admin is found and mapped.
+val firstAdmin = users.asSequence()
+                      .filter { it.isAdmin }
+                      .map { it.name }
+                      .first()

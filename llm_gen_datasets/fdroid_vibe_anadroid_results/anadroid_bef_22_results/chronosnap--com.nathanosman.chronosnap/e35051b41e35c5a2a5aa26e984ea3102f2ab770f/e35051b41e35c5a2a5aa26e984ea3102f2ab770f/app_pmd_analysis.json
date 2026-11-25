@@ -1,0 +1,135 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:46:31.656+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/chronosnap/app/src/main/java/com/nathanosman/chronosnap/preference/CameraPreference.java",
+      "violations": [
+        {
+          "beginline": 41,
+          "begincolumn": 44,
+          "endline": 41,
+          "endcolumn": 67,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 61,
+          "begincolumn": 20,
+          "endline": 61,
+          "endcolumn": 69,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 62,
+          "begincolumn": 24,
+          "endline": 62,
+          "endcolumn": 81,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/chronosnap/app/src/main/java/com/nathanosman/chronosnap/service/CaptureService.java",
+      "violations": [
+        {
+          "beginline": 93,
+          "begincolumn": 21,
+          "endline": 93,
+          "endcolumn": 39,
+          "description": "Avoid using redundant field initializer for \u0027mCaptureInProgress\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 94,
+          "begincolumn": 21,
+          "endline": 94,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027mPendingShutdown\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 233,
+          "begincolumn": 35,
+          "endline": 233,
+          "endcolumn": 57,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 233,
+          "begincolumn": 68,
+          "endline": 233,
+          "endcolumn": 95,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 246,
+          "begincolumn": 37,
+          "endline": 246,
+          "endcolumn": 59,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        },
+        {
+          "beginline": 371,
+          "begincolumn": 36,
+          "endline": 371,
+          "endcolumn": 67,
+          "description": "No need to call String.valueOf to append to a string.",
+          "rule": "UselessStringValueOf",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#uselessstringvalueof"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/chronosnap/app/src/main/java/com/nathanosman/chronosnap/service/ImageCapturer.java",
+      "violations": [
+        {
+          "beginline": 206,
+          "begincolumn": 53,
+          "endline": 206,
+          "endcolumn": 69,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

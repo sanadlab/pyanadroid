@@ -1,0 +1,924 @@
+#0
+app/src/main/java/com/holokenmod/GridCell.java:162: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.toString()` reads without synchronization from `this.mUserValue`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  160.     
+  161.     public String toString() {
+  162. >     String str = "<cell:" + this.mCellNumber + " col:" + this.mColumn +
+  163.                     " row:" + this.mRow + " posX:" + this.mPosX + " posY:" +
+  164.                     this.mPosY + " val:" + this.mValue + ", userval: " + this.mUserValue + ">";
+
+#1
+app/src/main/java/com/holokenmod/GridCell.java:215: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.toggleUserValue()` indirectly reads without synchronization from `this.mUserValue`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  213.     
+  214.     public void toggleUserValue(){
+  215. >       int x = getUserValue();
+  216.         clearUserValue();
+  217.         togglePossible(x);
+
+#2
+app/src/main/java/com/holokenmod/GridCell.java:221: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.getUserValue()` reads without synchronization from `this.mUserValue`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  219.     
+  220.     public int getUserValue() {
+  221. >       return mUserValue;
+  222.     }
+  223.   
+
+#3
+app/src/main/java/com/holokenmod/GridCell.java:225: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.isUserValueSet()` reads without synchronization from `this.mUserValue`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  223.   
+  224.     public boolean isUserValueSet() {
+  225. >       return mUserValue != 0;
+  226.     }
+  227.   
+
+#4
+app/src/main/java/com/holokenmod/GridCell.java:239: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.isUserValueCorrect()` reads without synchronization from `this.mUserValue`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  237.   
+  238.     public boolean isUserValueCorrect()  {
+  239. >       return mUserValue == mValue;
+  240.     }
+  241.   
+
+#5
+app/src/main/java/com/holokenmod/GridCell.java:257: warning: Thread Safety Violation
+  Unprotected write. Non-private method `GridCell.setInvalidHighlight(...)` writes to field `this.mInvalidHighlight` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  255.     
+  256.     public void setInvalidHighlight(boolean value) {
+  257. >       this.mInvalidHighlight = value;
+  258.     }
+  259.     public boolean getInvalidHighlight() {
+
+#6
+app/src/main/java/com/holokenmod/GridCell.java:260: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.getInvalidHighlight()` reads without synchronization from `this.mInvalidHighlight`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  258.     }
+  259.     public boolean getInvalidHighlight() {
+  260. >       return this.mInvalidHighlight;
+  261.     }
+  262.     
+
+#7
+app/src/main/java/com/holokenmod/GridCell.java:288: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.onDraw(...)` indirectly reads without synchronization from `this.mUserValue`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  286.   
+  287.       if (!onlyBorders) {
+  288. >         if (this.isUserValueSet())
+  289.               canvas.drawRect(west+1, north+1, east-1, south-1, this.mUserSetPaint);
+  290.           if (this.mLastModified)
+
+#8
+app/src/main/java/com/holokenmod/GridCell.java:294: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridCell.onDraw(...)` reads without synchronization from `this.mInvalidHighlight`, which races with the write in method `GridCell.clearUserValue()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  292.           if (this.mCheated)
+  293.               canvas.drawRect(west+1, north+1, east-1, south-1, this.mCheatedPaint);
+  294. >         if ((this.mShowWarning && this.mContext.mDupedigits) || this.mInvalidHighlight)
+  295.               canvas.drawRect(west+1, north+1, east-1, south-1, this.mWarningPaint);
+  296.           if (this.mSelected)
+
+#9
+app/src/main/java/com/holokenmod/GridView.java:116: warning: Thread Safety Violation
+  Unprotected write. Non-private method `GridView.initGridView()` writes to field `this.mActive` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  114.       this.mCurrentWidth = 0;
+  115.       this.mGridSize = 0;
+  116. >     this.mActive = false;
+  117.       this.setOnTouchListener(this);
+  118.       
+
+#10
+app/src/main/java/com/holokenmod/GridView.java:139: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.setTheme(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  137.   
+  138.   
+  139. >       if (this.mCells != null)
+  140.             for (GridCell cell : this.mCells)
+  141.                 cell.setTheme(theme);
+
+#11
+app/src/main/java/com/holokenmod/GridView.java:178: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.CageIdAt(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  176.         if (row < 0 || row >= mGridSize || column < 0 || column >= mGridSize)
+  177.             return -1;
+  178. >       return this.mCells.get(column + row*this.mGridSize).mCageId;
+  179.     }
+  180.     
+
+#12
+app/src/main/java/com/holokenmod/GridView.java:189: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.CreateSingleCages(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  187.           GridCell cell;
+  188.           while (true) {
+  189. >             cell = mCells.get(mRandom.nextInt(mGridSize * mGridSize));
+  190.               if (!RowUsed[cell.mRow] && !ColUsed[cell.mColumn] && !ValUsed[cell.mValue-1])
+  191.                   break;
+
+#13
+app/src/main/java/com/holokenmod/GridView.java:200: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.CreateSingleCages(...)` reads without synchronization from `this.mCages`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  198.           cage.setArithmetic(operationSet);
+  199.           cage.setCageId(i);
+  200. >         this.mCages.add(cage);
+  201.       }
+  202.       return singles;
+
+#14
+app/src/main/java/com/holokenmod/GridView.java:215: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.CreateCages()` indirectly reads without synchronization from `this.mCages`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  213.             int operationSet = prefs.getInt("mathmodes", 0);
+  214.               
+  215. >           int cageId = CreateSingleCages(operationSet);
+  216.             for (int cellNum = 0 ; cellNum < this.mCells.size() ; cellNum++) {
+  217.                 GridCell cell = this.mCells.get(cellNum);
+
+#15
+app/src/main/java/com/holokenmod/GridView.java:223: warning: Thread Safety Violation
+  Unprotected write. Non-private method `GridView.CreateCages()` indirectly writes to field `this.mCages` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  221.                 ArrayList<Integer> possible_cages = getvalidCages(cell);
+  222.                 if (possible_cages.size() == 1) {    // Only possible cage is a single
+  223. >                   ClearAllCages();
+  224.                     restart=true;
+  225.                     break;
+
+#16
+app/src/main/java/com/holokenmod/GridView.java:243: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.CreateCages()` reads without synchronization from container `this.mCages` via call to `ArrayList.iterator()`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  241.             }
+  242.         } while (restart);
+  243. >       for (GridCage cage : this.mCages)
+  244.             cage.setBorders();
+  245.         setCageText();
+
+#17
+app/src/main/java/com/holokenmod/GridView.java:262: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.getvalidCages(...)` indirectly reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  260.                 int col = origin.mColumn + cage_coords[coord_num][0];
+  261.                 int row = origin.mRow + cage_coords[coord_num][1];
+  262. >               GridCell c = getCellAt(row, col);
+  263.                 if (c == null || c.CellInAnyCage()) {
+  264.                     InvalidCages[cage_num] = true;
+
+#18
+app/src/main/java/com/holokenmod/GridView.java:279: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.setCageText()` reads without synchronization from `this.mCages`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  277.     
+  278.     public void setCageText() {
+  279. >       for (GridCage cage : this.mCages) {
+  280.             if (this.mShowOperators)
+  281.                 cage.mCells.get(0).mCageText = cage.mResult + cage.mActionStr;
+
+#19
+app/src/main/java/com/holokenmod/GridView.java:288: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.ClearAllCages()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  286.     
+  287.     public void ClearAllCages() {
+  288. >       for (GridCell cell : this.mCells) {
+  289.             cell.mCageId = -1;
+  290.             cell.mCageText = "";
+
+#20
+app/src/main/java/com/holokenmod/GridView.java:292: warning: Thread Safety Violation
+  Unprotected write. Non-private method `GridView.ClearAllCages()` writes to field `this.mCages` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  290.             cell.mCageText = "";
+  291.         }
+  292. >       this.mCages = new ArrayList<GridCage>();
+  293.     }
+  294.     
+
+#21
+app/src/main/java/com/holokenmod/GridView.java:296: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.clearUserValues()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  294.     
+  295.     public void clearUserValues() {
+  296. >       for (GridCell cell : this.mCells) {
+  297.             cell.clearUserValue();
+  298.             cell.mCheated = false;
+
+#22
+app/src/main/java/com/holokenmod/GridView.java:302: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.clearUserValues()` reads without synchronization from `this.mCages`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  300.         if (this.mSelectedCell != null) {
+  301.             this.mSelectedCell.mSelected = false;
+  302. >           this.mCages.get(this.mSelectedCell.mCageId).mSelected = false;
+  303.         }
+  304.         this.invalidate();
+
+#23
+app/src/main/java/com/holokenmod/GridView.java:308: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.clearLastModified()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  306.     
+  307.     public void clearLastModified() {
+  308. >       for (GridCell cell : this.mCells)
+  309.             cell.mLastModified = false;
+  310.         this.invalidate();
+
+#24
+app/src/main/java/com/holokenmod/GridView.java:320: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.getCellAt(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  318.             return null;
+  319.         
+  320. >       return this.mCells.get(column + row*this.mGridSize);
+  321.     }
+  322.     
+
+#25
+app/src/main/java/com/holokenmod/GridView.java:337: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.randomiseGrid()` reads without synchronization from `this.mRandom`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  335.           int column;
+  336.           while (true) {
+  337. >           column = this.mRandom.nextInt(this.mGridSize);
+  338.             cell = getCellAt(row, column);
+  339.             if (--attempts == 0)
+
+#26
+app/src/main/java/com/holokenmod/GridView.java:338: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.randomiseGrid()` indirectly reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  336.           while (true) {
+  337.             column = this.mRandom.nextInt(this.mGridSize);
+  338. >           cell = getCellAt(row, column);
+  339.             if (--attempts == 0)
+  340.               break;
+
+#27
+app/src/main/java/com/holokenmod/GridView.java:358: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.clearValue(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  356.     /* Clear any cells containing the given number. */
+  357.     public void clearValue(int value) {
+  358. >     for (GridCell cell : this.mCells)
+  359.         if (cell.mValue == value)
+  360.           cell.mValue = 0;
+
+#28
+app/src/main/java/com/holokenmod/GridView.java:365: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.valueInRow(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  363.     /* Determine if the given value is in the given row */
+  364.     public boolean valueInRow(int row, int value) {
+  365. >     for (GridCell cell : this.mCells)
+  366.         if (cell.mRow == row && cell.mValue == value)
+  367.           return true;
+
+#29
+app/src/main/java/com/holokenmod/GridView.java:374: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.valueInColumn(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  372.     public boolean valueInColumn(int column, int value) {
+  373.           for (int row=0; row< mGridSize; row++)
+  374. >             if (this.mCells.get(column+row*mGridSize).mValue == value)
+  375.                   return true;
+  376.           return false;
+
+#30
+app/src/main/java/com/holokenmod/GridView.java:481: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTouch(...)` reads with synchronization from `this.mActive`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  479.         if (event.getAction() != MotionEvent.ACTION_DOWN)
+  480.             return false;
+  481. >       if (!this.mActive)
+  482.             return false;
+  483.   
+
+#31
+app/src/main/java/com/holokenmod/GridView.java:498: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTouch(...)` indirectly reads with synchronization from `this.mCells`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  496.       
+  497.       // We can now get the cell.
+  498. >     GridCell cell = getCellAt(row, col);
+  499.       //if (this.mSelectedCell != cell)
+  500.       //    this.playSoundEffect(SoundEffectConstants.CLICK);
+
+#32
+app/src/main/java/com/holokenmod/GridView.java:509: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTouch(...)` reads with synchronization from `this.mCages`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  507.       for (GridCell c : this.mCells) {
+  508.           c.mSelected = false;
+  509. >         this.mCages.get(c.mCageId).mSelected = false;
+  510.       }
+  511.       if (this.mTouchedListener != null) {
+
+#33
+app/src/main/java/com/holokenmod/GridView.java:523: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTrackballEvent(...)` reads with synchronization from `this.mActive`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  521.     // select a cell.
+  522.     public boolean onTrackballEvent(MotionEvent event) {
+  523. >     if (!this.mActive || this.mSelectorShown)
+  524.           return false;
+  525.       // On press event, take selected cell, call touched listener
+
+#34
+app/src/main/java/com/holokenmod/GridView.java:552: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTrackballEvent(...)` reads with synchronization from `this.mTrackPosX`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  550.       float x = event.getX();
+  551.       float y = event.getY();
+  552. >     this.mTrackPosX += x*trackMult;
+  553.       this.mTrackPosY += y*trackMult;
+  554.       GridCell cell = this.CoordToCell(this.mTrackPosX, this.mTrackPosY);
+
+#35
+app/src/main/java/com/holokenmod/GridView.java:553: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTrackballEvent(...)` reads with synchronization from `this.mTrackPosY`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  551.       float y = event.getY();
+  552.       this.mTrackPosX += x*trackMult;
+  553. >     this.mTrackPosY += y*trackMult;
+  554.       GridCell cell = this.CoordToCell(this.mTrackPosX, this.mTrackPosY);
+  555.       if (cell == null) {
+
+#36
+app/src/main/java/com/holokenmod/GridView.java:554: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTrackballEvent(...)` indirectly reads with synchronization from `this.mCells`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  552.       this.mTrackPosX += x*trackMult;
+  553.       this.mTrackPosY += y*trackMult;
+  554. >     GridCell cell = this.CoordToCell(this.mTrackPosX, this.mTrackPosY);
+  555.       if (cell == null) {
+  556.           this.mTrackPosX -= x*trackMult;
+
+#37
+app/src/main/java/com/holokenmod/GridView.java:568: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.onTrackballEvent(...)` reads with synchronization from `this.mCages`, which races with the unsynchronized write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  566.       for (GridCell c : this.mCells) {
+  567.           c.mSelected = false;
+  568. >         this.mCages.get(c.mCageId).mSelected = false;
+  569.       }
+  570.       this.mSelectedCell = cell;
+
+#38
+app/src/main/java/com/holokenmod/GridView.java:581: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.getNumValueInRow(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  579.     public int getNumValueInRow(GridCell ocell) {
+  580.         int count = 0;
+  581. >       for (GridCell cell : this.mCells)
+  582.             if (cell.mRow == ocell.mRow && 
+  583.                       cell.getUserValue() == ocell.getUserValue())
+
+#39
+app/src/main/java/com/holokenmod/GridView.java:591: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.getNumValueInCol(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  589.         int count = 0;
+  590.   
+  591. >       for (GridCell cell : this.mCells)
+  592.             if (cell.mColumn == ocell.mColumn && 
+  593.                     cell.getUserValue() == ocell.getUserValue())
+
+#40
+app/src/main/java/com/holokenmod/GridView.java:602: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.getPossiblesInRowCol(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  600.         ArrayList<GridCell> possiblesRowCol = new ArrayList<GridCell>();
+  601.         int userValue = ocell.getUserValue();
+  602. >       for (GridCell cell : this.mCells)
+  603.       	  if (cell.isPossible(userValue))
+  604.       		  if (cell.mRow == ocell.mRow || cell.mColumn == ocell.mColumn)
+
+#41
+app/src/main/java/com/holokenmod/GridView.java:612: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.getSinglePossibles()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  610.     public ArrayList<GridCell> getSinglePossibles() {
+  611.         ArrayList<GridCell> singlePossibles = new ArrayList<GridCell>();
+  612. >       for (GridCell cell : this.mCells)
+  613.             if (cell.mPossibles.size() == 1)
+  614.                 singlePossibles.add(cell);
+
+#42
+app/src/main/java/com/holokenmod/GridView.java:621: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.Solve(...)` reads without synchronization from `this.mCages`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  619.     public void Solve(boolean solveGrid, boolean markCheated) {
+  620.         if (this.mSelectedCell != null) {
+  621. >     	  ArrayList<GridCell> solvecell = this.mCages.get(
+  622.       			  this.mSelectedCell.mCageId).mCells;
+  623.             if (solveGrid)
+
+#43
+app/src/main/java/com/holokenmod/GridView.java:624: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.Solve(...)` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  622.       			  this.mSelectedCell.mCageId).mCells;
+  623.             if (solveGrid)
+  624. >               solvecell = this.mCells;
+  625.                       
+  626.             for (GridCell cell : solvecell) {
+
+#44
+app/src/main/java/com/holokenmod/GridView.java:641: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.isSolved()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  639.     // Returns whether the puzzle is solved.
+  640.     public boolean isSolved() {
+  641. >       for (GridCell cell : this.mCells)
+  642.             if (!cell.isUserValueCorrect())
+  643.                 return false;
+
+#45
+app/src/main/java/com/holokenmod/GridView.java:650: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.countCheated()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  648.     public int countCheated() {
+  649.         int counter = 0;
+  650. >       for (GridCell cell : this.mCells)
+  651.             if (cell.mCheated)
+  652.                 counter++;
+
+#46
+app/src/main/java/com/holokenmod/GridView.java:659: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.countMistakes()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  657.     public int[] countMistakes() {
+  658.         int counter[] = {0,0};
+  659. >       for (GridCell cell : this.mCells) {
+  660.             if (cell.isUserValueSet()) {
+  661.                 counter[1]++;
+
+#47
+app/src/main/java/com/holokenmod/GridView.java:672: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.markInvalidChoices()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  670.     public void markInvalidChoices() {
+  671.         boolean isValid = true;
+  672. >       for (GridCell cell : this.mCells)
+  673.             if (cell.isUserValueSet() && cell.getUserValue() != cell.mValue) {
+  674.                 cell.setInvalidHighlight(true);
+
+#48
+app/src/main/java/com/holokenmod/GridView.java:687: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.invalidsHighlighted()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  685.     {
+  686.         ArrayList<GridCell> invalids = new ArrayList<GridCell>();
+  687. >       for (GridCell cell : this.mCells)
+  688.             if (cell.getInvalidHighlight())
+  689.                 invalids.add(cell);
+
+#49
+app/src/main/java/com/holokenmod/GridView.java:698: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GridView.cheatedHighlighted()` reads without synchronization from `this.mCells`, which races with the write in method `GridView.reCreate()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  696.     {
+  697.         ArrayList<GridCell> cheats = new ArrayList<GridCell>();
+  698. >       for (GridCell cell : this.mCells)
+  699.             if (cell.getCheatedHighlight())
+  700.                cheats.add(cell);
+
+#50
+app/src/main/java/com/holokenmod/MainActivity.java:289: error: Strict Mode Violation
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  287.           else {
+  288.               SaveGame saver = new SaveGame(this);
+  289. >             restoreSaveGame(saver);
+  290.           }
+  291.   
+
+#51
+app/src/main/java/com/holokenmod/MainActivity.java:302: error: Strict Mode Violation
+  `void MainActivity.onActivityResult(int,int,Intent)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  300.           Log.d("HoloKen", "Loading game: " + filename);
+  301.           SaveGame saver = new SaveGame(filename);
+  302. >         restoreSaveGame(saver);
+  303.       }
+  304.       
+
+#52
+app/src/main/java/com/holokenmod/MainActivity.java:307: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.onPause()` reads with synchronization from `this.starttime`, which races with the unsynchronized write in method `MainActivity.startFreshGrid(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  305.       public void onPause() {
+  306.           if (this.kenKenGrid.mGridSize > 3) {
+  307. >             this.kenKenGrid.mPlayTime = System.currentTimeMillis() - starttime;
+  308.               mTimerHandler.removeCallbacks(playTimer);
+  309.               // NB: saving solved games messes up the timer?
+
+#53
+app/src/main/java/com/holokenmod/MainActivity.java:328: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.onResume()` reads with synchronization from `this.kenKenGrid.mPlayTime`, which races with the unsynchronized write in method `MainActivity.startFreshGrid(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  326.               this.kenKenGrid.requestFocus();
+  327.               this.kenKenGrid.invalidate();
+  328. >             starttime = System.currentTimeMillis() - this.kenKenGrid.mPlayTime;
+  329.               mTimerHandler.postDelayed(playTimer, 0);
+  330.           }
+
+#54
+app/src/main/java/com/holokenmod/MainActivity.java:354: error: Strict Mode Violation
+  `boolean MainActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may violate Strict Mode; calls `boolean File.mkdir()`. Additional report(s) on the same line were suppressed. 
+  352.                    break;
+  353.                case R.id.menu_share:
+  354. >                  getScreenShot();
+  355.                    break;
+  356.                case R.id.menu_stats:
+
+#55
+app/src/main/java/com/holokenmod/MainActivity.java:393: error: Strict Mode Violation
+  `boolean MainActivity.onContextItemSelected(MenuItem)` runs on UI thread and may violate Strict Mode; calls `boolean File.mkdir()`. Additional report(s) on the same line were suppressed. 
+  391.                       break;
+  392.                   case R.id.menu_share:
+  393. >                     getScreenShot();
+  394.                       break;
+  395.                   case R.id.menu_stats:
+
+#56
+app/src/main/java/com/holokenmod/MainActivity.java:479: warning: Thread Safety Violation
+  Unprotected write. Non-private method `MainActivity.loadPreferences()` indirectly writes to field `this.kenKenGrid.mBackgroundColor` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  477.           
+  478.           this.topLayout.setBackgroundColor(BG_COLOURS[theme]);
+  479. >         this.kenKenGrid.setTheme(theme);
+  480.           
+  481.           this.topLayout.setBackgroundColor(BG_COLOURS[theme]);
+
+#57
+app/src/main/java/com/holokenmod/MainActivity.java:541: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.clearSelectedButton()` reads without synchronization from `this.lastnum`, which races with the write in method `MainActivity.startFreshGrid(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  539.       
+  540.       public void clearSelectedButton() {
+  541. >         if (lastnum != 0)
+  542.               numbers[lastnum-1].setSelected(false);
+  543.           lastnum = 0;
+
+#58
+app/src/main/java/com/holokenmod/MainActivity.java:543: warning: Thread Safety Violation
+  Unprotected write. Non-private method `MainActivity.clearSelectedButton()` writes to field `this.lastnum` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  541.           if (lastnum != 0)
+  542.               numbers[lastnum-1].setSelected(false);
+  543. >         lastnum = 0;
+  544.       }
+  545.       
+
+#59
+app/src/main/java/com/holokenmod/MainActivity.java:549: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` indirectly reads with synchronization from `this.numbers.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  547.       public synchronized void  startFreshGrid(boolean newGame) {
+  548.           undoList.clear();
+  549. >         clearSelectedButton();
+  550.           
+  551.           this.topLayout.setBackgroundColor(BG_COLOURS[theme]);
+
+#60
+app/src/main/java/com/holokenmod/MainActivity.java:551: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` reads with synchronization from `this.topLayout`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  549.           clearSelectedButton();
+  550.           
+  551. >         this.topLayout.setBackgroundColor(BG_COLOURS[theme]);
+  552.           this.kenKenGrid.setTheme(theme);
+  553.           this.actions[1].setVisibility(View.VISIBLE);
+
+#61
+app/src/main/java/com/holokenmod/MainActivity.java:552: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` reads with synchronization from `holokenmod.MainActivity.theme`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  550.           
+  551.           this.topLayout.setBackgroundColor(BG_COLOURS[theme]);
+  552. >         this.kenKenGrid.setTheme(theme);
+  553.           this.actions[1].setVisibility(View.VISIBLE);
+  554.           this.actions[2].setVisibility(View.INVISIBLE);
+
+#62
+app/src/main/java/com/holokenmod/MainActivity.java:553: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` reads with synchronization from `this.actions.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  551.           this.topLayout.setBackgroundColor(BG_COLOURS[theme]);
+  552.           this.kenKenGrid.setTheme(theme);
+  553. >         this.actions[1].setVisibility(View.VISIBLE);
+  554.           this.actions[2].setVisibility(View.INVISIBLE);
+  555.           titleContainer.setBackgroundResource(R.drawable.menu_button);
+
+#63
+app/src/main/java/com/holokenmod/MainActivity.java:555: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` reads with synchronization from `this.titleContainer`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  553.           this.actions[1].setVisibility(View.VISIBLE);
+  554.           this.actions[2].setVisibility(View.INVISIBLE);
+  555. >         titleContainer.setBackgroundResource(R.drawable.menu_button);
+  556.           setButtonVisibility(kenKenGrid.mGridSize);
+  557.           
+
+#64
+app/src/main/java/com/holokenmod/MainActivity.java:556: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` indirectly reads with synchronization from `this.controlKeypad`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  554.           this.actions[2].setVisibility(View.INVISIBLE);
+  555.           titleContainer.setBackgroundResource(R.drawable.menu_button);
+  556. >         setButtonVisibility(kenKenGrid.mGridSize);
+  557.           
+  558.           if (newGame) {
+
+#65
+app/src/main/java/com/holokenmod/MainActivity.java:559: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` indirectly reads with synchronization from `this.kenKenGrid.mPlayTime`, which races with the unsynchronized write in method `MainActivity.onPause()`.
+ Reporting because this access may occur on a background thread. 
+  557.           
+  558.           if (newGame) {
+  559. >             storeStats(true);
+  560.               starttime = System.currentTimeMillis();
+  561.               mTimerHandler.postDelayed(playTimer, 0);
+
+#66
+app/src/main/java/com/holokenmod/MainActivity.java:563: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.startFreshGrid(...)` reads with synchronization from `this.preferences`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  561.               mTimerHandler.postDelayed(playTimer, 0);
+  562.               for (GridCell cell:this.kenKenGrid.mCells) {
+  563. >                     if(this.preferences.getBoolean("pencilatstart", true))
+  564.                           {
+  565.                               addAllPossibles(cell);
+
+#67
+app/src/main/java/com/holokenmod/MainActivity.java:580: warning: Thread Safety Violation
+  Unprotected write. Non-private method `MainActivity.restoreSaveGame(...)` indirectly writes to field `this.kenKenGrid.mPlayTime` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  578.   
+  579.       public void restoreSaveGame(SaveGame saver) {
+  580. >         if (saver.Restore(this.kenKenGrid)) {
+  581.               startFreshGrid(false);
+  582.               if(!this.kenKenGrid.isSolved())
+
+#68
+app/src/main/java/com/holokenmod/MainActivity.java:610: warning: Thread Safety Violation
+  Unprotected write. Non-private method `MainActivity.storeStats(...)` writes to field `this.kenKenGrid.mPlayTime` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  608.               long penalty = kenKenGrid.countCheated()*500*gridsize*gridsize;
+  609.               
+  610. >             kenKenGrid.mPlayTime += penalty;
+  611.               long solvetime = kenKenGrid.mPlayTime;
+  612.               String solveStr = Utils.convertTimetoStr(solvetime);
+
+#69
+app/src/main/java/com/holokenmod/MainActivity.java:657: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.enterNumber(...)` reads with synchronization from `this.kenKenGrid`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  655.       
+  656.       public synchronized void enterNumber (int number) {
+  657. >         GridCell selectedCell = this.kenKenGrid.mSelectedCell;
+  658.           if (!this.kenKenGrid.mActive)
+  659.               return;
+
+#70
+app/src/main/java/com/holokenmod/MainActivity.java:658: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.enterNumber(...)` reads with synchronization from `this.kenKenGrid.mActive`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  656.       public synchronized void enterNumber (int number) {
+  657.           GridCell selectedCell = this.kenKenGrid.mSelectedCell;
+  658. >         if (!this.kenKenGrid.mActive)
+  659.               return;
+  660.           if (selectedCell == null)
+
+#71
+app/src/main/java/com/holokenmod/MainActivity.java:662: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.enterNumber(...)` indirectly reads with synchronization from `this.kenKenGrid.mCells`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  660.           if (selectedCell == null)
+  661.               return;
+  662. >         kenKenGrid.clearLastModified();
+  663.   
+  664.           saveUndo(selectedCell, false);
+
+#72
+app/src/main/java/com/holokenmod/MainActivity.java:664: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.enterNumber(...)` indirectly reads with synchronization from `this.actions.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  662.           kenKenGrid.clearLastModified();
+  663.   
+  664. >         saveUndo(selectedCell, false);
+  665.           if (modes[PEN].isSelected()) {
+  666.               selectedCell.setUserValue(number);
+
+#73
+app/src/main/java/com/holokenmod/MainActivity.java:665: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.enterNumber(...)` reads with synchronization from `this.modes.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  663.   
+  664.           saveUndo(selectedCell, false);
+  665. >         if (modes[PEN].isSelected()) {
+  666.               selectedCell.setUserValue(number);
+  667.               if (rmpencil)
+
+#74
+app/src/main/java/com/holokenmod/MainActivity.java:667: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.enterNumber(...)` reads with synchronization from `holokenmod.MainActivity.rmpencil`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  665.           if (modes[PEN].isSelected()) {
+  666.               selectedCell.setUserValue(number);
+  667. >             if (rmpencil)
+  668.                   removePossibles(selectedCell);
+  669.           }
+
+#75
+app/src/main/java/com/holokenmod/MainActivity.java:715: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.modifyCell()` reads with synchronization from `this.kenKenGrid`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  713.       
+  714.       public synchronized void modifyCell() {
+  715. >         GridCell selectedCell = this.kenKenGrid.mSelectedCell;
+  716.           if (!this.kenKenGrid.mActive)
+  717.               return;
+
+#76
+app/src/main/java/com/holokenmod/MainActivity.java:716: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.modifyCell()` reads with synchronization from `this.kenKenGrid.mActive`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  714.       public synchronized void modifyCell() {
+  715.           GridCell selectedCell = this.kenKenGrid.mSelectedCell;
+  716. >         if (!this.kenKenGrid.mActive)
+  717.               return;
+  718.           if (selectedCell == null)
+
+#77
+app/src/main/java/com/holokenmod/MainActivity.java:722: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.modifyCell()` reads with synchronization from `this.modes.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  720.           //kenKenGrid.clearLastModified();
+  721.           
+  722. >         if (modes[ERASER].isSelected()) {
+  723.               selectedCell.setSelectedCellColor(modeColours[ERASER]); //green
+  724.               if (selectedCell.isUserValueSet() || selectedCell.mPossibles.size()>0) {
+
+#78
+app/src/main/java/com/holokenmod/MainActivity.java:725: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.modifyCell()` indirectly reads with synchronization from `this.kenKenGrid.mCells`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  723.               selectedCell.setSelectedCellColor(modeColours[ERASER]); //green
+  724.               if (selectedCell.isUserValueSet() || selectedCell.mPossibles.size()>0) {
+  725. >                 kenKenGrid.clearLastModified();
+  726.                   saveUndo(selectedCell, false);
+  727.                   selectedCell.clearUserValue();
+
+#79
+app/src/main/java/com/holokenmod/MainActivity.java:726: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.modifyCell()` indirectly reads with synchronization from `this.actions.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  724.               if (selectedCell.isUserValueSet() || selectedCell.mPossibles.size()>0) {
+  725.                   kenKenGrid.clearLastModified();
+  726. >                 saveUndo(selectedCell, false);
+  727.                   selectedCell.clearUserValue();
+  728.               }
+
+#80
+app/src/main/java/com/holokenmod/MainActivity.java:732: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.modifyCell()` indirectly reads with synchronization from `holokenmod.MainActivity.rmpencil`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  730.           else {   
+  731.               if (modes[INPUT].isSelected() && lastnum != 0)
+  732. >                 enterNumber(lastnum);
+  733.               if (modes[PEN].isSelected()) {
+  734.                   selectedCell.setSelectedCellColor(modeColours[PEN]);
+
+#81
+app/src/main/java/com/holokenmod/MainActivity.java:760: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.saveUndo(...)` reads with synchronization from `this.actions.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  758.                   cell.getUserValue(), cell.mPossibles, batch);
+  759.           undoList.add(undoState);
+  760. >         this.actions[2].setVisibility(View.VISIBLE);
+  761.       }
+  762.       
+
+#82
+app/src/main/java/com/holokenmod/MainActivity.java:766: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.restoreUndo()` reads with synchronization from `this.kenKenGrid`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  764.           if(!undoList.isEmpty()) {
+  765.               UndoState undoState = undoList.removeLast();
+  766. >             GridCell cell = kenKenGrid.mCells.get(undoState.getCellNum());
+  767.               cell.setUserValue(undoState.getUserValue());
+  768.               cell.mPossibles = undoState.getPossibles();
+
+#83
+app/src/main/java/com/holokenmod/MainActivity.java:774: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.restoreUndo()` reads with synchronization from `this.actions.[_]`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  772.           }
+  773.           if(undoList.isEmpty())
+  774. >             this.actions[2].setVisibility(View.INVISIBLE);
+  775.       }
+  776.       
+
+#84
+app/src/main/java/com/holokenmod/SaveGame.java:120: error: Null Dereference
+  `ins` could be null (null value originating from line 103) and is dereferenced. 
+  118.           finally {
+  119.                 try {
+  120. >                 ins.close();
+  121.                   br.close();
+  122.                 } catch (Exception e) {
+
+#85
+app/src/main/java/com/holokenmod/SaveGame.java:211: error: Null Dereference
+  `ins` could be null (null value originating from line 133) and is dereferenced. 
+  209.           finally {
+  210.             try {
+  211. >             ins.close();
+  212.               br.close();
+  213.               if (this.filename.getCanonicalPath().equals(getAutosave()))
+
+#86
+app/src/main/java/com/holokenmod/SaveGameListActivity.java:62: error: Strict Mode Violation
+  `void SaveGameListActivity.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `String[] File.list()`. 
+  60.   
+  61.           saveGameList.setEmptyView(empty);
+  62. >         this.mAdapter = new SaveGameListAdapter(this);
+  63.           saveGameList.setAdapter(this.mAdapter);
+  64.   
+
+#87
+app/src/main/java/com/holokenmod/SaveGameListActivity.java:68: error: Strict Mode Violation
+  `void SaveGameListActivity$1.onClick(View)` runs on UI thread and may violate Strict Mode; calls `String[] File.list()`. 
+  66.               public void onClick(View v) {
+  67.                   saveButton.setEnabled(false);
+  68. >                 currentSaveGame();
+  69.               }
+  70.           });
+
+#88
+app/src/main/java/com/holokenmod/SaveGameListActivity.java:115: error: Strict Mode Violation
+  `void SaveGameListActivity$3.onClick(DialogInterface,int)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. Additional report(s) on the same line were suppressed. 
+  113.           .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+  114.                   public void onClick(DialogInterface dialog, int whichButton) {
+  115. >                     SaveGameListActivity.this.deleteSaveGame(filename);
+  116.                   }
+  117.           })
+
+#89
+app/src/main/java/com/holokenmod/SaveGameListActivity.java:132: error: Strict Mode Violation
+  `void SaveGameListActivity$5.onClick(DialogInterface,int)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. Additional report(s) on the same line were suppressed. 
+  130.           .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+  131.                   public void onClick(DialogInterface dialog, int whichButton) {
+  132. >                     SaveGameListActivity.this.deleteAllSaveGames();
+  133.                   }
+  134.           })
+
+#90
+app/src/main/java/com/holokenmod/SaveGameListActivity.java:176: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 165 is not closed after the last access at line 176. 
+  174.           in.close();
+  175.           out.close();
+  176. >     }
+  177.   
+  178.   }
+
+#91
+app/src/main/java/com/holokenmod/SaveGameListActivity.java:176: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 166 is not closed after the last access at line 176. 
+  174.           in.close();
+  175.           out.close();
+  176. >     }
+  177.   
+  178.   }
+
+#92
+app/src/main/java/com/holokenmod/UndoList.java:5: warning: Thread Safety Violation
+  Unprotected write. Non-private method `UndoList.add(...)` mutates container `this` via call to `UndoList.add(...)` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  3.   import java.util.LinkedList;
+  4.   
+  5. > @SuppressWarnings("serial")
+  6.   public class UndoList extends LinkedList<UndoState> {
+  7.       private int maxSize;
+
+Found 93 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 81
+      Strict Mode Violation(STRICT_MODE_VIOLATION): 8
+                Resource Leak(PULSE_RESOURCE_LEAK): 2
+             Null Dereference(NULLPTR_DEREFERENCE): 2

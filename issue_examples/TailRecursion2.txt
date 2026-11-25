@@ -1,0 +1,13 @@
+
+fun countdown(n: Int) {
+    if (n < 0) return
+    println(n)
+    countdown(n - 1)
+}
+----
+
+tailrec fun countdown(n: Int) {
+    if (n < 0) return
+    println(n)
+    countdown(n - 1)
+}

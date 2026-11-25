@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/database/Database.kt">
+	<error line="397" column="14" severity="warning" message="The function query(installed: Boolean, updates: Boolean, searchQuery: String, section: ProductItem.Section, order: ProductItem.Order, signal: CancellationSignal?) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="397" column="9" severity="warning" message="The function query is too long (66). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="598" column="9" severity="warning" message="Function putTemporary is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="20" column="8" severity="warning" message="Object &apos;Database&apos; with &apos;12&apos; functions detected. Defined threshold inside objects is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="16" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="17" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="340" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="353" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="353" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="419" column="25" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/widget/DividerItemDecoration.kt">
+	<error line="42" column="19" severity="warning" message="The function draw(c: Canvas, configuration: ConfigurationHolder, view: View, top: Int, width: Int, rtl: Boolean) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="52" column="16" severity="warning" message="Function onDraw is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="9" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="10" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="47" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/entity/Product.kt">
+	<error line="65" column="7" severity="warning" message="The function serialize is too long (64). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="136" column="9" severity="warning" message="The function deserialize is too long (90). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="136" column="9" severity="warning" message="The function deserialize appears to be too complex based on Cyclomatic Complexity (complexity: 41). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="6" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="7" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/entity/Repository.kt">
+	<error line="20" column="13" severity="warning" message="The function update(mirrors: List&lt;String&gt;, name: String, description: String, version: Int, lastModified: String, entityTag: String, timestamp: Long) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="91" column="34" severity="warning" message="The function defaultRepository(address: String, name: String, description: String, version: Int, enabled: Boolean, fingerprint: String, authentication: String) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="85" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="85" column="16" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="5" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/entity/Release.kt">
+	<error line="81" column="9" severity="warning" message="The function deserialize is too long (74). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="81" column="9" severity="warning" message="The function deserialize appears to be too complex based on Cyclomatic Complexity (complexity: 33). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="7" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/entity/ProductItem.kt">
+	<error line="61" column="20" severity="warning" message="The function deserialize(repositoryId: Long, packageName: String, name: String, summary: String, installedVersion: String, compatible: Boolean, canUpdate: Boolean, matchRank: Int, parser: JsonParser) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="8" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/network/PicassoDownloader.kt">
+	<error line="100" column="28" severity="warning" message="The function createIconUri(context: Context, packageName: String, icon: String, metadataIcon: String, targetSizeDp: Int, repository: Repository) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="33" column="18" severity="warning" message="Function newCall is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="8" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="28" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="43" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="48" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="58" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="28" column="63" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="31" column="41" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="109" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="111" column="57" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/network/Downloader.kt">
+	<error line="69" column="15" severity="warning" message="The function download(url: String, target: File, lastModified: String, entityTag: String, authentication: String, callback: ((read: Long, total: Long?) -&gt; Unit)?) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="69" column="7" severity="warning" message="The function download appears to be too complex based on Cyclomatic Complexity (complexity: 20). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="21" column="83" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="35" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="36" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="37" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="43" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="43" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="46" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="89" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/content/Cache.kt">
+	<error line="46" column="7" severity="warning" message="Function getReleaseFile is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="77" column="15" severity="warning" message="Function cleanup is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="102" column="15" severity="warning" message="Function cleanupDir is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="18" column="8" severity="warning" message="Object &apos;Cache&apos; with &apos;11&apos; functions detected. Defined threshold inside objects is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="109" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="20" column="76" severity="warning" message="RuntimeException is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="34" column="37" severity="warning" message="RuntimeException is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="20" column="82" severity="warning" message="A call to the default constructor of an exception was detected. Instead one of the constructor overloads should be called. This allows to provide more meaningful exceptions." source="detekt.ThrowingExceptionsWithoutMessageOrCause" />
+	<error line="34" column="43" severity="warning" message="A call to the default constructor of an exception was detected. Instead one of the constructor overloads should be called. This allows to provide more meaningful exceptions." source="detekt.ThrowingExceptionsWithoutMessageOrCause" />
+	<error line="173" column="23" severity="warning" message="A call to the default constructor of an exception was detected. Instead one of the constructor overloads should be called. This allows to provide more meaningful exceptions." source="detekt.ThrowingExceptionsWithoutMessageOrCause" />
+	<error line="109" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="13" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="24" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="48" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="53" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="54" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="74" column="66" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="74" column="88" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="105" column="54" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="105" column="70" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="105" column="75" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/TabsFragment.kt">
+	<error line="113" column="16" severity="warning" message="The function onViewCreated is too long (153). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="113" column="16" severity="warning" message="The function onViewCreated appears to be too complex based on Cyclomatic Complexity (complexity: 19). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="49" column="7" severity="warning" message="Class &apos;TabsFragment&apos; with &apos;16&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="456" column="15" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="78" column="30" severity="warning" message="Using the forEach method on ranges has a heavy performance cost. Prefer using simple for loops." source="detekt.ForEachOnRange" />
+	<error line="371" column="6" severity="warning" message="Using the forEach method on ranges has a heavy performance cost. Prefer using simple for loops." source="detekt.ForEachOnRange" />
+	<error line="42" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="43" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="47" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="144" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="206" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="277" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="441" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="494" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="558" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="560" column="36" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="563" column="41" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="572" column="54" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="599" column="57" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/EditRepositoryFragment.kt">
+	<error line="92" column="16" severity="warning" message="The function onViewCreated is too long (106). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="92" column="16" severity="warning" message="The function onViewCreated appears to be too complex based on Cyclomatic Complexity (complexity: 23). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="380" column="15" severity="warning" message="The function onSaveRepositoryClick appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="92" column="16" severity="warning" message="Function onViewCreated is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="46" column="7" severity="warning" message="Class &apos;EditRepositoryFragment&apos; with &apos;14&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="176" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="197" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="356" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="363" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="176" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="356" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="363" column="16" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="36" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="37" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="44" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="124" column="62" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="153" column="56" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="193" column="61" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="217" column="72" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="220" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="296" column="80" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="406" column="41" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/MessageDialog.kt">
+	<error line="125" column="16" severity="warning" message="The function onCreateDialog is too long (106). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="125" column="16" severity="warning" message="The function onCreateDialog appears to be too complex based on Cyclomatic Complexity (complexity: 32). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="125" column="16" severity="warning" message="Function onCreateDialog is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="160" column="20" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="172" column="20" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="95" column="23" severity="warning" message="RuntimeException is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="95" column="29" severity="warning" message="A call to the default constructor of an exception was detected. Instead one of the constructor overloads should be called. This allows to provide more meaningful exceptions." source="detekt.ThrowingExceptionsWithoutMessageOrCause" />
+	<error line="160" column="20" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="172" column="20" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="15" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="16" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="76" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="94" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/ScreenshotsFragment.kt">
+	<error line="58" column="16" severity="warning" message="The function onCreateDialog is too long (78). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="29" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="30" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="66" column="72" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="66" column="95" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="68" column="43" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="68" column="66" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="84" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="102" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="107" column="77" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="177" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="177" column="62" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="178" column="57" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/ScreenActivity.kt">
+	<error line="25" column="16" severity="warning" message="Class &apos;ScreenActivity&apos; with &apos;20&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="21" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="22" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="23" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="233" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/ProductsAdapter.kt">
+	<error line="133" column="16" severity="warning" message="The function onBindViewHolder appears to be too complex based on Cyclomatic Complexity (complexity: 18). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="133" column="16" severity="warning" message="Function onBindViewHolder is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="20" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="21" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="63" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="66" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="81" column="69" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="156" column="36" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/PreferencesFragment.kt">
+	<error line="27" column="7" severity="warning" message="Class &apos;PreferencesFragment&apos; with &apos;12&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="25" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="75" column="82" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="124" column="52" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="133" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="136" column="26" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="165" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="169" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="170" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/ProductAdapter.kt">
+	<error line="846" column="16" severity="warning" message="The function onCreateViewHolder is too long (101). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="953" column="16" severity="warning" message="The function onBindViewHolder is too long (255). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="582" column="7" severity="warning" message="The function setProducts is too long (180). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="65" column="7" severity="warning" message="Class ProductAdapter is too large. Consider splitting it into smaller pieces." source="detekt.LargeClass" />
+	<error line="552" column="7" severity="warning" message="The function configureDivider appears to be too complex based on Cyclomatic Complexity (complexity: 15). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="582" column="7" severity="warning" message="The function setProducts appears to be too complex based on Cyclomatic Complexity (complexity: 73). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="846" column="16" severity="warning" message="The function onCreateViewHolder appears to be too complex based on Cyclomatic Complexity (complexity: 35). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="953" column="16" severity="warning" message="The function onBindViewHolder appears to be too complex based on Cyclomatic Complexity (complexity: 89). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="529" column="18" severity="warning" message="Function getItemOffsets is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="582" column="7" severity="warning" message="Function setProducts is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="819" column="7" severity="warning" message="Function setStatus is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="953" column="16" severity="warning" message="Function onBindViewHolder is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="65" column="7" severity="warning" message="Class &apos;ProductAdapter&apos; with &apos;15&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="722" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="730" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="1259" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="1260" column="9" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="722" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="730" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="55" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="56" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="57" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="63" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="309" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="338" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="344" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="344" column="95" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="354" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="356" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="443" column="83" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="449" column="75" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="450" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="450" column="60" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="487" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="492" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="498" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="565" column="69" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="569" column="69" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="616" column="74" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="638" column="88" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="638" column="92" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="672" column="80" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="672" column="84" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="782" column="25" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="987" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1069" column="41" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1081" column="41" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1084" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1116" column="51" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1174" column="96" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1180" column="23" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="1180" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/ProductFragment.kt">
+	<error line="94" column="16" severity="warning" message="The function onViewCreated is too long (101). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="94" column="16" severity="warning" message="The function onViewCreated appears to be too complex based on Cyclomatic Complexity (complexity: 22). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="231" column="15" severity="warning" message="The function updateButtons appears to be too complex based on Cyclomatic Complexity (complexity: 26). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="330" column="16" severity="warning" message="The function onActionClick appears to be too complex based on Cyclomatic Complexity (complexity: 17). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="40" column="7" severity="warning" message="Class &apos;ProductFragment&apos; with &apos;15&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="168" column="24" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="182" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="388" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="389" column="7" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="445" column="9" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="168" column="24" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="37" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="59" column="12" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="60" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="61" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="118" column="62" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="118" column="76" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="118" column="79" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="287" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="287" column="77" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/index/IndexHandler.kt">
+	<error line="31" column="21" severity="warning" message="The function onRepository(mirrors: List&lt;String&gt;, name: String, description: String, certificate: String, version: Int, timestamp: Long) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="176" column="16" severity="warning" message="The function endElement is too long (82). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="131" column="16" severity="warning" message="The function startElement appears to be too complex based on Cyclomatic Complexity (complexity: 20). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="176" column="16" severity="warning" message="The function endElement appears to be too complex based on Cyclomatic Complexity (complexity: 61). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="20" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="20" column="16" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="5" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="147" column="94" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/index/IndexV1Parser.kt">
+	<error line="82" column="26" severity="warning" message="The function parseProduct is too long (100). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="35" column="7" severity="warning" message="The function parse appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="82" column="26" severity="warning" message="The function parseProduct appears to be too complex based on Cyclomatic Complexity (complexity: 41). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="183" column="26" severity="warning" message="The function parseRelease appears to be too complex based on Cyclomatic Complexity (complexity: 26). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="237" column="26" severity="warning" message="Function collectPermissions is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="244" column="13" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="7" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="8" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="9" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="222" column="79" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/index/RepositoryUpdater.kt">
+	<error line="133" column="26" severity="warning" message="The function processFile(repository: Repository, indexType: IndexType, unstable: Boolean, file: File, lastModified: String, entityTag: String, callback: (Stage, Long, Long?) -&gt; Unit) has too many parameters. The current threshold is set to 6." source="detekt.LongParameterList" />
+	<error line="133" column="15" severity="warning" message="The function processFile is too long (131). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="133" column="15" severity="warning" message="The function processFile appears to be too complex based on Cyclomatic Complexity (complexity: 30). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="303" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="133" column="15" severity="warning" message="Too many throw statements in the function processFile. The maximum number of allowed throw statements is 2." source="detekt.ThrowsCount" />
+	<error line="17" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="18" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="99" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="168" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="207" column="52" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="218" column="52" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="237" column="54" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/service/DownloadService.kt">
+	<error line="242" column="15" severity="warning" message="Function validatePackage is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="33" column="7" severity="warning" message="Class &apos;DownloadService&apos; with &apos;12&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="251" column="14" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="259" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="260" column="9" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="313" column="19" severity="warning" message="A call to the default constructor of an exception was detected. Instead one of the constructor overloads should be called. This allows to provide more meaningful exceptions." source="detekt.ThrowingExceptionsWithoutMessageOrCause" />
+	<error line="251" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="25" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="26" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="27" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="31" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="130" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="138" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="247" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="247" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="306" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="306" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="313" column="13" severity="warning" message="Use check() or error() instead of throwing an IllegalStateException." source="detekt.UseCheckOrError" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/service/SyncService.kt">
+	<error line="279" column="15" severity="warning" message="The function handleNextTask is too long (66). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="225" column="15" severity="warning" message="The function publishForegroundState appears to be too complex based on Cyclomatic Complexity (complexity: 18). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="279" column="15" severity="warning" message="The function handleNextTask appears to be too complex based on Cyclomatic Complexity (complexity: 21). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="279" column="15" severity="warning" message="Function handleNextTask is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="37" column="7" severity="warning" message="Class &apos;SyncService&apos; with &apos;11&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="30" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="31" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="32" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="35" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="148" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="159" column="15" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="242" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="242" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="249" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="251" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="254" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="256" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="347" column="22" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="369" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/graphics/DrawableWrapper.kt">
+	<error line="8" column="12" severity="warning" message="Class &apos;DrawableWrapper&apos; with &apos;11&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/utility/extension/Resources.kt">
+	<error line="30" column="13" severity="warning" message="Function getDrawableCompat is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="25" column="8" severity="warning" message="The file name &apos;Resources&apos; does not match the name of the single top-level declaration &apos;TypefaceExtra&apos;." source="detekt.MatchingDeclarationName" />
+	<error line="21" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="23" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="31" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/utility/PackageItemResolver.kt">
+	<error line="19" column="15" severity="warning" message="Function load is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="43" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="43" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="7" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="26" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="71" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/database/QueryLoader.kt">
+	<error line="30" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/content/ProductPreferences.kt">
+	<error line="45" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="46" column="9" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="9" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/MainApplication.kt">
+	<error line="72" column="24" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="161" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="162" column="11" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="72" column="24" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="26" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="127" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="127" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="127" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="127" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="133" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="137" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/utility/extension/Android.kt">
+	<error line="71" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="71" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="28" column="27" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="32" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="61" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/utility/Utils.kt">
+	<error line="60" column="16" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="61" column="9" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="45" column="14" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="85" column="45" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="12" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="14" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="52" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="57" column="68" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="72" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="84" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="94" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/utility/RxUtils.kt">
+	<error line="36" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="41" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="69" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="75" column="16" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/content/Preferences.kt">
+	<error line="14" column="3" severity="warning" message="A member is named after the object. This might result in confusion. Please rename the member." source="detekt.MemberNameEqualsClassName" />
+	<error line="30" column="5" severity="warning" message="A member is named after the class. This might result in confusion. Either rename the member or change it to a constructor." source="detekt.MemberNameEqualsClassName" />
+	<error line="10" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="86" column="61" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="89" column="90" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="124" column="31" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/database/QueryBuilder.kt">
+	<error line="7" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="8" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.text.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/database/CursorOwner.kt">
+	<error line="29" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="34" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/widget/RecyclerFastScroller.kt">
+	<error line="11" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="12" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="27" column="64" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/entity/ProductPreference.kt">
+	<error line="5" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/RepositoryFragment.kt">
+	<error line="25" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="90" column="26" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="142" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/ProductsFragment.kt">
+	<error line="80" column="86" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/screen/RepositoriesAdapter.kt">
+	<error line="11" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.resources.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/index/IndexMerger.kt">
+	<error line="8" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="9" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.json.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/service/ConnectionService.kt">
+	<error line="6" column="1" severity="warning" message="nya.kitsunyan.foxydroid.utility.extension.android.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="21" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/graphics/PaddingDrawable.kt">
+	<error line="5" column="1" severity="warning" message="kotlin.math.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/foxy-droid/src/main/kotlin/nya/kitsunyan/foxydroid/utility/extension/Text.kt">
+	<error line="14" column="96" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="15" column="17" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="22" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="23" column="35" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="34" column="19" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="48" column="62" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+</checkstyle>

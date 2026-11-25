@@ -1,0 +1,20 @@
+public List<String> processAndSort(List<String> inputs) {
+    // Bad: The 'synchronizedList' wrapper adds performance overhead for every
+    // method call, but since it's a local variable, no other thread can access it.
+    List<String> processed = Collections.synchronizedList(new ArrayList<>());
+    for (String input : inputs) {
+        processed.add(input.toUpperCase());
+    }
+    return processed;
+}
+
+-----
+
+public List<String> processAndSort(List<String> inputs) {
+    // Good: A simple ArrayList is sufficient and more performant.
+    List<String> processed = new ArrayList<>();
+    for (String input : inputs) {
+        processed.add(input.toUpperCase());
+    }
+    return processed;
+}

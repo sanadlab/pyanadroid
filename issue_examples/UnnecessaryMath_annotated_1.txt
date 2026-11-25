@@ -1,0 +1,7 @@
+// Bad: The JVM has to execute this method call at runtime.
+double angleInRadians = Math.toRadians(90.0);
+
+--
+
+// Good: The value is pre-calculated (PI / 2). This is faster and just as accurate.
+double angleInRadians = 1.5707963267948966;

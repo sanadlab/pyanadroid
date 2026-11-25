@@ -1,0 +1,103 @@
+#0
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:320: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ScannerService.onDestroy()` reads with synchronization from `this.mScanChecker`, which races with the unsynchronized write in method `ScannerService.checkForScanStart(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  318.       public void onDestroy() {
+  319.           Log.w(LOG_TAG, "Service.onDestroy() called - shutting down Scanner");
+  320. >         if (mScanChecker != null) {
+  321.               try {
+  322.                   mScanChecker.cancel();
+
+#1
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1232: warning: Inefficient Keyset Iterator
+  Accessing a value using a key that was retrieved from a `keySet` iterator. It is more efficient to use an iterator on the `entrySet` of the map, avoiding the extra `HashMap.get(key)` lookup.
+  1230.               int i = 0;
+  1231.               for (RssiRange aRange : keySet()) {
+  1232. >                 ret[i++] = new SignalStrengthGroupInfo(aRange.type, get(aRange).intValue());
+  1233.               }
+  1234.               return ret;
+
+#2
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1232: error: Null Dereference
+  `i` could be null (null value originating from line 1232) and is dereferenced. 
+  1230.               int i = 0;
+  1231.               for (RssiRange aRange : keySet()) {
+  1232. >                 ret[i++] = new SignalStrengthGroupInfo(aRange.type, get(aRange).intValue());
+  1233.               }
+  1234.               return ret;
+
+#3
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1485: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ScannerService$MyScanCallback.checkForOutdatedBeaconsAfterTimeout(...)` reads without synchronization from container `this.this$0.mContainer` via call to `HashMap.size()`, which races with the write in method `ScannerService$MyScanCallback.checkForOutdatedBeaconsInt(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1483.   
+  1484.           protected void checkForOutdatedBeaconsAfterTimeout(long tsNow) {
+  1485. >             int prevSize = mContainer.size();
+  1486.               checkForOutdatedBeaconsInt(tsNow);
+  1487.               int newSize = mContainer.size();
+
+#4
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1486: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ScannerService$MyScanCallback.checkForOutdatedBeaconsAfterTimeout(...)` indirectly writes to field `this.iLastContainerCheckTs` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1484.           protected void checkForOutdatedBeaconsAfterTimeout(long tsNow) {
+  1485.               int prevSize = mContainer.size();
+  1486. >             checkForOutdatedBeaconsInt(tsNow);
+  1487.               int newSize = mContainer.size();
+  1488.               if (prevSize != newSize) {
+
+#5
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1489: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ScannerService$MyScanCallback.checkForOutdatedBeaconsAfterTimeout(...)` indirectly writes to field `this.mDoReport` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1487.               int newSize = mContainer.size();
+  1488.               if (prevSize != newSize) {
+  1489. >                 shouldRefreshGui(null, newSize);
+  1490.               }
+  1491.           }
+
+#6
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1494: warning: Thread Safety Violation
+  Unprotected write. Non-private method `ScannerService$MyScanCallback.checkForOutdatedBeaconsInt(...)` writes to field `this.iLastContainerCheckTs` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  1492.   
+  1493.           protected void checkForOutdatedBeaconsInt(long tsNow) {
+  1494. >             iLastContainerCheckTs = tsNow;
+  1495.               ArrayList<String> addrsToRemove = new ArrayList<>();
+  1496.               synchronized (mContainer) {
+
+#7
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1510: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ScannerService$MyScanCallback.checkForOutdatedBeaconsInt(...)` indirectly reads with synchronization from `this.this$0.mSignalStrengthGroup.iGoodCount`, which races with the unsynchronized write in method `ScannerService$MyScanCallback.onScanResult(...)`.
+ Reporting because this access may occur on a background thread. 
+  1508.                       }
+  1509.                       if (mSignalStrengthGroup != null) {
+  1510. >                         groupBySignalStrength();
+  1511.                       }
+  1512.                       if (BuildConfig.DEBUG) {
+
+#8
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1522: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ScannerService$MyScanCallback.onScanResult(...)` indirectly reads with synchronization from `this.iLastContainerCheckTs`, which races with the unsynchronized write in method `ScannerService$MyScanCallback.checkForOutdatedBeaconsInt(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1520.           public void onScanResult(int callbackType, ScanResult result) {
+  1521.               super.onScanResult(callbackType, result);
+  1522. >             handleResult(result);
+  1523.           }
+  1524.   
+
+#9
+app/src/main/java/com/emacberry/uuid0xfd6fscan/ScannerService.java:1529: warning: Thread Safety Violation
+  Read/Write race. Non-private method `ScannerService$MyScanCallback.onBatchScanResults(...)` indirectly reads with synchronization from `this.iLastContainerCheckTs`, which races with the unsynchronized write in method `ScannerService$MyScanCallback.checkForOutdatedBeaconsInt(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  1527.               super.onBatchScanResults(results);
+  1528.               for (ScanResult r : results) {
+  1529. >                 handleResult(r);
+  1530.               }
+  1531.           }
+
+Found 10 issues
+                                Issue Type(ISSUED_TYPE_ID): #
+          Thread Safety Violation(THREAD_SAFETY_VIOLATION): 8
+                     Null Dereference(NULLPTR_DEREFERENCE): 1
+  Inefficient Keyset Iterator(INEFFICIENT_KEYSET_ITERATOR): 1

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767888634749" analysisTimestamp="1767888636487" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-headphone-detector/NONE_TRANSFORMED_/app/build/intermediates/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-27/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/vanilla-headphone-detector/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="67130962708b1a02353ed3e51ae5db33" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names should start with an upper case letter</ShortMessage>
+    <LongMessage>The class name ch.blinkenlights.android.vanillaplug.R$mipmap doesn&apos;t start with an upper case letter</LongMessage>
+    <Class classname="ch.blinkenlights.android.vanillaplug.R$mipmap" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.R$mipmap" start="11" end="11" sourcefile="R.java" sourcepath="ch/blinkenlights/android/vanillaplug/R.java">
+        <Message>At R.java:[line 11]</Message>
+      </SourceLine>
+      <Message>In class ch.blinkenlights.android.vanillaplug.R$mipmap</Message>
+    </Class>
+    <SourceLine classname="ch.blinkenlights.android.vanillaplug.R$mipmap" start="11" end="11" sourcefile="R.java" sourcepath="ch/blinkenlights/android/vanillaplug/R.java" synthetic="true">
+      <Message>At R.java:[line 11]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="6bf9818d89694a2a2fb3c6a00fc7275a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names should start with an upper case letter</ShortMessage>
+    <LongMessage>The class name ch.blinkenlights.android.vanillaplug.R$string doesn&apos;t start with an upper case letter</LongMessage>
+    <Class classname="ch.blinkenlights.android.vanillaplug.R$string" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.R$string" start="14" end="14" sourcefile="R.java" sourcepath="ch/blinkenlights/android/vanillaplug/R.java">
+        <Message>At R.java:[line 14]</Message>
+      </SourceLine>
+      <Message>In class ch.blinkenlights.android.vanillaplug.R$string</Message>
+    </Class>
+    <SourceLine classname="ch.blinkenlights.android.vanillaplug.R$string" start="14" end="14" sourcefile="R.java" sourcepath="ch/blinkenlights/android/vanillaplug/R.java" synthetic="true">
+      <Message>At R.java:[line 14]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="e684b2756406d33ad3c01622325a575a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names should start with an upper case letter</ShortMessage>
+    <LongMessage>The class name ch.blinkenlights.android.vanillaplug.R$xml doesn&apos;t start with an upper case letter</LongMessage>
+    <Class classname="ch.blinkenlights.android.vanillaplug.R$xml" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.R$xml" start="21" end="21" sourcefile="R.java" sourcepath="ch/blinkenlights/android/vanillaplug/R.java">
+        <Message>At R.java:[line 21]</Message>
+      </SourceLine>
+      <Message>In class ch.blinkenlights.android.vanillaplug.R$xml</Message>
+    </Class>
+    <SourceLine classname="ch.blinkenlights.android.vanillaplug.R$xml" start="21" end="21" sourcefile="R.java" sourcepath="ch/blinkenlights/android/vanillaplug/R.java" synthetic="true">
+      <Message>At R.java:[line 21]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="c526f667610c267bc6479a5c57b95514" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to ia in ch.blinkenlights.android.vanillaplug.VPlugService$1.onReceive(Context, Intent)</LongMessage>
+    <Class classname="ch.blinkenlights.android.vanillaplug.VPlugService$1" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$1" start="83" end="113" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+        <Message>At VPlugService.java:[lines 83-113]</Message>
+      </SourceLine>
+      <Message>In class ch.blinkenlights.android.vanillaplug.VPlugService$1</Message>
+    </Class>
+    <Method classname="ch.blinkenlights.android.vanillaplug.VPlugService$1" name="onReceive" signature="(Landroid/content/Context;Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$1" start="86" end="113" startBytecode="0" endBytecode="63" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java"/>
+      <Message>In method ch.blinkenlights.android.vanillaplug.VPlugService$1.onReceive(Context, Intent)</Message>
+    </Method>
+    <LocalVariable name="ia" register="3" pc="5" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named ia</Message>
+    </LocalVariable>
+    <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$1" primary="true" start="86" end="86" startBytecode="4" endBytecode="4" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+      <Message>At VPlugService.java:[line 86]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="ia"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="7ee212aa35b2427e43893b1940a391a7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder.getService() may expose internal representation by returning VPlugService$LocalBinder.this$0</LongMessage>
+    <Class classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" start="48" end="50" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+        <Message>At VPlugService.java:[lines 48-50]</Message>
+      </SourceLine>
+      <Message>In class ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder</Message>
+    </Class>
+    <Method classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" name="getService" signature="()Lch/blinkenlights/android/vanillaplug/VPlugService;" isStatic="false" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" start="50" end="50" startBytecode="0" endBytecode="46" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java"/>
+      <Message>In method ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder.getService()</Message>
+    </Method>
+    <Field classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" name="this$0" signature="Lch/blinkenlights/android/vanillaplug/VPlugService;" isStatic="false" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+        <Message>In VPlugService.java</Message>
+      </SourceLine>
+      <Message>Field ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder.this$0</Message>
+    </Field>
+    <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" primary="true" start="50" end="50" startBytecode="4" endBytecode="4" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+      <Message>At VPlugService.java:[line 50]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="f1a1d481bcc51b7c88ff2d8e086cccc6" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder(VPlugService) may expose internal representation by storing an externally mutable object into VPlugService$LocalBinder.this$0</LongMessage>
+    <Class classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" start="48" end="50" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+        <Message>At VPlugService.java:[lines 48-50]</Message>
+      </SourceLine>
+      <Message>In class ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder</Message>
+    </Class>
+    <Method classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" name="&lt;init&gt;" signature="(Lch/blinkenlights/android/vanillaplug/VPlugService;)V" isStatic="false" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" start="48" end="48" startBytecode="0" endBytecode="61" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java"/>
+      <Message>In method new ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder(VPlugService)</Message>
+    </Method>
+    <Field classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" name="this$0" signature="Lch/blinkenlights/android/vanillaplug/VPlugService;" isStatic="false" primary="true">
+      <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+        <Message>In VPlugService.java</Message>
+      </SourceLine>
+      <Message>Field ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder.this$0</Message>
+    </Field>
+    <LocalVariable name="this$0" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named this$0</Message>
+    </LocalVariable>
+    <SourceLine classname="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" primary="true" start="48" end="48" startBytecode="2" endBytecode="2" sourcefile="VPlugService.java" sourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java" relSourcepath="ch/blinkenlights/android/vanillaplug/VPlugService.java">
+      <Message>At VPlugService.java:[line 48]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NM_CLASS_NAMING_CONVENTION" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Class names should start with an upper case letter</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="1">
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 20:10:34 +0400" total_classes="10" referenced_classes="132" total_bugs="6" total_size="112" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.41" clock_seconds="0.39" peak_mbytes="203.24" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="6">
+    <FileStats path="ch/blinkenlights/android/vanillaplug/BootReceiver.java" bugCount="0" size="7"/>
+    <FileStats path="ch/blinkenlights/android/vanillaplug/BuildConfig.java" bugCount="0" size="11"/>
+    <FileStats path="ch/blinkenlights/android/vanillaplug/R.java" bugCount="3" size="19" bugHash="69ad34fca30fb43a1e3b65a2bfe3ab05"/>
+    <FileStats path="ch/blinkenlights/android/vanillaplug/VPlug.java" bugCount="0" size="19"/>
+    <FileStats path="ch/blinkenlights/android/vanillaplug/VPlugService.java" bugCount="3" size="56" bugHash="e5a3197a3b56ddb375049fad3a7590b4"/>
+    <PackageStats package="ch.blinkenlights.android.vanillaplug" total_bugs="6" total_types="10" total_size="112" priority_2="6">
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.BootReceiver" sourceFile="BootReceiver.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.R" sourceFile="R.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.R$mipmap" sourceFile="R.java" interface="false" size="4" bugs="1" priority_2="1"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.R$string" sourceFile="R.java" interface="false" size="8" bugs="1" priority_2="1"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.R$xml" sourceFile="R.java" interface="false" size="4" bugs="1" priority_2="1"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.VPlug" sourceFile="VPlug.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.VPlugService" sourceFile="VPlugService.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.VPlugService$1" sourceFile="VPlugService.java" interface="false" size="20" bugs="1" priority_2="1"/>
+      <ClassStats class="ch.blinkenlights.android.vanillaplug.VPlugService$LocalBinder" sourceFile="VPlugService.java" interface="false" size="6" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="47" invocations="455" avgMicrosecondsPerInvocation="103" maxMicrosecondsPerInvocation="4530" standardDeviationMicrosecondsPerInvocation="299"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="24" invocations="132" avgMicrosecondsPerInvocation="184" maxMicrosecondsPerInvocation="2929" standardDeviationMicrosecondsPerInvocation="386"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="13" invocations="158" avgMicrosecondsPerInvocation="87" maxMicrosecondsPerInvocation="3441" standardDeviationMicrosecondsPerInvocation="297"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,16 @@
+import org.w3c.dom.NodeList;
+// ...
+// Bad: getLength() is re-evaluated in every single loop iteration.
+for (int i = 0; i < nodeList.getLength(); i++) {
+    processNode(nodeList.item(i));
+}
+
+----
+
+import org.w3c.dom.NodeList;
+// ...
+// Good: The length is calculated once and stored in a variable.
+int length = nodeList.getLength();
+for (int i = 0; i < length; i++) {
+    processNode(nodeList.item(i));
+}

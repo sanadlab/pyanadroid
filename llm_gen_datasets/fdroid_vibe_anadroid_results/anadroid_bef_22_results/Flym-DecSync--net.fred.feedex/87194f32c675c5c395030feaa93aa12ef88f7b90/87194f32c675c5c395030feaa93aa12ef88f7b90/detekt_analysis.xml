@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/entries/EntriesFragment.kt">
+	<error line="150" column="18" severity="warning" message="The function onActivityCreated is too long (67). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="295" column="18" severity="warning" message="The function onStart is too long (96). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="231" column="17" severity="warning" message="The function initDataObservers appears to be too complex based on Cyclomatic Complexity (complexity: 43). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="72" column="7" severity="warning" message="Class &apos;EntriesFragment&apos; with &apos;14&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="26" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="32" column="1" severity="warning" message="androidx.core.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="45" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_entries.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="49" column="1" severity="warning" message="kotlinx.android.synthetic.main.view_entry.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="59" column="1" severity="warning" message="org.decsync.flym.utils.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="60" column="1" severity="warning" message="org.jetbrains.anko.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="180" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="192" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="202" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="207" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="236" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="237" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="240" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="241" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="242" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="244" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="245" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="256" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="257" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="260" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="261" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="262" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="264" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="265" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="276" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="349" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="361" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="367" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="432" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="435" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="511" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="514" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="578" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="610" column="17" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="181" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="192" column="67" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="202" column="79" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="267" column="12" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="433" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="519" column="64" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="585" column="24" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="613" column="40" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/intro/IntroActivity.kt">
+	<error line="123" column="18" severity="warning" message="Function onActivityResult is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="164" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/intro/IntroActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="21" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_intro_directory.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="25" column="1" severity="warning" message="org.decsync.flym.utils.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="67" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="153" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="161" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="114" column="48" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/feeds/FeedListEditFragment.kt">
+	<error line="77" column="25" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="57" column="58" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="60" column="57" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="63" column="57" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="32" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_feed_list_edit.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="83" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="88" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/feeds/BaseFeedAdapter.kt">
+	<error line="105" column="13" severity="warning" message="The function bindItem is too long (68). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="105" column="13" severity="warning" message="The function bindItem appears to be too complex based on Cyclomatic Complexity (complexity: 19). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="38" column="16" severity="warning" message="Class &apos;BaseFeedAdapter&apos; with &apos;12&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="207" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/feeds/BaseFeedAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="27" column="1" severity="warning" message="kotlinx.android.synthetic.main.view_feed.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="38" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="98" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="195" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/main/MainActivity.kt">
+	<error line="102" column="18" severity="warning" message="The function onCreate is too long (181). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="102" column="18" severity="warning" message="The function onCreate appears to be too complex based on Cyclomatic Complexity (complexity: 47). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="588" column="17" severity="warning" message="Function parseOpml is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="78" column="7" severity="warning" message="Class &apos;MainActivity&apos; with &apos;32&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="298" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="559" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="565" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="582" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="298" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="559" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="565" column="26" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="582" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="625" column="36" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="502" column="17" severity="warning" message="Function hasFeedGroupsChanged has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="675" column="17" severity="warning" message="Function goBack has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="33" column="1" severity="warning" message="androidx.core.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="43" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_main.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="44" column="1" severity="warning" message="kotlinx.android.synthetic.main.dialog_edit_feed.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="45" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_entries.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="46" column="1" severity="warning" message="kotlinx.android.synthetic.main.view_main_drawer_header.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="67" column="1" severity="warning" message="org.decsync.flym.utils.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="68" column="1" severity="warning" message="org.jetbrains.anko.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="71" column="1" severity="warning" message="java.io.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="199" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="200" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="221" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="223" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="241" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="247" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="248" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="266" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="475" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="509" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="562" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="563" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="575" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="609" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="639" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="676" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="107" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="475" column="160" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="657" column="78" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/entrydetails/EntryDetailsFragment.kt">
+	<error line="233" column="17" severity="warning" message="The function setupToolbar is too long (64). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="233" column="17" severity="warning" message="The function setupToolbar appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="307" column="17" severity="warning" message="Function switchFullTextMode is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="36" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_main.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="37" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_entry_details.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="193" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="211" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="323" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/views/DragNDropRecyclerView.kt">
+	<error line="46" column="18" severity="warning" message="The function onTouchEvent appears to be too complex based on Cyclomatic Complexity (complexity: 23). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="46" column="18" severity="warning" message="Function onTouchEvent has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="35" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="74" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="130" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="131" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="55" column="29" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/ContextExtensions.kt">
+	<error line="18" column="1" severity="warning" message="File &apos;/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/ContextExtensions.kt&apos; with &apos;16&apos; functions detected. Defined threshold inside files is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/HtmlUtils.kt">
+	<error line="104" column="9" severity="warning" message="Function replaceImageURLs is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="160" column="13" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="155" column="17" severity="warning" message="Function isCorrectImage has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="45" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="46" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="47" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="48" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="49" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="51" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="128" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="160" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/service/FetcherService.kt">
+	<error line="409" column="21" severity="warning" message="The function refreshFeed is too long (77). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="105" column="13" severity="warning" message="The function fetch appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="284" column="21" severity="warning" message="The function mobilizeAllEntries appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="409" column="21" severity="warning" message="The function refreshFeed appears to be too complex based on Cyclomatic Complexity (complexity: 22). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="105" column="13" severity="warning" message="Function fetch is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="170" column="21" severity="warning" message="Function showRefreshNotification is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="260" column="13" severity="warning" message="Function addImagesToDownload is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="284" column="21" severity="warning" message="Function mobilizeAllEntries is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="345" column="21" severity="warning" message="Function downloadAllImages is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="409" column="21" severity="warning" message="Function refreshFeed is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="518" column="21" severity="warning" message="Function downloadImage is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="70" column="5" severity="warning" message="Object &apos;Companion&apos; with &apos;17&apos; functions detected. Defined threshold inside objects is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="155" column="38" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="327" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="388" column="30" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="428" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="540" column="26" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="428" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="273" column="40" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="280" column="36" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="498" column="37" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="105" column="13" severity="warning" message="Function fetch has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="230" column="13" severity="warning" message="Function shouldDownloadPictures has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="45" column="1" severity="warning" message="org.decsync.flym.utils.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="53" column="1" severity="warning" message="org.jetbrains.anko.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="99" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="132" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="134" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="135" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="139" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="231" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="298" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="303" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="419" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="468" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="555" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="131" column="112" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="134" column="121" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="564" column="43" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="396" column="18" severity="warning" message="Private property `i` is unused." source="detekt.UnusedPrivateProperty" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/dao/EntryDao.kt">
+	<error line="42" column="16" severity="warning" message="Class &apos;EntryDao&apos; with &apos;44&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="191" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/dao/EntryDao.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="34" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="35" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="48" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="73" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="76" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="78" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="94" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="97" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/entities/Entry.kt">
+	<error line="66" column="15" severity="warning" message="The function toDbFormat appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="66" column="15" severity="warning" message="Function toDbFormat is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="97" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/entities/Entry.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="37" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/dao/TaskDao.kt">
+	<error line="56" column="36" severity="warning" message="Empty catch block detected. If the exception can be safely ignored, name the exception according to one of the exemptions as per the configuration of this rule." source="detekt.EmptyCatchBlock" />
+	<error line="56" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="56" column="22" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="66" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/dao/TaskDao.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/FeedSearchFragment.kt">
+	<error line="140" column="22" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="257" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/FeedSearchFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="13" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="122" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="123" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="124" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="126" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/entrydetails/EntryDetailsView.kt">
+	<error line="124" column="21" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="121" column="26" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="53" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="54" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="55" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="56" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="57" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="58" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="59" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="60" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="61" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="77" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="78" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="79" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="80" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="81" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="82" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="83" column="17" severity="warning" message="Private variable names should match the pattern: (_)?[a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="178" column="16" severity="warning" message="String.format(&quot;#%06X&quot;, 0xFFFFFF and color) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="180" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/entrydetails/EntryDetailsView.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="51" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="62" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="71" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="73" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="140" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="145" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="160" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="103" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="103" column="50" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="170" column="100" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="178" column="39" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/DecsyncUtils.kt">
+	<error line="35" column="66" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="45" column="22" severity="warning" message="Function isDecsyncEnabled has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="118" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/DecsyncUtils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="20" column="1" severity="warning" message="org.decsync.library.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="35" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="47" column="42" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/StringExtensions.kt">
+	<error line="25" column="42" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="25" column="76" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/StringExtensions.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/entities/Feed.kt">
+	<error line="76" column="39" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="66" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="76" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="79" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/settings/SettingsFragment.kt">
+	<error line="151" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/settings/SettingsFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="43" column="1" severity="warning" message="org.decsync.flym.utils.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="66" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="76" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="89" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="91" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="94" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="104" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="146" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/settings/SettingsActivity.kt">
+	<error line="46" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/settings/SettingsActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/SquareGridItemLayout.kt">
+	<error line="15" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/SquareGridItemLayout.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/DiscoverFragment.kt">
+	<error line="92" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/DiscoverFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="8" column="1" severity="warning" message="android.widget.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="84" column="23" severity="warning" message="This explicit usage of `it` as the lambda parameter name can be omitted." source="detekt.ExplicitItLambdaParameter" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/FeedManagementInterface.kt">
+	<error line="15" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/FeedManagementInterface.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/DiscoverActivity.kt">
+	<error line="158" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/discover/DiscoverActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="51" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="92" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/entries/EntryAdapter.kt">
+	<error line="136" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/entries/EntryAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="31" column="1" severity="warning" message="kotlinx.android.synthetic.main.view_entry.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="46" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="57" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="61" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="67" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="69" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="73" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="90" column="82" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/intro/SafUpdateActivity.kt">
+	<error line="97" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/intro/SafUpdateActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="14" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_saf_update.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="70" column="48" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/feeds/EditFeedAdapter.kt">
+	<error line="24" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/feeds/EditFeedAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/feeds/DrawerFeedAdapter.kt">
+	<error line="62" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/feeds/DrawerFeedAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/main/ContainersLayout.kt">
+	<error line="37" column="1" severity="warning" message="kotlinx.android.synthetic.main.view_main_containers.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="41" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="110" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="120" column="75" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="121" column="95" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="143" column="103" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/views/AutoSummaryListPreference.kt">
+	<error line="32" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/views/AutoSummaryListPreference.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/views/DragNDropListener.kt">
+	<error line="44" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/ui/views/EmptyRecyclerView.kt">
+	<error line="25" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="92" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="92" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/App.kt">
+	<error line="129" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/App.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="36" column="1" severity="warning" message="org.decsync.flym.utils.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/DecsyncListeners.kt">
+	<error line="147" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/utils/DecsyncListeners.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="15" column="22" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+	<error line="15" column="72" severity="warning" message="Function parameter `extra` is unused." source="detekt.UnusedParameter" />
+	<error line="41" column="24" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+	<error line="41" column="74" severity="warning" message="Function parameter `extra` is unused." source="detekt.UnusedParameter" />
+	<error line="67" column="31" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+	<error line="67" column="73" severity="warning" message="Function parameter `extra` is unused." source="detekt.UnusedParameter" />
+	<error line="86" column="27" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+	<error line="86" column="69" severity="warning" message="Function parameter `extra` is unused." source="detekt.UnusedParameter" />
+	<error line="100" column="28" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+	<error line="100" column="70" severity="warning" message="Function parameter `extra` is unused." source="detekt.UnusedParameter" />
+	<error line="122" column="31" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+	<error line="122" column="73" severity="warning" message="Function parameter `extra` is unused." source="detekt.UnusedParameter" />
+	<error line="136" column="33" severity="warning" message="Function parameter `path` is unused." source="detekt.UnusedParameter" />
+	<error line="136" column="53" severity="warning" message="Function parameter `entry` is unused." source="detekt.UnusedParameter" />
+	<error line="136" column="75" severity="warning" message="Function parameter `extra` is unused." source="detekt.UnusedParameter" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/MyAppGlideModule.kt">
+	<error line="32" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/MyAppGlideModule.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="29" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="29" column="41" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="29" column="48" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/service/AutoRefreshJobService.kt">
+	<error line="62" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="49" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="53" column="45" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="57" column="46" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/dao/FeedDao.kt">
+	<error line="90" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/dao/FeedDao.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="61" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/converters/Converters.kt">
+	<error line="33" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/converters/Converters.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/AppDatabase.kt">
+	<error line="135" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/AppDatabase.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="79" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="53" column="70" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="74" column="67" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="74" column="70" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/entities/DecsyncArticle.kt">
+	<error line="22" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/entities/DecsyncArticle.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/entities/DecsyncFeed.kt">
+	<error line="31" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/Flym-DecSync/app/src/main/java/org/decsync/flym/data/entities/DecsyncFeed.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+</checkstyle>

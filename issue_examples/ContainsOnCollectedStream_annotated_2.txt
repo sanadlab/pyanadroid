@@ -1,0 +1,10 @@
+// Bad: This collects all user IDs into a new list first, which is wasteful.
+val hasAdminUser = users.stream()
+    .map { it.id }
+    .collect(Collectors.toList())
+    .contains("admin-001")
+
+-----
+
+// Good: Short-circuits for better performance.
+val hasAdminUser = users.stream().anyMatch { it.id == "admin-001" }

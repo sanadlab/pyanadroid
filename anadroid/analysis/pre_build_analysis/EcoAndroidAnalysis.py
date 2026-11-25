@@ -3,12 +3,14 @@ import os
 import platform
 import shutil
 import time
+from os.path import expanduser
 
 from textops import cat
 
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
-from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
+from anadroid.utils.Utils import logd, logi
+from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs, DockerCommandWrapper
 import xml.etree.ElementTree as ET
 
 
@@ -16,8 +18,10 @@ import xml.etree.ElementTree as ET
 
 #
 
-def infer_ecoandroid_cmd():
+def infer_ecoandroid_cmd(should_run_on_container=False):
     # check if mac os or linux or windows
+    if should_run_on_container:
+        return '/opt/idea/bin/inspect.sh'
     if os.name == "posix":
         # check if mac os
         if platform.system() == "Darwin":
@@ -36,8 +40,9 @@ ANDROID_HOME = os.environ.get("ANDROID_HOME", None)
 eco_lock = multiprocessing.Lock()
 
 class EcoAndroidAnalysis(StaticAnalyzer):
-    def __init__(self, analyzers_cfg_file=None, default_profile_path=DEFAULT_PROFILE_PATH, default_output_dir=DEFAULT_OUTPUT_DIRNAME):
-        super().__init__(analyzers_cfg_file)
+    def __init__(self, analyzers_cfg_file=None, default_profile_path=DEFAULT_PROFILE_PATH,
+                 default_output_dir=DEFAULT_OUTPUT_DIRNAME, **kwargs):
+        super().__init__(analyzers_cfg_file, **kwargs)
         self.default_profile_path = default_profile_path
         self.default_output_dir = default_output_dir
         self.identifiable_issues = {
@@ -111,14 +116,35 @@ class EcoAndroidAnalysis(StaticAnalyzer):
         remove_idea_fldr = kwargs.get("remove_idea_fldr", True)  # TODO
         profile_path = kwargs.get("profile_path", self.default_profile_path)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
+        replace_paths = [
+            "~" + os.sep + os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.relpath(project.proj_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, os.path.curdir) + os.sep,
+            os.path.abspath(os.path.dirname(project.proj_dir)) + os.sep,
+            os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
+            "~" + os.sep + os.path.relpath(output_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, expanduser("~")) + os.sep,
+            os.path.relpath(output_dir, os.path.curdir) + os.sep,
+            os.path.abspath(output_dir) + os.sep,
+            os.path.basename(output_dir) + os.sep,
+        ]
+
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
+
         if remove_idea_fldr and os.path.exists(os.path.join(project.proj_dir, ".idea")):
             shutil.rmtree(os.path.join(project.proj_dir, ".idea"))
         if remove_local_props and os.path.exists(os.path.join(project.proj_dir, "local.properties")):
             os.remove(os.path.join(project.proj_dir, "local.properties"))
+        if not os.path.exists(os.path.join(project.proj_dir, os.path.basename(profile_path))):
+            shutil.copy(profile_path, os.path.join(project.proj_dir, os.path.basename(profile_path)))
+            logs(f"Copied profile file to project directory: {os.path.join(project.proj_dir, os.path.basename(profile_path))}")
+        profile_path = os.path.join(project.proj_dir, os.path.basename(profile_path))
+        if self.should_run_in_container:
+            DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
+
         for module in project.modules:
-            print("Analyzing module: ", module)
+            logi(f"EcoAndroid: analyzing module {module}")
             module_path = os.path.join(project.proj_dir, module)
             module_out_dir = os.path.join(output_dir, f"ecoandroid_{module}")
             possible_log_file = os.path.join(module_out_dir, "ecoandroid.log")
@@ -136,12 +162,17 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                             os.remove(os.path.join(root_dir, file))
             timeout = 300
             #log_file = os.path.join(module_out_dir, "ecoandroid.log")
-            cmd = f"gtimeout {timeout} {infer_ecoandroid_cmd()} {project.proj_dir} " f"{profile_path} {module_out_dir} -d {module_path} -v2"
-            print(cmd)
+            cmd = f"{'g' if not self.should_run_in_container else ''}timeout {timeout} {infer_ecoandroid_cmd(self.should_run_in_container)} {project.proj_dir} " f"{profile_path} {module_out_dir} -d {module_path} -v2"
+            logd(f"Running command: {cmd}")
             with eco_lock:
                 time.sleep(2)
-                res = execute_shell_command(cmd, timeout=timeout)
+                res = execute_shell_command(cmd, timeout=timeout, in_container=self.should_run_in_container, container_id=self.container_id)
                 time.sleep(2)
+
+            if self.should_run_in_container:
+                if self.should_run_in_container:
+                    d = DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths)
+                    d.pull(module_out_dir)
             self.validate_success(res, module_out_dir)
 
     def executed_correctly(self, str_to_check):
@@ -154,13 +185,13 @@ class EcoAndroidAnalysis(StaticAnalyzer):
     def validate_success(self, res, expected_output_dir):
         if not os.path.exists(expected_output_dir) and res.return_code != 0:
             loge(f"Error executing ecoandroid analysis. Check the logs for more information")
-            print(res)
+            logd(f"Command result: {res}")
             return False
         out_str = res.output + res.errors
         log_file = os.path.join(expected_output_dir, "ecoandroid.log")
         with open(log_file, 'w') as f:
             f.write(out_str)
-        print(out_str)
+        logd(f"EcoAndroid output:\n{out_str}")
         if not self.executed_correctly(out_str):
             loge(f"Error executing ecoandroid analysis. Check the logs for more information")
             # print(out_str)
@@ -197,8 +228,7 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                             if issue_id not in self.identifiable_issues: # and issue_id in self.ignorable_issues:
                                 continue
                             file_path = issue.find("file", None)
-                            if 'src' in file_path and (
-                                    'test' in file_path or 'androidTest' in file_path or "InstrumentedTest" in file_path) and ignore_tests:
+                            if ignore_tests and file_path is not None and is_test_file(file_path.text):
                                 continue
                             line = issue.find("line", None)
                             desc = issue.find("description", None)
@@ -216,11 +246,10 @@ class EcoAndroidAnalysis(StaticAnalyzer):
                                       i_class=class_id,
                                       detection_tool_name="EcoAndroid",
                                       description=desc.text if desc is not None else None)
-                            print(f"Found issue: {issue_id}")
+                            logd(f"EcoAndroid found issue {issue_id}")
                             if issue not in issues:
                                 #print(issue)
                                 issues.append(issue)
                     except Exception as e:
                         loge(f"Error parsing file {file_path}: {e}")
-
         return issues

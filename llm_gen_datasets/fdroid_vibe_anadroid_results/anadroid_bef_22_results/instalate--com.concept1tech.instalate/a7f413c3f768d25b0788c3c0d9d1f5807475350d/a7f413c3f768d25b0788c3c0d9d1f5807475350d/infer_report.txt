@@ -1,0 +1,85 @@
+#0
+app/src/main/java/com/concept1tech/instalate/PrefsRootFragment.java:87: warning: Regex Op On Ui Thread
+  `void PrefsRootFragment.onCreatePreferences(Bundle,String)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String,int)`. Additional report(s) on the same line were suppressed. 
+  85.   
+  86.           mLanguagesPref.setTitles(new String[]{getString(R.string.choose_language), getString(R.string.choose_direction), getString(R.string.choose_language)});
+  87. >         setActiveLanguages(Provider.getCurrentId(mAppCtx));
+  88.   
+  89.           // listeners
+
+#1
+app/src/main/java/com/concept1tech/instalate/PrefsRootFragment.java:103: warning: Regex Op On Ui Thread
+  `boolean PrefsRootFragment$Lambda$_16_140.onPreferenceChange(Preference,Object)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String,int)`. Additional report(s) on the same line were suppressed. 
+  101.               return true;
+  102.           });
+  103. >         providerPref.setOnPreferenceChangeListener((Preference preference, Object newValue) -> {
+  104.               String newProv = (String) newValue;
+  105.               setActiveLanguages(newProv);
+
+#2
+app/src/main/java/com/concept1tech/instalate/TranslationDialogActivity.java:74: warning: Regex Op On Ui Thread
+  `void TranslationDialogActivity.onCreate(Bundle)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String,int)`. Additional report(s) on the same line were suppressed. 
+  72.           mCurIntent = getIntent();
+  73.           mClipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+  74. >         Provider curProv = Provider.getCurrent(this);
+  75.           if (curProv.isBrowserOnly()) {
+  76.               TranslationData data = new TranslationData(this, getSelectedText());
+
+#3
+app/src/main/java/com/concept1tech/instalate/TranslationDialogActivity.java:101: warning: Ipc On Ui Thread
+  `void TranslationDialogActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+   99.               mTranslationRv.setLayoutManager(new LinearLayoutManager(this));
+  100.   
+  101. >             setActivityUp();
+  102.           }
+  103.       }
+
+#4
+app/src/main/java/com/concept1tech/instalate/TranslationDialogActivity.java:110: warning: Ipc On Ui Thread
+  `void TranslationDialogActivity.onNewIntent(Intent)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  108.           super.onNewIntent(intent);
+  109.           mCurIntent = intent;
+  110. >         setActivityUp();
+  111.           mTranslationRv.setScrollY(0);
+  112.       }
+
+#5
+app/src/main/java/com/concept1tech/instalate/TranslationDialogActivity.java:110: warning: Regex Op On Ui Thread
+  `void TranslationDialogActivity.onNewIntent(Intent)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String,int)`. Additional report(s) on the same line were suppressed. 
+  108.           super.onNewIntent(intent);
+  109.           mCurIntent = intent;
+  110. >         setActivityUp();
+  111.           mTranslationRv.setScrollY(0);
+  112.       }
+
+#6
+app/src/main/java/com/concept1tech/instalate/TranslationDialogActivity.java:148: warning: Ipc On Ui Thread
+  `void TranslationDialogActivity.onWindowFocusChanged(boolean)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  146.           // callback order: onCreate--onWindowFocusChanged--onNewIntent (if activity already created: onNewIntent--onWindowFocusChanged--onNewIntent)
+  147.           if (needToGetSelectedText && hasFocus) {
+  148. >             translateText();
+  149.           }
+  150.       }
+
+#7
+app/src/main/java/com/concept1tech/instalate/TranslationDialogActivity.java:148: warning: Regex Op On Ui Thread
+  `void TranslationDialogActivity.onWindowFocusChanged(boolean)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String,int)`. Additional report(s) on the same line were suppressed. 
+  146.           // callback order: onCreate--onWindowFocusChanged--onNewIntent (if activity already created: onNewIntent--onWindowFocusChanged--onNewIntent)
+  147.           if (needToGetSelectedText && hasFocus) {
+  148. >             translateText();
+  149.           }
+  150.       }
+
+#8
+app/src/main/java/com/concept1tech/instalate/TranslationTask.java:32: warning: Regex Op On Ui Thread
+  `void TranslationTask.onPostExecute(Object)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String,int)`. Additional report(s) on the same line were suppressed. 
+  30.   import java.lang.ref.WeakReference;
+  31.   
+  32. > public class TranslationTask extends AsyncTask<PageRequest, Void, PageResponse> {
+  33.   
+  34.       public static final String ERR_INVALID_SEARCH_QUERY = "ERR_INVALID_SEARCH_QUERY";
+
+Found 9 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Regex Op On Ui Thread(REGEX_OP_ON_UI_THREAD): 6
+            Ipc On Ui Thread(IPC_ON_UI_THREAD): 3

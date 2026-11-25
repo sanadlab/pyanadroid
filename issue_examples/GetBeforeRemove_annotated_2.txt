@@ -1,0 +1,11 @@
+public Task getAndRemoveTask(String taskId) {
+    // Good: The remove() method returns the value associated with the key,
+    // or null if the key wasn't present. This does the job in one operation.
+    return taskQueue.remove(taskId);
+}
+
+-----
+
+// Good: The remove operation is atomic and returns the value,
+// achieving the goal in a single, efficient step.
+return sessionTokens.remove(token)

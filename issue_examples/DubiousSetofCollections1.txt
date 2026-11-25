@@ -1,0 +1,10 @@
+Set<Set<String>> tagSets = new HashSet<>();
+Set<String> post1Tags = new HashSet<>(Arrays.asList("java", "performance"));
+tagSets.add(post1Tags);
+post1Tags.add("optimization"); 
+
+-----
+
+Set<Set<String>> tagSets = new HashSet<>();
+Set<String> post1Tags = new HashSet<>(Arrays.asList("java", "performance"));
+tagSets.add(Collections.unmodifiableSet(post1Tags));

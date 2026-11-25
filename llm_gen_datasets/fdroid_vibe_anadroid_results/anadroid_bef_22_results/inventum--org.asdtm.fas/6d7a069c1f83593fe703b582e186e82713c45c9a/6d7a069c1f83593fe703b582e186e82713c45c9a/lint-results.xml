@@ -1,0 +1,2242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.6.3">
+
+    <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found one or more custom checks that could not be loaded. The most likely reason for this is that it is using an older, incompatible or unsupported API in lint. Make sure these lint checks are updated to the new APIs. The issue registry class is butterknife.lint.LintRegistry. The class loading issue is com/android/tools/lint/detector/api/Detector$JavaScanner: ClassLoader.defineClass1(ClassLoader.java:-2)←ClassLoader.defineClass(ClassLoader.java:1022)←ClassLoader.defineClass(ClassLoader.java:883)←UrlClassLoader._defineClass(UrlClassLoader.java:335)←UrlClassLoader.defineClass(UrlClassLoader.java:330)←UrlClassLoader._findClass(UrlClassLoader.java:294)←UrlClassLoader.findClass(UrlClassLoader.java:280)←ClassLoader.loadClass(ClassLoader.java:594)"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks.">
+        <location
+            file="/Users/rar9993/.gradle/caches/transforms-2/files-2.1/b4ab4974fb34946c9dcd41d17dd71d1c/butterknife-8.4.0/jars/lint.jar"/>
+    </issue>
+
+    <issue
+        id="GradleCompatible"
+        severity="Fatal"
+        message="The compileSdkVersion (25) should not be lower than the targetSdkVersion (28)"
+        category="Correctness"
+        priority="8"
+        summary="Incompatible Gradle Versions"
+        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`)."
+        errorLine1="    compileSdkVersion 25"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="11"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="31"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`androidTestCompile` is deprecated; replace with `androidTestImplementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    androidTestCompile(&apos;com.android.support.test.espresso:espresso-core:2.2.2&apos;, {"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="32"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:appcompat-v7:25.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="35"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:recyclerview-v7:25.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="36"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:cardview-v7:25.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="37"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:design:25.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="38"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:support-v4:25.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="39"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.android.support:support-vector-drawable:25.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="40"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.squareup.retrofit2:retrofit:2.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="41"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.squareup.retrofit2:converter-gson:2.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="42"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.squareup.okhttp3:logging-interceptor:3.4.2&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="43"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.squareup.picasso:picasso:2.5.2&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="44"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.jakewharton:butterknife:8.4.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="45"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.github.castorflex.smoothprogressbar:library:1.1.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="46"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.github.castorflex.smoothprogressbar:library-circular:1.2.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="47"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`compile` is deprecated; replace with `implementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    compile &apos;com.iarcuschin:simpleratingbar:0.1.3&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="48"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDeprecatedConfiguration"
+        severity="Warning"
+        message="`testCompile` is deprecated; replace with `testImplementation`"
+        category="Correctness"
+        priority="6"
+        summary="Deprecated Gradle Configuration"
+        explanation="Some Gradle configurations have been deprecated since Android Gradle Plugin 3.0.0 and will be removed in a future version of the Android Gradle Plugin."
+        url="https://d.android.com/r/tools/update-dependency-configurations"
+        urls="https://d.android.com/r/tools/update-dependency-configurations"
+        errorLine1="    testCompile &apos;junit:junit:4.12&apos;"
+        errorLine2="    ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="49"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Target SDK attribute is not targeting latest version"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.&#xA;&#xA;To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html as well as follow this guide:&#xA;https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        url="https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        urls="https://developer.android.com/distribute/best-practices/develop/target-sdk.html,http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="        targetSdkVersion 28"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="16"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String backdropPath = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_BACKDROP_PATH));"
+        errorLine2="                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="129"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String posterPath = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_POSTER_PATH));"
+        errorLine2="                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="130"
+            column="51"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String nameStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_TITLE));"
+        errorLine2="                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="153"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String originalNameStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_ORIGINAL_TITLE));"
+        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="154"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String releaseDateStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_RELEASE_DATE));"
+        errorLine2="                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="155"
+            column="55"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String genresStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_GENRES));"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="156"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String countriesStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_PRODUCTION_COUNTRIES));"
+        errorLine2="                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="157"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            int runtimeInt = mCursor.getInt(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_RUNTIME));"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="158"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String taglineStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_TAGLINE));"
+        errorLine2="                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="159"
+            column="51"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String overviewStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_OVERVIEW));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="160"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            long budgetLong = mCursor.getLong(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_BUDGET));"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="161"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            long revenueLong = mCursor.getLong(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_REVENUE));"
+        errorLine2="                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="162"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String statusStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_STATUS));"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="163"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String imdbId = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_IMDB_ID));"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="164"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String homepageUrl = mCursor.getString(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_HOMEPAGE));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="165"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            float voteAverageFlt = mCursor.getFloat(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_VOTE_AVERAGE));"
+        errorLine2="                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="166"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            int voteCountInt = mCursor.getInt(mCursor.getColumnIndex(MovieContract.Movies.MOVIE_VOTE_COUNT));"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/MovieDetailsActivity.java"
+            line="167"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String photoUrl = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_PROFILE_PATH));"
+        errorLine2="                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="109"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String nameStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_NAME));"
+        errorLine2="                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="110"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String birthdayStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_BIRTHDAY));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="111"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String deathdayStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_DEATHDAY));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="112"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String placeOfBirthStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_PLACE_OF_BIRTH));"
+        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="113"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String biographyStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_BIOGRAPHY));"
+        errorLine2="                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="114"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String imdbId = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_BIOGRAPHY));"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="115"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String homepageUrl = mCursor.getString(mCursor.getColumnIndex(MovieContract.Persons.PERSON_BIOGRAPHY));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/PersonDetailsActivity.java"
+            line="116"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String backdropPath = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_BACKDROP_PATH));"
+        errorLine2="                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="124"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String posterPath = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_POSTER_PATH));"
+        errorLine2="                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="125"
+            column="51"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String nameStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_NAME));"
+        errorLine2="                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="148"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String originalNameStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_ORIGINAL_NAME));"
+        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="149"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String firstAirDateStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_FIRST_AIR_DATE));"
+        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="150"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String lastAirDateStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_LAST_AIR_DATE));"
+        errorLine2="                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="151"
+            column="55"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String genresStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_GENRES));"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="152"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String countryStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_ORIGINAL_COUNTRY));"
+        errorLine2="                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="153"
+            column="51"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            int runtimeInt = mCursor.getInt(mCursor.getColumnIndex(MovieContract.TVs.TV_EPISODE_RUNTIME));"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="154"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String overviewStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_OVERVIEW));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="155"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            int isInProduction = mCursor.getInt(mCursor.getColumnIndex(MovieContract.TVs.TV_IN_PRODUCTION));"
+        errorLine2="                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="156"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String statusStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_STATUS));"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="157"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String networksStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_NETWORKS));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="158"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            String homepageStr = mCursor.getString(mCursor.getColumnIndex(MovieContract.TVs.TV_HOMEPAGE));"
+        errorLine2="                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="159"
+            column="52"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            float voteAverageFlt = mCursor.getFloat(mCursor.getColumnIndex(MovieContract.TVs.TV_VOTE_AVERAGE));"
+        errorLine2="                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="160"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="Range"
+        severity="Error"
+        message="Value must be ≥ 0"
+        category="Correctness"
+        priority="6"
+        summary="Outside Range"
+        explanation="Some parameters are required to in a particular numerical range; this check makes sure that arguments passed fall within the range. For arrays, Strings and collections this refers to the size or length."
+        errorLine1="            int voteCountInt = mCursor.getInt(mCursor.getColumnIndex(MovieContract.TVs.TV_VOTE_COUNT));"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/TvDetailsActivity.java"
+            line="161"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `parentActivityName` is only used in API level 16 and higher (current min is 14)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="                android:parentActivityName=&quot;org.asdtm.fas.activity.HomeActivity&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="64"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `fontFamily` is only used in API level 16 and higher (current min is 14) Did you mean `app:fontFamily` ?"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="                    android:fontFamily=&quot;sans-serif-condensed&quot;/>"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_about.xml"
+            line="47"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `elevation` is only used in API level 21 and higher (current min is 14)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="                    android:elevation=&quot;4dp&quot;/>"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movies.xml"
+            line="38"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `navigationIcon` is only used in API level 21 and higher (current min is 14)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="                android:navigationIcon=&quot;?homeAsUpIndicator&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_person_details.xml"
+            line="20"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `elevation` is only used in API level 21 and higher (current min is 14)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="                    android:elevation=&quot;4dp&quot;/>"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_tv.xml"
+            line="37"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 14)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance or functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="        android:foreground=&quot;?attr/selectableItemBackground&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_search.xml"
+            line="8"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="InflateParams"
+        severity="Warning"
+        message="Avoid passing `null` as the view root (needed to resolve layout parameters on the inflated layout&apos;s root element)"
+        category="Correctness"
+        priority="5"
+        summary="Layout Inflation without a Parent"
+        explanation="When inflating a layout, avoid passing in null as the parent view, since otherwise any layout parameters on the root of the inflated layout will be ignored."
+        url="http://www.doubleencore.com/2013/05/layout-inflation-as-intended"
+        urls="http://www.doubleencore.com/2013/05/layout-inflation-as-intended"
+        errorLine1="        View v = inflater.inflate(R.layout.dialog_donation, null, false);"
+        errorLine2="                                                            ~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/DonationDialog.java"
+            line="34"
+            column="61"/>
+    </issue>
+
+    <issue
+        id="InvalidVectorPath"
+        severity="Error"
+        message="Use 0.99 instead of .99 to avoid crashes on some devices"
+        category="Correctness"
+        priority="5"
+        summary="Invalid vector paths"
+        explanation="This check ensures that vector paths are valid. For example, it makes sure that the numbers are not using scientific notation (such as 1.0e3) which can lead to runtime crashes on older devices. As another example, it flags numbers like `.5` which should be written as `0.5` instead to avoid crashes on some pre-Marshmallow devices."
+        url="https://code.google.com/p/android/issues/detail?id=78162"
+        urls="https://code.google.com/p/android/issues/detail?id=78162"
+        errorLine1="            android:pathData=&quot;M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22"
+        errorLine2="                                                            ~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_error_outline.xml"
+            line="12"
+            column="61"/>
+    </issue>
+
+    <issue
+        id="InvalidVectorPath"
+        severity="Error"
+        message="Use -0.25 instead of -.25 to avoid crashes on some devices"
+        category="Correctness"
+        priority="5"
+        summary="Invalid vector paths"
+        explanation="This check ensures that vector paths are valid. For example, it makes sure that the numbers are not using scientific notation (such as 1.0e3) which can lead to runtime crashes on older devices. As another example, it flags numbers like `.5` which should be written as `0.5` instead to avoid crashes on some pre-Marshmallow devices."
+        url="https://code.google.com/p/android/issues/detail?id=78162"
+        urls="https://code.google.com/p/android/issues/detail?id=78162"
+        errorLine1="            android:pathData=&quot;M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01,-.25 1.97,-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0,-4.42,-3.58,-8,-8,-8zm0 14c-3.31 0,-6,-2.69,-6,-6 0,-1.01.25,-1.97.7,-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4,-4,-4,-4v3z&quot;/>"
+        errorLine2="                                                                         ~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_sync_black_24dp.xml"
+            line="8"
+            column="74"/>
+    </issue>
+
+    <issue
+        id="InvalidVectorPath"
+        severity="Error"
+        message="Use -0.7 instead of -.7 to avoid crashes on some devices"
+        category="Correctness"
+        priority="5"
+        summary="Invalid vector paths"
+        explanation="This check ensures that vector paths are valid. For example, it makes sure that the numbers are not using scientific notation (such as 1.0e3) which can lead to runtime crashes on older devices. As another example, it flags numbers like `.5` which should be written as `0.5` instead to avoid crashes on some pre-Marshmallow devices."
+        url="https://code.google.com/p/android/issues/detail?id=78162"
+        urls="https://code.google.com/p/android/issues/detail?id=78162"
+        errorLine1="            android:pathData=&quot;M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01,-.25 1.97,-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0,-4.42,-3.58,-8,-8,-8zm0 14c-3.31 0,-6,-2.69,-6,-6 0,-1.01.25,-1.97.7,-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4,-4,-4,-4v3z&quot;/>"
+        errorLine2="                                                                                   ~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_sync_black_24dp.xml"
+            line="8"
+            column="84"/>
+    </issue>
+
+    <issue
+        id="InvalidVectorPath"
+        severity="Error"
+        message="Use 0.25 instead of .25 to avoid crashes on some devices"
+        category="Correctness"
+        priority="5"
+        summary="Invalid vector paths"
+        explanation="This check ensures that vector paths are valid. For example, it makes sure that the numbers are not using scientific notation (such as 1.0e3) which can lead to runtime crashes on older devices. As another example, it flags numbers like `.5` which should be written as `0.5` instead to avoid crashes on some pre-Marshmallow devices."
+        url="https://code.google.com/p/android/issues/detail?id=78162"
+        urls="https://code.google.com/p/android/issues/detail?id=78162"
+        errorLine1="            android:pathData=&quot;M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01,-.25 1.97,-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0,-4.42,-3.58,-8,-8,-8zm0 14c-3.31 0,-6,-2.69,-6,-6 0,-1.01.25,-1.97.7,-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4,-4,-4,-4v3z&quot;/>"
+        errorLine2="                                                                                                                                                                                           ~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_sync_black_24dp.xml"
+            line="8"
+            column="188"/>
+    </issue>
+
+    <issue
+        id="InvalidVectorPath"
+        severity="Error"
+        message="Use 0.7 instead of .7 to avoid crashes on some devices"
+        category="Correctness"
+        priority="5"
+        summary="Invalid vector paths"
+        explanation="This check ensures that vector paths are valid. For example, it makes sure that the numbers are not using scientific notation (such as 1.0e3) which can lead to runtime crashes on older devices. As another example, it flags numbers like `.5` which should be written as `0.5` instead to avoid crashes on some pre-Marshmallow devices."
+        url="https://code.google.com/p/android/issues/detail?id=78162"
+        urls="https://code.google.com/p/android/issues/detail?id=78162"
+        errorLine1="            android:pathData=&quot;M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01,-.25 1.97,-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0,-4.42,-3.58,-8,-8,-8zm0 14c-3.31 0,-6,-2.69,-6,-6 0,-1.01.25,-1.97.7,-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4,-4,-4,-4v3z&quot;/>"
+        errorLine2="                                                                                                                                                                                                    ~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_sync_black_24dp.xml"
+            line="8"
+            column="197"/>
+    </issue>
+
+    <issue
+        id="AppCompatCustomView"
+        severity="Error"
+        message="This custom view should extend `android.support.v7.widget.AppCompatTextView` instead"
+        category="Correctness"
+        priority="4"
+        summary="Appcompat Custom Widgets"
+        explanation="In order to support features such as tinting, the appcompat library will automatically load special appcompat replacements for the builtin widgets. However, this does not work for your own custom views.&#xA;&#xA;Instead of extending the `android.widget` classes directly, you should instead extend one of the delegate classes in&#xA;`androidx.appcompat.widget.AppCompatTextView`."
+        errorLine1="public class ExpandableTextView extends TextView {"
+        errorLine2="                                        ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/view/ExpandableTextView.java"
+            line="12"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="EllipsizeMaxLines"
+        severity="Error"
+        message="Combining `ellipsize=marquee` and `maxLines=1` can lead to crashes. Use `singleLine=true` instead."
+        category="Correctness"
+        priority="4"
+        summary="Combining Ellipsize and Maxlines"
+        explanation="Combining `ellipsize` and `maxLines=1` can lead to crashes on some devices. Earlier versions of lint recommended replacing `singleLine=true` with `maxLines=1` but that should not be done when using `ellipsize`."
+        url="https://issuetracker.google.com/issues/36950033"
+        urls="https://issuetracker.google.com/issues/36950033"
+        errorLine1="          android:maxLines=&quot;1&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/spinner_item.xml"
+            line="5"
+            column="11"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/spinner_item.xml"
+            line="7"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="Old buildToolsVersion 25.0.2; recommended version is 25.0.3 or later"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    buildToolsVersion &quot;25.0.2&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="12"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:appcompat-v7 than 25.1.0 is available: 25.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:appcompat-v7:25.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="35"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:recyclerview-v7 than 25.1.0 is available: 25.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:recyclerview-v7:25.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="36"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:cardview-v7 than 25.1.0 is available: 25.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:cardview-v7:25.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="37"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:design than 25.1.0 is available: 25.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:design:25.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="38"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:support-v4 than 25.1.0 is available: 25.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:support-v4:25.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="39"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.support:support-vector-drawable than 25.1.0 is available: 25.4.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.android.support:support-vector-drawable:25.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="40"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.squareup.retrofit2:retrofit than 2.1.0 is available: 2.11.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.squareup.retrofit2:retrofit:2.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="41"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.squareup.retrofit2:converter-gson than 2.1.0 is available: 2.9.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    compile &apos;com.squareup.retrofit2:converter-gson:2.1.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="42"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of junit:junit than 4.12 is available: 4.13.2"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    testCompile &apos;junit:junit:4.12&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="49"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RestrictedApi"
+        severity="Error"
+        message="SearchView.clearFocus can only be called from within the same library group (groupId=com.android.support)"
+        category="Correctness"
+        priority="4"
+        summary="Restricted API"
+        explanation="This API has been flagged with a restriction that has not been met.&#xA;&#xA;Examples of API restrictions:&#xA;* Method can only be invoked by a subclass&#xA;* Method can only be accessed from within the same library (defined by the Gradle library group id)&#xA;* Method can only be accessed from tests.&#xA;&#xA;You can add your own API restrictions with the `@RestrictTo` annotation."
+        errorLine1="                mSearchView.clearFocus();"
+        errorLine2="                            ~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/SearchActivity.java"
+            line="86"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="SetJavaScriptEnabled"
+        severity="Warning"
+        message="Using `setJavaScriptEnabled` can introduce XSS vulnerabilities into your application, review carefully."
+        category="Security"
+        priority="6"
+        summary="Using `setJavaScriptEnabled`"
+        explanation="Your code should not invoke `setJavaScriptEnabled` if you are not sure that your app really requires JavaScript support."
+        url="http://developer.android.com/guide/practices/security.html"
+        urls="http://developer.android.com/guide/practices/security.html"
+        errorLine1="        mWebView.getSettings().setJavaScriptEnabled(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/java/org/asdtm/fas/activity/VideoActivity.java"
+            line="48"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="ExportedContentProvider"
+        severity="Warning"
+        message="Exported content providers can provide access to potentially sensitive data"
+        category="Security"
+        priority="5"
+        summary="Content provider does not require permission"
+        explanation="Content providers are exported by default and any application on the system can potentially use them to read and write data. If the content provider provides access to sensitive data, it should be protected by specifying `export=false` in the manifest or by protecting it with a permission that can be granted to other applications."
+        errorLine1="        &lt;provider"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="97"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/training/backup/autosyncapi.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup&#xA;&#xA;By default, this flag is set to `true` which means application data can be backed up and restored by the OS. Setting `allowBackup=&quot;false&quot;` opts the application out of being backed up and so users can&apos;t restore data related to it when they go through the device setup wizard.&#xA;&#xA;Allowing backups may have security consequences for an application. Currently `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.&#xA;&#xA;To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.&#xA;&#xA;If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/training/backup/autosyncapi.html"
+        urls="https://developer.android.com/training/backup/autosyncapi.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="     ~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/AndroidManifest.xml"
+            line="8"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="AnnotationProcessorOnCompilePath"
+        severity="Warning"
+        message="Add annotation processor to processor path using `annotationProcessor` instead of `compile`"
+        category="Performance"
+        priority="8"
+        summary="Annotation Processor on Compile Classpath"
+        explanation="This dependency is identified as an annotation processor. Consider adding it to the processor path using `annotationProcessor` instead of including it to the&#xA;compile path."
+        errorLine1="    compile &apos;com.jakewharton:butterknife:8.4.0&apos;"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/build.gradle"
+            line="45"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1814 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="    &lt;path"
+        errorLine2="                                                                                  ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/background_reel.xml"
+            line="8"
+            column="83"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        severity="Warning"
+        message="Very long vector path (1007 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        category="Performance"
+        priority="5"
+        summary="Long vector paths"
+        explanation="Using long vector paths is bad for performance. There are several ways to make the `pathData` shorter:&#xA;* Using less precision&#xA;* Removing some minor details&#xA;* Using the Android Studio vector conversion tool&#xA;* Rasterizing the image (converting to PNG)"
+        errorLine1="    &lt;path"
+        errorLine2="                                                                                                                       ^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/nav_header_reel.xml"
+            line="12"
+            column="120"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `?android:attr/selectableItemBackground` with a theme that also paints a background (inferred theme is `@style/AppTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="        android:background=&quot;?android:attr/selectableItemBackground&quot;>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_movie.xml"
+            line="7"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `?android:attr/selectableItemBackground` with a theme that also paints a background (inferred theme is `@style/AppTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="        android:background=&quot;?android:attr/selectableItemBackground&quot;>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_tv.xml"
+            line="7"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/colorPrimary` with a theme that also paints a background (inferred theme is `@style/AppTheme`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.&#xA;&#xA;NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.&#xA;&#xA;If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.&#xA;&#xA;Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead."
+        errorLine1="        android:background=&quot;@color/colorPrimary&quot;>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/nav_header.xml"
+            line="9"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.color.textColor` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;color name=&quot;textColor&quot;>#f5f5f5&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/colors.xml"
+            line="6"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.color.colorIcons` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;color name=&quot;colorIcons&quot;>#FFFFFF&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/colors.xml"
+            line="10"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.fab_margin` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;dimen name=&quot;fab_margin&quot;>16dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/dimens.xml"
+            line="5"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.appbar_padding_top` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;dimen name=&quot;appbar_padding_top&quot;>8dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/dimens.xml"
+            line="6"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.divider_height` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;dimen name=&quot;divider_height&quot;>1dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/dimens.xml"
+            line="10"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_sync_black_24dp` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/drawable/ic_sync_black_24dp.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.nav_menu_celebs` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;nav_menu_celebs&quot;>Celebs&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="21"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-be/strings.xml"
+            line="17"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-de/strings.xml"
+            line="16"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-eo/strings.xml"
+            line="16"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-es/strings.xml"
+            line="16"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="16"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-pl/strings.xml"
+            line="35"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-ru/strings.xml"
+            line="35"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.title_activity_home` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;title_activity_home&quot;>Home&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="28"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-be/strings.xml"
+            line="24"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-de/strings.xml"
+            line="23"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-eo/strings.xml"
+            line="23"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-es/strings.xml"
+            line="23"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-ja/strings.xml"
+            line="23"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-pl/strings.xml"
+            line="27"
+            column="13"/>
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values-ru/strings.xml"
+            line="27"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.tv_original_name` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true."
+        errorLine1="    &lt;string name=&quot;tv_original_name&quot; translatable=&quot;false&quot;>%1$s (%2$s-%3$s)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/values/strings.xml"
+            line="73"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="                &lt;ImageView"
+        errorLine2="                 ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_home.xml"
+            line="124"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="            &lt;ImageView"
+        errorLine2="             ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movie_details.xml"
+            line="25"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="                &lt;ImageView"
+        errorLine2="                 ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movie_details.xml"
+            line="65"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="                &lt;ImageView"
+        errorLine2="                 ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_person_details.xml"
+            line="42"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="            &lt;ImageView"
+        errorLine2="             ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_tv_details.xml"
+            line="25"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="                &lt;ImageView"
+        errorLine2="                 ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_tv_details.xml"
+            line="64"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/custom_error_view.xml"
+            line="12"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/dialog_donation.xml"
+            line="21"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="        &lt;ImageView"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_home_movie.xml"
+            line="18"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="        &lt;ImageView"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_home_tv.xml"
+            line="18"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_movie.xml"
+            line="32"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_search.xml"
+            line="11"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_tv.xml"
+            line="32"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/nav_header.xml"
+            line="11"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="KeyboardInaccessibleWidget"
+        severity="Warning"
+        message="&apos;clickable&apos; attribute found, please also add &apos;focusable&apos;"
+        category="Accessibility"
+        priority="3"
+        summary="Keyboard inaccessible widget"
+        explanation="A widget that is declared to be clickable but not declared to be focusable is not accessible via the keyboard. Please add the `focusable` attribute as well."
+        errorLine1="                    android:clickable=&quot;true&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movie_details.xml"
+            line="144"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="RelativeOverlap"
+        severity="Warning"
+        message="`@id/discover.rating` can overlap `@id/discover.rating_title` if @string/discover_minimum_rating, @id/discover.rating grow due to localized text expansion"
+        category="Internationalization"
+        priority="3"
+        summary="Overlapping items in RelativeLayout"
+        explanation="If relative layout has text or button items aligned to left and right sides they can overlap each other due to localized text expansion unless they have mutual constraints like `toEndOf`/`toStartOf`."
+        errorLine1="            &lt;TextView"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/fragment_discover.xml"
+            line="138"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="RtlCompat"
+        severity="Error"
+        message="To support older versions than API 17 (project specifies 14) you must **also** specify `gravity` or `layout_gravity=&quot;center_horizontal&quot;`"
+        category="Internationalization:Bidirectional Text"
+        priority="6"
+        summary="Right-to-left text compatibility issues"
+        explanation="API 17 adds a `textAlignment` attribute to specify text alignment. However, if you are supporting older versions than API 17, you must **also** specify a gravity or layout_gravity attribute, since older platforms will ignore the `textAlignment` attribute."
+        errorLine1="                    android:textAlignment=&quot;center&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_about.xml"
+            line="46"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="RtlCompat"
+        severity="Error"
+        message="To support older versions than API 17 (project specifies 14) you must **also** specify `gravity` or `layout_gravity=&quot;center_horizontal&quot;`"
+        category="Internationalization:Bidirectional Text"
+        priority="6"
+        summary="Right-to-left text compatibility issues"
+        explanation="API 17 adds a `textAlignment` attribute to specify text alignment. However, if you are supporting older versions than API 17, you must **also** specify a gravity or layout_gravity attribute, since older platforms will ignore the `textAlignment` attribute."
+        errorLine1="                    android:textAlignment=&quot;center&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_about.xml"
+            line="55"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="RtlCompat"
+        severity="Error"
+        message="To support older versions than API 17 (project specifies 14) you must **also** specify `gravity` or `layout_gravity=&quot;center_horizontal&quot;`"
+        category="Internationalization:Bidirectional Text"
+        priority="6"
+        summary="Right-to-left text compatibility issues"
+        explanation="API 17 adds a `textAlignment` attribute to specify text alignment. However, if you are supporting older versions than API 17, you must **also** specify a gravity or layout_gravity attribute, since older platforms will ignore the `textAlignment` attribute."
+        errorLine1="                        android:textAlignment=&quot;center&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movie_details.xml"
+            line="382"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="RtlCompat"
+        severity="Error"
+        message="To support older versions than API 17 (project specifies 14) you must **also** specify `gravity` or `layout_gravity=&quot;center_horizontal&quot;`"
+        category="Internationalization:Bidirectional Text"
+        priority="6"
+        summary="Right-to-left text compatibility issues"
+        explanation="API 17 adds a `textAlignment` attribute to specify text alignment. However, if you are supporting older versions than API 17, you must **also** specify a gravity or layout_gravity attribute, since older platforms will ignore the `textAlignment` attribute."
+        errorLine1="                        android:textAlignment=&quot;center&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movie_details.xml"
+            line="407"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="RtlCompat"
+        severity="Error"
+        message="To support older versions than API 17 (project specifies 14) you must **also** specify `gravity` or `layout_gravity=&quot;center_horizontal&quot;`"
+        category="Internationalization:Bidirectional Text"
+        priority="6"
+        summary="Right-to-left text compatibility issues"
+        explanation="API 17 adds a `textAlignment` attribute to specify text alignment. However, if you are supporting older versions than API 17, you must **also** specify a gravity or layout_gravity attribute, since older platforms will ignore the `textAlignment` attribute."
+        errorLine1="            android:textAlignment=&quot;center&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/dialog_donation.xml"
+            line="15"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:layout_marginEnd=&quot;@dimen/activity_horizontal_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                        android:layout_marginRight=&quot;@dimen/activity_horizontal_margin&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movie_details.xml"
+            line="224"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:layout_marginEnd=&quot;@dimen/activity_horizontal_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                        android:layout_marginRight=&quot;@dimen/activity_horizontal_margin&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_movie_details.xml"
+            line="241"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:layout_marginEnd=&quot;@dimen/activity_horizontal_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                        android:layout_marginRight=&quot;@dimen/activity_horizontal_margin&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_tv_details.xml"
+            line="214"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:layout_marginEnd=&quot;@dimen/activity_horizontal_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                        android:layout_marginRight=&quot;@dimen/activity_horizontal_margin&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_tv_details.xml"
+            line="231"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:paddingStart=&quot;@dimen/activity_vertical_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                    android:paddingLeft=&quot;@dimen/activity_vertical_margin&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_tv_details.xml"
+            line="257"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:paddingEnd=&quot;@dimen/activity_horizontal_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                    android:paddingRight=&quot;@dimen/activity_horizontal_margin&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/activity_tv_details.xml"
+            line="258"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:layout_marginEnd=&quot;@dimen/activity_vertical_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                    android:layout_marginRight=&quot;@dimen/activity_vertical_margin&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_movie.xml"
+            line="87"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider adding `android:layout_marginEnd=&quot;@dimen/activity_vertical_margin&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/end attributes. On older platforms, where RTL is not supported and the start/end attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                    android:layout_marginRight=&quot;@dimen/activity_vertical_margin&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/rar9993/repos/research/fdroid_apps/native_apps/inventum/NONE_TRANSFORMED_/app/src/main/res/layout/item_tv.xml"
+            line="87"
+            column="21"/>
+    </issue>
+
+</issues>

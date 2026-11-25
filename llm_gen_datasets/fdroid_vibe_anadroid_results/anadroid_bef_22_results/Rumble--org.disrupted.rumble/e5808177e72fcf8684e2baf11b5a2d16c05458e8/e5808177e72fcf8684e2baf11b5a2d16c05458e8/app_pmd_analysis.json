@@ -1,0 +1,1524 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:55:44.177+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/CacheManager.java",
+      "violations": [
+        {
+          "beginline": 423,
+          "begincolumn": 34,
+          "endline": 423,
+          "endcolumn": 73,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 552,
+          "begincolumn": 49,
+          "endline": 552,
+          "endcolumn": 65,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/ChatMessageDatabase.java",
+      "violations": [
+        {
+          "beginline": 131,
+          "begincolumn": 17,
+          "endline": 133,
+          "endcolumn": 85,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 159,
+          "begincolumn": 17,
+          "endline": 159,
+          "endcolumn": 79,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 180,
+          "begincolumn": 60,
+          "endline": 180,
+          "endcolumn": 113,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/ContactDatabase.java",
+      "violations": [
+        {
+          "beginline": 159,
+          "begincolumn": 17,
+          "endline": 159,
+          "endcolumn": 75,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 170,
+          "begincolumn": 21,
+          "endline": 173,
+          "endcolumn": 88,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 185,
+          "begincolumn": 26,
+          "endline": 185,
+          "endcolumn": 58,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 194,
+          "begincolumn": 17,
+          "endline": 194,
+          "endcolumn": 71,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 203,
+          "begincolumn": 17,
+          "endline": 203,
+          "endcolumn": 72,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 212,
+          "begincolumn": 17,
+          "endline": 212,
+          "endcolumn": 72,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 225,
+          "begincolumn": 13,
+          "endline": 229,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 244,
+          "begincolumn": 60,
+          "endline": 244,
+          "endcolumn": 113,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 364,
+          "begincolumn": 21,
+          "endline": 368,
+          "endcolumn": 89,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 390,
+          "begincolumn": 21,
+          "endline": 394,
+          "endcolumn": 78,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 414,
+          "begincolumn": 21,
+          "endline": 419,
+          "endcolumn": 70,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/ContactInterfaceDatabase.java",
+      "violations": [
+        {
+          "beginline": 73,
+          "begincolumn": 83,
+          "endline": 73,
+          "endcolumn": 85,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/PushStatusDatabase.java",
+      "violations": [
+        {
+          "beginline": 203,
+          "begincolumn": 17,
+          "endline": 203,
+          "endcolumn": 79,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 214,
+          "begincolumn": 21,
+          "endline": 217,
+          "endcolumn": 87,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 223,
+          "begincolumn": 21,
+          "endline": 224,
+          "endcolumn": 94,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 230,
+          "begincolumn": 21,
+          "endline": 231,
+          "endcolumn": 91,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 241,
+          "begincolumn": 26,
+          "endline": 241,
+          "endcolumn": 67,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 256,
+          "begincolumn": 26,
+          "endline": 256,
+          "endcolumn": 63,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 265,
+          "begincolumn": 26,
+          "endline": 265,
+          "endcolumn": 61,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 281,
+          "begincolumn": 21,
+          "endline": 286,
+          "endcolumn": 75,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        },
+        {
+          "beginline": 330,
+          "begincolumn": 17,
+          "endline": 330,
+          "endcolumn": 78,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 338,
+          "begincolumn": 17,
+          "endline": 338,
+          "endcolumn": 79,
+          "description": "StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.",
+          "rule": "ConsecutiveAppendsShouldReuse",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#consecutiveappendsshouldreuse"
+        },
+        {
+          "beginline": 362,
+          "begincolumn": 13,
+          "endline": 369,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 385,
+          "begincolumn": 60,
+          "endline": 385,
+          "endcolumn": 113,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 620,
+          "begincolumn": 21,
+          "endline": 624,
+          "endcolumn": 78,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/StatusContactDatabase.java",
+      "violations": [
+        {
+          "beginline": 59,
+          "begincolumn": 81,
+          "endline": 59,
+          "endcolumn": 83,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/objects/Contact.java",
+      "violations": [
+        {
+          "beginline": 96,
+          "begincolumn": 57,
+          "endline": 96,
+          "endcolumn": 81,
+          "description": "String.trim().length() \u003d\u003d 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.",
+          "rule": "InefficientEmptyStringCheck",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientemptystringcheck"
+        },
+        {
+          "beginline": 173,
+          "begincolumn": 9,
+          "endline": 173,
+          "endcolumn": 15,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 176,
+          "begincolumn": 17,
+          "endline": 176,
+          "endcolumn": 23,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 179,
+          "begincolumn": 9,
+          "endline": 179,
+          "endcolumn": 15,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 182,
+          "begincolumn": 17,
+          "endline": 182,
+          "endcolumn": 23,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 185,
+          "begincolumn": 9,
+          "endline": 185,
+          "endcolumn": 15,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/objects/PushStatus.java",
+      "violations": [
+        {
+          "beginline": 202,
+          "begincolumn": 20,
+          "endline": 202,
+          "endcolumn": 32,
+          "description": "Avoid instantiating String objects; this is usually unnecessary.",
+          "rule": "StringInstantiation",
+          "ruleset": "Performance",
+          "priority": 2,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#stringinstantiation"
+        },
+        {
+          "beginline": 203,
+          "begincolumn": 9,
+          "endline": 203,
+          "endcolumn": 10,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 204,
+          "begincolumn": 9,
+          "endline": 204,
+          "endcolumn": 10,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 205,
+          "begincolumn": 9,
+          "endline": 205,
+          "endcolumn": 10,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 206,
+          "begincolumn": 9,
+          "endline": 206,
+          "endcolumn": 10,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/database/statistics/StatisticDatabase.java",
+      "violations": [
+        {
+          "beginline": 50,
+          "begincolumn": 40,
+          "endline": 50,
+          "endcolumn": 56,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/NeighbourManager.java",
+      "violations": [
+        {
+          "beginline": 116,
+          "begincolumn": 48,
+          "endline": 118,
+          "endcolumn": 47,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 193,
+          "begincolumn": 52,
+          "endline": 193,
+          "endcolumn": 98,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/WorkerPool.java",
+      "violations": [
+        {
+          "beginline": 58,
+          "begincolumn": 39,
+          "endline": 58,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/linklayer/bluetooth/BluetoothLinkLayerAdapter.java",
+      "violations": [
+        {
+          "beginline": 51,
+          "begincolumn": 46,
+          "endline": 51,
+          "endcolumn": 54,
+          "description": "Avoid using redundant field initializer for \u0027instance\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/linklayer/bluetooth/BluetoothScanner.java",
+      "violations": [
+        {
+          "beginline": 385,
+          "begincolumn": 40,
+          "endline": 385,
+          "endcolumn": 77,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/linklayer/bluetooth/BluetoothServer.java",
+      "violations": [
+        {
+          "beginline": 118,
+          "begincolumn": 52,
+          "endline": 118,
+          "endcolumn": 124,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 122,
+          "begincolumn": 48,
+          "endline": 122,
+          "endcolumn": 85,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/linklayer/wifi/TCP/TCPServer.java",
+      "violations": [
+        {
+          "beginline": 106,
+          "begincolumn": 52,
+          "endline": 106,
+          "endcolumn": 122,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 110,
+          "begincolumn": 48,
+          "endline": 110,
+          "endcolumn": 85,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/linklayer/wifi/WifiScanner.java",
+      "violations": [
+        {
+          "beginline": 217,
+          "begincolumn": 56,
+          "endline": 217,
+          "endcolumn": 100,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 226,
+          "begincolumn": 56,
+          "endline": 226,
+          "endcolumn": 88,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/linklayer/wifi/WifiUtil.java",
+      "violations": [
+        {
+          "beginline": 110,
+          "begincolumn": 47,
+          "endline": 110,
+          "endcolumn": 70,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 130,
+          "begincolumn": 52,
+          "endline": 130,
+          "endcolumn": 76,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 174,
+          "begincolumn": 23,
+          "endline": 174,
+          "endcolumn": 44,
+          "description": "Avoid concatenating nonliterals in a StringBuffer/StringBuilder constructor or append().",
+          "rule": "InefficientStringBuffering",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#inefficientstringbuffering"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/firechat/FirechatProtocol.java",
+      "violations": [
+        {
+          "beginline": 52,
+          "begincolumn": 36,
+          "endline": 52,
+          "endcolumn": 44,
+          "description": "Avoid using redundant field initializer for \u0027instance\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/firechat/workers/FirechatOverBluetooth.java",
+      "violations": [
+        {
+          "beginline": 195,
+          "begincolumn": 33,
+          "endline": 195,
+          "endcolumn": 54,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 209,
+          "begincolumn": 46,
+          "endline": 209,
+          "endcolumn": 74,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 210,
+          "begincolumn": 46,
+          "endline": 210,
+          "endcolumn": 72,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 222,
+          "begincolumn": 52,
+          "endline": 224,
+          "endcolumn": 46,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 258,
+          "begincolumn": 27,
+          "endline": 258,
+          "endcolumn": 43,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 302,
+          "begincolumn": 40,
+          "endline": 302,
+          "endcolumn": 55,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/firechat/workers/FirechatOverUDPMulticast.java",
+      "violations": [
+        {
+          "beginline": 146,
+          "begincolumn": 41,
+          "endline": 146,
+          "endcolumn": 92,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 147,
+          "begincolumn": 42,
+          "endline": 147,
+          "endcolumn": 68,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 159,
+          "begincolumn": 48,
+          "endline": 161,
+          "endcolumn": 42,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 177,
+          "begincolumn": 13,
+          "endline": 185,
+          "endcolumn": 14,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/rumble/RumbleProtocol.java",
+      "violations": [
+        {
+          "beginline": 63,
+          "begincolumn": 34,
+          "endline": 63,
+          "endcolumn": 42,
+          "description": "Avoid using redundant field initializer for \u0027instance\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/rumble/RumbleStateMachine.java",
+      "violations": [
+        {
+          "beginline": 158,
+          "begincolumn": 9,
+          "endline": 163,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/rumble/packetformat/BlockContact.java",
+      "violations": [
+        {
+          "beginline": 182,
+          "begincolumn": 33,
+          "endline": 182,
+          "endcolumn": 58,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 188,
+          "begincolumn": 33,
+          "endline": 188,
+          "endcolumn": 64,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 194,
+          "begincolumn": 33,
+          "endline": 194,
+          "endcolumn": 57,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 223,
+          "begincolumn": 48,
+          "endline": 223,
+          "endcolumn": 114,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 230,
+          "begincolumn": 42,
+          "endline": 230,
+          "endcolumn": 61,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/rumble/packetformat/BlockFile.java",
+      "violations": [
+        {
+          "beginline": 147,
+          "begincolumn": 31,
+          "endline": 147,
+          "endcolumn": 47,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 218,
+          "begincolumn": 47,
+          "endline": 218,
+          "endcolumn": 62,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/rumble/workers/RumbleOverUDPMulticast.java",
+      "violations": [
+        {
+          "beginline": 107,
+          "begincolumn": 33,
+          "endline": 107,
+          "endcolumn": 54,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 108,
+          "begincolumn": 41,
+          "endline": 108,
+          "endcolumn": 81,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/protocols/rumble/workers/RumbleUDPMulticastScanner.java",
+      "violations": [
+        {
+          "beginline": 213,
+          "begincolumn": 37,
+          "endline": 213,
+          "endcolumn": 49,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 214,
+          "begincolumn": 45,
+          "endline": 214,
+          "endcolumn": 75,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 233,
+          "begincolumn": 46,
+          "endline": 233,
+          "endcolumn": 58,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 235,
+          "begincolumn": 42,
+          "endline": 235,
+          "endcolumn": 69,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 247,
+          "begincolumn": 51,
+          "endline": 247,
+          "endcolumn": 106,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 249,
+          "begincolumn": 56,
+          "endline": 249,
+          "endcolumn": 93,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        },
+        {
+          "beginline": 257,
+          "begincolumn": 45,
+          "endline": 257,
+          "endcolumn": 75,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/network/services/push/PushService.java",
+      "violations": [
+        {
+          "beginline": 281,
+          "begincolumn": 39,
+          "endline": 281,
+          "endcolumn": 73,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/activity/DisplayStatusActivity.java",
+      "violations": [
+        {
+          "beginline": 76,
+          "begincolumn": 9,
+          "endline": 80,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/activity/GroupListActivity.java",
+      "violations": [
+        {
+          "beginline": 88,
+          "begincolumn": 9,
+          "endline": 118,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/activity/HomeActivity.java",
+      "violations": [
+        {
+          "beginline": 163,
+          "begincolumn": 9,
+          "endline": 168,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/activity/PopupComposeStatus.java",
+      "violations": [
+        {
+          "beginline": 92,
+          "begincolumn": 21,
+          "endline": 92,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027filter_gid\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 93,
+          "begincolumn": 21,
+          "endline": 93,
+          "endcolumn": 35,
+          "description": "Avoid using redundant field initializer for \u0027filter_hashtag\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 263,
+          "begincolumn": 9,
+          "endline": 271,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        },
+        {
+          "beginline": 306,
+          "begincolumn": 44,
+          "endline": 306,
+          "endcolumn": 60,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/activity/RoutingActivity.java",
+      "violations": [
+        {
+          "beginline": 89,
+          "begincolumn": 21,
+          "endline": 89,
+          "endcolumn": 28,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 97,
+          "begincolumn": 41,
+          "endline": 97,
+          "endcolumn": 100,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 104,
+          "begincolumn": 21,
+          "endline": 104,
+          "endcolumn": 80,
+          "description": "This call to Collection.toArray() may be optimizable",
+          "rule": "OptimizableToArrayCall",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#optimizabletoarraycall"
+        },
+        {
+          "beginline": 137,
+          "begincolumn": 9,
+          "endline": 148,
+          "endcolumn": 10,
+          "description": "A switch with less than three branches is inefficient, use a if statement instead.",
+          "rule": "TooFewBranchesForSwitch",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#toofewbranchesforswitch"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/adapter/ChatMessageRecyclerAdapter.java",
+      "violations": [
+        {
+          "beginline": 158,
+          "begincolumn": 21,
+          "endline": 158,
+          "endcolumn": 25,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 158,
+          "begincolumn": 29,
+          "endline": 158,
+          "endcolumn": 31,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 160,
+          "begincolumn": 21,
+          "endline": 160,
+          "endcolumn": 25,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 160,
+          "begincolumn": 29,
+          "endline": 160,
+          "endcolumn": 31,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/adapter/GroupRecyclerAdapter.java",
+      "violations": [
+        {
+          "beginline": 94,
+          "begincolumn": 34,
+          "endline": 94,
+          "endcolumn": 36,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/adapter/StatusRecyclerAdapter.java",
+      "violations": [
+        {
+          "beginline": 150,
+          "begincolumn": 55,
+          "endline": 155,
+          "endcolumn": 26,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/fragments/FragmentContactInfo.java",
+      "violations": [
+        {
+          "beginline": 53,
+          "begincolumn": 20,
+          "endline": 53,
+          "endcolumn": 31,
+          "description": "Avoid using redundant field initializer for \u0027contact_uid\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 94,
+          "begincolumn": 13,
+          "endline": 94,
+          "endcolumn": 28,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 95,
+          "begincolumn": 13,
+          "endline": 95,
+          "endcolumn": 28,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        },
+        {
+          "beginline": 120,
+          "begincolumn": 44,
+          "endline": 120,
+          "endcolumn": 46,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        },
+        {
+          "beginline": 124,
+          "begincolumn": 40,
+          "endline": 124,
+          "endcolumn": 42,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/fragments/FragmentContactList.java",
+      "violations": [
+        {
+          "beginline": 54,
+          "begincolumn": 22,
+          "endline": 54,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027filter_gid\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/fragments/FragmentNetworkDrawer.java",
+      "violations": [
+        {
+          "beginline": 71,
+          "begincolumn": 13,
+          "endline": 71,
+          "endcolumn": 19,
+          "description": "Avoid using redundant field initializer for \u0027mBound\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/userinterface/fragments/FragmentStatusList.java",
+      "violations": [
+        {
+          "beginline": 75,
+          "begincolumn": 22,
+          "endline": 75,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027filter_gid\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 76,
+          "begincolumn": 22,
+          "endline": 76,
+          "endcolumn": 32,
+          "description": "Avoid using redundant field initializer for \u0027filter_uid\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 77,
+          "begincolumn": 22,
+          "endline": 77,
+          "endcolumn": 36,
+          "description": "Avoid using redundant field initializer for \u0027filter_hashtag\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/util/EncryptedInputStream.java",
+      "violations": [
+        {
+          "beginline": 39,
+          "begincolumn": 21,
+          "endline": 39,
+          "endcolumn": 25,
+          "description": "Avoid using redundant field initializer for \u0027done\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 41,
+          "begincolumn": 17,
+          "endline": 41,
+          "endcolumn": 23,
+          "description": "Avoid using redundant field initializer for \u0027ostart\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 42,
+          "begincolumn": 17,
+          "endline": 42,
+          "endcolumn": 24,
+          "description": "Avoid using redundant field initializer for \u0027ofinish\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 44,
+          "begincolumn": 21,
+          "endline": 44,
+          "endcolumn": 35,
+          "description": "Avoid using redundant field initializer for \u0027propagateClose\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/Rumble/app/src/main/java/org/disrupted/rumble/util/NetUtil.java",
+      "violations": [
+        {
+          "beginline": 67,
+          "begincolumn": 41,
+          "endline": 67,
+          "endcolumn": 51,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

@@ -1,0 +1,17 @@
+
+fun initializeApplication() {
+    // ... thousands of lines of initialization code ...
+}
+
+-----
+
+
+fun initializeApplication() {
+    initConfig()
+    initDatabase()
+    initNetworking()
+    initUserInterface()
+}
+private fun initConfig() { /* ... */ }
+private fun initDatabase() { /* ... */ }
+// ... etc ...

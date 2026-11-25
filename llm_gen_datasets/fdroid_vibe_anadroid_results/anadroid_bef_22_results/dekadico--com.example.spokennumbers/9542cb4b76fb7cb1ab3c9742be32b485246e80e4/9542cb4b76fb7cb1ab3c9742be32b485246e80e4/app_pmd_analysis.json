@@ -1,0 +1,80 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T11:51:09.024+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dekadico/app/src/main/java/com/example/spokennumbers/EvaluationFragment.java",
+      "violations": [
+        {
+          "beginline": 71,
+          "begincolumn": 48,
+          "endline": 71,
+          "endcolumn": 97,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dekadico/app/src/main/java/com/example/spokennumbers/FlashAnzan.java",
+      "violations": [
+        {
+          "beginline": 41,
+          "begincolumn": 25,
+          "endline": 41,
+          "endcolumn": 37,
+          "description": "Avoid using redundant field initializer for \u0027final_answer\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 51,
+          "begincolumn": 28,
+          "endline": 51,
+          "endcolumn": 38,
+          "description": "Avoid using redundant field initializer for \u0027is_running\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        },
+        {
+          "beginline": 286,
+          "begincolumn": 61,
+          "endline": 286,
+          "endcolumn": 63,
+          "description": "Do not add empty strings",
+          "rule": "AddEmptyString",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#addemptystring"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/dekadico/app/src/main/java/com/example/spokennumbers/spoken_numbers_recall_fragment.java",
+      "violations": [
+        {
+          "beginline": 61,
+          "begincolumn": 20,
+          "endline": 61,
+          "endcolumn": 32,
+          "description": "Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over +\u003d for concatenating strings",
+          "rule": "UseStringBufferForStringAppends",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#usestringbufferforstringappends"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

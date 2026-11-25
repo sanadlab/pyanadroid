@@ -49,6 +49,4 @@ with open(input_file, 'r') as infile, open(output_file, 'w', newline='') as outf
         outfile.write(r + "\n")
 
 
-
-
 print(f"Fixed paths written to {output_file}")

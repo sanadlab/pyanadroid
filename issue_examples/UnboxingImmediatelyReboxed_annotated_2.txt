@@ -1,0 +1,16 @@
+List<Double> values = Arrays.asList(1.0, 2.5, 3.0);
+Double sum = 0.0;
+for (Double val : values) {
+    // Bad: 'sum' is unboxed, 'val' is unboxed, they are added,
+    // and the result is re-boxed into a new Double for 'sum'.
+    sum = sum + val;
+}
+
+-----
+
+List<Double> values = Arrays.asList(1.0, 2.5, 3.0);
+// Good: The accumulator is a primitive, so boxing only happens once at the end if needed.
+double sum = 0.0;
+for (double val : values) {
+    sum = sum + val;
+}

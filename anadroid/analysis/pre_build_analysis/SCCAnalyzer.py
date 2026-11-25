@@ -22,7 +22,7 @@ class SCCAnalyzer(StaticAnalyzer):
         output_log_file = kwargs.get("output_log_file") if 'output_log_file' in kwargs else DEFAULT_FILENAME
         output_log_file =  os.path.join(output_dir, output_log_file)
         input_dir = project.proj_dir
-        cmd = f"{self.bin_cmd} {input_dir} -f json"
+        cmd = f"{self.bin_cmd} {input_dir} -f json --no-gitignore "
         logi(f"Analyzing project {project.proj_dir} with SCC (output file: {output_log_file})")
         res = execute_shell_command(cmd,timeout=60)
         if res.validate(Exception(f"Unable to analyze sources with {self.bin_cmd}")):

@@ -4,6 +4,7 @@ from shutil import copyfile
 
 from anadroid.application.Dependency import BuildDependency, DependencyType
 from anadroid.profiler.AbstractProfiler import AbstractProfiler
+from anadroid.utils.Utils import logi
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir
 
 RESOURCES_DIR = get_resources_dir()
@@ -37,7 +38,7 @@ class TrepnProfiler(AbstractProfiler):
         Args:
             apk_loc: apk location.
         """
-        print("installing trepn")
+        logi("Installing the Trepn profiler")
         self.device.execute_command(f"install -g -r {apk_loc}").validate(Exception("Unable to install Trepn Profiler"))
 
     def setup_trepn_device_dir(self):

@@ -1,0 +1,20 @@
+int count = 0;
+NodeList childNodes = parentElement.getElementsByTagName("item");
+// Bad: Inefficient call inside the loop condition.
+for (int i = 0; i < childNodes.getLength(); i++) {
+    if ("true".equals(childNodes.item(i).getAttributes().getNamedItem("active").getNodeValue())) {
+        count++;
+    }
+}
+
+-----
+
+int count = 0;
+NodeList childNodes = parentElement.getElementsByTagName("item");
+// Good: Hoisting the getLength() call out of the loop.
+int numChildren = childNodes.getLength();
+for (int i = 0; i < numChildren; i++) {
+    if ("true".equals(childNodes.item(i).getAttributes().getNamedItem("active").getNodeValue())) {
+        count++;
+    }
+}

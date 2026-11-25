@@ -1,0 +1,29 @@
+// In an Android Fragment
+public void parseLogFile(String largeLogText) {
+    // Bad: This greedy regex on a large string can take a long time and cause jank
+    Pattern pattern = Pattern.compile("ERROR: (.*)");
+    Matcher matcher = pattern.matcher(largeLogText);
+
+    List<String> errorMessages = new ArrayList<>();
+    while (matcher.find()) {
+        errorMessages.add(matcher.group(1));
+    }
+    updateUIWithErrors(errorMessages);
+}
+
+
+-----
+
+public void parseLogFile(String largeLogText) {
+    // Good: The parsing logic is moved to a background thread
+    new Thread(() -> {
+        Pattern pattern = Pattern.compile("ERROR: (.*)");
+        Matcher matcher = pattern.matcher(largeLogText);
+        List<String> errorMessages = new ArrayList<>();
+        while (matcher.find()) {
+            errorMessages.add(matcher.group(1));
+        }
+        // Post the result back to the UI thread
+        getActivity().runOnUiThread(() -> updateUIWithErrors(errorMessages));
+    }).start();
+}

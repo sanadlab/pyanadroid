@@ -1,0 +1,31 @@
+class ReportGenerator {
+    private var totalRevenue: Double = 0.0
+
+    fun addSale(amount: Double) {
+        this.totalRevenue += amount
+    }
+
+    fun generateReport() {
+        // ... generates a report, but doesn't use totalRevenue ...
+    }
+}
+
+
+---
+
+class ReportGenerator {
+    private var totalRevenue: Double = 0.0
+
+    fun addSale(amount: Double) {
+        this.totalRevenue += amount
+    }
+
+    fun getTotalRevenue(): Double {
+        return this.totalRevenue
+    }
+
+    fun generateReport() {
+        val revenue = getTotalRevenue()
+        // ...
+    }
+}

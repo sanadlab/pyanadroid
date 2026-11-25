@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/activity/LoginActivity.kt">
+	<error line="39" column="7" severity="warning" message="Class &apos;LoginActivity&apos; with &apos;12&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="228" column="62" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="70" column="17" severity="warning" message="Function mayRequestContacts has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="254" column="22" severity="warning" message="Function doInBackground has 5 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="31" column="1" severity="warning" message="kotlinx.android.synthetic.main.content_login.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="252" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="258" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="155" column="9" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="160" column="9" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="255" column="13" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+	<error line="161" column="34" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="244" column="13" severity="warning" message="ADDRESS can be a `const val`." source="detekt.MayBeConst" />
+	<error line="245" column="13" severity="warning" message="IS_PRIMARY can be a `const val`." source="detekt.MayBeConst" />
+	<error line="319" column="21" severity="warning" message="REQUEST_READ_CONTACTS can be a `const val`." source="detekt.MayBeConst" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/TorrentListFragment.kt">
+	<error line="26" column="7" severity="warning" message="Class &apos;TorrentListFragment&apos; with &apos;11&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="125" column="13" severity="warning" message="RuntimeException is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="111" column="42" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+	<error line="195" column="9" severity="warning" message="Function merge has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="212" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/TorrentListFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="20" column="1" severity="warning" message="kotlinx.android.synthetic.main.app_bar_home.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="21" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_torrent_list.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="146" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="59" column="30" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/TorrentViewFragment.kt">
+	<error line="125" column="9" severity="warning" message="The function genView is too long (76). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="54" column="7" severity="warning" message="Class &apos;TorrentViewFragment&apos; with &apos;13&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="283" column="13" severity="warning" message="This condition is too complex (4). Defined complexity threshold for conditions is set to &apos;4&apos;" source="detekt.ComplexCondition" />
+	<error line="310" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/TorrentViewFragment.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="6" column="1" severity="warning" message="android.content.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="45" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_torrent_view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="193" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="283" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="151" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="152" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="193" column="120" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="257" column="32" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="283" column="47" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="283" column="82" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="291" column="37" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/UploadFragment.kt">
+	<error line="40" column="7" severity="warning" message="Class &apos;UploadFragment&apos; with &apos;12&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="78" column="65" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="257" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="268" column="13" severity="warning" message="RuntimeException is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="168" column="9" severity="warning" message="Function valideForm has 4 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="15" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="29" column="1" severity="warning" message="kotlinx.android.synthetic.main.app_bar_home.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="30" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_upload.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="31" column="1" severity="warning" message="net.gotev.uploadservice.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="43" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="44" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="68" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="98" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="160" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="230" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="236" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="244" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="245" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="246" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="247" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="309" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="100" column="113" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="317" column="9" severity="warning" message="FILE_CODE can be a `const val`." source="detekt.MayBeConst" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/activity/TorrentActivity.kt">
+	<error line="40" column="63" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="43" column="106" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="11" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_torrent.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/AboutFragment.kt">
+	<error line="40" column="13" severity="warning" message="RuntimeException is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="12" column="1" severity="warning" message="kotlinx.android.synthetic.main.app_bar_home.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="13" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_about.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="50" column="9" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/Playlist.kt">
+	<error line="17" column="9" severity="warning" message="Do not print a stack trace. These debug statements should be removed or replaced with a logger." source="detekt.PrintStackTrace" />
+	<error line="38" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/Playlist.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/ImageGetter.kt">
+	<error line="30" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="49" column="18" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="30" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="49" column="18" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+	<error line="22" column="7" severity="warning" message="The file name &apos;ImageGetter&apos; does not match the name of the single top-level declaration &apos;ImageGetterAsyncTask&apos;." source="detekt.MatchingDeclarationName" />
+	<error line="24" column="9" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="53" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/ImageGetter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="22" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/activity/ProfileActivity.kt">
+	<error line="16" column="13" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/Torrent.kt">
+	<error line="15" column="18" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="28" column="18" severity="warning" message="Variable names should match the pattern: [a-z][A-Za-z0-9]*" source="detekt.VariableNaming" />
+	<error line="62" column="16" severity="warning" message="String.format(&quot;%.1f %sB&quot;, bytes / Math.pow(unit.toDouble(), exp.toDouble()), pre) uses implicitly default locale for string formatting." source="detekt.ImplicitDefaultLocale" />
+	<error line="86" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/Torrent.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="10" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="50" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="51" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="58" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="58" column="38" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/activity/HomeActivity.kt">
+	<error line="20" column="1" severity="warning" message="cat.pantsu.nyaapantsu.ui.fragment.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="27" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_home.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="28" column="1" severity="warning" message="kotlinx.android.synthetic.main.app_bar_home.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="35" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="179" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/activity/BaseActivity.kt">
+	<error line="42" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/activity/BaseActivity.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/activity/SplashActivity.kt">
+	<error line="7" column="1" severity="warning" message="kotlinx.android.synthetic.main.activity_main.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/RecentFragment.kt">
+	<error line="9" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="17" column="1" severity="warning" message="kotlinx.android.synthetic.main.app_bar_home.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="82" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="93" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/SearchFragment.kt">
+	<error line="14" column="1" severity="warning" message="kotlinx.android.synthetic.main.app_bar_home.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="15" column="1" severity="warning" message="kotlinx.android.synthetic.main.content_search.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="23" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="121" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/ui/fragment/ProfileFragment.kt">
+	<error line="19" column="1" severity="warning" message="kotlinx.android.synthetic.main.fragment_profile.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="82" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="65" column="9" severity="warning" message="Forbidden TODO todo marker in comment, please do the changes." source="detekt.ForbiddenComment" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/util/Utils.kt">
+	<error line="48" column="13" severity="warning" message="Function mayRequestPermission has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="84" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/util/Utils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="19" column="1" severity="warning" message="The class Utils only contains utility functions. Consider defining it as an object." source="detekt.UtilityClassWithPublicConstructor" />
+	<error line="25" column="101" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/adapter/ViewPagerAdapter.kt">
+	<error line="29" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/adapter/ViewPagerAdapter.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/adapter/TorrentListAdapter.kt">
+	<error line="18" column="1" severity="warning" message="kotlinx.android.synthetic.main.torrent_item.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="23" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="66" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="68" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="74" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="76" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="82" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="84" column="1" severity="warning" message="Line detected, which is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="72" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="80" column="13" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/RecentlyPlayed.kt">
+	<error line="10" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/RecentlyPlayed.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/Utils.kt">
+	<error line="10" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/Utils.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/ProfileQuery.kt">
+	<error line="42" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/ProfileQuery.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/Query.kt">
+	<error line="93" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/Query.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/FlagChip.kt">
+	<error line="30" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/model/FlagChip.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/application/Initializer.kt">
+	<error line="51" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/application/Initializer.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/QueryHelper.kt">
+	<error line="72" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/QueryHelper.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/TorrentStreamHelper.kt">
+	<error line="51" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/TorrentStreamHelper.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/ProfileHelper.kt">
+	<error line="55" column="2" severity="warning" message="The file /Users/rar9993/repos/research/fdroid_apps/native_apps/NyaaPantsu-android-app/app/src/main/java/cat/pantsu/nyaapantsu/helper/ProfileHelper.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+</checkstyle>

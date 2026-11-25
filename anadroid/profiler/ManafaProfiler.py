@@ -8,6 +8,7 @@ from manafa.hunter_emanafa import HunterEManafa
 
 from anadroid.Config import get_general_config
 from anadroid.profiler.AbstractProfiler import AbstractProfiler
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir
 
 #RESOURCES_DIR = "resources/profilers/Manafa"
@@ -28,9 +29,8 @@ class ManafaProfiler(AbstractProfiler):
     def __init__(self, profiler, device, app_package_name=None, power_profile=POWER_PROFILE_FILE, timezone=None, hunter=False):
         super(ManafaProfiler, self).__init__(profiler, device, pkg_name=None)
         self.manafa =  HunterEManafa(
-                app_package_name=app_package_name,
                 power_profile=power_profile,
-                timezone=timezone,
+                timezone=timezone
               ) if hunter else \
             AMEManafa(
                 app_package_name=app_package_name,
@@ -41,7 +41,7 @@ class ManafaProfiler(AbstractProfiler):
 
     def install_profiler(self):
         res = self.device.execute_command("perfetto -h", shell=True)
-        print(res)
+        logd(f"Command result: {res}")
 
     def init(self, **kwargs):
         self.manafa.init()
@@ -73,7 +73,8 @@ class ManafaProfiler(AbstractProfiler):
             os.path.join(target_dir, os.path.basename(self.manafa.bts_out_file)),
             os.path.join(target_dir, os.path.basename(self.manafa.pft_out_file)),
         ]
-        hunter_log = self.manafa.trace_out_file
+        # AMEManafa stores the method traces in trace_out_file. HunterEManafa uses hunter_out_file
+        hunter_log = getattr(self.manafa, 'trace_out_file', None) or self.manafa.hunter_out_file
         consumptions_log = self.manafa.app_consumptions_log
         da_list.append( os.path.join(target_dir, os.path.basename(hunter_log)))
         da_list.append(os.path.join(target_dir, os.path.basename(consumptions_log)))

@@ -1,0 +1,30 @@
+#0
+app/src/main/java/com/alexkang/loopboard/MainActivity.java:95: error: Strict Mode Violation
+  `void MainActivity.onStart()` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  93.       public void onStart() {
+  94.           super.onStart();
+  95. >         refreshRecordings();
+  96.       }
+  97.   
+
+#1
+app/src/main/java/com/alexkang/loopboard/MainActivity.java:127: error: Strict Mode Violation
+  `void MainActivity$Lambda$_16_52.onClick(DialogInterface,int)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  125.                   // Display a deletion confirmation dialog before actually deleting.
+  126.                   new AlertDialog.Builder(this)
+  127. >                         .setMessage(getString(R.string.confirm_delete))
+  128.                           .setPositiveButton(R.string.yes, (dialog, which) -> deleteAllRecordings())
+  129.                           .setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss())
+
+#2
+app/src/main/java/com/alexkang/loopboard/MainActivity.java:163: error: Strict Mode Violation
+  `void MainActivity.onRequestPermissionsResult(int,String[],int[])` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  161.           // recorder in case the record audio permission was recently granted.
+  162.           recorder.refresh();
+  163. >         refreshRecordings();
+  164.       }
+  165.   
+
+Found 3 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 3

@@ -1,0 +1,14 @@
+Set<URL> visitedUrls = new HashSet<>();
+URL url1 = new URL("https://example.com/page1");
+URL url2 = new URL("https://example.com/page2");
+visitedUrls.add(url1); 
+visitedUrls.add(url2);
+
+
+----
+
+Set<URI> visitedUris = new HashSet<>();
+URI uri1 = new URI("https://example.com/page1");
+URI uri2 = new URI("https://example.com/page2");
+visitedUris.add(uri1);
+visitedUris.add(uri2);

@@ -1,0 +1,16 @@
+// Bad: For a large 'n', this can cause a StackOverflowError.
+public int m1(int n, int accumulator) {
+    if (n <= 0) return accumulator;
+    return m1(n - 1, n + accumulator); // Last action is the recursive call.
+}
+
+-----
+
+// Good: An iterative loop is more performant and uses constant stack space.
+public int m1(int n) {
+    int total = 0;
+    for (int i = 1; i <= n; i++) {
+        total += i;
+    }
+    return total;
+}

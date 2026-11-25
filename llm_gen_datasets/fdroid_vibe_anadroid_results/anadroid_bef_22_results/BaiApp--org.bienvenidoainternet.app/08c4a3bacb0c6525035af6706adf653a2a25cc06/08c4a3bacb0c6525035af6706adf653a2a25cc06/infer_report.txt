@@ -1,0 +1,114 @@
+#0
+app/src/main/java/layout/FragmentBoardItemList.java:227: warning: Ipc On Ui Thread
+  `void FragmentBoardItemList$2.onScroll(AbsListView,int,int,int)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `NetworkInfo ConnectivityManager.getActiveNetworkInfo()`. 
+  225.                           BoardItem bi = listViewAdapter.getItem(i);
+  226.                           if (!bi.getThumb().isEmpty() && bi.getThumbBitmap() == null && !bi.downloadingThumb) {
+  227. >                             getThumbnail(bi);
+  228.                           }
+  229.                       }
+
+#1
+app/src/main/java/layout/FragmentBoardItemList.java:227: error: Strict Mode Violation
+  `void FragmentBoardItemList$2.onScroll(AbsListView,int,int,int)` runs on UI thread and may violate Strict Mode; calls `boolean File.mkdir()`. 
+  225.                           BoardItem bi = listViewAdapter.getItem(i);
+  226.                           if (!bi.getThumb().isEmpty() && bi.getThumbBitmap() == null && !bi.downloadingThumb) {
+  227. >                             getThumbnail(bi);
+  228.                           }
+  229.                       }
+
+#2
+app/src/main/java/layout/FragmentBoardItemList.java:362: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.OutputStreamWriter() on line 345 is not closed after the last access at line 362. 
+  360.               }
+  361.           }
+  362. >         return super.onContextItemSelected(item);
+  363.       }
+  364.   
+
+#3
+app/src/main/java/layout/FragmentImage.java:205: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 202 is not closed after the last access at line 205. 
+  203.                                   final byte data[] = new byte[1024];
+  204.                                   int count;
+  205. >                                 while ((count = result.read(data, 0, 1024)) != -1) {
+  206.                                       fout.write(data, 0, count);
+  207.                                   }
+
+#4
+app/src/main/java/layout/FragmentImage.java:208: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 202 is not closed after the last access at line 208. 
+  206.                                       fout.write(data, 0, count);
+  207.                                   }
+  208. >                             } catch (Exception e1) {
+  209.                                   e1.printStackTrace();
+  210.                               }
+
+#5
+app/src/main/java/layout/FragmentImage.java:226: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 202 is not closed after the last access at line 226. 
+  224.                               }
+  225.                           }
+  226. >                     }
+  227.                   });
+  228.       }
+
+#6
+app/src/main/java/org/bienvenidoainternet/app/RecentPostAdapter.java:69: error: Null Dereference
+  `Board BoardItem.getParentBoard()` could be null (null value originating from line 69) and is dereferenced. 
+  67.           Map<TimeUnit,Long> timeDiff = computeDiff(new Date(postItem.getTimeStamp() * 1000L), new Date(System.currentTimeMillis()));
+  68.           String strTimeDiff = "";
+  69. >         if (timeDiff.get(TimeUnit.SECONDS) != 0){
+  70.               strTimeDiff = "Hace " + timeDiff.get(TimeUnit.SECONDS) + (timeDiff.get(TimeUnit.SECONDS) == 1 ? " segundo" : " segundos");
+  71.           }
+
+#7
+app/src/main/java/org/bienvenidoainternet/app/RecentPostAdapter.java:69: error: Null Dereference
+  null (null value originating from line 69) is dereferenced. 
+  67.           Map<TimeUnit,Long> timeDiff = computeDiff(new Date(postItem.getTimeStamp() * 1000L), new Date(System.currentTimeMillis()));
+  68.           String strTimeDiff = "";
+  69. >         if (timeDiff.get(TimeUnit.SECONDS) != 0){
+  70.               strTimeDiff = "Hace " + timeDiff.get(TimeUnit.SECONDS) + (timeDiff.get(TimeUnit.SECONDS) == 1 ? " segundo" : " segundos");
+  71.           }
+
+#8
+app/src/main/java/org/bienvenidoainternet/app/ViewerActivity.java:95: error: Strict Mode Violation
+  `boolean ViewerActivity.onOptionsItemSelected(MenuItem)` runs on UI thread and may violate Strict Mode; calls `boolean File.mkdir()`. 
+  93.           File baiDir = new File(Environment.getExternalStorageDirectory().getPath() + "/Bai/");
+  94.           if (!baiDir.exists()){
+  95. >             baiDir.mkdir();
+  96.           }
+  97.           if (item.getItemId() == R.id.menu_save_img){
+
+#9
+app/src/main/java/org/bienvenidoainternet/app/ViewerActivity.java:115: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileInputStream() on line 104 is not closed after the last access at line 115. 
+  113.                   Toast.makeText(getApplicationContext(), boardItemFile.file + " guardado.", Toast.LENGTH_LONG).show();
+  114.                   MediaScannerConnection.scanFile(this, new String[]{to.getPath()}, new String[]{"image/jpeg"}, null);
+  115. >             }catch (Exception e){
+  116.                   e.printStackTrace();
+  117.               }
+
+#10
+app/src/main/java/org/bienvenidoainternet/app/ViewerActivity.java:115: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 105 is not closed after the last access at line 115. 
+  113.                   Toast.makeText(getApplicationContext(), boardItemFile.file + " guardado.", Toast.LENGTH_LONG).show();
+  114.                   MediaScannerConnection.scanFile(this, new String[]{to.getPath()}, new String[]{"image/jpeg"}, null);
+  115. >             }catch (Exception e){
+  116.                   e.printStackTrace();
+  117.               }
+
+#11
+app/src/main/java/org/bienvenidoainternet/app/ViewerActivity.java:123: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.FileOutputStream() on line 105 is not closed after the last access at line 123. 
+  121.               onBackPressed();
+  122.           }
+  123. >         return super.onOptionsItemSelected(item);
+  124.       }
+  125.   
+
+Found 12 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+            Resource Leak(PULSE_RESOURCE_LEAK): 7
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 2
+         Null Dereference(NULLPTR_DEREFERENCE): 2
+            Ipc On Ui Thread(IPC_ON_UI_THREAD): 1

@@ -35,18 +35,29 @@ class NoneInstrumenter(AbstractInstrumenter):
         if not os.path.exists(new_proj_dir) or self.needs_reinstrumentation(android_project, test_approach, instr_type, instr_strategy):
             if not os.path.exists(new_proj_dir):
                 os.mkdir(new_proj_dir)
-            all_proj_files = list(map(lambda x: x.replace(android_project.proj_dir + "/", ""),
+            all_proj_files = list(map(lambda x: x.replace(android_project.proj_dir + os.sep, ""),
                                       filter(lambda t: mirror_dirname not in t, mega_find(android_project.proj_dir))))
             all_proj_files.sort(key=lambda s: len(s))
             for file_p in all_proj_files:
                 full_file_path = os.path.join(android_project.proj_dir, file_p)
                 target_file_path = os.path.join(android_project.proj_dir, new_dir_name, file_p)
+                if '.git' in full_file_path:
+                    continue
                 if os.path.exists(target_file_path):
                     continue
                 elif os.path.isdir(full_file_path):
+                    if "TRANSFORMED" in file_p:
+                        continue
                     os.mkdir(target_file_path)
+                elif ('outputs' in full_file_path and 'build' in full_file_path
+                      and os.path.isfile(full_file_path) and file_p.endswith('.apk')):
+                    continue
+                    #android_project.apk_files.append(target_file_path)
                 elif not os.path.exists(target_file_path):
+                    if 'lint' in file_p and not 'lint-baseline' in file_p and 'xml' in file_p:
+                        continue
                     copy(full_file_path, target_file_path)
+
         else:
             logw("Same instrumentation of last time. Skipping instrumentation phase")
         return new_proj_dir

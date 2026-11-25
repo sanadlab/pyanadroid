@@ -1,0 +1,20 @@
+fun generateReport(data: List<DataItem>): Map<String, Int> {
+    // Bad: The synchronization wrapper is completely redundant and adds overhead.
+    val reportMap = Collections.synchronizedMap(mutableMapOf<String, Int>())
+    for (item in data) {
+        reportMap[item.category] = reportMap.getOrDefault(item.category, 0) + 1
+    }
+    return reportMap
+}
+
+
+-----
+
+fun generateReport(data: List<DataItem>): Map<String, Int> {
+    // Good: A standard mutable map is perfectly safe and efficient here.
+    val reportMap = mutableMapOf<String, Int>()
+    for (item in data) {
+        reportMap[item.category] = reportMap.getOrDefault(item.category, 0) + 1
+    }
+    return reportMap
+}

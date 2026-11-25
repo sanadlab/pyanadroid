@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762889799305" analysisTimestamp="1762889801326" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/android-media-rw-remounter/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/android-media-rw-remounter/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="b87fe73b07824f81a60fc42e0995a9c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.gitlab.giwiniswut.rwremount.MainActivity.requestRoot(): new java.util.Scanner(InputStream)</LongMessage>
+    <Class classname="com.gitlab.giwiniswut.rwremount.MainActivity" primary="true">
+      <SourceLine classname="com.gitlab.giwiniswut.rwremount.MainActivity" start="20" end="98" sourcefile="MainActivity.java" sourcepath="com/gitlab/giwiniswut/rwremount/MainActivity.java" relSourcepath="com/gitlab/giwiniswut/rwremount/MainActivity.java">
+        <Message>At MainActivity.java:[lines 20-98]</Message>
+      </SourceLine>
+      <Message>In class com.gitlab.giwiniswut.rwremount.MainActivity</Message>
+    </Class>
+    <Method classname="com.gitlab.giwiniswut.rwremount.MainActivity" name="requestRoot" signature="()Z" isStatic="false" primary="true">
+      <SourceLine classname="com.gitlab.giwiniswut.rwremount.MainActivity" start="71" end="98" startBytecode="0" endBytecode="539" sourcefile="MainActivity.java" sourcepath="com/gitlab/giwiniswut/rwremount/MainActivity.java" relSourcepath="com/gitlab/giwiniswut/rwremount/MainActivity.java"/>
+      <Message>In method com.gitlab.giwiniswut.rwremount.MainActivity.requestRoot()</Message>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="36" end="36" startBytecode="0" endBytecode="65" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+      <Message>Called method new java.util.Scanner(InputStream)</Message>
+    </Method>
+    <SourceLine classname="com.gitlab.giwiniswut.rwremount.MainActivity" primary="true" start="86" end="86" startBytecode="90" endBytecode="90" sourcefile="MainActivity.java" sourcepath="com/gitlab/giwiniswut/rwremount/MainActivity.java" relSourcepath="com/gitlab/giwiniswut/rwremount/MainActivity.java">
+      <Message>At MainActivity.java:[line 86]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="7919417b37ae808235b20f7ca808f0df" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in com.gitlab.giwiniswut.rwremount.MountReceiver.onReceive(Context, Intent): new java.util.Scanner(InputStream)</LongMessage>
+    <Class classname="com.gitlab.giwiniswut.rwremount.MountReceiver" primary="true">
+      <SourceLine classname="com.gitlab.giwiniswut.rwremount.MountReceiver" start="24" end="114" sourcefile="MountReceiver.java" sourcepath="com/gitlab/giwiniswut/rwremount/MountReceiver.java" relSourcepath="com/gitlab/giwiniswut/rwremount/MountReceiver.java">
+        <Message>At MountReceiver.java:[lines 24-114]</Message>
+      </SourceLine>
+      <Message>In class com.gitlab.giwiniswut.rwremount.MountReceiver</Message>
+    </Class>
+    <Method classname="com.gitlab.giwiniswut.rwremount.MountReceiver" name="onReceive" signature="(Landroid/content/Context;Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.gitlab.giwiniswut.rwremount.MountReceiver" start="62" end="114" startBytecode="0" endBytecode="944" sourcefile="MountReceiver.java" sourcepath="com/gitlab/giwiniswut/rwremount/MountReceiver.java" relSourcepath="com/gitlab/giwiniswut/rwremount/MountReceiver.java"/>
+      <Message>In method com.gitlab.giwiniswut.rwremount.MountReceiver.onReceive(Context, Intent)</Message>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="36" end="36" startBytecode="0" endBytecode="65" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+      <Message>Called method new java.util.Scanner(InputStream)</Message>
+    </Method>
+    <SourceLine classname="com.gitlab.giwiniswut.rwremount.MountReceiver" primary="true" start="102" end="102" startBytecode="310" endBytecode="310" sourcefile="MountReceiver.java" sourcepath="com/gitlab/giwiniswut/rwremount/MountReceiver.java" relSourcepath="com/gitlab/giwiniswut/rwremount/MountReceiver.java">
+      <Message>At MountReceiver.java:[line 102]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N" cweid="173">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/173.html">CWE-173: Improper Handling of Alternate Encoding</a>.
+</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="5">
+    <MissingClass>com.gitlab.giwiniswut.rwremount.R</MissingClass>
+    <MissingClass>com.gitlab.giwiniswut.rwremount.R$id</MissingClass>
+    <MissingClass>com.gitlab.giwiniswut.rwremount.R$layout</MissingClass>
+    <MissingClass>com.gitlab.giwiniswut.rwremount.R$string</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 23:36:39 +0400" total_classes="4" referenced_classes="137" total_bugs="2" total_size="127" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.77" clock_seconds="0.47" peak_mbytes="227.45" alloc_mbytes="768.00" gc_seconds="0.00" priority_1="2">
+    <FileStats path="com/gitlab/giwiniswut/rwremount/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/gitlab/giwiniswut/rwremount/MainActivity.java" bugCount="1" size="68" bugHash="967c529fd65c709a90e97fe04ecaee38"/>
+    <FileStats path="com/gitlab/giwiniswut/rwremount/MountReceiver.java" bugCount="1" size="49" bugHash="d8c1c434f1a44b2a9bcdb30d859bfbf0"/>
+    <PackageStats package="com.gitlab.giwiniswut.rwremount" total_bugs="2" total_types="4" total_size="127" priority_1="2">
+      <ClassStats class="com.gitlab.giwiniswut.rwremount.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.gitlab.giwiniswut.rwremount.MainActivity" sourceFile="MainActivity.java" interface="false" size="59" bugs="1" priority_1="1"/>
+      <ClassStats class="com.gitlab.giwiniswut.rwremount.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.gitlab.giwiniswut.rwremount.MountReceiver" sourceFile="MountReceiver.java" interface="false" size="49" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="56" invocations="488" avgMicrosecondsPerInvocation="115" maxMicrosecondsPerInvocation="4810" standardDeviationMicrosecondsPerInvocation="337"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="26" invocations="137" avgMicrosecondsPerInvocation="195" maxMicrosecondsPerInvocation="3606" standardDeviationMicrosecondsPerInvocation="423"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="17" invocations="172" avgMicrosecondsPerInvocation="99" maxMicrosecondsPerInvocation="4086" standardDeviationMicrosecondsPerInvocation="342"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="12" invocations="137" avgMicrosecondsPerInvocation="94" maxMicrosecondsPerInvocation="1550" standardDeviationMicrosecondsPerInvocation="197"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="12" invocations="137" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="2827" standardDeviationMicrosecondsPerInvocation="299"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="11" invocations="137" avgMicrosecondsPerInvocation="87" maxMicrosecondsPerInvocation="1196" standardDeviationMicrosecondsPerInvocation="193"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="11" invocations="505" avgMicrosecondsPerInvocation="23" maxMicrosecondsPerInvocation="230" standardDeviationMicrosecondsPerInvocation="22"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="11" invocations="4" avgMicrosecondsPerInvocation="2877" maxMicrosecondsPerInvocation="10592" standardDeviationMicrosecondsPerInvocation="4469"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

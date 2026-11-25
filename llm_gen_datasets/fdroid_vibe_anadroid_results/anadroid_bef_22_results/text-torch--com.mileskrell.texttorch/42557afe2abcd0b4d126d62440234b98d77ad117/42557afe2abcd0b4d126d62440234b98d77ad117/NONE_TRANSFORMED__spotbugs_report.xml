@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762907122990" analysisTimestamp="1762907125323" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-32/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/text-torch/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="890c9d4690965f237a192f0d4e6b2dd0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.ScrollView in com.mileskrell.texttorch.databinding.DialogSortTypeBinding.bind(View)</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" start="20" end="192" sourcefile="DialogSortTypeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java">
+        <Message>At DialogSortTypeBinding.java:[lines 20-192]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.DialogSortTypeBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" name="bind" signature="(Landroid/view/View;)Lcom/mileskrell/texttorch/databinding/DialogSortTypeBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" start="112" end="192" startBytecode="0" endBytecode="146" sourcefile="DialogSortTypeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.DialogSortTypeBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1849" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1849]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/ScrollView;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.ScrollView" start="23" end="139" sourcefile="ScrollView.java" sourcepath="android/widget/ScrollView.java">
+        <Message>At ScrollView.java:[lines 23-139]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.ScrollView</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="243" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" primary="true" start="184" end="184" startBytecode="244" endBytecode="244" sourcefile="DialogSortTypeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java">
+      <Message>At DialogSortTypeBinding.java:[line 184]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="694ce650506c3bd7e5649989c2dfa8ca" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.mileskrell.texttorch.databinding.DialogSortTypeBinding.getRoot() may expose internal representation by returning DialogSortTypeBinding.rootView</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" start="20" end="192" sourcefile="DialogSortTypeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java">
+        <Message>At DialogSortTypeBinding.java:[lines 20-192]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.DialogSortTypeBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" name="getRoot" signature="()Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" start="88" end="88" startBytecode="0" endBytecode="46" sourcefile="DialogSortTypeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.DialogSortTypeBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" name="rootView" signature="Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" sourcefile="DialogSortTypeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java">
+        <Message>In DialogSortTypeBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.mileskrell.texttorch.databinding.DialogSortTypeBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" primary="true" start="88" end="88" startBytecode="4" endBytecode="4" sourcefile="DialogSortTypeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java">
+      <Message>At DialogSortTypeBinding.java:[line 88]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="52bf4629c644d1d93d29d1bfe538a7f1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.ScrollView in com.mileskrell.texttorch.databinding.FragmentAboutBinding.bind(View)</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" start="21" end="135" sourcefile="FragmentAboutBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java">
+        <Message>At FragmentAboutBinding.java:[lines 21-135]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentAboutBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" name="bind" signature="(Landroid/view/View;)Lcom/mileskrell/texttorch/databinding/FragmentAboutBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" start="88" end="135" startBytecode="0" endBytecode="94" sourcefile="FragmentAboutBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentAboutBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1849" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1849]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/ScrollView;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.ScrollView" start="23" end="139" sourcefile="ScrollView.java" sourcepath="android/widget/ScrollView.java">
+        <Message>At ScrollView.java:[lines 23-139]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.ScrollView</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="147" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" primary="true" start="130" end="130" startBytecode="148" endBytecode="148" sourcefile="FragmentAboutBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java">
+      <Message>At FragmentAboutBinding.java:[line 130]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="e66d97c877cd73e59c80a247e38569fe" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.mileskrell.texttorch.databinding.FragmentAboutBinding.getRoot() may expose internal representation by returning FragmentAboutBinding.rootView</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" start="21" end="135" sourcefile="FragmentAboutBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java">
+        <Message>At FragmentAboutBinding.java:[lines 21-135]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentAboutBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" name="getRoot" signature="()Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" start="64" end="64" startBytecode="0" endBytecode="46" sourcefile="FragmentAboutBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentAboutBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" name="rootView" signature="Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" sourcefile="FragmentAboutBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java">
+        <Message>In FragmentAboutBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.mileskrell.texttorch.databinding.FragmentAboutBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAboutBinding" primary="true" start="64" end="64" startBytecode="4" endBytecode="4" sourcefile="FragmentAboutBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java">
+      <Message>At FragmentAboutBinding.java:[line 64]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="ff29df89cde31f1333ca9a00ec25fd7a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.ScrollView in com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding.bind(View)</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" start="21" end="182" sourcefile="FragmentAnalyzeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java">
+        <Message>At FragmentAnalyzeBinding.java:[lines 21-182]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" name="bind" signature="(Landroid/view/View;)Lcom/mileskrell/texttorch/databinding/FragmentAnalyzeBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" start="109" end="182" startBytecode="0" endBytecode="138" sourcefile="FragmentAnalyzeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1849" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1849]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/ScrollView;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.ScrollView" start="23" end="139" sourcefile="ScrollView.java" sourcepath="android/widget/ScrollView.java">
+        <Message>At ScrollView.java:[lines 23-139]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.ScrollView</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="231" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" primary="true" start="175" end="175" startBytecode="232" endBytecode="232" sourcefile="FragmentAnalyzeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java">
+      <Message>At FragmentAnalyzeBinding.java:[line 175]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="b11ef12fb8bd529198514e0026aaa92a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding.getRoot() may expose internal representation by returning FragmentAnalyzeBinding.rootView</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" start="21" end="182" sourcefile="FragmentAnalyzeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java">
+        <Message>At FragmentAnalyzeBinding.java:[lines 21-182]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" name="getRoot" signature="()Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" start="85" end="85" startBytecode="0" endBytecode="46" sourcefile="FragmentAnalyzeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" name="rootView" signature="Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" sourcefile="FragmentAnalyzeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java">
+        <Message>In FragmentAnalyzeBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" primary="true" start="85" end="85" startBytecode="4" endBytecode="4" sourcefile="FragmentAnalyzeBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java">
+      <Message>At FragmentAnalyzeBinding.java:[line 85]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="4ee479ed9629cc9219ea03fc6602f10f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.ScrollView in com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding.bind(View)</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" start="20" end="124" sourcefile="FragmentIntroPageAnalyticsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java">
+        <Message>At FragmentIntroPageAnalyticsBinding.java:[lines 20-124]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" name="bind" signature="(Landroid/view/View;)Lcom/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" start="83" end="124" startBytecode="0" endBytecode="83" sourcefile="FragmentIntroPageAnalyticsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1849" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1849]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/ScrollView;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.ScrollView" start="23" end="139" sourcefile="ScrollView.java" sourcepath="android/widget/ScrollView.java">
+        <Message>At ScrollView.java:[lines 23-139]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.ScrollView</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="126" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" primary="true" start="119" end="119" startBytecode="127" endBytecode="127" sourcefile="FragmentIntroPageAnalyticsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java">
+      <Message>At FragmentIntroPageAnalyticsBinding.java:[line 119]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="d538fcab80b7b0c042c73f8943e5bb6b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding.getRoot() may expose internal representation by returning FragmentIntroPageAnalyticsBinding.rootView</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" start="20" end="124" sourcefile="FragmentIntroPageAnalyticsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java">
+        <Message>At FragmentIntroPageAnalyticsBinding.java:[lines 20-124]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" name="getRoot" signature="()Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" start="59" end="59" startBytecode="0" endBytecode="46" sourcefile="FragmentIntroPageAnalyticsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" name="rootView" signature="Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" sourcefile="FragmentIntroPageAnalyticsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java">
+        <Message>In FragmentIntroPageAnalyticsBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" primary="true" start="59" end="59" startBytecode="4" endBytecode="4" sourcefile="FragmentIntroPageAnalyticsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java">
+      <Message>At FragmentIntroPageAnalyticsBinding.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="69c14a93a514f623dfe68d302b1caf97" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.ScrollView in com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding.bind(View)</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" start="19" end="112" sourcefile="FragmentIntroPagePermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java">
+        <Message>At FragmentIntroPagePermissionsBinding.java:[lines 19-112]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" name="bind" signature="(Landroid/view/View;)Lcom/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" start="77" end="112" startBytecode="0" endBytecode="72" sourcefile="FragmentIntroPagePermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1849" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1849]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/ScrollView;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.ScrollView" start="23" end="139" sourcefile="ScrollView.java" sourcepath="android/widget/ScrollView.java">
+        <Message>At ScrollView.java:[lines 23-139]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.ScrollView</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="105" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" primary="true" start="107" end="107" startBytecode="106" endBytecode="106" sourcefile="FragmentIntroPagePermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java">
+      <Message>At FragmentIntroPagePermissionsBinding.java:[line 107]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="a36c5a7351f1bf3a81851eb069867ed1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding.getRoot() may expose internal representation by returning FragmentIntroPagePermissionsBinding.rootView</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" start="19" end="112" sourcefile="FragmentIntroPagePermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java">
+        <Message>At FragmentIntroPagePermissionsBinding.java:[lines 19-112]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" name="getRoot" signature="()Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" start="53" end="53" startBytecode="0" endBytecode="46" sourcefile="FragmentIntroPagePermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" name="rootView" signature="Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" sourcefile="FragmentIntroPagePermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java">
+        <Message>In FragmentIntroPagePermissionsBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" primary="true" start="53" end="53" startBytecode="4" endBytecode="4" sourcefile="FragmentIntroPagePermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java">
+      <Message>At FragmentIntroPagePermissionsBinding.java:[line 53]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" instanceHash="8fca8f71b21148b77683b5c25a47f989" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from android.view.View to android.widget.ScrollView in com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding.bind(View)</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" start="19" end="79" sourcefile="FragmentRegainPermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java">
+        <Message>At FragmentRegainPermissionsBinding.java:[lines 19-79]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" name="bind" signature="(Landroid/view/View;)Lcom/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding;" isStatic="true" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" start="63" end="79" startBytecode="0" endBytecode="39" sourcefile="FragmentRegainPermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding.bind(View)</Message>
+    </Method>
+    <Type descriptor="Landroid/view/View;" role="TYPE_FOUND">
+      <SourceLine classname="android.view.View" start="23" end="1849" sourcefile="View.java" sourcepath="android/view/View.java">
+        <Message>At View.java:[lines 23-1849]</Message>
+      </SourceLine>
+      <Message>Actual type android.view.View</Message>
+    </Type>
+    <Type descriptor="Landroid/widget/ScrollView;" role="TYPE_EXPECTED">
+      <SourceLine classname="android.widget.ScrollView" start="23" end="139" sourcefile="ScrollView.java" sourcepath="android/widget/ScrollView.java">
+        <Message>At ScrollView.java:[lines 23-139]</Message>
+      </SourceLine>
+      <Message>Expected android.widget.ScrollView</Message>
+    </Type>
+    <LocalVariable name="rootView" register="0" pc="42" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from rootView</Message>
+    </LocalVariable>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" primary="true" start="75" end="75" startBytecode="43" endBytecode="43" sourcefile="FragmentRegainPermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java">
+      <Message>At FragmentRegainPermissionsBinding.java:[line 75]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="642cd662d5d6be508b42f1d12301dee9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding.getRoot() may expose internal representation by returning FragmentRegainPermissionsBinding.rootView</LongMessage>
+    <Class classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" primary="true">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" start="19" end="79" sourcefile="FragmentRegainPermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java">
+        <Message>At FragmentRegainPermissionsBinding.java:[lines 19-79]</Message>
+      </SourceLine>
+      <Message>In class com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding</Message>
+    </Class>
+    <Method classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" name="getRoot" signature="()Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" start="39" end="39" startBytecode="0" endBytecode="46" sourcefile="FragmentRegainPermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java"/>
+      <Message>In method com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding.getRoot()</Message>
+    </Method>
+    <Field classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" name="rootView" signature="Landroid/widget/ScrollView;" isStatic="false" primary="true" classAnnotationNames="androidx.annotation.NonNull">
+      <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" sourcefile="FragmentRegainPermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java">
+        <Message>In FragmentRegainPermissionsBinding.java</Message>
+      </SourceLine>
+      <Message>Field com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding.rootView</Message>
+    </Field>
+    <SourceLine classname="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" primary="true" start="39" end="39" startBytecode="4" endBytecode="4" sourcefile="FragmentRegainPermissionsBinding.java" sourcepath="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java">
+      <Message>At FragmentRegainPermissionsBinding.java:[line 39]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type cast from can be cast to
+the type it is being cast to. Check that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="21">
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.annotation.Nullable</MissingClass>
+    <MissingClass>androidx.cardview.widget.CardView</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.ConstraintLayout</MissingClass>
+    <MissingClass>androidx.constraintlayout.widget.Guideline</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentContainerView</MissingClass>
+    <MissingClass>androidx.recyclerview.widget.RecyclerView</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBinding</MissingClass>
+    <MissingClass>androidx.viewbinding.ViewBindings</MissingClass>
+    <MissingClass>androidx.viewpager2.widget.ViewPager2</MissingClass>
+    <MissingClass>com.google.android.material.button.MaterialButton</MissingClass>
+    <MissingClass>com.google.android.material.checkbox.MaterialCheckBox</MissingClass>
+    <MissingClass>com.google.android.material.floatingactionbutton.FloatingActionButton</MissingClass>
+    <MissingClass>com.google.android.material.progressindicator.LinearProgressIndicator</MissingClass>
+    <MissingClass>com.google.android.material.radiobutton.MaterialRadioButton</MissingClass>
+    <MissingClass>com.google.android.material.tabs.TabLayout</MissingClass>
+    <MissingClass>com.google.android.material.textview.MaterialTextView</MissingClass>
+    <MissingClass>com.mileskrell.texttorch.R</MissingClass>
+    <MissingClass>com.mileskrell.texttorch.R$id</MissingClass>
+    <MissingClass>com.mileskrell.texttorch.R$layout</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 04:25:22 +0400" total_classes="14" referenced_classes="31" total_bugs="12" total_size="652" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.83" clock_seconds="0.48" peak_mbytes="203.52" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="12">
+    <FileStats path="com/mileskrell/texttorch/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/ActivityMainBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/DialogSortTypeBinding.java" bugCount="2" size="93" bugHash="2793ad52783020b2d67137322c1f8e11"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentAboutBinding.java" bugCount="2" size="63" bugHash="a6054c02ef6c2565495a4a4d4187ba1d"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentAnalyzeBinding.java" bugCount="2" size="87" bugHash="a5d92b9578cca97968ffdd0be66b9fb0"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentIntroBinding.java" bugCount="0" size="36"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentIntroPageAnalyticsBinding.java" bugCount="2" size="57" bugHash="1c52001b63c7eb94f42247ed5b45a278"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentIntroPageEnterAppBinding.java" bugCount="0" size="33"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentIntroPagePermissionsBinding.java" bugCount="2" size="51" bugHash="776498bc6f4b32007ab2fe89434043ee"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentIntroPageWelcomeBinding.java" bugCount="0" size="33"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentRegainPermissionsBinding.java" bugCount="2" size="33" bugHash="ae1bcaf72f47e1662564f1fa437e5e26"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentStatPageBinding.java" bugCount="0" size="24"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/FragmentStatsBinding.java" bugCount="0" size="39"/>
+    <FileStats path="com/mileskrell/texttorch/databinding/SocialRecordViewHolderBinding.java" bugCount="0" size="69"/>
+    <PackageStats package="com.mileskrell.texttorch" total_bugs="0" total_types="1" total_size="10">
+      <ClassStats class="com.mileskrell.texttorch.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.mileskrell.texttorch.databinding" total_bugs="12" total_types="13" total_size="642" priority_2="12">
+      <ClassStats class="com.mileskrell.texttorch.databinding.ActivityMainBinding" sourceFile="ActivityMainBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.DialogSortTypeBinding" sourceFile="DialogSortTypeBinding.java" interface="false" size="93" bugs="2" priority_2="2"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentAboutBinding" sourceFile="FragmentAboutBinding.java" interface="false" size="63" bugs="2" priority_2="2"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentAnalyzeBinding" sourceFile="FragmentAnalyzeBinding.java" interface="false" size="87" bugs="2" priority_2="2"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentIntroBinding" sourceFile="FragmentIntroBinding.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentIntroPageAnalyticsBinding" sourceFile="FragmentIntroPageAnalyticsBinding.java" interface="false" size="57" bugs="2" priority_2="2"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentIntroPageEnterAppBinding" sourceFile="FragmentIntroPageEnterAppBinding.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentIntroPagePermissionsBinding" sourceFile="FragmentIntroPagePermissionsBinding.java" interface="false" size="51" bugs="2" priority_2="2"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentIntroPageWelcomeBinding" sourceFile="FragmentIntroPageWelcomeBinding.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentRegainPermissionsBinding" sourceFile="FragmentRegainPermissionsBinding.java" interface="false" size="33" bugs="2" priority_2="2"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentStatPageBinding" sourceFile="FragmentStatPageBinding.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.FragmentStatsBinding" sourceFile="FragmentStatsBinding.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="com.mileskrell.texttorch.databinding.SocialRecordViewHolderBinding" sourceFile="SocialRecordViewHolderBinding.java" interface="false" size="69" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="42" invocations="353" avgMicrosecondsPerInvocation="120" maxMicrosecondsPerInvocation="4611" standardDeviationMicrosecondsPerInvocation="359"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="22" invocations="67" avgMicrosecondsPerInvocation="332" maxMicrosecondsPerInvocation="4915" standardDeviationMicrosecondsPerInvocation="731"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="17" invocations="31" avgMicrosecondsPerInvocation="556" maxMicrosecondsPerInvocation="6776" standardDeviationMicrosecondsPerInvocation="1327"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="12" invocations="80" avgMicrosecondsPerInvocation="162" maxMicrosecondsPerInvocation="1614" standardDeviationMicrosecondsPerInvocation="249"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="11" invocations="14" avgMicrosecondsPerInvocation="829" maxMicrosecondsPerInvocation="7282" standardDeviationMicrosecondsPerInvocation="1803"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="11" invocations="80" avgMicrosecondsPerInvocation="139" maxMicrosecondsPerInvocation="3232" standardDeviationMicrosecondsPerInvocation="365"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="11" invocations="80" avgMicrosecondsPerInvocation="139" maxMicrosecondsPerInvocation="6141" standardDeviationMicrosecondsPerInvocation="680"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

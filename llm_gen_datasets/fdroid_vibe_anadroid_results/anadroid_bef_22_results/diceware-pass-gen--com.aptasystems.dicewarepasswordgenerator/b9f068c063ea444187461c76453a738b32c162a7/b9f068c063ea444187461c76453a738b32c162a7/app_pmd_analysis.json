@@ -1,0 +1,80 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.17.0",
+  "timestamp": "2026-01-08T15:45:17.398+04:00",
+  "files": [
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/diceware-pass-gen/app/src/main/java/com/aptasystems/dicewarepasswordgenerator/Diceware.java",
+      "violations": [
+        {
+          "beginline": 81,
+          "begincolumn": 44,
+          "endline": 81,
+          "endcolumn": 47,
+          "description": "Avoid appending characters as strings in StringBuffer.append.",
+          "rule": "AppendCharacterWithChar",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#appendcharacterwithchar"
+        },
+        {
+          "beginline": 86,
+          "begincolumn": 33,
+          "endline": 86,
+          "endcolumn": 52,
+          "description": "Avoid instantiating new objects inside loops",
+          "rule": "AvoidInstantiatingObjectsInLoops",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/diceware-pass-gen/app/src/main/java/com/aptasystems/dicewarepasswordgenerator/MainActivity.java",
+      "violations": [
+        {
+          "beginline": 80,
+          "begincolumn": 21,
+          "endline": 80,
+          "endcolumn": 33,
+          "description": "Avoid using redundant field initializer for \u0027_justRotated\u0027",
+          "rule": "RedundantFieldInitializer",
+          "ruleset": "Performance",
+          "priority": 3,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#redundantfieldinitializer"
+        }
+      ]
+    },
+    {
+      "filename": "/Users/rar9993/repos/research/fdroid_apps/native_apps/diceware-pass-gen/app/src/main/java/com/aptasystems/dicewarepasswordgenerator/PRNGFixes.java",
+      "violations": [
+        {
+          "beginline": 267,
+          "begincolumn": 37,
+          "endline": 267,
+          "endcolumn": 52,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        },
+        {
+          "beginline": 280,
+          "begincolumn": 39,
+          "endline": 280,
+          "endcolumn": 55,
+          "description": "Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter",
+          "rule": "AvoidFileStream",
+          "ruleset": "Performance",
+          "priority": 1,
+          "externalInfoUrl": "https://docs.pmd-code.org/snapshot/pmd_rules_java_performance.html#avoidfilestream"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}

@@ -1,0 +1,23 @@
+// In an Android Activity or Fragment
+fun onFindContactsClicked(view: View) {
+    val cursor = contentResolver.query(
+        ContactsContract.Contacts.CONTENT_URI,
+        null, null, null, null
+    )
+    // Update UI with cursor data
+}
+
+---- 
+
+// In an Android Activity or Fragment
+fun onFindContactsClicked(view: View) {
+    lifecycleScope.launch {
+        val cursor = withContext(Dispatchers.IO) {
+            contentResolver.query(
+                ContactsContract.Contacts.CONTENT_URI,
+                null, null, null, null
+            )
+        }
+        // Update UI with cursor data
+    }
+}

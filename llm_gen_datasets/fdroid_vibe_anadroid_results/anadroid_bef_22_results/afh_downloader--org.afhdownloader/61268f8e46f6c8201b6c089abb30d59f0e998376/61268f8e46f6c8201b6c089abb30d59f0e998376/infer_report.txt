@@ -1,0 +1,76 @@
+#0
+app/src/main/java/org/afhdownloader/DirectoryPicker.java:91: error: Strict Mode Violation
+  `void DirectoryPicker.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `boolean File.canRead()`. 
+  89.           lv.setTextFilterEnabled(true);
+  90.   
+  91. >         if(!dir.canRead()) {
+  92.               Context context = getApplicationContext();
+  93.               String msg = "Could not read folder contents.";
+
+#1
+app/src/main/java/org/afhdownloader/DirectoryPicker.java:99: error: Strict Mode Violation
+  `void DirectoryPicker.onCreate(Bundle)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+   97.           }
+   98.   
+   99. >         final ArrayList<File> files = filter(dir.listFiles(), onlyDirs, showHidden);
+  100.           String[] names = names(files);
+  101.           setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, names));
+
+#2
+app/src/main/java/org/afhdownloader/Download.java:66: error: Strict Mode Violation
+  `void Download$ParseURL.onPostExecute(Object)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  64.       }
+  65.   
+  66. >     private class ParseURL extends AsyncTask<String, Void, String> {
+  67.   
+  68.           @Override
+
+#3
+app/src/main/java/org/afhdownloader/Download.java:204: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedWriter() on line 173 is not closed after the last access at line 204. 
+  202.           new dlMd5().execute(new String[]{urls.get(0), url});
+  203.   
+  204. >         return urls;
+  205.       }
+  206.   
+
+#4
+app/src/main/java/org/afhdownloader/Download.java:227: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.OutputStreamWriter() on line 220 is not closed after the last access at line 227. 
+  225.                   Log.e(LOGTAG,e.getMessage());
+  226.               }
+  227. >             return null;
+  228.           }
+  229.   
+
+#5
+app/src/main/java/org/afhdownloader/Download.java:251: error: Strict Mode Violation
+  `void Download$ParseURLDownload.onPostExecute(Object)` runs on UI thread and may violate Strict Mode; calls `File[] File.listFiles()`. 
+  249.       }
+  250.   
+  251. >     private class ParseURLDownload extends AsyncTask<String, Void, String> {
+  252.   
+  253.           @Override
+
+#6
+app/src/main/java/org/afhdownloader/MainActivity.java:285: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.OutputStreamWriter() on line 279 is not closed after the last access at line 285. 
+  283.               Log.w(LOGTAG, "Unable to write: "+name);
+  284.           }
+  285. >     }
+  286.   
+  287.       public void setList(List<String> values)  {
+
+#7
+app/src/main/java/org/afhdownloader/MainActivity.java:395: error: Strict Mode Violation
+  `void MainActivity$2$1.onClick(DialogInterface,int)` runs on UI thread and may violate Strict Mode; calls `boolean File.delete()`. 
+  393.                                               File direct = new File(Environment.getExternalStorageDirectory() + "/" + directory+"/"+names.get(pos));
+  394.                                               Log.d(LOGTAG, "Delete " + direct.getName());
+  395. >                                             if (direct.exists()&&direct.isFile()) { direct.delete(); }
+  396.                                               File md5file = new File(getFilesDir(), names.get(pos)+md5_calc_ext );
+  397.                                               if (md5file.exists()&&md5file.isFile()) { md5file.delete(); }
+
+Found 8 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Strict Mode Violation(STRICT_MODE_VIOLATION): 5
+            Resource Leak(PULSE_RESOURCE_LEAK): 3

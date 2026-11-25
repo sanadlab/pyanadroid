@@ -14,12 +14,13 @@ class IssueCategory(Enum):
 def issue_from_string(issue_str, sep=','):
     issue_str = issue_str.strip().replace("\"","")
     issue_parts = issue_str.split(sep)
-    if len(issue_parts) < 9:
+    if len(issue_parts) < 5:
         return None
     try:
+        #print(issue_parts[0].split('.')[-1])
         issue_type = KnownStaticPerformanceIssues(issue_parts[0].split('.')[-1])
     except:
-        print(f"Error parsing issue: {issue_str}")
+        #print(f"Error parsing issue: {issue_str}")
         #traceback.print_exc()
         #print(issue_parts[0])
         issue_type = issue_parts[0].strip()
@@ -41,6 +42,13 @@ def are_equal_or_one_is_none(a, b):
         return True
     return a == b
 
+UNIQUE_PER_PROJECT_ISSUES = {
+    'DEBUGGABLE_RELEASE',
+    'INFO_WARNING_FCM',
+    'USE_OF_BUNDLED_GOOGLE_PLAY_SERVICES',
+    'LIFECYCLE_ANNOTATION_PROCESSOR_WITH_JAVA8',
+    'ANNOTATION_PROCESSOR_ON_COMPILE_PATH',
+}
 
 class Issue(object):
     def __init__(self, issue_type, category=IssueCategory.PERFORMANCE, severity=None, description=None, file=None,
@@ -103,6 +111,12 @@ class Issue(object):
         #print(self.i_class, other.i_class, val, getattr(self, 'file', 'a') == getattr(other, 'file', 'b'))
         return val
 
+    def __hash__(self):
+        return hash((getattr(self.issue_type, 'value', self.issue_type),
+                     '' if not self.get_file_id() else self.get_file_id(),
+                     '' if not self.get_issue_location() else self.get_issue_location(),
+                   ))
+
     def get_file_id(self):
         if self.file is None:
             return None
@@ -130,6 +144,42 @@ class Issue(object):
                 sum([1 for attr in ['file', 'i_class', 'method', 'line'] if getattr(other_issue, attr, None) is not None])
 
 class KnownStaticPerformanceIssues(Enum):
+    RESOURCE_LEAK = "ResourceLeak"
+    EXPENSIVE_EXECUTION_TIME = "ExpensiveExecutionTime"
+    REGEX_ON_UI_THREAD = "RegexOnUIThread"
+    IPC_ON_UI_THREAD = "IPCOnUIThread"
+    INVARIANT_CALL = "InvariantCall"
+    UNNECESSARY_MATH = "UnnecessaryMath"
+    INEFFICIENT_TO_ARRAY = "InefficientToArray"
+    USE_INDEX_OF_CHAR_LAST = "UseIndexOfCharLast"
+    PATTERN_COMPILE_IN_LOOP = "PatternCompileInLoop"
+    PREPARE_STATEMENT_IN_LOOP = "PrepareStatementInLoop"
+    HEAVY_LENGTH_IN_LOOP = "HeavyLengthInLoop"
+    STRINGBUFFER_CONCATENATION = "StringBufferConcatenation"
+    UNCALLED_PRIVATE_METHOD = "UncalledPrivateMethod"
+    UNREAD_FIELD = "UnreadField"
+    UNUSED_FIELD = "UnusedField"
+    FIELD_SHOULD_BE_STATIC = "FieldShouldBeStatic"
+    NEXTINT_VIA_NEXTDOUBLE = "NextIntViaNextDouble"
+    NEW_FOR_GETCLASS = "NewForGetClass"
+    BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION = "BoxingImmediatelyUnboxedToPerformCoercion"
+    BOXING_IMMEDIATELY_UNBOXED = "BoxingImmediatelyUnboxed"
+    UNBOXED_AND_COERCED_FOR_TERNARY_OPERATOR = "UnboxedAndCoercedForTernaryOperator"
+    UNBOXING_IMMEDIATELY_REBOXED = "BoxingImmediatelyReboxed"
+    BOXED_PRIMITIVE_FOR_COMPARE = "BoxedPrimitiveForCompare"
+    BOXED_PRIMITIVE_FOR_PARSING = "BoxedPrimitiveForParsing"
+    INEFFICIENT_MEMBER_ACCESS = "InefficientMemberAccess"
+    BOXED_PRIMITIVE_TO_STRING = "BoxedPrimitiveToString"
+    EXPLICIT_GC = "ExplicitGarbageCollection"
+    BLOCKING_METHODS_ON_URL = "BlockingMethodsOnURL"
+    HUGE_SHARED_STRING_CONSTANT = "HugeSharedStringConstant"
+    INEFFICIENT_MAP_ITERATOR = "InefficientMapIterator"
+    UNNECESSARY_TYPE_CASTING = "UnnecessaryTypeCasting"
+    UNNECESSARY_PART_OF_BINARY_EXPRESSION = "UnnecessaryPartOfBinaryExpression"
+    SPREAD_OPERATOR = "SpreadOperator"
+    FOR_EACH_ON_RANGE = "ForEachOnRange"
+    COULD_BE_SEQUENCE = "CouldBeSequence"
+    ARRAY_PRIMITIVE = "ArrayPrimitive"
     LAUNCH_ACTIVITY_FROM_NOTIFICATION = "LaunchActivityFromNotification"
     EXPENSIVE_ASSERTION = "ExpensiveAssertion"
     DUPLICATE_STRINGS = "DuplicateStrings"

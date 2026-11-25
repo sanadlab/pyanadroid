@@ -1,0 +1,48 @@
+#0
+app/src/main/java/com/akdev/nofbeventscraper/FbPageScraper.java:20: warning: Regex Op On Ui Thread
+  `void FbPageScraper.onPostExecute(Object)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  18.    * It returns a String list of event urls
+  19.    */
+  20. > public class FbPageScraper extends AsyncTask<Void, Void, Void> {
+  21.   
+  22.       private FbScraper scraper;
+
+#1
+app/src/main/java/com/akdev/nofbeventscraper/FbRedirectionResolver.java:8: warning: Regex Op On Ui Thread
+  `void FbRedirectionResolver.onPostExecute(Object)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+   6.   import java.net.URL;
+   7.   
+   8. > public class FbRedirectionResolver extends AsyncTask<Void, Void, Void> {
+   9.   
+  10.       private String input_url;
+
+#2
+app/src/main/java/com/akdev/nofbeventscraper/MainActivity.java:123: warning: Regex Op On Ui Thread
+  `void MainActivity.onResume()` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  121.               intent.removeExtra("InputLink");
+  122.               edit_text_uri_input.setText(data);
+  123. >             startScraping();
+  124.           }
+  125.       }
+
+#3
+app/src/main/java/com/akdev/nofbeventscraper/MainActivity.java:213: warning: Regex Op On Ui Thread
+  `void MainActivity$4.onClick(View)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  211.                       edit_text_uri_input.setText(str);
+  212.   
+  213. >                     startScraping();
+  214.                   } catch (Exception e) {
+  215.                       e.printStackTrace();
+
+#4
+app/src/main/java/com/akdev/nofbeventscraper/MainActivity.java:254: warning: Regex Op On Ui Thread
+  `boolean MainActivity$7.onKey(View,int,KeyEvent)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  252.                   //If the key event is a key-down event on the "enter" button
+  253.                   if ((keyevent.getAction() == KeyEvent.ACTION_DOWN) && (keycode == KeyEvent.KEYCODE_ENTER)) {
+  254. >                     startScraping();
+  255.   
+  256.                       // do not focus next view, just release it
+
+Found 5 issues
+                    Issue Type(ISSUED_TYPE_ID): #
+  Regex Op On Ui Thread(REGEX_OP_ON_UI_THREAD): 5

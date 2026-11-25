@@ -1,0 +1,12 @@
+#0
+app/src/main/java/be/knars/netflixtoimdb/MainActivity.java:40: warning: Regex Op On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  38.               }
+  39.   
+  40. >             Matcher matcher = Pattern.compile("^[^\"]+\"([^\"]+)\"[^\"]+$").matcher(message);
+  41.   
+  42.               if( ! matcher.find() )
+
+Found 1 issue
+                    Issue Type(ISSUED_TYPE_ID): #
+  Regex Op On Ui Thread(REGEX_OP_ON_UI_THREAD): 1

@@ -1,0 +1,10 @@
+// Bad: Verbose and performs an unnecessary check.
+if (!listeners.contains(listener)) {
+    listeners.add(listener)
+}
+
+----
+
+// Good: A Set's add operation is idempotent. Adding an existing element does nothing.
+// This is both cleaner and more efficient.
+listeners.add(listener)

@@ -1,0 +1,19 @@
+// Bad: Adding URLs to a HashSet will call url.hashCode() and possibly url.equals()
+// each of which can trigger a DNS lookup, blocking the thread.
+Set<URL> visitedUrls = new HashSet<>();
+URL url1 = new URL("https://example.com/page1");
+URL url2 = new URL("https://example.com/page2");
+
+visitedUrls.add(url1); // This call can block!
+visitedUrls.add(url2);
+
+
+----
+
+// Good: java.net.URI does not perform network operations for its equals() and hashCode()
+Set<URI> visitedUris = new HashSet<>();
+URI uri1 = new URI("https://example.com/page1");
+URI uri2 = new URI("https://example.com/page2");
+
+visitedUris.add(uri1); // This call is fast and does not block
+visitedUris.add(uri2);

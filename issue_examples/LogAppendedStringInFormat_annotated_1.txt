@@ -1,0 +1,8 @@
+// Bad: The string "Error processing transaction: " + txId is created
+// immediately, regardless of the log level.
+log.error("Error processing transaction: " + txId + " for user " + userId);
+
+----
+
+// Good: The string is only constructed if the ERROR level is active.
+log.error("Error processing transaction: {} for user {}", txId, userId);

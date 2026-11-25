@@ -1,0 +1,12 @@
+#0
+app/src/main/java/com/games/boardgames/aeonsend/cards/Card.java:87: error: Null Dereference
+  `type` could be null (from the call to `CardType.fromString(...)` on line 82) and is dereferenced. 
+  85.           PriceRange price = null;
+  86.   
+  87. >         switch (type) {
+  88.               case EXPANSION:
+  89.                   return new ExpansionCard(id, name, type, picture, expansion);
+
+Found 1 issue
+             Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULLPTR_DEREFERENCE): 1

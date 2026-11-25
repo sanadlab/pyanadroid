@@ -1,0 +1,745 @@
+#0
+app/src/main/java/com/github/axet/binauralbeats/activities/MainActivity.java:168: error: UI Thread Starvation
+  `void MainActivity$PhoneStateChangeListener.onCallStateChanged(int,String)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. Additional report(s) on the same line were suppressed. 
+  166.                       wasRinging = true;
+  167.                       if (recordings.player != null && recordings.player.isPlaying() && !recordings.player.isEnd()) {
+  168. >                         recordings.playerPause();
+  169.                           pausedByCall = true;
+  170.                       }
+
+#1
+app/src/main/java/com/github/axet/binauralbeats/activities/MainActivity.java:788: error: UI Thread Starvation
+  `void MainActivity$1.onReceive(Context,Intent)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. Additional report(s) on the same line were suppressed. 
+  786.                       if (recordings.playing == PLAYING_CUSTOM) {
+  787.                           if (recordings.player.isEnd()) {
+  788. >                             playCustom();
+  789.                           } else {
+  790.                               recordings.playerPause();
+
+#2
+app/src/main/java/com/github/axet/binauralbeats/activities/MainActivity.java:829: error: UI Thread Starvation
+  `void MainActivity$3.onClick(View)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  827.               @Override
+  828.               public void onClick(View v) {
+  829. >                 recordings.playerStop();
+  830.                   updateCustom();
+  831.               }
+
+#3
+app/src/main/java/com/github/axet/binauralbeats/activities/MainActivity.java:840: error: UI Thread Starvation
+  `void MainActivity$4.onClick(View)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. Additional report(s) on the same line were suppressed. 
+  838.                   if (recordings.playing == PLAYING_CUSTOM) {
+  839.                       if (recordings.player.isEnd()) {
+  840. >                         playCustom();
+  841.                       } else {
+  842.                           recordings.playerPause();
+
+#4
+app/src/main/java/com/github/axet/binauralbeats/activities/MainActivity.java:1037: error: UI Thread Starvation
+  `void MainActivity.onDestroy()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  1035.       protected void onDestroy() {
+  1036.           super.onDestroy();
+  1037. >         recordings.close();
+  1038.   
+  1039.           if (pscl != null) {
+
+#5
+app/src/main/java/com/github/axet/binauralbeats/activities/MainActivity.java:1094: error: UI Thread Starvation
+  `void MainActivity.onDismiss(DialogInterface)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. Additional report(s) on the same line were suppressed. 
+  1092.               edit.commit();
+  1093.   
+  1094. >             playCustom();
+  1095.           }
+  1096.   
+
+#6
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:390: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.update(...)` indirectly reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  388.                   }
+  389.               };
+  390. >             fadeOutUpdate(v);
+  391.           }
+  392.       }
+
+#7
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:398: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play(...)` indirectly mutates container `this.presets.playingStreams` via call to `Vector.remove(...)` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  396.           final StreamVoice v = new StreamVoice(soundID, id, vol, vol, -1, 1f);
+  397.   
+  398. >         presets.add(v);
+  399.   
+  400.           update(v, fadeStart, fadeEnd, currentVol);
+
+#8
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:400: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.play(...)` indirectly reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  398.           presets.add(v);
+  399.   
+  400. >         update(v, fadeStart, fadeEnd, currentVol);
+  401.   
+  402.           return v;
+
+#9
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:407: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.autoResume()` reads without synchronization from container `this.presets.playingStreams` via call to `Vector.iterator()`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  405.       void autoResume() {
+  406.           presets.mSoundPool.autoResume();
+  407. >         for (StreamVoice v : presets.playingStreams) {
+  408.               if (v.fadeOut != null)
+  409.                   fadeOutUpdate(v);
+
+#10
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:409: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.autoResume()` indirectly reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  407.           for (StreamVoice v : presets.playingStreams) {
+  408.               if (v.fadeOut != null)
+  409. >                 fadeOutUpdate(v);
+  410.           }
+  411.       }
+
+#11
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:415: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.fadeOutUpdate(...)` reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  413.       void fadeOutUpdate(StreamVoice v) {
+  414.           handler.removeCallbacks(v.fadeOut);
+  415. >         handler.postDelayed(v.fadeOut, rp.currentPeriod.getLength() * 1000 - (_getClock() - rp.cT) - v.fadeOut.dur);
+  416.       }
+  417.   
+
+#12
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:445: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.softStopBackground()` reads without synchronization from `this.soundWhiteNoise`, which races with the write in method `BeatsPlayer.closeSounds()`.
+ Reporting because this access may occur on a background thread. 
+  443.       boolean softStopBackground() {
+  444.           boolean alive = false;
+  445. >         if (soundWhiteNoise != null) {
+  446.               synchronized (soundWhiteNoise.lock) {
+  447.                   if (soundWhiteNoise.state.isInfinite()) {
+
+#13
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:448: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.softStopBackground()` indirectly reads with synchronization from `this.soundWhiteNoise.thread`, which races with the unsynchronized write in method `BeatsPlayer.play()`.
+ Reporting because this access may occur on a background thread. 
+  446.               synchronized (soundWhiteNoise.lock) {
+  447.                   if (soundWhiteNoise.state.isInfinite()) {
+  448. >                     soundWhiteNoise.close();
+  449.                       soundWhiteNoise = null;
+  450.                   } else {
+
+#14
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:455: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.softStopBackground()` reads without synchronization from `this.playingBackground`, which races with the write in method `BeatsPlayer.closeSounds()`.
+ Reporting because this access may occur on a background thread. 
+  453.               }
+  454.           }
+  455. >         if (playingBackground != null) {
+  456.               if (playingBackground.fadeOut == null) {
+  457.                   presets.stop(playingBackground);
+
+#15
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:457: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.softStopBackground()` reads without synchronization from `this.presets`, which races with the write in method `BeatsPlayer.release()`.
+ Reporting because this access may occur on a background thread. 
+  455.           if (playingBackground != null) {
+  456.               if (playingBackground.fadeOut == null) {
+  457. >                 presets.stop(playingBackground);
+  458.                   playingBackground = null;
+  459.               } else {
+
+#16
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:458: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.softStopBackground()` writes to field `this.playingBackground` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  456.               if (playingBackground.fadeOut == null) {
+  457.                   presets.stop(playingBackground);
+  458. >                 playingBackground = null;
+  459.               } else {
+  460.                   alive = true;
+
+#17
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:469: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.isPlaying()` reads without synchronization from `this.playing`, which races with the write in method `BeatsPlayer.softStopVoices()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  467.   
+  468.       public boolean isPlaying() {
+  469. >         if (playing)
+  470.               return true;
+  471.           if (pause > 0)
+
+#18
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:471: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.isPlaying()` reads without synchronization from `this.pause`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  469.           if (playing)
+  470.               return true;
+  471. >         if (pause > 0)
+  472.               return false;
+  473.           if (rp != null) // started but not yet marked as playing
+
+#19
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:473: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.isPlaying()` reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  471.           if (pause > 0)
+  472.               return false;
+  473. >         if (rp != null) // started but not yet marked as playing
+  474.               return true;
+  475.           if (presets.delayed) // started but delayed because of SoundPool
+
+#20
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:475: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.isPlaying()` reads without synchronization from `this.presets.delayed`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  473.           if (rp != null) // started but not yet marked as playing
+  474.               return true;
+  475. >         if (presets.delayed) // started but delayed because of SoundPool
+  476.               return true;
+  477.           return false;
+
+#21
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:481: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.pause()` reads without synchronization from `this.soundWhiteNoise`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  479.   
+  480.       public void pause() {
+  481. >         if (soundWhiteNoise != null) {
+  482.               soundWhiteNoise.pause();
+  483.           }
+
+#22
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:482: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.pause()` indirectly writes to field `this.soundWhiteNoise.thread` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  480.       public void pause() {
+  481.           if (soundWhiteNoise != null) {
+  482. >             soundWhiteNoise.pause();
+  483.           }
+  484.           playing = false;
+
+#23
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:484: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.pause()` writes to field `this.playing` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  482.               soundWhiteNoise.pause();
+  483.           }
+  484. >         playing = false;
+  485.           presets.delayed = false; // prevent start playing when sounds ready
+  486.           pause = _getClock();
+
+#24
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:485: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.pause()` writes to field `this.presets.delayed` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  483.           }
+  484.           playing = false;
+  485. >         presets.delayed = false; // prevent start playing when sounds ready
+  486.           pause = _getClock();
+  487.           handler.removeCallbacks(rp);
+
+#25
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:486: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.pause()` writes to field `this.pause` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  484.           playing = false;
+  485.           presets.delayed = false; // prevent start playing when sounds ready
+  486. >         pause = _getClock();
+  487.           handler.removeCallbacks(rp);
+  488.           presets.autoPause();
+
+#26
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:487: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.pause()` reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  485.           presets.delayed = false; // prevent start playing when sounds ready
+  486.           pause = _getClock();
+  487. >         handler.removeCallbacks(rp);
+  488.           presets.autoPause();
+  489.           track.pause();
+
+#27
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:488: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.pause()` indirectly reads without synchronization from container `this.presets.playingStreams` via call to `Vector.iterator()`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  486.           pause = _getClock();
+  487.           handler.removeCallbacks(rp);
+  488. >         presets.autoPause();
+  489.           track.pause();
+  490.           onPause();
+
+#28
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:494: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.closeSounds()` indirectly writes to field `this.playingBackground` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  492.   
+  493.       void closeSounds() {
+  494. >         stopBackgroundSample();
+  495.           handler.removeCallbacks(rp);
+  496.           if (presets != null)
+
+#29
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:495: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.closeSounds()` reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  493.       void closeSounds() {
+  494.           stopBackgroundSample();
+  495. >         handler.removeCallbacks(rp);
+  496.           if (presets != null)
+  497.               presets.closeSounds();
+
+#30
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:497: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.closeSounds()` indirectly writes to field `this.presets.delayed` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  495.           handler.removeCallbacks(rp);
+  496.           if (presets != null)
+  497. >             presets.closeSounds();
+  498.           stopVoices();
+  499.           handler.removeCallbacks(softEnd);
+
+#31
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:498: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.closeSounds()` indirectly writes to field `this.anglesL` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  496.           if (presets != null)
+  497.               presets.closeSounds();
+  498. >         stopVoices();
+  499.           handler.removeCallbacks(softEnd);
+  500.       }
+
+#32
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:503: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.resetAllVolumes()` reads without synchronization from container `this.presets.playingStreams` via call to `Vector.iterator()`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  501.   
+  502.       void resetAllVolumes() {
+  503. >         for (StreamVoice v : presets.playingStreams) {
+  504.               if (v == playingBackground)
+  505.                   presets.mSoundPool.setVolume(v.streamID, v.leftVol * mSoundBGVolume, v.rightVol * mSoundBGVolume);
+
+#33
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:504: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.resetAllVolumes()` reads without synchronization from `this.playingBackground`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  502.       void resetAllVolumes() {
+  503.           for (StreamVoice v : presets.playingStreams) {
+  504. >             if (v == playingBackground)
+  505.                   presets.mSoundPool.setVolume(v.streamID, v.leftVol * mSoundBGVolume, v.rightVol * mSoundBGVolume);
+  506.               else
+
+#34
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:510: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.resetAllVolumes()` reads without synchronization from `this.soundWhiteNoise`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  508.           }
+  509.           setVolume(mSoundBTVolume);
+  510. >         if (soundWhiteNoise != null)
+  511.               soundWhiteNoise.setVolume(currentPeriodBgVol * mSoundBGVolume);
+  512.       }
+
+#35
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:511: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.resetAllVolumes()` indirectly reads without synchronization from `this.soundWhiteNoise.track`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  509.           setVolume(mSoundBTVolume);
+  510.           if (soundWhiteNoise != null)
+  511. >             soundWhiteNoise.setVolume(currentPeriodBgVol * mSoundBGVolume);
+  512.       }
+  513.   
+
+#36
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:515: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.release()` indirectly writes to field `this.playingBackground` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  513.   
+  514.       public void release() {
+  515. >         closeSounds();
+  516.           shutdown();
+  517.           if (presets != null) {
+
+#37
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:540: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.play()` reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because this access may occur on a background thread. 
+  538.   
+  539.       public void play() {
+  540. >         if (rp != null) { // pause mode
+  541.               playing = true;
+  542.   
+
+#38
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:541: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play()` writes to field `this.playing` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  539.       public void play() {
+  540.           if (rp != null) { // pause mode
+  541. >             playing = true;
+  542.   
+  543.               long now = _getClock();
+
+#39
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:544: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.play()` reads without synchronization from `this.pause`, which races with the write in method `BeatsPlayer.pause()`.
+ Reporting because this access may occur on a background thread. 
+  542.   
+  543.               long now = _getClock();
+  544. >             long d = now - pause;
+  545.               rp.catchUpAfterPause(d);
+  546.               pause = 0;
+
+#40
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:545: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play()` indirectly writes to field `this.rp.cT` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  543.               long now = _getClock();
+  544.               long d = now - pause;
+  545. >             rp.catchUpAfterPause(d);
+  546.               pause = 0;
+  547.   
+
+#41
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:546: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play()` writes to field `this.pause` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  544.               long d = now - pause;
+  545.               rp.catchUpAfterPause(d);
+  546. >             pause = 0;
+  547.   
+  548.               autoResume();
+
+#42
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:548: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.play()` indirectly reads without synchronization from `this.presets.mSoundPool`, which races with the write in method `BeatsPlayer.release()`.
+ Reporting because this access may occur on a background thread. 
+  546.               pause = 0;
+  547.   
+  548. >             autoResume();
+  549.               track.play();
+  550.               rp.run();
+
+#43
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:549: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.play()` reads without synchronization from `this.track`, which races with the write in method `BeatsPlayer.release()`.
+ Reporting because this access may occur on a background thread. 
+  547.   
+  548.               autoResume();
+  549. >             track.play();
+  550.               rp.run();
+  551.               if (soundWhiteNoise != null)
+
+#44
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:550: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play()` indirectly writes to field `this.rp.currentPeriod` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  548.               autoResume();
+  549.               track.play();
+  550. >             rp.run();
+  551.               if (soundWhiteNoise != null)
+  552.                   soundWhiteNoise.start();
+
+#45
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:551: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.play()` reads without synchronization from `this.soundWhiteNoise`, which races with the write in method `BeatsPlayer.closeSounds()`.
+ Reporting because this access may occur on a background thread. 
+  549.               track.play();
+  550.               rp.run();
+  551. >             if (soundWhiteNoise != null)
+  552.                   soundWhiteNoise.start();
+  553.   
+
+#46
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:552: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play()` indirectly writes to field `this.soundWhiteNoise.thread` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  550.               rp.run();
+  551.               if (soundWhiteNoise != null)
+  552. >                 soundWhiteNoise.start();
+  553.   
+  554.               synchronized (lock) {
+
+#47
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:562: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.play()` reads without synchronization from `this.presets`, which races with the write in method `BeatsPlayer.release()`.
+ Reporting because this access may occur on a background thread. 
+  560.           }
+  561.   
+  562. >         if (!presets.loading.isEmpty()) {
+  563.               presets.delayed = true;
+  564.           } else {
+
+#48
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:563: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play()` writes to field `this.presets.delayed` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  561.   
+  562.           if (!presets.loading.isEmpty()) {
+  563. >             presets.delayed = true;
+  564.           } else {
+  565.               runProgram();
+
+#49
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:565: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.play()` indirectly writes to field `this.rp` outside of synchronization.
+ Reporting because this access may occur on a background thread. 
+  563.               presets.delayed = true;
+  564.           } else {
+  565. >             runProgram();
+  566.           }
+  567.       }
+
+#50
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:570: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.runProgram()` reads without synchronization from `this.rp`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  568.   
+  569.       void runProgram() {
+  570. >         if (rp == null)
+  571.               rp = new RunProgram(pr, handler);
+  572.   
+
+#51
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:571: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.runProgram()` writes to field `this.rp` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  569.       void runProgram() {
+  570.           if (rp == null)
+  571. >             rp = new RunProgram(pr, handler);
+  572.   
+  573.           s = eState.START;
+
+#52
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:573: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.runProgram()` writes to field `this.s` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  571.               rp = new RunProgram(pr, handler);
+  572.   
+  573. >         s = eState.START;
+  574.           rp.run();
+  575.   
+
+#53
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:583: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.setFlatBtVol(...)` indirectly reads without synchronization from `this.playingBackground`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  581.       public void setFlatBtVol(float v) {
+  582.           mSoundBTVolume = Sound.log1(v);
+  583. >         resetAllVolumes();
+  584.       }
+  585.   
+
+#54
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:588: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.setFlatBgVol(...)` indirectly reads without synchronization from `this.playingBackground`, which races with the write in method `BeatsPlayer.softStopBackground()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  586.       public void setFlatBgVol(float v) {
+  587.           mSoundBGVolume = Sound.log1(v);
+  588. >         resetAllVolumes();
+  589.       }
+  590.   
+
+#55
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:592: warning: Thread Safety Violation
+  Unprotected write. Non-private method `BeatsPlayer.softEnd()` indirectly writes to field `this.playingBackground` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  590.   
+  591.       public void softEnd() {
+  592. >         boolean alive = softStopVoices() || softStopBackground();
+  593.           if (!alive) {
+  594.               onEnd();
+
+#56
+app/src/main/java/com/github/axet/binauralbeats/beats/BeatsPlayer.java:603: warning: Thread Safety Violation
+  Read/Write race. Non-private method `BeatsPlayer.isEnd()` reads without synchronization from `this.s`, which races with the write in method `BeatsPlayer.play()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  601.   
+  602.       public boolean isEnd() {
+  603. >         return s == eState.END;
+  604.       }
+  605.   
+
+#57
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:102: warning: Thread Safety Violation
+  Unprotected write. Non-private method `VoicesPlayer.stopVoices()` writes to field `this.playing` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  100.   
+  101.       public void stopVoices() {
+  102. >         playing = false;
+  103.           track.stop();
+  104.           anglesL = new long[MAX_VOICES];
+
+#58
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:125: warning: Thread Safety Violation
+  Read/Write race. Non-private method `VoicesPlayer.moreSamples(...)` reads without synchronization from `this.state`, which races with the write in method `VoicesPlayer.play(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  123.               return state.samplesNum < state.durSamples;
+  124.           else {
+  125. >             return state.voices != null && state == this.state;
+  126.           }
+  127.       }
+
+#59
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:133: warning: Thread Safety Violation
+  Read/Write race. Non-private method `VoicesPlayer.run()` reads without synchronization from `this.state`, which races with the write in method `VoicesPlayer.playVoices(...)`.
+ Reporting because this access may occur on a background thread. 
+  131.           android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO);
+  132.   
+  133. >         State state = this.state;
+  134.           while (!isInterrupted()) {
+  135.               try {
+
+#60
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:148: warning: Thread Safety Violation
+  Read/Write race. Non-private method `VoicesPlayer.run()` reads without synchronization from `this.track`, which races with the write in method `VoicesPlayer.shutdown()`.
+ Reporting because this access may occur on a background thread. 
+  146.               }
+  147.               while (buf.pos != buf.len) {
+  148. >                 int out = track.write(buf);
+  149.   
+  150.                   if (out < 0) {
+
+#61
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:191: warning: Thread Safety Violation
+  Read/Write race. Non-private method `VoicesPlayer.fillSamples(...)` reads without synchronization from `this.anglesL.[_]`, which races with the write in method `VoicesPlayer.run()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  189.                   base_freq = v.pitch;
+  190.   
+  191. >             long angle1 = anglesL[j];
+  192.               long angle2 = anglesR[j];
+  193.   
+
+#62
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:192: warning: Thread Safety Violation
+  Read/Write race. Non-private method `VoicesPlayer.fillSamples(...)` reads without synchronization from `this.anglesR.[_]`, which races with the write in method `VoicesPlayer.run()`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  190.   
+  191.               long angle1 = anglesL[j];
+  192. >             long angle2 = anglesR[j];
+  193.   
+  194.               long pos = state.samplesNum;
+
+#63
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:205: warning: Thread Safety Violation
+  Unprotected write. Non-private method `VoicesPlayer.fillSamples(...)` writes to field `this.ws.[_]` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  203.                   int inc2 = (int) (TwoPi * (base_freq) / buf.hz);
+  204.   
+  205. >                 ws[i] += sinT.sinFastInt(angle1) * v.volume;
+  206.                   ws[i + 1] += sinT.sinFastInt(angle2) * v.volume;
+  207.                   angle1 += inc1;
+
+#64
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:212: warning: Thread Safety Violation
+  Unprotected write. Non-private method `VoicesPlayer.fillSamples(...)` writes to field `this.anglesL.[_]` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  210.               }
+  211.   
+  212. >             anglesL[j] = angle1 % ISCALE;
+  213.               anglesR[j] = angle2 % ISCALE;
+  214.           }
+
+#65
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:213: warning: Thread Safety Violation
+  Unprotected write. Non-private method `VoicesPlayer.fillSamples(...)` writes to field `this.anglesR.[_]` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  211.   
+  212.               anglesL[j] = angle1 % ISCALE;
+  213. >             anglesR[j] = angle2 % ISCALE;
+  214.           }
+  215.   
+
+#66
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:216: warning: Thread Safety Violation
+  Unprotected write. Non-private method `VoicesPlayer.fillSamples(...)` writes to field `this.freq` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  214.           }
+  215.   
+  216. >         freq = fm / fc;
+  217.   
+  218.           for (int i = 0; i < buf.len; i += 2) {
+
+#67
+app/src/main/java/com/github/axet/binauralbeats/beats/VoicesPlayer.java:264: warning: Thread Safety Violation
+  Read/Write race. Non-private method `VoicesPlayer.next(...)` reads without synchronization from `this.state`, which races with the write in method `VoicesPlayer.play(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  262.   
+  263.       public boolean next(State state) {
+  264. >         return state != this.state;
+  265.       }
+  266.   }
+
+#68
+app/src/main/java/com/github/axet/binauralbeats/beats/WhiteNoise.java:199: warning: Thread Safety Violation
+  Read/Write race. Non-private method `WhiteNoise.run()` reads without synchronization from `this.track`, which races with the write in method `WhiteNoise.close()`.
+ Reporting because this access may occur on a background thread. 
+  197.               buf.reset();
+  198.   
+  199. >             int out = track.write(buf);
+  200.               if (out < 0)
+  201.                   return;
+
+#69
+app/src/main/java/com/github/axet/binauralbeats/beats/WhiteNoise.java:212: warning: Thread Safety Violation
+  Read/Write race. Non-private method `WhiteNoise.next(...)` reads without synchronization from `this.state`, which races with the write in method `WhiteNoise.play(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  210.   
+  211.       public boolean next(State state) {
+  212. >         return state != this.state;
+  213.       }
+  214.   }
+
+#70
+app/src/main/java/com/github/axet/binauralbeats/widgets/CustomDialog.java:334: error: UI Thread Starvation
+  `void CustomDialog.onDestroy()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  332.       public void onDestroy() {
+  333.           super.onDestroy();
+  334. >         tone.shutdown();
+  335.       }
+  336.   
+
+#71
+app/src/main/java/com/github/axet/binauralbeats/widgets/GraphView.java:586: warning: Thread Safety Violation
+  Read/Write race. Non-private method `GraphView.isScrollable()` reads without synchronization from `this.scrollable`, which races with the write in method `GraphView.setScalable(...)`.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  584.   
+  585.       public boolean isScrollable() {
+  586. >         return scrollable;
+  587.       }
+  588.   
+
+#72
+app/src/main/java/com/github/axet/binauralbeats/widgets/GraphView.java:685: warning: Thread Safety Violation
+  Unprotected write. Non-private method `GraphView.setScrollable(...)` writes to field `this.scrollable` outside of synchronization.
+ Reporting because another access to the same memory occurs on a background thread, although this access may not. 
+  683.        */
+  684.       public void setScrollable(boolean scrollable) {
+  685. >         this.scrollable = scrollable;
+  686.       }
+  687.   
+
+#73
+app/src/main/java/com/github/axet/binauralbeats/widgets/SoundTestDialog.java:77: error: UI Thread Starvation
+  `void SoundTestDialog$1.onClick(View)` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  75.               public void onClick(View v) {
+  76.                   if (whiteNoise.isPlaying())
+  77. >                     whiteNoise.stop();
+  78.                   else
+  79.                       whiteNoise.start();
+
+#74
+app/src/main/java/com/github/axet/binauralbeats/widgets/SoundTestDialog.java:126: error: UI Thread Starvation
+  `void SoundTestDialog.onDestroy()` runs on UI thread and may block, potentially regressing scroll performance or causing ANRs; calls `void Thread.join()`. 
+  124.       public void onDestroy() {
+  125.           super.onDestroy();
+  126. >         close();
+  127.       }
+  128.   
+
+Found 75 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 66
+                  UI Thread Starvation(STARVATION): 9

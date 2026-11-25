@@ -1,0 +1,24 @@
+public void insertUsers(Connection conn, List<User> users) throws SQLException {
+    for (User user : users) {
+        // Bad: The SQL is parsed and a new PreparedStatement is created for every user.
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO users (id, name) VALUES (?, ?)");
+        ps.setInt(1, user.getId());
+        ps.setString(2, user.getName());
+        ps.executeUpdate();
+        ps.close();
+    }
+}
+
+-----
+
+public void insertUsers(Connection conn, List<User> users) throws SQLException {
+    // Good: The statement is prepared once outside the loop.
+    try (PreparedStatement ps = conn.prepareStatement("INSERT INTO users (id, name) VALUES (?, ?)")) {
+        for (User user : users) {
+            // The parameters are simply reset and the statement is re-executed.
+            ps.setInt(1, user.getId());
+            ps.setString(2, user.getName());
+            ps.executeUpdate();
+        }
+    }
+}

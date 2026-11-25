@@ -1,0 +1,22 @@
+// Assume this is a class using dependency injection.
+class UserController(
+    private val userRepository: UserRepository,
+    // Bad: The logger is injected but never used. This can be misleading
+    // and might keep an unnecessary object in memory.
+    private val logger: Logger
+) {
+    fun getUser(id: String): User {
+        return userRepository.findById(id)
+    }
+}
+
+----
+
+class UserController(
+    private val userRepository: UserRepository
+    // Good: Removed the unused logger dependency.
+) {
+    fun getUser(id: String): User {
+        return userRepository.findById(id)
+    }
+}

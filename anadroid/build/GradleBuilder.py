@@ -1,4 +1,5 @@
 import os
+from fileinput import filename
 from shutil import copy
 
 from textops import grep, cat, sed, head, echo
@@ -8,11 +9,14 @@ import re
 from anadroid.application.AndroidProject import BUILD_TYPE
 from anadroid.application.Application import App
 from anadroid.application.Dependency import DependencyType
-from anadroid.build.AbstractBuilder import AbstractBuilder
+from anadroid.build.AbstractBuilder import AbstractBuilder, BUILD_SUCCESS_VALUE, BUILD_RESULTS_FILE, SUCCESS_VALUE
 from anadroid.build.versionUpgrader import DefaultSemanticVersion, can_be_semantic_version
 from anadroid.device.MockedDevice import MockedDevice
+from anadroid.utils.JavaVersionManager import get_gradle_matching_version, JavaVersionManager
+from anadroid.utils.Utils import logd, get_log_file
 from anadroid.utils.Utils import mega_find, execute_shell_command, sign_apk, log_to_file, loge, logw, logs, logi
-from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error
+from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error, get_sdk_version_regex, \
+	replace_sdk_version
 
 TRANSITIVE = "implementation"
 TEST_TRANSITIVE = "testImplementation"
@@ -59,12 +63,17 @@ ATTRIBS_NAME_REMAPS = {
 	'instrumentTestCompile': 'jniDebuggable',
 }
 
-BUILD_RESULTS_FILE = "buildStatus.json"
-SUCCESS_VALUE = "Success"
-ERROR_VALUE = "Error"
-BUILD_SUCCESS_VALUE = "BUILD SUCCESSFUL"
+
 DEFAULT_BUILD_TIMES_TO_TRY = 5
 DEFAULT_BUILD_TOOLS_VERSION = '25.0.3'# TODO
+
+
+def get_java_version_cmd_for_project(proj_dir, on_container=False):
+	gradle_version = get_gradle_version_from_wrapper(proj_dir)
+	logd(f"Gradle version of the project: {gradle_version}")
+	java_version = get_gradle_matching_version(gradle_version)
+	res, cmd = JavaVersionManager().get_change_java_version_cmd(java_version, on_container=on_container)
+	return cmd
 
 
 def gen_dependency_string(dependency):
@@ -79,13 +88,12 @@ def gen_dependency_string(dependency):
 		return """{transitive} (name:'{name}', ext:'{tp}')""".format(transitive=TRANSITIVE, name=dependency.name,
 																	 tp=dependency.bin_type)
 	elif dependency.dep_type == DependencyType.LOCAL_MODULE:
-		return "{transitive} project(:{name})".format(transitive=TRANSITIVE, name=dependency.name)
-	elif dependency.dep_type == DependencyType.CLASSPATH:
-		return "classpath '{name}".format(name=dependency.name) \
-			   + ":{version}'".format(version=dependency.version) if dependency.version is not None else "'"
+		return "{transitive} project(':{name}')".format(transitive=TRANSITIVE, name=dependency.name)
+	version = ":{version}".format(version=dependency.version) if dependency.version is not None else ""
+	if dependency.dep_type == DependencyType.CLASSPATH:
+		return "classpath '{name}{version}'".format(name=dependency.name, version=version)
 	else:
-		return "{transitive} '{name}".format(transitive=TRANSITIVE, name=dependency.name) \
-			   + ":{version}'".format(version=dependency.version) if dependency.version is not None else "'"
+		return "{transitive} '{name}{version}'".format(transitive=TRANSITIVE, name=dependency.name, version=version)
 
 
 def set_transitive_names(gradle_plugin_version):
@@ -96,15 +104,17 @@ def set_transitive_names(gradle_plugin_version):
 	if gradle_plugin_version is None:
 		return
 	x = DefaultSemanticVersion(str(gradle_plugin_version))
+	global TRANSITIVE, TEST_TRANSITIVE, ANDROID_TEST_TRANSITIVE, DEBUG_TRANSITIVE
 	if x.major < 3:
-		global TRANSITIVE
 		TRANSITIVE = "compile"
-		global TEST_TRANSITIVE
 		TEST_TRANSITIVE = "testCompile"
-		global ANDROID_TEST_TRANSITIVE
-		ANDROID_TEST_TRANSITIVE = "AndroidTestCompile"
-		global DEBUG_TRANSITIVE
+		ANDROID_TEST_TRANSITIVE = "androidTestCompile"
 		DEBUG_TRANSITIVE = "debugCompile"
+	else:
+		TRANSITIVE = "implementation"
+		TEST_TRANSITIVE = "testImplementation"
+		ANDROID_TEST_TRANSITIVE = "androidTestImplementation"
+		DEBUG_TRANSITIVE = "debugImplementation"
 		# TODO api vs implementation vs compilonly ... https://developer.android.com/studio/build/dependencies#dependency_configurations
 
 
@@ -114,6 +124,19 @@ def is_library_gradle(bld_file):
 		bool: True if is a library, False otherwise.
 	"""
 	return 'com.android.library' in str(cat(bld_file))
+
+def get_gradle_version_from_wrapper(proj_dir):
+	wrapper_file = os.path.join(proj_dir, "gradle", "wrapper", "gradle-wrapper.properties")
+	if not os.path.exists(wrapper_file):
+		cand_files = mega_find(proj_dir, pattern="gradle-wrapper.properties", type_file='f', maxdepth=3)
+		if cand_files is not None and len(cand_files) > 0:
+			wrapper_file = cand_files[0]
+		else:
+			return None
+	wrapper_content = re.search(r'distributionUrl=.*gradle-([0-9.]+)-', open(wrapper_file).read())
+	if wrapper_content:
+		return wrapper_content.groups()[0]
+	return None
 
 
 class GradleBuilder(AbstractBuilder):
@@ -125,7 +148,7 @@ class GradleBuilder(AbstractBuilder):
 		build_tools_version(str): Gradle version for proj.
 	"""
 	def __init__(self, proj, device, resources_dir, instrumenter):
-		super(GradleBuilder, self).__init__(proj, device, resources_dir, instrumenter)
+		super(GradleBuilder, self).__init__(proj, device, resources_dir, instrumenter, name='gradle_builder')
 		self.build_flags = {}
 		self.change_history = []
 		self.gradle_plg_version = proj.get_gradle_plugin() if proj else None
@@ -227,13 +250,12 @@ class GradleBuilder(AbstractBuilder):
 		if self.was_last_build_successful(task="sign") or build_type == BUILD_TYPE.DEBUG:
 			return True
 		for apk_path in self.proj.get_apks(build_type):
-			ret, o, e = sign_apk(apk_path)
-			if ret == 0 and len(e) < 3:
+			res = sign_apk(apk_path)
+			if res.return_code == 0 and len(res.errors) < 3:
 				logs("APK Successfully signed")
 				return True
 			else:
-				loge(f"Error signing apk {apk_path} {e}")
-				print(e)
+				loge(f"Error signing apk {apk_path} {res.errors}")
 				return False
 
 	def build_apk(self, build_type=BUILD_TYPE.DEBUG):
@@ -261,7 +283,8 @@ class GradleBuilder(AbstractBuilder):
 					sign_apk(apk)
 				self.proj.add_apk(apk, build_type)
 		else:
-			loge("Error Building APK")
+			logd(f"Output of {task}:\n{val}")
+			loge(f"{task}: BUILD FAILED in {self.proj.proj_dir}. The Gradle output is in the log file {get_log_file()}")
 			self.regist_error_build(task)
 			return False
 		return True
@@ -286,7 +309,8 @@ class GradleBuilder(AbstractBuilder):
 			for apks_test in apks_test:
 				self.proj.add_apk(apks_test, None)
 		else:
-			loge("Error Building test APK")
+			logd(f"Output of {task}:\n{val}")
+			loge(f"{task}: BUILD FAILED in {self.proj.proj_dir}. The Gradle output is in the log file {get_log_file()}")
 			self.regist_error_build(task)
 			return False
 		return True
@@ -306,7 +330,7 @@ class GradleBuilder(AbstractBuilder):
 
 		if not self.retry_on_fail and not build_was_succcessful and self.was_attempted_to_build_before():
 			logw("Skipping failed build. Retry on failed flag is disabled")
-			return True
+			return False
 
 		self.__execute_gradlew_task("clean") # mainly to ensure that built apks from original proj do not persist
 		for mod_name, proj_module in self.proj.modules.items():
@@ -351,15 +375,28 @@ class GradleBuilder(AbstractBuilder):
 			error = is_known_error(val)
 			if error is not None and tries > 0:
 				solve_known_error(self.proj, error, error_msg=val, **{'build-tools': self.build_tools_version})
-				loge(f"{target_task}: BUILD FAILED. error is known ({error}). Fixing error and retrying")
+				loge(f"{target_task}: BUILD FAILED in {self.proj.proj_dir}. Known error ({error.name}). "
+					 f"Applied the fix and retrying ({tries - 1} tries left)")
 				log_to_file(f"{error}", os.path.join(self.proj.proj_dir, "registered_errors.log"))
-				return self.exec_with_gradlew(tries=tries - 1, target_task=target_task)
+				return self.exec_with_gradlew(tries=tries - 1, target_task=target_task, skip_lint=skip_lint)
 			else:
-				print(val)
-				loge("Unable to solve Building error")
+				logd(f"Build output:\n{val}")
+				unknown_errors_file = os.path.join(self.proj.proj_dir, "unknown_errors.log")
+				reason = "no rule matches this error" if error is None else f"no tries left to fix {error}"
+				loge(f"{target_task}: BUILD FAILED in {self.proj.proj_dir} ({reason}). "
+					 f"Build output saved in {unknown_errors_file}")
 				self.regist_error_build(target_task)
-				log_to_file(f"{val}\n-------", os.path.join(self.proj.proj_dir, "unknown_errors.log"))
+				log_to_file(f"{val}\n-------", unknown_errors_file)
 				return False
+
+	@staticmethod
+	def __get_java_version_for_project(app_project):
+		gradle_version = get_gradle_version_from_wrapper(app_project.proj_dir)
+		logd(f"Gradle version of the project: {gradle_version}")
+		java_version = get_gradle_matching_version(gradle_version)
+		logd(f"Java version for this Gradle version: {java_version}")
+		res, cmd = JavaVersionManager().get_change_java_version_cmd(java_version)
+		return cmd
 
 	def __execute_gradlew_task(self, task):
 		"""execute gradle task with gradle wrapper.
@@ -369,12 +406,15 @@ class GradleBuilder(AbstractBuilder):
 		Returns:
 			str: command output.
 		"""
-		logi(f"Executing Gradle task: {task}")
+		#logi(f"Executing Gradle task: {task}")
 		build_timeout_val =  900
 		#build_timeout = f'gtimeout  -s 9 {build_timeout_val}' if build_timeout_val > 0 else ""
 		#print(build_timeout)
-		cmd = "cd {projdir}; chmod +x gradlew ; gtimeout {build_timeout_val} ./gradlew {task}".format(build_timeout_val=build_timeout_val,
-				projdir=self.proj.proj_dir, task=task, build_timeout=build_timeout_val)
+		adequate_java_change_prefix = get_java_version_cmd_for_project(self.proj.proj_dir)
+		# the timeout of execute_shell_command stops the task
+		cmd = "{adequate_java_change_prefix} cd {projdir}; chmod +x gradlew ; ./gradlew {task}".format(
+				projdir=self.proj.proj_dir, task=task, adequate_java_change_prefix=adequate_java_change_prefix)
+		logi(f"Executing Gradle task: {task}, {cmd}")
 		res = execute_shell_command(cmd, timeout=build_timeout_val)
 		if res.validate(f"error running gradle task ({task})"):
 			return res.output
@@ -386,17 +426,16 @@ class GradleBuilder(AbstractBuilder):
 		Args:
 			gradle_file: gradle file.
 		"""
-		has_min_sdk = cat(gradle_file) | grep(r'minSdkVersion.*[0-9]+')
-		if str(has_min_sdk) != "":
-			min_sdk = has_min_sdk | sed('minSdkVersion| |=|\n', "") | head(1)
+		file_ctent = str(cat(gradle_file))
+		has_min_sdk = re.search(get_sdk_version_regex('min'), file_ctent)
+		if has_min_sdk is not None:
+			min_sdk = int(has_min_sdk.group(3))
 			device_sdk_version = self.device.get_device_sdk_version()
-			if int(str(min_sdk).replace("\"",'')) > device_sdk_version:
-				logw(f"This app target sdk version {min_sdk}. This is greater than the device version and the application"
+			if min_sdk > device_sdk_version:
+				logw(f"This app min sdk version is {min_sdk}. This is greater than the device version and the application"
 					f" might not work properly on the connected device")
-				new_file = re.sub(r'minSdkVersion (.+)', r'minSdkVersion %d' % device_sdk_version,
-								  str(cat(gradle_file)))
 				with open(gradle_file, 'w') as u:
-					u.write(new_file)
+					u.write(replace_sdk_version(file_ctent, 'min', device_sdk_version))
 				return True
 		return False
 
@@ -405,13 +444,11 @@ class GradleBuilder(AbstractBuilder):
 		Args:
 			gradle_file: gradle file.
 		"""
-		has_target_sdk = cat(gradle_file) | grep(r'targetSdkVersion.*[0-9]+')
-		if str(has_target_sdk) != "":
+		file_ctent = str(cat(gradle_file))
+		if re.search(get_sdk_version_regex('target'), file_ctent) is not None:
 			device_target_sdk_version = self.device.get_device_sdk_version()
-			new_file = re.sub(r'targetSdkVersion (.+)', r'targetSdkVersion %d' % device_target_sdk_version,
-							  str(cat(gradle_file)))
 			with open(gradle_file, 'w') as u:
-				u.write(new_file)
+				u.write(replace_sdk_version(file_ctent, 'target', device_target_sdk_version))
 			return True
 		return False
 
@@ -422,6 +459,8 @@ class GradleBuilder(AbstractBuilder):
 		"""
 		if gradle_file.endswith('.kts'):
 			return
+		if self.__get_plugin_major_version() >= 7:
+			return  # dexOptions has no effect since AGP 7.0. AGP 8.0 removed it
 		new_dex_opts = {}
 		file_ctent = str(cat(gradle_file))
 		#has_android = re.search(r'android.*?\{', file_ctent)
@@ -452,14 +491,20 @@ class GradleBuilder(AbstractBuilder):
 		"""
 		if gradle_file.endswith('.kts'):
 			return
+		# the lint block replaces lintOptions in the new versions of AGP
+		block = r'\blint\b' if self.__get_plugin_major_version() >= 8 else 'lintOptions'
+		block_name = 'lint' if self.__get_plugin_major_version() >= 8 else 'lintOptions'
 		new_lint_opts = {}
 		file_ctent = str(cat(gradle_file))
 		has_android = re.search(r'android[^\w]*?\{', file_ctent)
 		if has_android is None:
 			return
-		has_lint_options = re.search(r'lintOptions.*?\{', file_ctent)
+		has_lint_options = re.search(block + r'\s*\{', file_ctent)
 		if has_lint_options is not None:
-			original_lint_options = re.search(r'lintOptions.*?\{([^{}]+)}', file_ctent).groups()[0].strip().split("\n")
+			original_block = re.search(block + r'\s*\{([^{}]+)}', file_ctent)
+			if original_block is None:
+				return  # block with nested blocks. Do not change it
+			original_lint_options = original_block.groups()[0].strip().split("\n")
 			new_lint_opts = self.__filter_opts(original_lint_options, LINT_OPTIONS.keys())
 			for dx, dval in LINT_OPTIONS.items():
 				new_lint_opts[dx] = (" ", dval)
@@ -470,11 +515,15 @@ class GradleBuilder(AbstractBuilder):
 		line = ""
 		for a, b in new_lint_opts.items():
 			line += "\t\t%s%s%s\n" % (a, b[0], b[1])
-		line = "android {\n\tlintOptions {\n%s\t}" % line
-		fl_without_dexopts = re.sub(r'lintOptions.*?\{([^{}]+)}', "", file_ctent)
+		line = "android {\n\t%s {\n%s\t}" % (block_name, line)
+		fl_without_dexopts = re.sub(block + r'\s*\{([^{}]+)}', "", file_ctent)
 		fl_ok = re.sub(r'android[^\w]*?\{', line, fl_without_dexopts)
 		with open(gradle_file, 'w') as u:
 			u.write(fl_ok)
+
+	def __get_plugin_major_version(self):
+		"""major version of the Android Gradle plugin of the current project."""
+		return DefaultSemanticVersion(str(self.gradle_plg_version)).major
 
 	def __update_test_instrumentation_runner(self, gradle_file):
 		"""Updates test runner according to device sdk version.
@@ -508,7 +557,7 @@ class GradleBuilder(AbstractBuilder):
 				else:
 					self.change_history.append("Removed or replaced opt %s" % opt_key)
 		except:
-			loge("error filtering opts in gradle file")
+			loge(f"Unable to read the options {opts} of a gradle file. The options were not changed")
 			return opts
 		return to_keep
 
@@ -527,12 +576,12 @@ class GradleBuilder(AbstractBuilder):
 		Returns:
 			str: file content.
 		"""
-		return '''
-				sdk.dir={android_home}
-				sdk-location={android_home}
-				ndk.dir={android_home}/ndk-bundle
-				ndk-location={android_home}/ndk-bundle''' \
-			.format(android_home=self.android_home_dir)
+		lines = [f"sdk.dir={self.android_home_dir}", f"sdk-location={self.android_home_dir}"]
+		ndk_dir = os.path.join(self.android_home_dir, "ndk-bundle")
+		if os.path.isdir(ndk_dir):
+			# new versions of the SDK do not have ndk-bundle. A wrong path stops the build
+			lines += [f"ndk.dir={ndk_dir}", f"ndk-location={ndk_dir}"]
+		return "\n".join(lines) + "\n"
 
 	def __add_external_libs_to_repositories(self):
 		if self.needs_external_lib_dependency():
@@ -588,42 +637,12 @@ class GradleBuilder(AbstractBuilder):
 		Returns:
 			bool: True if build was successful, False otherwise.
 		"""
-		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
-		if os.path.exists(filename):
-			with open(filename, 'r') as fl:
+		filepath = self.get_previous_build_report_file()
+		if os.path.exists(filepath):
+			with open(filepath, 'r') as fl:
 				js = json.load(fl)
-			return js[task].lower() == SUCCESS_VALUE.lower() if task in js else False
+			return js[task].lower() == SUCCESS_VALUE.lower() if task in js else any(v.lower() == SUCCESS_VALUE.lower() for k, v in js.items())
 		return False
-
-	def regist_successful_build(self, task="build"):
-		"""record successful build in file.
-		Args:
-			task: build task name.
-		"""
-		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
-		js = {}
-		if os.path.exists(filename):
-			with open(filename, 'r') as fl:
-				js = json.load(fl)
-
-		js[task] = SUCCESS_VALUE
-		with open(filename, 'w') as outfile:
-			json.dump(js, outfile)
-
-	def regist_error_build(self, task="build"):
-		"""record successful build in file.
-		Args:
-			task: build task name.
-		"""
-		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
-		js = {}
-		if os.path.exists(filename):
-			with open(filename, 'r') as fl:
-				js = json.load(fl)
-
-		js[task] = ERROR_VALUE
-		with open(filename, 'w') as outfile:
-			json.dump(js, outfile)
 
 	def __set_build_tools_version(self, bld_file, btools_version=DEFAULT_BUILD_TOOLS_VERSION):
 		"""sets build tools version btools_version on bld_file.
@@ -683,7 +702,7 @@ class GradleBuilder(AbstractBuilder):
 				original_plugs = re.search(r'plugins.*?\{([^{}]+)}', file_content).groups()[0]
 				for plg in plugins:
 					plg_string += f"\tid '{plg}'\n"
-				file_content = re.sub(original_plugs, original_plugs + plg_string, file_content)
+				file_content = file_content.replace(original_plugs, original_plugs + plg_string, 1)
 			else:
 				# append at beginning
 				for plg in plugins:
@@ -730,5 +749,4 @@ class GradleBuilder(AbstractBuilder):
 		Returns:
 			bool: True if yes, False otherwise.
 		"""
-		filename = os.path.join(self.proj.proj_dir, BUILD_RESULTS_FILE)
-		return os.path.exists(filename)
+		return os.path.exists(self.get_previous_build_report_file())

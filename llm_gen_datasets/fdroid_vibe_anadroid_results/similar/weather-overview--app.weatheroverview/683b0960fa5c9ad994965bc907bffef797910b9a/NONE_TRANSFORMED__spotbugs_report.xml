@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762931545062" analysisTimestamp="1762931551779" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/weather-overview/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-30/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/similar_fdroid_vibe_apps/weather-overview/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="9d19519b3077de77a96cb1bab40852f5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class app.weatheroverview.Forecast at new app.weatheroverview.Forecast(Context, JSONObject) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Method classname="app.weatheroverview.Forecast" name="&lt;init&gt;" signature="(Landroid/content/Context;Lorg/json/JSONObject;)V" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="66" end="102" startBytecode="0" endBytecode="751" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java"/>
+      <Message>In method new app.weatheroverview.Forecast(Context, JSONObject)</Message>
+    </Method>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="67" end="67" startBytecode="6" endBytecode="6" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 67]</Message>
+    </SourceLine>
+    <SourceLine classname="app.weatheroverview.Forecast" start="67" end="67" startBytecode="6" endBytecode="6" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 67]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="f2229daf0f356fbf1f06c223678a54f1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to date in app.weatheroverview.Forecast.adapt(Activity)</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Method classname="app.weatheroverview.Forecast" name="adapt" signature="(Landroid/app/Activity;)V" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="124" end="155" startBytecode="0" endBytecode="119" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java"/>
+      <Message>In method app.weatheroverview.Forecast.adapt(Activity)</Message>
+    </Method>
+    <LocalVariable name="date" register="9" pc="235" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named date</Message>
+    </LocalVariable>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="153" end="153" startBytecode="233" endBytecode="233" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 153]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="date"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="148d4d4435a3a88c80e90b3f42368393" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to tempRange in app.weatheroverview.Forecast.adapt(Activity)</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Method classname="app.weatheroverview.Forecast" name="adapt" signature="(Landroid/app/Activity;)V" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="124" end="155" startBytecode="0" endBytecode="119" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java"/>
+      <Message>In method app.weatheroverview.Forecast.adapt(Activity)</Message>
+    </Method>
+    <LocalVariable name="tempRange" register="8" pc="219" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named tempRange</Message>
+    </LocalVariable>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="150" end="150" startBytecode="217" endBytecode="217" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 150]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="tempRange"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="eabf525e89109a76d28ed3ae84a77ddd" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>app.weatheroverview.Forecast.getHourlyWeather() may expose internal representation by returning Forecast.weatherHourly</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Method classname="app.weatheroverview.Forecast" name="getHourlyWeather" signature="()Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="120" end="120" startBytecode="0" endBytecode="46" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java"/>
+      <Message>In method app.weatheroverview.Forecast.getHourlyWeather()</Message>
+    </Method>
+    <Field classname="app.weatheroverview.Forecast" name="weatherHourly" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>In Forecast.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.Forecast.weatherHourly</Message>
+    </Field>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="120" end="120" startBytecode="4" endBytecode="4" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 120]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_MUTABLE_COLLECTION_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="8a6a0d5e34d1fdb7eb35702aabce22e5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field is a mutable collection which should be package protected</ShortMessage>
+    <LongMessage>app.weatheroverview.Forecast.templateIds is a mutable collection which should be package protected</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Field classname="app.weatheroverview.Forecast" name="templateIds" signature="Ljava/util/Map;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>In Forecast.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.Forecast.templateIds</Message>
+    </Field>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="59" end="59" startBytecode="157" endBytecode="157" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="67fea9c138682bd5433d47e5c5a4a37" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>app.weatheroverview.Forecast.currentConditionKeys should be package protected</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Field classname="app.weatheroverview.Forecast" name="currentConditionKeys" signature="[Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>In Forecast.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.Forecast.currentConditionKeys</Message>
+    </Field>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="24" end="24" startBytecode="47" endBytecode="47" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 24]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="6866b12a881b723700e4fb2a81963464" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>app.weatheroverview.Forecast.dailyWeatherKeys should be package protected</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Field classname="app.weatheroverview.Forecast" name="dailyWeatherKeys" signature="[Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>In Forecast.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.Forecast.dailyWeatherKeys</Message>
+    </Field>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="37" end="37" startBytecode="91" endBytecode="91" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 37]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="70c55feb0e779f9ce3ed01ec189930fe" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>app.weatheroverview.Forecast.hourlyWeatherKeys should be package protected</LongMessage>
+    <Class classname="app.weatheroverview.Forecast" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" start="24" end="186" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>At Forecast.java:[lines 24-186]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.Forecast</Message>
+    </Class>
+    <Field classname="app.weatheroverview.Forecast" name="hourlyWeatherKeys" signature="[Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.Forecast" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+        <Message>In Forecast.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.Forecast.hourlyWeatherKeys</Message>
+    </Field>
+    <SourceLine classname="app.weatheroverview.Forecast" primary="true" start="47" end="47" startBytecode="147" endBytecode="147" sourcefile="Forecast.java" sourcepath="app/weatheroverview/Forecast.java" relSourcepath="app/weatheroverview/Forecast.java">
+      <Message>At Forecast.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_BOXED_PRIMITIVE_FOR_PARSING" priority="1" rank="16" abbrev="Bx" category="PERFORMANCE" instanceHash="9bb47eca11bce72203fa0e7b793133e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Boxing/unboxing to parse a primitive</ShortMessage>
+    <LongMessage>Boxing/unboxing to parse a primitive app.weatheroverview.adapter.HourlyWeatherAdapter.getTime(int)</LongMessage>
+    <Class classname="app.weatheroverview.adapter.HourlyWeatherAdapter" primary="true">
+      <SourceLine classname="app.weatheroverview.adapter.HourlyWeatherAdapter" start="23" end="76" sourcefile="HourlyWeatherAdapter.java" sourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java" relSourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java">
+        <Message>At HourlyWeatherAdapter.java:[lines 23-76]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.adapter.HourlyWeatherAdapter</Message>
+    </Class>
+    <Method classname="app.weatheroverview.adapter.HourlyWeatherAdapter" name="getTime" signature="(I)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.adapter.HourlyWeatherAdapter" start="66" end="69" startBytecode="0" endBytecode="157" sourcefile="HourlyWeatherAdapter.java" sourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java" relSourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java"/>
+      <Message>In method app.weatheroverview.adapter.HourlyWeatherAdapter.getTime(int)</Message>
+    </Method>
+    <Method classname="java.lang.Integer" name="intValue" signature="()I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Integer" start="80" end="80" startBytecode="0" endBytecode="51" sourcefile="Integer.java" sourcepath="java/lang/Integer.java"/>
+      <Message>Called method Integer.intValue()</Message>
+    </Method>
+    <Method classname="java.lang.Integer" name="parseInt" signature="(Ljava/lang/String;)I" isStatic="true" role="SHOULD_CALL">
+      <Message>Should call Integer.parseInt(String) instead</Message>
+    </Method>
+    <SourceLine classname="app.weatheroverview.adapter.HourlyWeatherAdapter" primary="true" start="66" end="66" startBytecode="24" endBytecode="24" sourcefile="HourlyWeatherAdapter.java" sourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java" relSourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java">
+      <Message>At HourlyWeatherAdapter.java:[line 66]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="18425d0c5220d8e9bc0b4a142bf324c9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new app.weatheroverview.adapter.HourlyWeatherAdapter(Context) may expose internal representation by storing an externally mutable object into HourlyWeatherAdapter.context</LongMessage>
+    <Class classname="app.weatheroverview.adapter.HourlyWeatherAdapter" primary="true">
+      <SourceLine classname="app.weatheroverview.adapter.HourlyWeatherAdapter" start="23" end="76" sourcefile="HourlyWeatherAdapter.java" sourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java" relSourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java">
+        <Message>At HourlyWeatherAdapter.java:[lines 23-76]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.adapter.HourlyWeatherAdapter</Message>
+    </Class>
+    <Method classname="app.weatheroverview.adapter.HourlyWeatherAdapter" name="&lt;init&gt;" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.adapter.HourlyWeatherAdapter" start="23" end="26" startBytecode="0" endBytecode="84" sourcefile="HourlyWeatherAdapter.java" sourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java" relSourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java"/>
+      <Message>In method new app.weatheroverview.adapter.HourlyWeatherAdapter(Context)</Message>
+    </Method>
+    <Field classname="app.weatheroverview.adapter.HourlyWeatherAdapter" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="app.weatheroverview.adapter.HourlyWeatherAdapter" sourcefile="HourlyWeatherAdapter.java" sourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java" relSourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java">
+        <Message>In HourlyWeatherAdapter.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.adapter.HourlyWeatherAdapter.context</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="app.weatheroverview.adapter.HourlyWeatherAdapter" primary="true" start="24" end="24" startBytecode="6" endBytecode="6" sourcefile="HourlyWeatherAdapter.java" sourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java" relSourcepath="app/weatheroverview/adapter/HourlyWeatherAdapter.java">
+      <Message>At HourlyWeatherAdapter.java:[line 24]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="ebc952982ebc11e03a1579eb68b71279" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in app.weatheroverview.data.ForecastDownloader.readCache(File): new java.io.FileReader(File)</LongMessage>
+    <Class classname="app.weatheroverview.data.ForecastDownloader" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="29" end="168" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+        <Message>At ForecastDownloader.java:[lines 29-168]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.data.ForecastDownloader</Message>
+    </Class>
+    <Method classname="app.weatheroverview.data.ForecastDownloader" name="readCache" signature="(Ljava/io/File;)Lorg/json/JSONObject;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="117" end="129" startBytecode="0" endBytecode="346" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java"/>
+      <Message>In method app.weatheroverview.data.ForecastDownloader.readCache(File)</Message>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/io/File;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader" start="35" end="35" startBytecode="0" endBytecode="69" sourcefile="FileReader.java" sourcepath="java/io/FileReader.java"/>
+      <Message>Called method new java.io.FileReader(File)</Message>
+    </Method>
+    <SourceLine classname="app.weatheroverview.data.ForecastDownloader" primary="true" start="118" end="118" startBytecode="11" endBytecode="11" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+      <Message>At ForecastDownloader.java:[line 118]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="5fac50d741daffcf67aebc56a5f354e9" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in app.weatheroverview.data.ForecastDownloader.writeCache(String, File): new java.io.FileWriter(File)</LongMessage>
+    <Class classname="app.weatheroverview.data.ForecastDownloader" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="29" end="168" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+        <Message>At ForecastDownloader.java:[lines 29-168]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.data.ForecastDownloader</Message>
+    </Class>
+    <Method classname="app.weatheroverview.data.ForecastDownloader" name="writeCache" signature="(Ljava/lang/String;Ljava/io/File;)V" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="133" end="145" startBytecode="0" endBytecode="299" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java"/>
+      <Message>In method app.weatheroverview.data.ForecastDownloader.writeCache(String, File)</Message>
+    </Method>
+    <Method classname="java.io.FileWriter" name="&lt;init&gt;" signature="(Ljava/io/File;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileWriter" start="37" end="37" startBytecode="0" endBytecode="69" sourcefile="FileWriter.java" sourcepath="java/io/FileWriter.java"/>
+      <Message>Called method new java.io.FileWriter(File)</Message>
+    </Method>
+    <SourceLine classname="app.weatheroverview.data.ForecastDownloader" primary="true" start="140" end="140" startBytecode="29" endBytecode="29" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+      <Message>At ForecastDownloader.java:[line 140]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="a61a6eb0129134ed8f5d7f7e07038f54" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>app.weatheroverview.data.ForecastDownloader.download(Context) may fail to close stream</LongMessage>
+    <Class classname="app.weatheroverview.data.ForecastDownloader" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="29" end="168" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+        <Message>At ForecastDownloader.java:[lines 29-168]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.data.ForecastDownloader</Message>
+    </Class>
+    <Method classname="app.weatheroverview.data.ForecastDownloader" name="download" signature="(Landroid/content/Context;)Lorg/json/JSONObject;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="58" end="87" startBytecode="0" endBytecode="123" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java"/>
+      <Message>In method app.weatheroverview.data.ForecastDownloader.download(Context)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Reader;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Reader" start="33" end="53" sourcefile="Reader.java" sourcepath="java/io/Reader.java">
+        <Message>At Reader.java:[lines 33-53]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Reader </Message>
+    </Type>
+    <SourceLine classname="app.weatheroverview.data.ForecastDownloader" primary="true" start="72" end="72" startBytecode="116" endBytecode="116" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+      <Message>At ForecastDownloader.java:[line 72]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" instanceHash="621f224fd453ec44ac3176f411c2e876" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="253">
+    <ShortMessage>Method ignores exceptional return value</ShortMessage>
+    <LongMessage>Exceptional return value of java.io.File.delete() ignored in app.weatheroverview.data.ForecastDownloader.cleanCache(Context)</LongMessage>
+    <Class classname="app.weatheroverview.data.ForecastDownloader" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="29" end="168" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+        <Message>At ForecastDownloader.java:[lines 29-168]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.data.ForecastDownloader</Message>
+    </Class>
+    <Method classname="app.weatheroverview.data.ForecastDownloader" name="cleanCache" signature="(Landroid/content/Context;)V" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="91" end="95" startBytecode="0" endBytecode="156" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java"/>
+      <Message>In method app.weatheroverview.data.ForecastDownloader.cleanCache(Context)</Message>
+    </Method>
+    <Method classname="java.io.File" name="delete" signature="()Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="93" end="93" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.delete()</Message>
+    </Method>
+    <SourceLine classname="app.weatheroverview.data.ForecastDownloader" primary="true" start="94" end="94" startBytecode="35" endBytecode="35" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+      <Message>At ForecastDownloader.java:[line 94]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" instanceHash="fd94d2b32630b3b5012a3523ef9d2ff7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="253">
+    <ShortMessage>Method ignores exceptional return value</ShortMessage>
+    <LongMessage>Exceptional return value of java.io.File.mkdirs() ignored in app.weatheroverview.data.ForecastDownloader.getCacheFile(Context, Date)</LongMessage>
+    <Class classname="app.weatheroverview.data.ForecastDownloader" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="29" end="168" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+        <Message>At ForecastDownloader.java:[lines 29-168]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.data.ForecastDownloader</Message>
+    </Class>
+    <Method classname="app.weatheroverview.data.ForecastDownloader" name="getCacheFile" signature="(Landroid/content/Context;Ljava/util/Date;)Ljava/io/File;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="103" end="113" startBytecode="0" endBytecode="226" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java"/>
+      <Message>In method app.weatheroverview.data.ForecastDownloader.getCacheFile(Context, Date)</Message>
+    </Method>
+    <Method classname="java.io.File" name="mkdirs" signature="()Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File" start="114" end="114" startBytecode="0" endBytecode="51" sourcefile="File.java" sourcepath="java/io/File.java"/>
+      <Message>Called method java.io.File.mkdirs()</Message>
+    </Method>
+    <SourceLine classname="app.weatheroverview.data.ForecastDownloader" primary="true" start="108" end="108" startBytecode="48" endBytecode="48" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+      <Message>At ForecastDownloader.java:[line 108]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE" priority="2" rank="8" abbrev="STCAL" category="MT_CORRECTNESS" instanceHash="dd336985abacdedb1f87b68ec212a021" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Call to static DateFormat</ShortMessage>
+    <LongMessage>Call to method of static java.text.DateFormat in app.weatheroverview.data.ForecastDownloader.getCacheFile(Context, Date)</LongMessage>
+    <Class classname="app.weatheroverview.data.ForecastDownloader" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="29" end="168" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+        <Message>At ForecastDownloader.java:[lines 29-168]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.data.ForecastDownloader</Message>
+    </Class>
+    <Method classname="app.weatheroverview.data.ForecastDownloader" name="getCacheFile" signature="(Landroid/content/Context;Ljava/util/Date;)Ljava/io/File;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" start="103" end="113" startBytecode="0" endBytecode="226" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java"/>
+      <Message>In method app.weatheroverview.data.ForecastDownloader.getCacheFile(Context, Date)</Message>
+    </Method>
+    <Method classname="java.text.SimpleDateFormat" name="format" signature="(Ljava/util/Date;)Ljava/lang/String;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.text.SimpleDateFormat" sourcefile="SimpleDateFormat.java" sourcepath="java/text/SimpleDateFormat.java"/>
+      <Message>Called method java.text.SimpleDateFormat.format(Date)</Message>
+    </Method>
+    <Field classname="app.weatheroverview.data.ForecastDownloader" name="dateFormat" signature="Ljava/text/SimpleDateFormat;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.data.ForecastDownloader" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+        <Message>In ForecastDownloader.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.data.ForecastDownloader.dateFormat</Message>
+    </Field>
+    <SourceLine classname="app.weatheroverview.data.ForecastDownloader" primary="true" start="110" end="110" startBytecode="64" endBytecode="64" sourcefile="ForecastDownloader.java" sourcepath="app/weatheroverview/data/ForecastDownloader.java" relSourcepath="app/weatheroverview/data/ForecastDownloader.java">
+      <Message>At ForecastDownloader.java:[line 110]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" instanceHash="5254415960e5db60d6befe15c18ceeb5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>app.weatheroverview.utils.WeatherCodeUtils.iconIds isn&apos;t final but should be</LongMessage>
+    <Class classname="app.weatheroverview.utils.WeatherCodeUtils" primary="true">
+      <SourceLine classname="app.weatheroverview.utils.WeatherCodeUtils" start="10" end="77" sourcefile="WeatherCodeUtils.java" sourcepath="app/weatheroverview/utils/WeatherCodeUtils.java" relSourcepath="app/weatheroverview/utils/WeatherCodeUtils.java">
+        <Message>At WeatherCodeUtils.java:[lines 10-77]</Message>
+      </SourceLine>
+      <Message>In class app.weatheroverview.utils.WeatherCodeUtils</Message>
+    </Class>
+    <Field classname="app.weatheroverview.utils.WeatherCodeUtils" name="iconIds" signature="Ljava/util/Map;" isStatic="true" primary="true">
+      <SourceLine classname="app.weatheroverview.utils.WeatherCodeUtils" sourcefile="WeatherCodeUtils.java" sourcepath="app/weatheroverview/utils/WeatherCodeUtils.java" relSourcepath="app/weatheroverview/utils/WeatherCodeUtils.java">
+        <Message>In WeatherCodeUtils.java</Message>
+      </SourceLine>
+      <Message>Field app.weatheroverview.utils.WeatherCodeUtils.iconIds</Message>
+    </Field>
+    <SourceLine classname="app.weatheroverview.utils.WeatherCodeUtils" primary="true" start="11" end="11" startBytecode="7" endBytecode="7" sourcefile="WeatherCodeUtils.java" sourcepath="app/weatheroverview/utils/WeatherCodeUtils.java" relSourcepath="app/weatheroverview/utils/WeatherCodeUtils.java">
+      <Message>At WeatherCodeUtils.java:[line 11]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_MUTABLE_COLLECTION_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Field is a mutable collection which should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+ <p>A mutable collection instance is assigned to a final static field,
+   thus can be changed by malicious code or by accident from another package.
+   The field could be made package protected to avoid this vulnerability.
+   Alternatively you may wrap this field into Collections.unmodifiableSet/List/Map/etc.
+   to avoid this vulnerability.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE" abbrev="STCAL" category="MT_CORRECTNESS">
+    <ShortDescription>Call to static DateFormat</ShortDescription>
+    <Details><![CDATA[
+
+<p>As the JavaDoc states, DateFormats are inherently unsafe for multithreaded use.
+The detector has found a call to an instance of DateFormat that has been obtained via a static
+field. This looks suspicious.</p>
+<p>For more information on this see <a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6231579">JDK Bug #6231579</a>
+and <a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6178997">JDK Bug #6178997</a>.</p>
+
+]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_SHOULD_BE_FINAL" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Field isn&apos;t final but should be</ShortDescription>
+    <Details><![CDATA[
+
+   <p>
+This <code>public static</code> or <code>protected static</code> field is not final, and
+could be changed by malicious code or
+        by accident from another package.
+        The field could be made final to avoid
+        this vulnerability.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_BOXED_PRIMITIVE_FOR_PARSING" abbrev="Bx" category="PERFORMANCE">
+    <ShortDescription>Boxing/unboxing to parse a primitive</ShortDescription>
+    <Details><![CDATA[
+
+  <p>A boxed primitive is created from a String, just to extract the unboxed primitive value.
+  It is more efficient to just call the static parseXXX method.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" abbrev="RV" category="BAD_PRACTICE" cweid="253">
+    <ShortDescription>Method ignores exceptional return value</ShortDescription>
+    <Details><![CDATA[
+
+   <p> This method returns a value that is not checked. The return value should be checked
+since it can indicate an unusual or unexpected function execution. For
+example, the <code>File.delete()</code> method returns false
+if the file could not be successfully deleted (rather than
+throwing an Exception).
+If you don't check the result, you won't notice if the method invocation
+signals unexpected behavior by returning an atypical return value.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="RV" cweid="440">
+    <Description>Bad use of return value from method</Description>
+  </BugCode>
+  <BugCode abbrev="STCAL" cweid="366">
+    <Description>Static use of type Calendar or DateFormat</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="Bx">
+    <Description>Questionable Boxing of primitive value</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="17">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.appcompat.widget.Toolbar</MissingClass>
+    <MissingClass>androidx.core.content.ContextCompat</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>androidx.preference.PreferenceFragmentCompat</MissingClass>
+    <MissingClass>androidx.preference.PreferenceManager</MissingClass>
+    <MissingClass>app.weatheroverview.R</MissingClass>
+    <MissingClass>app.weatheroverview.R$array</MissingClass>
+    <MissingClass>app.weatheroverview.R$drawable</MissingClass>
+    <MissingClass>app.weatheroverview.R$id</MissingClass>
+    <MissingClass>app.weatheroverview.R$layout</MissingClass>
+    <MissingClass>app.weatheroverview.R$menu</MissingClass>
+    <MissingClass>app.weatheroverview.R$string</MissingClass>
+    <MissingClass>app.weatheroverview.R$xml</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 11:12:25 +0400" total_classes="13" referenced_classes="86" total_bugs="17" total_size="403" num_packages="5" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="8.66" clock_seconds="4.11" peak_mbytes="235.88" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="13" priority_1="4">
+    <FileStats path="app/weatheroverview/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="app/weatheroverview/Forecast.java" bugCount="8" size="101" bugHash="8ab32a6f411cf623d42d71d599056790"/>
+    <FileStats path="app/weatheroverview/MainActivity.java" bugCount="0" size="53"/>
+    <FileStats path="app/weatheroverview/SettingsActivity.java" bugCount="0" size="11"/>
+    <FileStats path="app/weatheroverview/adapter/HourlyWeatherAdapter.java" bugCount="2" size="41" bugHash="c7fc70dd754ee3dd920c81aa04232c76"/>
+    <FileStats path="app/weatheroverview/data/ForecastDownloader.java" bugCount="6" size="108" bugHash="32c7f49b9e659b8b60272002bdad7db6"/>
+    <FileStats path="app/weatheroverview/fragment/SettingsFragment.java" bugCount="0" size="6"/>
+    <FileStats path="app/weatheroverview/utils/WeatherCodeUtils.java" bugCount="1" size="73" bugHash="3e639c2656b161d3239062a348dbf9b2"/>
+    <PackageStats package="app.weatheroverview" total_bugs="8" total_types="7" total_size="175" priority_2="8">
+      <ClassStats class="app.weatheroverview.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="app.weatheroverview.Forecast" sourceFile="Forecast.java" interface="false" size="95" bugs="8" priority_2="8"/>
+      <ClassStats class="app.weatheroverview.Forecast$1" sourceFile="Forecast.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="app.weatheroverview.MainActivity" sourceFile="MainActivity.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="app.weatheroverview.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="app.weatheroverview.MainActivity$1$1" sourceFile="MainActivity.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="app.weatheroverview.SettingsActivity" sourceFile="SettingsActivity.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="app.weatheroverview.adapter" total_bugs="2" total_types="1" total_size="41" priority_2="1" priority_1="1">
+      <ClassStats class="app.weatheroverview.adapter.HourlyWeatherAdapter" sourceFile="HourlyWeatherAdapter.java" interface="false" size="41" bugs="2" priority_2="1" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="app.weatheroverview.data" total_bugs="6" total_types="1" total_size="108" priority_2="4" priority_1="2">
+      <ClassStats class="app.weatheroverview.data.ForecastDownloader" sourceFile="ForecastDownloader.java" interface="false" size="108" bugs="6" priority_2="4" priority_1="2"/>
+    </PackageStats>
+    <PackageStats package="app.weatheroverview.fragment" total_bugs="0" total_types="1" total_size="6">
+      <ClassStats class="app.weatheroverview.fragment.SettingsFragment" sourceFile="SettingsFragment.java" interface="false" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="app.weatheroverview.utils" total_bugs="1" total_types="3" total_size="73" priority_1="1">
+      <ClassStats class="app.weatheroverview.utils.WeatherCodeUtils" sourceFile="WeatherCodeUtils.java" interface="false" size="13" bugs="1" priority_1="1"/>
+      <ClassStats class="app.weatheroverview.utils.WeatherCodeUtils$1" sourceFile="WeatherCodeUtils.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="app.weatheroverview.utils.WeatherCodeUtils$2" sourceFile="WeatherCodeUtils.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="456" invocations="498" avgMicrosecondsPerInvocation="917" maxMicrosecondsPerInvocation="31475" standardDeviationMicrosecondsPerInvocation="2434"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="208" invocations="86" avgMicrosecondsPerInvocation="2428" maxMicrosecondsPerInvocation="19799" standardDeviationMicrosecondsPerInvocation="3546"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="183" invocations="55" avgMicrosecondsPerInvocation="3332" maxMicrosecondsPerInvocation="38545" standardDeviationMicrosecondsPerInvocation="6487"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="141" invocations="55" avgMicrosecondsPerInvocation="2566" maxMicrosecondsPerInvocation="22569" standardDeviationMicrosecondsPerInvocation="4678"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="133" invocations="52" avgMicrosecondsPerInvocation="2561" maxMicrosecondsPerInvocation="41745" standardDeviationMicrosecondsPerInvocation="6102"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="130" invocations="132" avgMicrosecondsPerInvocation="988" maxMicrosecondsPerInvocation="11464" standardDeviationMicrosecondsPerInvocation="2135"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="130" invocations="52" avgMicrosecondsPerInvocation="2501" maxMicrosecondsPerInvocation="28255" standardDeviationMicrosecondsPerInvocation="4801"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="109" invocations="52" avgMicrosecondsPerInvocation="2105" maxMicrosecondsPerInvocation="27412" standardDeviationMicrosecondsPerInvocation="4553"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="100" invocations="13" avgMicrosecondsPerInvocation="7721" maxMicrosecondsPerInvocation="48258" standardDeviationMicrosecondsPerInvocation="13305"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="86" invocations="52" avgMicrosecondsPerInvocation="1668" maxMicrosecondsPerInvocation="27724" standardDeviationMicrosecondsPerInvocation="4248"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="85" invocations="86" avgMicrosecondsPerInvocation="988" maxMicrosecondsPerInvocation="18026" standardDeviationMicrosecondsPerInvocation="2387"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="83" invocations="509" avgMicrosecondsPerInvocation="163" maxMicrosecondsPerInvocation="3456" standardDeviationMicrosecondsPerInvocation="316"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="82" invocations="86" avgMicrosecondsPerInvocation="955" maxMicrosecondsPerInvocation="33499" standardDeviationMicrosecondsPerInvocation="3947"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="79" invocations="86" avgMicrosecondsPerInvocation="927" maxMicrosecondsPerInvocation="14437" standardDeviationMicrosecondsPerInvocation="1892"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="76" invocations="430" avgMicrosecondsPerInvocation="177" maxMicrosecondsPerInvocation="7353" standardDeviationMicrosecondsPerInvocation="638"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="67" invocations="86" avgMicrosecondsPerInvocation="785" maxMicrosecondsPerInvocation="24937" standardDeviationMicrosecondsPerInvocation="2754"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="65" invocations="13" avgMicrosecondsPerInvocation="5049" maxMicrosecondsPerInvocation="64618" standardDeviationMicrosecondsPerInvocation="17196"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="57" invocations="57" avgMicrosecondsPerInvocation="1013" maxMicrosecondsPerInvocation="13655" standardDeviationMicrosecondsPerInvocation="2727"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="54" invocations="52" avgMicrosecondsPerInvocation="1043" maxMicrosecondsPerInvocation="17708" standardDeviationMicrosecondsPerInvocation="2791"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="53" invocations="13" avgMicrosecondsPerInvocation="4153" maxMicrosecondsPerInvocation="18206" standardDeviationMicrosecondsPerInvocation="5965"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="53" invocations="46" avgMicrosecondsPerInvocation="1164" maxMicrosecondsPerInvocation="10431" standardDeviationMicrosecondsPerInvocation="2279"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="51" invocations="86" avgMicrosecondsPerInvocation="599" maxMicrosecondsPerInvocation="7759" standardDeviationMicrosecondsPerInvocation="1232"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FormatStringChecker" totalMilliseconds="35" invocations="13" avgMicrosecondsPerInvocation="2701" maxMicrosecondsPerInvocation="33087" standardDeviationMicrosecondsPerInvocation="8777"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="33" invocations="86" avgMicrosecondsPerInvocation="393" maxMicrosecondsPerInvocation="8289" standardDeviationMicrosecondsPerInvocation="1046"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="33" invocations="13" avgMicrosecondsPerInvocation="2539" maxMicrosecondsPerInvocation="13730" standardDeviationMicrosecondsPerInvocation="3692"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="32" invocations="86" avgMicrosecondsPerInvocation="374" maxMicrosecondsPerInvocation="11490" standardDeviationMicrosecondsPerInvocation="1309"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="32" invocations="13" avgMicrosecondsPerInvocation="2462" maxMicrosecondsPerInvocation="23127" standardDeviationMicrosecondsPerInvocation="6049"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="28" invocations="86" avgMicrosecondsPerInvocation="335" maxMicrosecondsPerInvocation="5928" standardDeviationMicrosecondsPerInvocation="882"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

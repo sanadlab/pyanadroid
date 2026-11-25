@@ -1,0 +1,9 @@
+val timestamp: Long = System.currentTimeMillis()
+// Bad: Creates a new Long object that is immediately discarded.
+val floatValue = java.lang.Long(timestamp).toFloat()
+
+-----
+
+val timestamp: Long = System.currentTimeMillis()
+// Good: Cast the primitive long directly to a float.
+val floatValue = timestamp.toFloat()

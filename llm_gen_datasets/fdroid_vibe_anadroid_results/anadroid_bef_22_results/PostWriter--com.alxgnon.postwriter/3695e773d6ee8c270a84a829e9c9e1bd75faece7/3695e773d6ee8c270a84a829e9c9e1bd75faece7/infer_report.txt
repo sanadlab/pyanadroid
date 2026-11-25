@@ -1,0 +1,22 @@
+#0
+app/src/main/java/com/alxgnon/postwriter/MainActivity.java:40: warning: Ipc On Ui Thread
+  `void MainActivity.onCreate(Bundle)` runs on UI thread and may perform blocking IPC, potentially regressing scroll performance or causing ANRs; calls `int ContextWrapper.checkSelfPermission(String)`. 
+  38.           new PostIndicator(this).watchContent();
+  39.   
+  40. >         new PostPermissions(this).requestAccess();
+  41.       }
+  42.   }
+
+#1
+app/src/main/java/com/alxgnon/postwriter/PostFilesystem.java:53: error: Resource Leak
+  Resource dynamically allocated by constructor java.io.BufferedWriter() on line 50 is not closed after the last access at line 53. 
+  51.   
+  52.           buffer.write(text);
+  53. >         return buffer;
+  54.       }
+  55.   
+
+Found 2 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Resource Leak(PULSE_RESOURCE_LEAK): 1
+  Ipc On Ui Thread(IPC_ON_UI_THREAD): 1

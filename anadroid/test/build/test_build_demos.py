@@ -23,7 +23,7 @@ class TestBuildDemo(TestCase):
             app_name = os.path.basename(app_proj)
             #print("Processing app " + app_name + " in " + app_proj)
             original_proj = AndroidProject(projname=app_name, projdir=app_proj)
-            original_proj.clean_trasformations()
+            original_proj.clean_transformations()
             instrumented_proj_dir = le_android.instrumenter.instrument(original_proj, instr_type=le_android.instrumentation_type)
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir, results_dir=le_android.results_dir)
             builder = BuilDroidBuilder(proj=instr_proj,
@@ -40,7 +40,7 @@ class TestBuildDemo(TestCase):
         for app_proj in app_projects:
             app_name = os.path.basename(app_proj)
             original_proj = AndroidProject(projname=app_name, projdir=app_proj)
-            original_proj.clean_trasformations()
+            original_proj.clean_transformations()
             instrumented_proj_dir = le_android.instrumenter.instrument(original_proj,
                                                                        instr_type=le_android.instrumentation_type)
             instr_proj = AndroidProject(projname=app_name, projdir=instrumented_proj_dir,

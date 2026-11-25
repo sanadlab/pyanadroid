@@ -1,0 +1,10 @@
+// Bad: Less efficient object creation.
+val initialValues: List<Int> = Arrays.asList(0)
+
+----
+
+// Good: More memory and CPU efficient.
+// The idiomatic Kotlin way is even better:
+val initialValues: List<Int> = listOf(0) // Kotlin's listOf is also highly optimized.
+// But if interacting with Java APIs, singletonList is the direct fix.
+// val initialValues: List<Int> = Collections.singletonList(0)

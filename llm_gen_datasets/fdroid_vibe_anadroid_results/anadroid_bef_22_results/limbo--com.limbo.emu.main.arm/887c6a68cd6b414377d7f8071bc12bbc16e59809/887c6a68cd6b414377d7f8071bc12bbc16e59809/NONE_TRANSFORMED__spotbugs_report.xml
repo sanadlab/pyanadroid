@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767891335105" analysisTimestamp="1767891345000" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-arm/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-35/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/limbo/NONE_TRANSFORMED_/limbo-android-lib/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="2507d8699d98436f5d3adae2fe681f41" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.max2idea.android.limbo.main.Config.clientClass from instance method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="11" end="43" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+        <Message>At LimboEmuActivity.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.limbo.emu.main.arm.LimboEmuActivity</Message>
+    </Class>
+    <Method classname="com.limbo.emu.main.arm.LimboEmuActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="14" end="33" startBytecode="0" endBytecode="237" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java"/>
+      <Message>In method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.max2idea.android.limbo.main.Config" name="clientClass" signature="Ljava/lang/Class;" isStatic="true" primary="true">
+      <SourceLine classname="com.max2idea.android.limbo.main.Config">
+        <Message>In &lt;Unknown&gt;</Message>
+      </SourceLine>
+      <Message>Field com.max2idea.android.limbo.main.Config.clientClass</Message>
+    </Field>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true" start="15" end="15" startBytecode="10" endBytecode="10" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+      <Message>At LimboEmuActivity.java:[line 15]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="3aad96e2bdc497541a9d579655e28311" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.max2idea.android.limbo.main.Config.enableEmulatedFloppy from instance method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="11" end="43" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+        <Message>At LimboEmuActivity.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.limbo.emu.main.arm.LimboEmuActivity</Message>
+    </Class>
+    <Method classname="com.limbo.emu.main.arm.LimboEmuActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="14" end="33" startBytecode="0" endBytecode="237" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java"/>
+      <Message>In method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.max2idea.android.limbo.main.Config" name="enableEmulatedFloppy" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.max2idea.android.limbo.main.Config">
+        <Message>In &lt;Unknown&gt;</Message>
+      </SourceLine>
+      <Message>Field com.max2idea.android.limbo.main.Config.enableEmulatedFloppy</Message>
+    </Field>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true" start="17" end="17" startBytecode="18" endBytecode="18" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+      <Message>At LimboEmuActivity.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="fcf42936a4ca2b049d6d93cfa9b3dffa" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.max2idea.android.limbo.main.Config.enableEmulatedSDCard from instance method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="11" end="43" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+        <Message>At LimboEmuActivity.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.limbo.emu.main.arm.LimboEmuActivity</Message>
+    </Class>
+    <Method classname="com.limbo.emu.main.arm.LimboEmuActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="14" end="33" startBytecode="0" endBytecode="237" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java"/>
+      <Message>In method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.max2idea.android.limbo.main.Config" name="enableEmulatedSDCard" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.max2idea.android.limbo.main.Config">
+        <Message>In &lt;Unknown&gt;</Message>
+      </SourceLine>
+      <Message>Field com.max2idea.android.limbo.main.Config.enableEmulatedSDCard</Message>
+    </Field>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true" start="18" end="18" startBytecode="22" endBytecode="22" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+      <Message>At LimboEmuActivity.java:[line 18]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="3c5d0f61fd2d4f1fe0deda94c7aa6ab0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.max2idea.android.limbo.main.Config.enableKVM from instance method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="11" end="43" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+        <Message>At LimboEmuActivity.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.limbo.emu.main.arm.LimboEmuActivity</Message>
+    </Class>
+    <Method classname="com.limbo.emu.main.arm.LimboEmuActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="14" end="33" startBytecode="0" endBytecode="237" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java"/>
+      <Message>In method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.max2idea.android.limbo.main.Config" name="enableKVM" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.max2idea.android.limbo.main.Config">
+        <Message>In &lt;Unknown&gt;</Message>
+      </SourceLine>
+      <Message>Field com.max2idea.android.limbo.main.Config.enableKVM</Message>
+    </Field>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true" start="16" end="16" startBytecode="14" endBytecode="14" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+      <Message>At LimboEmuActivity.java:[line 16]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="62fc7fd0999ac26a99d07cb85c09c289" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.max2idea.android.limbo.main.Config.enableMTTCG from instance method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="11" end="43" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+        <Message>At LimboEmuActivity.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.limbo.emu.main.arm.LimboEmuActivity</Message>
+    </Class>
+    <Method classname="com.limbo.emu.main.arm.LimboEmuActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="14" end="33" startBytecode="0" endBytecode="237" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java"/>
+      <Message>In method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.max2idea.android.limbo.main.Config" name="enableMTTCG" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.max2idea.android.limbo.main.Config">
+        <Message>In &lt;Unknown&gt;</Message>
+      </SourceLine>
+      <Message>Field com.max2idea.android.limbo.main.Config.enableMTTCG</Message>
+    </Field>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true" start="21" end="21" startBytecode="38" endBytecode="38" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+      <Message>At LimboEmuActivity.java:[line 21]</Message>
+    </SourceLine>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="23" end="23" startBytecode="45" endBytecode="45" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at LimboEmuActivity.java:[line 23]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="4f11d8a4866207ba68e06eb3be1f2ca4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.max2idea.android.limbo.main.Config.machineFolder from instance method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="11" end="43" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+        <Message>At LimboEmuActivity.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.limbo.emu.main.arm.LimboEmuActivity</Message>
+    </Class>
+    <Method classname="com.limbo.emu.main.arm.LimboEmuActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="14" end="33" startBytecode="0" endBytecode="237" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java"/>
+      <Message>In method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.max2idea.android.limbo.main.Config" name="machineFolder" signature="Ljava/lang/String;" isStatic="true" primary="true">
+      <SourceLine classname="com.max2idea.android.limbo.main.Config">
+        <Message>In &lt;Unknown&gt;</Message>
+      </SourceLine>
+      <Message>Field com.max2idea.android.limbo.main.Config.machineFolder</Message>
+    </Field>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true" start="24" end="24" startBytecode="69" endBytecode="69" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+      <Message>At LimboEmuActivity.java:[line 24]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="6a207ae0973d98e4180286f94a691874" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.max2idea.android.limbo.main.LimboApplication.arch from instance method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</LongMessage>
+    <Class classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="11" end="43" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+        <Message>At LimboEmuActivity.java:[lines 11-43]</Message>
+      </SourceLine>
+      <Message>In class com.limbo.emu.main.arm.LimboEmuActivity</Message>
+    </Class>
+    <Method classname="com.limbo.emu.main.arm.LimboEmuActivity" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" start="14" end="33" startBytecode="0" endBytecode="237" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java"/>
+      <Message>In method com.limbo.emu.main.arm.LimboEmuActivity.onCreate(Bundle)</Message>
+    </Method>
+    <Field classname="com.max2idea.android.limbo.main.LimboApplication" name="arch" signature="Lcom/max2idea/android/limbo/main/Config$Arch;" isStatic="true" primary="true">
+      <SourceLine classname="com.max2idea.android.limbo.main.LimboApplication">
+        <Message>In &lt;Unknown&gt;</Message>
+      </SourceLine>
+      <Message>Field com.max2idea.android.limbo.main.LimboApplication.arch</Message>
+    </Field>
+    <SourceLine classname="com.limbo.emu.main.arm.LimboEmuActivity" primary="true" start="14" end="14" startBytecode="3" endBytecode="3" sourcefile="LimboEmuActivity.java" sourcepath="com/limbo/emu/main/arm/LimboEmuActivity.java">
+      <Message>At LimboEmuActivity.java:[line 14]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="11">
+    <MissingClass>com.limbo.emu.main.arm.R</MissingClass>
+    <MissingClass>com.limbo.emu.main.arm.R$string</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.links.LinksManager</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.links.LinksManager$LinkInfo</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.links.LinksManager$LinkType</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.log.Logger</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.main.Config</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.main.Config$Arch</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.main.LimboActivity</MissingClass>
+    <MissingClass>com.max2idea.android.limbo.main.LimboApplication</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 20:55:35 +0400" total_classes="2" referenced_classes="17" total_bugs="7" total_size="34" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="1.13" clock_seconds="0.27" peak_mbytes="127.28" alloc_mbytes="768.00" gc_seconds="0.00" priority_2="7">
+    <FileStats path="com/limbo/emu/main/arm/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/limbo/emu/main/arm/LimboEmuActivity.java" bugCount="7" size="24" bugHash="e8f3d9361fa3f957120e2cbf577dc573"/>
+    <PackageStats package="com.limbo.emu.main.arm" total_bugs="7" total_types="2" total_size="34" priority_2="7">
+      <ClassStats class="com.limbo.emu.main.arm.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.limbo.emu.main.arm.LimboEmuActivity" sourceFile="LimboEmuActivity.java" interface="false" size="24" bugs="7" priority_2="7"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="31" invocations="235" avgMicrosecondsPerInvocation="132" maxMicrosecondsPerInvocation="5022" standardDeviationMicrosecondsPerInvocation="376"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

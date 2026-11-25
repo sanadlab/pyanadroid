@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762889924665" analysisTimestamp="1762889927092" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/dekadico/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-29/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/dekadico/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="d6e090b5a6313f19bd7281a12888d057" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.example.spokennumbers.EvaluationFragment(ArrayList) may expose internal representation by storing an externally mutable object into EvaluationFragment.solutionList</LongMessage>
+    <Class classname="com.example.spokennumbers.EvaluationFragment" primary="true">
+      <SourceLine classname="com.example.spokennumbers.EvaluationFragment" start="26" end="85" sourcefile="EvaluationFragment.java" sourcepath="com/example/spokennumbers/EvaluationFragment.java" relSourcepath="com/example/spokennumbers/EvaluationFragment.java">
+        <Message>At EvaluationFragment.java:[lines 26-85]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.EvaluationFragment</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.EvaluationFragment" name="&lt;init&gt;" signature="(Ljava/util/ArrayList;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.EvaluationFragment" start="26" end="28" startBytecode="0" endBytecode="87" sourcefile="EvaluationFragment.java" sourcepath="com/example/spokennumbers/EvaluationFragment.java" relSourcepath="com/example/spokennumbers/EvaluationFragment.java"/>
+      <Message>In method new com.example.spokennumbers.EvaluationFragment(ArrayList)</Message>
+    </Method>
+    <Field classname="com.example.spokennumbers.EvaluationFragment" name="solutionList" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.EvaluationFragment" sourcefile="EvaluationFragment.java" sourcepath="com/example/spokennumbers/EvaluationFragment.java" relSourcepath="com/example/spokennumbers/EvaluationFragment.java">
+        <Message>In EvaluationFragment.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.EvaluationFragment.solutionList</Message>
+    </Field>
+    <LocalVariable name="solutionList" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named solutionList</Message>
+    </LocalVariable>
+    <SourceLine classname="com.example.spokennumbers.EvaluationFragment" primary="true" start="27" end="27" startBytecode="6" endBytecode="6" sourcefile="EvaluationFragment.java" sourcepath="com/example/spokennumbers/EvaluationFragment.java" relSourcepath="com/example/spokennumbers/EvaluationFragment.java">
+      <Message>At EvaluationFragment.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ES_COMPARING_STRINGS_WITH_EQ" priority="2" rank="11" abbrev="ES" category="BAD_PRACTICE" instanceHash="7a2b42851ff6195e6cbe4599f8fbf9a2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="595">
+    <ShortMessage>Comparison of String objects using == or !=</ShortMessage>
+    <LongMessage>Comparison of String objects using == or != in com.example.spokennumbers.EvaluationFragment.lambda$onViewCreated$0(TextView, EditText, Button, View)</LongMessage>
+    <Class classname="com.example.spokennumbers.EvaluationFragment" primary="true">
+      <SourceLine classname="com.example.spokennumbers.EvaluationFragment" start="26" end="85" sourcefile="EvaluationFragment.java" sourcepath="com/example/spokennumbers/EvaluationFragment.java" relSourcepath="com/example/spokennumbers/EvaluationFragment.java">
+        <Message>At EvaluationFragment.java:[lines 26-85]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.EvaluationFragment</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.EvaluationFragment" name="lambda$onViewCreated$0" signature="(Landroid/widget/TextView;Landroid/widget/EditText;Landroid/widget/Button;Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.EvaluationFragment" start="44" end="57" startBytecode="0" endBytecode="38" sourcefile="EvaluationFragment.java" sourcepath="com/example/spokennumbers/EvaluationFragment.java" relSourcepath="com/example/spokennumbers/EvaluationFragment.java"/>
+      <Message>In method com.example.spokennumbers.EvaluationFragment.lambda$onViewCreated$0(TextView, EditText, Button, View)</Message>
+    </Method>
+    <Type descriptor="Ljava/lang/String;" role="TYPE_FOUND">
+      <SourceLine classname="java.lang.String" start="109" end="2323" sourcefile="String.java" sourcepath="java/lang/String.java">
+        <Message>At String.java:[lines 109-2323]</Message>
+      </SourceLine>
+      <Message>Actual type String</Message>
+    </Type>
+    <String value="" role="STRING_CONSTANT">
+      <Message>String constant &quot;&quot;</Message>
+    </String>
+    <Method classname="android.widget.TextView" name="getText" signature="()Ljava/lang/CharSequence;" isStatic="false" role="METHOD_RETURN_VALUE_OF" classAnnotationNames="android.view.ViewDebug$CapturedViewProperty">
+      <SourceLine classname="android.widget.TextView" start="437" end="437" startBytecode="0" endBytecode="51" sourcefile="TextView.java" sourcepath="android/widget/TextView.java"/>
+      <Message>Return value of android.widget.TextView.getText() of type CharSequence</Message>
+    </Method>
+    <SourceLine classname="com.example.spokennumbers.EvaluationFragment" primary="true" start="44" end="44" startBytecode="6" endBytecode="6" sourcefile="EvaluationFragment.java" sourcepath="com/example/spokennumbers/EvaluationFragment.java" relSourcepath="com/example/spokennumbers/EvaluationFragment.java">
+      <Message>At EvaluationFragment.java:[line 44]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.RefComparisonWarningProperty.EMPTY_AND_UNKNOWN" value="true"/>
+  </BugInstance>
+  <BugInstance type="BX_UNBOXING_IMMEDIATELY_REBOXED" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" instanceHash="34d1865020ddb8e403b27f5965cc7cb5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Boxed value is unboxed and then immediately reboxed</ShortMessage>
+    <LongMessage>Boxed value is unboxed and then immediately reboxed in com.example.spokennumbers.FlashAnzan.adjustNumDigits()</LongMessage>
+    <Class classname="com.example.spokennumbers.FlashAnzan" primary="true">
+      <SourceLine classname="com.example.spokennumbers.FlashAnzan" start="34" end="291" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java">
+        <Message>At FlashAnzan.java:[lines 34-291]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.FlashAnzan</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.FlashAnzan" name="adjustNumDigits" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.FlashAnzan" start="91" end="96" startBytecode="0" endBytecode="117" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java"/>
+      <Message>In method com.example.spokennumbers.FlashAnzan.adjustNumDigits()</Message>
+    </Method>
+    <Method classname="java.lang.Integer" name="valueOf" signature="(I)Ljava/lang/Integer;" isStatic="true" role="METHOD_CALLED" classAnnotationNames="android.annotation.NonNull">
+      <SourceLine classname="java.lang.Integer" start="541" end="541" startBytecode="0" endBytecode="51" sourcefile="Integer.java" sourcepath="java/lang/Integer.java"/>
+      <Message>Called method Integer.valueOf(int)</Message>
+    </Method>
+    <SourceLine classname="com.example.spokennumbers.FlashAnzan" primary="true" start="91" end="91" startBytecode="33" endBytecode="33" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java">
+      <Message>At FlashAnzan.java:[line 91]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="18d3e3d6ec402d09e2d0aa45c8e48d4b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.example.spokennumbers.FlashAnzan.timer from instance method com.example.spokennumbers.FlashAnzan.execTaskPeriodic(ArrayList)</LongMessage>
+    <Class classname="com.example.spokennumbers.FlashAnzan" primary="true">
+      <SourceLine classname="com.example.spokennumbers.FlashAnzan" start="34" end="291" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java">
+        <Message>At FlashAnzan.java:[lines 34-291]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.FlashAnzan</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.FlashAnzan" name="execTaskPeriodic" signature="(Ljava/util/ArrayList;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.FlashAnzan" start="134" end="168" startBytecode="0" endBytecode="227" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java"/>
+      <Message>In method com.example.spokennumbers.FlashAnzan.execTaskPeriodic(ArrayList)</Message>
+    </Method>
+    <Field classname="com.example.spokennumbers.FlashAnzan" name="timer" signature="Ljava/util/Timer;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.FlashAnzan" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java">
+        <Message>In FlashAnzan.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.FlashAnzan.timer</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.FlashAnzan" primary="true" start="139" end="139" startBytecode="59" endBytecode="59" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java">
+      <Message>At FlashAnzan.java:[line 139]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UCF_USELESS_CONTROL_FLOW" priority="2" rank="17" abbrev="UCF" category="STYLE" instanceHash="bb7da6f8717dbd2e06793011acee7e79" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Useless control flow</ShortMessage>
+    <LongMessage>Useless control flow in com.example.spokennumbers.GamesMenu.onCreate(Bundle)</LongMessage>
+    <Class classname="com.example.spokennumbers.GamesMenu" primary="true">
+      <SourceLine classname="com.example.spokennumbers.GamesMenu" start="23" end="101" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java">
+        <Message>At GamesMenu.java:[lines 23-101]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.GamesMenu</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.GamesMenu" name="onCreate" signature="(Landroid/os/Bundle;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.GamesMenu" start="56" end="59" startBytecode="0" endBytecode="81" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java"/>
+      <Message>In method com.example.spokennumbers.GamesMenu.onCreate(Bundle)</Message>
+    </Method>
+    <SourceLine classname="com.example.spokennumbers.GamesMenu" primary="true" start="57" end="57" startBytecode="9" endBytecode="9" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java">
+      <Message>At GamesMenu.java:[line 57]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="d5fa9556c82f0e2e7dde3d173a36d9fb" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unused field</ShortMessage>
+    <LongMessage>Unused field: com.example.spokennumbers.GamesMenu.mParam1</LongMessage>
+    <Class classname="com.example.spokennumbers.GamesMenu" primary="true">
+      <SourceLine classname="com.example.spokennumbers.GamesMenu" start="23" end="101" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java">
+        <Message>At GamesMenu.java:[lines 23-101]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.GamesMenu</Message>
+    </Class>
+    <Field classname="com.example.spokennumbers.GamesMenu" name="mParam1" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.GamesMenu" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java">
+        <Message>In GamesMenu.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.GamesMenu.mParam1</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.GamesMenu" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java" synthetic="true">
+      <Message>In GamesMenu.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="e97bee225c24db47de011d2607cab1e4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unused field</ShortMessage>
+    <LongMessage>Unused field: com.example.spokennumbers.GamesMenu.mParam2</LongMessage>
+    <Class classname="com.example.spokennumbers.GamesMenu" primary="true">
+      <SourceLine classname="com.example.spokennumbers.GamesMenu" start="23" end="101" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java">
+        <Message>At GamesMenu.java:[lines 23-101]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.GamesMenu</Message>
+    </Class>
+    <Field classname="com.example.spokennumbers.GamesMenu" name="mParam2" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.GamesMenu" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java">
+        <Message>In GamesMenu.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.GamesMenu.mParam2</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.GamesMenu" sourcefile="GamesMenu.java" sourcepath="com/example/spokennumbers/GamesMenu.java" relSourcepath="com/example/spokennumbers/GamesMenu.java" synthetic="true">
+      <Message>In GamesMenu.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="f403d152cc5d76115fd79d3f0acfd01c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.example.spokennumbers.MainActivity.evaluationMode should be package protected</LongMessage>
+    <Class classname="com.example.spokennumbers.MainActivity" primary="true">
+      <SourceLine classname="com.example.spokennumbers.MainActivity" start="31" end="222" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java">
+        <Message>At MainActivity.java:[lines 31-222]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.MainActivity</Message>
+    </Class>
+    <Field classname="com.example.spokennumbers.MainActivity" name="evaluationMode" signature="Z" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.MainActivity" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.MainActivity.evaluationMode</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.MainActivity" primary="true" start="46" end="46" startBytecode="1" endBytecode="1" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java">
+      <Message>At MainActivity.java:[line 46]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="ee466ffacb514be7a7ec7323c31d4bd9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>com.example.spokennumbers.MainActivity.prefConfig should be package protected</LongMessage>
+    <Class classname="com.example.spokennumbers.MainActivity" primary="true">
+      <SourceLine classname="com.example.spokennumbers.MainActivity" start="31" end="222" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java">
+        <Message>At MainActivity.java:[lines 31-222]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.MainActivity</Message>
+    </Class>
+    <Field classname="com.example.spokennumbers.MainActivity" name="prefConfig" signature="Lcom/example/spokennumbers/PrefConfig;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.MainActivity" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.MainActivity.prefConfig</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.MainActivity" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java" synthetic="true">
+      <Message>In MainActivity.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="5ddafa44557f704dc0a96b1e1476b2bb" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field com.example.spokennumbers.MainActivity.prefConfig is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="com.example.spokennumbers.MainActivity" primary="true">
+      <SourceLine classname="com.example.spokennumbers.MainActivity" start="31" end="222" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java">
+        <Message>At MainActivity.java:[lines 31-222]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.MainActivity</Message>
+    </Class>
+    <Field classname="com.example.spokennumbers.MainActivity" name="prefConfig" signature="Lcom/example/spokennumbers/PrefConfig;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.MainActivity" sourcefile="MainActivity.java" sourcepath="com/example/spokennumbers/MainActivity.java" relSourcepath="com/example/spokennumbers/MainActivity.java">
+        <Message>In MainActivity.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.MainActivity.prefConfig</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.FlashAnzan" primary="true" start="214" end="214" startBytecode="0" endBytecode="0" sourcefile="FlashAnzan.java" sourcepath="com/example/spokennumbers/FlashAnzan.java" relSourcepath="com/example/spokennumbers/FlashAnzan.java">
+      <Message>At FlashAnzan.java:[line 214]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" instanceHash="34b05152e456fdb2964f49aeeec70d9f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.example.spokennumbers.PrefConfig.sharedPreferences from instance method new com.example.spokennumbers.PrefConfig(Context)</LongMessage>
+    <Class classname="com.example.spokennumbers.PrefConfig" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="36" end="127" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>At PrefConfig.java:[lines 36-127]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.PrefConfig</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.PrefConfig" name="&lt;init&gt;" signature="(Landroid/content/Context;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="36" end="38" startBytecode="0" endBytecode="74" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java"/>
+      <Message>In method new com.example.spokennumbers.PrefConfig(Context)</Message>
+    </Method>
+    <Field classname="com.example.spokennumbers.PrefConfig" name="sharedPreferences" signature="Landroid/content/SharedPreferences;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>In PrefConfig.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.PrefConfig.sharedPreferences</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.PrefConfig" primary="true" start="37" end="37" startBytecode="11" endBytecode="11" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+      <Message>At PrefConfig.java:[line 37]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="f3998c682c9b867109b510aed1655c55" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.example.spokennumbers.PrefConfig.editor from instance method com.example.spokennumbers.PrefConfig.saveData(String, String, boolean, boolean, boolean)</LongMessage>
+    <Class classname="com.example.spokennumbers.PrefConfig" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="36" end="127" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>At PrefConfig.java:[lines 36-127]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.PrefConfig</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.PrefConfig" name="saveData" signature="(Ljava/lang/String;Ljava/lang/String;ZZZ)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="42" end="49" startBytecode="0" endBytecode="201" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java"/>
+      <Message>In method com.example.spokennumbers.PrefConfig.saveData(String, String, boolean, boolean, boolean)</Message>
+    </Method>
+    <Field classname="com.example.spokennumbers.PrefConfig" name="editor" signature="Landroid/content/SharedPreferences$Editor;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>In PrefConfig.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.PrefConfig.editor</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.PrefConfig" primary="true" start="42" end="42" startBytecode="8" endBytecode="8" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+      <Message>At PrefConfig.java:[line 42]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="3373ff16db05ddf7ba8540f4fa1e2ec1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.example.spokennumbers.PrefConfig.editor from instance method com.example.spokennumbers.PrefConfig.saveDataFlashAnzan(String, String, String, String, boolean, boolean, boolean)</LongMessage>
+    <Class classname="com.example.spokennumbers.PrefConfig" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="36" end="127" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>At PrefConfig.java:[lines 36-127]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.PrefConfig</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.PrefConfig" name="saveDataFlashAnzan" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="56" end="65" startBytecode="0" endBytecode="255" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java"/>
+      <Message>In method com.example.spokennumbers.PrefConfig.saveDataFlashAnzan(String, String, String, String, boolean, boolean, boolean)</Message>
+    </Method>
+    <Field classname="com.example.spokennumbers.PrefConfig" name="editor" signature="Landroid/content/SharedPreferences$Editor;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>In PrefConfig.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.PrefConfig.editor</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.PrefConfig" primary="true" start="56" end="56" startBytecode="8" endBytecode="8" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+      <Message>At PrefConfig.java:[line 56]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" instanceHash="822dcf7a9d9a1360a194d65b86add3c1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field com.example.spokennumbers.PrefConfig.editor from instance method com.example.spokennumbers.PrefConfig.saveHighScore(int)</LongMessage>
+    <Class classname="com.example.spokennumbers.PrefConfig" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="36" end="127" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>At PrefConfig.java:[lines 36-127]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.PrefConfig</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.PrefConfig" name="saveHighScore" signature="(I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" start="118" end="124" startBytecode="0" endBytecode="135" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java"/>
+      <Message>In method com.example.spokennumbers.PrefConfig.saveHighScore(int)</Message>
+    </Method>
+    <Field classname="com.example.spokennumbers.PrefConfig" name="editor" signature="Landroid/content/SharedPreferences$Editor;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.spokennumbers.PrefConfig" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+        <Message>In PrefConfig.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.PrefConfig.editor</Message>
+    </Field>
+    <SourceLine classname="com.example.spokennumbers.PrefConfig" primary="true" start="118" end="118" startBytecode="8" endBytecode="8" sourcefile="PrefConfig.java" sourcepath="com/example/spokennumbers/PrefConfig.java" relSourcepath="com/example/spokennumbers/PrefConfig.java">
+      <Message>At PrefConfig.java:[line 118]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="ec4b8d487a6e1689d047add16bf69072" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.example.spokennumbers.spoken_numbers_ingame_fragment$1.onTick(long)</LongMessage>
+    <Class classname="com.example.spokennumbers.spoken_numbers_ingame_fragment$1" primary="true">
+      <SourceLine classname="com.example.spokennumbers.spoken_numbers_ingame_fragment$1" start="45" end="79" sourcefile="spoken_numbers_ingame_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java">
+        <Message>At spoken_numbers_ingame_fragment.java:[lines 45-79]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.spoken_numbers_ingame_fragment$1</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.spoken_numbers_ingame_fragment$1" name="onTick" signature="(J)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.spoken_numbers_ingame_fragment$1" start="48" end="75" startBytecode="0" endBytecode="421" sourcefile="spoken_numbers_ingame_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java"/>
+      <Message>In method com.example.spokennumbers.spoken_numbers_ingame_fragment$1.onTick(long)</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="254" end="254" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.example.spokennumbers.spoken_numbers_ingame_fragment$1" primary="true" start="55" end="55" startBytecode="62" endBytecode="62" sourcefile="spoken_numbers_ingame_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java">
+      <Message>At spoken_numbers_ingame_fragment.java:[line 55]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.spokennumbers.spoken_numbers_ingame_fragment$1" start="58" end="58" startBytecode="72" endBytecode="72" sourcefile="spoken_numbers_ingame_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_ingame_fragment.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at spoken_numbers_ingame_fragment.java:[line 58]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" instanceHash="b81b33db60c6a550cbc40e9986fdf80b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to evaluationMode in com.example.spokennumbers.spoken_numbers_main_fragment$1.onClick(View)</LongMessage>
+    <Class classname="com.example.spokennumbers.spoken_numbers_main_fragment$1" primary="true">
+      <SourceLine classname="com.example.spokennumbers.spoken_numbers_main_fragment$1" start="91" end="146" sourcefile="spoken_numbers_main_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_main_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_main_fragment.java">
+        <Message>At spoken_numbers_main_fragment.java:[lines 91-146]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.spoken_numbers_main_fragment$1</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.spoken_numbers_main_fragment$1" name="onClick" signature="(Landroid/view/View;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.spoken_numbers_main_fragment$1" start="93" end="146" startBytecode="0" endBytecode="135" sourcefile="spoken_numbers_main_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_main_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_main_fragment.java"/>
+      <Message>In method com.example.spokennumbers.spoken_numbers_main_fragment$1.onClick(View)</Message>
+    </Method>
+    <LocalVariable name="evaluationMode" register="8" pc="226" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named evaluationMode</Message>
+    </LocalVariable>
+    <SourceLine classname="com.example.spokennumbers.spoken_numbers_main_fragment$1" primary="true" start="132" end="132" startBytecode="224" endBytecode="224" sourcefile="spoken_numbers_main_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_main_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_main_fragment.java">
+      <Message>At spoken_numbers_main_fragment.java:[line 132]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="evaluationMode"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="b76d31a8dd3baced1a638baff747016b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.example.spokennumbers.spoken_numbers_recall_fragment(ArrayList) may expose internal representation by storing an externally mutable object into spoken_numbers_recall_fragment.num_list</LongMessage>
+    <Class classname="com.example.spokennumbers.spoken_numbers_recall_fragment" primary="true">
+      <SourceLine classname="com.example.spokennumbers.spoken_numbers_recall_fragment" start="18" end="78" sourcefile="spoken_numbers_recall_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java">
+        <Message>At spoken_numbers_recall_fragment.java:[lines 18-78]</Message>
+      </SourceLine>
+      <Message>In class com.example.spokennumbers.spoken_numbers_recall_fragment</Message>
+    </Class>
+    <Method classname="com.example.spokennumbers.spoken_numbers_recall_fragment" name="&lt;init&gt;" signature="(Ljava/util/ArrayList;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.spoken_numbers_recall_fragment" start="25" end="27" startBytecode="0" endBytecode="87" sourcefile="spoken_numbers_recall_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java"/>
+      <Message>In method new com.example.spokennumbers.spoken_numbers_recall_fragment(ArrayList)</Message>
+    </Method>
+    <Field classname="com.example.spokennumbers.spoken_numbers_recall_fragment" name="num_list" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.spokennumbers.spoken_numbers_recall_fragment" sourcefile="spoken_numbers_recall_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java">
+        <Message>In spoken_numbers_recall_fragment.java</Message>
+      </SourceLine>
+      <Message>Field com.example.spokennumbers.spoken_numbers_recall_fragment.num_list</Message>
+    </Field>
+    <LocalVariable name="al" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named al</Message>
+    </LocalVariable>
+    <SourceLine classname="com.example.spokennumbers.spoken_numbers_recall_fragment" primary="true" start="26" end="26" startBytecode="6" endBytecode="6" sourcefile="spoken_numbers_recall_fragment.java" sourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java" relSourcepath="com/example/spokennumbers/spoken_numbers_recall_fragment.java">
+      <Message>At spoken_numbers_recall_fragment.java:[line 26]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UUF_UNUSED_FIELD" abbrev="UuF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unused field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never used.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BX_UNBOXING_IMMEDIATELY_REBOXED" abbrev="Bx" category="PERFORMANCE">
+    <ShortDescription>Boxed value is unboxed and then immediately reboxed</ShortDescription>
+    <Details><![CDATA[
+
+  <p>A boxed value is unboxed and then immediately reboxed.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UCF_USELESS_CONTROL_FLOW" abbrev="UCF" category="STYLE">
+    <ShortDescription>Useless control flow</ShortDescription>
+    <Details><![CDATA[
+
+<p> This method contains a useless control flow statement, where
+control flow continues onto the same place regardless of whether or not
+the branch is taken. For example,
+this is caused by having an empty statement
+block for an <code>if</code> statement:</p>
+<pre><code>if (argv.length == 0) {
+    // TODO: handle this case
+}
+</code></pre>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ES_COMPARING_STRINGS_WITH_EQ" abbrev="ES" category="BAD_PRACTICE" cweid="595">
+    <ShortDescription>Comparison of String objects using == or !=</ShortDescription>
+    <Details><![CDATA[
+
+  <p>This code compares <code>java.lang.String</code> objects for reference
+equality using the == or != operators.
+Unless both strings are either constants in a source file, or have been
+interned using the <code>String.intern()</code> method, the same string
+value may be represented by two different String objects. Consider
+using the <code>equals(Object)</code> method instead.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/595.html">CWE-595: Comparison of Object References Instead of Object Contents</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <BugCode abbrev="Bx">
+    <Description>Questionable Boxing of primitive value</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="UuF">
+    <Description>Unused field</Description>
+  </BugCode>
+  <BugCode abbrev="UCF">
+    <Description>Useless control flow</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="ES" cweid="597">
+    <Description>Checking String equality using == or !=</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="19">
+    <MissingClass>androidx.activity.OnBackPressedCallback</MissingClass>
+    <MissingClass>androidx.activity.OnBackPressedDispatcher</MissingClass>
+    <MissingClass>androidx.annotation.NonNull</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>androidx.appcompat.app.AppCompatDelegate</MissingClass>
+    <MissingClass>androidx.fragment.app.Fragment</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentActivity</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentManager</MissingClass>
+    <MissingClass>androidx.fragment.app.FragmentTransaction</MissingClass>
+    <MissingClass>androidx.lifecycle.LifecycleOwner</MissingClass>
+    <MissingClass>com.example.spokennumbers.R</MissingClass>
+    <MissingClass>com.example.spokennumbers.R$anim</MissingClass>
+    <MissingClass>com.example.spokennumbers.R$id</MissingClass>
+    <MissingClass>com.example.spokennumbers.R$layout</MissingClass>
+    <MissingClass>com.example.spokennumbers.R$menu</MissingClass>
+    <MissingClass>com.example.spokennumbers.R$raw</MissingClass>
+    <MissingClass>com.example.spokennumbers.R$string</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Tue, 11 Nov 2025 23:38:44 +0400" total_classes="23" referenced_classes="175" total_bugs="17" total_size="857" num_packages="1" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="2.97" clock_seconds="0.78" peak_mbytes="268.64" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="15" priority_1="2">
+    <FileStats path="com/example/spokennumbers/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/example/spokennumbers/EvaluationFragment.java" bugCount="2" size="49" bugHash="189087b23b6560f1b57509c0450d2789"/>
+    <FileStats path="com/example/spokennumbers/FlashAnzan.java" bugCount="3" size="232" bugHash="f3a1c43436f5e138359e6e4250f45ec3"/>
+    <FileStats path="com/example/spokennumbers/GamesMenu.java" bugCount="3" size="47" bugHash="dac485aebda00a73e41a09917bcd8fda"/>
+    <FileStats path="com/example/spokennumbers/MainActivity.java" bugCount="2" size="139" bugHash="19b91068b62f61c5c8f63cb4cfdc8bcb"/>
+    <FileStats path="com/example/spokennumbers/PrefConfig.java" bugCount="4" size="80" bugHash="8bf48ecfeb8405d88d820de45b800c19"/>
+    <FileStats path="com/example/spokennumbers/spoken_numbers_ingame_fragment.java" bugCount="1" size="127" bugHash="796140b9f3ee72e7013b9ff9b56f81dd"/>
+    <FileStats path="com/example/spokennumbers/spoken_numbers_main_fragment.java" bugCount="1" size="99" bugHash="71cd698658d98211457da4b80fce52da"/>
+    <FileStats path="com/example/spokennumbers/spoken_numbers_recall_fragment.java" bugCount="1" size="74" bugHash="3998b6bde20a45fa42e681f84f2a4a5a"/>
+    <PackageStats package="com.example.spokennumbers" total_bugs="17" total_types="23" total_size="857" priority_2="15" priority_1="2">
+      <ClassStats class="com.example.spokennumbers.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.EvaluationFragment" sourceFile="EvaluationFragment.java" interface="false" size="49" bugs="2" priority_2="2"/>
+      <ClassStats class="com.example.spokennumbers.FlashAnzan" sourceFile="FlashAnzan.java" interface="false" size="177" bugs="3" priority_2="3"/>
+      <ClassStats class="com.example.spokennumbers.FlashAnzan$1" sourceFile="FlashAnzan.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.FlashAnzan$1$1" sourceFile="FlashAnzan.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.FlashAnzan$2" sourceFile="FlashAnzan.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.FlashAnzan$3" sourceFile="FlashAnzan.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.GamesMenu" sourceFile="GamesMenu.java" interface="false" size="31" bugs="3" priority_2="3"/>
+      <ClassStats class="com.example.spokennumbers.GamesMenu$1" sourceFile="GamesMenu.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.GamesMenu$2" sourceFile="GamesMenu.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.MainActivity" sourceFile="MainActivity.java" interface="false" size="132" bugs="2" priority_2="2"/>
+      <ClassStats class="com.example.spokennumbers.MainActivity$1" sourceFile="MainActivity.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.PrefConfig" sourceFile="PrefConfig.java" interface="false" size="80" bugs="4" priority_2="3" priority_1="1"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_ingame_fragment" sourceFile="spoken_numbers_ingame_fragment.java" interface="false" size="95" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_ingame_fragment$1" sourceFile="spoken_numbers_ingame_fragment.java" interface="false" size="25" bugs="1" priority_1="1"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_ingame_fragment$1$1" sourceFile="spoken_numbers_ingame_fragment.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_main_fragment" sourceFile="spoken_numbers_main_fragment.java" interface="false" size="61" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_main_fragment$1" sourceFile="spoken_numbers_main_fragment.java" interface="false" size="38" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_recall_fragment" sourceFile="spoken_numbers_recall_fragment.java" interface="false" size="37" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_recall_fragment$1" sourceFile="spoken_numbers_recall_fragment.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_recall_fragment$2" sourceFile="spoken_numbers_recall_fragment.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_recall_fragment$3" sourceFile="spoken_numbers_recall_fragment.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.example.spokennumbers.spoken_numbers_recall_fragment$4" sourceFile="spoken_numbers_recall_fragment.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="60" invocations="578" avgMicrosecondsPerInvocation="104" maxMicrosecondsPerInvocation="4685" standardDeviationMicrosecondsPerInvocation="294"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="31" invocations="175" avgMicrosecondsPerInvocation="179" maxMicrosecondsPerInvocation="4642" standardDeviationMicrosecondsPerInvocation="479"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="24" invocations="154" avgMicrosecondsPerInvocation="159" maxMicrosecondsPerInvocation="6195" standardDeviationMicrosecondsPerInvocation="541"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="20" invocations="151" avgMicrosecondsPerInvocation="133" maxMicrosecondsPerInvocation="1980" standardDeviationMicrosecondsPerInvocation="217"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="19" invocations="151" avgMicrosecondsPerInvocation="129" maxMicrosecondsPerInvocation="980" standardDeviationMicrosecondsPerInvocation="181"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="19" invocations="151" avgMicrosecondsPerInvocation="125" maxMicrosecondsPerInvocation="3399" standardDeviationMicrosecondsPerInvocation="303"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="18" invocations="23" avgMicrosecondsPerInvocation="790" maxMicrosecondsPerInvocation="8419" standardDeviationMicrosecondsPerInvocation="1924"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="17" invocations="227" avgMicrosecondsPerInvocation="78" maxMicrosecondsPerInvocation="3923" standardDeviationMicrosecondsPerInvocation="285"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="17" invocations="151" avgMicrosecondsPerInvocation="116" maxMicrosecondsPerInvocation="2635" standardDeviationMicrosecondsPerInvocation="232"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="15" invocations="151" avgMicrosecondsPerInvocation="103" maxMicrosecondsPerInvocation="1119" standardDeviationMicrosecondsPerInvocation="148"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="13" invocations="593" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="234" standardDeviationMicrosecondsPerInvocation="19"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="12" invocations="175" avgMicrosecondsPerInvocation="73" maxMicrosecondsPerInvocation="1905" standardDeviationMicrosecondsPerInvocation="210"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="12" invocations="151" avgMicrosecondsPerInvocation="82" maxMicrosecondsPerInvocation="6399" standardDeviationMicrosecondsPerInvocation="518"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="11" invocations="175" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="2781" standardDeviationMicrosecondsPerInvocation="256"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="11" invocations="175" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="1079" standardDeviationMicrosecondsPerInvocation="155"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

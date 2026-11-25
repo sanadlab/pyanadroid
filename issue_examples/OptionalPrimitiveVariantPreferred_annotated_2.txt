@@ -1,0 +1,12 @@
+// Bad: The result of toDoubleOrNull() is a boxed Double?, which gets wrapped in Optional.
+fun parseDouble(s: String): Optional<Double> {
+    return Optional.ofNullable(s.toDoubleOrNull())
+}
+
+-----
+
+// Good: Work directly with OptionalDouble to avoid the boxing overhead.
+fun parseDouble(s: String): OptionalDouble {
+    val d = s.toDoubleOrNull()
+    return if (d != null) OptionalDouble.of(d) else OptionalDouble.empty()
+}

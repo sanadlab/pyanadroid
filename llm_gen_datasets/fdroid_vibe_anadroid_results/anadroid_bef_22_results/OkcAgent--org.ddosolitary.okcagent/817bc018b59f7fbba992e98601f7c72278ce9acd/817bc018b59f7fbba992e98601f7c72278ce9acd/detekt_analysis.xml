@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/AgentService.kt">
+	<error line="52" column="16" severity="warning" message="The function callApi is too long (62). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="52" column="16" severity="warning" message="Function callApi has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="3" column="1" severity="warning" message="android.app.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="178" column="20" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/MainActivity.kt">
+	<error line="37" column="7" severity="warning" message="Class &apos;MainActivity&apos; with &apos;13&apos; functions detected. Defined threshold inside classes is set to &apos;11&apos;" source="detekt.TooManyFunctions" />
+	<error line="181" column="79" severity="warning" message="This empty block of code can be removed." source="detekt.EmptyFunctionBlock" />
+	<error line="10" column="1" severity="warning" message="android.view.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/gpg/GpgArguments.kt">
+	<error line="66" column="7" severity="warning" message="The function parse appears to be too complex based on Cyclomatic Complexity (complexity: 20). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="66" column="7" severity="warning" message="Function parse is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="55" column="4" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/gpg/GpgInputWrapper.kt">
+	<error line="88" column="6" severity="warning" message="Function getAutoReopenStream is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="47" column="15" severity="warning" message="Function read has 3 return statements which exceeds the limit of 2." source="detekt.ReturnCount" />
+	<error line="6" column="1" severity="warning" message="java.io.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/gpg/GpgAgentService.kt">
+	<error line="50" column="15" severity="warning" message="The function runAgent is too long (190). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="50" column="15" severity="warning" message="The function runAgent appears to be too complex based on Cyclomatic Complexity (complexity: 50). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="50" column="15" severity="warning" message="Function runAgent is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="219" column="12" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="227" column="13" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="235" column="13" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="128" column="11" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="204" column="16" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="209" column="16" severity="warning" message="Exception is a too generic Exception. Prefer throwing specific exceptions that indicate a specific error case." source="detekt.TooGenericExceptionThrown" />
+	<error line="15" column="1" severity="warning" message="org.openintents.openpgp.util.OpenPgpApi.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+	<error line="32" column="4" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="33" column="4" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="34" column="4" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="35" column="4" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="43" column="63" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+	<error line="138" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/ssh/SshAgentService.kt">
+	<error line="28" column="15" severity="warning" message="The function runAgent is too long (79). The maximum length is 60." source="detekt.LongMethod" />
+	<error line="28" column="15" severity="warning" message="The function runAgent appears to be too complex based on Cyclomatic Complexity (complexity: 16). Defined complexity threshold for methods is set to &apos;15&apos;" source="detekt.CyclomaticComplexMethod" />
+	<error line="28" column="15" severity="warning" message="Function runAgent is nested too deeply." source="detekt.NestedBlockDepth" />
+	<error line="89" column="12" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="94" column="13" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="101" column="13" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/MyApplication.kt">
+	<error line="14" column="12" severity="warning" message="The caught exception is too generic. Prefer catching specific exceptions to the case that is currently handled." source="detekt.TooGenericExceptionCaught" />
+	<error line="14" column="12" severity="warning" message="The caught exception is swallowed. The original exception could be lost." source="detekt.SwallowedException" />
+</file>
+<file name="/Users/rar9993/repos/research/fdroid_apps/native_apps/OkcAgent/app/src/main/java/org/ddosolitary/okcagent/Utils.kt">
+	<error line="17" column="53" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+</checkstyle>

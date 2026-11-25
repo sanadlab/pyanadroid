@@ -1,0 +1,13 @@
+Set<String> uniqueTags = new HashSet<>();
+for (String tag : allTags) {
+    if (!uniqueTags.contains(tag)) {
+        uniqueTags.add(tag);
+    }
+}
+
+----
+
+Set<String> uniqueTags = new HashSet<>();
+for (String tag : allTags) {
+    uniqueTags.add(tag);
+}

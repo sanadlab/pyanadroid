@@ -1,0 +1,33 @@
+#0
+app/src/main/java/com/nicolasbrailo/vlcfreemote/MainActivity.java:215: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.onVlcStatusUpdate(...)` reads with synchronization from `this.playlistView`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  213.       @Override
+  214.       public synchronized void onVlcStatusUpdate(VlcStatus result) {
+  215. >         this.playlistView.onVlcStatusUpdate(result);
+  216.           this.playerControllerView.onStatusUpdated(this, result);
+  217.   
+
+#1
+app/src/main/java/com/nicolasbrailo/vlcfreemote/MainActivity.java:216: warning: Thread Safety Violation
+  Read/Write race. Non-private method `MainActivity.onVlcStatusUpdate(...)` reads with synchronization from `this.playerControllerView`, which races with the unsynchronized write in method `MainActivity.onCreate(...)`.
+ Reporting because this access may occur on a background thread. 
+  214.       public synchronized void onVlcStatusUpdate(VlcStatus result) {
+  215.           this.playlistView.onVlcStatusUpdate(result);
+  216. >         this.playerControllerView.onStatusUpdated(this, result);
+  217.   
+  218.           if (!periodicStatusUpdateRequested && result.isPlaying()) {
+
+#2
+app/src/main/java/com/nicolasbrailo/vlcfreemote/ServerSelectView.java:65: warning: Regex Op On Ui Thread
+  `View ServerSelectView.onCreateView(LayoutInflater,ViewGroup,Bundle)` runs on UI thread and may perform costly regular expression operations, potentially regressing scroll performance; calls `Pattern Pattern.compile(String)`. 
+  63.           updateCurrentServerLabel(v);
+  64.   
+  65. >         List<String> ips = ServerScanner.getLocalNetworks();
+  66.           if (!ips.isEmpty()) {
+  67.               ((EditText)v.findViewById(R.id.wServerSelect_CustomServerIp)).setText(ips.get(0));
+
+Found 3 issues
+                        Issue Type(ISSUED_TYPE_ID): #
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 2
+      Regex Op On Ui Thread(REGEX_OP_ON_UI_THREAD): 1

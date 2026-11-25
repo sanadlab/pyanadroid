@@ -1,0 +1,14 @@
+// Bad: Performs two lookups: one for containsKey, and another for get.
+if (cache.containsKey(key)) {
+    return cache.get(key);
+} else {
+    return null;
+}
+
+----
+
+// Good: Performs a single lookup. If the key exists, the value is returned.
+// If not, get() returns null, achieving the same result.
+return cache.get(key);
+
+// Note: This pattern is safe as long as the map does not contain null values.

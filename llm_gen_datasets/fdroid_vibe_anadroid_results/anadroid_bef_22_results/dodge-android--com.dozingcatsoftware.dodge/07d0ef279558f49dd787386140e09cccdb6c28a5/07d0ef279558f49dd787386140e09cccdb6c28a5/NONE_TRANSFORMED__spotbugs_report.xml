@@ -1,0 +1,1451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1767883901123" analysisTimestamp="1767883903194" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-31/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/dodge-android/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="REC_CATCH_EXCEPTION" priority="2" rank="17" abbrev="REC" category="STYLE" instanceHash="659b4c00fb636aefde236655451aa8a1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="396">
+    <ShortMessage>Exception is caught when Exception is not thrown</ShortMessage>
+    <LongMessage>Exception is caught when Exception is not thrown in com.dozingcatsoftware.dodge.AndroidUtils.getDeviceRotation(Context)</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.AndroidUtils" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.AndroidUtils" start="16" end="63" sourcefile="AndroidUtils.java" sourcepath="com/dozingcatsoftware/dodge/AndroidUtils.java" relSourcepath="com/dozingcatsoftware/dodge/AndroidUtils.java">
+        <Message>At AndroidUtils.java:[lines 16-63]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.AndroidUtils</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.AndroidUtils" name="getDeviceRotation" signature="(Landroid/content/Context;)I" isStatic="true" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.AndroidUtils" start="48" end="63" startBytecode="0" endBytecode="308" sourcefile="AndroidUtils.java" sourcepath="com/dozingcatsoftware/dodge/AndroidUtils.java" relSourcepath="com/dozingcatsoftware/dodge/AndroidUtils.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.AndroidUtils.getDeviceRotation(Context)</Message>
+    </Method>
+    <SourceLine classname="com.dozingcatsoftware.dodge.AndroidUtils" primary="true" start="62" end="62" startBytecode="98" endBytecode="98" sourcefile="AndroidUtils.java" sourcepath="com/dozingcatsoftware/dodge/AndroidUtils.java" relSourcepath="com/dozingcatsoftware/dodge/AndroidUtils.java">
+      <Message>At AndroidUtils.java:[line 62]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="2" rank="16" abbrev="DE" category="BAD_PRACTICE" instanceHash="7552b573f7625cf892b3861fb70028e1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="754">
+    <ShortMessage>Method might ignore exception</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.BackgroundImagePreference.updateBackgroundImage() might ignore java.lang.Exception</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.BackgroundImagePreference" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.BackgroundImagePreference" start="25" end="56" sourcefile="BackgroundImagePreference.java" sourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java" relSourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java">
+        <Message>At BackgroundImagePreference.java:[lines 25-56]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.BackgroundImagePreference</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.BackgroundImagePreference" name="updateBackgroundImage" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.BackgroundImagePreference" start="41" end="56" startBytecode="0" endBytecode="214" sourcefile="BackgroundImagePreference.java" sourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java" relSourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.BackgroundImagePreference.updateBackgroundImage()</Message>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception" start="57" end="119" sourcefile="Exception.java" sourcepath="java/lang/Exception.java">
+        <Message>At Exception.java:[lines 57-119]</Message>
+      </SourceLine>
+      <Message>Exception class java.lang.Exception</Message>
+    </Class>
+    <SourceLine classname="com.dozingcatsoftware.dodge.BackgroundImagePreference" primary="true" start="52" end="52" startBytecode="60" endBytecode="60" sourcefile="BackgroundImagePreference.java" sourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java" relSourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java">
+      <Message>At BackgroundImagePreference.java:[line 52]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.BackgroundImagePreference" primary="true" start="52" end="52" startBytecode="60" endBytecode="60" sourcefile="BackgroundImagePreference.java" sourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java" relSourcepath="com/dozingcatsoftware/dodge/BackgroundImagePreference.java">
+      <Message>At BackgroundImagePreference.java:[line 52]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_NONATOMIC_OPERATIONS_ON_SHARED_VARIABLE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="1e075bfcf93c6e6abcff0844546db86" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>Operation on shared variable is not atomic</ShortMessage>
+    <LongMessage>Operation on the &quot;lives&quot; shared variable in &quot;DodgeMain&quot; class is not atomic</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="30" end="403" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>At DodgeMain.java:[lines 30-403]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgeMain</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.DodgeMain" name="processMessage" signature="(Landroid/os/Message;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="288" end="311" startBytecode="0" endBytecode="389" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.DodgeMain.processMessage(Message)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.DodgeMain" name="lives" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>In DodgeMain.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.DodgeMain.lives</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true" start="298" end="298" startBytecode="102" endBytecode="102" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+      <Message>At DodgeMain.java:[line 298]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="52319b633fa01411f19b1511672c6ae1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;lives&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="30" end="403" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>At DodgeMain.java:[lines 30-403]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgeMain</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.DodgeMain" name="startGameAtLevelWithLives" signature="(II)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="360" end="366" startBytecode="0" endBytecode="132" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.DodgeMain.startGameAtLevelWithLives(int, int)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.DodgeMain" name="lives" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>In DodgeMain.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.DodgeMain.lives</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true" start="364" end="364" startBytecode="39" endBytecode="39" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+      <Message>At DodgeMain.java:[line 364]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="95bc2dcbd9b2330ab132ea22e4382332" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.dozingcatsoftware.dodge.DodgeMain.onActivityResult(int, int, Intent) where default case is missing</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="30" end="403" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>At DodgeMain.java:[lines 30-403]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgeMain</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.DodgeMain" name="onActivityResult" signature="(IILandroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="245" end="252" startBytecode="0" endBytecode="126" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.DodgeMain.onActivityResult(int, int, Intent)</Message>
+    </Method>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true" start="247" end="249" startBytecode="8" endBytecode="31" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+      <Message>At DodgeMain.java:[lines 247-249]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="9ea09148a30edad29268cb5c0a675dd7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.dozingcatsoftware.dodge.DodgeMain.bestFreePlayLevelView</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="30" end="403" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>At DodgeMain.java:[lines 30-403]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgeMain</Message>
+    </Class>
+    <Field classname="com.dozingcatsoftware.dodge.DodgeMain" name="bestFreePlayLevelView" signature="Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>In DodgeMain.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.DodgeMain.bestFreePlayLevelView</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true" start="90" end="90" startBytecode="179" endBytecode="179" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+      <Message>At DodgeMain.java:[line 90]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="117c2b1c0913fa5b40da795022f2467a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.dozingcatsoftware.dodge.DodgeMain.bestLevelView</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="30" end="403" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>At DodgeMain.java:[lines 30-403]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgeMain</Message>
+    </Class>
+    <Field classname="com.dozingcatsoftware.dodge.DodgeMain" name="bestLevelView" signature="Landroid/view/View;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>In DodgeMain.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.DodgeMain.bestLevelView</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true" start="89" end="89" startBytecode="169" endBytecode="169" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+      <Message>At DodgeMain.java:[line 89]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="2056899fa04c88d61e020d3435a9403f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unused field</ShortMessage>
+    <LongMessage>Unused field: com.dozingcatsoftware.dodge.DodgeMain.selectBackgroundImageMenuItem</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="30" end="403" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>At DodgeMain.java:[lines 30-403]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgeMain</Message>
+    </Class>
+    <Field classname="com.dozingcatsoftware.dodge.DodgeMain" name="selectBackgroundImageMenuItem" signature="Landroid/view/MenuItem;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>In DodgeMain.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.DodgeMain.selectBackgroundImageMenuItem</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" synthetic="true">
+      <Message>In DodgeMain.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE" instanceHash="752f81b85c9c99425fcb054edbfd337a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Inefficient use of keySet iterator instead of entrySet iterator</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.DodgeMain.sendMessage(Map) makes inefficient use of keySet iterator instead of entrySet iterator</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="30" end="403" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+        <Message>At DodgeMain.java:[lines 30-403]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgeMain</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.DodgeMain" name="sendMessage" signature="(Ljava/util/Map;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" start="382" end="389" startBytecode="0" endBytecode="212" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.DodgeMain.sendMessage(Map)</Message>
+    </Method>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgeMain" primary="true" start="384" end="384" startBytecode="46" endBytecode="46" sourcefile="DodgeMain.java" sourcepath="com/dozingcatsoftware/dodge/DodgeMain.java" relSourcepath="com/dozingcatsoftware/dodge/DodgeMain.java">
+      <Message>At DodgeMain.java:[line 384]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="7e5fd938f757269df22725d34c388258" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.dozingcatsoftware.dodge.DodgePreferences.onActivityResult(int, int, Intent) where default case is missing</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.DodgePreferences" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgePreferences" start="18" end="87" sourcefile="DodgePreferences.java" sourcepath="com/dozingcatsoftware/dodge/DodgePreferences.java" relSourcepath="com/dozingcatsoftware/dodge/DodgePreferences.java">
+        <Message>At DodgePreferences.java:[lines 18-87]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.DodgePreferences</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.DodgePreferences" name="onActivityResult" signature="(IILandroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.DodgePreferences" start="52" end="87" startBytecode="0" endBytecode="500" sourcefile="DodgePreferences.java" sourcepath="com/dozingcatsoftware/dodge/DodgePreferences.java" relSourcepath="com/dozingcatsoftware/dodge/DodgePreferences.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.DodgePreferences.onActivityResult(int, int, Intent)</Message>
+    </Method>
+    <SourceLine classname="com.dozingcatsoftware.dodge.DodgePreferences" primary="true" start="54" end="83" startBytecode="8" endBytecode="171" sourcefile="DodgePreferences.java" sourcepath="com/dozingcatsoftware/dodge/DodgePreferences.java" relSourcepath="com/dozingcatsoftware/dodge/DodgePreferences.java">
+      <Message>At DodgePreferences.java:[lines 54-83]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_NONATOMIC_64BIT_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="1f9769d2fb6724d1bf009fcf898b2ebf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="667">
+    <ShortMessage>This write of this 64-bit primitive variable may not be atomic</ShortMessage>
+    <LongMessage>This write of the 64-bit primitive variable &quot;displaySleepDisableTime&quot; may not be atomic</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="noteUserActivity" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="519" end="525" startBytecode="0" endBytecode="118" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.noteUserActivity()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="displaySleepDisableTime" signature="J" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.displaySleepDisableTime</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="519" end="519" startBytecode="4" endBytecode="4" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 519]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="144ed13a4217a2cce7eb91d351c6420f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;displaySleepDisabled&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="clearDisableSleepFlag" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="529" end="533" startBytecode="0" endBytecode="96" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.clearDisableSleepFlag()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="displaySleepDisabled" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.displaySleepDisabled</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="531" end="531" startBytecode="20" endBytecode="20" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 531]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="fd272877b0c280b9299db0a67df78aa0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;enableDisplaySleepScheduled&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="clearDisableSleepFlag" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="529" end="533" startBytecode="0" endBytecode="96" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.clearDisableSleepFlag()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="enableDisplaySleepScheduled" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.enableDisplaySleepScheduled</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="532" end="532" startBytecode="25" endBytecode="25" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 532]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="370d01ff59f06e01125a394858650b57" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;tiltLocked&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="handleOrientationUpdate" signature="(FFF)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="471" end="504" startBytecode="0" endBytecode="413" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.handleOrientationUpdate(float, float, float)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="tiltLocked" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.tiltLocked</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="498" end="498" startBytecode="209" endBytecode="209" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 498]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="4f5463995be07c8296d788db5f0e23bc" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;displaySleepDisabled&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="noteUserActivity" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="519" end="525" startBytecode="0" endBytecode="118" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.noteUserActivity()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="displaySleepDisabled" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.displaySleepDisabled</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="523" end="523" startBytecode="34" endBytecode="34" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 523]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="1b76f7e192f8a834327ebf3851147cae" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;setupField&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setField" signature="(Lcom/dozingcatsoftware/dodge/model/Field;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="108" end="110" startBytecode="0" endBytecode="70" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setField(Field)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="setupField" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.setupField</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="109" end="109" startBytecode="7" endBytecode="7" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 109]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="5d501721da997cb3bbbea6a7045f2179" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;flashingBullets&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setFlashingBullets" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="169" end="170" startBytecode="0" endBytecode="61" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setFlashingBullets(boolean)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="flashingBullets" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.flashingBullets</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="169" end="169" startBytecode="2" endBytecode="2" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 169]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="3ffffea92debcf74385eac65f21a1fed" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;showFPS&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setShowFPS" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="172" end="173" startBytecode="0" endBytecode="61" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setShowFPS(boolean)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="showFPS" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.showFPS</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="172" end="172" startBytecode="2" endBytecode="2" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 172]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="e18bef29835b1f9e47a9a5a8b00f7daf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;tiltControlEnabled&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setTiltControlEnabled" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="176" end="187" startBytecode="0" endBytecode="124" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setTiltControlEnabled(boolean)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="tiltControlEnabled" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.tiltControlEnabled</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="177" end="177" startBytecode="10" endBytecode="10" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 177]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="588cffd9fe75a6916e418c052d0944b1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;hasInitialPitch&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setTiltLocked" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="507" end="514" startBytecode="0" endBytecode="112" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setTiltLocked(boolean)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="hasInitialPitch" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.hasInitialPitch</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="512" end="512" startBytecode="27" endBytecode="27" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 512]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="6a841c760020e736f715cf2141322733" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;hasTiltLockValues&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setTiltLocked" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="507" end="514" startBytecode="0" endBytecode="112" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setTiltLocked(boolean)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="hasTiltLockValues" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.hasTiltLockValues</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="509" end="509" startBytecode="15" endBytecode="15" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 509]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="11581a0d7690e9e12d630add32aa6221" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;tiltLocked&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setTiltLocked" signature="(Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="507" end="514" startBytecode="0" endBytecode="112" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setTiltLocked(boolean)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="tiltLocked" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.tiltLocked</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="508" end="508" startBytecode="10" endBytecode="10" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 508]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="f3c84c3dc95e98021709055e59d9dcba" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;running&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="start" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="192" end="206" startBytecode="0" endBytecode="123" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.start()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="running" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.running</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="195" end="195" startBytecode="10" endBytecode="10" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 195]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="e5ea20a0441b91b6c78ebe1e922960f7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;dodgerDeathFrame&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="startDeathAnimation" signature="(Lcom/dozingcatsoftware/dodge/model/Vec2;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="247" end="249" startBytecode="0" endBytecode="70" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.startDeathAnimation(Vec2)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="dodgerDeathFrame" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.dodgerDeathFrame</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="248" end="248" startBytecode="7" endBytecode="7" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 248]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="7aa898a07d587dd7f252e5159e13a95c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;running&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="stop" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="211" end="221" startBytecode="0" endBytecode="127" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.stop()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="running" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.running</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="214" end="214" startBytecode="10" endBytecode="10" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 214]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="c3e92ce93cc1900c4cd65fc9f2b85232" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;canDraw&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="surfaceCreated" signature="(Landroid/view/SurfaceHolder;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="543" end="545" startBytecode="0" endBytecode="88" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.surfaceCreated(SurfaceHolder)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="canDraw" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.canDraw</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="543" end="543" startBytecode="2" endBytecode="2" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 543]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" priority="2" rank="14" abbrev="AT" category="MT_CORRECTNESS" instanceHash="9b896a39687bc1849641ee3f99098373" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="413">
+    <ShortMessage>This write of this shared primitive variable may not be visible to other threads</ShortMessage>
+    <LongMessage>Shared primitive variable &quot;canDraw&quot; in one thread may not yield the value of the most recent write from another thread</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="surfaceDestroyed" signature="(Landroid/view/SurfaceHolder;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="549" end="550" startBytecode="0" endBytecode="61" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.surfaceDestroyed(SurfaceHolder)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="canDraw" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.canDraw</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="549" end="549" startBytecode="2" endBytecode="2" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 549]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="8aaaafb7f504e6434b2993cca49e2849" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.FieldView.setBackgroundBitmap(Bitmap) may expose internal representation by storing an externally mutable object into FieldView.unscaledBackgroundBitmap</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setBackgroundBitmap" signature="(Landroid/graphics/Bitmap;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="122" end="166" startBytecode="0" endBytecode="620" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setBackgroundBitmap(Bitmap)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="unscaledBackgroundBitmap" signature="Landroid/graphics/Bitmap;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.unscaledBackgroundBitmap</Message>
+    </Field>
+    <LocalVariable name="value" register="1" pc="39" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named value</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="133" end="133" startBytecode="39" endBytecode="39" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 133]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="e0cbc21ab41297c6191aca8a0cc28ada" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.FieldView.setField(Field) may expose internal representation by storing an externally mutable object into FieldView.field</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setField" signature="(Lcom/dozingcatsoftware/dodge/model/Field;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="108" end="110" startBytecode="0" endBytecode="70" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setField(Field)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="field" signature="Lcom/dozingcatsoftware/dodge/model/Field;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.field</Message>
+    </Field>
+    <LocalVariable name="value" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named value</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="108" end="108" startBytecode="2" endBytecode="2" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 108]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="500d81e73a885ddbb8eb8f9dd9c9b10d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.FieldView.setMessageHandler(Handler) may expose internal representation by storing an externally mutable object into FieldView.messageHandler</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FieldView" name="setMessageHandler" signature="(Landroid/os/Handler;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="113" end="114" startBytecode="0" endBytecode="61" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.FieldView.setMessageHandler(Handler)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="messageHandler" signature="Landroid/os/Handler;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.messageHandler</Message>
+    </Field>
+    <LocalVariable name="value" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named value</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="113" end="113" startBytecode="2" endBytecode="2" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+      <Message>At FieldView.java:[line 113]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IS2_INCONSISTENT_SYNC" priority="2" rank="17" abbrev="IS" category="MT_CORRECTNESS" instanceHash="cd28349270c0dcec395e404a8091fd2f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Inconsistent synchronization</ShortMessage>
+    <LongMessage>Inconsistent synchronization of com.dozingcatsoftware.dodge.FieldView.backgroundBitmap; locked 50% of time</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="backgroundBitmap" signature="Landroid/graphics/Bitmap;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.backgroundBitmap</Message>
+    </Field>
+    <Int value="50" role="INT_SYNC_PERCENT">
+      <Message>Synchronized 50% of the time</Message>
+    </Int>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="324" end="324" startBytecode="82" endBytecode="82" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at FieldView.java:[line 324]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="325" end="325" startBytecode="90" endBytecode="90" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at FieldView.java:[line 325]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="124" end="124" startBytecode="13" endBytecode="13" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at FieldView.java:[line 124]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="141" end="141" startBytecode="80" endBytecode="80" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at FieldView.java:[line 141]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="164" end="164" startBytecode="261" endBytecode="261" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at FieldView.java:[line 164]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IS2_INCONSISTENT_SYNC" priority="2" rank="17" abbrev="IS" category="MT_CORRECTNESS" instanceHash="917613a4cdf1446fb2dab6cdb3a3d57d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Inconsistent synchronization</ShortMessage>
+    <LongMessage>Inconsistent synchronization of com.dozingcatsoftware.dodge.FieldView.unscaledBackgroundBitmap; locked 40% of time</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FieldView" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="44" end="550" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>At FieldView.java:[lines 44-550]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FieldView</Message>
+    </Class>
+    <Field classname="com.dozingcatsoftware.dodge.FieldView" name="unscaledBackgroundBitmap" signature="Landroid/graphics/Bitmap;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java">
+        <Message>In FieldView.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FieldView.unscaledBackgroundBitmap</Message>
+    </Field>
+    <Int value="40" role="INT_SYNC_PERCENT">
+      <Message>Synchronized 40% of the time</Message>
+    </Int>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" primary="true" start="319" end="319" startBytecode="67" endBytecode="67" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at FieldView.java:[line 319]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="321" end="321" startBytecode="75" endBytecode="75" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_UNSYNC_ACCESS">
+      <Message>Unsynchronized access at FieldView.java:[line 321]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="133" end="133" startBytecode="39" endBytecode="39" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at FieldView.java:[line 133]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FieldView" start="137" end="137" startBytecode="45" endBytecode="45" sourcefile="FieldView.java" sourcepath="com/dozingcatsoftware/dodge/FieldView.java" relSourcepath="com/dozingcatsoftware/dodge/FieldView.java" role="SOURCE_LINE_SYNC_ACCESS">
+      <Message>Synchronized access at FieldView.java:[line 137]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="9ac0f480bf8f465470fdb19fcdb8cffc" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.dozingcatsoftware.dodge.FrameRateManager at new com.dozingcatsoftware.dodge.FrameRateManager(double) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="21" end="253" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+        <Message>At FrameRateManager.java:[lines 21-253]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FrameRateManager</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FrameRateManager" name="&lt;init&gt;" signature="(D)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="79" end="80" startBytecode="0" endBytecode="70" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java"/>
+      <Message>In method new com.dozingcatsoftware.dodge.FrameRateManager(double)</Message>
+    </Method>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true" start="79" end="79" startBytecode="11" endBytecode="11" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+      <Message>At FrameRateManager.java:[line 79]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="79" end="79" startBytecode="11" endBytecode="11" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+      <Message>At FrameRateManager.java:[line 79]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="6ccab4faea67846459c532a54279571b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class com.dozingcatsoftware.dodge.FrameRateManager at new com.dozingcatsoftware.dodge.FrameRateManager(double[], double[]) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="21" end="253" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+        <Message>At FrameRateManager.java:[lines 21-253]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FrameRateManager</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FrameRateManager" name="&lt;init&gt;" signature="([D[D)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="59" end="73" startBytecode="0" endBytecode="358" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java"/>
+      <Message>In method new com.dozingcatsoftware.dodge.FrameRateManager(double[], double[])</Message>
+    </Method>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true" start="61" end="61" startBytecode="110" endBytecode="110" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+      <Message>At FrameRateManager.java:[line 61]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="61" end="61" startBytecode="110" endBytecode="110" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+      <Message>At FrameRateManager.java:[line 61]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="84f177f8795d6427e7ad2f3f03d21f69" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.dozingcatsoftware.dodge.FrameRateManager(double[], double[]) may expose internal representation by storing an externally mutable object into FrameRateManager.minimumFrameRates</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="21" end="253" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+        <Message>At FrameRateManager.java:[lines 21-253]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FrameRateManager</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FrameRateManager" name="&lt;init&gt;" signature="([D[D)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="59" end="73" startBytecode="0" endBytecode="358" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java"/>
+      <Message>In method new com.dozingcatsoftware.dodge.FrameRateManager(double[], double[])</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FrameRateManager" name="minimumFrameRates" signature="[D" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+        <Message>In FrameRateManager.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FrameRateManager.minimumFrameRates</Message>
+    </Field>
+    <LocalVariable name="minRates" register="2" pc="118" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named minRates</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true" start="65" end="65" startBytecode="118" endBytecode="118" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+      <Message>At FrameRateManager.java:[line 65]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="9544d63b0ecc4a21d85677dbe36e5093" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.dozingcatsoftware.dodge.FrameRateManager(double[], double[]) may expose internal representation by storing an externally mutable object into FrameRateManager.unfudgedTargetFrameRates</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="21" end="253" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+        <Message>At FrameRateManager.java:[lines 21-253]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.FrameRateManager</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.FrameRateManager" name="&lt;init&gt;" signature="([D[D)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" start="59" end="73" startBytecode="0" endBytecode="358" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java"/>
+      <Message>In method new com.dozingcatsoftware.dodge.FrameRateManager(double[], double[])</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.FrameRateManager" name="unfudgedTargetFrameRates" signature="[D" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+        <Message>In FrameRateManager.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.FrameRateManager.unfudgedTargetFrameRates</Message>
+    </Field>
+    <LocalVariable name="targetRates" register="1" pc="113" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named targetRates</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.FrameRateManager" primary="true" start="64" end="64" startBytecode="113" endBytecode="113" sourcefile="FrameRateManager.java" sourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java" relSourcepath="com/dozingcatsoftware/dodge/FrameRateManager.java">
+      <Message>At FrameRateManager.java:[line 64]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="36be03bc7362e66dfc0803eff186699d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.dozingcatsoftware.dodge.OrientationListener(Context, int, OrientationListener$Delegate) may expose internal representation by storing an externally mutable object into OrientationListener.context</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.OrientationListener" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" start="30" end="122" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+        <Message>At OrientationListener.java:[lines 30-122]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.OrientationListener</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.OrientationListener" name="&lt;init&gt;" signature="(Landroid/content/Context;ILcom/dozingcatsoftware/dodge/OrientationListener$Delegate;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" start="37" end="42" startBytecode="0" endBytecode="212" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java"/>
+      <Message>In method new com.dozingcatsoftware.dodge.OrientationListener(Context, int, OrientationListener$Delegate)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.OrientationListener" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+        <Message>In OrientationListener.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.OrientationListener.context</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="70" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" primary="true" start="38" end="38" startBytecode="70" endBytecode="70" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+      <Message>At OrientationListener.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="2f0070783e3ce00c3d4ac82572a78ad0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.dozingcatsoftware.dodge.OrientationListener.onSensorChanged(SensorEvent) where default case is missing</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.OrientationListener" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" start="30" end="122" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+        <Message>At OrientationListener.java:[lines 30-122]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.OrientationListener</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.OrientationListener" name="onSensorChanged" signature="(Landroid/hardware/SensorEvent;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" start="82" end="117" startBytecode="0" endBytecode="397" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.OrientationListener.onSensorChanged(SensorEvent)</Message>
+    </Method>
+    <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" primary="true" start="82" end="87" startBytecode="7" endBytecode="62" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+      <Message>At OrientationListener.java:[lines 82-87]</Message>
+    </SourceLine>
+    <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" start="98" end="111" startBytecode="127" endBytecode="181" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at OrientationListener.java:[lines 98-111]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="e2776fb86beeee4baeeed540d4dfc396" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.dozingcatsoftware.dodge.OrientationListener.context</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.OrientationListener" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" start="30" end="122" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+        <Message>At OrientationListener.java:[lines 30-122]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.OrientationListener</Message>
+    </Class>
+    <Field classname="com.dozingcatsoftware.dodge.OrientationListener" name="context" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+        <Message>In OrientationListener.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.OrientationListener.context</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.OrientationListener" primary="true" start="38" end="38" startBytecode="70" endBytecode="70" sourcefile="OrientationListener.java" sourcepath="com/dozingcatsoftware/dodge/OrientationListener.java" relSourcepath="com/dozingcatsoftware/dodge/OrientationListener.java">
+      <Message>At OrientationListener.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="808cf4ce7fc4773da158f6f98d9ae720" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.model.Field.getBullets() may expose internal representation by returning Field.bullets</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Field" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="12" end="226" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>At Field.java:[lines 12-226]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Field</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.model.Field" name="getBullets" signature="()[Lcom/dozingcatsoftware/dodge/model/Bullet;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="201" end="201" startBytecode="0" endBytecode="46" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.model.Field.getBullets()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.model.Field" name="bullets" signature="[Lcom/dozingcatsoftware/dodge/model/Bullet;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>In Field.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Field.bullets</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" primary="true" start="201" end="201" startBytecode="4" endBytecode="4" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+      <Message>At Field.java:[line 201]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="532169bc4c3652e45b375f48aa57c645" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.model.Field.getDodger() may expose internal representation by returning Field.dodger</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Field" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="12" end="226" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>At Field.java:[lines 12-226]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Field</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.model.Field" name="getDodger" signature="()Lcom/dozingcatsoftware/dodge/model/Dodger;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="204" end="204" startBytecode="0" endBytecode="46" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.model.Field.getDodger()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.model.Field" name="dodger" signature="Lcom/dozingcatsoftware/dodge/model/Dodger;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>In Field.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Field.dodger</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" primary="true" start="204" end="204" startBytecode="4" endBytecode="4" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+      <Message>At Field.java:[line 204]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="f642383a1b5e7c8f1f427c49d7c833ef" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.model.Field.getLevelManager() may expose internal representation by returning Field.levelManager</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Field" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="12" end="226" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>At Field.java:[lines 12-226]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Field</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.model.Field" name="getLevelManager" signature="()Lcom/dozingcatsoftware/dodge/model/LevelManager;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="222" end="222" startBytecode="0" endBytecode="46" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.model.Field.getLevelManager()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.model.Field" name="levelManager" signature="Lcom/dozingcatsoftware/dodge/model/LevelManager;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>In Field.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Field.levelManager</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" primary="true" start="222" end="222" startBytecode="4" endBytecode="4" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+      <Message>At Field.java:[line 222]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="a015536d395b8ed58cd3007fe6f98844" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.model.Field.setDodger(Dodger) may expose internal representation by storing an externally mutable object into Field.dodger</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Field" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="12" end="226" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>At Field.java:[lines 12-226]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Field</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.model.Field" name="setDodger" signature="(Lcom/dozingcatsoftware/dodge/model/Dodger;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="207" end="208" startBytecode="0" endBytecode="61" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.model.Field.setDodger(Dodger)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.model.Field" name="dodger" signature="Lcom/dozingcatsoftware/dodge/model/Dodger;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>In Field.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Field.dodger</Message>
+    </Field>
+    <LocalVariable name="dodger" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named dodger</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" primary="true" start="207" end="207" startBytecode="2" endBytecode="2" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+      <Message>At Field.java:[line 207]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="3bc90d081d25fa955476570320c76b09" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.model.Field.setLevelManager(LevelManager) may expose internal representation by storing an externally mutable object into Field.levelManager</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Field" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="12" end="226" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>At Field.java:[lines 12-226]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Field</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.model.Field" name="setLevelManager" signature="(Lcom/dozingcatsoftware/dodge/model/LevelManager;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="225" end="226" startBytecode="0" endBytecode="61" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.model.Field.setLevelManager(LevelManager)</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.model.Field" name="levelManager" signature="Lcom/dozingcatsoftware/dodge/model/LevelManager;" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>In Field.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Field.levelManager</Message>
+    </Field>
+    <LocalVariable name="levelManager" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named levelManager</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" primary="true" start="225" end="225" startBytecode="2" endBytecode="2" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+      <Message>At Field.java:[line 225]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="be4273bb587086cb32e7a662feeeac6b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread field</ShortMessage>
+    <LongMessage>Unread field: com.dozingcatsoftware.dodge.model.Field.running</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Field" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" start="12" end="226" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>At Field.java:[lines 12-226]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Field</Message>
+    </Class>
+    <Field classname="com.dozingcatsoftware.dodge.model.Field" name="running" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+        <Message>In Field.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Field.running</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Field" primary="true" start="32" end="32" startBytecode="29" endBytecode="29" sourcefile="Field.java" sourcepath="com/dozingcatsoftware/dodge/model/Field.java" relSourcepath="com/dozingcatsoftware/dodge/model/Field.java">
+      <Message>At Field.java:[line 32]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="76cf9724adffe85d4b2e9a3c2df0be34" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.model.Sprite.getColor() may expose internal representation by returning Sprite.color</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Sprite" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" start="9" end="88" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java">
+        <Message>At Sprite.java:[lines 9-88]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Sprite</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.model.Sprite" name="getColor" signature="()[I" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" start="84" end="84" startBytecode="0" endBytecode="46" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.model.Sprite.getColor()</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.model.Sprite" name="color" signature="[I" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java">
+        <Message>In Sprite.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Sprite.color</Message>
+    </Field>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" primary="true" start="84" end="84" startBytecode="4" endBytecode="4" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java">
+      <Message>At Sprite.java:[line 84]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="ab19688ed655a8e7c7209d0a16c9c06e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>com.dozingcatsoftware.dodge.model.Sprite.setColor(int[]) may expose internal representation by storing an externally mutable object into Sprite.color</LongMessage>
+    <Class classname="com.dozingcatsoftware.dodge.model.Sprite" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" start="9" end="88" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java">
+        <Message>At Sprite.java:[lines 9-88]</Message>
+      </SourceLine>
+      <Message>In class com.dozingcatsoftware.dodge.model.Sprite</Message>
+    </Class>
+    <Method classname="com.dozingcatsoftware.dodge.model.Sprite" name="setColor" signature="([I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" start="87" end="88" startBytecode="0" endBytecode="61" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java"/>
+      <Message>In method com.dozingcatsoftware.dodge.model.Sprite.setColor(int[])</Message>
+    </Method>
+    <Field classname="com.dozingcatsoftware.dodge.model.Sprite" name="color" signature="[I" isStatic="false" primary="true">
+      <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java">
+        <Message>In Sprite.java</Message>
+      </SourceLine>
+      <Message>Field com.dozingcatsoftware.dodge.model.Sprite.color</Message>
+    </Field>
+    <LocalVariable name="color" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named color</Message>
+    </LocalVariable>
+    <SourceLine classname="com.dozingcatsoftware.dodge.model.Sprite" primary="true" start="87" end="87" startBytecode="2" endBytecode="2" sourcefile="Sprite.java" sourcepath="com/dozingcatsoftware/dodge/model/Sprite.java" relSourcepath="com/dozingcatsoftware/dodge/model/Sprite.java">
+      <Message>At Sprite.java:[line 87]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="WMI_WRONG_MAP_ITERATOR" abbrev="WMI" category="PERFORMANCE">
+    <ShortDescription>Inefficient use of keySet iterator instead of entrySet iterator</ShortDescription>
+    <Details><![CDATA[
+
+<p> This method accesses the value of a Map entry, using a key that was retrieved from
+a keySet iterator. It is more efficient to use an iterator on the entrySet of the map, to avoid the
+Map.get(key) lookup.</p>
+
+        ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unread field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="REC_CATCH_EXCEPTION" abbrev="REC" category="STYLE" cweid="396">
+    <ShortDescription>Exception is caught when Exception is not thrown</ShortDescription>
+    <Details><![CDATA[
+  
+  <p>
+  This method uses a try-catch block that catches Exception objects, but Exception is not
+  thrown within the try block, and RuntimeException is not explicitly caught.  It is a common bug pattern to
+  say try { ... } catch (Exception e) { something } as a shorthand for catching a number of types of exception
+  each of whose catch blocks is identical, but this construct also accidentally catches RuntimeException as well,
+  masking potential bugs.
+  </p>
+  <p>A better approach is to either explicitly catch the specific exceptions that are thrown,
+  or to explicitly catch RuntimeException exception, rethrow it, and then catch all non-Runtime Exceptions, as shown below:</p>
+<pre><code>try {
+    ...
+} catch (RuntimeException e) {
+    throw e;
+} catch (Exception e) {
+    ... deal with all non-runtime exceptions ...
+}
+</code></pre>
+<p>See <a href="https://cwe.mitre.org/data/definitions/396.html">CWE-396: Declaration of Catch for Generic Exception</a>.
+</p>
+  
+     ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_STALE_THREAD_WRITE_OF_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS" cweid="413">
+    <ShortDescription>This write of this shared primitive variable may not be visible to other threads</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA00-J.+Ensure+visibility+when+accessing+shared+primitive+variables">SEI CERT rule VNA00-J</a>
+          describes that reading a shared primitive variable in one thread may not yield the value of the most recent write to the variable from another thread.
+          Consequently, the thread may observe a stale value of the shared variable.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+          This guarantees that 64-bit primitive long and double variables are accessed atomically.
+        </p>
+        <p>
+        See also <a href="https://cwe.mitre.org/data/definitions/413.html">CWE-413: Improper Resource Locking</a>,
+        <a href="https://cwe.mitre.org/data/definitions/567.html">CWE-567: Unsynchronized Access to Shared Data in a Multithreaded Context</a>, and
+        <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a>.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_NONATOMIC_OPERATIONS_ON_SHARED_VARIABLE" abbrev="AT" category="MT_CORRECTNESS" cweid="413">
+    <ShortDescription>Operation on shared variable is not atomic</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          This write of a variable shared between functions depends on the current value of the variable (either because it's a compound operation - e.g. +=, ++ - or it simply depends on the current value), as such it consists of more than one discrete operation.
+          These operations are not atomic in themselves and need further synchronization.
+          See <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA02-J.+Ensure+that+compound+operations+on+shared+variables+are+atomic">SEI CERT rule VNA02-J</a>,
+          <a href="https://cwe.mitre.org/data/definitions/366.html">CWE-366: Race Condition within a Thread</a>,
+          <a href="https://cwe.mitre.org/data/definitions/413.html">CWE-413: Improper Resource Locking</a>,
+          <a href="https://cwe.mitre.org/data/definitions/567.html">CWE-567: Unsynchronized Access to Shared Data in a Multithreaded Context</a>, and
+          <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a>.
+        </p>
+          Simply declaring a variable volatile fails to guarantee the atomicity of compound operations on the variable,
+          but synchronizing the writes on top of declaring the variable volatile for read operations is sufficient.
+        <p>
+          To solve this issue, synchronize compound operations and other write operations depending on the previous value,
+          use read-write locks, or declare the shared variable with an atomic type.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UUF_UNUSED_FIELD" abbrev="UuF" category="PERFORMANCE" cweid="563">
+    <ShortDescription>Unused field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never used.&nbsp; Consider removing it from the class.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="AT_NONATOMIC_64BIT_PRIMITIVE" abbrev="AT" category="MT_CORRECTNESS" cweid="667">
+    <ShortDescription>This write of this 64-bit primitive variable may not be atomic</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+          The long and the double are 64-bit primitive types, and depending on the Java Virtual Machine implementation assigning a value to them can be treated as two separate 32-bit writes, and as such it's not atomic.
+          See <a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.7">JSL 17.7. Non-Atomic Treatment of double and long</a>.
+          See SEI CERT rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA05-J.+Ensure+atomicity+when+reading+and+writing+64-bit+values">VNA05-J. Ensure atomicity when reading and writing 64-bit values</a> and
+          <a href="https://cwe.mitre.org/data/definitions/667.html">CWE-667: Improper Locking</a> for more info.
+
+          This bug can be ignored in platforms which guarantee that 64-bit long and double type read and write operations are atomic.
+        </p>
+        <p>
+          To fix it, declare the variable volatile, change the type of the field to the corresponding atomic type from <code>java.lang.concurrent.atomic</code> or correctly synchronize the code.
+          Declaring the variable volatile may not be enough in some cases: e.g. when the variable is assigned a value which depends on the current value or on the result of nonatomic compound operations.
+        </p>
+     
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DE_MIGHT_IGNORE" abbrev="DE" category="BAD_PRACTICE">
+    <ShortDescription>Method might ignore exception</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method might ignore an exception.&nbsp; In general, exceptions
+  should be handled or reported in some way, or they should be thrown
+  out of the method.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/754.html">CWE-754: Improper Check for Unusual or Exceptional Conditions</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="IS2_INCONSISTENT_SYNC" abbrev="IS" category="MT_CORRECTNESS">
+    <ShortDescription>Inconsistent synchronization</ShortDescription>
+    <Details><![CDATA[
+
+  <p> The fields of this class appear to be accessed inconsistently with respect
+  to synchronization.&nbsp; This bug report indicates that the bug pattern detector
+  judged that
+  </p>
+  <ul>
+  <li> The class contains a mix of locked and unlocked accesses,</li>
+  <li> The class is <b>not</b> annotated as javax.annotation.concurrent.NotThreadSafe,</li>
+  <li> At least one locked access was performed by one of the class's own methods, and</li>
+  <li> The number of unsynchronized field accesses (reads and writes) was no more than
+       one third of all accesses, with writes being weighed twice as high as reads</li>
+  </ul>
+
+  <p> A typical bug matching this bug pattern is forgetting to synchronize
+  one of the methods in a class that is intended to be thread-safe.</p>
+
+  <p> You can select the nodes labeled "Unsynchronized access" to show the
+  code locations where the detector believed that a field was accessed
+  without synchronization.</p>
+
+  <p> Note that there are various sources of inaccuracy in this detector;
+  for example, the detector cannot statically detect all situations in which
+  a lock is held.&nbsp; Also, even when the detector is accurate in
+  distinguishing locked vs. unlocked accesses, the code in question may still
+  be correct.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/366.html">CWE-366: Race Condition within a Thread</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="REC">
+    <Description>RuntimeException capture</Description>
+  </BugCode>
+  <BugCode abbrev="DE" cweid="754">
+    <Description>Dropped or ignored exception</Description>
+  </BugCode>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="WMI">
+    <Description>Inefficient Map Iterator</Description>
+  </BugCode>
+  <BugCode abbrev="AT">
+    <Description>Possible atomicity violation</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="UuF">
+    <Description>Unused field</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="IS" cweid="366">
+    <Description>Inconsistent synchronization</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="7">
+    <MissingClass>com.dozingcatsoftware.dodge.R</MissingClass>
+    <MissingClass>com.dozingcatsoftware.dodge.R$id</MissingClass>
+    <MissingClass>com.dozingcatsoftware.dodge.R$layout</MissingClass>
+    <MissingClass>com.dozingcatsoftware.dodge.R$string</MissingClass>
+    <MissingClass>com.dozingcatsoftware.dodge.R$xml</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+    <MissingClass>java.util.Arrays$ArrayList</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 8 Jan 2026 18:51:41 +0400" total_classes="36" referenced_classes="225" total_bugs="47" total_size="1428" num_packages="2" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="4.46" clock_seconds="0.93" peak_mbytes="312.70" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="47">
+    <FileStats path="com/dozingcatsoftware/dodge/AndroidUtils.java" bugCount="1" size="26" bugHash="089612e0d3a77c86f1808245853d5a63"/>
+    <FileStats path="com/dozingcatsoftware/dodge/BackgroundImagePreference.java" bugCount="1" size="22" bugHash="846505d2f6b51a211ad426a9f897d314"/>
+    <FileStats path="com/dozingcatsoftware/dodge/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="com/dozingcatsoftware/dodge/DodgeAbout.java" bugCount="0" size="14"/>
+    <FileStats path="com/dozingcatsoftware/dodge/DodgeMain.java" bugCount="7" size="298" bugHash="2cf0363868be47927be14e267ca07ffb"/>
+    <FileStats path="com/dozingcatsoftware/dodge/DodgePreferences.java" bugCount="1" size="48" bugHash="4280dcdb9ceee6ffb2ce74cce7ac3785"/>
+    <FileStats path="com/dozingcatsoftware/dodge/FieldView.java" bugCount="22" size="361" bugHash="65869bd7b4a1555607ae0f34b925f76d"/>
+    <FileStats path="com/dozingcatsoftware/dodge/FrameRateManager.java" bugCount="4" size="130" bugHash="f871f6dc05820084a2377ee1e967443c"/>
+    <FileStats path="com/dozingcatsoftware/dodge/OrientationListener.java" bugCount="3" size="61" bugHash="0b6de738cf599b8d4853c569ae7d7d22"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/AcceleratingBullet.java" bugCount="0" size="18"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/Bullet.java" bugCount="0" size="9"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/Dodger.java" bugCount="0" size="34"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/Field.java" bugCount="6" size="141" bugHash="7f660f2454dffb7bdcb461ec3920f626"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/HelixBullet.java" bugCount="0" size="37"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/LevelManager.java" bugCount="0" size="71"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/SineWaveBullet.java" bugCount="0" size="44"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/Sprite.java" bugCount="2" size="48" bugHash="695a79c57d9eac87cb095150f6a35d88"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/StopAndGoBullet.java" bugCount="0" size="23"/>
+    <FileStats path="com/dozingcatsoftware/dodge/model/Vec2.java" bugCount="0" size="33"/>
+    <PackageStats package="com.dozingcatsoftware.dodge" total_bugs="39" total_types="23" total_size="970" priority_2="39">
+      <ClassStats class="com.dozingcatsoftware.dodge.AndroidUtils" sourceFile="AndroidUtils.java" interface="false" size="26" bugs="1" priority_2="1"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.BackgroundImagePreference" sourceFile="BackgroundImagePreference.java" interface="false" size="22" bugs="1" priority_2="1"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeAbout" sourceFile="DodgeAbout.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain" sourceFile="DodgeMain.java" interface="false" size="235" bugs="7" priority_2="7"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$1" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$2" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$3" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$4" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$5" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$6" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$7" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$8" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgeMain$9" sourceFile="DodgeMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgePreferences" sourceFile="DodgePreferences.java" interface="false" size="41" bugs="1" priority_2="1"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.DodgePreferences$1" sourceFile="DodgePreferences.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.FieldView" sourceFile="FieldView.java" interface="false" size="340" bugs="22" priority_2="22"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.FieldView$1" sourceFile="FieldView.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.FieldView$2" sourceFile="FieldView.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.FieldView$3" sourceFile="FieldView.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.FrameRateManager" sourceFile="FrameRateManager.java" interface="false" size="130" bugs="4" priority_2="4"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.OrientationListener" sourceFile="OrientationListener.java" interface="false" size="59" bugs="3" priority_2="3"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.OrientationListener$Delegate" sourceFile="OrientationListener.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.dozingcatsoftware.dodge.model" total_bugs="8" total_types="13" total_size="458" priority_2="8">
+      <ClassStats class="com.dozingcatsoftware.dodge.model.AcceleratingBullet" sourceFile="AcceleratingBullet.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.Bullet" sourceFile="Bullet.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.Dodger" sourceFile="Dodger.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.Field" sourceFile="Field.java" interface="false" size="138" bugs="6" priority_2="6"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.Field$Delegate" sourceFile="Field.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.HelixBullet" sourceFile="HelixBullet.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.LevelManager" sourceFile="LevelManager.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.LevelManager$LevelBulletConfig" sourceFile="LevelManager.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.LevelManager$LevelConfig" sourceFile="LevelManager.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.SineWaveBullet" sourceFile="SineWaveBullet.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.Sprite" sourceFile="Sprite.java" interface="false" size="48" bugs="2" priority_2="2"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.StopAndGoBullet" sourceFile="StopAndGoBullet.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.dozingcatsoftware.dodge.model.Vec2" sourceFile="Vec2.java" interface="false" size="33" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="58" invocations="655" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="4925" standardDeviationMicrosecondsPerInvocation="272"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="37" invocations="225" avgMicrosecondsPerInvocation="167" maxMicrosecondsPerInvocation="4153" standardDeviationMicrosecondsPerInvocation="432"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="33" invocations="214" avgMicrosecondsPerInvocation="158" maxMicrosecondsPerInvocation="6160" standardDeviationMicrosecondsPerInvocation="483"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SharedVariableAtomicityDetector" totalMilliseconds="32" invocations="36" avgMicrosecondsPerInvocation="894" maxMicrosecondsPerInvocation="24650" standardDeviationMicrosecondsPerInvocation="4123"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="31" invocations="223" avgMicrosecondsPerInvocation="139" maxMicrosecondsPerInvocation="2832" standardDeviationMicrosecondsPerInvocation="348"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="28" invocations="214" avgMicrosecondsPerInvocation="133" maxMicrosecondsPerInvocation="1844" standardDeviationMicrosecondsPerInvocation="256"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="26" invocations="216" avgMicrosecondsPerInvocation="122" maxMicrosecondsPerInvocation="4252" standardDeviationMicrosecondsPerInvocation="332"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="23" invocations="217" avgMicrosecondsPerInvocation="110" maxMicrosecondsPerInvocation="3118" standardDeviationMicrosecondsPerInvocation="233"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="23" invocations="273" avgMicrosecondsPerInvocation="85" maxMicrosecondsPerInvocation="4113" standardDeviationMicrosecondsPerInvocation="274"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="22" invocations="214" avgMicrosecondsPerInvocation="103" maxMicrosecondsPerInvocation="2108" standardDeviationMicrosecondsPerInvocation="222"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="19" invocations="36" avgMicrosecondsPerInvocation="554" maxMicrosecondsPerInvocation="8733" standardDeviationMicrosecondsPerInvocation="1492"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="15" invocations="225" avgMicrosecondsPerInvocation="69" maxMicrosecondsPerInvocation="1218" standardDeviationMicrosecondsPerInvocation="148"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="15" invocations="667" avgMicrosecondsPerInvocation="23" maxMicrosecondsPerInvocation="283" standardDeviationMicrosecondsPerInvocation="21"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="15" invocations="225" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="1089" standardDeviationMicrosecondsPerInvocation="133"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="14" invocations="217" avgMicrosecondsPerInvocation="68" maxMicrosecondsPerInvocation="6815" standardDeviationMicrosecondsPerInvocation="461"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="14" invocations="156" avgMicrosecondsPerInvocation="93" maxMicrosecondsPerInvocation="1079" standardDeviationMicrosecondsPerInvocation="155"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="13" invocations="225" avgMicrosecondsPerInvocation="59" maxMicrosecondsPerInvocation="1528" standardDeviationMicrosecondsPerInvocation="169"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="12" invocations="225" avgMicrosecondsPerInvocation="56" maxMicrosecondsPerInvocation="3274" standardDeviationMicrosecondsPerInvocation="234"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="11" invocations="36" avgMicrosecondsPerInvocation="310" maxMicrosecondsPerInvocation="2317" standardDeviationMicrosecondsPerInvocation="533"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

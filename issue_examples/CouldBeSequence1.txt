@@ -1,0 +1,13 @@
+val numbers = (1..1000).toList()
+val result = numbers.map { it * 2 }
+                    .filter { it % 3 == 0 }
+                    .take(10)
+
+----
+
+val numbers = (1..1000).toList()
+val result = numbers.asSequence()
+                    .map { it * 2 }
+                    .filter { it % 3 == 0 }
+                    .take(10)
+                    .toList() // Execute the sequence and collect the result

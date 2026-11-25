@@ -5,16 +5,17 @@ import xml.etree.ElementTree as ET
 from anadroid.instrumentation.AbstractInstrumenter import AbstractInstrumenter
 from anadroid.Types import TESTING_APPROACH, TESTING_FRAMEWORK, INSTRUMENTATION_TYPE
 from anadroid.instrumentation.Types import INSTRUMENTATION_STRATEGY
-from anadroid.utils.Utils import logi, logw, loge
+from anadroid.utils.Utils import logd
+from anadroid.utils.Utils import logi, logw, loge, mega_find
 
 # Android's XML namespace
 ANDROID_NS = 'http://schemas.android.com/apk/res/android'
+TOOLS_NS = 'http://schemas.android.com/tools'
 
 
 class AndroidManifestInstrumenter(AbstractInstrumenter):
     """
     Implements the AbstractInstrumenter interface to instrument an AndroidManifest.xml file.
-    This instrumenter ensures the app is fully debuggable for analysis.
     - It always sets `android:debuggable="true"`.
     - For projects targeting API 29 (Android 10) or higher, it also adds
       `<profileable android:shell="true" />` to allow low-overhead profiling tools
@@ -33,6 +34,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
         # Register the Android namespace to be used by the XML parser.
         # This is crucial for finding and writing attributes like 'android:debuggable'.
         ET.register_namespace('android', ANDROID_NS)
+        ET.register_namespace('tools', TOOLS_NS)
 
     def get_log_filename(self):
         """Returns the log filename for this instrumenter."""
@@ -62,7 +64,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
         instr_type = kwargs.get("instr_type", INSTRUMENTATION_TYPE.MANIFEST)
         test_approach = kwargs.get("test_approach", TESTING_APPROACH.WHITEBOX)
         instr_strategy = kwargs.get("instr_strategy", INSTRUMENTATION_STRATEGY.METHOD_CALL)
-
+        set_debuggable = kwargs.get("set_debuggable", False)
         target_dir = os.path.join(android_project.proj_dir, self.mirror_dirname)
 
         if self.needs_reinstrumentation(android_project, test_approach, instr_type, instr_strategy):
@@ -71,7 +73,11 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
             if os.path.exists(target_dir):
                 shutil.rmtree(target_dir)
             shutil.copytree(android_project.proj_dir, target_dir, ignore=shutil.ignore_patterns(self.mirror_dirname))
-
+            apks = mega_find(target_dir, pattern="*.apk", type_file="f")
+            logd(f"Removing built APKs from the project copy: {apks}")
+            for pk in apks:
+                if 'outputs' in pk and 'build' in pk and pk.endswith('.apk'):
+                    os.remove(pk)
             relative_manifest_path = os.path.relpath(android_project.main_manif_file, android_project.proj_dir)
             manifest_path_in_target = os.path.join(target_dir, relative_manifest_path)
 
@@ -81,7 +87,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
 
             try:
                 # Call the new method that handles both debuggable and profileable attributes
-                self.__make_app_debuggable_and_profileable(manifest_path_in_target, android_project)
+                self.__make_app_debuggable_and_profileable(manifest_path_in_target, set_debuggable)
 
                 self.write_instrumentation_log_file(android_project, test_approach, instr_type, instr_strategy)
                 logi(f"Successfully instrumented AndroidManifest.xml. Transformed project is at '{target_dir}'")
@@ -94,14 +100,13 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
 
         return target_dir
 
-    def __make_app_debuggable_and_profileable(self, manifest_path, android_project):
+    def __make_app_debuggable_and_profileable(self, manifest_path, add_debugabble=False):
         """
         Parses the XML file, sets android:debuggable="true", and adds a <profileable> tag
         if the project's target SDK is 29 or higher.
 
         Args:
             manifest_path (str): The full path to the AndroidManifest.xml file.
-            android_project: The project object, used to get the target SDK version.
         """
         logi(f"Modifying manifest at: {manifest_path}")
         tree = ET.parse(manifest_path)
@@ -113,6 +118,8 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
 
         # 1. Set android:debuggable="true" (unconditionally)
         debuggable_attr_key = f'{{{ANDROID_NS}}}debuggable'
+        if add_debugabble:
+            application_node.set(debuggable_attr_key, 'true')
 
         #logi("Set android:debuggable=\"true\" in the <application> tag.")
 
@@ -122,7 +129,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
             if target_sdk >= 29:
                 # Check if the <profileable> tag already exists to avoid duplicates
                 if application_node.find('profileable') is None:
-                    logi(f"Target SDK ({target_sdk}) >= 29. Adding <profileable> tag.")
+                    logi(f"Device SDK ({target_sdk}) >= 29. Adding <profileable> tag.")
                     # Create the new <profileable> element
                     profileable_node = ET.SubElement(application_node, 'profileable')
                     # Set the 'android:shell' attribute on the new element
@@ -130,13 +137,10 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
                     profileable_node.set(shell_attr_key, 'true')
                 else:
                     logw("<profileable> tag already exists. Skipping addition.")
-                    application_node.set(debuggable_attr_key, 'true')
             else:
-                logi(f"Target SDK ({target_sdk}) < 29. Skipping <profileable> tag addition.")
-                application_node.set(debuggable_attr_key, 'true')
+                logi(f"Device SDK ({target_sdk}) < 29. Skipping <profileable> tag addition.")
         except (ValueError, TypeError, AttributeError):
-            logw(f"Could not determine target SDK version from project. Skipping <profileable> tag addition.")
-            application_node.set(debuggable_attr_key, 'true')
+            logw("Could not determine the SDK version of the device. Skipping <profileable> tag addition.")
 
         # 3. Write all changes back to the file
         tree.write(manifest_path, encoding='utf-8', xml_declaration=True)

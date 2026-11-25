@@ -1,0 +1,22 @@
+public void printArea(int width, int height) {
+    System.out.println(width * height);
+}
+
+public void calculate() {
+    int w = 10;
+    // Bad: 'w' is manually boxed into an Integer, but printArea() needs an 'int',
+    // so the compiler immediately unboxes it. The boxing was useless.
+    printArea(new Integer(w), 20);
+}
+
+----
+
+public void printArea(int width, int height) {
+    System.out.println(width * height);
+}
+
+public void calculate() {
+    int w = 10;
+    // Good: Just pass the primitive directly.
+    printArea(w, 20);
+}

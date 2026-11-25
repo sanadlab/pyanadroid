@@ -4,11 +4,13 @@ import inspect
 from anadroid.Anadroid import AnaDroid
 from anadroid.Config import set_general_config
 from anadroid.Types import TESTING_FRAMEWORK, PROFILER, ANALYZER, INSTRUMENTER, BUILDER
+from anadroid.analysis.pre_build_analysis import PRE_BUILD_ANALYZERS
 from anadroid.application.AndroidProject import BUILD_TYPE
 from anadroid.device.Device import set_device_conn, has_connected_device
 from anadroid.device.DeviceState import DeviceState
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
+from anadroid.utils.Utils import set_verbose, logi, get_log_file
 
 
 def init_pyanadroid_from_args(args):
@@ -28,7 +30,8 @@ def init_pyanadroid_from_args(args):
                     test_cmd=args.command,
                     load_projects=not args.run_only and args.device is None,
                     lazy_load=args.device is not None,
-                    builder=args.builder
+                    builder=args.builder,
+                    pre_build_analyzers=args.static_analyzers
                     )
 
 
@@ -82,7 +85,7 @@ def get_device_cmd_help_text():
     return """device <Action> perform device commands"""
 
 
-def main():
+def build_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--testingframework", default=TESTING_FRAMEWORK.MONKEY.value, type=str,
                         help="testing framework to exercise app(s)", choices=[e.value for e in TESTING_FRAMEWORK])
@@ -96,7 +99,7 @@ def main():
                         type=str, help="instrumentation type", choices=[e.value for e in INSTRUMENTATION_TYPE])
     parser.add_argument("-pa", "--post_execution_analyzers", default=ANALYZER.MANAFA_ANALYZER.value, type=str,
                         help="results analyzer",
-                        choices=[e.value for e in INSTRUMENTATION_TYPE])
+                        choices=[e.value for e in ANALYZER])
     parser.add_argument("-d", "--diretory", default="demoProjects", type=str, help="app(s)' folder")
     parser.add_argument("-dev", "--device", default=None, type=str,
                         help="device <Action>. performs device class commands")
@@ -110,7 +113,7 @@ def main():
     parser.add_argument("-sa", "--staticanalyze", help="statically analyze apps", action='store_true')
     parser.add_argument("-sc", "--setconnection", help="set connection to device and exit",
                         choices=["USB", "WIFI"])
-    parser.add_argument("-ds", "--device_serial", help="device serial id", type=int, default=None)
+    parser.add_argument("-ds", "--device_serial", help="device serial id", type=str, default=None)
     parser.add_argument("-td", "--tests_dir", help="tests directory", type=str, default=None)
     parser.add_argument("-n", "--package_names", help="package(s) of already installed apps",
                         nargs='+', default=[])
@@ -123,7 +126,19 @@ def main():
                         type=int, default=0)
     parser.add_argument("-bd", "--builder", help="builder to use", type=str, default=BUILDER.ANADROID_GRADLE_BUILDER.value,
                         choices=[e.value for e in BUILDER])
-    args = parser.parse_args()
+    parser.add_argument("-sat", "--static_analyzers", help="static analyzers to run before the build",
+                        nargs='+', default=["scc"], choices=list(PRE_BUILD_ANALYZERS))
+    parser.add_argument("-j", "--jobs", help="number of projects to analyze at the same time (with -sa)",
+                        type=int, default=1)
+    parser.add_argument("-v", "--verbose", help="show debug messages (commands and their results)",
+                        action='store_true')
+    return parser
+
+
+def main():
+    args = build_parser().parse_args()
+    set_verbose(args.verbose)
+    logi(f"Log file of this run: {get_log_file()}")
     process_general_config(args)
     if args.setconnection:
         set_device_conn(args.setconnection, device_id=args.device_serial)
@@ -133,7 +148,7 @@ def main():
         res = exec_device_cmd(anadroid, args.device)
         print(res)
     elif args.staticanalyze:
-        anadroid.just_static_analyze()
+        anadroid.just_static_analyze(jobs=args.jobs)
     elif args.buildonly:
         anadroid.just_build_apps()
     elif args.justanalyze:

@@ -1,0 +1,13 @@
+Map<String, User> userMap = new HashMap<>();
+// Bad: Creates a temporary keySet view object just to check its size.
+if (userMap.keySet().size() == 0) {
+    System.out.println("Map is empty.");
+}
+
+-----
+
+Map<String, User> userMap = new HashMap<>();
+// Good: Call size() or isEmpty() directly on the map.
+if (userMap.size() == 0) {
+    System.out.println("Map is empty.");
+}

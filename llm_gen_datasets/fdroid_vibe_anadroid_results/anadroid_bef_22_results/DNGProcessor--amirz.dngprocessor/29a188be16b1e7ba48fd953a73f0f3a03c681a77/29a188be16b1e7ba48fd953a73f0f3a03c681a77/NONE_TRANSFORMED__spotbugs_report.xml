@@ -1,0 +1,1980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.6" sequence="0" timestamp="1762910723307" analysisTimestamp="1762910727955" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-28/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/repos/research/fdroid_apps/native_apps/DNGProcessor/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="7cc042a8d4bc06c4895af8ba26aaceb1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="478">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in amirz.dngprocessor.MainActivity.onRequestPermissionsResult(int, String[], int[]) where default case is missing</LongMessage>
+    <Class classname="amirz.dngprocessor.MainActivity" primary="true">
+      <SourceLine classname="amirz.dngprocessor.MainActivity" start="18" end="101" sourcefile="MainActivity.java" sourcepath="amirz/dngprocessor/MainActivity.java" relSourcepath="amirz/dngprocessor/MainActivity.java">
+        <Message>At MainActivity.java:[lines 18-101]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.MainActivity</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.MainActivity" name="onRequestPermissionsResult" signature="(I[Ljava/lang/String;[I)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.MainActivity" start="54" end="63" startBytecode="0" endBytecode="136" sourcefile="MainActivity.java" sourcepath="amirz/dngprocessor/MainActivity.java" relSourcepath="amirz/dngprocessor/MainActivity.java"/>
+      <Message>In method amirz.dngprocessor.MainActivity.onRequestPermissionsResult(int, String[], int[])</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.MainActivity" primary="true" start="56" end="59" startBytecode="8" endBytecode="37" sourcefile="MainActivity.java" sourcepath="amirz/dngprocessor/MainActivity.java" relSourcepath="amirz/dngprocessor/MainActivity.java">
+      <Message>At MainActivity.java:[lines 56-59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR" priority="2" rank="7" abbrev="SING" category="CORRECTNESS" instanceHash="62cc84abc8772cc372fb33f6cadde4e7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="543">
+    <ShortMessage>Class using singleton design pattern has non-private constructor.</ShortMessage>
+    <LongMessage>Class (amirz.dngprocessor.Preferences) using singleton design pattern has non-private constructor.</LongMessage>
+    <Class classname="amirz.dngprocessor.Preferences" primary="true">
+      <SourceLine classname="amirz.dngprocessor.Preferences" start="12" end="161" sourcefile="Preferences.java" sourcepath="amirz/dngprocessor/Preferences.java" relSourcepath="amirz/dngprocessor/Preferences.java">
+        <Message>At Preferences.java:[lines 12-161]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.Preferences</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.Preferences" name="&lt;init&gt;" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.Preferences" start="12" end="107" startBytecode="0" endBytecode="446" sourcefile="Preferences.java" sourcepath="amirz/dngprocessor/Preferences.java" relSourcepath="amirz/dngprocessor/Preferences.java"/>
+      <Message>In method new amirz.dngprocessor.Preferences()</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.Preferences" start="12" end="107" startBytecode="0" endBytecode="446" sourcefile="Preferences.java" sourcepath="amirz/dngprocessor/Preferences.java" relSourcepath="amirz/dngprocessor/Preferences.java" synthetic="true">
+      <Message>At Preferences.java:[lines 12-107]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_MUTABLE_ARRAY" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="40118391c0986ac2163e5e83170ad17e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field is a mutable array</ShortMessage>
+    <LongMessage>amirz.dngprocessor.colorspace.ColorspaceConstants.CUSTOM_ACR3_TONEMAP_CURVE_COEFFS is a mutable array</LongMessage>
+    <Class classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" start="6" end="92" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>At ColorspaceConstants.java:[lines 6-92]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.colorspace.ColorspaceConstants</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.colorspace.ColorspaceConstants" name="CUSTOM_ACR3_TONEMAP_CURVE_COEFFS" signature="[F" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>In ColorspaceConstants.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.colorspace.ColorspaceConstants.CUSTOM_ACR3_TONEMAP_CURVE_COEFFS</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true" start="48" end="48" startBytecode="183" endBytecode="183" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+      <Message>At ColorspaceConstants.java:[line 48]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="2ed8e261dc55f59d727ea4c5387f658e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>amirz.dngprocessor.colorspace.ColorspaceConstants.D50_XYZ should be package protected</LongMessage>
+    <Class classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" start="6" end="92" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>At ColorspaceConstants.java:[lines 6-92]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.colorspace.ColorspaceConstants</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.colorspace.ColorspaceConstants" name="D50_XYZ" signature="[F" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>In ColorspaceConstants.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.colorspace.ColorspaceConstants.D50_XYZ</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true" start="56" end="56" startBytecode="203" endBytecode="203" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+      <Message>At ColorspaceConstants.java:[line 56]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="a1835d834e72f84897f8d3df4e1895de" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>amirz.dngprocessor.colorspace.ColorspaceConstants.sProPhotoToXYZ should be package protected</LongMessage>
+    <Class classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" start="6" end="92" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>At ColorspaceConstants.java:[lines 6-92]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.colorspace.ColorspaceConstants</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.colorspace.ColorspaceConstants" name="sProPhotoToXYZ" signature="[F" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>In ColorspaceConstants.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.colorspace.ColorspaceConstants.sProPhotoToXYZ</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true" start="19" end="19" startBytecode="105" endBytecode="105" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+      <Message>At ColorspaceConstants.java:[line 19]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="a7d0910195ceb53ca65af3b77e4a2236" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>amirz.dngprocessor.colorspace.ColorspaceConstants.sXYZtoProPhoto should be package protected</LongMessage>
+    <Class classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" start="6" end="92" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>At ColorspaceConstants.java:[lines 6-92]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.colorspace.ColorspaceConstants</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.colorspace.ColorspaceConstants" name="sXYZtoProPhoto" signature="[F" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>In ColorspaceConstants.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.colorspace.ColorspaceConstants.sXYZtoProPhoto</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true" start="29" end="29" startBytecode="158" endBytecode="158" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+      <Message>At ColorspaceConstants.java:[line 29]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="ebcedcb236ae93b7734a5202e6e5ea0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="607">
+    <ShortMessage>Field should be package protected</ShortMessage>
+    <LongMessage>amirz.dngprocessor.colorspace.ColorspaceConstants.sXYZtoSRGB should be package protected</LongMessage>
+    <Class classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" start="6" end="92" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>At ColorspaceConstants.java:[lines 6-92]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.colorspace.ColorspaceConstants</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.colorspace.ColorspaceConstants" name="sXYZtoSRGB" signature="[F" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+        <Message>In ColorspaceConstants.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.colorspace.ColorspaceConstants.sXYZtoSRGB</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConstants" primary="true" start="10" end="10" startBytecode="52" endBytecode="52" sourcefile="ColorspaceConstants.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConstants.java">
+      <Message>At ColorspaceConstants.java:[line 10]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="3fa378b3790abe9f458989b561d9f3a1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class amirz.dngprocessor.colorspace.ColorspaceConverter at new amirz.dngprocessor.colorspace.ColorspaceConverter(SensorParams) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="amirz.dngprocessor.colorspace.ColorspaceConverter" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConverter" start="21" end="496" sourcefile="ColorspaceConverter.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java">
+        <Message>At ColorspaceConverter.java:[lines 21-496]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.colorspace.ColorspaceConverter</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.colorspace.ColorspaceConverter" name="&lt;init&gt;" signature="(Lamirz/dngprocessor/params/SensorParams;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConverter" start="25" end="121" startBytecode="0" endBytecode="1546" sourcefile="ColorspaceConverter.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java"/>
+      <Message>In method new amirz.dngprocessor.colorspace.ColorspaceConverter(SensorParams)</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConverter" primary="true" start="27" end="27" startBytecode="51" endBytecode="51" sourcefile="ColorspaceConverter.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java">
+      <Message>At ColorspaceConverter.java:[line 27]</Message>
+    </SourceLine>
+    <SourceLine classname="amirz.dngprocessor.colorspace.ColorspaceConverter" start="27" end="27" startBytecode="51" endBytecode="51" sourcefile="ColorspaceConverter.java" sourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java" relSourcepath="amirz/dngprocessor/colorspace/ColorspaceConverter.java">
+      <Message>At ColorspaceConverter.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="e41815a8b67483ecf8cf560bfc88416a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class amirz.dngprocessor.gl.GLCore at new amirz.dngprocessor.gl.GLCore() will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="amirz.dngprocessor.gl.GLCore" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="27" end="122" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+        <Message>At GLCore.java:[lines 27-122]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.gl.GLCore</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.gl.GLCore" name="&lt;init&gt;" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="41" end="81" startBytecode="0" endBytecode="493" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java"/>
+      <Message>In method new amirz.dngprocessor.gl.GLCore()</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.gl.GLCore" primary="true" start="67" end="67" startBytecode="211" endBytecode="211" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+      <Message>At GLCore.java:[line 67]</Message>
+    </SourceLine>
+    <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="67" end="67" startBytecode="211" endBytecode="211" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+      <Message>At GLCore.java:[line 67]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="d94f9f23c4ff54ed293a7df73255d8db" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Public static method may expose internal representation by returning a mutable object or array</ShortMessage>
+    <LongMessage>Public static amirz.dngprocessor.gl.GLCore.getInstance() may expose internal representation by returning GLCore.sInstance</LongMessage>
+    <Class classname="amirz.dngprocessor.gl.GLCore" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="27" end="122" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+        <Message>At GLCore.java:[lines 27-122]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.gl.GLCore</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.gl.GLCore" name="getInstance" signature="()Lamirz/dngprocessor/gl/GLCore;" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="27" end="30" startBytecode="0" endBytecode="60" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java"/>
+      <Message>In method amirz.dngprocessor.gl.GLCore.getInstance()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.gl.GLCore" name="sInstance" signature="Lamirz/dngprocessor/gl/GLCore;" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+        <Message>In GLCore.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.gl.GLCore.sInstance</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.gl.GLCore" primary="true" start="30" end="30" startBytecode="19" endBytecode="19" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+      <Message>At GLCore.java:[line 30]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" priority="2" rank="7" abbrev="SING" category="CORRECTNESS" instanceHash="5c914a88853f64f96f2ff0923b959739" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="543">
+    <ShortMessage>Instance-getter method of class using singleton design pattern is not synchronized.</ShortMessage>
+    <LongMessage>Instance-getter method of class using singleton design pattern (amirz.dngprocessor.gl.GLCore) is not synchronized.</LongMessage>
+    <Class classname="amirz.dngprocessor.gl.GLCore" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="27" end="122" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+        <Message>At GLCore.java:[lines 27-122]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.gl.GLCore</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.gl.GLCore" name="getInstance" signature="()Lamirz/dngprocessor/gl/GLCore;" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="27" end="30" startBytecode="0" endBytecode="60" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java"/>
+      <Message>In method amirz.dngprocessor.gl.GLCore.getInstance()</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="27" end="30" startBytecode="0" endBytecode="60" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java" synthetic="true">
+      <Message>At GLCore.java:[lines 27-30]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR" priority="2" rank="7" abbrev="SING" category="CORRECTNESS" instanceHash="2ef09f0930c52d40ede44df27ca3126" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="543">
+    <ShortMessage>Class using singleton design pattern has non-private constructor.</ShortMessage>
+    <LongMessage>Class (amirz.dngprocessor.gl.GLCore) using singleton design pattern has non-private constructor.</LongMessage>
+    <Class classname="amirz.dngprocessor.gl.GLCore" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="27" end="122" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java">
+        <Message>At GLCore.java:[lines 27-122]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.gl.GLCore</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.gl.GLCore" name="&lt;init&gt;" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="41" end="81" startBytecode="0" endBytecode="493" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java"/>
+      <Message>In method new amirz.dngprocessor.gl.GLCore()</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.gl.GLCore" start="41" end="81" startBytecode="0" endBytecode="493" sourcefile="GLCore.java" sourcepath="amirz/dngprocessor/gl/GLCore.java" relSourcepath="amirz/dngprocessor/gl/GLCore.java" synthetic="true">
+      <Message>At GLCore.java:[lines 41-81]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UwF" category="STYLE" instanceHash="cab0735ad46e0782e72a3c2443dac98f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="457">
+    <ShortMessage>Unwritten public or protected field</ShortMessage>
+    <LongMessage>Unwritten public or protected field: amirz.dngprocessor.gl.Texture$Config.pixels</LongMessage>
+    <Class classname="amirz.dngprocessor.gl.Texture$Config" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.Texture$Config" start="18" end="25" sourcefile="Texture.java" sourcepath="amirz/dngprocessor/gl/Texture.java" relSourcepath="amirz/dngprocessor/gl/Texture.java">
+        <Message>At Texture.java:[lines 18-25]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.gl.Texture$Config</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.gl.Texture$Config" name="pixels" signature="Ljava/nio/Buffer;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.gl.Texture$Config" sourcefile="Texture.java" sourcepath="amirz/dngprocessor/gl/Texture.java" relSourcepath="amirz/dngprocessor/gl/Texture.java">
+        <Message>In Texture.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.gl.Texture$Config.pixels</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.gl.Texture" primary="true" start="36" end="36" startBytecode="18" endBytecode="18" sourcefile="Texture.java" sourcepath="amirz/dngprocessor/gl/Texture.java" relSourcepath="amirz/dngprocessor/gl/Texture.java">
+      <Message>At Texture.java:[line 36]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="eb47536a7ab8bb3ab487e74625719aa7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field amirz.dngprocessor.params.ProcessParams.adaptiveSaturation is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="amirz.dngprocessor.params.ProcessParams" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" start="7" end="41" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>At ProcessParams.java:[lines 7-41]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.params.ProcessParams</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.params.ProcessParams" name="adaptiveSaturation" signature="[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>In ProcessParams.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.params.ProcessParams.adaptiveSaturation</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.params.ProcessParams" primary="true" start="12" end="12" startBytecode="66" endBytecode="66" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+      <Message>At ProcessParams.java:[line 12]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="410109a1e95115316515c36061e85cb0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field amirz.dngprocessor.params.ProcessParams.histFactor is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="amirz.dngprocessor.params.ProcessParams" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" start="7" end="41" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>At ProcessParams.java:[lines 7-41]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.params.ProcessParams</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.params.ProcessParams" name="histFactor" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>In ProcessParams.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.params.ProcessParams.histFactor</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.params.ProcessParams" primary="true" start="11" end="11" startBytecode="51" endBytecode="51" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+      <Message>At ProcessParams.java:[line 11]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" priority="2" rank="16" abbrev="PA" category="BAD_PRACTICE" instanceHash="62a453bacd34e3e99112e2ed5f13f6a0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="766">
+    <ShortMessage>Primitive field is public</ShortMessage>
+    <LongMessage>Primitive field amirz.dngprocessor.params.ProcessParams.sharpenFactor is public and set from inside the class, which makes it too exposed. Consider making it private to limit external accessibility.</LongMessage>
+    <Class classname="amirz.dngprocessor.params.ProcessParams" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" start="7" end="41" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>At ProcessParams.java:[lines 7-41]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.params.ProcessParams</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.params.ProcessParams" name="sharpenFactor" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>In ProcessParams.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.params.ProcessParams.sharpenFactor</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.params.ProcessParams" primary="true" start="10" end="10" startBytecode="46" endBytecode="46" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+      <Message>At ProcessParams.java:[line 10]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="2a4ffcd44c758cee1cf223df4f9c5d2b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.params.ProcessParams.ahe</LongMessage>
+    <Class classname="amirz.dngprocessor.params.ProcessParams" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" start="7" end="41" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>At ProcessParams.java:[lines 7-41]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.params.ProcessParams</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.params.ProcessParams" name="ahe" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>In ProcessParams.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.params.ProcessParams.ahe</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.DngParser" primary="true" start="191" end="191" startBytecode="1338" endBytecode="1338" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+      <Message>At DngParser.java:[line 191]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" instanceHash="ab642625070a607cbc1d95d7800bf5e0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unused public or protected field</ShortMessage>
+    <LongMessage>Unused public or protected field: amirz.dngprocessor.params.ProcessParams.histCurve</LongMessage>
+    <Class classname="amirz.dngprocessor.params.ProcessParams" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" start="7" end="41" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>At ProcessParams.java:[lines 7-41]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.params.ProcessParams</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.params.ProcessParams" name="histCurve" signature="F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.ProcessParams" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java">
+        <Message>In ProcessParams.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.params.ProcessParams.histCurve</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.params.ProcessParams" sourcefile="ProcessParams.java" sourcepath="amirz/dngprocessor/params/ProcessParams.java" relSourcepath="amirz/dngprocessor/params/ProcessParams.java" synthetic="true">
+      <Message>In ProcessParams.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="73628abcaef51bf754e251f25401ba41" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.params.SensorParams.noiseProfile</LongMessage>
+    <Class classname="amirz.dngprocessor.params.SensorParams" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.SensorParams" start="5" end="28" sourcefile="SensorParams.java" sourcepath="amirz/dngprocessor/params/SensorParams.java" relSourcepath="amirz/dngprocessor/params/SensorParams.java">
+        <Message>At SensorParams.java:[lines 5-28]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.params.SensorParams</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.params.SensorParams" name="noiseProfile" signature="[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.params.SensorParams" sourcefile="SensorParams.java" sourcepath="amirz/dngprocessor/params/SensorParams.java" relSourcepath="amirz/dngprocessor/params/SensorParams.java">
+        <Message>In SensorParams.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.params.SensorParams.noiseProfile</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.DngParser" primary="true" start="141" end="141" startBytecode="769" endBytecode="769" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+      <Message>At DngParser.java:[line 141]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="9bdb67a3e0f48e09976a0f23d0722240" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in amirz.dngprocessor.parser.DngParser.run(): new String(byte[])</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.DngParser" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.DngParser" start="31" end="291" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+        <Message>At DngParser.java:[lines 31-291]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.DngParser</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.parser.DngParser" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.DngParser" start="50" end="271" startBytecode="0" endBytecode="3968" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java"/>
+      <Message>In method amirz.dngprocessor.parser.DngParser.run()</Message>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="438" end="438" startBytecode="0" endBytecode="65" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+      <Message>Called method new String(byte[])</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.parser.DngParser" primary="true" start="61" end="61" startBytecode="110" endBytecode="110" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+      <Message>At DngParser.java:[line 61]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="f98bb425b0ed2b719cd5b31043b8edf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new amirz.dngprocessor.parser.DngParser(Context, Uri, String) may expose internal representation by storing an externally mutable object into DngParser.mContext</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.DngParser" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.DngParser" start="31" end="291" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+        <Message>At DngParser.java:[lines 31-291]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.DngParser</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.parser.DngParser" name="&lt;init&gt;" signature="(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.DngParser" start="39" end="43" startBytecode="0" endBytecode="107" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java"/>
+      <Message>In method new amirz.dngprocessor.parser.DngParser(Context, Uri, String)</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.parser.DngParser" name="mContext" signature="Landroid/content/Context;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.DngParser" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+        <Message>In DngParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.DngParser.mContext</Message>
+    </Field>
+    <LocalVariable name="context" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named context</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.parser.DngParser" primary="true" start="40" end="40" startBytecode="6" endBytecode="6" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+      <Message>At DngParser.java:[line 40]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="c597f9bbd011578924abb832e337b6e3" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should amirz.dngprocessor.parser.DngParser$ParseException be a _static_ inner class?</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.DngParser$ParseException" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.DngParser$ParseException" start="293" end="296" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java">
+        <Message>At DngParser.java:[lines 293-296]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.DngParser$ParseException</Message>
+    </Class>
+    <SourceLine classname="amirz.dngprocessor.parser.DngParser$ParseException" start="293" end="296" sourcefile="DngParser.java" sourcepath="amirz/dngprocessor/parser/DngParser.java" relSourcepath="amirz/dngprocessor/parser/DngParser.java" synthetic="true">
+      <Message>At DngParser.java:[lines 293-296]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UC_USELESS_OBJECT" priority="2" rank="17" abbrev="UC" category="STYLE" instanceHash="ee1f43bdffd81c852c34333ac4555f83" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Useless object created</ShortMessage>
+    <LongMessage>Useless object stored in variable ver of method amirz.dngprocessor.parser.OpParser.parseAll(byte[])</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser" start="7" end="78" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[lines 7-78]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.parser.OpParser" name="parseAll" signature="([B)[Ljava/lang/Object;" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser" start="62" end="78" startBytecode="0" endBytecode="365" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java"/>
+      <Message>In method amirz.dngprocessor.parser.OpParser.parseAll(byte[])</Message>
+    </Method>
+    <String value="ver">
+      <Message>Value ver</Message>
+    </String>
+    <Type descriptor="[B">
+      <Message>Type byte[]</Message>
+    </Type>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="67" end="67" startBytecode="28" endBytecode="28" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 67]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="32a8ca257570cc0f304f70c0a8cb0116" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.bottom</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="bottom" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.bottom</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="33" end="33" startBytecode="29" endBytecode="29" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 33]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="a1e45847810a6f90929c0a6367aac004" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.colPitch</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="colPitch" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.colPitch</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="38" end="38" startBytecode="69" endBytecode="69" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="2ca09eea606d552d1c41b59617c5337" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.mapOriginH</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="mapOriginH" signature="D" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.mapOriginH</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="44" end="44" startBytecode="117" endBytecode="117" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 44]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="2ff9a3a52cb0535393fa80c37a8d46e2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.mapOriginV</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="mapOriginV" signature="D" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.mapOriginV</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="43" end="43" startBytecode="109" endBytecode="109" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 43]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="e868af423c4a68f2f0b54e957db2eae5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.mapSpacingH</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="mapSpacingH" signature="D" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.mapSpacingH</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="42" end="42" startBytecode="101" endBytecode="101" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 42]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="ec9e21b64b7dfff517b7859ed0edb2a1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.mapSpacingV</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="mapSpacingV" signature="D" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.mapSpacingV</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="41" end="41" startBytecode="93" endBytecode="93" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 41]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="4234a113c0b51ef084c2ba1db7b471cf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.plane</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="plane" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.plane</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="35" end="35" startBytecode="45" endBytecode="45" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 35]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="6171369f355c97c38db8e9a1b1c51fd3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.planes</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="planes" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.planes</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="36" end="36" startBytecode="53" endBytecode="53" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 36]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="ede53a3c80648f214a093652b8b0ad35" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.right</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="right" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.right</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="34" end="34" startBytecode="37" endBytecode="37" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 34]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" instanceHash="d507d9ccf4aa62e37d68e47b0f9c2424" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Unread public/protected field</ShortMessage>
+    <LongMessage>Unread public/protected field: amirz.dngprocessor.parser.OpParser$GainMap.rowPitch</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.OpParser$GainMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" start="10" end="10" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>At OpParser.java:[line 10]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.OpParser$GainMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.parser.OpParser$GainMap" name="rowPitch" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.OpParser$GainMap" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+        <Message>In OpParser.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.OpParser$GainMap.rowPitch</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.parser.OpParser" primary="true" start="37" end="37" startBytecode="61" endBytecode="61" sourcefile="OpParser.java" sourcepath="amirz/dngprocessor/parser/OpParser.java" relSourcepath="amirz/dngprocessor/parser/OpParser.java">
+      <Message>At OpParser.java:[line 37]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="12dfc85ab5b4bbe208343c62f8d4a725" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new amirz.dngprocessor.parser.TIFFTag(int, Object[]) may expose internal representation by storing an externally mutable object into TIFFTag.mValues</LongMessage>
+    <Class classname="amirz.dngprocessor.parser.TIFFTag" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.TIFFTag" start="5" end="105" sourcefile="TIFFTag.java" sourcepath="amirz/dngprocessor/parser/TIFFTag.java" relSourcepath="amirz/dngprocessor/parser/TIFFTag.java">
+        <Message>At TIFFTag.java:[lines 5-105]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.parser.TIFFTag</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.parser.TIFFTag" name="&lt;init&gt;" signature="(I[Ljava/lang/Object;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.TIFFTag" start="9" end="12" startBytecode="0" endBytecode="88" sourcefile="TIFFTag.java" sourcepath="amirz/dngprocessor/parser/TIFFTag.java" relSourcepath="amirz/dngprocessor/parser/TIFFTag.java"/>
+      <Message>In method new amirz.dngprocessor.parser.TIFFTag(int, Object[])</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.parser.TIFFTag" name="mValues" signature="[Ljava/lang/Object;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.parser.TIFFTag" sourcefile="TIFFTag.java" sourcepath="amirz/dngprocessor/parser/TIFFTag.java" relSourcepath="amirz/dngprocessor/parser/TIFFTag.java">
+        <Message>In TIFFTag.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.parser.TIFFTag.mValues</Message>
+    </Field>
+    <LocalVariable name="value" register="2" pc="11" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named value</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.parser.TIFFTag" primary="true" start="11" end="11" startBytecode="11" endBytecode="11" sourcefile="TIFFTag.java" sourcepath="amirz/dngprocessor/parser/TIFFTag.java" relSourcepath="amirz/dngprocessor/parser/TIFFTag.java">
+      <Message>At TIFFTag.java:[line 11]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="8a15fd66badbd35c848412854632fb9b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new amirz.dngprocessor.pipeline.GLBlockProcessing(Bitmap) may expose internal representation by storing an externally mutable object into GLBlockProcessing.mOut</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.GLBlockProcessing" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.GLBlockProcessing" start="19" end="53" sourcefile="GLBlockProcessing.java" sourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java" relSourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java">
+        <Message>At GLBlockProcessing.java:[lines 19-53]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.GLBlockProcessing</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.GLBlockProcessing" name="&lt;init&gt;" signature="(Landroid/graphics/Bitmap;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.GLBlockProcessing" start="19" end="26" startBytecode="0" endBytecode="131" sourcefile="GLBlockProcessing.java" sourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java" relSourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java"/>
+      <Message>In method new amirz.dngprocessor.pipeline.GLBlockProcessing(Bitmap)</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.GLBlockProcessing" name="mOut" signature="Landroid/graphics/Bitmap;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.GLBlockProcessing" sourcefile="GLBlockProcessing.java" sourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java" relSourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java">
+        <Message>In GLBlockProcessing.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.GLBlockProcessing.mOut</Message>
+    </Field>
+    <LocalVariable name="out" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named out</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.pipeline.GLBlockProcessing" primary="true" start="20" end="20" startBytecode="6" endBytecode="6" sourcefile="GLBlockProcessing.java" sourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java" relSourcepath="amirz/dngprocessor/pipeline/GLBlockProcessing.java">
+      <Message>At GLBlockProcessing.java:[line 20]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="fd08df89b3072c207f7a88aa564758ee" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.Stage.init(GLPrograms, SensorParams, ProcessParams) may expose internal representation by storing an externally mutable object into Stage.mConverter</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.Stage" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.Stage" start="7" end="40" sourcefile="Stage.java" sourcepath="amirz/dngprocessor/pipeline/Stage.java" relSourcepath="amirz/dngprocessor/pipeline/Stage.java">
+        <Message>At Stage.java:[lines 7-40]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.Stage</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.Stage" name="init" signature="(Lamirz/dngprocessor/gl/GLPrograms;Lamirz/dngprocessor/params/SensorParams;Lamirz/dngprocessor/params/ProcessParams;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.Stage" start="13" end="16" startBytecode="0" endBytecode="99" sourcefile="Stage.java" sourcepath="amirz/dngprocessor/pipeline/Stage.java" relSourcepath="amirz/dngprocessor/pipeline/Stage.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.Stage.init(GLPrograms, SensorParams, ProcessParams)</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.Stage" name="mConverter" signature="Lamirz/dngprocessor/gl/GLPrograms;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.Stage" sourcefile="Stage.java" sourcepath="amirz/dngprocessor/pipeline/Stage.java" relSourcepath="amirz/dngprocessor/pipeline/Stage.java">
+        <Message>In Stage.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.Stage.mConverter</Message>
+    </Field>
+    <LocalVariable name="converter" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named converter</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.pipeline.Stage" primary="true" start="13" end="13" startBytecode="2" endBytecode="2" sourcefile="Stage.java" sourcepath="amirz/dngprocessor/pipeline/Stage.java" relSourcepath="amirz/dngprocessor/pipeline/Stage.java">
+      <Message>At Stage.java:[line 13]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="CT_CONSTRUCTOR_THROW" priority="2" rank="16" abbrev="CT" category="BAD_PRACTICE" instanceHash="c8bc4fe95da7b10c56f2f846ac9e3247" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Be wary of letting constructors throw exceptions.</ShortMessage>
+    <LongMessage>Exception thrown in class amirz.dngprocessor.pipeline.StagePipeline at new amirz.dngprocessor.pipeline.StagePipeline(SensorParams, ProcessParams, byte[], Bitmap, ShaderLoader) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks.</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.StagePipeline" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.StagePipeline" start="34" end="124" sourcefile="StagePipeline.java" sourcepath="amirz/dngprocessor/pipeline/StagePipeline.java" relSourcepath="amirz/dngprocessor/pipeline/StagePipeline.java">
+        <Message>At StagePipeline.java:[lines 34-124]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.StagePipeline</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.StagePipeline" name="&lt;init&gt;" signature="(Lamirz/dngprocessor/params/SensorParams;Lamirz/dngprocessor/params/ProcessParams;[BLandroid/graphics/Bitmap;Lamirz/dngprocessor/util/ShaderLoader;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.StagePipeline" start="42" end="90" startBytecode="0" endBytecode="637" sourcefile="StagePipeline.java" sourcepath="amirz/dngprocessor/pipeline/StagePipeline.java" relSourcepath="amirz/dngprocessor/pipeline/StagePipeline.java"/>
+      <Message>In method new amirz.dngprocessor.pipeline.StagePipeline(SensorParams, ProcessParams, byte[], Bitmap, ShaderLoader)</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.pipeline.StagePipeline" primary="true" start="51" end="51" startBytecode="133" endBytecode="133" sourcefile="StagePipeline.java" sourcepath="amirz/dngprocessor/pipeline/StagePipeline.java" relSourcepath="amirz/dngprocessor/pipeline/StagePipeline.java">
+      <Message>At StagePipeline.java:[line 51]</Message>
+    </SourceLine>
+    <SourceLine classname="amirz.dngprocessor.pipeline.StagePipeline" start="51" end="51" startBytecode="133" endBytecode="133" sourcefile="StagePipeline.java" sourcepath="amirz/dngprocessor/pipeline/StagePipeline.java" relSourcepath="amirz/dngprocessor/pipeline/StagePipeline.java">
+      <Message>At StagePipeline.java:[line 51]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="74c7d05404e28f60f86d859623356686" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.convert.EdgeMirror.getIntermediate() may expose internal representation by returning EdgeMirror.mIntermediate</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.convert.EdgeMirror" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.EdgeMirror" start="9" end="37" sourcefile="EdgeMirror.java" sourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java" relSourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java">
+        <Message>At EdgeMirror.java:[lines 9-37]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.convert.EdgeMirror</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.convert.EdgeMirror" name="getIntermediate" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.EdgeMirror" start="13" end="13" startBytecode="0" endBytecode="46" sourcefile="EdgeMirror.java" sourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java" relSourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.convert.EdgeMirror.getIntermediate()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.convert.EdgeMirror" name="mIntermediate" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.EdgeMirror" sourcefile="EdgeMirror.java" sourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java" relSourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java">
+        <Message>In EdgeMirror.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.convert.EdgeMirror.mIntermediate</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.convert.EdgeMirror" primary="true" start="13" end="13" startBytecode="4" endBytecode="4" sourcefile="EdgeMirror.java" sourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java" relSourcepath="amirz/dngprocessor/pipeline/convert/EdgeMirror.java">
+      <Message>At EdgeMirror.java:[line 13]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="187106942acb3cecb18872bea5b0bc26" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.convert.GreenDemosaic.getSensorGTex() may expose internal representation by returning GreenDemosaic.mSensorG</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.convert.GreenDemosaic" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.GreenDemosaic" start="9" end="37" sourcefile="GreenDemosaic.java" sourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java" relSourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java">
+        <Message>At GreenDemosaic.java:[lines 9-37]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.convert.GreenDemosaic</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.convert.GreenDemosaic" name="getSensorGTex" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.GreenDemosaic" start="13" end="13" startBytecode="0" endBytecode="46" sourcefile="GreenDemosaic.java" sourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java" relSourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.convert.GreenDemosaic.getSensorGTex()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.convert.GreenDemosaic" name="mSensorG" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.GreenDemosaic" sourcefile="GreenDemosaic.java" sourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java" relSourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java">
+        <Message>In GreenDemosaic.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.convert.GreenDemosaic.mSensorG</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.convert.GreenDemosaic" primary="true" start="13" end="13" startBytecode="4" endBytecode="4" sourcefile="GreenDemosaic.java" sourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java" relSourcepath="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java">
+      <Message>At GreenDemosaic.java:[line 13]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="9bc5da1097675d05f9a1666c9afc7947" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.convert.PreProcess.getGainMapTex() may expose internal representation by returning PreProcess.mGainMapTex</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.convert.PreProcess" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" start="21" end="91" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+        <Message>At PreProcess.java:[lines 21-91]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.convert.PreProcess</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.convert.PreProcess" name="getGainMapTex" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" start="42" end="42" startBytecode="0" endBytecode="46" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.convert.PreProcess.getGainMapTex()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.convert.PreProcess" name="mGainMapTex" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+        <Message>In PreProcess.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.convert.PreProcess.mGainMapTex</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" primary="true" start="42" end="42" startBytecode="4" endBytecode="4" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+      <Message>At PreProcess.java:[line 42]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="4dd3926339e424e53286bc658a27187" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.convert.PreProcess.getSensorTex() may expose internal representation by returning PreProcess.mSensorTex</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.convert.PreProcess" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" start="21" end="91" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+        <Message>At PreProcess.java:[lines 21-91]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.convert.PreProcess</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.convert.PreProcess" name="getSensorTex" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" start="26" end="26" startBytecode="0" endBytecode="46" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.convert.PreProcess.getSensorTex()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.convert.PreProcess" name="mSensorTex" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+        <Message>In PreProcess.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.convert.PreProcess.mSensorTex</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" primary="true" start="26" end="26" startBytecode="4" endBytecode="4" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+      <Message>At PreProcess.java:[line 26]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="b3f679bb921c7b9065c52e9b316c1073" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new amirz.dngprocessor.pipeline.convert.PreProcess(byte[]) may expose internal representation by storing an externally mutable object into PreProcess.mRaw</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.convert.PreProcess" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" start="21" end="91" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+        <Message>At PreProcess.java:[lines 21-91]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.convert.PreProcess</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.convert.PreProcess" name="&lt;init&gt;" signature="([B)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" start="21" end="23" startBytecode="0" endBytecode="69" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java"/>
+      <Message>In method new amirz.dngprocessor.pipeline.convert.PreProcess(byte[])</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.convert.PreProcess" name="mRaw" signature="[B" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+        <Message>In PreProcess.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.convert.PreProcess.mRaw</Message>
+    </Field>
+    <LocalVariable name="raw" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named raw</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.pipeline.convert.PreProcess" primary="true" start="22" end="22" startBytecode="6" endBytecode="6" sourcefile="PreProcess.java" sourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java" relSourcepath="amirz/dngprocessor/pipeline/convert/PreProcess.java">
+      <Message>At PreProcess.java:[line 22]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="62fe098ef4b4243c4237f7d7b73691b0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.convert.ToIntermediate.getIntermediate() may expose internal representation by returning ToIntermediate.mIntermediate</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" start="17" end="66" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java">
+        <Message>At ToIntermediate.java:[lines 17-66]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.convert.ToIntermediate</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" name="getIntermediate" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" start="22" end="22" startBytecode="0" endBytecode="46" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.convert.ToIntermediate.getIntermediate()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" name="mIntermediate" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java">
+        <Message>In ToIntermediate.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.convert.ToIntermediate.mIntermediate</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" primary="true" start="22" end="22" startBytecode="4" endBytecode="4" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java">
+      <Message>At ToIntermediate.java:[line 22]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="38a81e1856ddfe9ef50faeeb52c0899e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new amirz.dngprocessor.pipeline.convert.ToIntermediate(float[]) may expose internal representation by storing an externally mutable object into ToIntermediate.mSensorToXYZ_D50</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" start="17" end="66" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java">
+        <Message>At ToIntermediate.java:[lines 17-66]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.convert.ToIntermediate</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" name="&lt;init&gt;" signature="([F)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" start="17" end="19" startBytecode="0" endBytecode="69" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java"/>
+      <Message>In method new amirz.dngprocessor.pipeline.convert.ToIntermediate(float[])</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" name="mSensorToXYZ_D50" signature="[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java">
+        <Message>In ToIntermediate.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.convert.ToIntermediate.mSensorToXYZ_D50</Message>
+    </Field>
+    <LocalVariable name="sensorToXYZ_D50" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named sensorToXYZ_D50</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.pipeline.convert.ToIntermediate" primary="true" start="18" end="18" startBytecode="6" endBytecode="6" sourcefile="ToIntermediate.java" sourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" relSourcepath="amirz/dngprocessor/pipeline/convert/ToIntermediate.java">
+      <Message>At ToIntermediate.java:[line 18]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="9d102f8db56a987fe61eb8f507725219" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.exposefuse.DoubleExpose.getOverexposed() may expose internal representation by returning DoubleExpose.mOverexposed</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" start="11" end="48" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java">
+        <Message>At DoubleExpose.java:[lines 11-48]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.exposefuse.DoubleExpose</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" name="getOverexposed" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" start="20" end="20" startBytecode="0" endBytecode="46" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.exposefuse.DoubleExpose.getOverexposed()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" name="mOverexposed" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java">
+        <Message>In DoubleExpose.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.exposefuse.DoubleExpose.mOverexposed</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" primary="true" start="20" end="20" startBytecode="4" endBytecode="4" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java">
+      <Message>At DoubleExpose.java:[line 20]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="b62337d5cba4afa883a53ffbdf74ded9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.exposefuse.DoubleExpose.getUnderexposed() may expose internal representation by returning DoubleExpose.mUnderexposed</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" start="11" end="48" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java">
+        <Message>At DoubleExpose.java:[lines 11-48]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.exposefuse.DoubleExpose</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" name="getUnderexposed" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" start="16" end="16" startBytecode="0" endBytecode="46" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.exposefuse.DoubleExpose.getUnderexposed()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" name="mUnderexposed" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java">
+        <Message>In DoubleExpose.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.exposefuse.DoubleExpose.mUnderexposed</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" primary="true" start="16" end="16" startBytecode="4" endBytecode="4" sourcefile="DoubleExpose.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java">
+      <Message>At DoubleExpose.java:[line 16]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="6534661f7a09bf7b63a784c806a7a8b2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.exposefuse.Merge.getMerged() may expose internal representation by returning Merge.mMerged</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.exposefuse.Merge" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.Merge" start="13" end="104" sourcefile="Merge.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java">
+        <Message>At Merge.java:[lines 13-104]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.exposefuse.Merge</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.exposefuse.Merge" name="getMerged" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.Merge" start="17" end="17" startBytecode="0" endBytecode="46" sourcefile="Merge.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.exposefuse.Merge.getMerged()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.exposefuse.Merge" name="mMerged" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.Merge" sourcefile="Merge.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java">
+        <Message>In Merge.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.exposefuse.Merge.mMerged</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.exposefuse.Merge" primary="true" start="17" end="17" startBytecode="4" endBytecode="4" sourcefile="Merge.java" sourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java" relSourcepath="amirz/dngprocessor/pipeline/exposefuse/Merge.java">
+      <Message>At Merge.java:[line 17]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="796675d08a4af6f96c145a0490afc1fc" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.intermediate.Analysis.getHist() may expose internal representation by returning Analysis.mHist</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.intermediate.Analysis" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" start="31" end="100" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java">
+        <Message>At Analysis.java:[lines 31-100]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.intermediate.Analysis</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.intermediate.Analysis" name="getHist" signature="()[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" start="43" end="43" startBytecode="0" endBytecode="46" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.intermediate.Analysis.getHist()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.intermediate.Analysis" name="mHist" signature="[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java">
+        <Message>In Analysis.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.intermediate.Analysis.mHist</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" primary="true" start="43" end="43" startBytecode="4" endBytecode="4" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java">
+      <Message>At Analysis.java:[line 43]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="1d78923fd40fac9806a1a724e69139ba" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.intermediate.Analysis.getSigma() may expose internal representation by returning Analysis.mSigma</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.intermediate.Analysis" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" start="31" end="100" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java">
+        <Message>At Analysis.java:[lines 31-100]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.intermediate.Analysis</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.intermediate.Analysis" name="getSigma" signature="()[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" start="39" end="39" startBytecode="0" endBytecode="46" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.intermediate.Analysis.getSigma()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.intermediate.Analysis" name="mSigma" signature="[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java">
+        <Message>In Analysis.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.intermediate.Analysis.mSigma</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.Analysis" primary="true" start="39" end="39" startBytecode="4" endBytecode="4" sourcefile="Analysis.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/Analysis.java">
+      <Message>At Analysis.java:[line 39]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="e8ded181bf0701d3c6cbc2398a57f58a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.intermediate.BilateralFilter.getBilateral() may expose internal representation by returning BilateralFilter.mBilateral</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" start="18" end="75" sourcefile="BilateralFilter.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java">
+        <Message>At BilateralFilter.java:[lines 18-75]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.intermediate.BilateralFilter</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" name="getBilateral" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" start="23" end="23" startBytecode="0" endBytecode="46" sourcefile="BilateralFilter.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.intermediate.BilateralFilter.getBilateral()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" name="mBilateral" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" sourcefile="BilateralFilter.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java">
+        <Message>In BilateralFilter.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.intermediate.BilateralFilter.mBilateral</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" primary="true" start="23" end="23" startBytecode="4" endBytecode="4" sourcefile="BilateralFilter.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java">
+      <Message>At BilateralFilter.java:[line 23]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="cc26e3d60fd387cf86e895478d5a721b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.intermediate.MergeDetail.getIntermediate() may expose internal representation by returning MergeDetail.mIntermediate</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.intermediate.MergeDetail" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.MergeDetail" start="26" end="91" sourcefile="MergeDetail.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java">
+        <Message>At MergeDetail.java:[lines 26-91]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.intermediate.MergeDetail</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.intermediate.MergeDetail" name="getIntermediate" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.MergeDetail" start="31" end="31" startBytecode="0" endBytecode="46" sourcefile="MergeDetail.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.intermediate.MergeDetail.getIntermediate()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.intermediate.MergeDetail" name="mIntermediate" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.MergeDetail" sourcefile="MergeDetail.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java">
+        <Message>In MergeDetail.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.intermediate.MergeDetail.mIntermediate</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.intermediate.MergeDetail" primary="true" start="31" end="31" startBytecode="4" endBytecode="4" sourcefile="MergeDetail.java" sourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java" relSourcepath="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java">
+      <Message>At MergeDetail.java:[line 31]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="95a95530ce7cc25b21c6d832bd201ab0" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.noisereduce.NoiseMap.getNoiseTex() may expose internal representation by returning NoiseMap.mNoiseTex</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" start="9" end="58" sourcefile="NoiseMap.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java">
+        <Message>At NoiseMap.java:[lines 9-58]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.noisereduce.NoiseMap</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" name="getNoiseTex" signature="()[Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" start="13" end="13" startBytecode="0" endBytecode="46" sourcefile="NoiseMap.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.noisereduce.NoiseMap.getNoiseTex()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" name="mNoiseTex" signature="[Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" sourcefile="NoiseMap.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java">
+        <Message>In NoiseMap.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.noisereduce.NoiseMap.mNoiseTex</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" primary="true" start="13" end="13" startBytecode="4" endBytecode="4" sourcefile="NoiseMap.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java">
+      <Message>At NoiseMap.java:[line 13]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="f8519632eaeecd0ca907e701d07664eb" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.noisereduce.NoiseReduce.getDenoised() may expose internal representation by returning NoiseReduce.mDenoised</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" start="21" end="87" sourcefile="NoiseReduce.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java">
+        <Message>At NoiseReduce.java:[lines 21-87]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.noisereduce.NoiseReduce</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" name="getDenoised" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" start="27" end="27" startBytecode="0" endBytecode="46" sourcefile="NoiseReduce.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.noisereduce.NoiseReduce.getDenoised()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" name="mDenoised" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" sourcefile="NoiseReduce.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java">
+        <Message>In NoiseReduce.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.noisereduce.NoiseReduce.mDenoised</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" primary="true" start="27" end="27" startBytecode="4" endBytecode="4" sourcefile="NoiseReduce.java" sourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java" relSourcepath="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java">
+      <Message>At NoiseReduce.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="210780f77afad8cd3340fff8f4c7eb7e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.post.BlurLCE.getMediumBlur() may expose internal representation by returning BlurLCE.mMediumBlur</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.post.BlurLCE" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" start="11" end="118" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+        <Message>At BlurLCE.java:[lines 11-118]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.post.BlurLCE</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.post.BlurLCE" name="getMediumBlur" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" start="19" end="19" startBytecode="0" endBytecode="46" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.post.BlurLCE.getMediumBlur()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.post.BlurLCE" name="mMediumBlur" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+        <Message>In BlurLCE.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.post.BlurLCE.mMediumBlur</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" primary="true" start="19" end="19" startBytecode="4" endBytecode="4" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+      <Message>At BlurLCE.java:[line 19]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="42fe0550168523e3fd0c8b2a24eb5d56" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.post.BlurLCE.getStrongBlur() may expose internal representation by returning BlurLCE.mStrongBlur</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.post.BlurLCE" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" start="11" end="118" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+        <Message>At BlurLCE.java:[lines 11-118]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.post.BlurLCE</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.post.BlurLCE" name="getStrongBlur" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" start="23" end="23" startBytecode="0" endBytecode="46" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.post.BlurLCE.getStrongBlur()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.post.BlurLCE" name="mStrongBlur" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+        <Message>In BlurLCE.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.post.BlurLCE.mStrongBlur</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" primary="true" start="23" end="23" startBytecode="4" endBytecode="4" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+      <Message>At BlurLCE.java:[line 23]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="ce8964c54bcfe31e50924a5fd0cb52cb" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>amirz.dngprocessor.pipeline.post.BlurLCE.getWeakBlur() may expose internal representation by returning BlurLCE.mWeakBlur</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.post.BlurLCE" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" start="11" end="118" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+        <Message>At BlurLCE.java:[lines 11-118]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.post.BlurLCE</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.post.BlurLCE" name="getWeakBlur" signature="()Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" start="15" end="15" startBytecode="0" endBytecode="46" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.post.BlurLCE.getWeakBlur()</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.post.BlurLCE" name="mWeakBlur" signature="Lamirz/dngprocessor/gl/Texture;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+        <Message>In BlurLCE.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.post.BlurLCE.mWeakBlur</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.post.BlurLCE" primary="true" start="15" end="15" startBytecode="4" endBytecode="4" sourcefile="BlurLCE.java" sourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java" relSourcepath="amirz/dngprocessor/pipeline/post/BlurLCE.java">
+      <Message>At BlurLCE.java:[line 15]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="dfbc276f2b5d380a11114273d4cb9a04" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in amirz.dngprocessor.pipeline.post.ToneMap.execute(StagePipeline$StageMap)</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" start="24" end="108" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+        <Message>At ToneMap.java:[lines 24-108]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.post.ToneMap</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.post.ToneMap" name="execute" signature="(Lamirz/dngprocessor/pipeline/StagePipeline$StageMap;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" start="47" end="98" startBytecode="0" endBytecode="826" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java"/>
+      <Message>In method amirz.dngprocessor.pipeline.post.ToneMap.execute(StagePipeline$StageMap)</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextBytes" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="168" end="168" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextBytes(byte[])</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true" start="90" end="90" startBytecode="365" endBytecode="365" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+      <Message>At ToneMap.java:[line 90]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="a9d980e98c847dcd541d6d719cabf598" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new amirz.dngprocessor.pipeline.post.ToneMap(float[], float[]) may expose internal representation by storing an externally mutable object into ToneMap.mProPhotoToSRGB</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" start="24" end="108" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+        <Message>At ToneMap.java:[lines 24-108]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.post.ToneMap</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.post.ToneMap" name="&lt;init&gt;" signature="([F[F)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" start="32" end="35" startBytecode="0" endBytecode="122" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java"/>
+      <Message>In method new amirz.dngprocessor.pipeline.post.ToneMap(float[], float[])</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.post.ToneMap" name="mProPhotoToSRGB" signature="[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+        <Message>In ToneMap.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.post.ToneMap.mProPhotoToSRGB</Message>
+    </Field>
+    <LocalVariable name="proPhotoToSRGB" register="2" pc="33" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named proPhotoToSRGB</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true" start="34" end="34" startBytecode="33" endBytecode="33" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+      <Message>At ToneMap.java:[line 34]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="fc99ad71c46c9d2d37cd1678aa39d939" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new amirz.dngprocessor.pipeline.post.ToneMap(float[], float[]) may expose internal representation by storing an externally mutable object into ToneMap.mXYZtoProPhoto</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" start="24" end="108" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+        <Message>At ToneMap.java:[lines 24-108]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.post.ToneMap</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.pipeline.post.ToneMap" name="&lt;init&gt;" signature="([F[F)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" start="32" end="35" startBytecode="0" endBytecode="122" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java"/>
+      <Message>In method new amirz.dngprocessor.pipeline.post.ToneMap(float[], float[])</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.pipeline.post.ToneMap" name="mXYZtoProPhoto" signature="[F" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+        <Message>In ToneMap.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.post.ToneMap.mXYZtoProPhoto</Message>
+    </Field>
+    <LocalVariable name="XYZtoProPhoto" register="1" pc="28" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named XYZtoProPhoto</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true" start="33" end="33" startBytecode="28" endBytecode="28" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+      <Message>At ToneMap.java:[line 33]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="1dd6e72ab670fc99ff6b04560f9a5784" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: amirz.dngprocessor.pipeline.post.ToneMap.ditherSize; should this field be static?</LongMessage>
+    <Class classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" start="24" end="108" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+        <Message>At ToneMap.java:[lines 24-108]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.pipeline.post.ToneMap</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.pipeline.post.ToneMap" name="ditherSize" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+        <Message>In ToneMap.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.pipeline.post.ToneMap.ditherSize</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.pipeline.post.ToneMap" primary="true" start="27" end="27" startBytecode="15" endBytecode="15" sourcefile="ToneMap.java" sourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java" relSourcepath="amirz/dngprocessor/pipeline/post/ToneMap.java">
+      <Message>At ToneMap.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE" priority="1" rank="14" abbrev="NP" category="STYLE" instanceHash="67bc6d97ab7ed3647810d89921eb2587" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="476">
+    <ShortMessage>Parameter must be non-null but is marked as nullable</ShortMessage>
+    <LongMessage>intent must be non-null but is marked as nullable</LongMessage>
+    <Class classname="amirz.dngprocessor.scheduler.DngParseService" primary="true">
+      <SourceLine classname="amirz.dngprocessor.scheduler.DngParseService" start="28" end="88" sourcefile="DngParseService.java" sourcepath="amirz/dngprocessor/scheduler/DngParseService.java" relSourcepath="amirz/dngprocessor/scheduler/DngParseService.java">
+        <Message>At DngParseService.java:[lines 28-88]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.scheduler.DngParseService</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.scheduler.DngParseService" name="onHandleIntent" signature="(Landroid/content/Intent;)V" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.scheduler.DngParseService" start="46" end="83" startBytecode="0" endBytecode="697" sourcefile="DngParseService.java" sourcepath="amirz/dngprocessor/scheduler/DngParseService.java" relSourcepath="amirz/dngprocessor/scheduler/DngParseService.java"/>
+      <Message>In method amirz.dngprocessor.scheduler.DngParseService.onHandleIntent(Intent)</Message>
+    </Method>
+    <LocalVariable name="intent" register="1" pc="0" role="LOCAL_VARIABLE_PARAMETER_NAMED">
+      <Message>Parameter intent</Message>
+    </LocalVariable>
+    <SourceLine classname="amirz.dngprocessor.scheduler.DngParseService" start="46" end="83" startBytecode="0" endBytecode="697" sourcefile="DngParseService.java" sourcepath="amirz/dngprocessor/scheduler/DngParseService.java" relSourcepath="amirz/dngprocessor/scheduler/DngParseService.java" synthetic="true">
+      <Message>At DngParseService.java:[lines 46-83]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_MUTABLE_ARRAY" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="6dfbe5bf85abe57826bb084ca22b715c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Field is a mutable array</ShortMessage>
+    <LongMessage>amirz.dngprocessor.util.Constants.DIAGONAL is a mutable array</LongMessage>
+    <Class classname="amirz.dngprocessor.util.Constants" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.Constants" start="3" end="23" sourcefile="Constants.java" sourcepath="amirz/dngprocessor/util/Constants.java" relSourcepath="amirz/dngprocessor/util/Constants.java">
+        <Message>At Constants.java:[lines 3-23]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.util.Constants</Message>
+    </Class>
+    <Field classname="amirz.dngprocessor.util.Constants" name="DIAGONAL" signature="[F" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.Constants" sourcefile="Constants.java" sourcepath="amirz/dngprocessor/util/Constants.java" relSourcepath="amirz/dngprocessor/util/Constants.java">
+        <Message>In Constants.java</Message>
+      </SourceLine>
+      <Message>Field amirz.dngprocessor.util.Constants.DIAGONAL</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.util.Constants" primary="true" start="23" end="23" startBytecode="153" endBytecode="153" sourcefile="Constants.java" sourcepath="amirz/dngprocessor/util/Constants.java" relSourcepath="amirz/dngprocessor/util/Constants.java">
+      <Message>At Constants.java:[line 23]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="99fce07196e7f184704247577da31a34" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="173">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in amirz.dngprocessor.util.ShaderLoader.readRawInternal(int, boolean): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="amirz.dngprocessor.util.ShaderLoader" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" start="19" end="71" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java">
+        <Message>At ShaderLoader.java:[lines 19-71]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.util.ShaderLoader</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.util.ShaderLoader" name="readRawInternal" signature="(IZ)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" start="58" end="71" startBytecode="0" endBytecode="503" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java"/>
+      <Message>In method amirz.dngprocessor.util.ShaderLoader.readRawInternal(int, boolean)</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="69" end="69" startBytecode="0" endBytecode="65" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" primary="true" start="59" end="59" startBytecode="14" endBytecode="14" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java">
+      <Message>At ShaderLoader.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="LI_LAZY_INIT_UPDATE_STATIC" priority="2" rank="8" abbrev="LI" category="MT_CORRECTNESS" instanceHash="6232d2ae95c3b7a81ab50ae49bca6a84" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="543">
+    <ShortMessage>Incorrect lazy initialization and update of static field</ShortMessage>
+    <LongMessage>Incorrect lazy initialization and update of static field amirz.dngprocessor.util.ShaderLoader.sInstance in amirz.dngprocessor.util.ShaderLoader.getInstance(Context)</LongMessage>
+    <Class classname="amirz.dngprocessor.util.ShaderLoader" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" start="19" end="71" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java">
+        <Message>At ShaderLoader.java:[lines 19-71]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.util.ShaderLoader</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.util.ShaderLoader" name="getInstance" signature="(Landroid/content/Context;)Lamirz/dngprocessor/util/ShaderLoader;" isStatic="true" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" start="19" end="32" startBytecode="0" endBytecode="46" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java"/>
+      <Message>In method amirz.dngprocessor.util.ShaderLoader.getInstance(Context)</Message>
+    </Method>
+    <Field classname="amirz.dngprocessor.util.ShaderLoader" name="sInstance" signature="Lamirz/dngprocessor/util/ShaderLoader;" isStatic="true" primary="true" role="FIELD_ON">
+      <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java">
+        <Message>In ShaderLoader.java</Message>
+      </SourceLine>
+      <Message>On field amirz.dngprocessor.util.ShaderLoader.sInstance</Message>
+    </Field>
+    <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" primary="true" start="19" end="20" startBytecode="0" endBytecode="20" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java">
+      <Message>At ShaderLoader.java:[lines 19-20]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="4a9c14ca439077a3c75e9e19a69db5ca" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="459">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>amirz.dngprocessor.util.ShaderLoader.readRawInternal(int, boolean) may fail to close stream</LongMessage>
+    <Class classname="amirz.dngprocessor.util.ShaderLoader" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" start="19" end="71" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java">
+        <Message>At ShaderLoader.java:[lines 19-71]</Message>
+      </SourceLine>
+      <Message>In class amirz.dngprocessor.util.ShaderLoader</Message>
+    </Class>
+    <Method classname="amirz.dngprocessor.util.ShaderLoader" name="readRawInternal" signature="(IZ)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" start="58" end="71" startBytecode="0" endBytecode="68" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java"/>
+      <Message>In method amirz.dngprocessor.util.ShaderLoader.readRawInternal(int, boolean)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Reader;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Reader" start="60" end="202" sourcefile="Reader.java" sourcepath="java/io/Reader.java">
+        <Message>At Reader.java:[lines 60-202]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Reader </Message>
+    </Type>
+    <SourceLine classname="amirz.dngprocessor.util.ShaderLoader" primary="true" start="60" end="60" startBytecode="19" endBytecode="19" sourcefile="ShaderLoader.java" sourcepath="amirz/dngprocessor/util/ShaderLoader.java" relSourcepath="amirz/dngprocessor/util/ShaderLoader.java">
+      <Message>At ShaderLoader.java:[line 60]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" abbrev="PA" category="BAD_PRACTICE" cweid="766">
+    <ShortDescription>Primitive field is public</ShortDescription>
+    <Details><![CDATA[
+      
+    <p>
+    <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ01-J.+Limit+accessibility+of+fields">SEI CERT rule OBJ01-J</a> requires that accessibility to fields must be limited.
+    Otherwise, the values of the fields may be manipulated from outside the class, which may be unexpected or
+    undesired behaviour.
+    In general, requiring that no fields are allowed to be public is overkill and unrealistic. Even
+    the rule mentions that final fields may be public. Besides final fields, there may be other
+    usages for public fields: some public fields may serve as "flags" that affect the behavior of
+    the class. Such flag fields are expected to be read by the current instance (or the current
+    class, in case of static fields), but written by others. If a field is both written by the
+    methods of the current instance (or the current class, in case of static fields) and from the
+    outside, the code is suspicious. Consider making these fields private and provide appropriate
+    setters, if necessary. Please note that constructors, initializers and finalizers are
+    exceptions, if only they write the field inside the class, the field is not considered as
+    written by the class itself.</p>
+    <p>See <a href="https://cwe.mitre.org/data/definitions/766.html">CWE-766: Critical Data Element Declared Public</a>.</p>
+    
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" abbrev="UrF" category="STYLE" cweid="563">
+    <ShortDescription>Unread public/protected field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never read.&nbsp;
+The field is public or protected, so perhaps
+    it is intended to be used with classes not seen as part of the analysis. If not,
+consider removing it from the class.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SIC_INNER_SHOULD_BE_STATIC" abbrev="SIC" category="PERFORMANCE">
+    <ShortDescription>Should be a static inner class</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" abbrev="UuF" category="STYLE" cweid="563">
+    <ShortDescription>Unused public or protected field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never used.&nbsp;
+The field is public or protected, so perhaps
+    it is intended to be used with classes not seen as part of the analysis. If not,
+consider removing it from the class.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/563.html">CWE-563: Assignment to Variable without Use</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD" abbrev="UwF" category="STYLE" cweid="457">
+    <ShortDescription>Unwritten public or protected field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> No writes were seen to this public/protected field.&nbsp; All reads of it will return the default
+value. Check for errors (should it have been initialized?), or remove it if it is useless.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/457.html">CWE-457: Use of Uninitialized Variable</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UC_USELESS_OBJECT" abbrev="UC" category="STYLE">
+    <ShortDescription>Useless object created</ShortDescription>
+    <Details><![CDATA[
+
+<p>Our analysis shows that this object is useless.
+It's created and modified, but its value never goes outside the method or produces any side effect.
+Either there is a mistake and object was intended to be used, or it can be removed.</p>
+<p>This analysis rarely produces false-positives. Common false-positive cases include:</p>
+<p>- This object used to implicitly throw some obscure exception.</p>
+<p>- This object used as a stub to generalize the code.</p>
+<p>- This object used to hold strong references to weak/soft-referenced objects.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_EXPOSE_REP" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Public static method may expose internal representation by returning a mutable object or array</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A public static method returns a reference to a mutable object or
+   an array that is part of the static state of the class.
+   Any code that calls this method can freely modify
+   the underlying array.
+   One fix is to return a copy of the array.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_MUTABLE_ARRAY" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Field is a mutable array</ShortDescription>
+    <Details><![CDATA[
+
+<p> A static final field references an array
+   and can be accessed by malicious code or
+        by accident from another package.
+   This code can freely modify the contents of the array.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_PKGPROTECT" abbrev="MS" category="MALICIOUS_CODE" cweid="607">
+    <ShortDescription>Field should be package protected</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/607.html">CWE-607: Public Static Final Field References Mutable Object</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="CT_CONSTRUCTOR_THROW" abbrev="CT" category="BAD_PRACTICE">
+    <ShortDescription>Be wary of letting constructors throw exceptions.</ShortDescription>
+    <Details><![CDATA[
+      
+            <p>Classes that throw exceptions in their constructors are vulnerable to Finalizer attacks</p>
+
+            <p>A finalizer attack can be prevented, by declaring the class final, using an empty finalizer declared as final, or by a clever use of a private constructor.</p>
+
+            <p>See <a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ11-J.+Be+wary+of+letting+constructors+throw+exceptions"><code>SEI CERT Rule OBJ-11</code></a>
+            for more information.
+            </p>
+            
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="LI_LAZY_INIT_UPDATE_STATIC" abbrev="LI" category="MT_CORRECTNESS" cweid="543">
+    <ShortDescription>Incorrect lazy initialization and update of static field</ShortDescription>
+    <Details><![CDATA[
+
+<p> This method contains an unsynchronized lazy initialization of a static field.
+After the field is set, the object stored into that location is further updated or accessed.
+The setting of the field is visible to other threads as soon as it is set. If the
+further accesses in the method that set the field serve to initialize the object, then
+you have a <em>very serious</em> multithreading bug, unless something else prevents
+any other thread from accessing the stored object until it is fully initialized.
+</p>
+<p>Even if you feel confident that the method is never called by multiple
+threads, it might be better to not set the static field until the value
+you are setting it to is fully populated/initialized.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/543.html">CWE-543: Use of Singleton Pattern Without Synchronization in a Multithreaded Context</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" abbrev="SING" category="CORRECTNESS" cweid="543">
+    <ShortDescription>Instance-getter method of class using singleton design pattern is not synchronized.</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+        Instance-getter method of class using singleton design pattern is not synchronized. When this method is invoked by two or more threads simultaneously,
+        multiple instantiation of a singleton class becomes possible.<br><br>
+
+        For more information, see: <a href="https://wiki.sei.cmu.edu/confluence/display/java/MSC07-J.+Prevent+multiple+instantiations+of+singleton+objects">SEI CERT MSC07-J</a>, and
+        <a href="https://cwe.mitre.org/data/definitions/543.html">CWE-543: Use of Singleton Pattern Without Synchronization in a Multithreaded Context</a>.
+        </p>
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE" abbrev="NP" category="STYLE">
+    <ShortDescription>Parameter must be non-null but is marked as nullable</ShortDescription>
+    <Details><![CDATA[
+
+<p> This parameter is always used in a way that requires it to be non-null,
+but the parameter is explicitly annotated as being Nullable. Either the use
+of the parameter or the annotation is wrong.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/374.html">CWE-374: Passing Mutable Objects to an Untrusted Method</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR" abbrev="SING" category="CORRECTNESS" cweid="543">
+    <ShortDescription>Class using singleton design pattern has non-private constructor.</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+        This class is using singleton design pattern and has non-private constructor (please note that a default constructor might exist which is not private). Given that, it is possible to create a copy of the object, thus violating the singleton pattern.<br>
+        The easier solution would be making the constructor private.<br><br>
+
+        For more information, see: <a href="https://wiki.sei.cmu.edu/confluence/display/java/MSC07-J.+Prevent+multiple+instantiations+of+singleton+objects">SEI CERT MSC07-J</a>, and
+        <a href="https://cwe.mitre.org/data/definitions/543.html">CWE-543: Use of Singleton Pattern Without Synchronization in a Multithreaded Context</a>.
+        </p>
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N" cweid="173">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/173.html">CWE-173: Improper Handling of Alternate Encoding</a>.
+</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE" cweid="478">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.</p>
+  <p>See <a href="https://cwe.mitre.org/data/definitions/478.html">CWE-478: Missing Default Case in Multiple Condition Expression</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE" cweid="459">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+<p>See <a href="https://cwe.mitre.org/data/definitions/459.html">CWE-459: Incomplete Cleanup</a>.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="UwF">
+    <Description>Unwritten field</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="UuF">
+    <Description>Unused field</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="SING">
+    <Description>Singleton problems</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="SIC">
+    <Description>Inner class could be made static</Description>
+  </BugCode>
+  <BugCode abbrev="UC">
+    <Description>Useless code</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <BugCode abbrev="CT">
+    <Description>Constructor throws</Description>
+  </BugCode>
+  <BugCode abbrev="PA">
+    <Description>Public Attribute</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="LI">
+    <Description>Unsynchronized Lazy Initialization</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="11">
+    <MissingClass>amirz.dngprocessor.R</MissingClass>
+    <MissingClass>amirz.dngprocessor.R$bool</MissingClass>
+    <MissingClass>amirz.dngprocessor.R$drawable</MissingClass>
+    <MissingClass>amirz.dngprocessor.R$integer</MissingClass>
+    <MissingClass>amirz.dngprocessor.R$raw</MissingClass>
+    <MissingClass>amirz.dngprocessor.R$string</MissingClass>
+    <MissingClass>amirz.dngprocessor.R$xml</MissingClass>
+    <MissingClass>android.support.annotation.Nullable</MissingClass>
+    <MissingClass>android.support.media.ExifInterface</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 05:25:23 +0400" total_classes="90" referenced_classes="329" total_bugs="65" total_size="3041" num_packages="16" java_version="17.0.16" vm_version="17.0.16+8-LTS" cpu_seconds="6.71" clock_seconds="1.43" peak_mbytes="354.41" alloc_mbytes="768.00" gc_seconds="0.03" priority_2="61" priority_1="4">
+    <FileStats path="amirz/dngprocessor/BuildConfig.java" bugCount="0" size="10"/>
+    <FileStats path="amirz/dngprocessor/MainActivity.java" bugCount="1" size="53" bugHash="c7b09136b01344c42d59a63d40f1eb2b"/>
+    <FileStats path="amirz/dngprocessor/Preferences.java" bugCount="1" size="100" bugHash="3cd95288c292c416723292593726493d"/>
+    <FileStats path="amirz/dngprocessor/colorspace/ColorspaceConstants.java" bugCount="5" size="30" bugHash="2b2c39d66a83669a24dbddadb85730c2"/>
+    <FileStats path="amirz/dngprocessor/colorspace/ColorspaceConverter.java" bugCount="1" size="252" bugHash="b0cbee7ec3eecbceb9622470c1970b6a"/>
+    <FileStats path="amirz/dngprocessor/device/DeviceMap.java" bugCount="0" size="28"/>
+    <FileStats path="amirz/dngprocessor/device/Generic.java" bugCount="0" size="27"/>
+    <FileStats path="amirz/dngprocessor/device/Mi9.java" bugCount="0" size="32"/>
+    <FileStats path="amirz/dngprocessor/device/MotoG6.java" bugCount="0" size="34"/>
+    <FileStats path="amirz/dngprocessor/device/OnePlus.java" bugCount="0" size="24"/>
+    <FileStats path="amirz/dngprocessor/device/OnePlus3.java" bugCount="0" size="22"/>
+    <FileStats path="amirz/dngprocessor/device/OnePlus5.java" bugCount="0" size="24"/>
+    <FileStats path="amirz/dngprocessor/device/OnePlus6.java" bugCount="0" size="13"/>
+    <FileStats path="amirz/dngprocessor/device/OnePlus7.java" bugCount="0" size="16"/>
+    <FileStats path="amirz/dngprocessor/device/Redmi.java" bugCount="0" size="5"/>
+    <FileStats path="amirz/dngprocessor/device/Xiaomi.java" bugCount="0" size="18"/>
+    <FileStats path="amirz/dngprocessor/gl/GLCore.java" bugCount="4" size="60" bugHash="86d40f5cbcbccc532394f24de28047b2"/>
+    <FileStats path="amirz/dngprocessor/gl/GLPrograms.java" bugCount="0" size="130"/>
+    <FileStats path="amirz/dngprocessor/gl/GLResource.java" bugCount="0" size="4"/>
+    <FileStats path="amirz/dngprocessor/gl/SquareModel.java" bugCount="0" size="21"/>
+    <FileStats path="amirz/dngprocessor/gl/Texture.java" bugCount="1" size="149" bugHash="f0f950ef33f8b4b143edb0b058a15bfb"/>
+    <FileStats path="amirz/dngprocessor/gl/TexturePool.java" bugCount="0" size="50"/>
+    <FileStats path="amirz/dngprocessor/math/BlockDivider.java" bugCount="0" size="19"/>
+    <FileStats path="amirz/dngprocessor/math/Convolve.java" bugCount="0" size="19"/>
+    <FileStats path="amirz/dngprocessor/math/Histogram.java" bugCount="0" size="83"/>
+    <FileStats path="amirz/dngprocessor/params/ProcessParams.java" bugCount="4" size="33" bugHash="955308b5a8b2fa714aae488fe4f50c1b"/>
+    <FileStats path="amirz/dngprocessor/params/SensorParams.java" bugCount="0" size="28"/>
+    <FileStats path="amirz/dngprocessor/parser/ByteReader.java" bugCount="0" size="45"/>
+    <FileStats path="amirz/dngprocessor/parser/CFAPattern.java" bugCount="0" size="21"/>
+    <FileStats path="amirz/dngprocessor/parser/DngParser.java" bugCount="5" size="191" bugHash="85ef71656140233010e2c09ede28732c"/>
+    <FileStats path="amirz/dngprocessor/parser/OpParser.java" bugCount="11" size="60" bugHash="77630e8eac69acbffad36064ec9e73c2"/>
+    <FileStats path="amirz/dngprocessor/parser/TIFF.java" bugCount="0" size="77"/>
+    <FileStats path="amirz/dngprocessor/parser/TIFFTag.java" bugCount="1" size="82" bugHash="35e1083b389cedd42381a4ff2564b676"/>
+    <FileStats path="amirz/dngprocessor/parser/TagParser.java" bugCount="0" size="37"/>
+    <FileStats path="amirz/dngprocessor/pipeline/GLBlockProcessing.java" bugCount="1" size="35" bugHash="83bd76d38101934e1f79230c038394b0"/>
+    <FileStats path="amirz/dngprocessor/pipeline/Stage.java" bugCount="1" size="23" bugHash="31e1f79900acd56b9747b482a97491d3"/>
+    <FileStats path="amirz/dngprocessor/pipeline/StagePipeline.java" bugCount="1" size="73" bugHash="1c6395415f3917b8c68c4a79e37f0dfb"/>
+    <FileStats path="amirz/dngprocessor/pipeline/convert/EdgeMirror.java" bugCount="1" size="21" bugHash="99628cd24db5a4c7c7adaf509101b674"/>
+    <FileStats path="amirz/dngprocessor/pipeline/convert/GreenDemosaic.java" bugCount="1" size="19" bugHash="fa68d553eed1d0e944a7226cb2e97f19"/>
+    <FileStats path="amirz/dngprocessor/pipeline/convert/PreProcess.java" bugCount="3" size="51" bugHash="ddd5c220fe0f7cd98e5355d1d9fbe056"/>
+    <FileStats path="amirz/dngprocessor/pipeline/convert/ToIntermediate.java" bugCount="2" size="34" bugHash="f3c77eecc0d1e2d3d1ca97a7d584d43b"/>
+    <FileStats path="amirz/dngprocessor/pipeline/exposefuse/DoubleExpose.java" bugCount="2" size="25" bugHash="1315c9ad7e367f39267d3de3e184499b"/>
+    <FileStats path="amirz/dngprocessor/pipeline/exposefuse/FuseUtils.java" bugCount="0" size="39"/>
+    <FileStats path="amirz/dngprocessor/pipeline/exposefuse/Laplace.java" bugCount="0" size="54"/>
+    <FileStats path="amirz/dngprocessor/pipeline/exposefuse/Merge.java" bugCount="1" size="59" bugHash="bb335715ffb65dfe2dafd543de06af7e"/>
+    <FileStats path="amirz/dngprocessor/pipeline/intermediate/Analysis.java" bugCount="2" size="57" bugHash="27e245bf58dd2fd286c08493fdee7e0a"/>
+    <FileStats path="amirz/dngprocessor/pipeline/intermediate/BilateralFilter.java" bugCount="1" size="40" bugHash="a755e62d4bf99bb26587dd971df5c088"/>
+    <FileStats path="amirz/dngprocessor/pipeline/intermediate/MergeDetail.java" bugCount="1" size="41" bugHash="085df146bcfadb6990d75f133ef66b38"/>
+    <FileStats path="amirz/dngprocessor/pipeline/noisereduce/Decompose.java" bugCount="0" size="37"/>
+    <FileStats path="amirz/dngprocessor/pipeline/noisereduce/NoiseMap.java" bugCount="1" size="35" bugHash="eb37573b11a32b45efa59f9820eb986a"/>
+    <FileStats path="amirz/dngprocessor/pipeline/noisereduce/NoiseReduce.java" bugCount="1" size="67" bugHash="89343c5c54453d1a0d2d1ef0554fb32a"/>
+    <FileStats path="amirz/dngprocessor/pipeline/post/BlurLCE.java" bugCount="3" size="68" bugHash="d7cf4f70e2e4594af43089ff0761eb8b"/>
+    <FileStats path="amirz/dngprocessor/pipeline/post/ToneMap.java" bugCount="4" size="62" bugHash="736e7ba4074b2212255a505e7afbc849"/>
+    <FileStats path="amirz/dngprocessor/scheduler/BootReceiver.java" bugCount="0" size="7"/>
+    <FileStats path="amirz/dngprocessor/scheduler/DngParseService.java" bugCount="1" size="50" bugHash="68300dd95853af4488dd3e0baf7619b4"/>
+    <FileStats path="amirz/dngprocessor/scheduler/DngScanJob.java" bugCount="0" size="49"/>
+    <FileStats path="amirz/dngprocessor/util/Constants.java" bugCount="1" size="15" bugHash="9d8807d735320e13eda7c42df1c208de"/>
+    <FileStats path="amirz/dngprocessor/util/NotifHandler.java" bugCount="0" size="33"/>
+    <FileStats path="amirz/dngprocessor/util/Path.java" bugCount="0" size="70"/>
+    <FileStats path="amirz/dngprocessor/util/ShaderLoader.java" bugCount="3" size="44" bugHash="72e94afb96306998bd4e36ce425b0dd0"/>
+    <FileStats path="amirz/dngprocessor/util/Utilities.java" bugCount="0" size="14"/>
+    <FileStats path="amirz/library/settings/GlobalPreferences.java" bugCount="0" size="113"/>
+    <FileStats path="amirz/library/settings/TextPreference.java" bugCount="0" size="9"/>
+    <PackageStats package="amirz.dngprocessor" total_bugs="2" total_types="5" total_size="163" priority_2="2">
+      <ClassStats class="amirz.dngprocessor.BuildConfig" sourceFile="BuildConfig.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.MainActivity" sourceFile="MainActivity.java" interface="false" size="53" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.Preferences" sourceFile="Preferences.java" interface="false" size="50" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.Preferences$Fragment" sourceFile="Preferences.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.Preferences$PostProcessMode" sourceFile="Preferences.java" interface="false" size="13" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.colorspace" total_bugs="6" total_types="2" total_size="282" priority_2="6">
+      <ClassStats class="amirz.dngprocessor.colorspace.ColorspaceConstants" sourceFile="ColorspaceConstants.java" interface="false" size="30" bugs="5" priority_2="5"/>
+      <ClassStats class="amirz.dngprocessor.colorspace.ColorspaceConverter" sourceFile="ColorspaceConverter.java" interface="false" size="252" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.device" total_bugs="0" total_types="12" total_size="243">
+      <ClassStats class="amirz.dngprocessor.device.DeviceMap" sourceFile="DeviceMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.DeviceMap$Device" sourceFile="DeviceMap.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.Generic" sourceFile="Generic.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.Mi9" sourceFile="Mi9.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.MotoG6" sourceFile="MotoG6.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.OnePlus" sourceFile="OnePlus.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.OnePlus3" sourceFile="OnePlus3.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.OnePlus5" sourceFile="OnePlus5.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.OnePlus6" sourceFile="OnePlus6.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.OnePlus7" sourceFile="OnePlus7.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.Redmi" sourceFile="Redmi.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.device.Xiaomi" sourceFile="Xiaomi.java" interface="false" size="18" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.gl" total_bugs="5" total_types="9" total_size="414" priority_2="5">
+      <ClassStats class="amirz.dngprocessor.gl.GLCore" sourceFile="GLCore.java" interface="false" size="60" bugs="4" priority_2="4"/>
+      <ClassStats class="amirz.dngprocessor.gl.GLPrograms" sourceFile="GLPrograms.java" interface="false" size="130" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.gl.GLResource" sourceFile="GLResource.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.gl.SquareModel" sourceFile="SquareModel.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.gl.Texture" sourceFile="Texture.java" interface="false" size="120" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.gl.Texture$1" sourceFile="Texture.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.gl.Texture$Config" sourceFile="Texture.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.gl.Texture$Format" sourceFile="Texture.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.gl.TexturePool" sourceFile="TexturePool.java" interface="false" size="50" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.math" total_bugs="0" total_types="3" total_size="121">
+      <ClassStats class="amirz.dngprocessor.math.BlockDivider" sourceFile="BlockDivider.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.math.Convolve" sourceFile="Convolve.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.math.Histogram" sourceFile="Histogram.java" interface="false" size="83" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.params" total_bugs="4" total_types="3" total_size="61" priority_2="4">
+      <ClassStats class="amirz.dngprocessor.params.ProcessParams" sourceFile="ProcessParams.java" interface="false" size="29" bugs="4" priority_2="4"/>
+      <ClassStats class="amirz.dngprocessor.params.ProcessParams$1" sourceFile="ProcessParams.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.params.SensorParams" sourceFile="SensorParams.java" interface="false" size="28" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.parser" total_bugs="17" total_types="14" total_size="513" priority_2="16" priority_1="1">
+      <ClassStats class="amirz.dngprocessor.parser.ByteReader" sourceFile="ByteReader.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.ByteReader$1" sourceFile="ByteReader.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.ByteReader$ReaderWithExif" sourceFile="ByteReader.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.CFAPattern" sourceFile="CFAPattern.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.DngParser" sourceFile="DngParser.java" interface="false" size="182" bugs="4" priority_2="3" priority_1="1"/>
+      <ClassStats class="amirz.dngprocessor.parser.DngParser$1" sourceFile="DngParser.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.DngParser$ParseException" sourceFile="DngParser.java" interface="false" size="8" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.parser.OpParser" sourceFile="OpParser.java" interface="false" size="41" bugs="11" priority_2="11"/>
+      <ClassStats class="amirz.dngprocessor.parser.OpParser$GainMap" sourceFile="OpParser.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.TIFF" sourceFile="TIFF.java" interface="false" size="77" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.TIFFTag" sourceFile="TIFFTag.java" interface="false" size="70" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.parser.TIFFTag$1" sourceFile="TIFFTag.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.TIFFTag$TIFFTagException" sourceFile="TIFFTag.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.parser.TagParser" sourceFile="TagParser.java" interface="false" size="37" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.pipeline" total_bugs="3" total_types="6" total_size="131" priority_2="3">
+      <ClassStats class="amirz.dngprocessor.pipeline.GLBlockProcessing" sourceFile="GLBlockProcessing.java" interface="false" size="35" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.Stage" sourceFile="Stage.java" interface="false" size="23" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.StagePipeline" sourceFile="StagePipeline.java" interface="false" size="56" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.StagePipeline$1" sourceFile="StagePipeline.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.StagePipeline$OnProgressReporter" sourceFile="StagePipeline.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.StagePipeline$StageMap" sourceFile="StagePipeline.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.pipeline.convert" total_bugs="7" total_types="4" total_size="125" priority_2="7">
+      <ClassStats class="amirz.dngprocessor.pipeline.convert.EdgeMirror" sourceFile="EdgeMirror.java" interface="false" size="21" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.convert.GreenDemosaic" sourceFile="GreenDemosaic.java" interface="false" size="19" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.convert.PreProcess" sourceFile="PreProcess.java" interface="false" size="51" bugs="3" priority_2="3"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.convert.ToIntermediate" sourceFile="ToIntermediate.java" interface="false" size="34" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.pipeline.exposefuse" total_bugs="3" total_types="5" total_size="177" priority_2="3">
+      <ClassStats class="amirz.dngprocessor.pipeline.exposefuse.DoubleExpose" sourceFile="DoubleExpose.java" interface="false" size="25" bugs="2" priority_2="2"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.exposefuse.FuseUtils" sourceFile="FuseUtils.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.exposefuse.Laplace" sourceFile="Laplace.java" interface="false" size="49" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.exposefuse.Laplace$Pyramid" sourceFile="Laplace.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.exposefuse.Merge" sourceFile="Merge.java" interface="false" size="59" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.pipeline.intermediate" total_bugs="4" total_types="3" total_size="138" priority_2="4">
+      <ClassStats class="amirz.dngprocessor.pipeline.intermediate.Analysis" sourceFile="Analysis.java" interface="false" size="57" bugs="2" priority_2="2"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.intermediate.BilateralFilter" sourceFile="BilateralFilter.java" interface="false" size="40" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.intermediate.MergeDetail" sourceFile="MergeDetail.java" interface="false" size="41" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.pipeline.noisereduce" total_bugs="2" total_types="4" total_size="139" priority_2="2">
+      <ClassStats class="amirz.dngprocessor.pipeline.noisereduce.Decompose" sourceFile="Decompose.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.noisereduce.NoiseMap" sourceFile="NoiseMap.java" interface="false" size="35" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce" sourceFile="NoiseReduce.java" interface="false" size="48" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.noisereduce.NoiseReduce$NRParams" sourceFile="NoiseReduce.java" interface="false" size="19" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.pipeline.post" total_bugs="7" total_types="2" total_size="130" priority_2="6" priority_1="1">
+      <ClassStats class="amirz.dngprocessor.pipeline.post.BlurLCE" sourceFile="BlurLCE.java" interface="false" size="68" bugs="3" priority_2="3"/>
+      <ClassStats class="amirz.dngprocessor.pipeline.post.ToneMap" sourceFile="ToneMap.java" interface="false" size="62" bugs="4" priority_2="3" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.scheduler" total_bugs="1" total_types="3" total_size="106" priority_1="1">
+      <ClassStats class="amirz.dngprocessor.scheduler.BootReceiver" sourceFile="BootReceiver.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.scheduler.DngParseService" sourceFile="DngParseService.java" interface="false" size="50" bugs="1" priority_1="1"/>
+      <ClassStats class="amirz.dngprocessor.scheduler.DngScanJob" sourceFile="DngScanJob.java" interface="false" size="49" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.dngprocessor.util" total_bugs="4" total_types="5" total_size="176" priority_2="3" priority_1="1">
+      <ClassStats class="amirz.dngprocessor.util.Constants" sourceFile="Constants.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="amirz.dngprocessor.util.NotifHandler" sourceFile="NotifHandler.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.util.Path" sourceFile="Path.java" interface="false" size="70" bugs="0"/>
+      <ClassStats class="amirz.dngprocessor.util.ShaderLoader" sourceFile="ShaderLoader.java" interface="false" size="44" bugs="3" priority_2="2" priority_1="1"/>
+      <ClassStats class="amirz.dngprocessor.util.Utilities" sourceFile="Utilities.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="amirz.library.settings" total_bugs="0" total_types="10" total_size="122">
+      <ClassStats class="amirz.library.settings.GlobalPreferences" sourceFile="GlobalPreferences.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$1" sourceFile="GlobalPreferences.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$BooleanRef" sourceFile="GlobalPreferences.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$FloatRef" sourceFile="GlobalPreferences.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$IntegerRef" sourceFile="GlobalPreferences.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$Ref" sourceFile="GlobalPreferences.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$ResetContext" sourceFile="GlobalPreferences.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$ResetContextFunc" sourceFile="GlobalPreferences.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="amirz.library.settings.GlobalPreferences$StringRef" sourceFile="GlobalPreferences.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="amirz.library.settings.TextPreference" sourceFile="TextPreference.java" interface="false" size="9" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="73" invocations="390" avgMicrosecondsPerInvocation="188" maxMicrosecondsPerInvocation="8270" standardDeviationMicrosecondsPerInvocation="694"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="72" invocations="367" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="6635" standardDeviationMicrosecondsPerInvocation="645"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="68" invocations="374" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="12700" standardDeviationMicrosecondsPerInvocation="816"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="64" invocations="378" avgMicrosecondsPerInvocation="171" maxMicrosecondsPerInvocation="5501" standardDeviationMicrosecondsPerInvocation="505"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="64" invocations="729" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="5283" standardDeviationMicrosecondsPerInvocation="257"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="51" invocations="381" avgMicrosecondsPerInvocation="134" maxMicrosecondsPerInvocation="4060" standardDeviationMicrosecondsPerInvocation="369"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="41" invocations="387" avgMicrosecondsPerInvocation="107" maxMicrosecondsPerInvocation="3450" standardDeviationMicrosecondsPerInvocation="274"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="39" invocations="329" avgMicrosecondsPerInvocation="118" maxMicrosecondsPerInvocation="3066" standardDeviationMicrosecondsPerInvocation="269"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="33" invocations="309" avgMicrosecondsPerInvocation="107" maxMicrosecondsPerInvocation="3205" standardDeviationMicrosecondsPerInvocation="262"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="30" invocations="90" avgMicrosecondsPerInvocation="335" maxMicrosecondsPerInvocation="8856" standardDeviationMicrosecondsPerInvocation="1044"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="23" invocations="389" avgMicrosecondsPerInvocation="59" maxMicrosecondsPerInvocation="3928" standardDeviationMicrosecondsPerInvocation="238"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="22" invocations="387" avgMicrosecondsPerInvocation="59" maxMicrosecondsPerInvocation="6889" standardDeviationMicrosecondsPerInvocation="357"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="21" invocations="329" avgMicrosecondsPerInvocation="65" maxMicrosecondsPerInvocation="1333" standardDeviationMicrosecondsPerInvocation="148"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="20" invocations="378" avgMicrosecondsPerInvocation="52" maxMicrosecondsPerInvocation="2282" standardDeviationMicrosecondsPerInvocation="163"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="18" invocations="744" avgMicrosecondsPerInvocation="25" maxMicrosecondsPerInvocation="298" standardDeviationMicrosecondsPerInvocation="22"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="18" invocations="90" avgMicrosecondsPerInvocation="203" maxMicrosecondsPerInvocation="5201" standardDeviationMicrosecondsPerInvocation="555"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="16" invocations="423" avgMicrosecondsPerInvocation="39" maxMicrosecondsPerInvocation="1340" standardDeviationMicrosecondsPerInvocation="123"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="15" invocations="329" avgMicrosecondsPerInvocation="48" maxMicrosecondsPerInvocation="1145" standardDeviationMicrosecondsPerInvocation="114"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="15" invocations="90" avgMicrosecondsPerInvocation="169" maxMicrosecondsPerInvocation="1360" standardDeviationMicrosecondsPerInvocation="208"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="14" invocations="329" avgMicrosecondsPerInvocation="45" maxMicrosecondsPerInvocation="3056" standardDeviationMicrosecondsPerInvocation="189"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="14" invocations="329" avgMicrosecondsPerInvocation="44" maxMicrosecondsPerInvocation="1591" standardDeviationMicrosecondsPerInvocation="139"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="14" invocations="329" avgMicrosecondsPerInvocation="43" maxMicrosecondsPerInvocation="1147" standardDeviationMicrosecondsPerInvocation="125"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="13" invocations="387" avgMicrosecondsPerInvocation="35" maxMicrosecondsPerInvocation="2212" standardDeviationMicrosecondsPerInvocation="174"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="12" invocations="90" avgMicrosecondsPerInvocation="143" maxMicrosecondsPerInvocation="1542" standardDeviationMicrosecondsPerInvocation="237"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ResourceInMultipleThreadsDetector" totalMilliseconds="12" invocations="90" avgMicrosecondsPerInvocation="135" maxMicrosecondsPerInvocation="1770" standardDeviationMicrosecondsPerInvocation="221"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUselessObjects" totalMilliseconds="11" invocations="90" avgMicrosecondsPerInvocation="130" maxMicrosecondsPerInvocation="1871" standardDeviationMicrosecondsPerInvocation="259"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="11" invocations="349" avgMicrosecondsPerInvocation="31" maxMicrosecondsPerInvocation="743" standardDeviationMicrosecondsPerInvocation="77"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

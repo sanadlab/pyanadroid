@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1762928997203" analysisTimestamp="1762929000151" release="">
+  <Project projectName="">
+    <Jar>/Users/rar9993/AndroidStudioProjects/GPTFlappyBird/NONE_TRANSFORMED_/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes</Jar>
+    <AuxClasspathEntry>/Users/rar9993/Library/Android/sdk/platforms/android-34/android.jar</AuxClasspathEntry>
+    <SrcDir>/Users/rar9993/AndroidStudioProjects/GPTFlappyBird/NONE_TRANSFORMED_/app/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="267d7a9e396d55f13b5be693437bc87" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.sanad.gpt4o.gptflappybird.Bird.getRect() may expose internal representation by returning Bird.rect</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" start="11" end="45" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>At Bird.java:[lines 11-45]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.Bird</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptflappybird.Bird" name="getRect" signature="()Landroid/graphics/Rect;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" start="45" end="45" startBytecode="0" endBytecode="46" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java"/>
+      <Message>In method com.sanad.gpt4o.gptflappybird.Bird.getRect()</Message>
+    </Method>
+    <Field classname="com.sanad.gpt4o.gptflappybird.Bird" name="rect" signature="Landroid/graphics/Rect;" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>In Bird.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.Bird.rect</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true" start="45" end="45" startBytecode="4" endBytecode="4" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+      <Message>At Bird.java:[line 45]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="8ab553e95d6d2837bfb4cbd34b6242af" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.Bird.flapPower; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" start="11" end="45" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>At Bird.java:[lines 11-45]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.Bird</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.Bird" name="flapPower" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>In Bird.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.Bird.flapPower</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true" start="13" end="13" startBytecode="18" endBytecode="18" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+      <Message>At Bird.java:[line 13]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="3250185f24f80d5af0c815fbabee70a7" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.Bird.gravity; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" start="11" end="45" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>At Bird.java:[lines 11-45]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.Bird</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.Bird" name="gravity" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>In Bird.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.Bird.gravity</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true" start="12" end="12" startBytecode="12" endBytecode="12" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+      <Message>At Bird.java:[line 12]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="9a416e2effac71d3ceafd4e90702b012" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.Bird.size; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" start="11" end="45" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>At Bird.java:[lines 11-45]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.Bird</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.Bird" name="size" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+        <Message>In Bird.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.Bird.size</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.Bird" primary="true" start="11" end="11" startBytecode="7" endBytecode="7" sourcefile="Bird.java" sourcepath="com/sanad/gpt4o/gptflappybird/Bird.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Bird.java">
+      <Message>At Bird.java:[line 11]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="c1a12558919b744b5c86222bac00d090" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in com.sanad.gpt4o.gptflappybird.GameView.onTouchEvent(MotionEvent) where default case is missing</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" start="22" end="100" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+        <Message>At GameView.java:[lines 22-100]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.GameView</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptflappybird.GameView" name="onTouchEvent" signature="(Landroid/view/MotionEvent;)Z" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" start="74" end="79" startBytecode="0" endBytecode="102" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java"/>
+      <Message>In method com.sanad.gpt4o.gptflappybird.GameView.onTouchEvent(MotionEvent)</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true" start="74" end="76" startBytecode="4" endBytecode="30" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+      <Message>At GameView.java:[lines 74-76]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="e0eb8e14533c72a7e7147616d823aaec" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.GameView.PIPE_HEIGHT; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" start="22" end="100" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+        <Message>At GameView.java:[lines 22-100]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.GameView" name="PIPE_HEIGHT" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.GameView.PIPE_HEIGHT</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true" start="27" end="27" startBytecode="28" endBytecode="28" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+      <Message>At GameView.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="e4c3d7e0d5c1f5f9e36e30d35fef33d7" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.GameView.PIPE_INTERVAL; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" start="22" end="100" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+        <Message>At GameView.java:[lines 22-100]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.GameView" name="PIPE_INTERVAL" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.GameView.PIPE_INTERVAL</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true" start="25" end="25" startBytecode="14" endBytecode="14" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+      <Message>At GameView.java:[line 25]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="4691259fa964146cc3d683aeaa2cb13b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.GameView.PIPE_WIDTH; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" start="22" end="100" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+        <Message>At GameView.java:[lines 22-100]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.GameView</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.GameView" name="PIPE_WIDTH" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+        <Message>In GameView.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.GameView.PIPE_WIDTH</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.GameView" primary="true" start="26" end="26" startBytecode="21" endBytecode="21" sourcefile="GameView.java" sourcepath="com/sanad/gpt4o/gptflappybird/GameView.java" relSourcepath="com/sanad/gpt4o/gptflappybird/GameView.java">
+      <Message>At GameView.java:[line 26]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="86340791626076eded86facc0d430335" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in new com.sanad.gpt4o.gptflappybird.Pipe(int, int, int, int)</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.Pipe" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" start="14" end="50" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+        <Message>At Pipe.java:[lines 14-50]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.Pipe</Message>
+    </Class>
+    <Method classname="com.sanad.gpt4o.gptflappybird.Pipe" name="&lt;init&gt;" signature="(IIII)V" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" start="21" end="32" startBytecode="0" endBytecode="287" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java"/>
+      <Message>In method new com.sanad.gpt4o.gptflappybird.Pipe(int, int, int, int)</Message>
+    </Method>
+    <Method classname="java.util.Random" name="nextInt" signature="(I)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Random" start="243" end="243" startBytecode="0" endBytecode="61" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+      <Message>Called method java.util.Random.nextInt(int)</Message>
+    </Method>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" primary="true" start="26" end="26" startBytecode="49" endBytecode="49" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+      <Message>At Pipe.java:[line 26]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="71edcfa36577d3199d9ba510885d7c9e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.Pipe.gap; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.Pipe" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" start="14" end="50" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+        <Message>At Pipe.java:[lines 14-50]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.Pipe</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.Pipe" name="gap" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+        <Message>In Pipe.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.Pipe.gap</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" primary="true" start="14" end="14" startBytecode="8" endBytecode="8" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+      <Message>At Pipe.java:[line 14]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" instanceHash="1eebfd5526406f4d15bf5e7f99bfb09e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unread field: should this field be static?</ShortMessage>
+    <LongMessage>Unread field: com.sanad.gpt4o.gptflappybird.Pipe.speed; should this field be static?</LongMessage>
+    <Class classname="com.sanad.gpt4o.gptflappybird.Pipe" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" start="14" end="50" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+        <Message>At Pipe.java:[lines 14-50]</Message>
+      </SourceLine>
+      <Message>In class com.sanad.gpt4o.gptflappybird.Pipe</Message>
+    </Class>
+    <Field classname="com.sanad.gpt4o.gptflappybird.Pipe" name="speed" signature="I" isStatic="false" primary="true">
+      <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+        <Message>In Pipe.java</Message>
+      </SourceLine>
+      <Message>Field com.sanad.gpt4o.gptflappybird.Pipe.speed</Message>
+    </Field>
+    <SourceLine classname="com.sanad.gpt4o.gptflappybird.Pipe" primary="true" start="15" end="15" startBytecode="14" endBytecode="14" sourcefile="Pipe.java" sourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java" relSourcepath="com/sanad/gpt4o/gptflappybird/Pipe.java">
+      <Message>At Pipe.java:[line 15]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription>Unread field: should this field be static?</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class contains an instance final field that
+   is initialized to a compile-time static value.
+   Consider making the field static.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="3">
+    <MissingClass>androidx.appcompat.app.AppCompatActivity</MissingClass>
+    <MissingClass>java.lang.invoke.LambdaMetafactory</MissingClass>
+    <MissingClass>java.rmi.Remote</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 12 Nov 2025 10:29:57 +0400" total_classes="5" referenced_classes="103" total_bugs="11" total_size="156" num_packages="1" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="5.68" clock_seconds="2.64" peak_mbytes="212.24" alloc_mbytes="768.00" gc_seconds="0.01" priority_2="10" priority_1="1">
+    <FileStats path="com/sanad/gpt4o/gptflappybird/Bird.java" bugCount="4" size="38" bugHash="860276ec3f5c00d127f3c4d74cd2ee8e"/>
+    <FileStats path="com/sanad/gpt4o/gptflappybird/GameView.java" bugCount="4" size="71" bugHash="7cb971174c4361348b01933350ee3c61"/>
+    <FileStats path="com/sanad/gpt4o/gptflappybird/MainActivity.java" bugCount="0" size="8"/>
+    <FileStats path="com/sanad/gpt4o/gptflappybird/Pipe.java" bugCount="3" size="39" bugHash="40629ef3c3de8ede2c006e39b2e88803"/>
+    <PackageStats package="com.sanad.gpt4o.gptflappybird" total_bugs="11" total_types="5" total_size="156" priority_2="10" priority_1="1">
+      <ClassStats class="com.sanad.gpt4o.gptflappybird.Bird" sourceFile="Bird.java" interface="false" size="38" bugs="4" priority_2="4"/>
+      <ClassStats class="com.sanad.gpt4o.gptflappybird.GameView" sourceFile="GameView.java" interface="false" size="61" bugs="4" priority_2="4"/>
+      <ClassStats class="com.sanad.gpt4o.gptflappybird.GameView$1" sourceFile="GameView.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptflappybird.MainActivity" sourceFile="MainActivity.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.sanad.gpt4o.gptflappybird.Pipe" sourceFile="Pipe.java" interface="false" size="39" bugs="3" priority_2="2" priority_1="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="371" invocations="440" avgMicrosecondsPerInvocation="844" maxMicrosecondsPerInvocation="42650" standardDeviationMicrosecondsPerInvocation="2834"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="155" invocations="103" avgMicrosecondsPerInvocation="1511" maxMicrosecondsPerInvocation="11376" standardDeviationMicrosecondsPerInvocation="2342"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="97" invocations="135" avgMicrosecondsPerInvocation="724" maxMicrosecondsPerInvocation="8736" standardDeviationMicrosecondsPerInvocation="1392"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="89" invocations="103" avgMicrosecondsPerInvocation="869" maxMicrosecondsPerInvocation="15513" standardDeviationMicrosecondsPerInvocation="2442"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="82" invocations="103" avgMicrosecondsPerInvocation="796" maxMicrosecondsPerInvocation="17192" standardDeviationMicrosecondsPerInvocation="2263"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="80" invocations="22" avgMicrosecondsPerInvocation="3642" maxMicrosecondsPerInvocation="17557" standardDeviationMicrosecondsPerInvocation="4492"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="70" invocations="103" avgMicrosecondsPerInvocation="687" maxMicrosecondsPerInvocation="4797" standardDeviationMicrosecondsPerInvocation="1052"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="69" invocations="5" avgMicrosecondsPerInvocation="13953" maxMicrosecondsPerInvocation="23507" standardDeviationMicrosecondsPerInvocation="7832"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="66" invocations="386" avgMicrosecondsPerInvocation="172" maxMicrosecondsPerInvocation="6076" standardDeviationMicrosecondsPerInvocation="561"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="53" invocations="22" avgMicrosecondsPerInvocation="2412" maxMicrosecondsPerInvocation="12231" standardDeviationMicrosecondsPerInvocation="2960"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="49" invocations="103" avgMicrosecondsPerInvocation="479" maxMicrosecondsPerInvocation="5306" standardDeviationMicrosecondsPerInvocation="1034"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="48" invocations="22" avgMicrosecondsPerInvocation="2207" maxMicrosecondsPerInvocation="15673" standardDeviationMicrosecondsPerInvocation="3576"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="47" invocations="454" avgMicrosecondsPerInvocation="104" maxMicrosecondsPerInvocation="4532" standardDeviationMicrosecondsPerInvocation="300"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="47" invocations="22" avgMicrosecondsPerInvocation="2150" maxMicrosecondsPerInvocation="8081" standardDeviationMicrosecondsPerInvocation="2036"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="42" invocations="5" avgMicrosecondsPerInvocation="8526" maxMicrosecondsPerInvocation="28011" standardDeviationMicrosecondsPerInvocation="10402"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="38" invocations="5" avgMicrosecondsPerInvocation="7714" maxMicrosecondsPerInvocation="15327" standardDeviationMicrosecondsPerInvocation="6253"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="36" invocations="103" avgMicrosecondsPerInvocation="353" maxMicrosecondsPerInvocation="9988" standardDeviationMicrosecondsPerInvocation="1631"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="36" invocations="22" avgMicrosecondsPerInvocation="1645" maxMicrosecondsPerInvocation="10538" standardDeviationMicrosecondsPerInvocation="2600"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="33" invocations="22" avgMicrosecondsPerInvocation="1539" maxMicrosecondsPerInvocation="6771" standardDeviationMicrosecondsPerInvocation="1849"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ResourceInMultipleThreadsDetector" totalMilliseconds="25" invocations="5" avgMicrosecondsPerInvocation="5184" maxMicrosecondsPerInvocation="19045" standardDeviationMicrosecondsPerInvocation="6994"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="25" invocations="22" avgMicrosecondsPerInvocation="1144" maxMicrosecondsPerInvocation="17523" standardDeviationMicrosecondsPerInvocation="3592"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="23" invocations="103" avgMicrosecondsPerInvocation="224" maxMicrosecondsPerInvocation="7655" standardDeviationMicrosecondsPerInvocation="794"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="21" invocations="103" avgMicrosecondsPerInvocation="210" maxMicrosecondsPerInvocation="4167" standardDeviationMicrosecondsPerInvocation="572"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="21" invocations="24" avgMicrosecondsPerInvocation="888" maxMicrosecondsPerInvocation="3662" standardDeviationMicrosecondsPerInvocation="1010"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="19" invocations="5" avgMicrosecondsPerInvocation="3883" maxMicrosecondsPerInvocation="16665" standardDeviationMicrosecondsPerInvocation="6416"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

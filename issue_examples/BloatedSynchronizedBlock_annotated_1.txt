@@ -1,0 +1,25 @@
+private final List<String> sharedList = new ArrayList<>();
+public void addFormattedData(String rawData) {
+    synchronized (sharedList) {
+        // Bad: These operations on local variables are inside the lock,
+        // blocking other threads for longer than necessary.
+        String trimmedData = rawData.trim();
+        String upperCaseData = trimmedData.toUpperCase();
+        
+        sharedList.add(upperCaseData);
+    }
+}
+
+----
+
+private final List<String> sharedList = new ArrayList<>();
+public void addFormattedData(String rawData) {
+    // Good: Prepare the data first using only local variables.
+    String trimmedData = rawData.trim();
+    String upperCaseData = trimmedData.toUpperCase();
+
+    // The synchronized block is now minimal, reducing contention.
+    synchronized (sharedList) {
+        sharedList.add(upperCaseData);
+    }
+}

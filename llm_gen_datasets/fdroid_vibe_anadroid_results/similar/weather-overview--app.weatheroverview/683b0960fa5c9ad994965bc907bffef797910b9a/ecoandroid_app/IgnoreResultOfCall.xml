@@ -1,0 +1,41 @@
+<problems is_local_tool="true">
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/app/weatheroverview/data/ForecastDownloader.java</file>
+  <line>94</line>
+  <module>Weather_Overview.app</module>
+  <package>app.weatheroverview.data</package>
+  <entry_point TYPE="method" FQNAME="app.weatheroverview.data.ForecastDownloader void cleanCache(android.content.Context context)" />
+  <problem_class id="IgnoreResultOfCall" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Result of method call ignored</problem_class>
+  <description>Result of &lt;code&gt;File.delete()&lt;/code&gt; is ignored #loc</description>
+  <highlighted_element>delete</highlighted_element>
+  <language>JAVA</language>
+  <offset>6</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/app/weatheroverview/data/ForecastDownloader.java</file>
+  <line>108</line>
+  <module>Weather_Overview.app</module>
+  <package>app.weatheroverview.data</package>
+  <entry_point TYPE="method" FQNAME="app.weatheroverview.data.ForecastDownloader java.io.File getCacheFile(android.content.Context context, java.util.Date date)" />
+  <problem_class id="IgnoreResultOfCall" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Result of method call ignored</problem_class>
+  <description>Result of &lt;code&gt;File.mkdirs()&lt;/code&gt; is ignored #loc</description>
+  <highlighted_element>mkdirs</highlighted_element>
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/app/weatheroverview/data/ForecastDownloader.java</file>
+  <line>135</line>
+  <module>Weather_Overview.app</module>
+  <package>app.weatheroverview.data</package>
+  <entry_point TYPE="method" FQNAME="app.weatheroverview.data.ForecastDownloader void writeCache(java.lang.String jsonContents, java.io.File file)" />
+  <problem_class id="IgnoreResultOfCall" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Result of method call ignored</problem_class>
+  <description>Result of &lt;code&gt;File.createNewFile()&lt;/code&gt; is ignored #loc</description>
+  <highlighted_element>createNewFile</highlighted_element>
+  <language>JAVA</language>
+  <offset>9</offset>
+  <length>13</length>
+</problem>
+</problems>

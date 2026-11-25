@@ -1,0 +1,19 @@
+public String formatList(List<String> items) {
+    String result = "";
+    for (String item : items) {
+        // Bad: Creates a new String and StringBuilder object in every iteration.
+        result += item + ", ";
+    }
+    return result;
+}
+
+----
+
+public String formatList(List<String> items) {
+    // Good: Uses a single StringBuilder, which is much more efficient.
+    StringBuilder sb = new StringBuilder();
+    for (String item : items) {
+        sb.append(item).append(", ");
+    }
+    return sb.toString();
+}

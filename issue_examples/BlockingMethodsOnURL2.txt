@@ -1,0 +1,10 @@
+val urlCache = mutableMapOf<URL, String>()
+val url = URL("https://api.service.com/data")
+urlCache[url] = "{\"data\": \"some_cached_value\"}"
+
+----
+
+
+val uriCache = mutableMapOf<URI, String>()
+val uri = URI("https://api.service.com/data")
+uriCache[uri] = "{\"data\": \"some_cached_value\"}"
