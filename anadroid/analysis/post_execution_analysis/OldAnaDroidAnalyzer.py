@@ -3,11 +3,12 @@ import os
 from anadroid.analysis.ExecutionResultsAnalyzer import ExecutionResultsAnalyzer
 from anadroid.analysis.post_build_analysis.ApkAPIAnalyzer import ApkAPIAnalyzer
 from anadroid.analysis.pre_build_analysis.SCCAnalyzer import SCCAnalyzer
+from anadroid.utils.ExternalTools import find_tool_path
 from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir
 from shutil import copyfile
 
-DEFAULT_JAR_PATH = os.path.join(get_resources_dir(), "jars", "AnaDroidAnalyzer.jar")
+DEFAULT_JAR_PATH = find_tool_path("anadroid_analyzer")
 
 
 class OldAnaDroidAnalyzer(ExecutionResultsAnalyzer):

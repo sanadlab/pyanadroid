@@ -7,6 +7,7 @@ from textops import grepci, cat, lcount
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.ExternalTools import find_tool_path
 from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
@@ -14,7 +15,7 @@ from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge,
 
 DEFAULT_OUTPUT_DIRNAME = "daap_output"
 DEFAULT_OUTPUT_FILENAME = "daap_analysis.json"
-DEFAULT_PATH_JAR = os.path.join(get_resources_dir(), 'jars' ,"DAAP-1.0.jar")
+DEFAULT_PATH_JAR = find_tool_path("daap")
 DEFAULT_SEARCH_PATTERN = "ALL"
 
 class DAAPAnalysis(StaticAnalyzer):

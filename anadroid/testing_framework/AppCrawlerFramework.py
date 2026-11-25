@@ -5,6 +5,7 @@ from anadroid.Types import TESTING_FRAMEWORK
 from anadroid.testing_framework.AbstractTestingFramework import AbstractTestingFramework
 from anadroid.testing_framework.work.AppCrawlerWorkUnit import AppCrawlerWorkUnit
 from anadroid.testing_framework.work.WorkLoad import WorkLoad
+from anadroid.utils.ExternalTools import find_tool_path
 from anadroid.utils.Utils import get_resources_dir, logs, execute_shell_command, logw, loge
 
 DEFAULT_RESOURCES_DIR = os.path.join(get_resources_dir(), "testingFrameworks", "app-crawler")
@@ -23,7 +24,7 @@ class AppCrawlerFramework(AbstractTestingFramework):
     """
     def __init__(self, profiler, analyzer, default_workload=False, resdir=DEFAULT_RESOURCES_DIR):
         super(AppCrawlerFramework, self).__init__(id=TESTING_FRAMEWORK.APP_CRAWLER, profiler=profiler, analyzer=analyzer)
-        self.executable_prefix = f"java -jar {os.path.join(DEFAULT_RESOURCES_DIR, DEFAULT_BIN_NAME)} "
+        self.executable_prefix = f"java -jar {find_tool_path('crawl_launcher')} "
         self.workload = None
         self.res_dir = resdir
         if default_workload:

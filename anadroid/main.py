@@ -10,6 +10,7 @@ from anadroid.device.Device import set_device_conn, has_connected_device
 from anadroid.device.DeviceState import DeviceState
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
+from anadroid.utils.ExternalTools import setup_tools
 from anadroid.utils.Utils import set_verbose, logi, get_log_file
 
 
@@ -130,6 +131,7 @@ def build_parser():
                         nargs='+', default=["scc"], choices=list(PRE_BUILD_ANALYZERS))
     parser.add_argument("-j", "--jobs", help="number of projects to analyze at the same time (with -sa)",
                         type=int, default=1)
+    parser.add_argument("--setup", help="download the external tools (jars, PMD) and exit", action='store_true')
     parser.add_argument("-v", "--verbose", help="show debug messages (commands and their results)",
                         action='store_true')
     return parser
@@ -139,6 +141,9 @@ def main():
     args = build_parser().parse_args()
     set_verbose(args.verbose)
     logi(f"Log file of this run: {get_log_file()}")
+    if args.setup:
+        setup_tools()
+        exit(0)
     process_general_config(args)
     if args.setconnection:
         set_device_conn(args.setconnection, device_id=args.device_serial)

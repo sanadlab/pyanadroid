@@ -8,12 +8,13 @@ from anadroid.instrumentation.AbstractInstrumenter import AbstractInstrumenter
 import subprocess
 from anadroid.Types import BUILD_SYSTEM, TESTING_APPROACH, TESTING_FRAMEWORK
 from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE, INSTRUMENTATION_STRATEGY
+from anadroid.utils.ExternalTools import find_tool_path
 from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, mega_find, logi, logw
 from shutil import copyfile
 
 #JINST_PATH = "resources/jars/jInst.jar"  # loadFromConfig
-JINST_PATH = os.path.join( get_resources_dir(), "jars", "jInst.jar")
+JINST_PATH = find_tool_path("jinst")
 
 
 class JInstInstrumenter(AbstractInstrumenter):

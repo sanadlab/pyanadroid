@@ -2,13 +2,13 @@ import json
 import os
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
+from anadroid.utils.ExternalTools import find_pmd
 from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
 DEFAULT_OUTPUT_DIRNAME = "daap_output"
 DEFAULT_OUTPUT_FILENAME = "pmd_analysis"
 DEFAULT_RULESET = "category/java/performance.xml"
-DEFAULT_PATH_EXEC = os.path.join(get_resources_dir(), 'bin' , 'pmd-bin-7.9.0', 'bin', "pmd")
 DEFAULT_SEARCH_PATTERN = "check"
 DEFAULT_OUTPUT_FORMAT = "json"
 
@@ -16,11 +16,11 @@ DEFAULT_OUTPUT_FORMAT = "json"
 
 class PMDAnalysis(StaticAnalyzer):
     def __init__(self, analyzers_cfg_file=None, default_output_dir=DEFAULT_OUTPUT_DIRNAME,
-                 bin_path=DEFAULT_PATH_EXEC):
+                 bin_path=None):
         super().__init__(analyzers_cfg_file)
         self.default_output_dir = default_output_dir
-        self.bin_path = bin_path
-        self.exec_cmd = f"{bin_path} "
+        self.bin_path = bin_path if bin_path is not None else find_pmd()
+        self.exec_cmd = f"{self.bin_path} "
         self.identifiable_issues = {
             "AppendCharacterWithChar": KnownStaticPerformanceIssues.APPEND_CHARACTER_WITH_CHAR,
             "AvoidArrayLoops": KnownStaticPerformanceIssues.AVOID_ARRAY_LOOPS,
@@ -73,8 +73,8 @@ class PMDAnalysis(StaticAnalyzer):
         output_filename = kwargs.get("output_filename", DEFAULT_OUTPUT_FILENAME)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
         if not os.path.exists(self.bin_path):
-            raise FileNotFoundError(f"PMD not found at {self.bin_path}. The PyPI package does not include PMD. "
-                                    f"Download PMD and give its path in the bin_path argument")
+            raise FileNotFoundError(f"PMD not found at {self.bin_path}. Set PMD_HOME, put pmd in the PATH, "
+                                    f"or run `pyanadroid --setup` to download it")
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         for module in project.modules:

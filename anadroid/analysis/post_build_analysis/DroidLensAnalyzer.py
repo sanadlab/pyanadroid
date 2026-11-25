@@ -5,14 +5,15 @@ from anadroid.analysis.ExecutionResultsAnalyzer import ExecutionResultsAnalyzer
 from anadroid.analysis.metrics.Issues import Issue, KnownStaticPerformanceIssues
 from anadroid.application.Application import App
 from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.ExternalTools import find_tool_path
 from anadroid.utils.Utils import logd, loge
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, logi
 
 # java -jar build/libs/EcoAndroidResourceLeak.jar "/Users/rar9993/Library/Android/sdk/platforms" "/Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/app/build/outputs/apk/debug/app-debug.apk" "standalone_out"
 
 DEFAULT_OUTPUT_DIRNAME = "droidlens_analysis_output/"
-DEFAULT_CLASSPATH = os.path.join(get_resources_dir(), 'jars','libs', "jFuzzyLogic.jar")
-DEFAULT_PATH_JAR = os.path.join(get_resources_dir(), 'jars', "droidlens-1.0-jar-with-dependencies.jar")
+DEFAULT_CLASSPATH = find_tool_path("jfuzzylogic")
+DEFAULT_PATH_JAR = find_tool_path("droidlens")
 DEFAULT_SDK_PATH = "~/Library/Android/sdk/platforms"
 
 class DroidLensAnalysis(ExecutionResultsAnalyzer):

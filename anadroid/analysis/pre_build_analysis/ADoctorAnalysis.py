@@ -5,6 +5,7 @@ from textops import lcount, cat
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.ExternalTools import find_tool_path
 from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
@@ -12,7 +13,7 @@ from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge,
 
 DEFAULT_OUTPUT_DIRNAME = "adoctor_output"
 DEFAULT_OUTPUT_FILENAME = "adoctor.csv"
-DEFAULT_PATH_JAR = os.path.join(get_resources_dir(), 'jars' ,"aDoctor-1.0-SNAPSHOT-jar-with-dependencies.jar")
+DEFAULT_PATH_JAR = find_tool_path("adoctor")
 DEFAULT_MAIN_CLASS = "it.unisa.aDoctor.process.RunAndroidSmellDetection"
 DEFAULT_SEARCH_PATTERN = "111111111111111"
 

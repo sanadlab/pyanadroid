@@ -33,7 +33,7 @@ include-package-data = true
 dependencies = {file = ["requirements.txt"]}
 
 [tool.setuptools.packages.find]
-exclude = ["anadroid.test*", "anadroid.resources.bin.pmd*"]
+exclude = ["anadroid.test*"]
 
 [tool.pytest.ini_options]
 testpaths = ["anadroid/test/unit"]

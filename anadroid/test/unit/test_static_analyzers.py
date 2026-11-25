@@ -31,6 +31,7 @@ def test_pmd_continues_after_a_module_that_is_already_processed(monkeypatch, tmp
                         lambda cmd, **kwargs: commands.append(cmd) or COMMAND_RESULT(0, "", ""))
     project = SimpleNamespace(proj_dir=str(tmp_path), proj_name="p", modules={"app": None, "lib": None})
     (tmp_path / "app_pmd_analysis.json").write_text("{}")
-    PMDAnalysis().analyze_project(project, retry=False, output_dir=str(tmp_path))
+    (tmp_path / "pmd").write_text("")
+    PMDAnalysis(bin_path=str(tmp_path / "pmd")).analyze_project(project, retry=False, output_dir=str(tmp_path))
     assert len(commands) == 1
     assert "lib_pmd_analysis.json" in commands[0]

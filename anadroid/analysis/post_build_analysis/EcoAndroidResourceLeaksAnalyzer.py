@@ -5,13 +5,14 @@ from anadroid.analysis.ExecutionResultsAnalyzer import ExecutionResultsAnalyzer
 from anadroid.analysis.metrics.Issues import Issue, KnownStaticPerformanceIssues
 from anadroid.application.Application import App
 from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.ExternalTools import find_tool_path
 from anadroid.utils.Utils import logd, loge
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, logi
 
 # java -jar build/libs/EcoAndroidResourceLeak.jar "/Users/rar9993/Library/Android/sdk/platforms" "/Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/app/build/outputs/apk/debug/app-debug.apk" "standalone_out"
 
 DEFAULT_OUTPUT_DIRNAME = "ecoandroid_resource_leaks/"
-DEFAULT_PATH_JAR = os.path.join(get_resources_dir(), 'jars', "EcoAndroidResourceLeak.jar")
+DEFAULT_PATH_JAR = find_tool_path("ecoandroid_resource_leak")
 DEFAULT_SDK_PATH = "~/Library/Android/sdk/platforms"
 
 class EcoAndroidResourceLeaksAnalysis(ExecutionResultsAnalyzer):

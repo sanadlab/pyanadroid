@@ -129,6 +129,16 @@ $ pyanadroid -d <projects_dir> -sa -sat lint pmd detekt -j 4
 
 Available analyzers: `scc` (default), `lint`, `pmd`, `daap`, `adoctor`, `ecoandroid`, `detekt`, `spotbugs`, `infer`, `chimera`, `xalint`.
 
+## External tools
+
+PyAnaDroid runs external tools (JInst, DAAP, aDoctor, PMD and others). The list, with download URLs and checksums, is in `anadroid/resources/tools.json`. To download them to `~/.cache/pyanadroid/tools`:
+
+```
+$ pyanadroid --setup
+```
+
+A tool is searched in this order: the environment variable `PYANADROID_<NAME>` (e.g. `PYANADROID_JINST=/path/jInst.jar`), the downloaded tools, and the files bundled in the package. For PMD, `PMD_HOME` and the `PATH` have priority. Set `PYANADROID_TOOLS_DIR` to use a different download directory.
+
 ## Logs
 
 Each run writes a log file in `logs/`. The path is shown at the start of the run. The file has all messages, which includes the debug messages (each command and its result, and the Gradle output of failed builds). Use `-v` to show the debug messages on the console too.
