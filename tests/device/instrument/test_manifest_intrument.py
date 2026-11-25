@@ -1,3 +1,4 @@
+import pytest
 import time
 from unittest import TestCase
 from textops import cat, grep
@@ -6,6 +7,9 @@ from anadroid.application.AndroidProject import AndroidProject
 from anadroid.device.MockedDevice import MockedDevice
 from anadroid.instrumentation.ManifestInstrumenter import AndroidManifestInstrumenter
 from anadroid.profiler.ManafaProfiler import ManafaProfiler
+
+
+pytestmark = pytest.mark.device
 
 
 class TestManifestInstrument(TestCase):

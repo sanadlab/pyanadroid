@@ -10,7 +10,7 @@ from textops import grep
 
 from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
-from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error
+from anadroid.build.GradleBuildErrorSolver import is_known_error, solve_known_error
 from anadroid.build.GradleBuilder import GradleBuilder, get_java_version_cmd_for_project
 from anadroid.utils.JavaVersionManager import JavaVersionManager
 from anadroid.utils.Utils import logd

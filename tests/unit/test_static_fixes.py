@@ -8,9 +8,9 @@ from anadroid.Anadroid import AnaDroid
 from anadroid.Types import PROFILER, TESTING_FRAMEWORK, INSTRUMENTER
 from anadroid.analysis.pre_build_analysis.PMDAnalysis import PMDAnalysis
 from anadroid.application.Dependency import BuildDependency, DependencyType
-from anadroid.build import GracleBuildErrorSolver as solver
+from anadroid.build import GradleBuildErrorSolver as solver
 from anadroid.build import GradleBuilder as gradle_builder_module
-from anadroid.build.GracleBuildErrorSolver import KNOWN_ERROR, solve_known_error, update_gradle_wrapper_version
+from anadroid.build.GradleBuildErrorSolver import KNOWN_ERROR, solve_known_error, update_gradle_wrapper_version
 from anadroid.build.GradleBuilder import GradleBuilder, gen_dependency_string, set_transitive_names
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
 from anadroid.device.MockedDevice import MockedDevice

@@ -33,13 +33,15 @@ include-package-data = true
 dependencies = {file = ["requirements.txt"]}
 
 [tool.setuptools.packages.find]
-exclude = ["anadroid.test*"]
+where = ["src"]
 
 [tool.pytest.ini_options]
-testpaths = ["anadroid/test/unit"]
+testpaths = ["tests/unit"]
+pythonpath = ["src"]
+markers = ["device: tests that need a connected Android device (run them with `pytest tests/device`)"]
 
 [tool.ruff]
-exclude = ["anadroid/profiler/greenScaler", "anadroid/resources"]
+exclude = ["src/anadroid/profiler/greenScaler", "src/anadroid/resources"]
 
 [tool.ruff.lint]
 # syntax errors and undefined names only. These are always bugs

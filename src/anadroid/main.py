@@ -1,8 +1,9 @@
 import argparse
+import os
 import inspect
 
 from anadroid.Anadroid import AnaDroid
-from anadroid.Config import set_general_config
+from anadroid.Config import set_general_config, set_config_file
 from anadroid.Types import TESTING_FRAMEWORK, PROFILER, ANALYZER, INSTRUMENTER, BUILDER
 from anadroid.analysis.pre_build_analysis import PRE_BUILD_ANALYZERS
 from anadroid.application.AndroidProject import BUILD_TYPE
@@ -131,14 +132,34 @@ def build_parser():
                         nargs='+', default=["scc"], choices=list(PRE_BUILD_ANALYZERS))
     parser.add_argument("-j", "--jobs", help="number of projects to analyze at the same time (with -sa)",
                         type=int, default=1)
+    parser.add_argument("--config", help="general config file (JSON) to use in place of the default file",
+                        type=str, default=None)
+    parser.add_argument("--workdir", help="directory for the logs and the results (default: current directory)",
+                        type=str, default=None)
     parser.add_argument("--setup", help="download the external tools (jars, PMD) and exit", action='store_true')
     parser.add_argument("-v", "--verbose", help="show debug messages (commands and their results)",
                         action='store_true')
     return parser
 
 
+def apply_workdir(args):
+    """makes the working directory the current directory. Logs and results are written there.
+    The input paths of the command line stay relative to the directory where the command started."""
+    if args.workdir is None:
+        return
+    args.diretory = os.path.abspath(args.diretory)
+    args.tests_dir = os.path.abspath(args.tests_dir) if args.tests_dir is not None else None
+    args.application_packages = [os.path.abspath(apk) for apk in args.application_packages]
+    args.config = os.path.abspath(args.config) if args.config is not None else None
+    os.makedirs(args.workdir, exist_ok=True)
+    os.chdir(args.workdir)
+
+
 def main():
     args = build_parser().parse_args()
+    apply_workdir(args)
+    if args.config is not None:
+        set_config_file(args.config)
     set_verbose(args.verbose)
     logi(f"Log file of this run: {get_log_file()}")
     if args.setup:

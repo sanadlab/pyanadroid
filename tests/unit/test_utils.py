@@ -34,8 +34,8 @@ def test_timeout_keeps_partial_output():
 
 
 def test_import_does_not_create_results_dir(tmp_path):
-    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-    env = dict(os.environ, PYTHONPATH=os.pathsep.join([repo_root] + sys.path))
+    src_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "src")
+    env = dict(os.environ, PYTHONPATH=os.pathsep.join([src_dir] + sys.path))
     subprocess.run([sys.executable, "-c", "import anadroid.Anadroid"], cwd=tmp_path, env=env, check=True,
                    capture_output=True)
     assert not (tmp_path / "anadroid_results").exists()

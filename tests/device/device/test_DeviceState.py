@@ -1,7 +1,11 @@
+import pytest
 import time
 from unittest import TestCase
 
 from anadroid.device.Device import get_first_connected_device
+
+
+pytestmark = pytest.mark.device
 
 
 class TestDeviceState(TestCase):

@@ -14,7 +14,6 @@ Subpackages
    anadroid.profiler
    anadroid.resources
    anadroid.results_analysis
-   anadroid.test
    anadroid.testing_framework
    anadroid.utils
    anadroid.view

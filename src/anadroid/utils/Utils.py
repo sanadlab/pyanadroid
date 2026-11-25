@@ -1,3 +1,4 @@
+import importlib.resources
 import re
 import shlex
 from datetime import datetime
@@ -75,8 +76,8 @@ def get_log_file():
 
 
 def get_reference_dir(packname):
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    return os.path.join(base_dir, packname)
+    """directory of an installed package (e.g. anadroid)."""
+    return str(importlib.resources.files(packname))
 
 
 def get_resources_dir(packname="anadroid", default_res_dir="resources"):

@@ -59,11 +59,15 @@ By default, PyAnaDroid is configured to perform white-box testing of application
 $ pip install anadroid
 ```
 
-## From sauce
+## From source
 
 ```
-$ git clone --recurse-submodules https://github.com/greensoftwarelab/pyanadroid.git
+$ git clone --recurse-submodules https://github.com/sanadlab/pyanadroid.git
+$ cd pyanadroid
+$ pip install -e .
 ```
+
+The package is in `src/anadroid`. The tests are in `tests/`: `python -m pytest` runs the unit tests (no device needed), and `python -m pytest tests/device` runs the tests that need a connected device.
 
 
 # Examples
@@ -131,13 +135,19 @@ Available analyzers: `scc` (default), `lint`, `pmd`, `daap`, `adoctor`, `ecoandr
 
 ## External tools
 
-PyAnaDroid runs external tools (JInst, DAAP, aDoctor, PMD and others). The list, with download URLs and checksums, is in `anadroid/resources/tools.json`. To download them to `~/.cache/pyanadroid/tools`:
+PyAnaDroid runs external tools (JInst, DAAP, aDoctor, PMD and others). The list, with download URLs and checksums, is in `src/anadroid/resources/tools.json`. To download them to `~/.cache/pyanadroid/tools`:
 
 ```
 $ pyanadroid --setup
 ```
 
 A tool is searched in this order: the environment variable `PYANADROID_<NAME>` (e.g. `PYANADROID_JINST=/path/jInst.jar`), the downloaded tools, and the files bundled in the package. For PMD, `PMD_HOME` and the `PATH` have priority. Set `PYANADROID_TOOLS_DIR` to use a different download directory.
+
+## Configuration and working directory
+
+The general configuration (number of tests for each app, build retries) is a JSON file. PyAnaDroid uses the first file that exists in this order: the file given with `--config` (or `PYANADROID_CONFIG`), `general_config.json` in the current directory, `~/.config/pyanadroid/general_config.json`, and the default file of the package (`src/anadroid/resources/config/general_config.json`).
+
+By default, the logs (`logs/`) and the results (`anadroid_results/`) are written in the current directory. Use `--workdir <dir>` to write them in a different directory.
 
 ## Logs
 

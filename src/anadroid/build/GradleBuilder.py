@@ -15,7 +15,7 @@ from anadroid.device.MockedDevice import MockedDevice
 from anadroid.utils.JavaVersionManager import get_gradle_matching_version, JavaVersionManager
 from anadroid.utils.Utils import logd, get_log_file
 from anadroid.utils.Utils import mega_find, execute_shell_command, sign_apk, log_to_file, loge, logw, logs, logi
-from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error, get_sdk_version_regex, \
+from anadroid.build.GradleBuildErrorSolver import is_known_error, solve_known_error, get_sdk_version_regex, \
 	replace_sdk_version
 
 TRANSITIVE = "implementation"

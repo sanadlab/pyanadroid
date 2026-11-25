@@ -12,10 +12,10 @@ anadroid.build.AbstractBuilder module
    :undoc-members:
    :show-inheritance:
 
-anadroid.build.GracleBuildErrorSolver module
+anadroid.build.GradleBuildErrorSolver module
 --------------------------------------------
 
-.. automodule:: anadroid.build.GracleBuildErrorSolver
+.. automodule:: anadroid.build.GradleBuildErrorSolver
    :members:
    :undoc-members:
    :show-inheritance:

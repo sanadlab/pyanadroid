@@ -1,3 +1,4 @@
+import pytest
 import os
 from unittest import TestCase
 
@@ -9,6 +10,9 @@ from anadroid.build.BuilDroidBuilder import BuilDroidBuilder
 from anadroid.device.Device import get_first_connected_device
 from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
 from anadroid.utils.Utils import mega_find
+
+
+pytestmark = pytest.mark.device
 
 
 class TestBuildDemo(TestCase):

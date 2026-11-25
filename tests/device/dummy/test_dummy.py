@@ -1,4 +1,8 @@
+import pytest
 from unittest import TestCase
+
+
+pytestmark = pytest.mark.device
 
 
 class TestDummy(TestCase):

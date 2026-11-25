@@ -1,8 +1,12 @@
+import pytest
 import time
 from unittest import TestCase
 from unittest.mock import Mock
 
 from anadroid.device.Device import get_first_connected_device
+
+
+pytestmark = pytest.mark.device
 
 
 class TestDevice(TestCase):

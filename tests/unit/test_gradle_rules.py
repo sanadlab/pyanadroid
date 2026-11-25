@@ -4,7 +4,7 @@ import pytest
 
 from anadroid.application.AndroidProject import find_gradle_plugin_version
 from anadroid.build import GradleBuilder as gradle_builder_module
-from anadroid.build.GracleBuildErrorSolver import get_adequate_gradle_version, is_known_error, KNOWN_ERROR
+from anadroid.build.GradleBuildErrorSolver import get_adequate_gradle_version, is_known_error, KNOWN_ERROR
 from anadroid.build.GradleBuilder import GradleBuilder, replace_sdk_version, set_transitive_names
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
 from anadroid.device.MockedDevice import MockedDevice
