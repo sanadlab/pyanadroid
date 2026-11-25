@@ -45,11 +45,11 @@ def find_tool_path(name):
 
 
 def find_pmd():
-    """returns the path of the PMD executable: PMD_HOME, then the PATH, then the downloaded PMD."""
+    """returns the path of the PMD executable: PMD_HOME, then the PATH. PyAnaDroid does not download PMD."""
     pmd_home = os.environ.get("PMD_HOME")
     if pmd_home:
         return os.path.join(pmd_home, "bin", "pmd")
-    return shutil.which("pmd") or os.path.join(get_tools_dir(), TOOLS["pmd"]["file"])
+    return shutil.which("pmd") or "pmd"
 
 
 def download_tool(name):

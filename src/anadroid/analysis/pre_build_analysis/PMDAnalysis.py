@@ -73,8 +73,8 @@ class PMDAnalysis(StaticAnalyzer):
         output_filename = kwargs.get("output_filename", DEFAULT_OUTPUT_FILENAME)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
         if not os.path.exists(self.bin_path):
-            raise FileNotFoundError(f"PMD not found at {self.bin_path}. Set PMD_HOME, put pmd in the PATH, "
-                                    f"or run `pyanadroid --setup` to download it")
+            raise FileNotFoundError(f"PMD not found ({self.bin_path}). Install PMD 7 (https://pmd.github.io) "
+                                    f"and set PMD_HOME or put pmd in the PATH")
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         for module in project.modules:

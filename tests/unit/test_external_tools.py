@@ -56,16 +56,15 @@ def test_archive_tools_are_extracted(tools_dir, tmp_path, monkeypatch):
         z.writestr("pmd-bin-7.9.0/bin/pmd", "#!/bin/sh\n")
     monkeypatch.setitem(TOOLS, "pmd", {"file": "pmd-bin-7.9.0/bin/pmd", "url": archive.as_uri(), "archive": True,
                                          "sha256": hashlib.sha256(archive.read_bytes()).hexdigest()})
-    monkeypatch.delenv("PMD_HOME", raising=False)
-    monkeypatch.setattr(ExternalTools.shutil, "which", lambda name: None)
     path = download_tool("pmd")
     assert path == str(tools_dir / "pmd-bin-7.9.0" / "bin" / "pmd") and os.access(path, os.X_OK)
-    assert find_pmd() == path
 
 
-def test_pmd_home_and_path_have_priority(tools_dir, monkeypatch):
-    monkeypatch.setattr(ExternalTools.shutil, "which", lambda name: "/usr/bin/pmd")
+def test_pmd_comes_from_pmd_home_or_the_path(tools_dir, monkeypatch):
     monkeypatch.delenv("PMD_HOME", raising=False)
+    monkeypatch.setattr(ExternalTools.shutil, "which", lambda name: None)
+    assert find_pmd() == "pmd"
+    monkeypatch.setattr(ExternalTools.shutil, "which", lambda name: "/usr/bin/pmd")
     assert find_pmd() == "/usr/bin/pmd"
     monkeypatch.setenv("PMD_HOME", "/opt/pmd")
     assert find_pmd() == os.path.join("/opt/pmd", "bin", "pmd")

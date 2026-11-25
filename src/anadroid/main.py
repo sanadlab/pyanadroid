@@ -136,7 +136,7 @@ def build_parser():
                         type=str, default=None)
     parser.add_argument("--workdir", help="directory for the logs and the results (default: current directory)",
                         type=str, default=None)
-    parser.add_argument("--setup", help="download the external tools (jars, PMD) and exit", action='store_true')
+    parser.add_argument("--setup", help="download the external tools (jars) and exit", action='store_true')
     parser.add_argument("-v", "--verbose", help="show debug messages (commands and their results)",
                         action='store_true')
     return parser

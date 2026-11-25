@@ -135,13 +135,15 @@ Available analyzers: `scc` (default), `lint`, `pmd`, `daap`, `adoctor`, `ecoandr
 
 ## External tools
 
-PyAnaDroid runs external tools (JInst, DAAP, aDoctor, PMD and others). The list, with download URLs and checksums, is in `src/anadroid/resources/tools.json`. To download them to `~/.cache/pyanadroid/tools`:
+PyAnaDroid runs external tools (JInst, DAAP, aDoctor and others). The list, with download URLs and checksums, is in `src/anadroid/resources/tools.json`. To download them to `~/.cache/pyanadroid/tools`:
 
 ```
 $ pyanadroid --setup
 ```
 
-A tool is searched in this order: the environment variable `PYANADROID_<NAME>` (e.g. `PYANADROID_JINST=/path/jInst.jar`), the downloaded tools, and the files bundled in the package. For PMD, `PMD_HOME` and the `PATH` have priority. Set `PYANADROID_TOOLS_DIR` to use a different download directory.
+A tool is searched in this order: the environment variable `PYANADROID_<NAME>` (e.g. `PYANADROID_JINST=/path/jInst.jar`), the downloaded tools, and the files bundled in the package. Set `PYANADROID_TOOLS_DIR` to use a different download directory.
+
+PMD, SpotBugs, Detekt and Infer are not downloaded. Install them and put them in the `PATH` (or set `PMD_HOME` and `SPOTBUGS_HOME`). The `Dockerfile` has an environment with SpotBugs, Detekt and Infer.
 
 ## Configuration and working directory
 
