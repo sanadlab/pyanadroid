@@ -1,9 +1,0 @@
-// Inefficient: Unnecessary boxing of primitive int
-val count = mutableIntStateOf(0)
-Text("Count: ${count.value}")
-
------
-
-// Efficient: Directly accessing the primitive int value
-val count = mutableIntStateOf(0)
-Text("Count: ${count.intValue}")

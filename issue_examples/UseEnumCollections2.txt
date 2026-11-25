@@ -1,9 +1,0 @@
-enum class Feature { A, B, C, D }
-val enabledFeatures = hashSetOf<Feature>()
-enabledFeatures.add(Feature.A)
-enabledFeatures.add(Feature.C)
-
------
-
-enum class Feature { A, B, C, D }
-val enabledFeatures = EnumSet.of(Feature.A, Feature.C)

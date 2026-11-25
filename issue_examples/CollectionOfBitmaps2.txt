@@ -1,9 +1,0 @@
-List<Bitmap> images = new ArrayList<>();
-images.add(BitmapFactory.decodeResource(...));
-
-
------
-
-
-LruCache<String, Bitmap> imageCache = new LruCache<>(maxMemory / 8);
-imageCache.put("key", bitmap);

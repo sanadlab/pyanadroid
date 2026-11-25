@@ -1,9 +1,0 @@
-val nullableScore: Int? = null
-val defaultScore: Float = 0.0f
-val finalScore: Number = nullableScore ?: defaultScore
-
------
-
-val nullableScore: Int? = null
-val defaultScore: Float = 0.0f
-val finalScore: Number = nullableScore?.toFloat() ?: defaultScore
