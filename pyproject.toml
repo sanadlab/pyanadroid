@@ -37,3 +37,10 @@ exclude = ["anadroid.test*", "anadroid.resources.bin.pmd*"]
 
 [tool.pytest.ini_options]
 testpaths = ["anadroid/test/unit"]
+
+[tool.ruff]
+exclude = ["anadroid/profiler/greenScaler", "anadroid/resources"]
+
+[tool.ruff.lint]
+# syntax errors and undefined names only. These are always bugs
+select = ["E9", "F63", "F7", "F82"]
