@@ -9,6 +9,7 @@ from anadroid.application.AbstractApplication import AbstractApplication
 from anadroid.application.AndroidProject import AndroidProject
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
 from anadroid.instrumentation.Types import INSTRUMENTATION_TYPE
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import get_date_str, logw, logi
 
 
@@ -92,12 +93,12 @@ class App(AbstractApplication):
         if not os.path.exists(all_m):
             all_m_proj = os.path.join(self.proj.proj_dir, "allMethods.json")
             if os.path.exists(all_m_proj):
-                print(f"copying {all_m_proj} to {all_m}")
+                logd(f"Copying {all_m_proj} to {all_m}")
                 shutil.copyfile(all_m_proj, all_m)
             else:
                 other_possible_all_m = os.path.join(self.local_res, "oldRuns", "all", "allMethods.json")
                 if os.path.exists(other_possible_all_m):
-                    print(f"copying {other_possible_all_m} to {all_m}")
+                    logd(f"Copying {other_possible_all_m} to {all_m}")
                     shutil.copyfile(other_possible_all_m, all_m)
 
     def init_local_test_(self, testing_framework, inst_type):

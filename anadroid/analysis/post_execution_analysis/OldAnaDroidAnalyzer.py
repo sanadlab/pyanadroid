@@ -3,6 +3,7 @@ import os
 from anadroid.analysis.ExecutionResultsAnalyzer import ExecutionResultsAnalyzer
 from anadroid.analysis.post_build_analysis.ApkAPIAnalyzer import ApkAPIAnalyzer
 from anadroid.analysis.pre_build_analysis.SCCAnalyzer import SCCAnalyzer
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir
 from shutil import copyfile
 
@@ -50,7 +51,7 @@ class OldAnaDroidAnalyzer(ExecutionResultsAnalyzer):
             output_log_file=output_log_file
         )
         # java -jar $GD_ANALYZER $trace "$projLocalDir/" $monkey $GREENSOURCE_URL 2>&1 | tee "$temp_folder/analyzerResult.out"
-        print(cmd)
+        logd(f"Running command: {cmd}")
         res = execute_shell_command(cmd)
         res.validate(Exception("Analyzer error"))
         #print(res)

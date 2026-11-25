@@ -29,7 +29,7 @@ class DefaultSemanticVersion(object):
 				else:
 					self.patch = 0
 			else:
-				self.major = 0
+				self.major = int(ll[0]) if len(ll) == 1 and ll[0].isdigit() else 0
 				self.minor = 0
 				self.patch = 0
 		except:

@@ -4,6 +4,8 @@ import os
 from anadroid.analysis.ExecutionResultsAnalyzer import ExecutionResultsAnalyzer
 from anadroid.analysis.metrics.Issues import Issue, KnownStaticPerformanceIssues
 from anadroid.application.Application import App
+from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.Utils import logd, loge
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, logi
 
 # java -jar build/libs/EcoAndroidResourceLeak.jar "/Users/rar9993/Library/Android/sdk/platforms" "/Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/app/build/outputs/apk/debug/app-debug.apk" "standalone_out"
@@ -21,7 +23,7 @@ class DroidLensAnalysis(ExecutionResultsAnalyzer):
         self.sdk_path = sdk_path
         self.cp_path = cp_path
         self.default_output_dir = default_output_dir
-        self.exec_cmd = f"source ~/.zshrc ; j8 ; java -cp {cp_path}:{jar_path} doridlens.Main"
+        self.exec_cmd = f"{get_change_java_version_cmd(8)} java -cp {cp_path}:{jar_path} doridlens.Main"
         self.identifiable_issues = {
             #"ARGB8888": KnownStaticPerformanceIssues.BITMAP_FORMAT_USAGE,
             "BLOB": KnownStaticPerformanceIssues.BLOB_CLASS,
@@ -73,24 +75,24 @@ class DroidLensAnalysis(ExecutionResultsAnalyzer):
         res_folder = os.path.join(app.local_res, DEFAULT_OUTPUT_DIRNAME)
         res_folder_prefix = os.path.join(res_folder, app.package_name)
         if not os.path.exists(res_folder):
-            print(f"Creating directory {res_folder}")
+            logd(f"Creating directory {res_folder}")
             os.makedirs(res_folder)
         if not retry and len(list(filter(lambda x: x.endswith(".csv"), os.listdir(res_folder)))) > 0:
             logi(f"Skipping analysis for {app.package_name}. Already processed by DroidLens")
             return
         analyse_cmd = (f"{self.exec_cmd} analyse -a {self.sdk_path} -db neo4j -p {app.package_name} -n {app.name}"
                        f" -u UNSAFE -omp {str(package_only).lower()} {app.apk}")
-        print(analyse_cmd)
+        logd(f"Running command: {analyse_cmd}")
         res = execute_shell_command(analyse_cmd)
         res.validate()
         query_cmd = f"{self.exec_cmd} query -db neo4j -d true -r NONFUZZY -c {res_folder_prefix}"
         res = execute_shell_command(query_cmd)
-        print(res)
+        logd(f"Command result: {res}")
         query_cmd = f"{self.exec_cmd} query -db neo4j -d true -r ALLAP -c {res_folder_prefix}"
         res = execute_shell_command(query_cmd)
-        print(res)
+        logd(f"Command result: {res}")
         res.validate()
-        print(query_cmd)
+        logd(f"Running command: {query_cmd}")
 
     def analyze_test(self, app, test_id, **kwargs):
         pass
@@ -101,7 +103,7 @@ class DroidLensAnalysis(ExecutionResultsAnalyzer):
     def get_issues(self, output_dir, ignore_tests=True):
         ignore_pkgs = ['androidx', 'app_key', 'android.support', 'com.android', 'com.google', 'dalvik', 'org.apache', 'kotlinx', 'kotlin.', 'java', 'javax', 'org.jetbrains']
         if not os.path.exists(output_dir):
-            print(f"Error: {output_dir} does not exist.")
+            loge(f"Results directory {output_dir} does not exist")
             return None
         issues = []
         # Iterate over XML files in the output directory

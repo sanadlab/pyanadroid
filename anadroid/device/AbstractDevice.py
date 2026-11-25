@@ -4,6 +4,7 @@ from enum import Enum
 
 
 from anadroid.build.versionUpgrader import DefaultSemanticVersion
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, logi
 
 
@@ -90,7 +91,7 @@ class AbstractDevice(ABC):
             cmd = ''
         if pwd is not None:
             # press lock btn -> swipe up -> passwd -> press enter
-            print("Inserting password")
+            logd("Typing the screen password")
             self.execute_command(
                 "\'{cmd}input touchscreen swipe 930 880 930 380 ; input text {pwd}; input input keyevent 66 \' ".format(
                     cmd=cmd,

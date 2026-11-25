@@ -125,7 +125,7 @@ class CustomCommandFramework(AbstractTestingFramework):
         self.profiler.init()
         log_file = os.path.join(test_dir, f"test_{test_id}.logcat")
         # log device state
-        self.profiler.start_profiling(app.package_name)
+        self.profiler.start_profiling("")  # there is no app in this mode
         self.execute_test("", wk_unit, **{'log_filename': log_file})
         self.profiler.stop_profiling()
         # log device state

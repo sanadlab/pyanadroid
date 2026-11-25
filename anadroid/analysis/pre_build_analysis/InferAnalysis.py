@@ -3,9 +3,10 @@ import shutil
 import json  # Used for parsing Infer's output
 from os.path import expanduser
 from shutil import copy
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import Issue, KnownStaticPerformanceIssues
 from anadroid.build.GradleBuilder import get_java_version_cmd_for_project
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, loge, logs, logw, logi, DockerCommandWrapper
 
 # Default build task for Infer to capture. 'assemble' is a good choice.
@@ -70,8 +71,8 @@ class InferAnalysis(StaticAnalyzer):
             os.path.abspath(os.path.dirname(project.proj_dir)) + os.sep,
             os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
         ]
-        print(replace_paths)
-        print(project.proj_dir)
+        logd(f"Paths to replace in the container: {replace_paths}")
+        logd(f"Project directory: {project.proj_dir}")
         if self.should_run_in_container:
             DockerCommandWrapper(self.container_id, paths_to_truncate=replace_paths).push(project.proj_dir)
         # 1. Clean up previous results
@@ -173,7 +174,7 @@ class InferAnalysis(StaticAnalyzer):
 
             filepath = bug.get("file")
             # Apply test file filter
-            if ignore_tests and filepath and ('/test/' in filepath or '/androidTest/' in filepath):
+            if ignore_tests and is_test_file(filepath):
                 continue
 
             issue_inst = Issue(

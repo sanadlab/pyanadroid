@@ -3,9 +3,10 @@ import re
 import xml.etree.ElementTree as ET
 from os.path import expanduser
 
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.build.GradleBuilder import get_java_version_cmd_for_project
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi, \
     DockerCommandWrapper, find_source_root_dynamically
 
@@ -162,7 +163,7 @@ class SpotBugsAnalysis(StaticAnalyzer):
         possible_class_paths = execute_shell_command(f'find {project.proj_dir} -maxdepth 8 -type d -name classes | grep \"build\"', in_container=self.should_run_in_container,
                               container_id=self.container_id,
                               replace_paths=replace_paths).output.split("\n")
-        print(possible_class_paths)
+        logd(f"Candidate class directories: {possible_class_paths}")
         classes_path = os.path.join(project.proj_dir, "app", "build", "intermediates", "javac",
                                     build_task.replace("assemble", ""), "classes") \
             if len(possible_class_paths) == 0 else possible_class_paths[0]
@@ -178,8 +179,8 @@ class SpotBugsAnalysis(StaticAnalyzer):
         # 3. Construct and run the SpotBugs command
         output_file_name = f"{project.proj_name}_spotbugs_report.xml"
         output_file_path = os.path.join(output_dir, output_file_name)
-        print('source path',source_path)
-        print('classes path', classes_path)
+        logd(f"SpotBugs source path: {source_path}")
+        logd(f"SpotBugs classes path: {classes_path}")
         spotbugs_command = [
             self._get_spotbugs_executable(),
             "-textui",
@@ -224,7 +225,6 @@ class SpotBugsAnalysis(StaticAnalyzer):
 
         for bug_instance in root.findall("BugInstance"):
             issue_id = bug_instance.get("type")
-            print(issue_id)
             if self.performance_only and issue_id not in self.identifiable_issues:
                 continue
 
@@ -233,7 +233,7 @@ class SpotBugsAnalysis(StaticAnalyzer):
             if source_line_info is not None:
                 filepath = source_line_info.get("sourcepath")
                 line = source_line_info.get("start")  # SpotBugs uses 'start' for line number
-                if ignore_tests and filepath and ('/test/' in filepath or '/androidTest/' in filepath):
+                if ignore_tests and is_test_file(filepath):
                     continue
 
                 issue_inst = Issue(

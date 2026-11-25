@@ -8,11 +8,12 @@ from shutil import copy
 import xml.etree.ElementTree as ET
 from textops import grep
 
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.build.GracleBuildErrorSolver import is_known_error, solve_known_error
 from anadroid.build.GradleBuilder import GradleBuilder, get_java_version_cmd_for_project
 from anadroid.utils.JavaVersionManager import JavaVersionManager
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi, \
     DockerCommandWrapper
 
@@ -107,14 +108,14 @@ class LintAnalysis(StaticAnalyzer):
     def setup_project(self, project, **kwargs):
         pb = GradleBuilder(project, device=None, resources_dir=get_resources_dir(), instrumenter=None)
         res = pb.exec_with_gradlew(target_task='tasks', skip_lint=True)
-        print(res)
+        logd(f"Command result: {res}")
 
     def pick_task(self, proj, default_task='lintDebug', **kwargs):
         cmd = f"cd {proj.proj_dir}; chmod +x gradlew; ./gradlew tasks"
         res = execute_shell_command(cmd)
-        print(res)
+        logd(f"Command result: {res}")
         lint_tasks = grep(res.output, 'lint')
-        print(lint_tasks)
+        logd(f"Lint tasks of the project: {lint_tasks}")
         # TODO
 
     def analyze_project(self, project, **kwargs):
@@ -127,8 +128,8 @@ class LintAnalysis(StaticAnalyzer):
             os.path.basename(os.path.dirname(project.proj_dir)) + os.sep,
 
         ]
-        print(replace_paths)
-        print(project.proj_dir)
+        logd(f"Paths to replace in the container: {replace_paths}")
+        logd(f"Project directory: {project.proj_dir}")
 
         if self.performance_only:
             copy(LINT_PERFORMANCE_XML_FILE, project.proj_dir)
@@ -140,9 +141,10 @@ class LintAnalysis(StaticAnalyzer):
         retry = kwargs.get("retry", True)
         retries = kwargs.get("retries", 1)
         gradlew_path = './gradlew'
+        # on the host, the timeout of execute_shell_command stops the task
+        timeout_cmd = 'timeout 300 ' if self.should_run_in_container else ''
         cmd = (f"{get_java_version_cmd_for_project(project.proj_dir, on_container=self.should_run_in_container)} "
-               f"cd {project.proj_dir}; chmod +x gradlew; {'g' if not self.should_run_in_container 
-            else ''}timeout 300 {gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS))
+               f"cd {project.proj_dir}; chmod +x gradlew; {timeout_cmd}{gradlew_path} {exec_task} " + " ".join(LINT_OPTIONS))
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', project.proj_dir))
         lt_files = mega_find(project.proj_dir, pattern="lint*result*.xml", maxdepth=5, type_file='f')
         if len(lt_files) > 0 and not retry:
@@ -161,7 +163,7 @@ class LintAnalysis(StaticAnalyzer):
         while retries > 0:
             if self.should_run_in_container:
                 retries = 0
-            print(cmd)
+            logd(f"Running command: {cmd}")
             res = execute_shell_command(cmd, timeout=150, in_container=self.should_run_in_container,
                                               container_id=self.container_id,
                                               replace_paths=replace_paths)
@@ -176,11 +178,11 @@ class LintAnalysis(StaticAnalyzer):
                     solve_known_error(project, error, error_msg=val)
                     retries = retries - 1
                 else:
-                    print("problem not found")
+                    loge(f"Lint failed for {project.proj_name} and the build error is not a known error")
                     retries = 0
                     return
-                print(res)
-                print("Retrying...")
+                logd(f"Command result: {res}")
+                logi(f"Retrying the lint analysis of {project.proj_name}")
                 if res is not None and res.return_code != 0:
                     self.analyze_project(project, retry=True, default_task='lint', exec_task="lint", retries=retries-1)
         was_success = res and (res.validate() or 'Wrote XML report to' in res.output)
@@ -214,7 +216,7 @@ class LintAnalysis(StaticAnalyzer):
     def validate_success(self, res, expected_output_file):
         if not os.path.exists(expected_output_file) and res.return_code != 0:
             loge(f"Error executing lint analysis. Check the logs for more information")
-            print(res)
+            logd(f"Command result: {res}")
             return False
         logs(f"lint analysis executed successfully")
         return True
@@ -244,8 +246,7 @@ class LintAnalysis(StaticAnalyzer):
             # Extract affected file paths
             locations = [(loc.get("file", None), loc.get('line', None)) for loc in issue.findall("location")]
             for loc in locations:
-                if 'src' in loc and (
-                        'test' in loc or 'androidTest' in loc or "InstrumentedTest" in loc) and ignore_tests:
+                if ignore_tests and is_test_file(loc[0]):
                     continue
                 issue_inst = Issue(issue_id, category, severity, message,
                                     file=loc[0], line=loc[1], detection_tool_name=self.name)

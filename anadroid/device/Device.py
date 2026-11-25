@@ -172,7 +172,7 @@ class Device(AbstractDevice):
         for apk in apks_built:
             old_packs = self.installed_packages
             try:
-                print(f"installing {apk}")
+                logi(f"Installing {apk}")
                 self.install_apk(apk)
             except:
                 if retry:

@@ -106,13 +106,13 @@ class BuilDroidBuilder(AbstractBuilder):
         if self.was_last_build_successful(task="sign") or build_type == BUILD_TYPE.DEBUG:
             return True
         for apk_path in self.proj.get_apks(build_type):
-            ret, o, e = sign_apk(apk_path)
+            res = sign_apk(apk_path)
+            ret, e = res.return_code, res.errors
             if ret == 0 and len(e) < 3:
                 logs("APK Successfully signed")
                 return True
             else:
                 loge(f"Error signing apk {apk_path} {e}")
-                print(e)
                 return False
 
     def build_apk(self, build_type=BUILD_TYPE.DEBUG):

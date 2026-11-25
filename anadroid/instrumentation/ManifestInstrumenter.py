@@ -5,10 +5,12 @@ import xml.etree.ElementTree as ET
 from anadroid.instrumentation.AbstractInstrumenter import AbstractInstrumenter
 from anadroid.Types import TESTING_APPROACH, TESTING_FRAMEWORK, INSTRUMENTATION_TYPE
 from anadroid.instrumentation.Types import INSTRUMENTATION_STRATEGY
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import logi, logw, loge, mega_find
 
 # Android's XML namespace
 ANDROID_NS = 'http://schemas.android.com/apk/res/android'
+TOOLS_NS = 'http://schemas.android.com/tools'
 
 
 class AndroidManifestInstrumenter(AbstractInstrumenter):
@@ -32,6 +34,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
         # Register the Android namespace to be used by the XML parser.
         # This is crucial for finding and writing attributes like 'android:debuggable'.
         ET.register_namespace('android', ANDROID_NS)
+        ET.register_namespace('tools', TOOLS_NS)
 
     def get_log_filename(self):
         """Returns the log filename for this instrumenter."""
@@ -71,7 +74,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
                 shutil.rmtree(target_dir)
             shutil.copytree(android_project.proj_dir, target_dir, ignore=shutil.ignore_patterns(self.mirror_dirname))
             apks = mega_find(target_dir, pattern="*.apk", type_file="f")
-            print('apks', apks)
+            logd(f"Removing built APKs from the project copy: {apks}")
             for pk in apks:
                 if 'outputs' in pk and 'build' in pk and pk.endswith('.apk'):
                     os.remove(pk)
@@ -115,6 +118,8 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
 
         # 1. Set android:debuggable="true" (unconditionally)
         debuggable_attr_key = f'{{{ANDROID_NS}}}debuggable'
+        if add_debugabble:
+            application_node.set(debuggable_attr_key, 'true')
 
         #logi("Set android:debuggable=\"true\" in the <application> tag.")
 
@@ -124,7 +129,7 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
             if target_sdk >= 29:
                 # Check if the <profileable> tag already exists to avoid duplicates
                 if application_node.find('profileable') is None:
-                    logi(f"Target SDK ({target_sdk}) >= 29. Adding <profileable> tag.")
+                    logi(f"Device SDK ({target_sdk}) >= 29. Adding <profileable> tag.")
                     # Create the new <profileable> element
                     profileable_node = ET.SubElement(application_node, 'profileable')
                     # Set the 'android:shell' attribute on the new element
@@ -132,16 +137,10 @@ class AndroidManifestInstrumenter(AbstractInstrumenter):
                     profileable_node.set(shell_attr_key, 'true')
                 else:
                     logw("<profileable> tag already exists. Skipping addition.")
-                    if add_debugabble:
-                        application_node.set(debuggable_attr_key, 'true')
             else:
-                logi(f"Target SDK ({target_sdk}) < 29. Skipping <profileable> tag addition.")
-                if add_debugabble:
-                    application_node.set(debuggable_attr_key, 'true')
+                logi(f"Device SDK ({target_sdk}) < 29. Skipping <profileable> tag addition.")
         except (ValueError, TypeError, AttributeError):
-            logw(f"Could not determine target SDK version from project. Skipping <profileable> tag addition.")
-            if add_debugabble:
-                application_node.set(debuggable_attr_key, 'true')
+            logw("Could not determine the SDK version of the device. Skipping <profileable> tag addition.")
 
         # 3. Write all changes back to the file
         tree.write(manifest_path, encoding='utf-8', xml_declaration=True)

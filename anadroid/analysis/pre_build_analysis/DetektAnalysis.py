@@ -2,8 +2,9 @@ import os
 import re
 import shutil
 import xml.etree.ElementTree as ET
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, mega_find, logs, logw, logi, \
     find_source_root_dynamically
 
@@ -61,7 +62,7 @@ class DetektAnalysis(StaticAnalyzer):
 
         logi("Detekt: Running analysis. This may take a while...")
         cmd_str = " ".join(f'"{c}"' if " " in c else c for c in d_command)
-        print(cmd_str)
+        logd(f"Running command: {cmd_str}")
         res_analyze = execute_shell_command(cmd_str)
 
         self.validate_success(res_analyze, output_file_path)
@@ -96,7 +97,7 @@ class DetektAnalysis(StaticAnalyzer):
             filepath = file_element.get("name")
 
             # Centralized check for test files to skip all errors within them if needed
-            if ignore_tests and filepath and ('/test/' in filepath or '/androidTest/' in filepath):
+            if ignore_tests and is_test_file(filepath):
                 continue
 
             for error_element in file_element.findall("error"):
@@ -127,14 +128,14 @@ class DetektAnalysis(StaticAnalyzer):
 
                 if issue_inst not in issues:
                     issues.append(issue_inst)
-        print(issues)
+        logd(f"Detekt found {len(issues)} issues in {results_file}")
         return issues
 
     def validate_success(self, res, expected_output_file):
         """Checks if the analysis was successful based on the presence of the results file."""
         if not os.path.exists(expected_output_file) and (res is None or res.return_code != 0):
             loge(f"Error executing Detekt analysis. Check the logs for more information")
-            print(res)
+            logd(f"Command result: {res}")
             return False
         if not os.path.exists(expected_output_file):
             loge(f"Error executing Detekt analysis. Output file not found.")

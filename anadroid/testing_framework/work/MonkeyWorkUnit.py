@@ -1,4 +1,5 @@
 from anadroid.testing_framework.work.WorkUnit import WorkUnit
+from anadroid.utils.Utils import logi, logw
 from anadroid.utils.Utils import execute_shell_command
 
 EVENT_OPTIONS = {
@@ -33,7 +34,7 @@ def convert_arg(key, val):
     elif key in EVENT_OPTIONS:
         return "--" + key + " " + val
     else:
-        print(f"invalid option:-{key}-".format(key=key))
+        logw(f"Invalid Monkey option: {key}")
         return ""
 
 
@@ -44,7 +45,7 @@ class MonkeyWorkUnit(WorkUnit):
 
     def execute(self, package_name, *args, **kwargs):
         el_commandant = self.command % package_name
-        print("executing command: " + el_commandant)
+        logi(f"Running test command: {el_commandant}")
         execute_shell_command(el_commandant).validate(("Error executing command " + el_commandant))
 
     def config(self, seed=None, **kwargs):

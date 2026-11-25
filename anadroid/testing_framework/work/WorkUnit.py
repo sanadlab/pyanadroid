@@ -1,3 +1,4 @@
+from anadroid.utils.Utils import logi
 from anadroid.utils.Utils import execute_shell_command
 
 
@@ -21,7 +22,7 @@ class WorkUnit(object):
             pkg_name(str): package name.
         """
         self.command = self.command + pkg_name
-        print("executing command " + self.command)
+        logi(f"Running test command: {self.command}")
         res = execute_shell_command(self.command)
         res.validate(Exception("Error executing command " + self.command))
 

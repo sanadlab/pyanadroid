@@ -2,9 +2,10 @@ import os
 import csv
 from textops import lcount, cat
 
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
 from anadroid.utils.JavaVersionManager import get_change_java_version_cmd
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
 # /Applications/IntelliJ\ IDEA\ CE.app/Contents/bin/inspect.sh  /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/ /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/Project_Default.xml /Users/rar9993/repos/EcoAndroid/eco_ide/EcoAndroid/out  -d /Users/rar9993/repos/pyanadroid/demoProjects/SampleApp/app -v2
@@ -71,9 +72,7 @@ class ADoctorAnalysis(StaticAnalyzer):
                 return []
             for row in reader:
                 filepath = row[0]
-                if 'src' in filepath and (
-                        'test' in filepath or 'androidTest' in filepath or "InstrumentedTest" in filepath
-                            or 'ExampleInstrumentedTest' in filepath or 'ExampleUnitTest' in filepath ) and ignore_tests:
+                if ignore_tests and is_test_file(filepath):
                     continue
                 if len(row) < 2:
                     continue
@@ -103,14 +102,14 @@ class ADoctorAnalysis(StaticAnalyzer):
             return
         extra_cmd = get_change_java_version_cmd(8)
         cmd = f"{extra_cmd} {self.exec_cmd} {project.proj_dir} {output_filepath} {search_pattern_code}"
-        print(cmd)
+        logd(f"Running command: {cmd}")
         res = execute_shell_command(cmd, timeout=200)
         self.validate_success(res, output_filepath)
 
     def validate_success(self, res, expected_output_file):
         if not os.path.exists(expected_output_file) and (res is None or res.return_code != 0):
             loge(f"Error executing Adoctor analysis. Check the logs for more information")
-            print(res)
+            logd(f"Command result: {res}")
             return False
         if res:
             logs(f"Adoctor analysis executed successfully")

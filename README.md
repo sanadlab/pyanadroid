@@ -120,6 +120,24 @@ optional arguments:
 ```
 
 
+## Static analysis
+
+Use `-sa` to run static analyzers on the project sources. Select the analyzers with `-sat` and the number of projects to analyze at the same time with `-j`:
+
+```
+$ pyanadroid -d <projects_dir> -sa -sat lint pmd detekt -j 4
+```
+
+Available analyzers: `scc` (default), `lint`, `pmd`, `daap`, `adoctor`, `ecoandroid`, `detekt`, `spotbugs`, `infer`, `chimera`, `xalint`.
+
+## Logs
+
+Each run writes a log file in `logs/`. The path is shown at the start of the run. The file has all messages, which includes the debug messages (each command and its result, and the Gradle output of failed builds). Use `-v` to show the debug messages on the console too.
+
+## JDK selection
+
+PyAnaDroid selects the JDK (8, 11, 17 or 21) that matches the Gradle version of each project. It looks for installed JDKs in the usual locations (SDKMAN, Homebrew, `/Library/Java/JavaVirtualMachines`, `/usr/lib/jvm`). To use a specific JDK, set `JAVA_HOME_<version>` (e.g. `JAVA_HOME_17=/path/to/jdk17`).
+
 ## From Sauce
 
 

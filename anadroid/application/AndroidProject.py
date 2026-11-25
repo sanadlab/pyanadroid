@@ -15,6 +15,37 @@ RESULTS_DIR = get_results_dir()
 
 PROJECT_PATH_FILE = "project_path.txt"
 
+ANDROID_PLUGIN_IDS = r'com\.android\.(?:application|library)'
+DEFAULT_GRADLE_PLUGIN_VERSION = '8.9.0'
+
+
+def find_gradle_plugin_version(proj_dir, root_build_file):
+    """Finds the version of the Android Gradle plugin (AGP) of a project.
+    Looks at the buildscript classpath, the plugins block and the version catalog (gradle/libs.versions.toml).
+
+    Returns:
+        str: plugin version, or None if not found.
+    """
+    content = ""
+    if root_build_file is not None and os.path.exists(root_build_file):
+        with open(root_build_file, encoding='utf-8', errors='ignore') as f:
+            content = f.read()
+    match = re.search(r'com\.android\.tools\.build:gradle:([\w.\-]+)', content) \
+        or re.search(r'id\s*\(?\s*["\']' + ANDROID_PLUGIN_IDS + r'["\']\s*\)?\s*version\s*\(?\s*["\']([\w.\-]+)["\']', content)
+    if match:
+        return match.group(1)
+    catalog_file = os.path.join(proj_dir, "gradle", "libs.versions.toml")
+    if not os.path.exists(catalog_file):
+        return None
+    with open(catalog_file, encoding='utf-8', errors='ignore') as f:
+        catalog = f.read()
+    plugin_entry = re.search(r'id\s*=\s*"' + ANDROID_PLUGIN_IDS + r'"\s*,\s*version(?:\.ref)?\s*=\s*"([\w.\-]+)"', catalog)
+    if plugin_entry is None:
+        return None
+    value = plugin_entry.group(1)
+    referenced = re.search(r'^\s*' + re.escape(value) + r'\s*=\s*"([\w.\-]+)"', catalog, flags=re.MULTILINE)
+    return referenced.group(1) if referenced else (value if re.match(r'\d', value) else None)
+
 class BUILD_TYPE(Enum):
     RELEASE = "Release"
     DEBUG = "Debug"
@@ -53,7 +84,6 @@ def is_android_native_project(dirpath):
             and ('ios' in dir_contents or 'flutter' in dir_contents or 'fastlane' in dir_contents)):
         loge(f"{dirpath} is not native project")
         return False
-    print(dir_contents)
     return any([f for f in dir_contents if f in ["settings.gradle", "gradle.properties", "gradlew"] ])
 
 def is_cross_platform_project(dirpath):
@@ -199,7 +229,7 @@ class AndroidProject(Project):
         if app_build_gradle_path is None:
             return None
         if not os.path.exists(app_build_gradle_path):
-            print(f"Error: File not found at {app_build_gradle_path}")
+            loge(f"Build file not found at {app_build_gradle_path}")
             return None
         try:
             with open(app_build_gradle_path, 'r', encoding='utf-8') as f:
@@ -229,13 +259,13 @@ class AndroidProject(Project):
                         content
                     )
                     if namespace_match:
-                        print("Warning: Found 'namespace' instead of 'applicationId'. Using namespace.")
+                        logw(f"No applicationId in {app_build_gradle_path}. Using the namespace")
                         return namespace_match.group(1)
 
-                    print(f"Warning: applicationId not found in {app_build_gradle_path}")
+                    logw(f"applicationId not found in {app_build_gradle_path}")
                     return None
         except Exception as e:
-            print(f"Error reading or parsing {app_build_gradle_path}: {e}")
+            loge(f"Error reading or parsing {app_build_gradle_path}: {e}")
             return None
 
     def add_apk(self, apk_path, build_type):
@@ -344,12 +374,8 @@ class AndroidProject(Project):
         Returns:
             gradle_plugin_version (str): Gradle plugin version.
         """
-        print("root file", self.root_build_file)
-        try:
-           gradle_plugin_version = str(cat(self.root_build_file) | grep("com.android.tools.build") | sed("classpath|com.android.tools.build:gradle:|\"", "")).strip().replace("'", "")
-        except:
-              gradle_plugin_version = None
-        return gradle_plugin_version if gradle_plugin_version is not None else '8.9.0'
+        gradle_plugin_version = find_gradle_plugin_version(self.proj_dir, self.root_build_file)
+        return gradle_plugin_version if gradle_plugin_version is not None else DEFAULT_GRADLE_PLUGIN_VERSION
 
     def create_inner_folder(self, name="libs"):
         """Creates a folder inside the project.

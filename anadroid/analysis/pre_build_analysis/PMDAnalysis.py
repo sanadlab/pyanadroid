@@ -1,7 +1,8 @@
 import json
 import os
-from anadroid.analysis.StaticAnalyzer import StaticAnalyzer
+from anadroid.analysis.StaticAnalyzer import StaticAnalyzer, is_test_file
 from anadroid.analysis.metrics.Issues import KnownStaticPerformanceIssues, Issue
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, loge, logs
 
 DEFAULT_OUTPUT_DIRNAME = "daap_output"
@@ -18,6 +19,7 @@ class PMDAnalysis(StaticAnalyzer):
                  bin_path=DEFAULT_PATH_EXEC):
         super().__init__(analyzers_cfg_file)
         self.default_output_dir = default_output_dir
+        self.bin_path = bin_path
         self.exec_cmd = f"{bin_path} "
         self.identifiable_issues = {
             "AppendCharacterWithChar": KnownStaticPerformanceIssues.APPEND_CHARACTER_WITH_CHAR,
@@ -70,6 +72,9 @@ class PMDAnalysis(StaticAnalyzer):
         output_format = kwargs.get("output_format", DEFAULT_OUTPUT_FORMAT)
         output_filename = kwargs.get("output_filename", DEFAULT_OUTPUT_FILENAME)
         output_dir = kwargs.get("output_dir", getattr(project, 'results_dir', self.default_output_dir))
+        if not os.path.exists(self.bin_path):
+            raise FileNotFoundError(f"PMD not found at {self.bin_path}. The PyPI package does not include PMD. "
+                                    f"Download PMD and give its path in the bin_path argument")
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         for module in project.modules:
@@ -77,16 +82,16 @@ class PMDAnalysis(StaticAnalyzer):
             output_filepath = os.path.join(output_dir, f"{module}_{output_filename}.{output_format}")
             if os.path.exists(output_filepath) and not retry:
                 logs(f"Skipping module {project.proj_name}.{module}. Already processed by PMD")
-                return
+                continue
             cmd = f"{self.exec_cmd} {search_pattern_code} -d {module_path} -R {ruleset} -f {output_format} -r {output_filepath}"
-            print(cmd)
+            logd(f"Running command: {cmd}")
             res = execute_shell_command(cmd,timeout=300)
             self.validate_success(res, output_filepath)
 
     def validate_success(self, res, expected_output_file):
         if not os.path.exists(expected_output_file) and res.return_code != 0:
             loge(f"Error executing PMD analysis. Check the logs for more information")
-            print(res)
+            logd(f"Command result: {res}")
             return False
         logs(f"PMD analysis executed successfully")
         return True
@@ -102,8 +107,7 @@ class PMDAnalysis(StaticAnalyzer):
             for file_entry in data.get("files", []):
                 filename = file_entry.get("filename")
                 for violation in file_entry.get("violations", []):
-                    if 'src' in filename and (
-                            'test' in filename or 'androidTest' in filename or "InstrumentedTest" in filename) and ignore_tests:
+                    if ignore_tests and is_test_file(filename):
                         continue
                     issues.append(Issue(
                         self.identifiable_issues.get(violation.get("rule"), violation.get("rule")),
@@ -114,7 +118,7 @@ class PMDAnalysis(StaticAnalyzer):
                     ))
 
         except Exception as e:
-            print(f"Error parsing PMD results: {e}")
+            loge(f"Error parsing PMD results file {results_file}: {e}")
             return []
 
         return issues

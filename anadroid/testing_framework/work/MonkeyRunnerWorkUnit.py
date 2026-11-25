@@ -1,4 +1,5 @@
 from anadroid.testing_framework.work.WorkUnit import WorkUnit
+from anadroid.utils.Utils import logi
 from anadroid.utils.Utils import execute_shell_command
 
 RUNNER_OPTIONS = {
@@ -25,7 +26,7 @@ class MonkeyRunnerWorkUnit(WorkUnit):
             self.command += " " + convert_arg(k, v)
         for v in args:
             self.command += " " + v
-        print("executing command: " + self.command)
+        logi(f"Running test command: {self.command}")
         execute_shell_command(self.command).validate(("Error running command"))
 
 

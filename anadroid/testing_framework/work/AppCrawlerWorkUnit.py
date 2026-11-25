@@ -7,6 +7,7 @@ from textops import cat, grep
 
 from anadroid.testing_framework.work.MonkeyWorkUnit import convert_arg
 from anadroid.testing_framework.work.WorkUnit import WorkUnit
+from anadroid.utils.Utils import logd, logi, logw
 from anadroid.utils.Utils import execute_shell_command
 
 CRAWLER_OPTIONS = {
@@ -35,7 +36,7 @@ def convert_arg(key, val):
     elif key in CUSTOM_CRAWLER_OPTIONS:
         return ""
     else:
-        print(f"invalid option:-{key}-".format(key=key))
+        logw(f"Invalid App Crawler option: {key}")
         return ""
 
 
@@ -60,10 +61,10 @@ class AppCrawlerWorkUnit(WorkUnit):
         #timeout_cmd = f"gtimeout -s 9 {TIMEOUT_SECS}"
         #self.command = timeout_cmd +" " + self.command % package_name + f" > {LOG_FILE}"
         command = self.command % package_name + f" > {LOG_FILE}"
-        print("starting aux thread")
+        logd("Starting the auxiliary thread of App Crawler")
         finish_thread = threading.Thread(target=detect_crawl_finish, args=(True, self.stop_call))
         finish_thread.start()
-        print("executing command: " + command)
+        logi(f"Running test command: {command}")
         res = execute_shell_command(command)
         self.__log_execution_end()
 

@@ -8,6 +8,7 @@ from anadroid.testing_framework.work.WorkLoad import WorkLoad
 from anadroid.testing_framework.work.WorkUnit import WorkUnit
 
 
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import get_resources_dir, logs, execute_shell_command, loge, logw
 
 DEFAULT_RESOURCES_DIR = os.path.join(get_resources_dir(), "testingFramework", "junit")
@@ -73,7 +74,7 @@ class JUnitBasedFramework(AbstractTestingFramework):
                 logw(f"number of tests limited by tests_per_app. Considering {max_tests_per_app} tests per app")
             wk = WorkUnit(self.executable_prefix)
             wk.config(x)
-            print(wk.command)
+            logd(f"Test command: {wk.command}")
             self.workload.add_unit(wk)
             i = i+1
 
@@ -107,7 +108,7 @@ class JUnitBasedFramework(AbstractTestingFramework):
         self.profiler.start_profiling(app.package_name)
         # app.start()
         time.sleep(3)
-        print(wk_unit)
+        logd(f"Executing work unit: {wk_unit}")
         log_file = os.path.join(app.curr_local_dir, f"test_{test_id}.logcat")
         self.execute_test(app.package_name, wk_unit, **{'log_filename': log_file})
         # app.stop()

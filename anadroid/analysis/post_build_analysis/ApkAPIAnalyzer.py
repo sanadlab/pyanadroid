@@ -9,6 +9,7 @@ from androguard.misc import AnalyzeAPK
 import re
 import json
 
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import mega_find, logw
 
 knownRetTypes = {
@@ -197,7 +198,7 @@ class ApkAPIAnalyzer(ExecutionResultsAnalyzer):
                                   "allMethods.json" not in x and "DS_Store" not in x]
         app_file_exists = len(app_methods_candidates) > 1 # TODO 0
         if not app_file_exists:
-            print(f"apk: {app.apk} | name: {app.package_name}")
+            logd(f"Analyzing APK {app.apk} of package {app.package_name}")
             filename = eval(app.apk, app.package_name)
             target_dir = os.path.join(app.local_res, "all")
             copyfile(filename, os.path.join(target_dir, os.path.basename(filename)))
@@ -206,7 +207,7 @@ class ApkAPIAnalyzer(ExecutionResultsAnalyzer):
         pass
 
     def analyze_app(self, app, **kwargs):
-        print("analyzing apk")
+        logd("Analyzing the APK with androguard")
         return eval(app.apk, app.package_name)
 
     def clean(self):

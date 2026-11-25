@@ -9,6 +9,7 @@ from anadroid.profiler.greenScaler.GreenScaler.greenscaler import cpu_measuremen
     screen_capture
 from anadroid.profiler.greenScaler.GreenScaler.libmutation import greenscalerapplication, model
 from anadroid.profiler.greenScaler.GreenScaler.libmutation.greenscalerapplication import GreenScalerApplication
+from anadroid.utils.Utils import logd
 from anadroid.utils.Utils import execute_shell_command, get_resources_dir, logi, loge
 
 DEFAULT_RES_DIR = os.path.join(get_resources_dir(), "profilers", "GreenScaler")
@@ -121,7 +122,7 @@ def exec_command(self, command):
         err_msg = "%s. Code: %s" % (std_err.strip(), pipes.returncode)
         raise Exception(err_msg)
     elif len(std_err):
-        print(std_out)
+        logd(f"Command output: {std_out}")
     # return code is 0 (no error), but we may want to
     # do something with the info on std_err
     # i.e. logger.warning(std_err)
