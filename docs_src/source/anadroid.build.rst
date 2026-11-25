@@ -12,6 +12,14 @@ anadroid.build.AbstractBuilder module
    :undoc-members:
    :show-inheritance:
 
+anadroid.build.BuilDroidBuilder module
+--------------------------------------
+
+.. automodule:: anadroid.build.BuilDroidBuilder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 anadroid.build.GradleBuildErrorSolver module
 --------------------------------------------
 

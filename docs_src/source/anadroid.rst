@@ -7,13 +7,13 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   anadroid.analysis
    anadroid.application
    anadroid.build
    anadroid.device
-   anadroid.instrument
+   anadroid.instrumentation
    anadroid.profiler
-   anadroid.resources
-   anadroid.results_analysis
+   anadroid.refactor
    anadroid.testing_framework
    anadroid.utils
    anadroid.view

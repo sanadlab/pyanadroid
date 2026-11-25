@@ -18,11 +18,12 @@ sys.path.insert(0, os.path.abspath('../../src'))
 # -- Project information -----------------------------------------------------
 
 project = 'pyanadroid'
-copyright = '2021, Rui Rua'
+copyright = '2021-2026, Rui Rua'
 author = 'Rui Rua'
 
 # The full version, including alpha/beta/rc tags
-release = "0.3.5" # todo
+from anadroid import __version__
+release = __version__.base()
 
 
 # -- General configuration ---------------------------------------------------

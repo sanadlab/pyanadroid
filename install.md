@@ -1,43 +1,54 @@
 # Installation Guide
 
-This guide provides instructions on how to install pyAnaDroid.
+This guide gives the instructions to install PyAnaDroid.
 
 ## Prerequisites
 
-Before you begin the installation, ensure that you have the following prerequisites:
+- Python 3.9 or later.
+- The Android SDK. Set the `ANDROID_HOME` environment variable and put `adb` in the `PATH`.
+- A JDK. PyAnaDroid selects JDK 8, 11, 17 or 21 for each project (see "JDK selection" in `README.md`).
+- For tests on a device: an Android device or emulator that `adb devices` shows.
 
-- Python 3.x installed (Python 3.6 or later recommended)
+See `requirements.md` for the full list.
 
-## Installation Steps
+## Install from PyPI
 
-Follow these steps to install `pyanadroid` using `pip`:
-
-1. **Step 1: Install via pip**
-
-   Open your terminal or command prompt and run the following command to install pyAnaDroid:
-
-   ```bash
-   pip install anadroid
-    ```
-
-This will download and install the latest version of pyAnaDroid from the Python Package Index (PyPI).
-
-2. ** Step 2: Verify installation
-
-```
-$ pyanadroid -h
+```bash
+pip install anadroid
 ```
 
+## Install from source
 
-## Uninstallation
-
+```bash
+git clone --recurse-submodules https://github.com/sanadlab/pyanadroid.git
+cd pyanadroid
+pip install -e .
 ```
-pip uninstall anadroid
 
+## Download the external tools
+
+PyAnaDroid runs external jars (JInst, DAAP, aDoctor and others). Download them one time:
+
+```bash
+pyanadroid --setup
+```
+
+PMD, SpotBugs, Detekt and Infer are not downloaded. Install them if you use the related static analyzers.
+
+## Verify the installation
+
+```bash
+pyanadroid -h
 ```
 
 ## Upgrade
 
+```bash
+pip install -U anadroid
 ```
-pip install anadroid -U
+
+## Uninstall
+
+```bash
+pip uninstall anadroid
 ```

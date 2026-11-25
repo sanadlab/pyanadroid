@@ -1,14 +1,6 @@
 anadroid.profiler package
 =========================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   anadroid.profiler.greenScaler
-
 Submodules
 ----------
 

@@ -11,12 +11,11 @@
 PyAnaDroid is a tool capable of automating the process of analyzing and benchmarking Android applications' energy consumption, using state-of-the-art energy analysis tools. PyAnaDroid can be configured to use different energy profilers and test frameworks in its execution pipeline, being able to perform automatic instrumentation and building of application source code. It can be used to perform both white-box and black-box testing.
 
 
-![Anadroid Workflow](default_wkflow.png)
-
-
 ## Documentation
 
-https://greensoftwarelab.github.io/PyAnaDroid/anadroid.html#
+https://sanadlab.org/pyanadroid/
+
+The documentation is built from `docs_src/` by the `Docs` workflow.
 
 ## Video Demo
 
@@ -40,7 +39,7 @@ https://www.youtube.com/watch?v=7AV3nrh4Qc8
 
 ## Supported energy profilers:
 - Trepn Profiler;
-- Manafa;
+- E-Manafa (default);
 - GreenScaler;
 - Monsoon (soon);
 - Petra (soon).
@@ -53,6 +52,8 @@ By default, PyAnaDroid is configured to perform white-box testing of application
 ![PyAnaDroid Workflow](pyanadroid_arch.png)
 
 # Installation:
+
+Requirements: Python 3.9 or later, the Android SDK (`ANDROID_HOME` must be set, with `adb` in the `PATH`) and a JDK. See `install.md` and `requirements.md` for details.
 
 ## Using python-pip
 ```
@@ -76,34 +77,45 @@ The package is in `src/anadroid`. The tests are in `tests/`: `python -m pytest` 
 ## Plug-and-play execution
 
 ```
-$ usage: pyanadroid [-h] [-t {Monkey,Monkeyrunner,JUnit,RERAN,Espresso,Robotium,Crawler,Droidbot,Custom,Other}] [-p {Trepn,GreenScaler,Petra,Monsoon,E-manafa,None}]
-               [-b {Release,Debug,Custom}] [-i {JInst,Hunter,None}] [-it {MethodOriented,TestOriented,'ActivityOriented',),AnnotationOriented,None}]
-               [-a {MethodOriented,TestOriented,('ActivityOriented',,AnnotationOriented,None}] [-d DIRETORY] [-bo] [-record] [-run] [-rb] [-ri] [-ja] [-sc {USB,WIFI}]
-               [-ds DEVICE_SERIAL] [-td TESTS_DIR] [-n PACKAGE_NAMES [PACKAGE_NAMES ...]] [-apk APPLICATION_PACKAGES [APPLICATION_PACKAGES ...]] [-rec] [-cmd COMMAND]
-               [-nt N_TIMES]
+$ pyanadroid -h
+usage: pyanadroid [-h]
+                  [-t {Monkey,Monkeyrunner,JUnit,RERAN,Espresso,Robotium,Crawler,Droidbot,Custom,Other,None}]
+                  [-p {Trepn,GreenScaler,Petra,Monsoon,E-manafa,None}] [-b {Release,Debug,Custom,}]
+                  [-i {JInst,Hunter,Manifest,None}]
+                  [-it {MethodOriented,TestOriented,('ActivityOriented',),AnnotationOriented,ManifestOriented,None}]
+                  [-pa {Old Anadroid Analyzer,Manafa Analyzer}] [-d DIRETORY] [-dev DEVICE] [-bo] [-record]
+                  [-run] [-rb] [-ri] [-ja] [-sa] [-sc {USB,WIFI}] [-ds DEVICE_SERIAL] [-td TESTS_DIR]
+                  [-n PACKAGE_NAMES [PACKAGE_NAMES ...]]
+                  [-apk APPLICATION_PACKAGES [APPLICATION_PACKAGES ...]] [-rec] [-cmd COMMAND] [-nt N_TIMES]
+                  [-bd {AnadroidBuilder,Buildroid}]
+                  [-sat {scc,lint,pmd,daap,adoctor,ecoandroid,detekt,spotbugs,infer,chimera,xalint} [{scc,lint,pmd,daap,adoctor,ecoandroid,detekt,spotbugs,infer,chimera,xalint} ...]]
+                  [-j JOBS] [--config CONFIG] [--workdir WORKDIR] [--setup] [-v]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
-  -t {Monkey,Monkeyrunner,JUnit,RERAN,Espresso,Robotium,Crawler,Droidbot,Custom,Other}, --testingframework {Monkey,Monkeyrunner,JUnit,RERAN,Espresso,Robotium,Crawler,Droidbot,Custom,Other}
+  -t {Monkey,Monkeyrunner,JUnit,RERAN,Espresso,Robotium,Crawler,Droidbot,Custom,Other,None}, --testingframework {Monkey,Monkeyrunner,JUnit,RERAN,Espresso,Robotium,Crawler,Droidbot,Custom,Other,None}
                         testing framework to exercise app(s)
   -p {Trepn,GreenScaler,Petra,Monsoon,E-manafa,None}, --profiler {Trepn,GreenScaler,Petra,Monsoon,E-manafa,None}
                         energy profiler
-  -b {Release,Debug,Custom}, --buildtype {Release,Debug,Custom}
+  -b {Release,Debug,Custom,}, --buildtype {Release,Debug,Custom,}
                         app build type
-  -i {JInst,Hunter,None}, --instrumenter {JInst,Hunter,None}
+  -i {JInst,Hunter,Manifest,None}, --instrumenter {JInst,Hunter,Manifest,None}
                         Source code instrumenter
-  -it {MethodOriented,TestOriented,('ActivityOriented',),AnnotationOriented,None}, --instrumentationtype {MethodOriented,TestOriented,('ActivityOriented',),AnnotationOriented,None}
+  -it {MethodOriented,TestOriented,('ActivityOriented',),AnnotationOriented,ManifestOriented,None}, --instrumentationtype {MethodOriented,TestOriented,('ActivityOriented',),AnnotationOriented,ManifestOriented,None}
                         instrumentation type
-  -a {MethodOriented,TestOriented,('ActivityOriented',),AnnotationOriented,None}, --analyzer {MethodOriented,TestOriented,('ActivityOriented',),AnnotationOriented,None}
+  -pa {Old Anadroid Analyzer,Manafa Analyzer}, --post_execution_analyzers {Old Anadroid Analyzer,Manafa Analyzer}
                         results analyzer
   -d DIRETORY, --diretory DIRETORY
                         app(s)' folder
+  -dev DEVICE, --device DEVICE
+                        device <Action>. performs device class commands
   -bo, --buildonly      just build apps
   -record, --record     record test
-  -run, --run_only      run only
+  -run, --run_only      run only (skip build and instrumentation phase)
   -rb, --rebuild        rebuild apps
   -ri, --reinstrument   reinstrument app
   -ja, --justanalyze    just analyze apps
+  -sa, --staticanalyze  statically analyze apps
   -sc {USB,WIFI}, --setconnection {USB,WIFI}
                         set connection to device and exit
   -ds DEVICE_SERIAL, --device_serial DEVICE_SERIAL
@@ -119,7 +131,15 @@ optional arguments:
                         test command
   -nt N_TIMES, --n_times N_TIMES
                         times to repeat test (overrides config)
-
+  -bd {AnadroidBuilder,Buildroid}, --builder {AnadroidBuilder,Buildroid}
+                        builder to use
+  -sat {scc,lint,pmd,daap,adoctor,ecoandroid,detekt,spotbugs,infer,chimera,xalint} [{scc,lint,pmd,daap,adoctor,ecoandroid,detekt,spotbugs,infer,chimera,xalint} ...], --static_analyzers {scc,lint,pmd,daap,adoctor,ecoandroid,detekt,spotbugs,infer,chimera,xalint} [{scc,lint,pmd,daap,adoctor,ecoandroid,detekt,spotbugs,infer,chimera,xalint} ...]
+                        static analyzers to run before the build
+  -j JOBS, --jobs JOBS  number of projects to analyze at the same time (with -sa)
+  --config CONFIG       general config file (JSON) to use in place of the default file
+  --workdir WORKDIR     directory for the logs and the results (default: current directory)
+  --setup               download the external tools (jars) and exit
+  -v, --verbose         show debug messages (commands and their results)
 ```
 
 
@@ -159,19 +179,20 @@ Each run writes a log file in `logs/`. The path is shown at the start of the run
 
 PyAnaDroid selects the JDK (8, 11, 17 or 21) that matches the Gradle version of each project. It looks for installed JDKs in the usual locations (SDKMAN, Homebrew, `/Library/Java/JavaVirtualMachines`, `/usr/lib/jvm`). To use a specific JDK, set `JAVA_HOME_<version>` (e.g. `JAVA_HOME_17=/path/to/jdk17`).
 
-## From Sauce
+## From Python code
 
 
 ### Execute a simple Monkey test over an application
 
-By default, PyAnaDroid uses Manafa profiler to estimate energy consumption. The Monkey test (or any other test with other supported testing framework) and its parameters can be configured by modifying the .cfg present in the resources/testingFrameworks/<framework> directory. The results are stored in the results/<app_id>/<app_version> directory
+By default, PyAnaDroid uses the E-Manafa profiler to estimate energy consumption. The Monkey test (or any other test with other supported testing framework) and its parameters can be configured by modifying the .cfg present in the `src/anadroid/resources/testingFrameworks/<framework>` directory. The results are stored in the `anadroid_results/<app_id>/<app_version>` directory.
 
 ```
 from anadroid.Anadroid import AnaDroid
+from anadroid.Types import TESTING_FRAMEWORK
 
 folder_of_app = "demoProjects/SampleApp"
 anadroid = AnaDroid(folder_of_app, testing_framework=TESTING_FRAMEWORK.MONKEY)
-anadroid.defaultWorkflow()
+anadroid.default_workflow()
 ```
 
 
@@ -181,7 +202,7 @@ anadroid.defaultWorkflow()
 ### Example 1 - Using DroidBot to automatically test an Android project(s) and monitor its energy consumption (from command-line)
 
 ```
-$ pyanadroid -d projects_dir> -t Droidbot
+$ pyanadroid -d <projects_dir> -t Droidbot
 ```
 
 ### Example 2 - Perform a custom test (e.g touch app screen)
@@ -199,18 +220,18 @@ from anadroid.Anadroid import AnaDroid
 
 class MyCustomAnaDroidWorkflow(AnaDroid):
 
-  def default_workflow():
+  def default_workflow(self):
     # example: reboot device after each test suite
-    super(AnaDroid, self).default_workflow()
-    self.device.reboot()    
+    super().default_workflow()
+    self.device.reboot()
 
 ```
 
 #### 2) Invoke the new custom workflow
 
 ```
-custom_wkflow = MyCustomAnaDroidWorkflow()
-custom_wkflow.defaultWorkflow()
+custom_wkflow = MyCustomAnaDroidWorkflow("<projects_dir>")
+custom_wkflow.default_workflow()
 
 ```
 
@@ -218,7 +239,7 @@ custom_wkflow.defaultWorkflow()
 Note: the process will still be monitored using the profiler but the performance metrics will only be given at the test level (e.g. the energy consumption of each test execution).
 
 ```
-$ pyanadroid -d <projects_dir> -run -t Custom 'adb shell input touchscreen tap 500 500'
+$ pyanadroid -d <projects_dir> -run -t Custom -cmd 'adb shell input touchscreen tap 500 500'
 ```
 
 PyAnaDroid produces a large amount of results from the analysis it does on its execution blocks. These results are stored in the form of files in specific directories. For each execution of a certain version of a certain app, a subdirectory is created in the directory anadroid_results/\<app-name\>--\<app-package\>/\<app-version\> where all the results of the analyzes carried out on the applications will appear. For each execution of a test framework on an application, a subdirectory \<testing-framework\>\<instrumentation-type\>\<timestamp\> is created inside the previous directory and that contains the results related to that execution. The result files are as follows:

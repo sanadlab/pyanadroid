@@ -1,64 +1,54 @@
 # Requirements for PyAnaDroid
 
 ## Overview
-Anadroid is a tool capable of automating the process of analyzing and benchmarking Android applications' energy consumption, using state-of-the-art energy analysis tools. 
-Anadroid can be configured to use different energy profilers and test frameworks in its execution pipeline, being able to perform automatic instrumentation and building of application source code. 
-It can be used to perform both white-box and black-box testing.
-To use this package, you need to have Python installed, and you can install it via `pip`. Additionally, there are some dependencies that you should be aware of.
 
-## System Requirements
-- *Nix-based OS;
-- Python 3.6 or later;
-- pip (Python package installer);
-- Android SDK;
-- ~120 MB of disk space;
+PyAnaDroid automates the analysis and benchmarking of the energy consumption of Android applications.
+It can instrument and build the source code of an application, run tests with different testing frameworks, measure energy with different profilers, and run static analyzers.
 
+## System requirements
+
+- A Unix-like operating system (Linux or macOS).
+- Python 3.9 or later, with `pip`.
+- The Android SDK, with the `ANDROID_HOME` environment variable set and `adb` in the `PATH`.
+- A JDK for the Gradle version of each project (8, 11, 17 or 21). Set `JAVA_HOME_<version>` if PyAnaDroid does not find it.
+- An Android device or emulator, for the tests that run applications.
+
+## Python dependencies
+
+The dependencies are in `requirements.txt`. `pip` installs them with the package.
+
+## External tools
+
+- Jars that PyAnaDroid runs (JInst, DAAP, aDoctor, EcoAndroid resource leaks, DroidLens and others). `pyanadroid --setup` downloads them. The list is in `src/anadroid/resources/tools.json`.
+- Optional static analyzers that you install: PMD 7 (`PMD_HOME` or `PATH`), SpotBugs (`SPOTBUGS_HOME`), Detekt and Infer (`PATH`). The `Dockerfile` has an environment with SpotBugs, Detekt and Infer.
 
 ## Installation
-1. Open a terminal or command prompt.
-2. Install the package using pip:
-   ```bash
-   pip install anadroid
-   ```
 
-## Dependencies:
+See `install.md`.
 
-```
-androguard==3.4.0a1
-incremental>=17.5.0
-lxml==4.6.5
-six>=1.15.0
-manafa>=0.3.127
-physalia==0.0.1.dev122
-termcolor==1.1.0
-pylogcatparser>=0.2.7
-androidviewclient==22.5.1
-```
-
-## Usage 
+## Usage
 
 ```
 from anadroid.Anadroid import AnaDroid
+from anadroid.Types import TESTING_FRAMEWORK
 
 folder_of_app = "demoProjects/SampleApp"
 anadroid = AnaDroid(folder_of_app, testing_framework=TESTING_FRAMEWORK.MONKEY)
-anadroid.defaultWorkflow()
+anadroid.default_workflow()
 ```
 
-## Testing requirements
+## Tests
 
 ```
- python3 -m unittest 
+pip install pytest
+python -m pytest                # unit tests, no device needed
+python -m pytest tests/device   # tests that need a connected device
 ```
 
-## Contributing Guidelines
+## Contributing
 
-Contributions to PyAnaDroid Package are welcome!
+Contributions to PyAnaDroid are welcome. Run the unit tests and `ruff check src tests` before you open a pull request.
 
-## License 
+## License
 
 This package is released under the MIT License.
-
-
-
-
